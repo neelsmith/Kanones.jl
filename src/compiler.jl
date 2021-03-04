@@ -1,10 +1,11 @@
 
-function buildparser(src::Kanones.Dataset, target::AbstractString)
+function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::AbstractString)
     if ispath(target)
         println("Cowardly refusing to overwrite exising file $(target)")
     else 
         mkdir(target)
         installalphabet(src, target)
+        installsymbols(fstdir, target)
     end
 end
 # This is what the scala build looks like

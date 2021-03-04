@@ -14,6 +14,7 @@ MakefileComposer(corpusDir, fstcompiler)
 =#
 
 
+"Install alphabet.fst required to be part of an individual project."
 function installalphabet(src::Kanones.Dataset, target::AbstractString)
     srcfile = src.root * "/orthography/alphabet.fst"
     targetdir = target * "/symbols/"
@@ -21,6 +22,44 @@ function installalphabet(src::Kanones.Dataset, target::AbstractString)
         mkdir(targetdir)
     end
     targetfile = targetdir * "/alphabet.fst"
-    println("COPY $(srcfile) TO $(targetfile)")
     cp(srcfile, targetfile)
 end
+
+
+"Install symbols FST from generic FST source applying to many projects."
+function installsymbols(src::AbstractString, target::AbstractString)
+    targetdir = target * "/symbols/"
+    if ! ispath(targetdir)
+        mkdir(targetdir)
+    end
+    fstfiles = ["markup.fst", "phonology.fst", "morphsymbols.fst", "stemtypes.fst"]
+    for fst in fstfiles
+        srcfile = src * "/symbols/" * fst
+        targetfile = targetdir * fst
+        cp(srcfile, targetfile)
+    end
+    toplevel = target * "/symbols.fst"
+    open(toplevel, "w") do io
+        print(io, symbolsfst(target))
+    end
+end
+
+"Compose content for top-level symbols.fst file."
+function symbolsfst(dir::AbstractString)
+    lines = [
+        "% symbols.fst",
+        "% A single include file for all symbols used in this FST.",
+        "",
+        "% 1. morphological tags",
+        "#include \"$(dir)/symbols/morphsymbols.fst\"",
+        "#include \"$(dir)/symbols/stemtypes.fst\"",
+        "",        
+        "% 2. ASCII representation of polytonic Greek",
+        "#include \"$(dir)/symbols/phonology.fst\"",
+        "",
+        "% 3. Editorial symbols",
+        "#include \"$(dir)/symbols/markup.fst\""
+    ]
+    join(lines,"\n")
+end
+
