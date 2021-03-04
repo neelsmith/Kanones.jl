@@ -22,8 +22,9 @@ function validsource(dir)
 
         errors = []
         for f in requiredfiles
-            if ! ispath(f)
-                push!(errors,"Error in data layout of $(dir): missing required file " * f)
+            fullpath = dir * f
+            if ! ispath(fullpath)
+                push!(errors,"Error in data layout: missing required file " * fullpath * "\n") 
             end
         end
         if isempty(errors)

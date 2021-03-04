@@ -1,3 +1,12 @@
+
+function buildparser(src::Kanones.Dataset, target::AbstractString)
+    if ispath(target)
+        println("Cowardly refusing to overwrite exising file $(target)")
+    else 
+        mkdir(target)
+        installalphabet(src, target)
+    end
+end
 # This is what the scala build looks like
 #=
 DataInstaller(dataSets, corpusList, parser)
