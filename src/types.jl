@@ -1,0 +1,3 @@
+
+struct Uninflected <: AnalysisType end
+
