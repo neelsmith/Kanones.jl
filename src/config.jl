@@ -11,6 +11,7 @@ function cmdok(cmd::AbstractString)::Bool
         f = read(`which $cmd`, String)
         true
     catch e
+        println(e)
         false
     end
 end

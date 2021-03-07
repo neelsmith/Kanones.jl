@@ -1,3 +1,5 @@
+
+"A Kanones dataset."
 struct Dataset
     root::AbstractString
     function Dataset(s)
@@ -11,7 +13,7 @@ struct Dataset
     end
 end
 
-
+"True if all required files are found."
 function validsource(dir)
     if ! ispath(dir)
         false, "Error: $(dir) is not a valid path."

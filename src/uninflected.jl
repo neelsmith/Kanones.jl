@@ -16,7 +16,7 @@ function uninflectedstemparser()
     UninflectedStemParser("KanonesIO type for reading and writing stem data for uninflected stems.")
 end
 
-function read(usp::UninflectedStemParser, delimited::AbstractString, delimiter = "|")
+function readrow(usp::UninflectedStemParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
     if length(parts) < 4
         msg = "Invalid syntax for uninflected stem: too few components in $(delimited)"
