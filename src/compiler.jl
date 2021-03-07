@@ -36,7 +36,7 @@ end
 function buildfinalfst(src, target)
     fstdir = dirname(target)
     doc = join([
-        "%% latin.fst : a Finite State Transducer for ancient latin morphology",
+        "%% greek.fst : a Finite State Transducer for ancient greek morphology",
         "%",
         "% All symbols used in the FST:",
         "#include \"" * fstdir * "/symbols.fst\"",
@@ -45,7 +45,7 @@ function buildfinalfst(src, target)
         raw"$stems$ = \"" * fstdir * "/lexicon.fst\"",
         "\n",
         "% Dynamically loaded inflectional rules:",
-        raw"$ends$ = <" * fstdir * "/inflection.a>",
+        raw"$ends$ = \"<" * fstdir * "/inflection.a>\"",
         "\n",
         "% Morphology data is the crossing of stems and endings:",
         raw"$morph$ = $stems$ <div> $ends$",
