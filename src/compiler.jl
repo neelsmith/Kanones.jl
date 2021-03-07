@@ -6,8 +6,28 @@ function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::Abstr
         mkdir(target)
         installalphabet(src, target)
         installsymbols(fstdir, target)
+        buildlexicon(src, target)
+        buildinflection(src,target)
     end
 end
+
+
+function buildlexicon(src, target)
+    # for every source file:
+    # for every line
+    # readstemrow(TYPE, line) |> fst
+    # 
+    # Write all to target/lexicon.fst
+end
+
+function buildinflection(src, target)
+    # for every source file:
+    # for every line
+    # readrulerow(TYPE, line) |> fst
+    #
+    # Write all to target/inflection.fst
+end
+
 # This is what the scala build looks like
 #=
 DataInstaller(dataSets, corpusList, parser)

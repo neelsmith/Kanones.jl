@@ -31,7 +31,7 @@
 %
 % 4. Indeclinable forms:
 %
-#indecl# =  <indeclconj><indeclparticle><indeclinterj><indeclprep>
+#uninflected# =  <conjunction><particle><interjection><preposition><adverb><numeral>
 
 
 
