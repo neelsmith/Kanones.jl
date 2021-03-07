@@ -2,11 +2,11 @@
 
 function buildacceptor(src, target)
     fstroot = dirname(target)
-    incl = string("#include \"", fstroot, "/symbols.fst")
+    incl = string("#include \"", fstroot, "/symbols.fst\"")
     squashers = join([
         "% Indeclinable form acceptor:",
-        raw"$=indeclclass$ = [#indecl#]",
-        raw"$squashindeclurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+ <indecl> $=indeclclass$ <div>   $=indeclclass$ <indecl><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
+        raw"$=indeclclass$ = [#uninflected#]",
+        raw"$squashindeclurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+ <uninflected> $=indeclclass$ <div>   $=indeclclass$ <indecl><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
     ], "\n")
 
     squasherunion = join([
@@ -16,7 +16,7 @@ function buildacceptor(src, target)
     stripper = join([
         "%% Put all symbols in 2 categories:  pass",
         "%% surface symbols through, suppress analytical symbols.",
-        raw"#analysissymbol# = #editorial# #urntag# #indecl# #pos# #morphtag# #stemtype#  #separator#",
+        raw"#analysissymbol# = #editorial# #urntag# #uninflected# #pos# #morphtag# #stemtype#  #separator#",
         raw"#surfacesymbol# = #letter# #diacritic#",
         raw"ALPHABET = [#surfacesymbol#] [#analysissymbol#]:<>",
         raw"$stripsym$ = .+"

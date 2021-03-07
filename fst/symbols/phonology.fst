@@ -5,7 +5,7 @@
 
 %
 % Basic alphabet specific to this orthographic system:
-#include "@workdir@symbols/alphabet.fst"
+%#include "@workdir@symbols/alphabet.fst"
 
 
 #diaeresis# = \+

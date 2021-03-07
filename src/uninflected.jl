@@ -1,12 +1,19 @@
+"Implementations of this type can read delimited and write fst."
+abstract type KanonesIO end
+
+
+
 "KanonesIO type for reading and writing stem data for uninflected stems."
 struct UninflectedStemParser <: KanonesIO
     label::AbstractString
 end
 
+#=
 "Convenience function to create an `UninflectedStemParser`"
 function uninflectedstemparser()
     UninflectedStemParser("KanonesIO type for reading and writing stem and rule data for uninflected lexical items.")
 end
+=#
 
 "A record for a single uninflected stem."
 struct UninflectedStem <: StemType

@@ -29,14 +29,12 @@
 #finiteform# = <infin><ptcpl><vadj1><vadj2>
 
 %
-% 4. Indeclinable forms:
+% 4. Uninflected forms:
 %
 #uninflected# =  <conjunction><particle><interjection><preposition><adverb><numeral>
 
 
-
-
-#morphtag# = #pos# #gender# #case# #number# #person# #tense# #mood# #voice# #degree# #finiteform# #indecl#
+#morphtag# = #pos# #gender# #case# #number# #person# #tense# #mood# #voice# #degree# #finiteform# #uninflected#
 
 
 % Consider whether those belong here or elsewhere...?

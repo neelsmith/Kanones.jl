@@ -32,7 +32,7 @@ function installsymbols(src::AbstractString, target::AbstractString)
     if ! ispath(targetdir)
         mkdir(targetdir)
     end
-    fstfiles = ["markup.fst", "phonology.fst", "morphsymbols.fst", "stemtypes.fst"]
+    fstfiles = ["markup.fst", "morphsymbols.fst", "stemtypes.fst"]
     for fst in fstfiles
         srcfile = src * "/symbols/" * fst
         targetfile = targetdir * fst
@@ -42,6 +42,22 @@ function installsymbols(src::AbstractString, target::AbstractString)
     open(toplevel, "w") do io
         print(io, symbolsfst(target))
     end
+    phonologyfst = open(src * "/symbols/phonology.fst","r") do phonology
+        read(phonology, String)
+    end
+    prefix = join([
+        "% phonology.fst",
+        "%",
+        "% Definitions of all legal symbols in stem files (lexica) except for",
+        "% stem types (defined in stemtypes.fst)",
+        "%",
+        "% Basic alphabet specific to this orthographic system:",
+        "#include \"" * target * "/symbols/alphabet.fst\""
+    ], "\n")
+    open(target * "/symbols/phonology.fst", "w") do io
+        print(io, prefix * "\n\n" * phonologyfst * "\n")
+    end
+    
 end
 
 "Compose content for top-level symbols.fst file."

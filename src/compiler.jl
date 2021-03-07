@@ -15,7 +15,22 @@ function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::Abstr
 end
 
 
+
 function buildmakefile(src, target)
+    dir = dirname(target)
+    whichcompiler = read(`which fst-compiler-utf8`, String)
+    fstcompiler = replace(whichcompiler, "\n" => "")
+
+    topline = dir * "/greek.a: " * dir * "/symbols.fst " * dir * "/acceptor.a"
+    doc = join([topline,
+        "\n",
+        "%.a: %.fst\n",
+        "\t" * fstcompiler *  raw" $< $@",
+        "\n"
+    ])
+    open(target, "w") do io
+        print(io, doc)
+    end
 end
 
 function buildfinalfst(src, target)
@@ -24,10 +39,10 @@ function buildfinalfst(src, target)
         "%% latin.fst : a Finite State Transducer for ancient latin morphology",
         "%",
         "% All symbols used in the FST:",
-        "#include " * fstdir * "/symbols.fst",
+        "#include \"" * fstdir * "/symbols.fst\"",
         "\n",
         "% Dynamically loaded lexica of stems:",
-        raw"$stems$ = " * fstdir * "/lexicon.fst",
+        raw"$stems$ = \"" * fstdir * "/lexicon.fst\"",
         "\n",
         "% Dynamically loaded inflectional rules:",
         raw"$ends$ = <" * fstdir * "/inflection.a>",
@@ -42,7 +57,7 @@ function buildfinalfst(src, target)
         "\n",
         "% Final transducer:",
         raw"$morph$ || $acceptor$"
-    ], "\n")
+    ], "\n")        
 
     open(target, "w") do io
         print(io, doc)
@@ -51,6 +66,11 @@ end
 
 "Read all stem data and compose `lexicon.fst`."
 function buildlexicon(src, target)
+    iodict = Dict(
+        [
+        "uninflected" => UninflectedStemParser("uninflected")
+        ]
+    )
     lexicon = []
     stemdirs = [
         "uninflected"
@@ -58,7 +78,7 @@ function buildlexicon(src, target)
     for dirname in stemdirs 
         dir = src.root * "/stems-tables/" * dirname * "/"
         cexfiles = glob("*.cex", dir)
-        delimitedreader = (kanonesIOdict[dirname])
+        delimitedreader = (iodict[dirname])
         for f in cexfiles
             lines = readlines(f)
             for i in 2:length(lines)
@@ -75,6 +95,11 @@ end
 
 "Read all rules data and compose `inflection.fst`."
 function buildinflection(src, target)
+    iodict = Dict(
+        [
+        "uninflected" => UninflectedStemParser("uninflected")
+        ]
+    )
     inflection = []
     rulesdirs = [
         "uninflected"
@@ -82,7 +107,7 @@ function buildinflection(src, target)
     for dirname in rulesdirs 
         dir = src.root * "/rules-tables/" * dirname * "/"
         cexfiles = glob("*.cex", dir)
-        delimitedreader = (kanonesIOdict[dirname])
+        delimitedreader = (iodict[dirname])
         for f in cexfiles
             lines = readlines(f)
             for i in 2:length(lines)
