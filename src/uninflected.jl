@@ -62,5 +62,5 @@ function readrulerow(usp::UninflectedStemParser, delimited::AbstractString, deli
 end
 
 function fst(rule::UninflectedRule)
-    string("<", rule.infltype,"<uninflected>", fstsafe(fst.ruleid))
+    string("<", rule.infltype,"><uninflected>", fstsafe(rule.ruleid))
 end
