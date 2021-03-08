@@ -37,7 +37,7 @@ function readstemrow(usp::UninflectedStemParser, delimited::AbstractString, deli
     else
         stemid = AbbreviatedUrn(parts[1])
         lexid = AbbreviatedUrn(parts[2])
-        form = parts[3]
+        form = fstgreek(parts[3])
         stemclass = parts[4]
         UninflectedStem(stemid, lexid, form, stemclass)
     end

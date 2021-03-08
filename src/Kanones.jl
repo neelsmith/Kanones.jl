@@ -1,6 +1,6 @@
 module Kanones
 using CitableObject
-using Glob
+using Glob, Unicode
 
 export AbbreviatedUrn
 export buildparser
@@ -26,11 +26,13 @@ abstract type AnalysisType end
 include("config.jl")
 include("dataset.jl")
 include("abbrurn.jl")
+include("unicode.jl")
 include("types.jl")
 include("compiler.jl")
 include("fstcomposer.jl")
 include("acceptorsquashers.jl")
 
+# Specific analytical types ("parts of speech")
 include("uninflected.jl")
 
 end # module
