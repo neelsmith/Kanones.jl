@@ -17,6 +17,7 @@ abstract type Rule end
 abstract type RuleType end
 abstract type Analysis end
 abstract type AnalysisType end
+abstract type AbbreviatedUrn end
 
 
     

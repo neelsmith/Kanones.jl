@@ -35,8 +35,8 @@ function readstemrow(usp::UninflectedStemParser, delimited::AbstractString, deli
         msg = "Invalid syntax for uninflected stem: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
-        stemid = AbbreviatedUrn(parts[1])
-        lexid = AbbreviatedUrn(parts[2])
+        stemid = StemUrn(parts[1])
+        lexid = StemUrn(parts[2])
         form = fstgreek(parts[3])
         stemclass = parts[4]
         UninflectedStem(stemid, lexid, form, stemclass)
@@ -61,7 +61,7 @@ function readrulerow(usp::UninflectedStemParser, delimited::AbstractString, deli
         msg = "Invalid syntax for uninflected rule: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
-        ruleid = AbbreviatedUrn(parts[1])
+        ruleid = RuleUrn(parts[1])
         inflectionaltype = parts[2]
         UninflectedRule(ruleid, inflectionaltype)
     end
