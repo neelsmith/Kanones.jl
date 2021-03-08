@@ -1,6 +1,6 @@
 % Characters for Greek character set:
-#consonant# = bgdzqklmncprstfxy
-#vowel# = aeiouhw<isub>
+#consonant# = βγδζθκλμνξπρστφχψ
+#vowel# = αειοηυω<isub>
 
 % This is doubly defined:  also in phonology.fst. Bug.
 #breathing# = <sm><ro>
@@ -9,13 +9,13 @@
 
 % Specific characters used in automatic formation of
 % stems of regular verbs:
-#alpha# = a
-#gamma# = g
-#epsilon# = e
-#eta# = h
-#theta# = q
-#kappa# = k
-#mu# = m
-#omicron# = o
-#sigma# = s
-#omega# = w
+#alpha# = α
+#gamma# = γ
+#epsilon# = ε
+#eta# = η
+#theta# = θ
+#kappa# = κ
+#mu# = μ
+#omicron# = ο
+#sigma# = σ
+#omega# = ω
