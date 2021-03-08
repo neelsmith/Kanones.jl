@@ -11,16 +11,18 @@ function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::Abstr
         buildacceptor(src, target * "/acceptor.fst")
         buildfinalfst(src, target * "/greek.fst")
         buildmakefile(src, target * "/makefile")
-        #compilefst(target)
+        compilefst(target)
     end
 end
 
 function compilefst(target)
     originaldir = pwd()
     cd(target)
+    @warn string("Compiling fst in ", pwd())
     mk = `make`
     run(mk)
     cd(originaldir)
+    @warn string("Completion complete. Working directory now ", pwd())
 end
 
 function buildmakefile(src, target)
@@ -131,12 +133,3 @@ function buildinflection(src, target)
         print(io, opening * join(inflection, " |\\\n") * closing)
     end
 end
-
-
-#=
-Invoking make in Scala:
-
-    val makefile = buildDirectory / "makefile"
-    val doit = s"${conf.make} -f ${makefile}"
-    doit !
-    =#
