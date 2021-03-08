@@ -11,17 +11,24 @@ function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::Abstr
         buildacceptor(src, target * "/acceptor.fst")
         buildfinalfst(src, target * "/greek.fst")
         buildmakefile(src, target * "/makefile")
+        #compilefst(target)
     end
 end
 
-
+function compilefst(target)
+    originaldir = pwd()
+    cd(target)
+    mk = `make`
+    run(mk)
+    cd(originaldir)
+end
 
 function buildmakefile(src, target)
     dir = dirname(target)
     whichcompiler = read(`which fst-compiler-utf8`, String)
     fstcompiler = replace(whichcompiler, "\n" => "")
 
-    topline = dir * "/greek.a: " * dir * "/symbols.fst " * dir * "/acceptor.a"
+    topline = dir * "/greek.a: " * dir * "/symbols.fst " * dir * "/acceptor.a " * dir * "/inflection.a"
     doc = join([topline,
         "\n",
         "%.a: %.fst\n",
@@ -53,7 +60,7 @@ function buildfinalfst(src, target)
         "% Acceptor (1) filters for content satisfying requirements for",
         "% morphological analysis and  (2) maps from underlying to surface form",
         "% by suppressing analytical symbols, and allowing only surface strings.",
-        raw"$acceptor$ = <" * fstdir * "/acceptor.a>",
+        raw"$acceptor$ = \"<" * fstdir * "/acceptor.a>\"",
         "\n",
         "% Final transducer:",
         raw"$morph$ || $acceptor$"
