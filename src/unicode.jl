@@ -57,6 +57,12 @@ function compoundsdict()
         'ἔ' => "ε<sm>",
         'ἕ' => "ε<ro>",
         # omicron series like epislon    
+        'ὀ' => "ο<sm>",
+        'ὁ' => "ο<ro>",
+        'ὂ' => "ο<sm>",
+        'ὃ' => "ο<ro>",
+        'ὄ' => "ο<sm>",
+        'ὅ' => "ο<ro>",
     )
     
 end
