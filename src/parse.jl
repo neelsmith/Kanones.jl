@@ -54,14 +54,16 @@ end
 
 function parsefst(fststring::AbstractString)
     lines = split(fststring,"\n")
-    if ! (length(lines) == 2)
-        throw(ArgumentError("parsefst: bad FST string " * fststring))
+    if  length(lines) < 2
+        msg = string("parsefst: bad FST string ", fststring, " with ", length(lines), " lines." )
+        throw(ArgumentError(msg))
     end
 
     (stem, rule) = split(lines[2], "<div>")
-
-    (parsestem(stem), rule) #parserule(rule))
+    parsestem(stem)
+    #(parsestem(stem), rule) #parserule(rule))
 end
+
 
 function parsetoken(parser, tkn::AbstractString)
   applyparser(parser, tkn) |> parsefst
