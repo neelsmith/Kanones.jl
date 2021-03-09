@@ -1,6 +1,6 @@
 
 "A record for a single uninflected stem."
-struct UninflectedStem <: Kanones.StemType
+struct UninflectedStem <: StemType
     stemid::Kanones.AbbreviatedUrn
     lexid::Kanones.AbbreviatedUrn
     form::AbstractString
@@ -8,7 +8,7 @@ struct UninflectedStem <: Kanones.StemType
 end
 
 "Inflectional rule for uninflected lexical items."
-struct UninflectedRule <: Kanones.RuleType
+struct UninflectedRule <: RuleType
     ruleid::Kanones.AbbreviatedUrn
     infltype
 end
