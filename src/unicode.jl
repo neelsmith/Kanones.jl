@@ -31,6 +31,16 @@ function compoundsdict()
         'ᾴ' => "α<isub>",
         'ᾶ' => "α",
         'ᾷ' => "α<isub>",
+
+
+        'ᾀ' => "α<sm><isub>",
+        'ᾁ' => "α<ro><isub>",
+        'ᾂ' => "α<sm><isub>",
+        'ᾃ' => "α<ro><isub>",
+        'ᾄ' => "α<sm><isub>",
+        'ᾅ' => "α<ro><isub>",
+        'ᾇ' => "α<sm><isub>",
+        'ᾆ' => "α<ro><isub>",
         
         # Long vowel series:
 
