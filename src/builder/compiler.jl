@@ -78,7 +78,7 @@ end
 function buildlexicon(src, target)
     iodict = Dict(
         [
-        "uninflected" => UninflectedStemParser("uninflected")
+        "uninflected" => UninflectedParser("uninflected")
         ]
     )
     lexicon = []
@@ -107,7 +107,7 @@ end
 function buildinflection(src, target)
     iodict = Dict(
         [
-        "uninflected" => UninflectedStemParser("uninflected")
+        "uninflected" => UninflectedParser("uninflected")
         ]
     )
     inflection = []

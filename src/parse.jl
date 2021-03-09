@@ -11,12 +11,14 @@ function echopath()
 end
 
 function parseuninflectedrule(rule, s)
-    "Wahoo it's uninflected " * s
-    
     ruleid = RuleUrn(rule)
     UninflectedRule(ruleid, s)
+end
 
-
+function parseuninflectedstem(stem, lex, s)
+    stemid = StemUrn(stem)
+    lexid = LexemeUrn(lex)
+    UninflectedStem(stemid, lexid, "FORM OF " * s)
 end
 
 """Maps label for analytical type to function for
@@ -28,23 +30,37 @@ function rulesfunctions()
     )
 end
 
-function parserule(s::AbstractString)
-    #println(s)
-    rulesre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
-    pieces = collect(eachmatch(rulesre, s))
+
+function stemsfunctions()
+    Dict(
+        "uninflected" => Kanones.parseuninflectedstem
+    )
+end
+
+function parsestem(s::AbstractString)
+    println(s)
+    
+    stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
+    pieces = collect(eachmatch(stemre, s))
     if length(pieces) != 1
-        throw(ArgumentError("Invalid FST rule expression ", s))
+        throw(ArgumentError( string("Invalid FST stem expression ", s)))
     else
-        (ruleid, lexid, tkn, datatype, data) = pieces[1].captures
+        (stemid, lexid, tkn, datatype, data) = pieces[1].captures
     end
-    fnctdict = rulesfunctions()
-    rulefnct = fnctdict[datatype]
-    rulefnct(ruleid,  data)
+    fnctdict = stemsfunctions()
+    stemfnct = fnctdict[datatype]
+    stemfnct(stemid, lexid, data)
 end
 
 function parsefst(fststring::AbstractString)
     lines = split(fststring,"\n")
+    if ! (length(lines) == 2)
+        throw(ArgumentError("parsefst: bad FST string " * fststring))
+    end
+
     (stem, rule) = split(lines[2], "<div>")
+
+    (parsestem(stem), rule) #parserule(rule))
 end
 
 function parsetoken(parser, tkn::AbstractString)

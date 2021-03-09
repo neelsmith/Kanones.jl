@@ -1,62 +1,63 @@
-"Implementations of this type can read delimited and write fst."
-abstract type KanonesIO end
 
-
-
-"KanonesIO type for reading and writing stem data for uninflected stems."
-struct UninflectedStemParser <: KanonesIO
-    label::AbstractString
+"A record for a single uninflected stem."
+struct UninflectedStem <: Kanones.StemType
+    stemid::Kanones.AbbreviatedUrn
+    lexid::Kanones.AbbreviatedUrn
+    form::AbstractString
+    stemcategory::AbstractString
 end
 
-#=
-"Convenience function to create an `UninflectedStemParser`"
-function uninflectedstemparser()
-    UninflectedStemParser("KanonesIO type for reading and writing stem and rule data for uninflected lexical items.")
+"Inflectional rule for uninflected lexical items."
+struct UninflectedRule <: Kanones.RuleType
+    ruleid::Kanones.AbbreviatedUrn
+    infltype
 end
-=#
 
-
-
-
-function readstemrow(usp::UninflectedStemParser, delimited::AbstractString, delimiter = "|")
+"""Implementation of reading one row of a stems table for uninflected tokens.
+"""
+function readstemrow(usp::UninflectedParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
     if length(parts) < 4
         msg = "Invalid syntax for uninflected stem: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
-        stemid = StemUrn(parts[1])
-        lexid = StemUrn(parts[2])
+        stemid = Kanones.StemUrn(parts[1])
+        lexid = Kanones.LexemeUrn(parts[2])
         form = fstgreek(parts[3])
         stemclass = parts[4]
         UninflectedStem(stemid, lexid, form, stemclass)
     end
 end
 
-
-function fst(stem::UninflectedStem)
-    string(
-        fstsafe(stem.stemid),
-        fstsafe(stem.lexid),
-        stem.form,
-        "<uninflected>",
-        "<", stem.stemclass, ">"
-    )
-end
-
-
-function readrulerow(usp::UninflectedStemParser, delimited::AbstractString, delimiter = "|")
+"""Implementation of reading one row of a rules table for uninflected tokens.
+"""
+function readrulerow(usp::UninflectedParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
     if length(parts) < 2
         msg = "Invalid syntax for uninflected rule: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
-        ruleid = RuleUrn(parts[1])
+        ruleid = Kanones.RuleUrn(parts[1])
         inflectionaltype = parts[2]
         UninflectedRule(ruleid, inflectionaltype)
     end
-    
 end
 
+
+"""Compose FST representation of a single UniflectedStem.
+"""
+function fst(stem::UninflectedStem)
+    string(
+        Kanones.fstsafe(stem.stemid),
+        Kanones.fstsafe(stem.lexid),
+        stem.form,
+        "<uninflected>",
+        "<", stem.stemcategory, ">"
+    )
+end
+
+"""Compose FST representation of a single UninflectedRule.
+"""
 function fst(rule::UninflectedRule)
-    string("<", rule.infltype,"><uninflected>", fstsafe(rule.ruleid))
+    string("<", rule.infltype,"><uninflected>", Kanones.fstsafe(rule.ruleid))
 end
