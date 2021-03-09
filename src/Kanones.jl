@@ -5,7 +5,7 @@ using Unicode
 
 export AbbreviatedUrn
 # Abstract types subclassed (in morphology module?)
-export Stem, Rule, Analysis
+export Stem, Rule #, Analysis
 
 export StemUrn, RuleUrn, LexemeUrn
 
