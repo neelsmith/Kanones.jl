@@ -1,0 +1,10 @@
+CollectionId|CollectionUrn|Label
+verbstems|urn:cite2:kanones:verbstems.v1:|Inflectional patterns for verbs
+nounstems|urn:cite2:kanones:nounstems.v1:|Inflectional patterns for nouns
+uninflectedstems|urn:cite2:kanones:uninflectedstems.v1:|Inflectional pattern for uninflected tokens
+adjstems|urn:cite2:kanones:adjstems.v1:|Inflectional patterns for adjectives
+advstems|urn:cite2:kanones:advstems.v1:|Inflectional patterns for adverbs
+infstems|urn:cite2:kanones:infstems.v1:|Inflectional patterns for infinitives
+vadjstems|urn:cite2:kanones:vadjstems.v1:|Inflectional patterns for verbal adjectives
+ptcplstems|urn:cite2:kanones:ptcplstems.v1:|Inflectional patterns for participles
+irregstems|urn:cite2:kanones:irregstems.v1:|Inflectional patterns for irregular forms
