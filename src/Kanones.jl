@@ -11,6 +11,7 @@ include("abbrurn.jl")
 include("dataset.jl")
 include("parse.jl")
 include("analysis.jl")
+include("forms.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder
