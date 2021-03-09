@@ -1,4 +1,5 @@
-
+"""Read data from src and fstdir and compile a SFST parser in target.
+"""
 function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::AbstractString)
     if ispath(target)
         println("Cowardly refusing to overwrite exising file $(target)")
@@ -18,11 +19,11 @@ end
 function compilefst(target)
     originaldir = pwd()
     cd(target)
-    @warn string("Compiling fst in ", pwd())
+    @info string("Compiling fst in ", pwd())
     mk = `make`
     run(mk)
     cd(originaldir)
-    @warn string("Completion complete. Working directory now ", pwd())
+    @info string("Compilation complete. Working directory now ", pwd())
 end
 
 function buildmakefile(src, target)

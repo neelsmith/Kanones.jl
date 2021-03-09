@@ -1,5 +1,6 @@
 
-
+"""Compose `acceptor.fst` and write to file `target`.
+"""
 function buildacceptor(src, target)
     fstroot = dirname(target)
     incl = string("#include \"", fstroot, "/symbols.fst\"")

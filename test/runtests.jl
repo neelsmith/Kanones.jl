@@ -1,4 +1,5 @@
 using Kanones
+using Kanones.FstBuilder
 using Test
 
 

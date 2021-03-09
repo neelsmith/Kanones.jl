@@ -1,19 +1,4 @@
 
-#=
-This is what the Scala build looks like:
-
-val corpusDir = parsers / corpusList.mkString("-")
-
-installAlphabet(dataSource, corpusList, parsers)
-AcceptorComposer(parsers, corpusList)
-SymbolsComposer(corpusDir, fstSource)
-InflectionComposer(corpusDir)
-ParserComposer(corpusDir)
-MakefileComposer(corpusDir, fstcompiler)
-
-=#
-
-
 "Install alphabet.fst required to be part of an individual project."
 function installalphabet(src::Kanones.Dataset, target::AbstractString)
     srcfile = src.root * "/orthography/alphabet.fst"
