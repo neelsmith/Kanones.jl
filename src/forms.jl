@@ -61,3 +61,9 @@ function uninflectedcex()
     end
     join(lines, "\n")
 end
+
+function uninflectedurn(data)
+    s = replace(data, r"[<>]" => "")
+    dict = labeldict(uninflectedpairs)
+    string("morphforms.", UNINFLECTED, "00000000", dict[s])
+end

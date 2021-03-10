@@ -13,13 +13,10 @@ function echopath()
     replace(rawout, "\n" => "")
 end
 
-function parseuinflectedfst(data)
-    "UNINFLECTED WITH CAT " * data
-end
 
 function functionfollowsform()
     Dict(
-        "uninflected" => Kanones.parseuinflectedfst
+        "uninflected" => Kanones.uninflectedurn
     )
 end
 
@@ -41,7 +38,7 @@ function parsefst(fststring::AbstractString)
     fnctndict = functionfollowsform()
     fnct = fnctndict[analysiscat]
     formid =  ruledata |> fnct
-    Analysis(tkn, LexemeUrn(lexidval), formid, RuleUrn(ruleidval), StemUrn(stemidval))
+    Analysis(tkn, LexemeUrn(lexidval), FormUrn(formid), RuleUrn(ruleidval), StemUrn(stemidval))
 end
 
 

@@ -10,7 +10,7 @@ struct StemUrn <: AbbreviatedUrn
         if length(parts) == 2
             new(parts[1], parts[2])
         else
-            throw(ArgumentError("AbbreviatedUrn: invalid syntax: $(s)"))
+            throw(ArgumentError("StemUrn: invalid syntax: $(s)"))
         end
     end
 end
@@ -24,7 +24,7 @@ struct RuleUrn <: AbbreviatedUrn
         if length(parts) == 2
             new(parts[1], parts[2])
         else
-            throw(ArgumentError("AbbreviatedUrn: invalid syntax: $(s)"))
+            throw(ArgumentError("RuleUrn: invalid syntax: $(s)"))
         end
     end
 end
@@ -39,7 +39,21 @@ struct LexemeUrn <: AbbreviatedUrn
         if length(parts) == 2
             new(parts[1], parts[2])
         else
-            throw(ArgumentError("AbbreviatedUrn: invalid syntax: $(s)"))
+            throw(ArgumentError("LexemeUrn: invalid syntax: $(s)"))
+        end
+    end
+end
+
+
+struct FormUrn <: AbbreviatedUrn
+    collection::AbstractString
+    objectid::AbstractString
+    FormUrn(s) = begin
+        parts = split(s,".")
+        if length(parts) == 2
+            new(parts[1], parts[2])
+        else
+            throw(ArgumentError("FormUrn: invalid syntax: $(s)"))
         end
     end
 end

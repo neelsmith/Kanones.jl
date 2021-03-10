@@ -4,7 +4,7 @@
 struct Analysis
     tkn::AbstractString
     lexeme::LexemeUrn
-    form::AbstractString
+    form::FormUrn
     rule::RuleUrn
     stem::StemUrn
 end
