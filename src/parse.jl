@@ -63,6 +63,6 @@ function parsetoken(parser, tkn::AbstractString)
     #normed = Unicode.normalize(tkn, :NFKC)
     stripped = FstBuilder.fstgreek(tkn)
     #Unicode.normalize(normed, stripmark=true)
-    println("PARSE STRIPED FORM ", stripped)
+    #println("PARSE STRIPED FORM ", stripped)
     applyparser(parser, stripped) |> parsefst
 end

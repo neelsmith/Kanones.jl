@@ -41,13 +41,16 @@ const pospairs = [
     (FINITEVERB, "verb-finite")
 ]
 
+#  <conjunction><particle><interjection><preposition><adverb><numeral>
+
 
 const uninflectedpairs = [
     (1, "conjunction"),
     (2, "preposition"),
     (3, "particle"),
-    (4, "numeral"),
-    (5, "interjection")
+    (4, "adverb"),
+    (5, "numeral"),
+    (6, "interjection")
 ]
 
 function uninflectedcex()
