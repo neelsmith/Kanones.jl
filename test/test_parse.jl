@@ -31,3 +31,18 @@ end
     analyzed = parsetoken(parser, "και")
     println(analyzed)
 end
+
+
+
+@testset "Build parser and handle bad output to parser" begin
+    d = tempdir()
+    repo = dirname(pwd())
+
+    kd = Kanones.Dataset(repo * "/datasets/synoptic/")
+    fst =  repo * "/fst/"
+    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+    
+    parser = d * "/testcompile/greek.a"
+    analyzed = parsetoken(parser, "silly")
+    @test isnothing(analyzed)
+end
