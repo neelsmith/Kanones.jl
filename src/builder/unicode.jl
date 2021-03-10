@@ -1,4 +1,57 @@
+# Functions for converting to/from representation of
+# Greek in standard Unicode form and FST strings with
+# no accents and breathings encoded as FST tokens.
 
+function addsmooth(vowel::AbstractString)
+    dict = Dict(
+        "α" => "ἀ",
+        "ε" => "ἐ",
+        "ι" => "ἰ",
+        "ο" => "ὀ",
+        "υ" => "ὐ",
+        "η" => "ἠ",
+        "ω" => "ὠ",
+    )
+    replacement = dict[vowel]
+    replacement
+end
+
+function addrough(vowel::AbstractString)
+    dict = Dict(
+        "α" => "ἁ",
+        "ε" => "ἑ",
+        "ι" => "ἱ",
+        "ο" => "ὁ",
+        "υ" => "ὑ",
+        "η" => "ἡ",
+        "ω" => "ὡ",
+    )
+    dict[vowel]
+end
+
+"""Convert FST string nomral Unicode representation.
+"""
+function greekfromfst(fst::AbstractString)
+    # Check size of matches...
+    # Assuming re actually matched and we have only one breathing.
+    if occursin("<sm>", fst)
+        smoothre = r"(.)<sm>"
+        matches = eachmatch(smoothre, fst) |> collect
+        vowel = matches[1].captures[1]
+        ucode = addsmooth(vowel)
+        replace(fst, vowel * "<sm>" => ucode)
+
+    elseif occursin("<ro>", fst)
+        roughre = r"(.)<ro>"
+        matches = eachmatch(roughre, fst) |> collect
+        vowel = matches[1].captures[1]
+        ucode = addrough(vowel)
+        replace(fst, vowel * "<ro>" => ucode)
+    end
+end
+
+"""Convert Greek string `s` to FST representation.
+"""
 function fstgreek(s::AbstractString)
     normed = Unicode.normalize(s, :NFKC)
     dict = compoundsdict()    
@@ -15,6 +68,10 @@ function fstgreek(s::AbstractString)
     Unicode.normalize(join(chars,""), stripmark=true)
 end
 
+
+"""Dictionary mapping vowels with accents and/or breathings
+to equivalent FST representation.
+"""
 function compoundsdict()
     d = Dict(
         'ἀ' => "α<sm>",

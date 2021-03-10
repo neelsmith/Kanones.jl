@@ -35,7 +35,7 @@ function parsefst(fststring::AbstractString)
         (stem, rule) = split(lines[2], "<div>")
 
         stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
-        stemmatch = collect(eachmatch(stemre, stem))
+        stemmatch = collect(eachmatch(stemre, FstBuilder.greekfromfst(stem)))
         (stemidval, lexidval, tkn, analysiscat, stemdata) = stemmatch[1].captures
         
         rulere = r"(.+)<([^>]+)><u>(.+)</u>"
@@ -64,5 +64,6 @@ function parsetoken(parser, tkn::AbstractString)
     stripped = FstBuilder.fstgreek(tkn)
     #Unicode.normalize(normed, stripmark=true)
     #println("PARSE STRIPED FORM ", stripped)
+    
     applyparser(parser, stripped) |> parsefst
 end

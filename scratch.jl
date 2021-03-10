@@ -13,14 +13,13 @@ tkn = "καὶ"
 parsetoken(parser, tkn)
 
 tokens = []
-
 # Make a list tokens
 for i in 1:100
     push!(tokens, "καί")
     #push!(tokens, "ὦ")
     push!(tokens, "δέ")
     #push!(tokens, "ἐπί")
-    #push!(tokens, "νῦν")
+    push!(tokens, "νῦν")
     push!(tokens, "δύο")
     push!(tokens, "NOTGREEK")
     push!(tokens, "καὶ")
