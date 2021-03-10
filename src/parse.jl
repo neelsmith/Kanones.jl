@@ -1,55 +1,26 @@
 
-
+"""Find full path to `fst-infl`on your system.
+"""
 function fstinflpath()
     rawout = read(`which fst-infl`, String)
     replace(rawout, "\n" => "")
 end
 
+"""Find full path to `echo`on your system.
+"""
 function echopath()
     rawout = read(`which echo`, String)
     replace(rawout, "\n" => "")
 end
 
-function parseuninflectedrule(rule, s)
-    ruleid = RuleUrn(rule)
-    UninflectedRule(ruleid, s)
+function parseuinflectedfst(data)
+    "UNINFLECTED WITH CAT " * data
 end
 
-function parseuninflectedstem(stem, lex, s)
-    stemid = StemUrn(stem)
-    lexid = LexemeUrn(lex)
-    UninflectedStem(stemid, lexid, "FORM OF " * s)
-end
-
-"""Maps label for analytical type to function for
-parsing FST rule expression for that type.
-"""
-function rulesfunctions()
+function functionfollowsform()
     Dict(
-        "uninflected" => Kanones.parseuninflectedrule
+        "uninflected" => Kanones.parseuinflectedfst
     )
-end
-
-
-function stemsfunctions()
-    Dict(
-        "uninflected" => Kanones.parseuninflectedstem
-    )
-end
-
-function parsestem(s::AbstractString)
-    println(s)
-    
-    stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
-    pieces = collect(eachmatch(stemre, s))
-    if length(pieces) != 1
-        throw(ArgumentError( string("Invalid FST stem expression ", s)))
-    else
-        (stemid, lexid, tkn, datatype, data) = pieces[1].captures
-    end
-    fnctdict = stemsfunctions()
-    stemfnct = fnctdict[datatype]
-    stemfnct(stemid, lexid, data)
 end
 
 function parsefst(fststring::AbstractString)
@@ -58,10 +29,19 @@ function parsefst(fststring::AbstractString)
         msg = string("parsefst: bad FST string ", fststring, " with ", length(lines), " lines." )
         throw(ArgumentError(msg))
     end
-
     (stem, rule) = split(lines[2], "<div>")
-    parsestem(stem)
-    #(parsestem(stem), rule) #parserule(rule))
+
+    stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
+    stemmatch = collect(eachmatch(stemre, stem))
+    (stemidval, lexidval, tkn, analysiscat, stemdata) = stemmatch[1].captures
+    
+    rulere = r"(.+)<([^>]+)><u>(.+)</u>"
+    rulematch = collect(eachmatch(rulere, rule))
+    (ruledata, rulecat, ruleidval) = rulematch[1].captures
+    fnctndict = functionfollowsform()
+    fnct = fnctndict[analysiscat]
+    formid =  ruledata |> fnct
+    Analysis(tkn, LexemeUrn(lexidval), formid, RuleUrn(ruleidval), StemUrn(stemidval))
 end
 
 

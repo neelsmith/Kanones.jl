@@ -17,3 +17,17 @@
     @test lines[2] == expecteddata
     rm(d * "/testcompile/", recursive=true)
 end
+
+
+@testset "Build parser and get Analysis object" begin
+    d = tempdir()
+    repo = dirname(pwd())
+
+    kd = Kanones.Dataset(repo * "/datasets/synoptic/")
+    fst =  repo * "/fst/"
+    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+    
+    parser = d * "/testcompile/greek.a"
+    analyzed = parsetoken(parser, "και")
+    println(analyzed)
+end
