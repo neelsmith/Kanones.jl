@@ -4,12 +4,17 @@
 function buildacceptor(src, target)
     fstroot = dirname(target)
     incl = string("#include \"", fstroot, "/symbols.fst\"")
+    #=
     squashers = join([
         "% Uninflected form acceptor:",
         raw"$=uninflectedclass$ = [#uninflected#]",
         raw"$squashuninflurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+ <uninflected> $=uninflectedclass$ <div>   $=uninflectedclass$ <uninflected><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
     ], "\n")
-
+=#
+    squashers = join([
+        uninflsquasher(),
+        nounsquasher()
+    ], "\n")
     squasherunion = join([
         "% Union of all URN squashers:",
         raw"$acceptor$ = $squashuninflurn$"
@@ -33,8 +38,22 @@ function buildacceptor(src, target)
     end
 end
 
+function nounsquasher()
+    join([
+    "% Noun acceptor:",
+    raw"$=nounclass$ = [#nounclass#]",
+    raw"$squashnounurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]+<noun>$=gender$ $=nounclass$   <div> $=nounclass$  <noun> [#stemchars#]* $=gender$ $case$ $number$ <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
 
+    ], "\n")
+end
 
+function uninflsquasher()
+    join([
+        "% Uninflected form acceptor:",
+        raw"$=uninflectedclass$ = [#uninflected#]",
+        raw"$squashuninflurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+ <uninflected> $=uninflectedclass$ <div>   $=uninflectedclass$ <uninflected><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
+    ], "\n")
+end
 
 
 #=

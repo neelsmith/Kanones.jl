@@ -5,3 +5,8 @@ abstract type KanonesIO end
 struct UninflectedParser <: KanonesIO
     label::AbstractString
 end
+
+"KanonesIO type for reading and writing stem data for noun stems."
+struct NounParser <: KanonesIO
+    label::AbstractString
+end
