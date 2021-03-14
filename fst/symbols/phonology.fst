@@ -23,7 +23,7 @@ $character$ = [#character#]
 %#vowelquant# = <lo><sh>
 #vowelquant# = _^
 #morpheme# = <#>
-#persistacc# = <stemultacc><stempenacc><inflacc><irregacc>
+#persistacc# = <stemaccented><recessive><inflectionaccented><irregularaccent>
 #editorial# = #morpheme# #persistacc#  #vowelquant#
 % Transducer for persistent accent for convenenient
 % composition

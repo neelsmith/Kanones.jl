@@ -5,28 +5,28 @@
 % "Parts of speech": not traditional definition, but distinguished by
 % analytical pattern.  E.g., <infin> has distinct pattern that is neither
 % noun nor verb.
-#pos# = <noun><adj><verb><vadj><infin><ptcpl><adv><pron><uninflected>
-#verbparts# = <verb><vadj><infin><ptcpl>
+#pos# = <noun><adjective><finiteverb><vadj><infinitive><participle><adverb><pronoun><uninflected>
+#verbparts# = <finiteverb><vadj><infinitive><participle>
 %
 % 1. Noun morphology:
 %
-#gender# = <masc><fem><neut>
-#case# = <nom><acc><gen><dat><voc>
-#number# = <sg><dual><pl>
+#gender# = <masculine><feminine><neuter>
+#case# = <nominative><accusative><genitive><dative><vocative>
+#number# = <singular><dual><plural>
 %
 % 2. Adjective morphology:
 %
-#degree# = <pos><comp><superl>
+#degree# = <positive><comparative><superlative>
 %
 % 3. Verb morphology:
 %
 #person# = <1st><2nd><3rd>
 % number already defined in noun morphology
-#tense# = <pres><impft><fut><aor><pft><plupft>
-#mood# = <indic><subj><opt><imptv>
-#voice# = <act><mid><pass>
+#tense# = <present><imperfect><future><aorist><perfect><pluperfect>
+#mood# = <indicactive><subj><opt><imptv>
+#voice# = <active><middle><passive>
 #vadj# =  <vadj1><vadj2>
-#finiteform# = <infin><ptcpl><vadj1><vadj2>
+#finiteform# = <infinitive><participle><vadj1><vadj2>
 
 %
 % 4. Uninflected forms:
