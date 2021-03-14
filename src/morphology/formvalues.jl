@@ -1,30 +1,5 @@
-"""Create a dictionary keyed by the value of a label-value pair."""
-function valuedict(prs)
-    dict = Dict()
-    for pr in prs
-        push!(dict, pr[1] => pr[2])
-    end
-    dict
-end
-
-"""Create a dictionary keyed by the label of a label-value pair."""
-function labeldict(prs)
-    dict = Dict()
-    for pr in prs
-        push!(dict, pr[2] => pr[1])
-    end
-    dict
-end
 
 
-"""Constants for analytical types ("parts of speech")."""
-const pospairs = [
-    (UNANALYZED, "unanalyzed"),
-    (UNINFLECTED, "uninflected"),
-    (NOUN, "noun"),
-    (FINITEVERB, "verb-finite")
-]
-#  <conjunction><particle><interjection><preposition><adverb><numeral>
 
 
 """Constants for persons."""
@@ -70,12 +45,3 @@ const moodpairs = [
 ]
 
 
-"""Values for uninflected type in URN for uninflected form."""
-const uninflectedpairs = [
-    (1, "conjunction"),
-    (2, "preposition"),
-    (3, "particle"),
-    (4, "adverb"),
-    (5, "numeral"),
-    (6, "interjection")
-]

@@ -7,6 +7,8 @@ export AbbreviatedUrn
 export StemUrn, RuleUrn, LexemeUrn, Analysis
 export parsetoken
 
+export UninflectedForm
+
 include("abbrurn.jl")
 include("dataset.jl")
 include("parse.jl")
@@ -14,7 +16,7 @@ include("analysis.jl")
 
 # Conversion Form objects <-> URN values
 include("morphology/forms.jl")
-include("morphology/formvalues.jl")
+include("morphology/uninflectedmorphology.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder
