@@ -78,12 +78,14 @@ end
 function buildlexicon(src, target)
     iodict = Dict(
         [
-        "uninflected" => UninflectedParser("uninflected")
+        "uninflected" => UninflectedParser("uninflected"),
+        "nouns" => NounParser("noun")
         ]
     )
     lexicon = []
     stemdirs = [
-        "uninflected"
+        "uninflected",
+        "nouns"
     ]
     for dirname in stemdirs 
         dir = src.root * "/stems-tables/" * dirname * "/"
@@ -92,7 +94,6 @@ function buildlexicon(src, target)
         for f in cexfiles
             lines = readlines(f)
             for i in 2:length(lines)
-                
                 fstline = readstemrow(delimitedreader, lines[i]) |> fst
                 push!(lexicon, fstline)
             end
@@ -107,12 +108,14 @@ end
 function buildinflection(src, target)
     iodict = Dict(
         [
-        "uninflected" => UninflectedParser("uninflected")
+        "uninflected" => UninflectedParser("uninflected"),
+        "nouns" => NounParser("noun")
         ]
     )
     inflection = []
     rulesdirs = [
-        "uninflected"
+        "uninflected",
+        "nouns"
     ]
     for dirname in rulesdirs 
         dir = src.root * "/rules-tables/" * dirname * "/"

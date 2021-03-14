@@ -72,7 +72,7 @@ end
 """
 function fst(rule::NounRule)
     string("<", rule.inflectionclass,"><noun>", 
-    "<", rule.ending, ">",
+    rule.ending,
     "<", rule.ngender, ">",
     "<", rule.ncase, ">",
     "<", rule.nnumber, ">",

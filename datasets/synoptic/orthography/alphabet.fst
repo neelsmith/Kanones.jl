@@ -1,5 +1,5 @@
 % Characters for Greek character set:
-#consonant# = βγδζθκλμνξπρστφχψ
+#consonant# = βγδζθκλμνξπρστφχψς
 #vowel# = αειοηυω<isub>
 
 % This is doubly defined:  also in phonology.fst. Bug.

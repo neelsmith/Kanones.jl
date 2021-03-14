@@ -11,7 +11,7 @@ function buildacceptor(src, target)
     ], "\n")
     squasherunion = join([
         "% Union of all URN squashers:",
-        raw"$acceptor$ = $squashuninflurn$"
+        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$"
     ], "\n")
     stripper = join([
         "%% Put all symbols in 2 categories:  pass",
@@ -32,10 +32,12 @@ function buildacceptor(src, target)
     end
 end
 
+# Add: equality variable for gener
 function nounsquasher()
     join([
     "% Noun acceptor:",
     raw"$=nounclass$ = [#nounclass#]",
+    raw"$=gender$ = [#gender#]",
     raw"$squashnounurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]+<noun>$=gender$ $=nounclass$   <div> $=nounclass$  <noun> [#stemchars#]* $=gender$ $case$ $number$ <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
 
     ], "\n")
