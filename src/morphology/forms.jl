@@ -56,7 +56,19 @@ All subclasses of `MorphologicalForm` should implement this specifically
 for their subclass.
 """
 function urn(MorphologicalForm)
-    @warn("Unrecognized type of MorphologicalForm.")
+    @warn("urn: unrecognized type of MorphologicalForm.")
+    nothing
+end
+
+
+
+"""Convert a delimited-text string representing a form.
+
+All subclasses of `MorphologicalForm` should implement this specifically
+for their subclass.
+"""
+function cex(MorphologicalForm)
+    @warn("cex: unrecognized type of MorphologicalForm.")
     nothing
 end
 
@@ -71,7 +83,7 @@ function morphform(urn::Cite2Urn)
     elseif poskey == UNINFLECTED
         uninflectedform(urn)
     else
-        @warn("Unrecognized part of speech value in urn ", urn.urn)
+        @warn("morphform: unrecognized part of speech value in urn ", urn.urn)
         nothing
     end
     #urn:cite2:kanones:morphforms.v1:1000000001

@@ -13,7 +13,6 @@ end
  "urn:cite2:kanones:morphforms.v1:1000000006|uninflected form: interjection"
 =#
 
-
 @testset "Test conversion of uninflected form to URN" begin
     uform = UninflectedForm(1, "conjunction")
     u = Kanones.urn(uform)

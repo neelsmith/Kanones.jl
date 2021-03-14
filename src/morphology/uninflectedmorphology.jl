@@ -15,12 +15,19 @@ function uninflectedform(urn::Cite2Urn)
     UninflectedForm(pos, poslabel)
 end
 
-
 """Compose URN for an `UninflectedForm`."""
 function urn(uform::UninflectedForm)
     urnstring = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", uform.pos)
     Cite2Urn(urnstring)
 end
+
+
+"""Compose URN for an `UninflectedForm`."""
+function cex(uform::UninflectedForm)
+    urnval = urn(uform).urn
+    string(urnval,"|uninflected form: ", uform.poslabel)
+end
+
 
 """Values for uninflected type in URN for uninflected form."""
 const uninflectedpairs = [
@@ -42,7 +49,6 @@ end
 
 """Compose CEX representation of URNs and labels for uninflected forms."""
 function uninflectedcex()
-    
     dict = valuedict(uninflectedpairs)
     lines = []
     sortedkeys = keys(dict)  |> collect |> sort 
