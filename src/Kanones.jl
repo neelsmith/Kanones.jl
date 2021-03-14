@@ -38,6 +38,7 @@ module FstBuilder
     include("builder/types.jl")
     # Specific analytical types ("parts of speech")
     include("builder/uninflected.jl")
+    include("builder/nouns.jl")
 end
 
 end # module
