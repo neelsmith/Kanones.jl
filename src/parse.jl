@@ -33,7 +33,6 @@ function parsefst(fststring::AbstractString)
         nothing
     else
         (stem, rule) = split(lines[2], "<div>")
-
         stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
         stemmatch = collect(eachmatch(stemre, FstBuilder.greekfromfst(stem)))
         (stemidval, lexidval, tkn, analysiscat, stemdata) = stemmatch[1].captures
@@ -60,10 +59,8 @@ end
 """Parses a single token to an `Analysis` or `nothing`.
 """
 function parsetoken(parser, tkn::AbstractString)
-    #normed = Unicode.normalize(tkn, :NFKC)
-    stripped = FstBuilder.fstgreek(tkn)
-    #Unicode.normalize(normed, stripmark=true)
-    #println("PARSE STRIPED FORM ", stripped)
-    
+    stripped = FstBuilder.fstgreek(tkn) 
     applyparser(parser, stripped) |> parsefst
 end
+
+#<u>uninflectedstems.uninf1</u><u>lsj.n51951</u>και<uninflected><conjunction>

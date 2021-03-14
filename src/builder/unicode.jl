@@ -47,6 +47,8 @@ function greekfromfst(fst::AbstractString)
         vowel = matches[1].captures[1]
         ucode = addrough(vowel)
         replace(fst, vowel * "<ro>" => ucode)
+    else
+        fst
     end
 end
 

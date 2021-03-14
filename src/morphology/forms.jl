@@ -6,6 +6,11 @@ const UNINFLECTED = 1
 const NOUN = 2
 const FINITEVERB = 3
 
+
+"""Compose CEX representation of CITE colletion of all recognized forms.
+
+Currently, includes unanlyzed and uninfleted forms only.
+"""
 function formscex()
     unanalyzed = "urn:cite2:kanones:morphforms.v1:0000000000|unanalyzed form"
     
@@ -16,43 +21,8 @@ function formscex()
     join(allentries, "\n") # |> Iterators.flatten |> collect
 end
  
-function valuedict(prs)
-    dict = Dict()
-    for pr in prs
-        push!(dict, pr[1] => pr[2])
-    end
-    dict
-end
 
-function labeldict(prs)
-    dict = Dict()
-    for pr in prs
-        push!(dict, pr[2] => pr[1])
-    end
-    dict
-end
-
-
-
-const pospairs = [
-    (UNANALYZED, "unanalyzed"),
-    (UNINFLECTED, "uninflected"),
-    (NOUN, "noun"),
-    (FINITEVERB, "verb-finite")
-]
-
-#  <conjunction><particle><interjection><preposition><adverb><numeral>
-
-
-const uninflectedpairs = [
-    (1, "conjunction"),
-    (2, "preposition"),
-    (3, "particle"),
-    (4, "adverb"),
-    (5, "numeral"),
-    (6, "interjection")
-]
-
+"""Compose CEX representation of URNs and lables for uninflected forms."""
 function uninflectedcex()
     baseurn = "urn:cite2:kanones:morphforms.v1:"
     dict = valuedict(uninflectedpairs)
@@ -64,6 +34,8 @@ function uninflectedcex()
     end
     join(lines, "\n")
 end
+
+
 
 function uninflectedurn(data)
     s = replace(data, r"[<>]" => "")
