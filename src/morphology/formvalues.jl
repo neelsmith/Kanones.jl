@@ -1,5 +1,28 @@
+"""Constants for uninflected type of uninflected form."""
+const uninflectedpairs = [
+    (1, "conjunction"),
+    (2, "preposition"),
+    (3, "particle"),
+    (4, "adverb"),
+    (5, "numeral"),
+    (6, "interjection")
+]
 
+"""Constants for gender."""
+const genderpairs = [
+    (1, "masculine"),
+    (2, "feminine"),
+    (3, "neuter")
+]
 
+"""Constants for substantive case."""
+const casepairs = [
+    (1, "nominative"),
+    (2, "genitive"),
+    (3, "dative"),
+    (4, "accusative"),
+    (5, "vocative")
+]
 
 
 """Constants for persons."""

@@ -1,4 +1,3 @@
-
 abstract type MorphologicalForm end
 
 const BASE_MORPHOLOGY_URN = "urn:cite2:kanones:morphforms.v1:"
@@ -20,14 +19,18 @@ const pospairs = [
 
 """Compose CEX representation of CITE colletion of all recognized forms.
 
-Currently, includes unanlyzed and uninfleted forms only.
+Currently, includes only:
+- unanalyzed forms
+- uninflected forms
+- noun forms
 """
 function formscex()
     unanalyzed = "urn:cite2:kanones:morphforms.v1:0000000000|unanalyzed form"
     
     allentries = [
         unanalyzed,
-        uninflectedcex()
+        uninflectedcex(),
+        nounscex()
     ]
     join(allentries, "\n") # |> Iterators.flatten |> collect
 end
@@ -82,18 +85,13 @@ function morphform(urn::Cite2Urn)
         nothing
     elseif poskey == UNINFLECTED
         uninflectedform(urn)
+    elseif poskey == NOUN
+        nounform(urn)
     else
         @warn("morphform: unrecognized part of speech value in urn ", urn.urn)
         nothing
     end
-    #urn:cite2:kanones:morphforms.v1:1000000001
-    #warn("Unrecognized form in urn ", urn.urn)
-    #nothing
-
-#=
-const UNANALYZED = 0
-const UNINFLECTED = 1
-const NOUN = 2
-const FINITEVERB = 3
-    =#
+    # NOUN
+    # FINITEVERB
+    # ktl...
 end

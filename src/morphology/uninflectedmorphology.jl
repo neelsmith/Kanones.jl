@@ -29,18 +29,10 @@ function cex(uform::UninflectedForm)
 end
 
 
-"""Values for uninflected type in URN for uninflected form."""
-const uninflectedpairs = [
-    (1, "conjunction"),
-    (2, "preposition"),
-    (3, "particle"),
-    (4, "adverb"),
-    (5, "numeral"),
-    (6, "interjection")
-]
 
 
-"""Compose URN string FST representation of analytical data."""
+
+"""Compose URN for uninflected form from FST representation of analytical data."""
 function uninflectedurn(fstdata)
     s = replace(fstdata, r"[<>]" => "")
     dict = labeldict(uninflectedpairs)
