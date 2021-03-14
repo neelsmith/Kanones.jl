@@ -5,7 +5,7 @@ struct NounStem <: Stem
     form::AbstractString
     gender
     inflectionclass
-    accent
+    accentpersistence
 end
 
 "Inflectional rule for uninflected lexical items."
@@ -23,34 +23,34 @@ end
 """
 function readstemrow(usp::NounParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
-    #=
-    if length(parts) < 4
-        msg = "Invalid syntax for uninflected stem: too few components in $(delimited)"
-        throw(ArgumentError(msg))
-    else
-        stemid = Kanones.StemUrn(parts[1])
-        lexid = Kanones.LexemeUrn(parts[2])
-        form = fstgreek(parts[3])
-        stemclass = parts[4]
-        UninflectedStem(stemid, lexid, form, stemclass)
-    end
-    =#
+    stemid = Kanones.StemUrn(parts[1])
+    lexid = Kanones.LexemeUrn(parts[2])
+    stem = parts[3]
+    gender = parts[4]
+    inflclass = parts[5]
+    accent = parts[6]
+    NounStem(stemid,lexid,stem,gender,inflclass,accent)
 end
 
 """Implementation of reading one row of a rules table for uninflected tokens.
 """
 function readrulerow(usp::NounParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
-    #=
-    if length(parts) < 2
-        msg = "Invalid syntax for uninflected rule: too few components in $(delimited)"
+    
+    if length(parts) < 7
+        msg = "Invalid syntax for noun rule: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
         ruleid = Kanones.RuleUrn(parts[1])
-        inflectionaltype = parts[2]
-        UninflectedRule(ruleid, inflectionaltype)
+        inflclass = parts[2]
+        ending = parts[3]
+        g = parts[4]
+        c = parts[5]
+        n = parts[6]
+ 
+        NounRule(ruleid, inflclass, ending, g,c,n)
     end
-    =#
+    
 end
 
 

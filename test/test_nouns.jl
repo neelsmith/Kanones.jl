@@ -1,8 +1,9 @@
 @testset "Read rules for noun tokens from delimited text" begin
-    cex = "nouninfl.h_hs2|h_hs|ης|feminine|genitive|singular|"
+    cex = "nouninfl.h_hs2|h_hs|ης|feminine|genitive|singular|recessive"
     nounparser = FstBuilder.NounParser("nouns")
     rulerow = FstBuilder.readrulerow(nounparser, cex)
-    #@test rulerow.infltype == "conjunction"
+    
+    @test rulerow.inflectionclass == "h_hs"
     #expectedrule = Kanones.RuleUrn("litgreek.indeclinable2")
     #@test rulerow.ruleid.collection == "litgreek"
     #@test rulerow.ruleid.objectid == "indeclinable2"
