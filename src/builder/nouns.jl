@@ -54,12 +54,9 @@ function readrulerow(usp::NounParser, delimited::AbstractString, delimiter = "|"
 end
 
 
-
-
 """Compose FST representation of a single NounStem.
 """
 function fst(stem::NounStem)
-
     string(
         Kanones.fstsafe(stem.stemid),
         Kanones.fstsafe(stem.lexid),
@@ -74,30 +71,11 @@ end
 """Compose FST representation of a single NounRule.
 """
 function fst(rule::NounRule)
-    string(
-        rule.
+    string("<", rule.inflectionclass,"><noun>", 
+    "<", rule.ending, ">",
+    "<", rule.ngender, ">",
+    "<", rule.ncase, ">",
+    "<", rule.nnumber, ">",
+    Kanones.fstsafe(rule.ruleid)
     )
-    #=
-    string("<", rule.infltype,"><uninflected>", Kanones.fstsafe(rule.ruleid))
-    =#
-        #=
-   
-<div> 
-$=nounclass$  
-<noun> 
-[#stemchars#]* $=gender$
- $case$ $number$ 
- <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
-    =#
-
-
-    #=
-
-<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> 
-<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
-[#stemchars#]+
-<noun>
-$=gender$ 
-$=nounclass$
-=#
 end
