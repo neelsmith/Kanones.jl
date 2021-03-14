@@ -59,21 +59,38 @@ end
 """Compose FST representation of a single NounStem.
 """
 function fst(stem::NounStem)
-    #=
+
     string(
         Kanones.fstsafe(stem.stemid),
         Kanones.fstsafe(stem.lexid),
         stem.form,
-        "<uninflected>",
-        "<", stem.stemcategory, ">"
+        "<noun>",
+        "<", stem.gender, ">",
+        "<", stem.inflectionclass, ">"
     )
-    =#
+    
 end
 
 """Compose FST representation of a single NounRule.
 """
 function fst(rule::NounRule)
+    string()
     #=
     string("<", rule.infltype,"><uninflected>", Kanones.fstsafe(rule.ruleid))
+    =#
+        #=
+
+<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> 
+<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
+[#stemchars#]+
+<noun>
+$=gender$ 
+$=nounclass$   
+<div> 
+$=nounclass$  
+<noun> 
+[#stemchars#]* $=gender$
+ $case$ $number$ 
+ <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
     =#
 end

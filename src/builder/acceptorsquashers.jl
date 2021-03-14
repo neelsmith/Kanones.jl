@@ -4,13 +4,7 @@
 function buildacceptor(src, target)
     fstroot = dirname(target)
     incl = string("#include \"", fstroot, "/symbols.fst\"")
-    #=
-    squashers = join([
-        "% Uninflected form acceptor:",
-        raw"$=uninflectedclass$ = [#uninflected#]",
-        raw"$squashuninflurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+ <uninflected> $=uninflectedclass$ <div>   $=uninflectedclass$ <uninflected><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
-    ], "\n")
-=#
+
     squashers = join([
         uninflsquasher(),
         nounsquasher()

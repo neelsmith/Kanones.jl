@@ -15,6 +15,9 @@ end
 
 
 @testset "Read stems for noun tokens from delimited text"  begin    
+    cex = "nounstems.n22502|lexent.n22502|γνωμ|masculine|h_hs|recessive|"
+    nounparser = FstBuilder.NounParser("nouns")
+    stemrow = FstBuilder.readstemrow(nounparser, cex)
 end
 
 @testset "Write fst lexicon for noun stems" begin
