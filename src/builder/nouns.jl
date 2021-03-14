@@ -74,18 +74,14 @@ end
 """Compose FST representation of a single NounRule.
 """
 function fst(rule::NounRule)
-    string()
+    string(
+        rule.
+    )
     #=
     string("<", rule.infltype,"><uninflected>", Kanones.fstsafe(rule.ruleid))
     =#
         #=
-
-<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> 
-<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
-[#stemchars#]+
-<noun>
-$=gender$ 
-$=nounclass$   
+   
 <div> 
 $=nounclass$  
 <noun> 
@@ -93,4 +89,15 @@ $=nounclass$
  $case$ $number$ 
  <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
     =#
+
+
+    #=
+
+<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> 
+<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
+[#stemchars#]+
+<noun>
+$=gender$ 
+$=nounclass$
+=#
 end
