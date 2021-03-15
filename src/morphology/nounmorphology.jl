@@ -28,7 +28,8 @@ end
 
 """Compose URN for a `NounForm`."""
 function urn(noun::NounForm)
-    nothing
+    # PosPNTMVGCDCat
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",noun.nnumber,"000",noun.ngender,noun.ncase,"00"))
 end
 
 
@@ -38,6 +39,18 @@ end
 
 """Compose URN for noun form from FST representation of analytical data."""
 function nounurn(fstdata)
+    nounrulere = r"<([^<]+)><([^<]+)><([^<]+)><u>(.+)<\/u>"  
+    matchedup = collect(eachmatch(nounrulere, fstdata))
+    (g,c,n,ruleid) = matchedup[1].captures
+     
+    genderdict = labeldict(genderpairs)
+    casedict = labeldict(casepairs)
+    numberdict = labeldict(numberpairs)
+
+    nounform = NounForm(genderdict[g], g,
+    casedict[c], c,
+    numberdict[n], n)
+    urn(nounform)
 end
 
 """Compose CEX representation of URNs and labels for noun forms."""

@@ -17,7 +17,8 @@ to determine FormUrn from FST description of form.
 """
 function functionfollowsform()
     Dict(
-        "uninflected" => Kanones.uninflectedurn
+        "uninflected" => Kanones.uninflectedurn,
+        "noun" => Kanones.nounurn
     )
 end
 
@@ -62,5 +63,3 @@ function parsetoken(parser, tkn::AbstractString)
     stripped = FstBuilder.fstgreek(tkn) 
     applyparser(parser, stripped) |> parsefst
 end
-
-#<u>uninflectedstems.uninf1</u><u>lsj.n51951</u>και<uninflected><conjunction>

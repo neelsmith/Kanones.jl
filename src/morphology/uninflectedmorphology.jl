@@ -28,10 +28,6 @@ function cex(uform::UninflectedForm)
     string(urnval,"|uninflected form: ", uform.poslabel)
 end
 
-
-
-
-
 """Compose URN for uninflected form from FST representation of analytical data."""
 function uninflectedurn(fstdata)
     s = replace(fstdata, r"[<>]" => "")

@@ -36,7 +36,7 @@ end
 
 
 @testset "Build parser and parse noun forms" begin
-    #=
+    
     d = tempdir()
     repo = dirname(pwd())
 
@@ -45,7 +45,8 @@ end
     FstBuilder.buildparser(kd,fst, d * "/testcompile/")
     
     parser = d * "/testcompile/greek.a"
-    =#
-    #analyzed = parsetoken(parser, "και")
+    
+    ##analyzed = parsetoken(parser, "γνωμαις")
     #println(analyzed)
+    #FstBuilder.applyparser(parser, stripped)
 end
