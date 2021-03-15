@@ -4,7 +4,7 @@ using CitableObject
 using Unicode
 
 export AbbreviatedUrn
-export StemUrn, RuleUrn, LexemeUrn, Analysis
+export StemUrn, RuleUrn, LexemeUrn, FormUrn, Analysis
 export parsetoken
 
 export UninflectedForm, NounForm

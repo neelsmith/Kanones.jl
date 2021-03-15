@@ -30,9 +30,25 @@ end
     parser = d * "/testcompile/greek.a"
     analyzed = parsetoken(parser, "και")
     println(analyzed)
+    expectedlex = LexemeUrn("lsj.n51951")
+    @test analyzed.lexeme.collection == expectedlex.collection
+    @test analyzed.lexeme.objectid == expectedlex.objectid
+
+    expectedform = FormUrn("morphforms.1000000001")
+    @test analyzed.form.collection == expectedform.collection
+    @test analyzed.form.objectid == expectedform.objectid
+
+
+    expectedstem = StemUrn("uninflectedstems.n51951")
+    @test analyzed.stem.collection == expectedstem.collection
+    @test analyzed.stem.objectid == expectedstem.objectid
+
+
+    expectedrule = RuleUrn("litgreek.indeclinable2")
+    @test analyzed.rule.collection == expectedrule.collection
+    @test analyzed.rule.objectid == expectedrule.objectid
+
 end
-
-
 
 @testset "Build parser and handle bad output to parser" begin
     d = tempdir()

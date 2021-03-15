@@ -17,8 +17,8 @@ to determine FormUrn from FST description of form.
 """
 function functionfollowsform()
     Dict(
-        "uninflected" => Kanones.uninflectedurn,
-        "noun" => Kanones.nounurn
+        "uninflected" => Kanones.uninflectedabbrurn,
+        "noun" => Kanones.nounabbrurn
     )
 end
 
@@ -45,8 +45,8 @@ function parsefst(fststring::AbstractString)
         #@warn("Rule parts data " * ruledata * ",  id " * ruleidval)
         fnctndict = functionfollowsform()
         fnct = fnctndict[analysiscat]
-        formid =  ruledata |> fnct
-        Analysis(tkn, LexemeUrn(lexidval), FormUrn(formid), RuleUrn(ruleidval), StemUrn(stemidval))
+        formurn =  ruledata |> fnct
+        Analysis(tkn, LexemeUrn(lexidval), formurn, RuleUrn(ruleidval), StemUrn(stemidval))
     end
 end
 

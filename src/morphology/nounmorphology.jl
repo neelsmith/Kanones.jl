@@ -38,7 +38,7 @@ function cex(noun::NounForm)
 end
 
 """Compose URN for noun form from FST representation of analytical data."""
-function nounurn(fstdata)
+function nounabbrurn(fstdata)
     #<h_hs><noun>ας<feminine><accusative><singular>
     #@warn("Parse FST noun " * fstdata)
     nounrulere = r"<([^<]+)><([^<]+)>[^>]+<([^<]+)><([^<]+)><([^<]+)>"  
@@ -60,7 +60,7 @@ function nounurn(fstdata)
         nounform = NounForm(genderdict[g], g,
         casedict[c], c,
         numberdict[n], n)
-        urn(nounform)
+        FormUrn(string("morphforms.", NOUN,"0",nounform.nnumber,"000",nounform.ngender,nounform.ncase,"00"))
     end
 end
 

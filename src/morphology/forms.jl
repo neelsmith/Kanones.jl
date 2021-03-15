@@ -65,7 +65,7 @@ end
 
 
 
-"""Convert a delimited-text string representing a form.
+"""Convert a `MorphologicalForm` form to a delimited-text string. 
 
 All subclasses of `MorphologicalForm` should implement this specifically
 for their subclass.
