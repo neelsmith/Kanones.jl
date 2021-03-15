@@ -39,23 +39,33 @@ end
 
 """Compose URN for noun form from FST representation of analytical data."""
 function nounurn(fstdata)
-    nounrulere = r"<([^<]+)><([^<]+)><([^<]+)><u>(.+)<\/u>"  
+    #<h_hs><noun>ας<feminine><accusative><singular>
+    #@warn("Parse FST noun " * fstdata)
+    nounrulere = r"<([^<]+)><([^<]+)>[^>]+<([^<]+)><([^<]+)><([^<]+)>"  
+    # "<h_hs><noun>ας<feminine><accusative>"
     matchedup = collect(eachmatch(nounrulere, fstdata))
-    (g,c,n,ruleid) = matchedup[1].captures
-     
-    genderdict = labeldict(genderpairs)
-    casedict = labeldict(casepairs)
-    numberdict = labeldict(numberpairs)
+    
+    if isempty(matchedup)
+        @warn("Unable to parse FST analysis \"" * fstdata * "\"")
+        nothing
+    else
+        # 1="h_hs", 2="noun", 3="feminine", 4="accusative", 5="singular")
 
-    nounform = NounForm(genderdict[g], g,
-    casedict[c], c,
-    numberdict[n], n)
-    urn(nounform)
+        (nounclass,pos, g,c,n) = matchedup[1].captures
+        
+        genderdict = labeldict(genderpairs)
+        casedict = labeldict(casepairs)
+        numberdict = labeldict(numberpairs)
+
+        nounform = NounForm(genderdict[g], g,
+        casedict[c], c,
+        numberdict[n], n)
+        urn(nounform)
+    end
 end
 
 """Compose CEX representation of URNs and labels for noun forms."""
 function nounscex()
-
     genderdict = valuedict(genderpairs)
     genderkeys = keys(genderdict)  |> collect |> sort 
     casedict = valuedict(casepairs)

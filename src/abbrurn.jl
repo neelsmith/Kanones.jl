@@ -29,8 +29,6 @@ struct RuleUrn <: AbbreviatedUrn
     end
 end
 
-
-
 struct LexemeUrn <: AbbreviatedUrn
     collection::AbstractString
     objectid::AbstractString
@@ -43,7 +41,6 @@ struct LexemeUrn <: AbbreviatedUrn
         end
     end
 end
-
 
 struct FormUrn <: AbbreviatedUrn
     collection::AbstractString
@@ -58,9 +55,19 @@ struct FormUrn <: AbbreviatedUrn
     end
 end
 
-
 """Compose SFST representation of an `AbbreviatedUrn`.
 """
 function fstsafe(au::AbbreviatedUrn)
     string("<u>", au.collection, raw"\.", au.objectid, "</u>")
+end
+
+
+function abbreviate(urn::Cite2Urn)
+    #tbd
+    nothing
+end
+
+function expand(au::AbbreviatedUrn, registry::Dict)
+    #tbd
+    nothing
 end

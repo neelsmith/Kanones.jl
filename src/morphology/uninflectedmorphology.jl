@@ -28,11 +28,22 @@ function cex(uform::UninflectedForm)
     string(urnval,"|uninflected form: ", uform.poslabel)
 end
 
-"""Compose URN for uninflected form from FST representation of analytical data."""
+"""Compose Abbreviated URN for uninflected form from FST representation of analytical data."""
 function uninflectedurn(fstdata)
-    s = replace(fstdata, r"[<>]" => "")
-    dict = labeldict(uninflectedpairs)
-    string("morphforms.", UNINFLECTED, "00000000", dict[s])
+    #s = replace(fstdata, r"[<>]" => "")
+    uninflrulere = r".+<([^<]+)><([^<]+)>"  
+    matchedup = collect(eachmatch(uninflrulere, fstdata))
+    @warn("UNINFL MATHCED " * matchedup)
+    if isempty(matchedup)
+        @warn("uninflectedurn: unable to parse FST analysis \"" * fstdata * "\"")
+        nothing
+    else
+        # 1="h_hs", 2="noun", 3="feminine", 4="accusative", 5="singular")
+
+        (uninflclass, ruleid) = matchedup[1].captures
+        
+        dict = labeldict(uninflectedpairs)
+        Cite2Urn(string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", dict[uninflclass])
 end
 
 """Compose CEX representation of URNs and labels for uninflected forms."""

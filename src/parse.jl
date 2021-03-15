@@ -38,9 +38,11 @@ function parsefst(fststring::AbstractString)
         stemmatch = collect(eachmatch(stemre, FstBuilder.greekfromfst(stem)))
         (stemidval, lexidval, tkn, analysiscat, stemdata) = stemmatch[1].captures
         
-        rulere = r"(.+)<([^>]+)><u>(.+)</u>"
+        rulere = r"(.+)<u>(.+)</u>"
         rulematch = collect(eachmatch(rulere, rule))
-        (ruledata, rulecat, ruleidval) = rulematch[1].captures
+        (ruledata, ruleidval) = rulematch[1].captures
+        #@warn("PARSING RULE " * rule)
+        #@warn("Rule parts data " * ruledata * ",  id " * ruleidval)
         fnctndict = functionfollowsform()
         fnct = fnctndict[analysiscat]
         formid =  ruledata |> fnct

@@ -53,7 +53,7 @@ function labeldict(prs)
     dict
 end
 
-"""Convert a `MorphologicalForm` to a URN.
+"""Convert a `MorphologicalForm` to a Cite2Urn.
 
 All subclasses of `MorphologicalForm` should implement this specifically
 for their subclass.
