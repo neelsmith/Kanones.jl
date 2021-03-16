@@ -1,6 +1,6 @@
+# Move to CitableParserBuilder
 
-
-
+#=
 struct Analysis
     tkn::AbstractString
     lexeme::LexemeUrn
@@ -8,3 +8,4 @@ struct Analysis
     rule::RuleUrn
     stem::StemUrn
 end
+=#

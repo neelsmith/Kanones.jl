@@ -1,6 +1,6 @@
 module Kanones
 
-using CitableObject
+using CitableObject, CitableParserBuilder
 using Unicode
 
 export AbbreviatedUrn
@@ -9,7 +9,6 @@ export parsetoken
 
 export UninflectedForm, NounForm
 
-include("abbrurn.jl")
 include("dataset.jl")
 include("parse.jl")
 include("analysis.jl")
