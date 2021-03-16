@@ -1,0 +1,9 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+verbinfl.wreg3rd1|w_regular|ει|3rd|singular|present|indicative|active
+verbinfl.wreg3rd2|w_regular|εται|3rd|singular|present|indicative|middle
+verbinfl.wreg3rd3|w_regular|εται|3rd|singular|present|indicative|passive
+
+verbinfl.wreg3rd1|w_regular|ε|3rd|singular|imperfect|indicative|active
+verbinfl.wreg3rd2|w_regular|ετο|3rd|singular|imperfect|indicative|middle
+verbinfl.wreg3rd3|w_regular|ετο|3rd|singular|imperfect|indicative|passive
+

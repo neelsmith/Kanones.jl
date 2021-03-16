@@ -1,4 +1,6 @@
 """Read data from src and fstdir and compile a SFST parser in target.
+Returns the path to the compiled binary `greek.a` which can then be used
+as an argument to the `parsetoken` function.
 """
 function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::AbstractString)
     if ispath(target)
@@ -14,6 +16,7 @@ function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::Abstr
         buildmakefile(src, target * "/makefile")
         compilefst(target)
     end
+    parser = target * "/greek.a"
 end
 
 function compilefst(target)

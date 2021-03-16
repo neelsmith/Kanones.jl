@@ -1,15 +1,21 @@
 
 Vocabulary from Lysias to use for test development:
 
+### Function words
 
+- the article
+- pronouns: ὅδε, οὗτος
+- √ indeclinable particles and prepositions
 
 ### Verbs
 
-- κελεύω
-- γίγνομαι
-- ποιέω
-- δείκνυμι
-- λαμβάνω
+| Verb | Kanones stem type(s) |
+| --- | --- |
+| κελεύω | `w_regular` |
+| γίγνομαι | |
+| ποιέω | |
+| δείκνυμι | |
+| λαμβάνω | |
 
 
 
