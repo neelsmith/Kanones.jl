@@ -22,7 +22,7 @@ Vocabulary from Lysias to use for test development:
 ### Nouns
 
 | Noun | Kanones class | Kanones accent category |
-| --- | --- |
+| --- | --- | --- |
 | οἰκία | | |
 | θεπάπαιν | | |
 | γνώμη | `h_hs` | `recessive` |
