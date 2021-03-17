@@ -95,7 +95,8 @@ function buildlexicon(src, target)
         cexfiles = glob("*.cex", dir)
         delimitedreader = (iodict[dirname])
         for f in cexfiles
-            lines = readlines(f)
+            raw = readlines(f)
+            lines = filter(s -> ! isempty(s), raw)
             for i in 2:length(lines)
                 fstline = readstemrow(delimitedreader, lines[i]) |> fst
                 push!(lexicon, fstline)
@@ -125,9 +126,9 @@ function buildinflection(src, target)
         cexfiles = glob("*.cex", dir)
         delimitedreader = (iodict[dirname])
         for f in cexfiles
-            lines = readlines(f)
+            raw = readlines(f)
+            lines = filter(s -> ! isempty(s), raw)
             for i in 2:length(lines)
-                
                 fstline = readrulerow(delimitedreader, lines[i]) |> fst
                 push!(inflection, fstline)
             end

@@ -41,12 +41,9 @@ const numberpairs = [
 
 """Constants for voice."""
 const voicepairs = [
-    (1, "present"),
-    (2, "imperfect"),
-    (3, "future"),
-    (4, "aorist"),
-    (5, "perfect"),
-    (6, "pluperfect"),
+    (1, "active"),
+    (2, "middle"),
+    (3, "passive")
 ]
 
 """Constants for tense."""
@@ -55,8 +52,8 @@ const tensepairs = [
     (2, "imperfect"),
     (3, "future"),
     (4, "aorist"),
-    (4, "perfect"),
-    (4, "pluperfect")
+    (5, "perfect"),
+    (6, "pluperfect")
 ]
 
 """Constants for mood."""

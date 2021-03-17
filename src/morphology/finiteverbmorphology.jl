@@ -37,6 +37,7 @@ end
 
 
 function finiteverbscex()
+
     persondict = valuedict(personpairs)
     personkeys = keys(persondict)  |> collect |> sort 
 
@@ -53,26 +54,74 @@ function finiteverbscex()
     voicedict = valuedict(voicepairs)
     voicekeys = keys(voicedict)  |> collect |> sort 
 
-
-
     lines = []
-    # But don't generate non-existent forms!  
-    # Don't want complete permutations. (E.g., imperfect only in indicative!)
-    #
+    PRESENT = 1
+    IMPERFECT = 2
+    FUTURE = 3
+    AORIST = 4
+    PERFECT = 5
+    PLUPERFECT = 6
+    
+    
+    # indic mood only: imperfect, pluperfect
+    INDICATIVE = 1
     # PosPNTMVGCDCat
-    #=
-    for num in numberkeys
-        for gen in genderkeys
-            for cs in casekeys
-                u = string(BASE_MORPHOLOGY_URN, NOUN, "0", num, "000", gen, cs, "00")
-                label = string("noun: ", genderdict[gen], " ", casedict[cs], " ", numberdict[num])
-                cex = string(u, "|", label)
-                push!(lines, cex)
+    for tense in [IMPERFECT, PLUPERFECT]
+        for pers in personkeys
+            for num in numberkeys
+                for voice in voicekeys
+                    u = string(BASE_MORPHOLOGY_URN, FINITEVERB, 
+                    "0", pers, num, tense, INDICATIVE, voice,"0000")
+                    
+                    label = string("verb: ", 
+                    persondict[pers], numberdict[num], tensedict[tense], "indicative", voicedict[voice])
+                    
+                    cex = string(u, "|", label)
+                    push!(lines, cex)
+                end
             end
-        end
+        end 
     end
-    =#
+
+    # indicative and optative moods only: future
+    OPTATIVE = 3
+    for mood in [INDICATIVE, OPTATIVE]
+        for pers in personkeys
+            for num in numberkeys
+                for voice in voicekeys
+                    u = string(BASE_MORPHOLOGY_URN, FINITEVERB, 
+                    "0", pers, num, FUTURE, mood, voice,"0000")
+                    
+                    label = string("verb: ", 
+                    persondict[pers], numberdict[num], "future", mooddict[mood], voicedict[voice])
+                    
+                    cex = string(u, "|", label)
+                    push!(lines, cex)
+                end
+            end
+        end 
+    end
+  
+    # all tense/mood combinations
+    # present, aorist, perfect
+    for tense in [PRESENT, AORIST, PERFECT]
+        for pers in personkeys
+            for num in numberkeys
+                for mood in moodkeys
+                    for voice in voicekeys
+                        u = string(BASE_MORPHOLOGY_URN, FINITEVERB, 
+                        "0", pers, num, tense, mood, voice,"0000")
+                        
+                        label = string("verb: ", 
+                        persondict[pers], numberdict[num], tensedict[tense], mooddict[mood], voicedict[voice])
+                        
+                        cex = string(u, "|", label)
+                        push!(lines, cex)
+                    end
+                end
+            end
+        end 
+    end
+    
     join(lines, "\n")  
-
-
 end
