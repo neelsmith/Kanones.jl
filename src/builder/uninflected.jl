@@ -48,8 +48,8 @@ end
 """
 function fst(stem::UninflectedStem)
     string(
-        Kanones.fstsafe(stem.stemid),
-        Kanones.fstsafe(stem.lexid),
+        fstsafe(stem.stemid),
+        fstsafe(stem.lexid),
         stem.form,
         "<uninflected>",
         "<", stem.stemcategory, ">"
@@ -59,5 +59,5 @@ end
 """Compose FST representation of a single UninflectedRule.
 """
 function fst(rule::UninflectedRule)
-    string("<", rule.infltype,"><uninflected>", Kanones.fstsafe(rule.ruleid))
+    string("<", rule.infltype,"><uninflected>", fstsafe(rule.ruleid))
 end

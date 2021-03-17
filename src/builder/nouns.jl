@@ -58,8 +58,8 @@ end
 """
 function fst(stem::NounStem)
     string(
-        Kanones.fstsafe(stem.stemid),
-        Kanones.fstsafe(stem.lexid),
+        fstsafe(stem.stemid),
+        fstsafe(stem.lexid),
         stem.form,
         "<noun>",
         "<", stem.gender, ">",
@@ -76,6 +76,6 @@ function fst(rule::NounRule)
     "<", rule.ngender, ">",
     "<", rule.ncase, ">",
     "<", rule.nnumber, ">",
-    Kanones.fstsafe(rule.ruleid)
+    fstsafe(rule.ruleid)
     )
 end

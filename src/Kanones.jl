@@ -24,6 +24,7 @@ include("morphology/finiteverbmorphology.jl")
 module FstBuilder
     import ..Kanones
     using Glob, Unicode
+    using CitableParserBuilder
     
     export buildparser
     export Stem, Rule
