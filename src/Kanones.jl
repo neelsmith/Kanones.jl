@@ -2,7 +2,7 @@ module Kanones
 
 using CitableObject, CitableParserBuilder
 using PolytonicGreek
-using Unicode
+using Unicode, Glob
 
 #export StemUrn, RuleUrn, LexemeUrn, FormUrn, Analysis
 export parsetoken
