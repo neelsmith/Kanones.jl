@@ -1,5 +1,9 @@
 
-"A Kanones dataset."
+"""
+A Kanones dataset in a local file system.  
+`root` is the full path to the dataset's root directory.  Its subdirectory
+organization must follow Kanones' specifications.
+"""
 struct Dataset
     root::AbstractString
     function Dataset(s)
@@ -13,8 +17,20 @@ struct Dataset
     end
 end
 
-"True if all required files are found."
-function validsource(dir)
+
+function rulesarray(kd::Kanones.Dataset)
+end
+
+function stemsarray(kd::Kanones.Dataset)
+end
+
+
+"""
+    validsource(dir::AbstractString)
+
+True if `dir` satisfies Kanones' requirements.
+"""
+function validsource(dir::AbstractString)
     if ! ispath(dir)
         false, "Error: $(dir) is not a valid path."
     else

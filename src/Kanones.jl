@@ -1,10 +1,10 @@
 module Kanones
 
 using CitableObject, CitableParserBuilder
+using PolytonicGreek
 using Unicode
 
-export AbbreviatedUrn
-export StemUrn, RuleUrn, LexemeUrn, FormUrn, Analysis
+#export StemUrn, RuleUrn, LexemeUrn, FormUrn, Analysis
 export parsetoken
 
 export UninflectedForm, NounForm

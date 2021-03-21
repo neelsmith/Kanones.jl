@@ -79,6 +79,12 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 [[Mmap]]
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 
+[[Orthography]]
+deps = ["DocStringExtensions", "Documenter", "Test"]
+git-tree-sha1 = "bd8ac88de4d00c65432d84abf18288973a83b431"
+uuid = "0b4c9448-09b0-4e78-95ea-3eb3328be36d"
+version = "0.5.0"
+
 [[Parsers]]
 deps = ["Dates"]
 git-tree-sha1 = "223a825cccef2228f3fdbf2ecc7ca93363059073"
@@ -88,6 +94,12 @@ version = "1.0.16"
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
+
+[[PolytonicGreek]]
+deps = ["DocStringExtensions", "Documenter", "Orthography", "Test", "Unicode"]
+git-tree-sha1 = "e1a23538fc854814d2088c8926b2f0883b3d1767"
+uuid = "72b824a7-2b4a-40fa-944c-ac4f345dc63a"
+version = "0.4.0"
 
 [[Printf]]
 deps = ["Unicode"]
