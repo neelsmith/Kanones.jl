@@ -98,6 +98,9 @@ function buildlexicon(src, target)
             raw = readlines(f)
             lines = filter(s -> ! isempty(s), raw)
             for i in 2:length(lines)
+                # FACTOR THIS OUT.  
+                # Gather array of reader data from external function
+                # Pipe through fst here, and push onto results
                 fstline = readstemrow(delimitedreader, lines[i]) |> fst
                 push!(lexicon, fstline)
             end
@@ -129,6 +132,9 @@ function buildinflection(src, target)
             raw = readlines(f)
             lines = filter(s -> ! isempty(s), raw)
             for i in 2:length(lines)
+                # FACTOR THIS OUT.  
+                # Gather array of reader data from external function
+                # Pipe through fst here, and push onto results
                 fstline = readrulerow(delimitedreader, lines[i]) |> fst
                 push!(inflection, fstline)
             end

@@ -19,9 +19,11 @@ end
 
 
 function rulesarray(kd::Kanones.Dataset)
+
 end
 
 function stemsarray(kd::Kanones.Dataset)
+
 end
 
 

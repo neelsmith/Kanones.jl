@@ -19,7 +19,9 @@ struct NounRule <: Rule
 end
 
 
-"""Implementation of reading one row of a stems table for noun tokens.
+"""
+
+Read one row of a stems table for noun tokens and create a `NounStem`.
 """
 function readstemrow(usp::NounParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
@@ -71,11 +73,12 @@ end
 """Compose FST representation of a single NounRule.
 """
 function fst(rule::NounRule)
-    string("<", rule.inflectionclass,"><noun>", 
-    rule.ending,
-    "<", rule.ngender, ">",
-    "<", rule.ncase, ">",
-    "<", rule.nnumber, ">",
-    fstsafe(rule.ruleid)
+    string(
+        "<", rule.inflectionclass,"><noun>", 
+        rule.ending,
+        "<", rule.ngender, ">",
+        "<", rule.ncase, ">",
+        "<", rule.nnumber, ">",
+        fstsafe(rule.ruleid)
     )
 end

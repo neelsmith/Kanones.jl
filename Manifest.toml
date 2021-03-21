@@ -87,9 +87,9 @@ version = "0.5.0"
 
 [[Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "223a825cccef2228f3fdbf2ecc7ca93363059073"
+git-tree-sha1 = "c8abc88faa3f7a3950832ac5d6e690881590d6dc"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "1.0.16"
+version = "1.1.0"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
@@ -97,9 +97,9 @@ uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 
 [[PolytonicGreek]]
 deps = ["DocStringExtensions", "Documenter", "Orthography", "Test", "Unicode"]
-git-tree-sha1 = "e1a23538fc854814d2088c8926b2f0883b3d1767"
+git-tree-sha1 = "814425a57fbfcf450669ae1c1264f9814c6aab0e"
 uuid = "72b824a7-2b4a-40fa-944c-ac4f345dc63a"
-version = "0.4.0"
+version = "0.5.0"
 
 [[Printf]]
 deps = ["Unicode"]
