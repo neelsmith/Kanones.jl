@@ -79,66 +79,26 @@ end
 
 "Read all stem data and compose `lexicon.fst`."
 function buildlexicon(src, target)
-    iodict = Dict(
-        [
-        "uninflected" => UninflectedParser("uninflected"),
-        "nouns" => NounParser("noun")
-        ]
-    )
-    lexicon = []
-    stemdirs = [
-        "uninflected",
-        "nouns"
-    ]
-    for dirname in stemdirs 
-        dir = src.root * "/stems-tables/" * dirname * "/"
-        cexfiles = glob("*.cex", dir)
-        delimitedreader = (iodict[dirname])
-        for f in cexfiles
-            raw = readlines(f)
-            lines = filter(s -> ! isempty(s), raw)
-            for i in 2:length(lines)
-                # FACTOR THIS OUT.  
-                # Gather array of reader data from external function
-                # Pipe through fst here, and push onto results
-                fstline = readstemrow(delimitedreader, lines[i]) |> fst
-                push!(lexicon, fstline)
-            end
-        end
-    end
+     stems = Kanones.stemsarray(src)
+     lexicon = []
+     for s in stems
+        push!(lexicon, fst(s))
+     end
     open(target, "w") do io
         print(io, join(lexicon, "\n"))
     end
 end
 
-"Read all rules data and compose `inflection.fst`."
-function buildinflection(src, target)
-    iodict = Dict(
-        [
-        "uninflected" => UninflectedParser("uninflected"),
-        "nouns" => NounParser("noun")
-        ]
-    )
+"""
+Read all rules data and compose `inflection.fst`.
+`src` is a `Kanones.Dataset`.  
+`target` is the full path to the desination file `inflection.fst`.
+"""
+function buildinflection(src::Kanones.Dataset, target)
+    ruleset = Kanones.rulesarray(src)
     inflection = []
-    rulesdirs = [
-        "uninflected",
-        "nouns"
-    ]
-    for dirname in rulesdirs 
-        dir = src.root * "/rules-tables/" * dirname * "/"
-        cexfiles = glob("*.cex", dir)
-        delimitedreader = (iodict[dirname])
-        for f in cexfiles
-            raw = readlines(f)
-            lines = filter(s -> ! isempty(s), raw)
-            for i in 2:length(lines)
-                # FACTOR THIS OUT.  
-                # Gather array of reader data from external function
-                # Pipe through fst here, and push onto results
-                fstline = readrulerow(delimitedreader, lines[i]) |> fst
-                push!(inflection, fstline)
-            end
-        end
+    for r in ruleset
+        push!(inflection, fst(r))
     end
     fstvar =  raw"$inflection$"
     opening = fstvar * " = "
