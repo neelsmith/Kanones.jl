@@ -4,9 +4,7 @@ using CitableObject, CitableParserBuilder
 using PolytonicGreek
 using Unicode, Glob
 
-#export StemUrn, RuleUrn, LexemeUrn, FormUrn, Analysis
-export parsetoken
-
+export parsetoken, parsewordlist
 export UninflectedForm, NounForm
 
 include("dataset.jl")
@@ -27,7 +25,7 @@ module FstBuilder
     using CitableParserBuilder
     
     export buildparser
-    export Stem, Rule
+    export Stem, Rule # Migrate to Kanones main module
 
     include("builder/unicode.jl")
     include("builder/config.jl")
