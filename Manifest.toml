@@ -97,9 +97,9 @@ uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 
 [[PolytonicGreek]]
 deps = ["DocStringExtensions", "Documenter", "Orthography", "Test", "Unicode"]
-git-tree-sha1 = "814425a57fbfcf450669ae1c1264f9814c6aab0e"
+git-tree-sha1 = "ddda694770dfdf36d9c47d6f6dc42076eeee0f2d"
 uuid = "72b824a7-2b4a-40fa-944c-ac4f345dc63a"
-version = "0.5.0"
+version = "0.6.0"
 
 [[Printf]]
 deps = ["Unicode"]
