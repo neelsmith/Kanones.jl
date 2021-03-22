@@ -29,7 +29,7 @@ function rulesarray(kd::Kanones.Dataset)
         "uninflected",
         "nouns"
     ]
-    rulesarr = []  #Make this an array of Rule
+    rulesarr = FstBuilder.Rule[]
     for dirname in rulesdirs 
         dir = kd.root * "/rules-tables/" * dirname * "/"
         cexfiles = glob("*.cex", dir)
@@ -55,7 +55,7 @@ function stemsarray(kd::Kanones.Dataset)
         "nouns" => FstBuilder.NounParser("noun")
         ]
     )
-    lexicon = [] # Make this an Array of Stem
+    lexicon = FstBuilder.Stem[]
     stemdirs = [
         "uninflected",
         "nouns"
