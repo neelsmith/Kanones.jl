@@ -18,4 +18,11 @@ function generate(analysis::Analysis)
     dict = valuedict(pospairs)
     # Switch on this value:
     pos = dict[parse(Int64, formcolumns[1])]
+    # Defined so far:
+    #=
+const UNANALYZED = 0
+const UNINFLECTED = 1
+const NOUN = 2
+const FINITEVERB = 3
+    =#
 end
