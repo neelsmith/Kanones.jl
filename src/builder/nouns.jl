@@ -8,6 +8,14 @@ struct NounStem <: Stem
     accentpersistence
 end
 
+function id(n::NounStem)
+    n.stemid
+end
+
+function lexeme(n::NounStem)
+    n.lexid
+end
+
 "Inflectional rule for uninflected lexical items."
 struct NounRule <: Rule
     ruleid::Kanones.AbbreviatedUrn
@@ -16,6 +24,11 @@ struct NounRule <: Rule
     ngender
     ncase
     nnumber
+end
+
+
+function id(n::NounRule)
+    n.ruleid
 end
 
 

@@ -7,10 +7,23 @@ struct UninflectedStem <: Stem
     stemcategory::AbstractString
 end
 
+function id(uninfl::UninflectedStem)
+    uninfl.stemid
+end
+
+function lexeme(uninfl::UninflectedStem)
+    uninfl.lexid
+end
+
 "Inflectional rule for uninflected lexical items."
 struct UninflectedRule <: Rule
     ruleid::Kanones.AbbreviatedUrn
     infltype
+end
+
+
+function id(uninfl::UninflectedRule)
+    uninfl.ruleid
 end
 
 """Implementation of reading one row of a stems table for uninflected tokens.
