@@ -65,3 +65,7 @@ function parsetoken(parser, tkn::AbstractString)
     stripped = FstBuilder.fstgreek(tkn) 
     applyparser(parser, stripped) |> parsefst
 end
+
+function parsewordlsit(parser, tokens)
+    nothing
+end
