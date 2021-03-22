@@ -1,3 +1,21 @@
+# Model for URN values:
+# PosPNTMVGCDCat
+
+"""Constants for analytical types ("parts of speech")"""
+const UNANALYZED = 0
+const UNINFLECTED = 1
+const NOUN = 2
+const FINITEVERB = 3
+
+"""Constants for analytical types ("parts of speech")."""
+const pospairs = [
+    (UNANALYZED, "unanalyzed"),
+    (UNINFLECTED, "uninflected"),
+    (NOUN, "noun"),
+    (FINITEVERB, "verb-finite")
+]
+
+
 """Constants for uninflected type of uninflected form."""
 const uninflectedpairs = [
     (1, "conjunction"),
@@ -65,3 +83,21 @@ const moodpairs = [
 ]
 
 
+
+"""Create a dictionary keyed by the value of a label-value pair."""
+function valuedict(prs)
+    dict = Dict()
+    for pr in prs
+        push!(dict, pr[1] => pr[2])
+    end
+    dict
+end
+
+"""Create a dictionary keyed by the label of a label-value pair."""
+function labeldict(prs)
+    dict = Dict()
+    for pr in prs
+        push!(dict, pr[2] => pr[1])
+    end
+    dict
+end

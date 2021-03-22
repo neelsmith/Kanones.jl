@@ -2,20 +2,6 @@ abstract type MorphologicalForm end
 
 const BASE_MORPHOLOGY_URN = "urn:cite2:kanones:morphforms.v1:"
 
-# Model for URN values:
-# PosPNTMVGCDCat
-const UNANALYZED = 0
-const UNINFLECTED = 1
-const NOUN = 2
-const FINITEVERB = 3
-
-"""Constants for analytical types ("parts of speech")."""
-const pospairs = [
-    (UNANALYZED, "unanalyzed"),
-    (UNINFLECTED, "uninflected"),
-    (NOUN, "noun"),
-    (FINITEVERB, "verb-finite")
-]
 
 """Compose CEX representation of CITE colletion of all recognized forms.
 
@@ -35,23 +21,6 @@ function formscex()
     join(allentries, "\n") # |> Iterators.flatten |> collect
 end
  
-"""Create a dictionary keyed by the value of a label-value pair."""
-function valuedict(prs)
-    dict = Dict()
-    for pr in prs
-        push!(dict, pr[1] => pr[2])
-    end
-    dict
-end
-
-"""Create a dictionary keyed by the label of a label-value pair."""
-function labeldict(prs)
-    dict = Dict()
-    for pr in prs
-        push!(dict, pr[2] => pr[1])
-    end
-    dict
-end
 
 """Convert a `MorphologicalForm` to a Cite2Urn.
 

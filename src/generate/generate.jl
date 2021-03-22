@@ -14,4 +14,8 @@ function generate(analysis::Analysis)
         stem::StemUrn
     end
     =#
+    formcolumns = split(accpl.form.objectid,"")
+    dict = valuedict(pospairs)
+    # Switch on this value:
+    pos = dict[parse(Int64, formcolumns[1])]
 end
