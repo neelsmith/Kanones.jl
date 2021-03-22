@@ -5,11 +5,21 @@ using PolytonicGreek
 using Unicode, Glob
 
 export parsetoken, parsewordlist
-export UninflectedForm, NounForm
+export Stem, Rule 
+export UninflectedForm, UninflectedStem, UninflectedRule
+export NounForm, NounStem, NounRule
 
-include("dataset.jl")
+
 include("parse.jl")
-include("analysis.jl")
+include("types.jl")
+
+include("datasets/dataset.jl")
+include("datasets/kanonesio.jl")
+include("datasets/uninflecteddata.jl")
+include("datasets/nounsdata.jl")
+
+include("analyzer/analysis.jl")
+
 
 # Conversion Form objects <-> URN values
 include("morphology/forms.jl")
@@ -25,19 +35,16 @@ module FstBuilder
     using CitableParserBuilder
     
     export buildparser
-    export Stem, Rule # Migrate to Kanones main module
 
-    include("builder/unicode.jl")
+    include("builder/unicodefst.jl")
     include("builder/config.jl")
-    include("builder/kanonesio.jl")
     include("builder/compiler.jl")
     include("builder/fstcomposer.jl")
     include("builder/acceptorsquashers.jl")
     
-    include("builder/types.jl")
     # Specific analytical types ("parts of speech")
-    include("builder/uninflected.jl")
-    include("builder/nouns.jl")
+    include("builder/uninflectedfst.jl")
+    include("builder/nounsfst.jl")
 end
 
 end # module

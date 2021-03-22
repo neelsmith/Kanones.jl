@@ -26,21 +26,6 @@ function id(uninfl::UninflectedRule)
     uninfl.ruleid
 end
 
-"""Implementation of reading one row of a stems table for uninflected tokens.
-"""
-function readstemrow(usp::UninflectedParser, delimited::AbstractString, delimiter = "|")
-    parts = split(delimited, delimiter)
-    if length(parts) < 4
-        msg = "Invalid syntax for uninflected stem: too few components in $(delimited)"
-        throw(ArgumentError(msg))
-    else
-        stemid = Kanones.StemUrn(parts[1])
-        lexid = Kanones.LexemeUrn(parts[2])
-        form = fstgreek(parts[3])
-        stemclass = parts[4]
-        UninflectedStem(stemid, lexid, form, stemclass)
-    end
-end
 
 """Implementation of reading one row of a rules table for uninflected tokens.
 """
@@ -57,20 +42,18 @@ function readrulerow(usp::UninflectedParser, delimited::AbstractString, delimite
 end
 
 
-"""Compose FST representation of a single UniflectedStem.
+"""Implementation of reading one row of a stems table for uninflected tokens.
 """
-function fst(stem::UninflectedStem)
-    string(
-        fstsafe(stem.stemid),
-        fstsafe(stem.lexid),
-        stem.form,
-        "<uninflected>",
-        "<", stem.stemcategory, ">"
-    )
-end
-
-"""Compose FST representation of a single UninflectedRule.
-"""
-function fst(rule::UninflectedRule)
-    string("<", rule.infltype,"><uninflected>", fstsafe(rule.ruleid))
+function readstemrow(usp::UninflectedParser, delimited::AbstractString, delimiter = "|")
+    parts = split(delimited, delimiter)
+    if length(parts) < 4
+        msg = "Invalid syntax for uninflected stem: too few components in $(delimited)"
+        throw(ArgumentError(msg))
+    else
+        stemid = Kanones.StemUrn(parts[1])
+        lexid = Kanones.LexemeUrn(parts[2])
+        form = parts[3] # fstgreek(parts[3])
+        stemclass = parts[4]
+        UninflectedStem(stemid, lexid, form, stemclass)
+    end
 end

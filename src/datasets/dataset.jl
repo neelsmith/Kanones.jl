@@ -21,15 +21,15 @@ end
 function rulesarray(kd::Kanones.Dataset)
     iodict = Dict(
         [
-        "uninflected" => FstBuilder.UninflectedParser("uninflected"),
-        "nouns" => FstBuilder.NounParser("noun")
+        "uninflected" => UninflectedParser("uninflected"),
+        "nouns" => NounParser("noun")
         ]
     )
     rulesdirs = [
         "uninflected",
         "nouns"
     ]
-    rulesarr = FstBuilder.Rule[]
+    rulesarr = Rule[]
     for dirname in rulesdirs 
         dir = kd.root * "/rules-tables/" * dirname * "/"
         cexfiles = glob("*.cex", dir)
@@ -38,7 +38,7 @@ function rulesarray(kd::Kanones.Dataset)
             raw = readlines(f)
             lines = filter(s -> ! isempty(s), raw)
             for i in 2:length(lines)
-                rule = FstBuilder.readrulerow(delimitedreader, lines[i])
+                rule = readrulerow(delimitedreader, lines[i])
                 push!(rulesarr,rule)
             end
         end
@@ -51,11 +51,11 @@ end
 function stemsarray(kd::Kanones.Dataset)
     iodict = Dict(
         [
-        "uninflected" => FstBuilder.UninflectedParser("uninflected"),
-        "nouns" => FstBuilder.NounParser("noun")
+        "uninflected" => UninflectedParser("uninflected"),
+        "nouns" => NounParser("noun")
         ]
     )
-    lexicon = FstBuilder.Stem[]
+    lexicon = Stem[]
     stemdirs = [
         "uninflected",
         "nouns"
@@ -69,7 +69,7 @@ function stemsarray(kd::Kanones.Dataset)
             raw = readlines(f)
             lines = filter(s -> ! isempty(s), raw)
             for i in 2:length(lines)
-                stem = FstBuilder.readstemrow(delimitedreader, lines[i])
+                stem = readstemrow(delimitedreader, lines[i])
                 push!(stemsarr,stem)
             end
         end
