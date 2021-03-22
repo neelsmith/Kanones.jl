@@ -43,3 +43,13 @@ Vocabulary from Lysias to use for test development:
 2. generate(stemid, ruleid) yields an array of matches
 3. generate(lexid, ruleid) generates ... ?
 4. generate(analysis) uses internal members of structure
+
+
+Pipeline for validation:
+
+fullcircle = parsetoken(p, t) |> generate 
+fullcircle == t
+
+OR
+
+(parsetoken(p, t) |> generate ) == t

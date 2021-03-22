@@ -20,6 +20,7 @@ include("datasets/nounsdata.jl")
 
 include("analyzer/analysis.jl")
 
+include("generate/generate.jl")
 
 # Conversion Form objects <-> URN values
 include("morphology/forms.jl")
