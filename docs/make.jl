@@ -1,9 +1,12 @@
-push!(LOAD_PATH,"../src/")
+push!(LOAD_PATH,"../)
 
-using Pkg
-Pkg.activate("..")
+#import Pkg 
+#Pkg.add("CitableParserBuilder")
+#Pkg.add("CitableObject")
 
-using Documenter, Kanones
+using Documenter
+using CitableObject
+using Kanones, Kanones.FstBuilder
 
 
-makedocs(sitename="Kanones")
+makedocs(sitename="Kanones.jl Documentatoin")
