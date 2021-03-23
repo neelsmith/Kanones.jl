@@ -34,19 +34,25 @@ function parsefst(fststring::AbstractString)
         nothing
     else
         (stem, rule) = split(lines[2], "<div>")
+
         stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
         stemmatch = collect(eachmatch(stemre, FstBuilder.greekfromfst(stem)))
         (stemidval, lexidval, tkn, analysiscat, stemdata) = stemmatch[1].captures
         
-        rulere = r"(.+)<u>(.+)</u>"
+        rulere = r"(<[^>]+><[^>]+>)([^<]*)(.*)<u>(.+)</u>"
         rulematch = collect(eachmatch(rulere, rule))
-        (ruledata, ruleidval) = rulematch[1].captures
-        #@warn("PARSING RULE " * rule)
-        #@warn("Rule parts data " * ruledata * ",  id " * ruleidval)
+        (typeinfo, ending, ruledata, ruleidval) = rulematch[1].captures
+        #=
+        @warn("ENDING " * ending)
+        @warn("RULEDATA " * ruledata)
+        @warn("RULEID " * ruleidval)
+        =#
+
         fnctndict = functionfollowsform()
         fnct = fnctndict[analysiscat]
-        formurn =  ruledata |> fnct
-        Analysis(tkn, LexemeUrn(lexidval), formurn, RuleUrn(ruleidval), StemUrn(stemidval))
+        formurn =  string(typeinfo, ending, ruledata) |> fnct
+        
+        Analysis(string(tkn,ending), LexemeUrn(lexidval), formurn, RuleUrn(ruleidval), StemUrn(stemidval))
     end
 end
 
@@ -66,6 +72,6 @@ function parsetoken(parser, tkn::AbstractString)
     applyparser(parser, stripped) |> parsefst
 end
 
-function parsewordlsit(parser, tokens)
+function parsewordlist(parser, tokens)
     nothing
 end

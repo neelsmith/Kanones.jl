@@ -75,6 +75,6 @@ end
 
     parser = d * "/testcompile/greek.a"
     analyzed = parsetoken(parser, "γνώμαις")
-    
+    @test isa(analyzed, Analysis)
 
 end
