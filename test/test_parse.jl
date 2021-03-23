@@ -62,3 +62,19 @@ end
     analyzed = parsetoken(parser, "silly")
     @test isnothing(analyzed)
 end
+
+
+
+@testset "Build parser and test form of resulting analysis" begin
+    d = tempdir()
+    repo = dirname(pwd())
+
+    kd = Kanones.Dataset(repo * "/datasets/synoptic/")
+    fst =  repo * "/fst/"
+    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+
+    parser = d * "/testcompile/greek.a"
+    analyzed = parsetoken(parser, "γνώμαις")
+    
+
+end

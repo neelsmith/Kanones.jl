@@ -9,7 +9,9 @@ using Test
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
 
-include("test_uninflected.jl")
+include("uninflected/test_uninflectedfst.jl")
+include("uninflected/test_uninflecteddata.jl")
+
 include("test_nouns.jl")
 
 include("test_parse.jl")
