@@ -1,4 +1,4 @@
-# `Kanones.jl` Documentation
+# Kanones.jl
 
 ```@contents
 ```
