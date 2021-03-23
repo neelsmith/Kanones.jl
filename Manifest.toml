@@ -23,9 +23,9 @@ version = "0.3.0"
 
 [[CitableParserBuilder]]
 deps = ["CitableObject", "Documenter", "DocumenterTools", "Test"]
-git-tree-sha1 = "7da3e9bfbd1fa67d6f65acc12ab736a92d27f452"
+git-tree-sha1 = "e550c7ad62cea57491b30b95a42c24826ea5d940"
 uuid = "c834cb9d-35b9-419a-8ff8-ecaeea9e2a2a"
-version = "0.3.0"
+version = "0.3.1"
 
 [[Dates]]
 deps = ["Printf"]
