@@ -16,13 +16,17 @@ makedocs(
     sitename="Kanones.jl",
     pages = [
         "Home" => "index.md",
+        "Background" => "bg/index.md",
         "Manual" => Any[
-            "Guide" => "datasets/index.md",
+            "Prerequisites" => "prereqs.md",
+            "Managing Kanones datasets" => "datasets/index.md",
+            "Compiling and parsing" => "parsing/index.md",
+            "Working with analytical data" => "analyses/index.md"
            
         ],
-        "FST" => Any[
-            "Public" =>  "fst/index.md",
-           
+        "Reference" => Any[
+            "FST" =>  "fst/index.md",
+            "Julia" =>  "apis/apis.md",
         ],
         
     ],
