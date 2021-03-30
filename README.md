@@ -14,7 +14,7 @@ Kanones.jl recognizes nine analytical types, characterized by the kind of analys
 
 
 | Analytical type | morphology | analyze literary Greek |  generate literary Greek | analyze Attic | generate Attic |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | uninflected token | part of speech | ✔️  | | | |
 | noun | gender, case, number | ✔️ |  | | |
 | adjective | gender, case, number, degree | | | | |
