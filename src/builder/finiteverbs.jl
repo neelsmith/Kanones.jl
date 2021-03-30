@@ -1,4 +1,7 @@
-"A record for a single uninflected stem."
+"""A record for a single uninflected stem.
+
+$(SIGNATURES)
+"""
 struct FiniteVerbStem <: Stem
     stemid::Kanones.AbbreviatedUrn
     lexid::Kanones.AbbreviatedUrn
