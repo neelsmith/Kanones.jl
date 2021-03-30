@@ -1,17 +1,26 @@
 # Compiling and parsing
 
+Build a parser with the `buildparser` function.
 
 
-```jdocs kd
+See [Managing Kanones datasets](@ref)
+
+
+```@setup parserexample
+repo = pwd() |> dirname |> dirname  |> dirname
+target = tempdir() * "/demoparser2/"
+if isfile(target)
+    rm(target, force=true, recursive=true)
+    mkdir(target)
+else 
+    mkdir(target)
+end
+```
+
+```@example parserexample
 using Kanones, Kanones.FstBuilder
-kd = Kanones.Dataset(pwd() * "/datasets/synoptic")
-fstsrc = pwd() * "/fst/"
-target = pwd() * "/parsers/testbuild/"
+kd = Kanones.Dataset(repo * "/datasets/synoptic/")
+fstsrc = repo * "/fst/"
 parser = buildparser(kd, fstsrc, target)
 basename(parser)
-
-# output
-
-"greek.a"
 ```
-Build a parser with the `buildparser` function.

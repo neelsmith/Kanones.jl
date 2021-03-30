@@ -52,7 +52,7 @@ basename(parser)
 ```
 
 
-### Parse a token
+### Parse a token: THIS IS WRONG.
 
 Use the parser to parse a token.  The resulting `Analysis` object includes URN values for the form, the lexeme, the stem entry in the dataset's list of stems, and the rule entry in the dataset's list of rules.
 

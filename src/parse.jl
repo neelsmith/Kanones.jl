@@ -57,6 +57,8 @@ function parsefst(fststring::AbstractString)
 end
 
 """Applies a parser to a token using fst-infl.
+
+$(SIGNATURES)
 """
 function applyparser(parser, tkn::AbstractString)
     fstinfl = fstinflpath()
@@ -65,7 +67,9 @@ function applyparser(parser, tkn::AbstractString)
     rslt = read(cmd, String)
 end
 
-"""Parses a single token to an `Analysis` or `nothing`.
+"""Parses a single token to an array of `Analysis` or `nothing`.
+
+$(SIGNATURES)
 """
 function parsetoken(parser, tkn::AbstractString)
     stripped = FstBuilder.fstgreek(tkn) 

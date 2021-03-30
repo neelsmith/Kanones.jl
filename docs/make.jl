@@ -26,7 +26,7 @@ makedocs(
         ],
         "Reference" => Any[
             "FST" =>  "fst/index.md",
-            "Julia" =>  "apis/apis.md",
+            "Julia API documentation" =>  "apis/apis.md",
         ],
         
     ],

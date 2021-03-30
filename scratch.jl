@@ -2,23 +2,18 @@ using Kanones
 using Kanones.FstBuilder
 
 kd = Kanones.Dataset(pwd() * "/datasets/synoptic/")
-tgt = pwd() * "/parsers/tempparser3/"
+tgt = pwd() * "/parsers/tempparser/"
+fstsrc  =  pwd() * "/fst/"
+parser = buildparser(kd,fstsrc, tgt)
 
-buildparser(kd, "fst", tgt)
-
-parser = tgt * "greek.a"
-tokens = []
-
-tkn = "καὶ"
-parsetoken(parser, tkn)
 
 tokens = []
-# Make a list tokens
+# Make a list of tokens
 for i in 1:100
     push!(tokens, "καί")
-    #push!(tokens, "ὦ")
+    push!(tokens, "ὦ")
     push!(tokens, "δέ")
-    #push!(tokens, "ἐπί")
+    push!(tokens, "ἐπί")
     push!(tokens, "νῦν")
     push!(tokens, "δύο")
     push!(tokens, "NOTGREEK")

@@ -3,6 +3,7 @@ module Kanones
 using CitableObject, CitableParserBuilder
 using PolytonicGreek
 using Unicode, Glob
+using Documenter, DocStringExtensions
 
 export parsetoken, parsewordlist
 export Stem, Rule 
@@ -11,7 +12,6 @@ export NounForm, NounStem, NounRule
 
 
 include("parse.jl")
-include("types.jl")
 
 include("datasets/dataset.jl")
 include("datasets/kanonesio.jl")
@@ -34,6 +34,7 @@ module FstBuilder
     import ..Kanones
     using Glob, Unicode
     using CitableParserBuilder
+    using Documenter, DocStringExtensions
     
     export buildparser
 

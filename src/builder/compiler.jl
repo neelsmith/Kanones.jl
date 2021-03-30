@@ -1,4 +1,7 @@
 """Read data from src and fstdir and compile a SFST parser in target.
+
+$(SIGNATURES)
+
 Returns the path to the compiled binary `greek.a` which can then be used
 as an argument to the `parsetoken` function.
 """
@@ -19,6 +22,15 @@ function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::Abstr
     parser = target * "/greek.a"
 end
 
+"""Compile binary parser with `make`.
+
+$(SIGNATURES)
+
+# Arguments
+
+- `target` is a directory with a `makefile`.
+
+"""
 function compilefst(target)
     originaldir = pwd()
     cd(target)
@@ -29,6 +41,16 @@ function compilefst(target)
     @info string("Compilation complete. Working directory now ", pwd())
 end
 
+
+"""Compose `makefile`.
+
+$(SIGNATURES)
+
+# Arguments
+
+- `src` is a `Kanones.Dataset`.  
+- `target` is the full path to the desination file `makefile`.
+"""
 function buildmakefile(src, target)
     dir = dirname(target)
     whichcompiler = read(`which fst-compiler-utf8`, String)
@@ -46,6 +68,15 @@ function buildmakefile(src, target)
     end
 end
 
+"""Compose top-level transducer `greek.fst`.
+
+$(SIGNATURES)
+
+# Arguments
+
+- `src` is a `Kanones.Dataset`.  
+- `target` is the full path to the desination file `greek.fst`.
+"""
 function buildfinalfst(src, target)
     fstdir = dirname(target)
     doc = join([
@@ -77,7 +108,15 @@ function buildfinalfst(src, target)
     end
 end
 
-"Read all stem data and compose `lexicon.fst`."
+"""Read all stem data and compose `lexicon.fst`.
+
+$(SIGNATURES)
+
+# Arguments
+
+- `src` is a `Kanones.Dataset`.  
+- `target` is the full path to the desination file `lexicon.fst`.
+"""
 function buildlexicon(src, target)
      stems = Kanones.stemsarray(src)
      lexicon = []
@@ -91,8 +130,13 @@ end
 
 """
 Read all rules data and compose `inflection.fst`.
-`src` is a `Kanones.Dataset`.  
-`target` is the full path to the desination file `inflection.fst`.
+
+$(SIGNATURES)
+
+# Arguments
+
+- `src` is a `Kanones.Dataset`.  
+- `target` is the full path to the desination file `inflection.fst`.
 """
 function buildinflection(src::Kanones.Dataset, target)
     ruleset = Kanones.rulesarray(src)

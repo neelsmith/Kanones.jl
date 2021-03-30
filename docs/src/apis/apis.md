@@ -1,8 +1,17 @@
-# API documentation
 
-## Parsing
+```@contents
+Pages = ["apis.md"]
+Depth = 3
+```
+
+
+# `Kanones.FstBuilder`
 
 ```@docs
-Kanones.FstBuilder.buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::AbstractString)
-parsetoken(parser, tkn::AbstractString)
+Kanones.FstBuilder.buildparser
+Kanones.FstBuilder.buildlexicon
+Kanones.FstBuilder.buildinflection
+Kanones.FstBuilder.buildfinalfst
+Kanones.FstBuilder.buildmakefile
+Kanones.FstBuilder.compilefst
 ```
