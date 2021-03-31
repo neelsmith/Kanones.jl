@@ -9,7 +9,10 @@ struct FiniteVerbStem <: Stem
     stemclass::AbstractString  
 end
 
-"Inflectional rule for uninflected lexical items."
+"""Inflectional rule for uninflected lexical items.
+
+$(SIGNATURES)
+"""
 struct FiniteVerbRule <: Rule
     ruleid::Kanones.AbbreviatedUrn
     stemclass
@@ -21,6 +24,13 @@ struct FiniteVerbRule <: Rule
     vvoice
 end
 
+
+
+
+"""Implementation of reading one row of a stems table for finite verbs.
+
+$(SIGNATURES)
+"""
 function readstemrow(usp::VerbParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
     stemid = Kanones.StemUrn(parts[1])
@@ -31,6 +41,11 @@ function readstemrow(usp::VerbParser, delimited::AbstractString, delimiter = "|"
     # Rule|LexicalEntity|StemClass|Stem|
 end
 
+
+"""Read one row of a stems table for verb tokens and create a `VerbStem`
+
+$(SIGNATURES)
+"""
 function readrulerow(usp::VerbParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
     
@@ -52,30 +67,4 @@ function readrulerow(usp::VerbParser, delimited::AbstractString, delimiter = "|"
     end
 
     # Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-end
-
-"""Compose FST representation of a single FiniteVerbStem.
-"""
-function fst(stem::FiniteVerbStem)
-    string(
-        fstsafe(stem.stemid),
-        fstsafe(stem.lexid),
-        stem.form,
-        "<finiteverb>",
-        "<", stem.stemclass, ">"
-    )
-end
-
-"""Compose FST representation of a single FiniteVerbRule.
-"""
-function fst(rule::FiniteVerbRule)
-    string("<", rule.stemclass,"><finiteverb>", 
-    rule.ending,
-    "<", rule.vperson, ">",
-    "<", rule.vnumber, ">",
-    "<", rule.vtense, ">",
-    "<", rule.vmood, ">",
-    "<", rule.vvoice, ">",
-    fstsafe(rule.ruleid)
-    )
 end

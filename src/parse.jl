@@ -1,4 +1,6 @@
 """Find full path to `fst-infl`on your system.
+
+$(SIGNATURES)
 """
 function fstinflpath()
     rawout = read(`which fst-infl`, String)
@@ -6,14 +8,19 @@ function fstinflpath()
 end
 
 """Find full path to `echo`on your system.
+
+$(SIGNATURES)
 """
 function echopath()
     rawout = read(`which echo`, String)
     replace(rawout, "\n" => "")
 end
 
-"""Dict of functions to use with each analytical type
-to determine FormUrn from FST description of form.
+"""Dictionary of functions to use with each analytical type
+to determine a `FormUrn` from the FST description of form.
+
+
+$(SIGNATURES)
 """
 function functionfollowsform()
     Dict(
@@ -22,8 +29,11 @@ function functionfollowsform()
     )
 end
 
-"""Parses a string of FST output for a single token
-to an `Analysis`.
+"""Parse a string of FST output for a single token
+to a list of `Analysis` objects.
+
+
+$(SIGNATURES)
 """
 function parsefst(fststring::AbstractString)
     lines = split(fststring,"\n")
@@ -56,7 +66,7 @@ function parsefst(fststring::AbstractString)
     end
 end
 
-"""Applies a parser to a token using fst-infl.
+"""Apply a parser to a token using `fst-infl`.
 
 $(SIGNATURES)
 """
@@ -67,7 +77,7 @@ function applyparser(parser, tkn::AbstractString)
     rslt = read(cmd, String)
 end
 
-"""Parses a single token to an array of `Analysis` or `nothing`.
+"""Parse a single token to an array of `Analysis` or `nothing`.
 
 $(SIGNATURES)
 """
@@ -76,6 +86,13 @@ function parsetoken(parser, tkn::AbstractString)
     applyparser(parser, stripped) |> parsefst
 end
 
+
+"""Parse a list of words.
+
+$(SIGNATURES)
+
+NOT YET IMPLEMENTED.
+"""
 function parsewordlist(parser, tokens)
     nothing
 end

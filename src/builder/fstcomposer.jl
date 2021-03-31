@@ -1,5 +1,8 @@
 
-"Install alphabet.fst required to be part of an individual project."
+"""Install `alphabet.fst` required to be part of an individual project.
+
+$(SIGNATURES)
+"""
 function installalphabet(src::Kanones.Dataset, target::AbstractString)
     srcfile = src.root * "/orthography/alphabet.fst"
     targetdir = target * "/symbols/"
@@ -11,7 +14,10 @@ function installalphabet(src::Kanones.Dataset, target::AbstractString)
 end
 
 
-"Install symbols FST from generic FST source applying to many projects."
+"""Install symbols FST from generic FST source applying to many projects.
+
+$(SIGNATURES)
+"""
 function installsymbols(src::AbstractString, target::AbstractString)
     targetdir = target * "/symbols/"
     if ! ispath(targetdir)
@@ -45,7 +51,10 @@ function installsymbols(src::AbstractString, target::AbstractString)
     
 end
 
-"Compose content for top-level symbols.fst file."
+"""Compose content for top-level `symbols.fst` file.
+
+$(SIGNATURES)
+"""
 function symbolsfst(dir::AbstractString)
     lines = [
         "% symbols.fst",

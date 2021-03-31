@@ -1,4 +1,6 @@
-"""Compose FST representation of a single UniflectedStem.
+"""Compose FST representation of a single `UniflectedStem`.
+
+$(SIGNATURES)
 """
 function fst(stem::Kanones.UninflectedStem)
     string(
@@ -10,7 +12,9 @@ function fst(stem::Kanones.UninflectedStem)
     )
 end
 
-"""Compose FST representation of a single UninflectedRule.
+"""Compose FST representation of a single `UninflectedRule`.
+
+$(SIGNATURES)
 """
 function fst(rule::Kanones.UninflectedRule)
     string("<", rule.infltype,"><uninflected>", fstsafe(rule.ruleid))

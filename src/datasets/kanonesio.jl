@@ -1,18 +1,33 @@
-"Implementations of this type can read delimited and write fst."
+"""
+Implementations of this type can read delimited and write fst.
+
+$(SIGNATURES)
+"""
 abstract type KanonesIO end
 
-"KanonesIO type for reading and writing stem for uninflected forms."
+"""
+KanonesIO type for reading and writing stem for uninflected forms.
+$(SIGNATURES)
+"""
 struct UninflectedParser <: KanonesIO
     label::AbstractString
 end
 
-"KanonesIO type for reading and writing data for noun forms."
+"""
+KanonesIO type for reading and writing data for noun forms.
+
+$(SIGNATURES)
+"""
 struct NounParser <: KanonesIO
     label::AbstractString
 end
 
 
-"KanonesIO type for reading and writing data for finite verb form."
+"""
+KanonesIO type for reading and writing data for finite verb form.
+
+$(SIGNATURES)
+"""    
 struct VerbParser <: KanonesIO
     label::AbstractString
 end

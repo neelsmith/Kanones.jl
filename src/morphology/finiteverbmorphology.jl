@@ -13,29 +13,46 @@ struct FiniteVerbForm <: MorphologicalForm
     voicelabel::AbstractString 
 end
 
-"""Create a `NounForm` from a URN."""
-function finiteverbform(urn::Cite2Urn)
+"""Create a `NounForm` from a URN.
+
+$(SIGNATURES)
+"""
+function FiniteVerbForm(urn::Cite2Urn)
     nothing
 end
 
-"""Compose URN for a `FiniteVerbForm`."""
+"""Compose URN for a `FiniteVerbForm`.
+
+$(SIGNATURES)
+"""
 function urn(noun::FiniteVerbForm)
     nothing
 end
 
 
-"""Compose CEX representation for a `FiniteVerbForm`."""
+"""Compose CEX representation for a `FiniteVerbForm`.
+
+$(SIGNATURES)
+"""
 function cex(noun::FiniteVerbForm)
     nothing
 end
 
 
-"""Compose URN for finite verb form from FST representation of analytical data."""
+"""Compose URN for finite verb form from FST representation of analytical data.
+
+$(SIGNATURES)
+"""
 function finiteverbabbrurn(fstdata)
     nothing
 end
 
 
+
+"""Compose delimited-text representation of CITE collection for morphological forms of finite verbs.
+
+$(SIGNATURES)
+"""
 function finiteverbscex()
 
     persondict = valuedict(personpairs)

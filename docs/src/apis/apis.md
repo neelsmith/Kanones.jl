@@ -1,11 +1,110 @@
 
+# Julia language API documentation
+
+
 ```@contents
 Pages = ["apis.md"]
 Depth = 3
 ```
+## Morphology
+
+### Structures
+
+```@docs
+MorphologicalForm
+Kanones.UninflectedForm
+Kanones.NounForm
+Kanones.FiniteVerbForm
+```
 
 
-# `Kanones.FstBuilder`
+### Functions
+
+```@docs
+Kanones.urn
+Kanones.cex
+Kanones.morphform
+Kanones.formscex
+Kanones.pospairs
+Kanones.uninflectedpairs
+Kanones.casepairs
+Kanones.personpairs
+Kanones.numberpairs
+Kanones.voicepairs
+Kanones.tensepairs
+Kanones.moodpairs
+Kanones.valuedict
+Kanones.labeldict
+Kanones.nounform
+Kanones.nounabbrurn
+Kanones.nounscex
+Kanones.uninflectedform
+Kanones.uninflectedabbrurn
+Kanones.uninflectedcex
+Kanones.finiteverbabbrurn
+```
+
+## Datasets
+
+### Structures
+
+```@docs
+Kanones.Dataset
+Kanones.KanonesIO
+Kanones.NounParser
+Kanones.NounStem
+Kanones.NounRule
+Kanones.UninflectedParser
+Kanones.UninflectedStem
+Kanones.UninflectedRule
+Kanones.VerbParser
+Kanones.FiniteVerbStem
+Kanones.FiniteVerbRule
+```
+
+### Functions
+
+```@docs
+Kanones.rulesarray
+Kanones.stemsarray
+Kanones.validsource
+Kanones.readstemrow
+Kanones.readrulerow
+Kanones.id
+Kanones.lexeme
+```
+
+
+## Analysis
+
+### Exported functions
+
+```@docs
+parsetoken
+parsewordlist
+```
+
+### Functions used internally in parsing via a FST
+
+```@docs
+Kanones.stemsforlex
+Kanones.fstinflpath
+Kanones.echopath
+Kanones.functionfollowsform
+Kanones.parsefst
+Kanones.applyparser
+```
+
+## Generation
+
+
+```@docs
+Kanones.generate
+```
+
+## `Kanones.FstBuilder`
+
+The functions of the `FstBuilder` submodule compose expressions in SFST-PL, the language of the Stuttgart FST toolkit.
 
 ```@docs
 Kanones.FstBuilder.buildparser
@@ -14,4 +113,18 @@ Kanones.FstBuilder.buildinflection
 Kanones.FstBuilder.buildfinalfst
 Kanones.FstBuilder.buildmakefile
 Kanones.FstBuilder.compilefst
+Kanones.FstBuilder.buildacceptor
+Kanones.FstBuilder.uninflsquasher
+Kanones.FstBuilder.nounsquasher
+Kanones.FstBuilder.installalphabet
+Kanones.FstBuilder.installsymbols
+Kanones.FstBuilder.symbolsfst
+Kanones.FstBuilder.fstok
+Kanones.FstBuilder.cmdok
+Kanones.FstBuilder.fst
+Kanones.FstBuilder.addsmooth
+Kanones.FstBuilder.addrough
+Kanones.FstBuilder.greekfromfst
+Kanones.FstBuilder.fstgreek
+Kanones.FstBuilder.compoundsdict
 ```

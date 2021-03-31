@@ -1,6 +1,6 @@
 # Kanones.jl
 
-A julia package implmenting the kanones system for building Greek morphological parsers.
+A julia package implementing the kanónes system for building Greek morphological parsers.
 
 
 ## Current coverage

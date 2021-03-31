@@ -128,6 +128,7 @@ function buildlexicon(src, target)
     end
 end
 
+
 """
 Read all rules data and compose `inflection.fst`.
 

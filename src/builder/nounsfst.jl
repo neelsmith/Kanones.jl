@@ -1,6 +1,8 @@
 
 
-"""Compose FST representation of a single NounStem.
+"""Compose FST representation of a single `NounStem`.
+
+$(SIGNATURES)
 """
 function fst(stem::Kanones.NounStem)
     string(
@@ -14,7 +16,9 @@ function fst(stem::Kanones.NounStem)
     
 end
 
-"""Compose FST representation of a single NounRule.
+"""Compose FST representation of a single `NounRule`.
+
+$(SIGNATURES)
 """
 function fst(rule::Kanones.NounRule)
     string(

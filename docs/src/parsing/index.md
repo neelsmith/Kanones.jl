@@ -9,7 +9,7 @@ See [Managing Kanones datasets](@ref)
 ```@setup parserexample
 repo = pwd() |> dirname |> dirname  |> dirname
 target = tempdir() * "/demoparser2/"
-if isfile(target)
+if isdir(target)
     rm(target, force=true, recursive=true)
     mkdir(target)
 else 
@@ -17,7 +17,7 @@ else
 end
 ```
 
-```@example parserexample
+```example parserexample
 using Kanones, Kanones.FstBuilder
 kd = Kanones.Dataset(repo * "/datasets/synoptic/")
 fstsrc = repo * "/fst/"

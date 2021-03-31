@@ -9,7 +9,10 @@ struct NounForm <: MorphologicalForm
     numberlabel::AbstractString    
 end
 
-"""Create a `NounForm` from a URN."""
+"""Create a `NounForm` from a URN.
+
+$(SIGNATURES)
+"""
 function nounform(urn::Cite2Urn)
     morphchars = split(objectcomponent(urn),"")
     ngender = parse(Int64, morphchars[7])
@@ -26,18 +29,27 @@ function nounform(urn::Cite2Urn)
 end
 
 
-"""Compose URN for a `NounForm`."""
+"""Compose URN for a `NounForm`.
+
+$(SIGNATURES)
+"""
 function urn(noun::NounForm)
     # PosPNTMVGCDCat
     Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",noun.nnumber,"000",noun.ngender,noun.ncase,"00"))
 end
 
 
-"""Compose CEX representation for a `NounForm`."""
+"""Compose CEX representation for a `NounForm`.
+
+$(SIGNATURES)
+"""
 function cex(noun::NounForm)
 end
 
-"""Compose URN for noun form from FST representation of analytical data."""
+"""Compose URN for noun form from FST representation of analytical data.
+
+$(SIGNATURES)
+"""
 function nounabbrurn(fstdata)
     #<h_hs><noun>ας<feminine><accusative><singular>
     #@warn("Parse FST noun " * fstdata)
@@ -64,7 +76,10 @@ function nounabbrurn(fstdata)
     end
 end
 
-"""Compose CEX representation of URNs and labels for noun forms."""
+"""Compose CEX representation of URNs and labels for noun forms.
+
+$(SIGNATURES)
+"""
 function nounscex()
     genderdict = valuedict(genderpairs)
     genderkeys = keys(genderdict)  |> collect |> sort 

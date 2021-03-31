@@ -10,6 +10,8 @@ export Stem, Rule
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 
+export MorphologicalForm
+
 
 include("parse.jl")
 
@@ -17,6 +19,7 @@ include("datasets/dataset.jl")
 include("datasets/kanonesio.jl")
 include("datasets/uninflecteddata.jl")
 include("datasets/nounsdata.jl")
+include("datasets/finiteverbsdata.jl")
 
 include("analyzer/analysis.jl")
 
@@ -33,6 +36,7 @@ include("morphology/finiteverbmorphology.jl")
 module FstBuilder
     import ..Kanones
     using Glob, Unicode
+    using CitableObject
     using CitableParserBuilder
     using Documenter, DocStringExtensions
     

@@ -8,10 +8,18 @@ struct NounStem <: Stem
     accentpersistence
 end
 
+"""Identify identifier URN for a `NounStem`.
+
+$(SIGNATURES)
+"""
 function id(n::NounStem)
     n.stemid
 end
 
+"""Identify lexeme URN for a `NounStem`.
+
+$(SIGNATURES)
+"""
 function lexeme(n::NounStem)
     n.lexid
 end
@@ -27,14 +35,18 @@ struct NounRule <: Rule
 end
 
 
+"""Identify identifier URN for a `NounRule`.
+
+$(SIGNATURES)
+"""
 function id(n::NounRule)
     n.ruleid
 end
 
-
 """
-
 Read one row of a stems table for noun tokens and create a `NounStem`.
+
+$(SIGNATURES)    
 """
 function readstemrow(usp::NounParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
@@ -48,6 +60,8 @@ function readstemrow(usp::NounParser, delimited::AbstractString, delimiter = "|"
 end
 
 """Implementation of reading one row of a rules table for uninflected tokens.
+
+$(SIGNATURES) 
 """
 function readrulerow(usp::NounParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)

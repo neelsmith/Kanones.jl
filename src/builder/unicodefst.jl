@@ -2,6 +2,10 @@
 # Greek in standard Unicode form and FST strings with
 # no accents and breathings encoded as FST tokens.
 
+"""Add smooth breathing to a vowel.
+
+$(SIGNATURES)
+"""
 function addsmooth(vowel::AbstractString)
     dict = Dict(
         "α" => "ἀ",
@@ -16,6 +20,11 @@ function addsmooth(vowel::AbstractString)
     replacement
 end
 
+
+"""Add rough breathing to a vowel.
+
+$(SIGNATURES)
+"""
 function addrough(vowel::AbstractString)
     dict = Dict(
         "α" => "ἁ",
@@ -29,7 +38,9 @@ function addrough(vowel::AbstractString)
     dict[vowel]
 end
 
-"""Convert FST string nomral Unicode representation.
+"""Convert FST string to Unicode representation of Greek.
+
+$(SIGNATURES)
 """
 function greekfromfst(fst::AbstractString)
     # Check size of matches...
@@ -53,6 +64,8 @@ function greekfromfst(fst::AbstractString)
 end
 
 """Convert Greek string `s` to FST representation.
+
+$(SIGNATURES)
 """
 function fstgreek(s::AbstractString)
     normed = Unicode.normalize(s, :NFKC)
@@ -73,6 +86,8 @@ end
 
 """Dictionary mapping vowels with accents and/or breathings
 to equivalent FST representation.
+
+$(SIGNATURES)
 """
 function compoundsdict()
     d = Dict(

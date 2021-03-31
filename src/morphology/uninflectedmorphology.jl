@@ -6,7 +6,10 @@ struct UninflectedForm <: MorphologicalForm
 end
 
 
-"""Create `UninflectedForm` from a URN."""
+"""Create `UninflectedForm` from a URN.
+
+$(SIGNATURES)
+"""
 function uninflectedform(urn::Cite2Urn)
     c = objectcomponent(urn)[end]
     pos = parse(Int64, c)
@@ -15,20 +18,29 @@ function uninflectedform(urn::Cite2Urn)
     UninflectedForm(pos, poslabel)
 end
 
-"""Compose URN for an `UninflectedForm`."""
+"""Compose URN for an `UninflectedForm`.
+
+$(SIGNATURES)
+"""
 function urn(uform::UninflectedForm)
     urnstring = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", uform.pos)
     Cite2Urn(urnstring)
 end
 
 
-"""Compose URN for an `UninflectedForm`."""
+"""Compose URN for an `UninflectedForm`.
+
+$(SIGNATURES)
+"""
 function cex(uform::UninflectedForm)
     urnval = urn(uform).urn
     string(urnval,"|uninflected form: ", uform.poslabel)
 end
 
-"""Compose Abbreviated URN for uninflected form from FST representation of analytical data."""
+"""Compose Abbreviated URN for uninflected form from FST representation of analytical data.
+
+$(SIGNATURES)
+"""
 function uninflectedabbrurn(fstdata)
     #s = replace(fstdata, r"[<>]" => "")
     uninflrulere = r"<([^<]+)><([^<]+)>"  
@@ -48,7 +60,10 @@ function uninflectedabbrurn(fstdata)
     end
 end
 
-"""Compose CEX representation of URNs and labels for uninflected forms."""
+"""Compose CEX representation of URNs and labels for uninflected forms.
+
+$(SIGNATURES)
+"""
 function uninflectedcex()
     dict = valuedict(uninflectedpairs)
     lines = []

@@ -1,9 +1,14 @@
+"""Abstract type of a morphological form."""
 abstract type MorphologicalForm end
+
+
 
 const BASE_MORPHOLOGY_URN = "urn:cite2:kanones:morphforms.v1:"
 
 
 """Compose CEX representation of CITE colletion of all recognized forms.
+
+$(SIGNATURES)
 
 Currently, includes only:
 - unanalyzed forms
@@ -24,6 +29,8 @@ end
 
 """Convert a `MorphologicalForm` to a Cite2Urn.
 
+$(SIGNATURES)
+
 All subclasses of `MorphologicalForm` should implement this specifically
 for their subclass.
 """
@@ -36,6 +43,8 @@ end
 
 """Convert a `MorphologicalForm` form to a delimited-text string. 
 
+$(SIGNATURES)
+
 All subclasses of `MorphologicalForm` should implement this specifically
 for their subclass.
 """
@@ -45,7 +54,10 @@ function cex(MorphologicalForm)
 end
 
 
-"""Create a `MorphologicalForm` from a URN value."""
+"""Create a `MorphologicalForm` from a URN value.
+
+$(SIGNATURES)
+"""
 function morphform(urn::Cite2Urn)
     c = objectcomponent(urn)[1]
     poskey = parse(Int64, c)

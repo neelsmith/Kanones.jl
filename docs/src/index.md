@@ -12,6 +12,11 @@ Kanones.jl lets you build morphological parsers for ancient Greek.  It works wit
 Because Kanones.jl cleanly separates orthography and morphology, you can compile parsers for standard literary Greek, epichoric Greek alphabets, or Greek with manuscript symbols, for example.  Because it manages stems and inflectional rules in plain-text tables, an editor or Greek student can easily tailor a parser to a specific corpus by adding or deleting entries.  Because analyses are expressed with URNs, Kanones.jl's analytical tools can profile a corpus, and even compare lexical and morphological features across corpora in different orthographies. 
 
 
+## More backgound
+
+Read more about the rationale and approach to parsing a historical language in "Morphological Analysis of Historical Languages" (*Bulletin of the Institute for Classical Studies* 59-2, 2016, 89-102).
+
+
 ## Shortest possible example
 
 

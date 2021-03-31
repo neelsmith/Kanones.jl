@@ -1,5 +1,7 @@
 
 """Compose `acceptor.fst` and write to file `target`.
+
+$(SIGNATURES)
 """
 function buildacceptor(src, target)
     fstroot = dirname(target)
@@ -32,7 +34,10 @@ function buildacceptor(src, target)
     end
 end
 
-# Add: equality variable for gener
+"""Compose transducer for filtering nouns.
+
+$(SIGNATURES)
+"""
 function nounsquasher()
     join([
     "% Noun acceptor:",
@@ -43,6 +48,9 @@ function nounsquasher()
     ], "\n")
 end
 
+"""Compose transducer for filtering uninflected forms.
+
+$(SIGNATURES)"""
 function uninflsquasher()
     join([
         "% Uninflected form acceptor:",

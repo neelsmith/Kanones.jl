@@ -1,5 +1,9 @@
 
 
+"""Generate form for a given `Analysis`.
+
+$(SIGNATURES)
+"""
 function generate(analysis::Analysis)
     # is token == stem.form + rule.ending ?
     #

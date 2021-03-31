@@ -1,6 +1,9 @@
 
 """
 A Kanones dataset in a local file system.  
+
+# Member
+
 `root` is the full path to the dataset's root directory.  Its subdirectory
 organization must follow Kanones' specifications.
 """
@@ -17,7 +20,10 @@ struct Dataset
     end
 end
 
+"""Read all rules data from a `Kanones.Dataset` into an array of `Rule`s.
 
+$(SIGNATURES)
+"""
 function rulesarray(kd::Kanones.Dataset)
     iodict = Dict(
         [
@@ -46,8 +52,10 @@ function rulesarray(kd::Kanones.Dataset)
     rulesarr
 end
 
+"""Read all stem data from a `Kanones.Dataset` into an array of `Stem`s.
 
-
+$(SIGNATURES)
+"""
 function stemsarray(kd::Kanones.Dataset)
     iodict = Dict(
         [
@@ -79,9 +87,9 @@ end
 
 
 """
-    validsource(dir::AbstractString)
+True if `dir` satisfies all requirements for a `Kanones.Dataset`.
 
-True if `dir` satisfies Kanones' requirements.
+$(SIGNATURES)    
 """
 function validsource(dir::AbstractString)
     if ! ispath(dir)

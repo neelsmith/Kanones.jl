@@ -1,11 +1,17 @@
 
 
-"True if all necessary SFST components are installed."
+"""True if all necessary SFST components are installed.
+
+$(SIGNATURES)
+"""
 function fstok()::Bool
     cmdok("make") && cmdok("fst-compiler-utf8") && cmdok("fst-infl")
 end
 
-"True if executable cmd is found."
+"""True if executable cmd is found.
+
+$(SIGNATURES)
+"""
 function cmdok(cmd::AbstractString)::Bool
     try
         f = read(`which $cmd`, String)
