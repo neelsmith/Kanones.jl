@@ -1,2 +1,6 @@
 Manifest.toml
 docs/build/
+parsers/*/makefile
+parsers/*/*.fst
+parsers/*/*.a
+parsers/*/symbols/*.fst
