@@ -1,5 +1,7 @@
 StemID|LexicalEntity|Form|StemClass|
 
+uninflectedstems.n4357|lsj.n4357|ἀλλά|conjunction|
+uninflectedstems.n4845|lsj.n4845|ἅμα|adverb|
 uninflectedstems.n6207|lsj.n6207|ἄν|particle|
 uninflectedstems.n9778|lsj.n9778|ἀντί|preposition|
 uninflectedstems.n12243|lsj.n12243|ἀπό|preposition|
@@ -17,9 +19,8 @@ uninflectedstems.n31575|lsj.n31575|ἐκ|preposition|
 uninflectedstems.n31575|lsj.n31575|ἐξ|preposition|
 uninflectedstems.n34700|lsj.n34700|ἐν|preposition|
 uninflectedstems.n35364|lsj.n35364|ἕνεκα|preposition|
+uninflectedstems.n38547|lsj.n38547|ἔπειτα|adverb|
 uninflectedstems.n38862|lsj.n38862|ἐπί|preposition|
-uninflectedstems.n38862|lsj.n38862|ἐπί|preposition|
-μᾶλλον||||
 οὐδέ||||
 οὔπω||||
 οὔτε||||
@@ -37,25 +38,23 @@ uninflectedstems.n38862|lsj.n38862|ἐπί|preposition|
 πώποτε||||
 τε||||
 τοτε||||
-ἀλλά||||
-ἅμα||||
 ἐπειδή||||
 ἐπεί||||
 ἐάν||||
-ἑπτά||||
-ἔπειτα||||
-ἔτι||||
 ἕως||||
 ἤδη||||
 ὅπως||||
 ὅταν||||
 ὅτε||||
 ὅτι||||
+uninflectedstems.n41918|lsj.n41918|ἑπτά|numeral|
+uninflectedstems.n43266|lsj.n43266|ἔτι|adverb|
 uninflectedstems.n50492|lsj.n50492|ἵνα|conjunction|
 uninflectedstems.n51951|lsj.n51951|καί|conjunction|
 uninflectedstems.n52052|lsj.n52052|καίτοι|particle|
 uninflectedstems.n53647|lsj.n53647|κατά|preposition|
 uninflectedstems.n63013|lsj.n63013|λίαν|adverb|
+uninflectedstems.n64866|lsj.n64866|μᾶλλον|adverb|
 uninflectedstems.n66260|lsj.n66260|μέν|particle|
 uninflectedstems.n66291a|lsj.n66291a|μέντοι|particle|
 uninflectedstems.n66572|lsj.n66572|μετά|preposition|
