@@ -2,7 +2,7 @@ module Kanones
 
 using CitableObject, CitableParserBuilder
 using PolytonicGreek
-using Unicode, Glob
+using Unicode, Glob, DelimitedFiles
 using Documenter, DocStringExtensions
 
 export parsetoken, parsewordlist
