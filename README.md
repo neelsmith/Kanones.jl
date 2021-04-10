@@ -13,14 +13,14 @@ Kanones.jl is being developed with test datasets in three distinct orthographies
 Kanones.jl recognizes nine analytical types, characterized by the kind of analysis a parse creates.  The following table tracks coverage so far of analyzing and generating forms for each analytical type in both literary Greek and Attic Greek orthographies.
 
 
-| Analytical type | morphology | analyze literary Greek |  generate literary Greek | analyze Attic | generate Attic |
-| --- | --- | --- | --- | --- | --- |
-| uninflected token | part of speech | ✔️  | | | |
-| noun | gender, case, number | ✔️ |  | | |
-| adjective | gender, case, number, degree | | | | |
-| finite verb | person, number, tense, mood, voice | | | | |
-| infinitive | tense, voice|| | | |
-| participle | tense, voice, gender, case, number | | | | |
-| verbal adjective |  gender, case, number || | | |
-| adverb | degree |  | | | |
-| pronoun | gender, case, number | | | | |
+| Analytical type | morphology | analyze literary Greek regular form |  analyze literary Greek irregular form  |  generate literary Greek | analyze Attic regular form | analyze Attic irregular form  | generate Attic |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| uninflected token | part of speech | ✔️  | | | || |
+| noun | gender, case, number | ✔️ |  | | || |
+| adjective | gender, case, number, degree | | | | || |
+| finite verb | person, number, tense, mood, voice | | | | || |
+| infinitive | tense, voice|| | | || |
+| participle | tense, voice, gender, case, number | | | | || |
+| verbal adjective |  gender, case, number || | | || |
+| adverb | degree |  | | | || |
+| pronoun | gender, case, number | | | | || |
