@@ -7,16 +7,14 @@
 % Basic alphabet specific to this orthographic system:
 %#include "@workdir@symbols/alphabet.fst"
 
-
-#diaeresis# = \+
-#accent# = \/<circ>
-#diacritic# = #diaeresis# #accent#
 #breathing# = <sm><ro>
+#letter# = #consonant# #vowel# #breathing#
+
 
 % Accents should only be included in entries for
 % irregular forms!
 
-#character# = #letter# #diacritic# #accent# #breathing#
+#character# = #letter# #breathing#
 $character$ = [#character#]
 
 % Additional editorial symbols used in stem files:

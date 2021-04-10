@@ -14,6 +14,7 @@ export MorphologicalForm
 
 
 include("parse.jl")
+include("utils.jl")
 
 include("datasets/dataset.jl")
 include("datasets/kanonesio.jl")

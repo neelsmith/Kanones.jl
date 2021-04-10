@@ -19,7 +19,7 @@ function buildacceptor(src, target)
         "%% Put all symbols in 2 categories:  pass",
         "%% surface symbols through, suppress analytical symbols.",
         raw"#analysissymbol# = #editorial# #urntag# #uninflected# #pos# #morphtag# #stemtype#  #separator#",
-        raw"#surfacesymbol# = #letter# #diacritic#",
+        raw"#surfacesymbol# = #letter#",
         raw"ALPHABET = [#surfacesymbol#] [#analysissymbol#]:<>",
         raw"$stripsym$ = .+"
     ],"\n")
@@ -148,7 +148,7 @@ $acceptor$ = $squashverburn$ | $squashinfurn$ | $squashptcplurn$ | $squashgerund
 %% Put all symbols in 2 categories:  pass
 %% surface symbols through, suppress analytical symbols.
 #analysissymbol# = #editorial# #urntag# #indecl# #pos# #morphtag# #stemtype#  #separator#
-#surfacesymbol# = #letter# #diacritic#
+#surfacesymbol# = #letter#
 ALPHABET = [#surfacesymbol#] [#analysissymbol#]:<>
 $stripsym$ = .+
 
