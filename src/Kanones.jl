@@ -1,7 +1,7 @@
 module Kanones
 
 using CitableObject, CitableParserBuilder
-using PolytonicGreek
+using Orthography, PolytonicGreek, AtticGreek
 using Unicode, Glob, DelimitedFiles
 using Documenter, DocStringExtensions
 

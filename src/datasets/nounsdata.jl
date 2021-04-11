@@ -52,7 +52,7 @@ function readstemrow(usp::NounParser, delimited::AbstractString, delimiter = "|"
     parts = split(delimited, delimiter)
     stemid = Kanones.StemUrn(parts[1])
     lexid = Kanones.LexemeUrn(parts[2])
-    stem = parts[3]
+    stem = nfkc(parts[3])
     gender = parts[4]
     inflclass = parts[5]
     accent = parts[6]
@@ -72,7 +72,7 @@ function readrulerow(usp::NounParser, delimited::AbstractString, delimiter = "|"
     else
         ruleid = Kanones.RuleUrn(parts[1])
         inflclass = parts[2]
-        ending = parts[3]
+        ending = nfkc(parts[3])
         g = parts[4]
         c = parts[5]
         n = parts[6]
