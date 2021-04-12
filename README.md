@@ -16,11 +16,11 @@ Kanones.jl recognizes nine analytical types, characterized by the kind of analys
 | Analytical type | morphology | analyze literary Greek regular form |  analyze literary Greek irregular form  |  generate literary Greek | analyze Attic regular form | analyze Attic irregular form  | generate Attic |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | uninflected token | part of speech | ✔️  | | | || |
-| noun | gender, case, number | ✔️ |  | | || |
+| noun | gender, case, number (gender inherent) | ✔️ |  | | || |
+| pronoun | gender, case, number (gender not inherent) | | | | || |
 | adjective | gender, case, number, degree | | | | || |
+| adverb | degree |  | | | || |
 | finite verb | person, number, tense, mood, voice | | | | || |
 | infinitive | tense, voice|| | | || |
 | participle | tense, voice, gender, case, number | | | | || |
 | verbal adjective |  gender, case, number || | | || |
-| adverb | degree |  | | | || |
-| pronoun | gender, case, number | | | | || |

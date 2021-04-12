@@ -1,4 +1,10 @@
 StemUrn|LexicalEntity|Stem|Gender|InflClass|Accent|Notes
-nounstems.n22502|lexent.n22502|γνωμ|feminine|h_hs|recessive|
-nounstems.n29828|lexent.n29828|δωρ|neuter|os_ou|recessive|
-nounstems.n8909|lexent.n8909|ἀνθρωπ|masculine|os_ou|recessive|
+nounstems.n22502|lsj.n22502|γνωμ|feminine|h_hs|recessive|
+nounstems.n29828|lsj.n29828|δωρ|neuter|os_ou|recessive|
+nounstems.n8909|lsj.n8909|ἀνθρωπ|masculine|os_ou|recessive|
+nounstems.n48369|lsj.n48369|θεραπαιν|feminine|a_as_short|recessive|
+nounstems.n72287|lsj.n72287|οἰκι|feminine|a_as_long|stemaccented|
+nounstems.n71314|lsj.n71314|νυ|feminine|?|inflectionaccented|
+nounstems.n84494|lsj.n84494|πολ|feminine|is_ews|recessive|
+nounstems.n86112|lsj.n86112|πρα_γμα||recessive|
+
