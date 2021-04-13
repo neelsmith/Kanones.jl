@@ -40,6 +40,7 @@ module FstBuilder
     using CitableObject
     using CitableParserBuilder
     using Documenter, DocStringExtensions
+    using Orthography, PolytonicGreek, AtticGreek
     
     export buildparser
 

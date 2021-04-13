@@ -9,14 +9,15 @@ organization must follow Kanones' specifications.
 """
 struct Dataset
     root::AbstractString
-    function Dataset(s)
+    orthography::GreekOrthography
+    function Dataset(s, ortho::GreekOrthography = literaryGreek())
         ok, msg = validsource(s)
         if ok
-            new(s)
+            new(s, ortho)
         else
             throw(ArgumentError(msg))
         end
-        new(s)
+        new(s, ortho)
     end
 end
 
@@ -95,15 +96,17 @@ function validsource(dir::AbstractString)
     if ! ispath(dir)
         false, "Error: $(dir) is not a valid path."
     else
-        requiredfiles = [
-            "orthography/alphabet.fst"
+        # Perhaps *either* a stems-tables *or* a rules-table source?
+        requireddirs = [
+            "stems-tables",
+            "urnregistry"
         ]
 
         errors = []
-        for f in requiredfiles
+        for f in requireddirs
             fullpath = dir * f
-            if ! ispath(fullpath)
-                push!(errors,"Error in data layout: missing required file " * fullpath * "\n") 
+            if ! isdir(fullpath)
+                push!(errors,"Error in data layout: missing required directory " * fullpath * "\n") 
             end
         end
         if isempty(errors)
