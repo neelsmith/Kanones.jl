@@ -4,7 +4,7 @@
     rulerow = Kanones.readrulerow(nounparser, cex)
     # Note that "." and "_" must be protected in FST string values, but not in symbols.
     expected = "<h_hs><noun>ης<feminine><genitive><singular><u>nouninfl\\.h\\_hs2</u>"
-    @test FstBuilder.fst(rulerow) == expected
+    @test FstBuilder.fst(rulerow, literaryGreek()) == expected
 end
 
 @testset "Format fst lexicon for noun stems" begin
@@ -13,6 +13,6 @@ end
     stemrow = Kanones.readstemrow(nounparser, cex)
     # Note that "." and "_" must be protected in FST string values, but not in symbols.
     expected = "<u>nounstems\\.n22502</u><u>lexent\\.n22502</u>γνωμ<noun><masculine><h_hs>"
-    @test FstBuilder.fst(stemrow) == expected
+    @test FstBuilder.fst(stemrow, literaryGreek()) == expected
 end
 

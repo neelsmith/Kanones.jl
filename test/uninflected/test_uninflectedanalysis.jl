@@ -2,7 +2,7 @@
     d = tempdir()
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset(repo * "/datasets/synoptic/")
+    kd = Kanones.Dataset(repo * "/datasets/synoptic/", literaryGreek())
     fst =  repo * "/fst/"
     FstBuilder.buildparser(kd,fst, d * "/testcompile/")
 

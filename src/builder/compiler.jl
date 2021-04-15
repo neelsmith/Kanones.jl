@@ -121,7 +121,7 @@ function buildlexicon(src, target)
      stems = Kanones.stemsarray(src)
      lexicon = []
      for s in stems
-        push!(lexicon, fst(s))
+        push!(lexicon, fst(s, src.orthography))
      end
     open(target, "w") do io
         print(io, join(lexicon, "\n"))
@@ -143,7 +143,7 @@ function buildinflection(src::Kanones.Dataset, target)
     ruleset = Kanones.rulesarray(src)
     inflection = []
     for r in ruleset
-        push!(inflection, fst(r))
+        push!(inflection, fst(r, src.orthography))
     end
     fstvar =  raw"$inflection$"
     opening = fstvar * " = "
