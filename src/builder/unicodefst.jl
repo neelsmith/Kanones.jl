@@ -70,6 +70,6 @@ $(SIGNATURES)
 """
 function fstgreek(s::AbstractString, ortho::T = literaryGreek()) where {T <: GreekOrthography}
     normed = nfkc(s) 
-    rmaccents(normed, ortho = ortho)
+    rmaccents(normed, ortho)
 end
 

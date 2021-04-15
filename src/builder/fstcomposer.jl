@@ -13,8 +13,8 @@ function installalphabet(src::Kanones.Dataset, target::AbstractString)
     #cp(srcfile, targetfile)
     lines = [
         "% Characters list supplied by dataset's orthography functions:",
-        string("#consonant# = ", src.orthography.consonants()),
-        string("#vowel# = ", src.orthography.vowels())
+        string("#consonant# = ", consonants(src.orthography)),
+        string("#vowel# = ", vowels(src.orthography))
     ]
     open(targetfile, "w") do io
         write(io, join(lines,"\n"))
