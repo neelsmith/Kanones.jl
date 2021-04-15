@@ -29,6 +29,27 @@ function functionfollowsform()
     )
 end
 
+
+# Get an Analysis from an FST output line
+function analysisforline(fst::AbstractString)
+        (stem, rule) = split(fst, "<div>")
+
+        stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
+        stemmatch = collect(eachmatch(stemre, FstBuilder.greekfromfst(stem)))
+        (stemidval, lexidval, tkn, analysiscat, stemdata) = stemmatch[1].captures
+        
+        rulere = r"(<[^>]+><[^>]+>)([^<]*)(.*)<u>(.+)</u>"
+        rulematch = collect(eachmatch(rulere, rule))
+        (typeinfo, ending, ruledata, ruleidval) = rulematch[1].captures
+  
+
+        fnctndict = functionfollowsform()
+        fnct = fnctndict[analysiscat]
+        formurn =  string(typeinfo, ending, ruledata) |> fnct
+        
+        Analysis(string(tkn,ending), LexemeUrn(lexidval), formurn, RuleUrn(ruleidval), StemUrn(stemidval))
+end
+
 """Parse a string of FST output for a single token
 to a list of `Analysis` objects.
 
@@ -36,13 +57,22 @@ to a list of `Analysis` objects.
 $(SIGNATURES)
 """
 function parsefst(fststring::AbstractString)
+    analyses = []
     lines = split(fststring,"\n")
     if  length(lines) < 2
         msg = string("parsefst: bad FST string ", fststring, " with ", length(lines), " lines." )
         throw(ArgumentError(msg))
     elseif startswith(lines[2], "no result")
-        nothing
+        #nothing
+        # let analyses stay empty
     else
+        #NS 
+        # THIS NEEDS TO CHANGE: PROCESS **ALL** remianing lines
+        for ln in lines
+            push!(analyses, analysisforline(ln))
+        end
+
+        #=
         (stem, rule) = split(lines[2], "<div>")
 
         stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
@@ -63,7 +93,9 @@ function parsefst(fststring::AbstractString)
         formurn =  string(typeinfo, ending, ruledata) |> fnct
         
         Analysis(string(tkn,ending), LexemeUrn(lexidval), formurn, RuleUrn(ruleidval), StemUrn(stemidval))
+        =#
     end
+    analyses
 end
 
 """Apply a parser to a token using `fst-infl`.
