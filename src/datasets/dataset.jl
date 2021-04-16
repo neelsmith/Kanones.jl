@@ -10,7 +10,7 @@ organization must follow Kanones' specifications.
 struct Dataset
     root::AbstractString
     orthography::GreekOrthography
-    function Dataset(s, ortho::GreekOrthography = literaryGreek())
+    function Dataset(s; ortho::T = literaryGreek()) where {T <: GreekOrthography}
         ok, msg = validsource(s)
         if ok
             new(s, ortho)
