@@ -64,9 +64,17 @@ Kanones.FiniteVerbRule
 
 ### Functions
 
+
+Exported: 
+
 ```@docs
-Kanones.rulesarray
-Kanones.stemsarray
+rulesarray
+stemsarray
+```
+
+Internals:
+
+```@docs
 Kanones.validsource
 Kanones.readstemrow
 Kanones.readrulerow

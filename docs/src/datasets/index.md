@@ -21,3 +21,10 @@ using Kanones
 ```@example kd
 kdata = Kanones.Dataset(datadirectory)
 ```
+
+
+## Working with stems and rules
+
+
+- rulesarray
+- stemsarray
