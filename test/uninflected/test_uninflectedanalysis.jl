@@ -8,7 +8,8 @@
 
     parser = d * "/testcompile/greek.a"
     analyzed = parsetoken(parser, "καί")
-    @test isa(analyzed, Analysis)
-    @test analyzed.token == "και"
+    @test length(analyzed) == 1
+    @test isa(analyzed[1], Analysis)
+    @test analyzed[1].token == "και"
 
 end

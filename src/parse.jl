@@ -63,15 +63,12 @@ function parsefst(fststring::AbstractString)
         msg = string("parsefst: bad FST string ", fststring, " with ", length(lines), " lines." )
         throw(ArgumentError(msg))
     elseif startswith(lines[2], "no result")
-        #nothing
         # let analyses stay empty
     else
-        #NS 
-        # THIS NEEDS TO CHANGE: PROCESS **ALL** remianing lines
-        for ln in lines
+        # skip header line and empty lines
+        for ln in filter(l -> ! isempty(l), lines[2:end])
             push!(analyses, analysisforline(ln))
         end
-
         #=
         (stem, rule) = split(lines[2], "<div>")
 
@@ -82,11 +79,11 @@ function parsefst(fststring::AbstractString)
         rulere = r"(<[^>]+><[^>]+>)([^<]*)(.*)<u>(.+)</u>"
         rulematch = collect(eachmatch(rulere, rule))
         (typeinfo, ending, ruledata, ruleidval) = rulematch[1].captures
-        #=
-        @warn("ENDING " * ending)
-        @warn("RULEDATA " * ruledata)
-        @warn("RULEID " * ruleidval)
-        =#
+    
+        #@warn("ENDING " * ending)
+        #@warn("RULEDATA " * ruledata)
+        #@warn("RULEID " * ruleidval)
+        
 
         fnctndict = functionfollowsform()
         fnct = fnctndict[analysiscat]

@@ -28,8 +28,10 @@ end
     FstBuilder.buildparser(kd,fst, d * "/testcompile/")
     
     parser = d * "/testcompile/greek.a"
-    analyzed = parsetoken(parser, "και")
-    println(analyzed)
+    analysislist = parsetoken(parser, "και")
+
+    analyzed = analysislist[1]
+
     expectedlex = LexemeUrn("lsj.n51951")
     @test analyzed.lexeme.collection == expectedlex.collection
     @test analyzed.lexeme.objectid == expectedlex.objectid
@@ -60,7 +62,7 @@ end
     
     parser = d * "/testcompile/greek.a"
     analyzed = parsetoken(parser, "silly")
-    @test isnothing(analyzed)
+    @test isempty(analyzed)
 end
 
 
@@ -75,6 +77,6 @@ end
 
     parser = d * "/testcompile/greek.a"
     analyzed = parsetoken(parser, "γνώμαις")
-    @test isa(analyzed, Analysis)
+    @test isa(analyzed[1], Analysis)
 
 end
