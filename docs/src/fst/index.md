@@ -22,7 +22,7 @@ The vocabulary of symbols  is defined in the file `symbols.fst` located in the r
 
 Within the symbols directory, definitions are organized as follows:
 
-- `alphabet.fst`: defines the symbols used to encode text strings in this orthography
+- `alphabet.fst`: defines the symbols used to encode text strings in this orthography.  This is generated automatically from an implementation of `GreekOrthograpy`.
 - `markup.fst`: special symbols for separating stem from inflectional component in the morphological database, and marking the beginning and ends of URN values in the data.
 - `morphsymbols.fst`: defines symbols for analytical values (such as “gender”, “case” and “number” for nouns).
 - `phonology.fst`: defines all legal symbols in the FST other than the morphological categories defined in stemtypes.fst

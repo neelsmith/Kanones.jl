@@ -24,7 +24,12 @@ makedocs(
             "Working with analytical data" => "analyses/index.md"
            
         ],
+        "Stem types" => Any[
+            "Nouns" => "stemtypes/nouns/nounstems.md",
+            "Uninflected types" => "stemtypes/uninflected.md",
+        ],
         "Reference" => Any[
+            
             "FST" =>  "fst/index.md",
             "Julia API documentation" =>  "apis/apis.md",
         ],
