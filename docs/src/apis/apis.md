@@ -126,5 +126,4 @@ Kanones.FstBuilder.addsmooth
 Kanones.FstBuilder.addrough
 Kanones.FstBuilder.greekfromfst
 Kanones.FstBuilder.fstgreek
-Kanones.FstBuilder.compoundsdict
 ```
