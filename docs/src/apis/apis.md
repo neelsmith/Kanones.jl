@@ -76,7 +76,6 @@ stemsarray
 Internals:
 
 ```@docs
-Kanones.validsource
 Kanones.readstemrow
 Kanones.readrulerow
 Kanones.id

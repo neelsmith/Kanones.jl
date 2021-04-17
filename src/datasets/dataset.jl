@@ -12,19 +12,19 @@ struct Dataset
     dirs
     orthography::GreekOrthography
     function Dataset(dirlist; ortho::T = literaryGreek()) where {T <: GreekOrthography}
-        badnews = []
-        for dir in dirlist
-            ok, msg = validsource(dir)
-            if !ok 
-                push!(badnews, msg)
-            end
-        end
+        if isempty(rulesarray(dirlist))
+            throw(ArgumentError("No inflectional rules found."))
+
+        elseif isempty(stemsarray(dirlist))
+            throw(ArgumentError("No lexicon of stems found."))
         
-        if isempty(badnews)
-            new(dirlist, ortho)
+        # elseif ## if no urn registry ...
+        # need to enforce referential integrity of data
+        # with registry
+        
         else
-            throw(ArgumentError(join(badnews, "\n")))
-        end
+            new(dirlist, ortho)
+        end   
     end
 end
 
@@ -56,11 +56,20 @@ function dataset(srclist::Array; ortho::T = literaryGreek()) where {T <: GreekOr
     Kanones.Dataset(srclist; ortho =  ortho)
 end
 
-"""Read all rules data from a `Kanones.Dataset` into an array of `Rule`s.
+
+"""Read all rules data from a list of directories into an array of `Rule`s.
 
 $(SIGNATURES)
 """
 function rulesarray(kd::Kanones.Dataset)
+    rulesarray(kd.dirs)
+end
+
+"""Read all rules data from a `Kanones.Dataset` into an array of `Rule`s.
+
+$(SIGNATURES)
+"""
+function rulesarray(dirlist)
     iodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
@@ -73,7 +82,7 @@ function rulesarray(kd::Kanones.Dataset)
     ]
     rulesarr = Rule[]
 
-    for datasrc in kd.dirs
+    for datasrc in dirlist
         for dirname in rulesdirs 
             dir = datasrc * "/rules-tables/" * dirname * "/"
             cexfiles = glob("*.cex", dir)
@@ -91,11 +100,19 @@ function rulesarray(kd::Kanones.Dataset)
     rulesarr
 end
 
-"""Read all stem data from a `Kanones.Dataset` into an array of `Stem`s.
+"""Read all stem data from a list of directories into an array of `Stem`s.
 
 $(SIGNATURES)
 """
 function stemsarray(kd::Kanones.Dataset)
+    stemsarray(kd.dirs)
+end
+
+"""Read all stem data from a `Kanones.Dataset` into an array of `Stem`s.
+
+$(SIGNATURES)
+"""
+function stemsarray(dirlist)
     iodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
@@ -109,7 +126,7 @@ function stemsarray(kd::Kanones.Dataset)
     ]
 
     stemsarr = []
-    for datasrc in kd.dirs
+    for datasrc in dirlist
         for dirname in stemdirs 
             dir = datasrc * "/stems-tables/" * dirname * "/"
             cexfiles = glob("*.cex", dir)
@@ -128,36 +145,5 @@ function stemsarray(kd::Kanones.Dataset)
 end
 
 
-"""
-True if `dir` satisfies all requirements for a `Kanones.Dataset`.
 
-$(SIGNATURES)    
-"""
-function validsource(dir)
-    if ! ispath(dir)
-        false, "Error: $(dir) is not a valid path."
-    else
-        registry = dir * "urnregistry"
-        if ! isdir(registry)
-            throw(ArgumentError("No urnregistry found in directory $dir."))
-        end
-        options =  [
-            "stems-tables",
-            "rules-tables",
-            "irregular-stems"
-        ]
-        found = []
-        for f in options
-            fullpath = dir * f
-            if  isdir(fullpath)
-                push!(found, true) 
-            end
-        end
-        if isempty(found)
-            (false, "No data directories found in directory $dir.")
-        else
-            (true, "OK")
-        end
-    end
-end
 
