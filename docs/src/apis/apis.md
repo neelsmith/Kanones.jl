@@ -68,6 +68,7 @@ Kanones.FiniteVerbRule
 Exported: 
 
 ```@docs
+dataset
 rulesarray
 stemsarray
 ```

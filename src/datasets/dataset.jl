@@ -14,7 +14,6 @@ struct Dataset
     function Dataset(dirlist; ortho::T = literaryGreek()) where {T <: GreekOrthography}
         badnews = []
         for dir in dirlist
-            @info "Checking $dir"
             ok, msg = validsource(dir)
             if !ok 
                 push!(badnews, msg)
@@ -27,6 +26,34 @@ struct Dataset
             throw(ArgumentError(join(badnews, "\n")))
         end
     end
+end
+
+"""Create a `Kanones.Dataset` from a single data source.
+
+$(SIGNATURES)
+
+# Arguments
+
+- `dir` Full path to a directory with Kanones data.
+- `ortho` An instance of a `GreekOrthography`; defaults to `LiteraryGreekOrthography`.
+"""
+function dataset(dir::AbstractString; ortho::T = literaryGreek()) where {T <: GreekOrthography}
+    Kanones.Dataset([dir]; ortho = ortho)
+end
+
+
+
+"""Create a `Kanones.Dataset` from one or more data sources.
+
+$(SIGNATURES)
+
+# Arguments
+
+- `srclist` List of full paths to a directory with Kanones data.
+- `ortho` An instance of a `GreekOrthography`; defaults to `LiteraryGreekOrthography`.
+"""
+function dataset(srclist::Array; ortho::T = literaryGreek()) where {T <: GreekOrthography}
+    Kanones.Dataset(srclist; ortho =  ortho)
 end
 
 """Read all rules data from a `Kanones.Dataset` into an array of `Rule`s.
@@ -107,7 +134,6 @@ True if `dir` satisfies all requirements for a `Kanones.Dataset`.
 $(SIGNATURES)    
 """
 function validsource(dir)
-    @info "Validating $dir"
     if ! ispath(dir)
         false, "Error: $(dir) is not a valid path."
     else
@@ -115,18 +141,14 @@ function validsource(dir)
         if ! isdir(registry)
             throw(ArgumentError("No urnregistry found in directory $dir."))
         end
-        @info "Registroy ok"
         options =  [
             "stems-tables",
             "rules-tables",
             "irregular-stems"
         ]
         found = []
-        @info "Iterating $options"
         for f in options
-
             fullpath = dir * f
-            @info "full path $fullpath"
             if  isdir(fullpath)
                 push!(found, true) 
             end

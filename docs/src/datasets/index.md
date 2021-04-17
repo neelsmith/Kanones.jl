@@ -10,17 +10,25 @@ See the reference section for information on predefined stem types.
 
 ## Loading a dataset
 
-Create a `Kanones.Dataset` by passing it the full path to the root directory of your data files.
+Use the `dataset` function to create a `Kanones.Dataset`.
+
+
+Pass in a list of full paths to one or more directories laid out according to Kanones conventions, and optionally an orthography.  The default orthogrpahy is `LiteraryGreekOthography`.
 
 ```@setup kd
 repo = pwd() |> dirname |> dirname  |> dirname
-datadirectory = repo * "/datasets/synoptic/"
+src1 = repo * "/datasets/synoptic/"
+src2 = repo * "/datasets/core/"
 using Kanones
 ```
 
 ```@example kd
-kdata = Kanones.Dataset(datadirectory)
+datasrcs = [src1, src2]
+kdata = dataset(datasrcs)
 ```
+
+
+
 
 
 ## Working with stems and rules

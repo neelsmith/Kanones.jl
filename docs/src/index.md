@@ -38,8 +38,8 @@ target = reporoot * "/parsers/demo/"
 Load morphological data and definition of the dataset's orthography into a `Kanones.Dataset` structure.
 
 ```@example eg
-dataset = reporoot * "/datasets/synoptic/"
-kd = Kanones.Dataset(dataset)
+datadirectory = reporoot * "/datasets/synoptic/"
+kd = dataset(datadirectory)
 ```
 
 

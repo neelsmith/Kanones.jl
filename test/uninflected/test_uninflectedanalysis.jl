@@ -1,8 +1,9 @@
 @testset "Test resulting token in uninflected analysis" begin
     d = tempdir()
+    
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset(repo * "/datasets/synoptic/", literaryGreek())
+    kd = Kanones.Dataset([repo * "/datasets/synoptic/"]; ortho = literaryGreek())
     fst =  repo * "/fst/"
     FstBuilder.buildparser(kd,fst, d * "/testcompile/")
 

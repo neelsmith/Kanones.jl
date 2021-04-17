@@ -6,6 +6,7 @@ using Unicode, Glob, DelimitedFiles
 using Documenter, DocStringExtensions
 
 export parsetoken, parsewordlist
+export dataset
 export Stem, Rule 
 export rulesarray, stemsarray
 export UninflectedForm, UninflectedStem, UninflectedRule
