@@ -7,6 +7,39 @@
 
 See the reference section for information on predefined stem types.
 
+### Directory organization
+
+Kanones checks for `.cex` files in the following subdirectories of a data source:
+
+```
+├── irregular-stems
+│   ├── adjectives
+│   ├── adverbs
+│   ├── finiteverbs
+│   ├── infinitives
+│   ├── nouns
+│   ├── participles
+│   └── pronouns
+├── rules-tables
+│   ├── adjectives
+│   ├── adverbs
+│   ├── finiteverbs
+│   ├── infinitives
+│   ├── nouns
+│   ├── participles
+│   └── uninflected
+├── stems-tables
+│   ├── adjectives
+│   ├── nouns
+│   ├── uninflected
+│   ├── verbs-compound
+│   └── verbs-simplex
+└── urnregistry
+    ├── lexemes
+    ├── rules
+    └── stems
+```    
+
 
 ## Loading a dataset
 
