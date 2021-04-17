@@ -10,13 +10,22 @@ function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::Abstr
         println("Cowardly refusing to overwrite exising file $(target)")
     else 
         mkdir(target)
-        installalphabet(src, target)
-        installsymbols(fstdir, target)
+        # Translate tabular data to FST
         buildlexicon(src, target * "/lexicon.fst")
         buildinflection(src,target * "/inflection.fst")
-        buildacceptor(src, target * "/acceptor.fst")
-        buildfinalfst(src, target * "/greek.fst")
-        buildmakefile(src, target * "/makefile")
+
+        # Install alphabet from dataset's orthography:
+        installalphabet(src, target)
+
+        # Copy FST source files to target
+        installsymbols(fstdir, target)
+
+        # Automatically composed FST, based on path to target directory.
+        buildfinalfst(target * "/greek.fst")
+        buildacceptor(target * "/acceptor.fst")
+        buildmakefile(target * "/makefile")
+        
+        # Compile SFST binary
         compilefst(target)
     end
     parser = target * "/greek.a"
@@ -51,7 +60,7 @@ $(SIGNATURES)
 - `src` is a `Kanones.Dataset`.  
 - `target` is the full path to the desination file `makefile`.
 """
-function buildmakefile(src, target)
+function buildmakefile(target)
     dir = dirname(target)
     whichcompiler = read(`which fst-compiler-utf8`, String)
     fstcompiler = replace(whichcompiler, "\n" => "")
@@ -74,10 +83,9 @@ $(SIGNATURES)
 
 # Arguments
 
-- `src` is a `Kanones.Dataset`.  
 - `target` is the full path to the desination file `greek.fst`.
 """
-function buildfinalfst(src, target)
+function buildfinalfst(target)
     fstdir = dirname(target)
     doc = join([
         "%% greek.fst : a Finite State Transducer for ancient greek morphology",

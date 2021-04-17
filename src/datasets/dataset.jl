@@ -2,22 +2,30 @@
 """
 A Kanones dataset in a local file system.  
 
-# Member
+# Members
 
-`root` is the full path to the dataset's root directory.  Its subdirectory
-organization must follow Kanones' specifications.
+- `dirs` is a list of full paths to the root directory of one or more datasets.  
+Their subdirectory organization must follow Kanones' specifications.
+- `orthography` is an implementation of the `GreekOrthography` interface
 """
 struct Dataset
-    root::AbstractString
+    dirs
     orthography::GreekOrthography
-    function Dataset(s; ortho::T = literaryGreek()) where {T <: GreekOrthography}
-        ok, msg = validsource(s)
-        if ok
-            new(s, ortho)
-        else
-            throw(ArgumentError(msg))
+    function Dataset(dirlist; ortho::T = literaryGreek()) where {T <: GreekOrthography}
+        badnews = []
+        for dir in dirlist
+            @info "Checking $dir"
+            ok, msg = validsource(dir)
+            if !ok 
+                push!(badnews, msg)
+            end
         end
-        new(s, ortho)
+        
+        if isempty(badnews)
+            new(dirlist, ortho)
+        else
+            throw(ArgumentError(join(badnews, "\n")))
+        end
     end
 end
 
@@ -37,16 +45,19 @@ function rulesarray(kd::Kanones.Dataset)
         "nouns"
     ]
     rulesarr = Rule[]
-    for dirname in rulesdirs 
-        dir = kd.root * "/rules-tables/" * dirname * "/"
-        cexfiles = glob("*.cex", dir)
-        delimitedreader = (iodict[dirname])
-        for f in cexfiles
-            raw = readlines(f)
-            lines = filter(s -> ! isempty(s), raw)
-            for i in 2:length(lines)
-                rule = readrulerow(delimitedreader, lines[i])
-                push!(rulesarr,rule)
+
+    for datasrc in kd.dirs
+        for dirname in rulesdirs 
+            dir = datasrc * "/rules-tables/" * dirname * "/"
+            cexfiles = glob("*.cex", dir)
+            delimitedreader = (iodict[dirname])
+            for f in cexfiles
+                raw = readlines(f)
+                lines = filter(s -> ! isempty(s), raw)
+                for i in 2:length(lines)
+                    rule = readrulerow(delimitedreader, lines[i])
+                    push!(rulesarr,rule)
+                end
             end
         end
     end
@@ -69,17 +80,20 @@ function stemsarray(kd::Kanones.Dataset)
         "uninflected",
         "nouns"
     ]
+
     stemsarr = []
-    for dirname in stemdirs 
-        dir = kd.root * "/stems-tables/" * dirname * "/"
-        cexfiles = glob("*.cex", dir)
-        delimitedreader = (iodict[dirname])
-        for f in cexfiles
-            raw = readlines(f)
-            lines = filter(s -> ! isempty(s), raw)
-            for i in 2:length(lines)
-                stem = readstemrow(delimitedreader, lines[i])
-                push!(stemsarr,stem)
+    for datasrc in kd.dirs
+        for dirname in stemdirs 
+            dir = datasrc * "/stems-tables/" * dirname * "/"
+            cexfiles = glob("*.cex", dir)
+            delimitedreader = (iodict[dirname])
+            for f in cexfiles
+                raw = readlines(f)
+                lines = filter(s -> ! isempty(s), raw)
+                for i in 2:length(lines)
+                    stem = readstemrow(delimitedreader, lines[i])
+                    push!(stemsarr,stem)
+                end
             end
         end
     end
@@ -92,27 +106,35 @@ True if `dir` satisfies all requirements for a `Kanones.Dataset`.
 
 $(SIGNATURES)    
 """
-function validsource(dir::AbstractString)
+function validsource(dir)
+    @info "Validating $dir"
     if ! ispath(dir)
         false, "Error: $(dir) is not a valid path."
     else
-        # Perhaps *either* a stems-tables *or* a rules-table source?
-        requireddirs = [
+        registry = dir * "urnregistry"
+        if ! isdir(registry)
+            throw(ArgumentError("No urnregistry found in directory $dir."))
+        end
+        @info "Registroy ok"
+        options =  [
             "stems-tables",
-            "urnregistry"
+            "rules-tables",
+            "irregular-stems"
         ]
+        found = []
+        @info "Iterating $options"
+        for f in options
 
-        errors = []
-        for f in requireddirs
             fullpath = dir * f
-            if ! isdir(fullpath)
-                push!(errors,"Error in data layout: missing required directory " * fullpath * "\n") 
+            @info "full path $fullpath"
+            if  isdir(fullpath)
+                push!(found, true) 
             end
         end
-        if isempty(errors)
-            true, ""
-        else 
-            false, join(errors, ".  ")
+        if isempty(found)
+            (false, "No data directories found in directory $dir.")
+        else
+            (true, "OK")
         end
     end
 end

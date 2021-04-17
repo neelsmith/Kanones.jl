@@ -3,7 +3,7 @@
 
 $(SIGNATURES)
 """
-function buildacceptor(src, target)
+function buildacceptor(target)
     fstroot = dirname(target)
     incl = string("#include \"", fstroot, "/symbols.fst\"")
 
