@@ -107,8 +107,15 @@ Kanones.applyparser
 ## Generation
 
 
+Exported:
+
 ```@docs
-Kanones.generate
+generate
+```
+
+Internal:
+```@docs
+Kanones.generateuninflected
 ```
 
 ## `Kanones.FstBuilder`
