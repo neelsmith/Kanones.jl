@@ -29,6 +29,10 @@ function nounform(urn::Cite2Urn)
 end
 
 
+function label(noun::NounForm)
+    join([noun.genderlabel, noun.caselabel, noun.numberlabel], " ")
+end
+
 """Compose URN for a `NounForm`.
 
 $(SIGNATURES)

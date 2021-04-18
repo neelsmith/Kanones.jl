@@ -80,7 +80,7 @@ function morphform(urn::Cite2Urn)
         @warn("morphform: unrecognized part of speech value in urn ", urn.urn)
         nothing
     end
-    # NOUN
+ 
     # FINITEVERB
     # ktl...
 end
