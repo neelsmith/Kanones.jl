@@ -17,7 +17,7 @@ function generatenoun(analysis::Analysis, kd::Kanones.Dataset; ortho::T = litera
     stems = stemsarray(kd)
     nounstems = filter(s -> typeof(s) == NounStem, stems)
     stemmatches = filter(s -> s.lexid == analysis.lexeme, nounstems)
-
+    @info string("Matching stems: ", length(stemmatches))
     rules = rulesarray(kd)
     nounrules = filter(r -> typeof(r) == NounRule, rules)
 
@@ -29,7 +29,8 @@ function generatenoun(analysis::Analysis, kd::Kanones.Dataset; ortho::T = litera
         # 1. Must belong to same stem class as stem.
         # rule.inflectionclass ==   stem.inflectionclass
         sameclass = filter(r -> r.inflectionclass == stem.inflectionclass, nounrules)
-        
+        @info "Found $length(sameclass) nouns of class $(stem.inflectionclass)"
+        @info "Now filtering for form $(analysis.form)"
         # 2. Must have some morph form as analysis.
         # analysis.form == Kanones.abbrurn(rule)
         sameform = filter(r -> abbrurn(r) == analysis.form, sameclass)

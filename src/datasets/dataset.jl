@@ -97,7 +97,7 @@ function rulesarray(dirlist)
             end
         end
     end
-    rulesarr
+    unique(rulesarr)
 end
 
 """Read all stem data from a list of directories into an array of `Stem`s.
@@ -141,7 +141,7 @@ function stemsarray(dirlist)
             end
         end
     end
-    stemsarr
+    unique(stemsarr)
 end
 
 

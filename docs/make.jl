@@ -29,9 +29,9 @@ makedocs(
             "Uninflected types" => "stemtypes/uninflected.md",
         ],
         "Reference: code" => Any[
-            
-            "FST" =>  "fst/index.md",
             "Julia API documentation" =>  "apis/apis.md",
+            "FST" =>  "fst/index.md",
+            
         ],
         
     ],
