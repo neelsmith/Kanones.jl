@@ -27,6 +27,12 @@ function urn(uform::UninflectedForm)
     Cite2Urn(urnstring)
 end
 
+function abbrurn(rule::UninflectedRule)
+    posdict = labeldict(uninflectedpairs)
+    # PosPNTMVGCDCat
+    FormUrn(string("morphforms.", UNINFLECTED,"00000000",posdict[rule.infltype]))
+
+end
 
 """Compose URN for an `UninflectedForm`.
 

@@ -39,6 +39,20 @@ function urn(noun::NounForm)
 end
 
 
+"""Compose an abbreviated URN for a form from a `NounRule`.
+
+$(SIGNATURES)
+"""
+function abbrurn(rule::NounRule)
+    numdict = labeldict(numberpairs)
+    casedict = labeldict(casepairs)
+    genderdict = labeldict(genderpairs)
+
+    # PosPNTMVGCDCat
+    FormUrn(string("morphforms.", NOUN,"0",numdict[rule.nnumber],"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
+end
+
+
 """Compose CEX representation for a `NounForm`.
 
 $(SIGNATURES)

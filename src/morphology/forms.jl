@@ -1,7 +1,15 @@
 """Abstract type of a morphological form."""
 abstract type MorphologicalForm end
 
+"""Generic function to convert form information in a `Rule`
+to a `RuleUrn`.
 
+$(SIGNATURES)
+"""
+function abbrurn(rule::T) where {T <: RuleUrn}
+    @warn "Function abbrurn not implemented for type $typeof(rule)."
+    nothing
+end
 
 const BASE_MORPHOLOGY_URN = "urn:cite2:kanones:morphforms.v1:"
 
