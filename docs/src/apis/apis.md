@@ -116,6 +116,7 @@ generate
 Internal:
 ```@docs
 Kanones.generateuninflected
+Kanones.generatenoun
 ```
 
 ## `Kanones.FstBuilder`

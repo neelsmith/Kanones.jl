@@ -10,8 +10,8 @@ function generate(analysis::Analysis, kd::Kanones.Dataset; ortho::T = literaryGr
     pos = parse(Int64, formcolumns[1])
     
     if pos == NOUN
-        println("GEN NOUN")
-
+        generatenoun(analysis, kd; ortho = ortho)
+        
     elseif pos == UNINFLECTED
         generateuninflected(analysis, kd; ortho = ortho)
         

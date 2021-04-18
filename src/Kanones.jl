@@ -30,6 +30,7 @@ include("analyzer/analysis.jl")
 
 include("generator/generate.jl")
 include("generator/uninflectedgen.jl")
+include("generator/nounsgen.jl")
 
 # Conversion Form objects <-> URN values
 include("morphology/forms.jl")
