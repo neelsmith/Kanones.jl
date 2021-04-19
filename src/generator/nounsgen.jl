@@ -13,7 +13,7 @@ Nouns are hard to generate because of the varied behavior
 of accents depending on the inherent persistence of the lexeme
 and morphology.
 """
-function generatenoun(analysis::Analysis, kd::Kanones.Dataset; ortho::T = literaryGreek()) where { T <: GreekOrthography}
+function generatenoun(analysis::Analysis, kd::Kanones.Dataset)
     stems = stemsarray(kd)
     nounstems = filter(s -> typeof(s) == NounStem, stems)
     stemmatches = filter(s -> s.lexid == analysis.lexeme, nounstems)
@@ -29,7 +29,7 @@ function generatenoun(analysis::Analysis, kd::Kanones.Dataset; ortho::T = litera
         # 1. Must belong to same stem class as stem.
         # rule.inflectionclass ==   stem.inflectionclass
         sameclass = filter(r -> r.inflectionclass == stem.inflectionclass, nounrules)
-        @info "Found $length(sameclass) nouns of class $(stem.inflectionclass)"
+        @info "Found $(length(sameclass)) nouns of class $(stem.inflectionclass)"
         @info "Now filtering for form $(analysis.form)"
         # 2. Must have some morph form as analysis.
         # analysis.form == Kanones.abbrurn(rule)
@@ -37,10 +37,19 @@ function generatenoun(analysis::Analysis, kd::Kanones.Dataset; ortho::T = litera
         
         # 3. combine stem and ending strings
         raw = map(r -> stem.form * r.ending, sameform)
-        push!(msgs, raw)
+      
 
         # 4. determine accent pattern from stem.accentpersistence
         # and addaccent to resulting word.
+
+        
+        for r in raw
+            if countaccents(r, kd.orthography) == 1
+                push!(msgs, r)
+            else
+                push!(msgs, "NEED ACCENTS FIXED: $(raw)")
+            end
+        end
         
     end
     msgs

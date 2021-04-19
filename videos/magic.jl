@@ -1,7 +1,7 @@
 using Kanones, Kanones.FstBuilder
 
 # Build a dataset with default orthography:
-ds = dataset(pwd() * "/datasets/video/")
+ds = dataset(pwd() * "/datasets/lgepigraphic/")
 
 # Build a dataset with Attic orthography:
 using AtticGreek
@@ -17,7 +17,7 @@ lgparser = buildparser(ds, fst, pwd() * "/parsers/litgreek/")
 atticparser = buildparser(atticds, fst, pwd() * "/parsers/attic/")
 
 # Parse in Attic orthography
-parses = parsetoken(atticparser, "βολêς")
+parses = parsetoken(atticparser, "βολες")
 analysis = parses[1]
 
 # Rewrite in literary Greek orthography
