@@ -47,7 +47,12 @@ function generatenoun(analysis::Analysis, kd::Kanones.Dataset)
             if countaccents(r, kd.orthography) == 1
                 push!(msgs, r)
             else
-                push!(msgs, "NEED ACCENTS FIXED: $(raw)")
+                if stem.accentpersistence == "recessive"
+                    push!(msgs, accentword(r, :RECESSIVE))
+                else 
+                    push!(msgs, "Haven't yet figured out $(stem.accentpersistence)")
+                end
+            
             end
         end
         
