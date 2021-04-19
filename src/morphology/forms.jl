@@ -84,3 +84,48 @@ function morphform(urn::Cite2Urn)
     # FINITEVERB
     # ktl...
 end
+
+
+
+"""Compose a human-readable lable for a morphological form identifier.
+
+$(SIGNATURES)
+"""
+function labelform(s::AbstractString)
+    #PosPNTMVGCDCat
+    formcolumns = split(s,"")
+    ivals = map(i -> parse(Int64,i), formcolumns)
+
+    pos = parse(Int64, formcolumns[1])
+    if pos == NOUN
+        casedict = valuedict(casepairs)
+        genderdict = valuedict(genderpairs)
+        numberdict =  valuedict(numberpairs)
+        "noun:  $(genderdict[ivals[7]]) $(casedict[ivals[8]]) $(numberdict[ivals[3]])"
+        
+    elseif pos == UNINFLECTED
+        uninfldict = valuedict(uninflectedpairs)
+        "uninflected $(uninfldict[ivals[10]])"
+
+    else
+        "UNRECOGINZED analytical form: $pos"
+    end
+end
+
+"""Compose a human-readable label for a `FormUrn`.
+
+$(SIGNATURES)
+"""
+function labelform(furn::FormUrn)
+    labelform(furn.objectid)
+end
+
+
+"""Compose a human-readable label for a `FormUrn`.
+
+$(SIGNATURES)
+"""
+function labelform(furn::Cite2Urn)
+    labelform(objectcomponent(furn))
+end
+

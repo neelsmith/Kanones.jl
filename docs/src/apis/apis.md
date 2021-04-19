@@ -43,6 +43,7 @@ Kanones.uninflectedform
 Kanones.uninflectedabbrurn
 Kanones.uninflectedcex
 Kanones.finiteverbabbrurn
+Kanones.labelform
 ```
 
 ## Datasets
