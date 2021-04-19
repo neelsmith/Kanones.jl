@@ -49,6 +49,11 @@ function generatenoun(analysis::Analysis, kd::Kanones.Dataset)
             else
                 if stem.accentpersistence == "recessive"
                     push!(msgs, accentword(r, :RECESSIVE))
+                # :PENULT
+                #
+                # LOOK at case for ultima:
+                # 
+                # accentultima(WORD, :ACUTE or :CIRCUMFLEX)
                 else 
                     push!(msgs, "Haven't yet figured out $(stem.accentpersistence)")
                 end
