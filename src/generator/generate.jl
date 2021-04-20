@@ -23,16 +23,25 @@ $(SIGNATURES)
 """
 function generate(form::FormUrn, lex::LexemeUrn, kd::Kanones.Dataset)
     # Find "part of speech" value from formurn:
-    formcolumns = split(analysis.form.objectid,"")
+    formcolumns = split(form.objectid,"")
     pos = parse(Int64, formcolumns[1])
     
     if pos == NOUN
-        #generatenoun(form, lex, kd)
-        println("NOT YET IMPLEMENTED")
+        generatenoun(form, lex, kd)
+        
     elseif pos == UNINFLECTED
         #generateuninflected(form, lex, kd)
         println("NOT YET IMPLEMENTED")
     else
         println("NOT YET IMPLEMENTED")
     end
+end
+
+
+"""Remove metadata characters from `s`.
+
+$(SIGNATURES)
+"""
+function stripmetachars(s)
+    replace(s, r"[#_^]" => "")
 end

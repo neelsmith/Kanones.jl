@@ -17,30 +17,30 @@ function decline(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = false
         gender = stemmatches[1].gender
         # Find gender and construct form ids:
         genderdict = labeldict(genderpairs)
-        #morphchars = split(stemmatches[1].gender,"")
         genderint = genderdict[stemmatches[1].gender]
         sg = [
-            FormUrn("morphform.201000$(genderint)100"),
-            FormUrn("morphform.201000$(genderint)200"),
-            FormUrn("morphform.201000$(genderint)300"),
-            FormUrn("morphform.201000$(genderint)400")
+            FormUrn("morphforms.201000$(genderint)100"),
+            FormUrn("morphforms.201000$(genderint)200"),
+            FormUrn("morphforms.201000$(genderint)300"),
+            FormUrn("morphforms.201000$(genderint)400")
         ]
+        # No duals by default
         pl = [
-            FormUrn("morphform.202000$(genderint)100"),
-            FormUrn("morphform.202000$(genderint)200"),
-            FormUrn("morphform.202000$(genderint)300"),
-            FormUrn("morphform.202000$(genderint)400")
+            FormUrn("morphforms.203000$(genderint)100"),
+            FormUrn("morphforms.203000$(genderint)200"),
+            FormUrn("morphforms.203000$(genderint)300"),
+            FormUrn("morphforms.203000$(genderint)400")
         ]
 
         rules = rulesarray(kd)
         nounrules = filter(r -> typeof(r) == NounRule, rules)
 
         forms = []
-        for s in sg
-            println("generate $s")
+        for srule in sg
+            push!(forms, generate(srule,lex,  kd))
         end
-        for p in pl
-            println("generate $p")
+        for plrule in pl
+            push!(forms, generate(plrule, lex, kd))
         end
         forms
     end
