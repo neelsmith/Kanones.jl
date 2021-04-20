@@ -38,29 +38,30 @@ function generatenoun(analysis::Analysis, kd::Kanones.Dataset)
         # 3. combine stem and ending strings
         raw = map(r -> stem.form * r.ending, sameform)
       
-
         # 4. determine accent pattern from stem.accentpersistence
-        # and addaccent to resulting word.
-
-        
+        # and addaccent to resulting word.   
         for r in raw
             if countaccents(r, kd.orthography) == 1
                 push!(msgs, r)
             else
                 if stem.accentpersistence == "recessive"
                     push!(msgs, accentword(r, :RECESSIVE))
-                # :PENULT
-                #
-                # LOOK at case for ultima:
-                # 
-                # accentultima(WORD, :ACUTE or :CIRCUMFLEX)
+
+                elseif stem.accentpersistence == "stemaccented"
+                    push!(msgs, accentword(r, :PENULT))
+
                 else 
-                    push!(msgs, "Haven't yet figured out $(stem.accentpersistence)")
+                    casedict = valuedict(casepairs)
+                    morphchars = split(analysis.form.objectid,"")
+                    ncase = parse(Int64, morphchars[8])
+                    if casedict[ncase] == "genitive" || casedict[ncase] == "dative"
+                        push!(msgs, PolytonicGreek.accentultima(r, :CIRCUMFLEX))
+                    else
+                        push!(msgs, PolytonicGreek.accentultima(r, :ACUTE))
+                    end
                 end
-            
             end
-        end
-        
+        end  
     end
     msgs
 end
