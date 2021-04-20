@@ -15,7 +15,7 @@ export NounForm, NounStem, NounRule
 export MorphologicalForm
 
 export generate
-
+export decline
 
 include("parse.jl")
 include("utils.jl")
@@ -35,6 +35,7 @@ include("generator/nounsgen.jl")
 # Conversion Form objects <-> URN values
 include("morphology/forms.jl")
 include("morphology/formvalues.jl")
+include("morphology/forapps.jl")
 include("morphology/uninflectedmorphology.jl")
 include("morphology/nounmorphology.jl")
 include("morphology/finiteverbmorphology.jl")
