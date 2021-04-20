@@ -25,6 +25,7 @@ makedocs(
            
         ],
         "Reference: stem types" => Any[
+            "Contents" => "stemtypes/index.md",
             "Nouns" => "stemtypes/nouns/nounstems.md",
             "Uninflected types" => "stemtypes/uninflected.md",
         ],

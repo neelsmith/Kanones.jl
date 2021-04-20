@@ -15,7 +15,7 @@ export NounForm, NounStem, NounRule
 export MorphologicalForm
 
 export generate
-export decline
+export decline, mddeclension
 
 include("parse.jl")
 include("utils.jl")

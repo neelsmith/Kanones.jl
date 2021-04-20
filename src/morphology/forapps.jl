@@ -45,3 +45,17 @@ function decline(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = false
         forms
     end
 end
+
+"""Compose markdown table with a declension of a single noun.
+
+$(SIGNATURES)
+"""
+function mddeclension(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = false)
+    labels = ["nominative", "genitive", "dative", "accusative"]
+    lines = ["| | Singular | Plural |", "| --- | --- | --- |"]
+    arry = decline(lex, kd;  withvocative = withvocative)
+    for i in 1:4
+        push!(lines, string("| **", labels[i], "** | ", join(arry[i], "<br/>"), " | ", join(arry[i + 4], "<br/>"), " |"))
+    end
+    join(lines,"\n")
+end
