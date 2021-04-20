@@ -55,7 +55,7 @@ function mddeclension(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = 
     lines = ["| | Singular | Plural |", "| --- | --- | --- |"]
     arry = decline(lex, kd;  withvocative = withvocative)
     for i in 1:4
-        push!(lines, string("| **", labels[i], "** | ", join(arry[i], "<br/>"), " | ", join(arry[i + 4], "<br/>"), " |"))
+        push!(lines, string("| **", labels[i], "** | ", join(arry[i], ", "), " | ", join(arry[i + 4], ", "), " |"))
     end
     join(lines,"\n")
 end

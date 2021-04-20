@@ -1,3 +1,11 @@
 Rule|StemClass|Ending|Gender|Case|Number|
 nouninfl.h_hs1|is_ews|ις|feminine|nominative|singular|
-nouninfl.h_hs2|is_ews|εω^ς|feminine|nominative|singular|
+nouninfl.h_hs2|is_ews|εω^ς|feminine|genitive|singular|
+nouninfl.h_hs3|is_ews|ει|feminine|dative|singular|
+nouninfl.h_hs4|is_ews|ιν|feminine|accusative|singular|
+
+nouninfl.h_hs5|is_ews|εις|feminine|nominative|plural|
+nouninfl.h_hs6|is_ews|εω^ν|feminine|genitive|plural|
+nouninfl.h_hs7|is_ews|εσι|feminine|dative|plural|
+nouninfl.h_hs7b|is_ews|εσιν|feminine|dative|plural|
+nouninfl.h_hs8|is_ews|εις|feminine|accusative|plural|
