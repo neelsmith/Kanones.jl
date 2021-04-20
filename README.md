@@ -17,7 +17,7 @@ Kanones.jl recognizes nine analytical types, characterized by the kind of analys
 | --- | --- | :---: | :---: | :---: | :---: | :---: | :---: |
 | uninflected token | part of speech | ✔️  | **N/A** | ✔️ |   ✔️ | **N/A** | ✔️ |
 | noun | gender, case, number (gender inherent) | ✔️ |  | ✔️ | ✔️ |  | |
-| pronoun | gender, case, number (gender not inherent) |  **N/A** | | | | | |
+| pronoun | gender, case, number (gender not inherent) |  **N/A** | | |  **N/A** | | |
 | adjective | gender, case, number, degree | | | | | | |
 | adverb | degree |  | | | | | |
 | finite verb | person, number, tense, mood, voice | | | | | | |
