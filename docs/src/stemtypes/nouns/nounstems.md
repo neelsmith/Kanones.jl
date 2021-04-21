@@ -1,8 +1,10 @@
 # Noun stems
 
+
+The automatically generaetd paradigms on this page illustrate inflectional types of  nouns in the dataset defined in the `datasets/synoptic` directory of the Kanones github repository.
+
 ## First declension types
 
-### `h_hs` stem type
 
 Literary Greek orthography:
 
@@ -10,69 +12,55 @@ Literary Greek orthography:
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
 using Kanones, CitableParserBuilder, Markdown
 kd = dataset(repo * "/datasets/synoptic/")
-Markdown.parse(mddeclension(LexemeUrn("lsj.n22502"), kd))
+
+βουλη = LexemeUrn("lsj.n20600")
+γνωμη = LexemeUrn("lsj.n22502")
+θεραπαινα = LexemeUrn("lsj.n48369")
+οικια = LexemeUrn("lsj.n72287")
+
+
+nouns = [γνωμη, βουλη,οικια,θεραπαινα]
+Markdown.parse(mddeclension(nouns, kd))
 ```
 
-```@eval
-repo = pwd() |> dirname |> dirname  |> dirname |> dirname
-using Kanones, CitableParserBuilder, Markdown
-kd = dataset(repo * "/datasets/synoptic/")
-Markdown.parse(mddeclension(LexemeUrn("lsj.n72287"), kd))
-```
 
-```@eval
-repo = pwd() |> dirname |> dirname  |> dirname |> dirname
-using Kanones, CitableParserBuilder, Markdown
-kd = dataset(repo * "/datasets/synoptic/")
-Markdown.parse(mddeclension(LexemeUrn("lsj.n48369"), kd))
-```
 
-```@eval
-repo = pwd() |> dirname |> dirname  |> dirname |> dirname
-using Kanones, CitableParserBuilder, Markdown
-kd = dataset(repo * "/datasets/synoptic/")
-Markdown.parse(mddeclension(LexemeUrn("lsj.n20600"), kd))
-```
 
 
 ## Second declension types
 
-
-### `os_ou` stem type
-
-
-Masculine (literary Greek orthography):
+Literary Greek orthography:
 
 ```@eval
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
 using Kanones, CitableParserBuilder, Markdown
 kd = dataset(repo * "/datasets/synoptic/")
-Markdown.parse(mddeclension(LexemeUrn("lsj.n8909"), kd))
+
+ανθρωπος = LexemeUrn("lsj.n8909")
+δωρον = LexemeUrn("lsj.n29828")
+
+nouns = [ανθρωπος,δωρον ]
+Markdown.parse(mddeclension(nouns, kd))
 ```
 
 
-Neuter (literary Greek orthography):
 
-```@eval
-repo = pwd() |> dirname |> dirname  |> dirname |> dirname
-using Kanones, CitableParserBuilder, Markdown
-kd = dataset(repo * "/datasets/synoptic/")
-Markdown.parse(mddeclension(LexemeUrn("lsj.n29828"), kd))
-```
 
 
 
 ## Third declension types
 
 
-### `is_ews` stem type
-
-
 Literary Greek orthography:
 
 ```@eval
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
 using Kanones, CitableParserBuilder, Markdown
 kd = dataset(repo * "/datasets/synoptic/")
-Markdown.parse(mddeclension(LexemeUrn("lsj.n84494"), kd))
+
+πολις = LexemeUrn("lsj.n84494")
+
+nouns = [πολις]
+
+Markdown.parse(mddeclension(nouns, kd))
 ```

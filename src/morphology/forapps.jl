@@ -60,22 +60,107 @@ function mddeclension(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = 
     join(lines,"\n")
 end
 
+"""Compose markdown table with aligned declensions of multiple nouns.
 
+$(SIGNATURES)
+"""
 function mddeclension(lexlist::Array, kd::Kanones.Dataset; withvocative::Bool = false)
     columns = []
     labels = ["nominative", "genitive", "dative", "accusative"]
-    lines = [
-        "| | " * repeat(" |", length(lexlist)),
-        "| --- | " * repeat( " --- |", length(lexlist))
-    ]
-    for i in 1:4
-        push!(lines, string("| **", labels[i], "** | "))
-        for j in 1:length(lexlist)
-            push!(columns, decline(lexlist[i], kd; withvocative = withvocative))
-            cells = []
-            
-        end
+    gendervalues = genders(lexlist, kd)
+    inflclasses = stemtypes(lexlist, kd)
+
+    hdr = "| | "
+    for i in 1:length(lexlist)
+        hdr = hdr * string("`", inflclasses[i], "` |")
     end
+    lines = [
+        "**Singular**",
+        "",
+        hdr,
+        "| --- | " * repeat( " :--- |", length(lexlist))
+    ]
+    
+    for y in 1:length(labels)
+        row =  string("| **", labels[y], "** | ")   
+        for x in 1:length(lexlist)
+            form = FormUrn("morphforms.201000$(gendervalues[x])$(y)00")
+            surface = generatenoun( form, lexlist[x], kd)
+            row = row * string(join(surface, ", "),  " | ")
+
+        end
+        push!(lines, row)
+    end
+    push!(lines,"")
+    push!(lines,"**Plural**")
+    push!(lines, "")
+
+
+    hdr2 = "| | "
+    for i in 1:length(lexlist)
+        hdr2 = hdr2 * string(" |")
+    end
+    push!(lines, hdr2)
+    push!(lines, "| --- | " * repeat( " :--- |", length(lexlist)))
+    for y in 1:length(labels)
+        row =  string("| **", labels[y], "** | ")   
+        for x in 1:length(lexlist)
+            form = FormUrn("morphforms.203000$(gendervalues[x])$(y)00")
+            surface = generatenoun( form, lexlist[x], kd)
+            row = row * string(join(surface, ", "),  " | ")
+        end
+        push!(lines, row)
+    end
+
     join(lines, "\n")
 end
  
+
+"""Look up integer code for gender for a list of nouns.
+
+$(SIGNATURES)
+"""
+function genders(lexlist::Array, kd::Kanones.Dataset)
+    stems = stemsarray(kd)
+    nounstems = filter(s -> typeof(s) == NounStem, stems)
+
+    genderdict = labeldict(genderpairs)
+    genderlist = []
+    for lex in lexlist
+        stemmatches = filter(s -> s.lexid == lex, nounstems)
+        if isempty(stemmatches)
+            @warn "No matches in dataset for lexeme $lex"
+            push!(genderlist, nothing)
+    
+        else
+            gender = stemmatches[1].gender
+            # Find gender and construct form ids:
+            push!(genderlist, genderdict[gender])
+        end
+    end
+    genderlist
+end
+
+
+
+"""Look up integer code for gender for a list of nouns.
+
+$(SIGNATURES)
+"""
+function stemtypes(lexlist::Array, kd::Kanones.Dataset)
+    stems = stemsarray(kd)
+    nounstems = filter(s -> typeof(s) == NounStem, stems)
+
+    stemtypes = []
+    for lex in lexlist
+        stemmatches = filter(s -> s.lexid == lex, nounstems)
+        if isempty(stemmatches)
+            @warn "No matches in dataset for lexeme $lex"
+            push!(stemtypes, nothing)
+    
+        else
+            push!(stemtypes, stemmatches[1].inflectionclass)
+        end
+    end
+    stemtypes
+end
