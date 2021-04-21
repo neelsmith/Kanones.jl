@@ -24,6 +24,7 @@ include("datasets/dataset.jl")
 include("datasets/kanonesio.jl")
 include("datasets/uninflecteddata.jl")
 include("datasets/nounsdata.jl")
+include("datasets/irregularnounsdata.jl")
 include("datasets/finiteverbsdata.jl")
 
 include("analyzer/analysis.jl")

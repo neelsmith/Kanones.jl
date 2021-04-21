@@ -23,3 +23,17 @@ end
 end
 
 
+@testset "Read stems for irregular noun tokens from delimited text" begin
+    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular"
+    irregparser = Kanones.IrregularNounParser("irregular nouns")
+    stemrow = Kanones.readstemrow(irregparser, cex)
+
+    @test  stemrow.stemid  == StemUrn("irregnoun.irregn23069a")  #|> abbreviation
+    @test stemrow.lexid == LexemeUrn("lsj.n23069") 
+    @test stemrow.form == nfkc("γυνή")
+    @test stemrow.gender == "feminine"
+    @test stemrow.inflectionclass == "irregularnoun"
+    @test stemrow.accentpersistence == "irregularaccent"
+end
+
+

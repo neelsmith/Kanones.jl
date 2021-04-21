@@ -22,7 +22,9 @@
 
 #noun3# = #labialpalatal3#  #dental3# #neuttau3# #liquidnasal3# #rho3# #iu3#  #diphth3#
 
-#nounclass# = #noun1# #noun2# #noun3#
+#irregnoun#  = <irregularnoun>
+
+#nounclass# = #noun1# #noun2# #noun3# #irregnoun# 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Adjective stem types
