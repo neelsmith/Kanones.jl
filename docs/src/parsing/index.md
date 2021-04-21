@@ -17,9 +17,9 @@ else
 end
 ```
 
-```example parserexample
+```@example parserexample
 using Kanones, Kanones.FstBuilder
-kd = Kanones.Dataset(repo * "/datasets/synoptic/")
+kd = dataset(repo * "/datasets/synoptic/")
 fstsrc = repo * "/fst/"
 parser = buildparser(kd, fstsrc, target)
 basename(parser)
