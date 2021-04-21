@@ -59,3 +59,23 @@ function mddeclension(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = 
     end
     join(lines,"\n")
 end
+
+
+function mddeclension(lexlist::Array, kd::Kanones.Dataset; withvocative::Bool = false)
+    columns = []
+    labels = ["nominative", "genitive", "dative", "accusative"]
+    lines = [
+        "| | " * repeat(" |", length(lexlist)),
+        "| --- | " * repeat( " --- |", length(lexlist))
+    ]
+    for i in 1:4
+        push!(lines, string("| **", labels[i], "** | "))
+        for j in 1:length(lexlist)
+            push!(columns, decline(lexlist[i], kd; withvocative = withvocative))
+            cells = []
+            
+        end
+    end
+    join(lines, "\n")
+end
+ 

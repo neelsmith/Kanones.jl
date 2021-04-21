@@ -27,6 +27,13 @@ kd = dataset(repo * "/datasets/synoptic/")
 Markdown.parse(mddeclension(LexemeUrn("lsj.n48369"), kd))
 ```
 
+```@eval
+repo = pwd() |> dirname |> dirname  |> dirname |> dirname
+using Kanones, CitableParserBuilder, Markdown
+kd = dataset(repo * "/datasets/synoptic/")
+Markdown.parse(mddeclension(LexemeUrn("lsj.n20600"), kd))
+```
+
 
 ## Second declension types
 
