@@ -1,7 +1,11 @@
 # Noun stems
 
 
-The automatically generated paradigms on this page illustrate inflectional types of  nouns in the dataset defined in the `datasets/synoptic` directory of the Kanones github repository.
+The automatically generated paradigms on this page illustrate nouns accent belonging to various stem types, and with various patterns of persistent accent.  They belong to the dataset defined in the `datasets/synoptic` directory of the Kanones github repository.
+
+In the tables below, the nouns are labelled with the Kanones stem type they belong to.
+
+
 
 ## First declension types
 
