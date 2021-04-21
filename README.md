@@ -2,6 +2,7 @@
 
 A julia package implementing the kanónes system for building Greek morphological parsers.
 
+For a succinct outline of the technical process, see the [project wiki](https://github.com/neelsmith/Kanones.jl/wiki).
 
 ## Current coverage
 

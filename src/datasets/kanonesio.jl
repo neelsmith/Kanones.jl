@@ -22,6 +22,15 @@ struct NounParser <: KanonesIO
     label::AbstractString
 end
 
+"""
+KanonesIO type for reading and writing data for irregular noun forms.
+
+$(SIGNATURES)
+"""
+struct IrregularNounParser <: KanonesIO
+    label::AbstractString
+end
+
 
 """
 KanonesIO type for reading and writing data for finite verb form.
