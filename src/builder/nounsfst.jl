@@ -8,7 +8,7 @@ function fst(stem::Kanones.NounStem, ortho::T) where {T <: GreekOrthography}
     string(
         fstsafe(stem.stemid),
         fstsafe(stem.lexid),
-        stem.form,
+        rmaccents(stem.form, ortho),
         "<noun>",
         "<", stem.gender, ">",
         "<", stem.inflectionclass, ">"
