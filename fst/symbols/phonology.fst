@@ -5,16 +5,14 @@
 
 %
 % Basic alphabet specific to this orthographic system:
-%#include "@workdir@symbols/alphabet.fst"
 
-#breathing# = <sm><ro>
-#letter# = #consonant# #vowel# #breathing#
+#letter# = #consonant# #vowel#
 
 
 % Accents should only be included in entries for
 % irregular forms!
 
-#character# = #letter# #breathing#
+#character# = #letter#
 $character$ = [#character#]
 
 % Additional editorial symbols used in stem files:

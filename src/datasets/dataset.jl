@@ -97,6 +97,31 @@ function rulesarray(dirlist)
             end
         end
     end
+
+    irregiodict = Dict(
+        [
+        "nouns" => IrregularNounParser("irregular noun")
+        ]
+    )
+    irregrulesdirs = [
+        "nouns"
+    ]
+
+    for datasrc in dirlist
+        for dirname in irregrulesdirs 
+            dir = datasrc * "/irregular-stems/" * dirname * "/"
+            cexfiles = glob("*.cex", dir)
+            delimitedreader = (irregiodict[dirname])
+            for f in cexfiles
+                raw = readlines(f)
+                lines = filter(s -> ! isempty(s), raw)
+                for i in 2:length(lines)
+                    rule = readrulerow(delimitedreader, lines[i])
+                    push!(rulesarr,rule)
+                end
+            end
+        end
+    end
     unique(rulesarr)
 end
 
@@ -119,7 +144,6 @@ function stemsarray(dirlist)
         "nouns" => NounParser("noun")
         ]
     )
-    lexicon = Stem[]
     stemdirs = [
         "uninflected",
         "nouns"
@@ -141,6 +165,33 @@ function stemsarray(dirlist)
             end
         end
     end
+
+
+    irregiodict = Dict(
+        [
+        "uninflected" => UninflectedParser("uninflected"),
+        "nouns" => IrregularNounParser("noun")
+        ]
+    )
+    irregstemdirs = [
+        "nouns"
+    ]
+    for datasrc in dirlist
+        for dirname in stemdirs 
+            dir = datasrc * "/irregular-stems/" * dirname * "/"
+            cexfiles = glob("*.cex", dir)
+            delimitedreader = (irregiodict[dirname])
+            for f in cexfiles
+                raw = readlines(f)
+                lines = filter(s -> ! isempty(s), raw)
+                for i in 2:length(lines)
+                    stem = readstemrow(delimitedreader, lines[i])
+                    push!(stemsarr,stem)
+                end
+            end
+        end
+    end
+
     unique(stemsarr)
 end
 

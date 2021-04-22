@@ -6,10 +6,15 @@ $(SIGNATURES)
 function readstemrow(usp::IrregularNounParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
 
-    # irregnoun.irregn23069a|ls.n23069|γυνή|feminine|nominative|singular
+    # 1. irregnoun.irregn23069a|
+    # 2. ls.n23069|
+    # 3. γυνή|
+    # 4. feminine
+    # EXTRA |nominative|singular
 
     stemid = Kanones.StemUrn(parts[1])
     lexid = Kanones.LexemeUrn(parts[2])
+    # Need to rm accents first!
     stem = nfkc(parts[3])
     gender = parts[4]
 
