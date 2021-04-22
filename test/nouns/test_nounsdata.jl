@@ -37,3 +37,14 @@ end
 end
 
 
+@testset "Read rules for irregular noun tokens from delimited text" begin
+    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular"
+    nounparser = Kanones.IrregularNounParser("nouns")
+    rulerow = Kanones.readrulerow(nounparser, cex)
+    @test rulerow.ruleid == RuleUrn("irregnoun.irregn23069a") 
+    @test rulerow.inflectionclass == "irregularnoun"
+    @test rulerow.ending == ""
+    @test rulerow.ngender == "feminine"
+    @test rulerow.ncase == "nominative"
+    @test rulerow.nnumber == "singular"
+end
