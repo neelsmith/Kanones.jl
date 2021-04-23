@@ -14,7 +14,6 @@ function readstemrow(usp::IrregularNounParser, delimited::AbstractString, delimi
 
     stemid = Kanones.StemUrn(parts[1])
     lexid = Kanones.LexemeUrn(parts[2])
-    # Need to rm accents first!
     stem = nfkc(parts[3])
     gender = parts[4]
 

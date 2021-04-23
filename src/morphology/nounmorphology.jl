@@ -71,7 +71,7 @@ $(SIGNATURES)
 function nounabbrurn(fstdata)
     #<h_hs><noun>ας<feminine><accusative><singular>
     #@warn("Parse FST noun " * fstdata)
-    nounrulere = r"<([^<]+)><([^<]+)>[^>]+<([^<]+)><([^<]+)><([^<]+)>"  
+    nounrulere = r"<([^<]+)><([^<]+)>[^>]*<([^<]+)><([^<]+)><([^<]+)>"  
     # "<h_hs><noun>ας<feminine><accusative>"
     matchedup = collect(eachmatch(nounrulere, fstdata))
     
