@@ -12,6 +12,9 @@ export rulesarray, stemsarray
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 
+export IrregularRule
+export IrregularNounForm, IrregularNounRule
+
 export MorphologicalForm
 
 export generate
@@ -25,6 +28,7 @@ include("datasets/kanonesio.jl")
 include("datasets/uninflecteddata.jl")
 include("datasets/nounsdata.jl")
 include("datasets/irregularnounsdata.jl")
+include("datasets/irregularrules.jl")
 include("datasets/finiteverbsdata.jl")
 
 include("analyzer/analysis.jl")
@@ -32,6 +36,7 @@ include("analyzer/analysis.jl")
 include("generator/generate.jl")
 include("generator/uninflectedgen.jl")
 include("generator/nounsgen.jl")
+
 
 # Conversion Form objects <-> URN values
 include("morphology/forms.jl")
@@ -61,6 +66,7 @@ module FstBuilder
     # Specific analytical types ("parts of speech")
     include("builder/uninflectedfst.jl")
     include("builder/nounsfst.jl")
+    include("builder/irregularnouns.jl")
 end
 
 end # module

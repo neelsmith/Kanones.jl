@@ -1,3 +1,16 @@
+"A record for a single irregular noun stem."
+struct IrregularNounStem <: Stem
+    stemid::Kanones.AbbreviatedUrn
+    lexid::Kanones.AbbreviatedUrn
+    form::AbstractString
+    gender
+    gcase
+    gnumber
+    inflectionclass
+end
+
+
+
 """
 Read one row of a stems table for noun tokens and create a `NounStem`.
 
@@ -6,44 +19,28 @@ $(SIGNATURES)
 function readstemrow(usp::IrregularNounParser, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
 
+    # Example:
+    #irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun
     # 1. irregnoun.irregn23069a|
     # 2. ls.n23069|
     # 3. γυνή|
     # 4. feminine
-    # EXTRA |nominative|singular
+    # 5. nominative
+    # 6. singular
+    # 7. irregularnoun
 
+    
     stemid = Kanones.StemUrn(parts[1])
     lexid = Kanones.LexemeUrn(parts[2])
     stem = nfkc(parts[3])
-    gender = parts[4]
+    g = parts[4]
+    c = parts[5]
+    n = parts[6]
+    inflclass = parts[7]
 
-    NounStem(stemid,lexid,stem,gender,"irregularnoun","irregularaccent")
-
+    IrregularNounStem(stemid,lexid,stem,g,c,n,inflclass)
 end
 
 
-
-
-"""Implementation of reading one row of a rules table for uninflected tokens.
-
-$(SIGNATURES) 
-"""
-function readrulerow(usp::IrregularNounParser, delimited::AbstractString, delimiter = "|")
-    parts = split(delimited, delimiter)
-    
-    if length(parts) < 6
-        msg = "Invalid syntax for noun rule: too few components in $(delimited)"
-        throw(ArgumentError(msg))
-    else
-        # irregnoun.irregn23069a|ls.n23069|γυνή|feminine|nominative|singular
-        ruleid = Kanones.RuleUrn(parts[1])
-        inflclass = "irregularnoun"
-        ending = ""
-        g = parts[4]
-        c = parts[5]
-        n = parts[6]
- 
-        NounRule(ruleid, inflclass, ending, g,c,n)
-    end
-    
+function fst
 end
