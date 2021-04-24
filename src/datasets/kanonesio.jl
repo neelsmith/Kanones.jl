@@ -32,6 +32,18 @@ struct IrregularNounParser <: KanonesIO
 end
 
 
+
+"""
+KanonesIO type for reading and writing data for irregular rules only.
+
+$(SIGNATURES)
+
+Individual irregular types must have separate parsers for stems.
+"""
+struct IrregularParser <: KanonesIO
+    label::AbstractString
+end
+
 """
 KanonesIO type for reading and writing data for finite verb form.
 

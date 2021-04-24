@@ -1,4 +1,4 @@
-"A record for a single uninflected stem."
+"A record for a single noun stem."
 struct NounStem <: Stem
     stemid::Kanones.AbbreviatedUrn
     lexid::Kanones.AbbreviatedUrn

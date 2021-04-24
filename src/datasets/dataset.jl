@@ -73,12 +73,15 @@ function rulesarray(dirlist)
     iodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
+        "irregulars" => IrregularParser("irregulars"),
         "nouns" => NounParser("noun")
         ]
     )
     rulesdirs = [
         "uninflected",
+        "irregulars",
         "nouns"
+
     ]
     rulesarr = Rule[]
 
@@ -98,30 +101,6 @@ function rulesarray(dirlist)
         end
     end
 
-    irregiodict = Dict(
-        [
-        "nouns" => IrregularNounParser("irregular noun")
-        ]
-    )
-    irregrulesdirs = [
-        "nouns"
-    ]
-
-    for datasrc in dirlist
-        for dirname in irregrulesdirs 
-            dir = datasrc * "/irregular-stems/" * dirname * "/"
-            cexfiles = glob("*.cex", dir)
-            delimitedreader = (irregiodict[dirname])
-            for f in cexfiles
-                raw = readlines(f)
-                lines = filter(s -> ! isempty(s), raw)
-                for i in 2:length(lines)
-                    rule = readrulerow(delimitedreader, lines[i])
-                    push!(rulesarr,rule)
-                end
-            end
-        end
-    end
     unique(rulesarr)
 end
 

@@ -18,7 +18,7 @@ end
 
 
 @testset "Format fst lexicon for irregular noun stems" begin
-    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular"
+    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
     
     parser = Kanones.IrregularNounParser("irregular nouns")
     stemrow = Kanones.readstemrow(parser, cex)
