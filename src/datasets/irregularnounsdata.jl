@@ -28,7 +28,11 @@ function readstemrow(usp::IrregularNounParser, delimited::AbstractString, delimi
     # 5. nominative
     # 6. singular
     # 7. irregularnoun
-
+    if length(parts) < 7
+        msg = "Too few parts in $delimited."
+        @warn msg
+        throw(new(ArgumentError(msg)))
+    end
     
     stemid = Kanones.StemUrn(parts[1])
     lexid = Kanones.LexemeUrn(parts[2])

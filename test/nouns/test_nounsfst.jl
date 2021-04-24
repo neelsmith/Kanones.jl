@@ -23,23 +23,17 @@ end
     parser = Kanones.IrregularNounParser("irregular nouns")
     stemrow = Kanones.readstemrow(parser, cex)
 
-    expected = "<u>irregnoun\\.irregn23069a</u><u>lsj\\.n23069</u>γυνη<noun><feminine><irregularnoun>"
+    expected = "<u>irregnoun\\.irregn23069a</u><u>lsj\\.n23069</u>γυνη<feminine><nominative><singular><irregularnoun>"
     @test FstBuilder.fst(stemrow, literaryGreek()) == expected
 end
 
 
 
 @testset "Format fst lexicon for irregular noun rules" begin
-    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular"
+    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
     
     parser = Kanones.IrregularNounParser("irregular nouns")
-    stem = Kanones.readstemrow(parser, cex)
-
-    println(FstBuilder.fst(stem, literaryGreek()))
-    #<irregularnoun><noun><feminine><nominative><singular><u>irregnoun\.irregn23069a</u>
-#<a_as><noun>α_<feminine><nominative><singular><u>nouninfl\.a\_as1</u> |\
-
-
-    #expected = "<u>irregnoun\\.irregn23069a</u><u>lsj\\.n23069</u>γυνή<noun><feminine><irregularnoun>"
-    #@test FstBuilder.fst(stemrow, literaryGreek()) == expected
+    stemrow = Kanones.readstemrow(parser, cex)
+    expected = "<u>irregnoun\\.irregn23069a</u><u>lsj\\.n23069</u>γυνη<feminine><nominative><singular><irregularnoun>"
+    @test FstBuilder.fst(stemrow, literaryGreek()) == expected
 end
