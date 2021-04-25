@@ -24,8 +24,10 @@ $(SIGNATURES)
 """
 function functionfollowsform()
     Dict(
+        "irregular" => Kanones.irregularabbrun,
         "uninflected" => Kanones.uninflectedabbrurn,
-        "noun" => Kanones.nounabbrurn
+        "noun" => Kanones.nounabbrurn,
+
     )
 end
 

@@ -70,7 +70,7 @@ function irregularsquasher()
     join([
         "% Irregular form acceptor:",
         raw"$=irregularclass$ = [#irregular#]",
-        raw"$squashirregurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+ [#morphtag#]+ <irregular> $=irregularclass$ <div>   $=irregularclass$ <irregular><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
+        raw"$squashirregurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+ <irregular> $=irregularclass$  [#morphtag#]+ <div>   $=irregularclass$ <irregular><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
     ], "\n")
 end
 
