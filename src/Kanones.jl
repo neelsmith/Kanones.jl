@@ -66,7 +66,8 @@ module FstBuilder
     # Specific analytical types ("parts of speech")
     include("builder/uninflectedfst.jl")
     include("builder/nounsfst.jl")
-    include("builder/irregularnouns.jl")
+    include("builder/irregularnounsfst.jl")
+    include("builder/irregularrulesfst.jl")
 end
 
 end # module

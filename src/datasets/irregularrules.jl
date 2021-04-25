@@ -12,7 +12,7 @@ end
 
 $(SIGNATURES) 
 """
-function readrulerow(::Kanones.IrregularParser,  delimited::AbstractString, delimiter = "|")
+function readrulerow(ruleparser::Kanones.IrregularParser,  delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
     if length(parts) < 2
         msg = "Invalid syntax for irregular rule: too few components in $(delimited)"
