@@ -5,7 +5,7 @@
 % "Parts of speech": not traditional definition, but distinguished by
 % analytical pattern.  E.g., <infin> has distinct pattern that is neither
 % noun nor verb.
-#pos# = <noun><adjective><finiteverb><vadj><infinitive><participle><adverb><pronoun><uninflected>
+#pos# = <noun><adjective><finiteverb><vadj><infinitive><participle><adverb><pronoun><uninflected><irregular>
 #verbparts# = <finiteverb><vadj><infinitive><participle>
 %
 % 1. Noun morphology:
@@ -34,7 +34,12 @@
 #uninflected# =  <conjunction><particle><interjection><preposition><adverb><numeral>
 
 
-#morphtag# = #pos# #gender# #case# #number# #person# #tense# #mood# #voice# #degree# #finiteform# #uninflected#
+%
+% 5. Irregular forms:
+%
+#irregular# =  <irregularnoun><irregularfiniteverb><irregularinfinitive><irregularadjective>
+
+#morphtag# = #pos# #gender# #case# #number# #person# #tense# #mood# #voice# #degree# #finiteform# #uninflected# #irregular# 
 
 
 % Consider whether those belong here or elsewhere...?

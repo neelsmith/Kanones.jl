@@ -8,12 +8,13 @@ function buildacceptor(target)
     incl = string("#include \"", fstroot, "/symbols.fst\"")
 
     squashers = join([
+        irregularsquasher(),
         uninflsquasher(),
         nounsquasher()
     ], "\n")
     squasherunion = join([
         "% Union of all URN squashers:",
-        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$"
+        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$"
     ], "\n")
     stripper = join([
         "%% Put all symbols in 2 categories:  pass",
@@ -56,6 +57,20 @@ function uninflsquasher()
         "% Uninflected form acceptor:",
         raw"$=uninflectedclass$ = [#uninflected#]",
         raw"$squashuninflurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+ <uninflected> $=uninflectedclass$ <div>   $=uninflectedclass$ <uninflected><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
+    ], "\n")
+end
+
+
+
+
+"""Compose transducer for filtering irregular forms.
+
+$(SIGNATURES)"""
+function irregularsquasher()
+    join([
+        "% Irregular form acceptor:",
+        raw"$=irregularclass$ = [#irregular#]",
+        raw"$squashirregurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+ [#morphtag#]+ <irregular> $=irregularclass$ <div>   $=irregularclass$ <irregular><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
     ], "\n")
 end
 

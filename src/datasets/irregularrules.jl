@@ -12,7 +12,7 @@ end
 
 $(SIGNATURES) 
 """
-function readrulerow(ruleparser::Kanones.IrregularParser,  delimited::AbstractString, delimiter = "|")
+function readrulerow(ruleparser::Kanones.IrregularRuleParser,  delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
     if length(parts) < 2
         msg = "Invalid syntax for irregular rule: too few components in $(delimited)"
@@ -30,7 +30,7 @@ end
 
 $(SIGNATURES)
 """
-function fst(rule::Kanones.IrregularParser, ortho::T) where {T <: GreekOrthography}
+function fst(rule::Kanones.IrregularRuleParser, ortho::T) where {T <: GreekOrthography}
 
     string("<", rule.infltype,"><irregular>", fstsafe(rule.ruleid))
 end\=#

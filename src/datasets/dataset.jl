@@ -73,7 +73,7 @@ function rulesarray(dirlist)
     iodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
-        "irregulars" => IrregularParser("irregulars"),
+        "irregulars" => IrregularRuleParser("irregulars"),
         "nouns" => NounParser("noun")
         ]
     )

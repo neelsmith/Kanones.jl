@@ -35,7 +35,6 @@ end
     @test stemrow.gcase == "nominative"
     @test stemrow.gnumber == "singular"
     @test stemrow.inflectionclass == "irregularnoun"
-    #@test stemrow.accentpersistence == "irregularaccent"
 end
 
 

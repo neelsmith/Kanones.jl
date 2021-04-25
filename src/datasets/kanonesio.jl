@@ -40,7 +40,7 @@ $(SIGNATURES)
 
 Individual irregular types must have separate parsers for stems.
 """
-struct IrregularParser <: KanonesIO
+struct IrregularRuleParser <: KanonesIO
     label::AbstractString
 end
 

@@ -14,6 +14,7 @@ function fst(stem::Kanones.IrregularNounStem, ortho::T) where {T <: GreekOrthogr
         "<", stem.gender, ">",
         "<", stem.gcase, ">",
         "<", stem.gnumber, ">",
+        "<irregular>",
         "<", stem.inflectionclass, ">"
     )
     
