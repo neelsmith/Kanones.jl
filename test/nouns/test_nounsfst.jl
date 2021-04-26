@@ -23,7 +23,7 @@ end
     parser = Kanones.IrregularNounParser("irregular nouns")
     stemrow = Kanones.readstemrow(parser, cex)
 
-    expected = "<u>irregnoun\\.irregn23069a</u><u>lsj\\.n23069</u>γυνη<feminine><nominative><singular><irregular><irregularnoun>"
+    expected = "<u>irregnoun\\.irregn23069a</u><u>lsj\\.n23069</u>γυνη<irregular><irregularnoun><feminine><nominative><singular>"
     @test FstBuilder.fst(stemrow, literaryGreek()) == expected
 end
 
