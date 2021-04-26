@@ -13,7 +13,7 @@ export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 
 export IrregularRule
-export IrregularNounForm, IrregularNounRule
+export IrregularNounForm, IrregularNounStem
 
 export MorphologicalForm
 
