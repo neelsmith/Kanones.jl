@@ -23,6 +23,6 @@ end
 @testset "Test compostion of CEX for noun form" begin
     noun = NounForm(1, "masculine", 1, "nominative", 1, "singular" )
 
-    println("\n\n",Kanones.cex(noun),"\n\n")
-    #@test Kanones.cex(noun) == "urn:cite2:kanones:morphforms.v1:1000000001|uninflected form: conjunction"
+    #println("\n\n",Kanones.cex(noun),"\n\n")
+    @test_broken Kanones.cex(noun) == "urn:cite2:kanones:morphforms.v1:1000000001|uninflected form: conjunction"
 end
