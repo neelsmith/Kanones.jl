@@ -9,6 +9,8 @@ using Test
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
 
+include("irregulars/test_irregrules.jl")
+
 include("uninflected/test_uninflectedfst.jl")
 include("uninflected/test_uninflecteddata.jl")
 include("uninflected/test_uninflectedanalysis.jl")

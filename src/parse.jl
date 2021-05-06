@@ -24,8 +24,9 @@ $(SIGNATURES)
 """
 function functionfollowsform()
     Dict(
+        "irregular" => Kanones.irregularabbrurn,
         "uninflected" => Kanones.uninflectedabbrurn,
-        "noun" => Kanones.nounabbrurn
+        "noun" => Kanones.nounabbrurn,
     )
 end
 
@@ -45,7 +46,13 @@ function analysisforline(fst::AbstractString)
 
         fnctndict = functionfollowsform()
         fnct = fnctndict[analysiscat]
-        formurn =  string(typeinfo, ending, ruledata) |> fnct
+        # Depends on what is regular, what is irregular!
+        formurn = ""
+        if analysiscat == "irregular"
+            formurn = fnct(stemdata)
+        else
+            formurn =  string(typeinfo, ending, ruledata) |> fnct
+        end
         
         Analysis(string(tkn,ending), LexemeUrn(lexidval), formurn, RuleUrn(ruleidval), StemUrn(stemidval))
 end

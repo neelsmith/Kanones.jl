@@ -9,8 +9,13 @@
 $(SIGNATURES)
 """
 function generatenoun(form::FormUrn,lex::LexemeUrn,  kd::Kanones.Dataset)
+    # See if inflectionclass == "irregularnoun"
+    # then find one matching form
+    #
     stems = stemsarray(kd)
-    nounstems = filter(s -> typeof(s) == NounStem, stems)
+    regnounstems = filter(s -> typeof(s) == NounStem, stems)
+    irregnounstems = filter(s -> typeof(s) == IrregularNounStem, stems)
+    nounstems = vcat(regnounstems, irregnounstems)
     stemmatches = filter(s -> s.lexid == lex, nounstems)
     #@info string("generatenoun: matching stems: ", length(stemmatches))
     rules = rulesarray(kd)
@@ -70,5 +75,5 @@ end
 $(SIGNATURES)
 """
 function generatenoun(analysis::Analysis, kd::Kanones.Dataset)
-    generatenoun(analysis.lexeme, analysis.form, kd)
+    generatenoun(analysis.form, analysis.lexeme,  kd)
 end

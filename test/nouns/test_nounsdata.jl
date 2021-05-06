@@ -19,12 +19,12 @@ end
     @test stemrow.form == "γνωμ"
     @test stemrow.gender == "feminine"
     @test stemrow.inflectionclass == "h_hs"
-    @test stemrow.accentpersistence == "recessive"
+    #@test stemrow.accentpersistence == "recessive"
 end
 
 
 @testset "Read stems for irregular noun tokens from delimited text" begin
-    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular"
+    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
     irregparser = Kanones.IrregularNounParser("irregular nouns")
     stemrow = Kanones.readstemrow(irregparser, cex)
 
@@ -32,8 +32,9 @@ end
     @test stemrow.lexid == LexemeUrn("lsj.n23069") 
     @test stemrow.form == nfkc("γυνή")
     @test stemrow.gender == "feminine"
+    @test stemrow.gcase == "nominative"
+    @test stemrow.gnumber == "singular"
     @test stemrow.inflectionclass == "irregularnoun"
-    @test stemrow.accentpersistence == "irregularaccent"
 end
 
 

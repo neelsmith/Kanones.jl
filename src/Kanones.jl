@@ -13,7 +13,7 @@ export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 
 export IrregularRule
-export IrregularNounForm, IrregularNounRule
+export IrregularNounForm, IrregularNounStem
 
 export MorphologicalForm
 
@@ -42,6 +42,8 @@ include("generator/nounsgen.jl")
 include("morphology/forms.jl")
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
+
+include("morphology/irregularmorphology.jl")
 include("morphology/uninflectedmorphology.jl")
 include("morphology/nounmorphology.jl")
 include("morphology/finiteverbmorphology.jl")
@@ -66,7 +68,8 @@ module FstBuilder
     # Specific analytical types ("parts of speech")
     include("builder/uninflectedfst.jl")
     include("builder/nounsfst.jl")
-    include("builder/irregularnouns.jl")
+    include("builder/irregularnounsfst.jl")
+    include("builder/irregularrulesfst.jl")
 end
 
 end # module
