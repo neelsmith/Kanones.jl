@@ -1,1 +1,1 @@
-Convenience directory for building parsers.
+Convenience directory for building binary parsers.
