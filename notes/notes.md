@@ -23,8 +23,8 @@ Vocabulary from Lysias to use for test development:
 
 | Noun | Kanones class | Kanones accent category |
 | --- | --- | --- |
-| οἰκία | | |
-| θεπάπαιν | | |
+| οἰκία | `a_as` | `stemaccented` |
+| θεπάπαιν | `a_as_short` | `recessive` |
 | γνώμη | `h_hs` | `recessive` |
 | νόμος | `os_ou` | `recessive`|
 | πόλις||
