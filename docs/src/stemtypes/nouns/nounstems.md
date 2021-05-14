@@ -54,6 +54,20 @@ Markdown.parse(mddeclension(nouns, kd))
 ```
 
 
+Attic Greek orthography:
+
+
+```@eval
+repo = pwd() |> dirname |> dirname  |> dirname |> dirname
+using Kanones, CitableParserBuilder, Markdown
+attic = dataset(repo * "/datasets/attic/")
+
+ανθρωπος = LexemeUrn("lsj.n8909")
+
+
+nouns = [ανθρωπος,δωρον ]
+Markdown.parse(mddeclension(nouns, attic))
+```
 
 
 

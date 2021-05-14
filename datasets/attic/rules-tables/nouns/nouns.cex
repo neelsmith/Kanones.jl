@@ -1,5 +1,12 @@
 Rule|StemClass|Ending|Gender|Case|Number|
 atticnouninfl.os_ou1|os_ou|ος|masculine|nominative|singular|
+atticnouninfl.os_ou2|os_ou|ο_|masculine|genitive|singular|
+atticnouninfl.os_ou3|os_ou|ο_ι|masculine|dative|singular|
+atticnouninfl.os_ou4|os_ou|ον|masculine|accusative|singular|
 
+atticnouninfl.os_ou5|os_ou|οι|masculine|nominative|plural|
+atticnouninfl.os_ou6|os_ou|ο_ν|masculine|genitive|plural|
+atticnouninfl.os_ou7|os_ou|ο_ις|masculine|dative|plural|
+atticnouninfl.os_ou8|os_ou|ο_ς|masculine|accusative|plural|
 
 
