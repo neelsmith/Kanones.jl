@@ -25,8 +25,16 @@ ds = dataset(repo * "/datasets/synoptic/")
 Markdown.parse(mddeclension(nouns, ds))
 ```
 
+Attic orthography:
 
 
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+bole = LexemeUrn("lsj.n20600")
+repo = pwd() |> dirname |> dirname  |> dirname |> dirname
+attic = dataset(repo * "/datasets/attic/")
+Markdown.parse(mddeclension([bole], attic))
+```
 
 
 ## Second declension types
