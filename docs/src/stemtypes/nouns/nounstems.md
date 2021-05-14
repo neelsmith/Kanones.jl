@@ -64,8 +64,7 @@ attic = dataset(repo * "/datasets/attic/")
 
 ανθρωπος = LexemeUrn("lsj.n8909")
 
-
-nouns = [ανθρωπος,δωρον ]
+nouns = [ανθρωπος]
 Markdown.parse(mddeclension(nouns, attic))
 ```
 
