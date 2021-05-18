@@ -59,7 +59,7 @@ Attic Greek orthography:
 
 ```@eval
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
-using Kanones, CitableParserBuilder, Markdown
+using Kanones, CitableParserBuilder, Markdown, AtticGreek
 attic = dataset(repo * "/datasets/attic/"; ortho=atticGreek())
 
 ανθρωπος = LexemeUrn("lsj.n8909")
