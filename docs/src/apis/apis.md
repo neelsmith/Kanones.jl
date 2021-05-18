@@ -82,6 +82,7 @@ Kanones.readstemrow
 Kanones.readrulerow
 Kanones.id
 Kanones.lexeme
+Kanones.abbrformurn
 ```
 
 

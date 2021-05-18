@@ -11,6 +11,32 @@ end
 
 
 
+#=
+function formurn(irregstem::IrregularNounStem)
+    numdict = labeldict(numberpairs)
+    genderdict = labeldict(genderpairs)
+    casedict = labeldict(casepairs)
+    # PosPNTMVGCDCat
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",numdict[irregstem.gnumber],"000",genderdict[irregstem.gender],casedict[irregstem.gcase],"00"))
+end
+=#
+
+"""Compose FormUrn for an irregular noun stem.
+
+$(SIGNATURES)
+
+For irregulars, all form information is in the stem entry, so we need 
+a function to create form urns directory from this.
+"""
+function abbrformurn(irregstem::IrregularNounStem)
+    numdict = labeldict(numberpairs)
+    genderdict = labeldict(genderpairs)
+    casedict = labeldict(casepairs)
+    # PosPNTMVGCDCat
+    FormUrn(string("morphforms.", NOUN,"0",numdict[irregstem.gnumber],"000",genderdict[irregstem.gender],casedict[irregstem.gcase],"00"))
+end
+
+
 """
 Read one row of a stems table for noun tokens and create a `NounStem`.
 
