@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-function fst(stem::FiniteVerbStem, ortho::T) where {T <: GreekOGreekOrthographyrtho}
+function fst(stem::Kanones.FiniteVerbStem, ortho::T) where {T <: GreekOrthography}
     string(
         fstsafe(stem.stemid),
         fstsafe(stem.lexid),
@@ -16,7 +16,7 @@ end
 
 $(SIGNATURES)
 """
-function fst(rule::FiniteVerbRule, ortho::T) where {T <: GreekOrthography}
+function fst(rule::Kanones.FiniteVerbRule, ortho::T) where {T <: GreekOrthography}
     string("<", rule.stemclass,"><finiteverb>", 
     rmaccents(rule.ending, ortho),
     "<", rule.vperson, ">",

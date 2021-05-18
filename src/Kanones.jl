@@ -11,9 +11,11 @@ export Stem, Rule
 export rulesarray, stemsarray
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
+export FiniteVerbStem
 
 export IrregularRule
 export IrregularNounForm, IrregularNounStem
+
 
 export MorphologicalForm
 
@@ -70,6 +72,8 @@ module FstBuilder
     include("builder/nounsfst.jl")
     include("builder/irregularnounsfst.jl")
     include("builder/irregularrulesfst.jl")
+
+    include("builder/finiteverbsfst.jl")
 end
 
 end # module
