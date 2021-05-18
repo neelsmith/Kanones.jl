@@ -61,7 +61,7 @@ function readrulerow(usp::VerbParser, delimited::AbstractString, delimiter = "|"
         n = parts[5]
         t = parts[6]
         m = parts[7]
-        m = parts[8]
+        v = parts[8]
 
         FiniteVerbRule(ruleid, inflclass, ending,p,n,t,m,v)
     end
