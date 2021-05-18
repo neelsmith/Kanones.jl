@@ -14,3 +14,17 @@
     @test rulerow.vmood == "indicative"
     @test rulerow.vvoice == "active"
 end
+
+
+@testset "Read stems for noun tokens from delimited text"  begin    
+    #Rule|LexicalEntity|StemClass|Stem|
+
+    cex = "verbstems.n56496|lexent.n56496|κελευ|w_regular|"
+    verbparser = Kanones.VerbParser("verbs")
+    stemrow = Kanones.readstemrow(verbparser, cex)
+    @test stemrow.stemid == "verbstems.n56496"
+    @test stemrow.lexid == LexemeUrn("lexent.n56496")
+    @test stemrow.stem == "κελευ"
+    @test stemrow.stemclass == "verbstems.w_regular"
+
+end
