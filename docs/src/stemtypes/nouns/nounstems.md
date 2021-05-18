@@ -29,10 +29,10 @@ Attic orthography:
 
 
 ```@eval
-using Kanones, CitableParserBuilder, Markdown
+using Kanones, CitableParserBuilder, Markdown, AtticGreek
 bole = LexemeUrn("lsj.n20600")
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
-attic = dataset(repo * "/datasets/attic/")
+attic = dataset(repo * "/datasets/attic/"; ortho=atticGreek())
 Markdown.parse(mddeclension([bole], attic))
 ```
 
