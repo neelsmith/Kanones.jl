@@ -47,7 +47,7 @@ function finiteverbabbrurn(fstdata)
     # Example rule string:
     #  "<w_regular><finiteverb>ει<third><singular><present><indicative><active>"
     # Extract PNTMV from a string like the example:
-    verbrulere = r"<[^<]+><finiteverb>[^<]*<([^<]+)><([^<]+)><([^<]+)><([^<]+)><([^<]+)><[^<]+>"
+    verbrulere = r"<[^<]+><finiteverb>[^<]*<([^<]+)><([^<]+)><([^<]+)><([^<]+)><([^<]+)>"
     matchedup = collect(eachmatch(verbrulere, fstdata))
 
     if isempty(matchedup)

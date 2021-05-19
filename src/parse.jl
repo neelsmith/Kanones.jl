@@ -27,6 +27,7 @@ function functionfollowsform()
         "irregular" => Kanones.irregularabbrurn,
         "uninflected" => Kanones.uninflectedabbrurn,
         "noun" => Kanones.nounabbrurn,
+        "finiteverb" =>  Kanones.finiteverbabbrurn
     )
 end
 
