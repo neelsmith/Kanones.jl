@@ -16,3 +16,9 @@ end
     expected = "<u>verbstems\\.n56496</u><u>lexent\\.n56496</u>κελευ<finiteverb><w_regular>"
     @test FstBuilder.fst(rulerow, literaryGreek()) == expected
 end
+
+@testset "Parse rule component FST reply into a form URN" begin
+    rule = "<w_regular><finiteverb>ει<third><singular><present><indicative><active>"
+    expected = FormUrn("morphforms.3031111000")
+    @test Kanones.finiteverbabbrurn(rule) == expected
+end

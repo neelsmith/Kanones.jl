@@ -1,12 +1,12 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-verbinfl.wpp1_dep1|w_pp1_dep|εται|3rd|singular|present|indicative|middle
-verbinfl.wpp1_dep2|w_pp1_dep|εται|3rd|singular|present|indicative|passive
+verbinfl.wpp1_dep1|w_pp1_dep|εται|third|singular|present|indicative|middle
+verbinfl.wpp1_dep2|w_pp1_dep|εται|third|singular|present|indicative|passive
 
-verbinfl.wpp1_dep3|w_pp1_dep|ηται|3rd|singular|present|subjunctive|middle
-verbinfl.wpp1_dep4|w_pp1_dep|ηται|3rd|singular|present|subjunctive|passive
+verbinfl.wpp1_dep3|w_pp1_dep|ηται|third|singular|present|subjunctive|middle
+verbinfl.wpp1_dep4|w_pp1_dep|ηται|third|singular|present|subjunctive|passive
 
-verbinfl.wpp1_dep5|w_pp1_dep|οιτο|3rd|singular|present|optative|middle
-verbinfl.wpp1_dep6|w_pp1_dep|οιτο|3rd|singular|present|optative|passive
+verbinfl.wpp1_dep5|w_pp1_dep|οιτο|third|singular|present|optative|middle
+verbinfl.wpp1_dep6|w_pp1_dep|οιτο|third|singular|present|optative|passive
 
-verbinfl.wpp1_dep7|w_pp1_dep|ετο|3rd|singular|imperfect|indicative|middle
-verbinfl.wpp1_dep8|w_regular|ετο|3rd|singular|imperfect|indicative|passive
+verbinfl.wpp1_dep7|w_pp1_dep|ετο|third|singular|imperfect|indicative|middle
+verbinfl.wpp1_dep8|w_regular|ετο|third|singular|imperfect|indicative|passive

@@ -1,46 +1,46 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-verbinfl.wreg3rd1|w_regular|ει|3rd|singular|present|indicative|active
-verbinfl.wreg3rd2|w_regular|εται|3rd|singular|present|indicative|middle
-verbinfl.wreg3rd3|w_regular|εται|3rd|singular|present|indicative|passive
+verbinfl.wregthird1|w_regular|ει|third|singular|present|indicative|active
+verbinfl.wregthird2|w_regular|εται|third|singular|present|indicative|middle
+verbinfl.wregthird3|w_regular|εται|third|singular|present|indicative|passive
 
-verbinfl.wreg3rd4|w_regular|ῃ|3rd|singular|present|subjunctive|active
-verbinfl.wreg3rd5|w_regular|ηται|3rd|singular|present|subjunctive|middle
-verbinfl.wreg3rd6|w_regular|ηται|3rd|singular|present|subjunctive|passive
+verbinfl.wregthird4|w_regular|ῃ|third|singular|present|subjunctive|active
+verbinfl.wregthird5|w_regular|ηται|third|singular|present|subjunctive|middle
+verbinfl.wregthird6|w_regular|ηται|third|singular|present|subjunctive|passive
 
-verbinfl.wreg3rd7|w_regular|οι|3rd|singular|present|optative|active
-verbinfl.wreg3rd8|w_regular|οιτο|3rd|singular|present|optative|middle
-verbinfl.wreg3rd9|w_regular|οιτο|3rd|singular|present|optative|passive
+verbinfl.wregthird7|w_regular|οι|third|singular|present|optative|active
+verbinfl.wregthird8|w_regular|οιτο|third|singular|present|optative|middle
+verbinfl.wregthird9|w_regular|οιτο|third|singular|present|optative|passive
 
-verbinfl.wreg3rd10|w_regular|ε|3rd|singular|imperfect|indicative|active
-verbinfl.wreg3rd11|w_regular|ετο|3rd|singular|imperfect|indicative|middle
-verbinfl.wreg3rd12|w_regular|ετο|3rd|singular|imperfect|indicative|passive
+verbinfl.wregthird10|w_regular|ε|third|singular|imperfect|indicative|active
+verbinfl.wregthird11|w_regular|ετο|third|singular|imperfect|indicative|middle
+verbinfl.wregthird12|w_regular|ετο|third|singular|imperfect|indicative|passive
 
-verbinfl.wreg3rd13|w_regular|σει|3rd|singular|future|indicative|active
-verbinfl.wreg3rd14|w_regular|σεται|3rd|singular|future|indicative|middle
-verbinfl.wreg3rd15|w_regular|θήσεται|3rd|singular|future|indicative|passive
+verbinfl.wregthird13|w_regular|σει|third|singular|future|indicative|active
+verbinfl.wregthird14|w_regular|σεται|third|singular|future|indicative|middle
+verbinfl.wregthird15|w_regular|θήσεται|third|singular|future|indicative|passive
 
-verbinfl.wreg3rd16|w_regular|σοι|3rd|singular|future|optative|active
-verbinfl.wreg3rd17|w_regular|σοιτο|3rd|singular|future|optative|middle
-verbinfl.wreg3rd18|w_regular|θήσοιτο|3rd|singular|future|optative|passive
+verbinfl.wregthird16|w_regular|σοι|third|singular|future|optative|active
+verbinfl.wregthird17|w_regular|σοιτο|third|singular|future|optative|middle
+verbinfl.wregthird18|w_regular|θήσοιτο|third|singular|future|optative|passive
 
-verbinfl.wreg3rd19|w_regular|σε|3rd|singular|aorist|indicative|active
-verbinfl.wreg3rd20|w_regular|σετο|3rd|singular|aorist|indicative|middle
-verbinfl.wreg3rd21|w_regular|θη|3rd|singular|aorist|indicative|passive
+verbinfl.wregthird19|w_regular|σε|third|singular|aorist|indicative|active
+verbinfl.wregthird20|w_regular|σετο|third|singular|aorist|indicative|middle
+verbinfl.wregthird21|w_regular|θη|third|singular|aorist|indicative|passive
 
-verbinfl.wreg3rd19|w_regular|σῃ|3rd|singular|aorist|subjunctive|active
-verbinfl.wreg3rd20|w_regular|σηται|3rd|singular|aorist|subjunctive|middle
-verbinfl.wreg3rd21|w_regular|θῇ|3rd|singular|aorist|subjunctive|passive
+verbinfl.wregthird19|w_regular|σῃ|third|singular|aorist|subjunctive|active
+verbinfl.wregthird20|w_regular|σηται|third|singular|aorist|subjunctive|middle
+verbinfl.wregthird21|w_regular|θῇ|third|singular|aorist|subjunctive|passive
 
-verbinfl.wreg3rd19|w_regular|σαι|3rd|singular|aorist|optative|active
-verbinfl.wreg3rd19b|w_regular|σειε|3rd|singular|aorist|optative|active
-verbinfl.wreg3rd20|w_regular|σαιτο|3rd|singular|aorist|optative|middle
-verbinfl.wreg3rd21|w_regular|θείη|3rd|singular|aorist|optative|passive
+verbinfl.wregthird19|w_regular|σαι|third|singular|aorist|optative|active
+verbinfl.wregthird19b|w_regular|σειε|third|singular|aorist|optative|active
+verbinfl.wregthird20|w_regular|σαιτο|third|singular|aorist|optative|middle
+verbinfl.wregthird21|w_regular|θείη|third|singular|aorist|optative|passive
 
-verbinfl.wreg3rd22|w_regular|κε|3rd|singular|perfect|indicative|active
-verbinfl.wreg3rd23|w_regular|ται|3rd|singular|perfect|indicative|middle
-verbinfl.wreg3rd24|w_regular|ται|3rd|singular|perfect|indicative|passive
+verbinfl.wregthird22|w_regular|κε|third|singular|perfect|indicative|active
+verbinfl.wregthird23|w_regular|ται|third|singular|perfect|indicative|middle
+verbinfl.wregthird24|w_regular|ται|third|singular|perfect|indicative|passive
 
-verbinfl.wreg3rd22|w_regular|κει|3rd|singular|pluperfect|indicative|active
-verbinfl.wreg3rd23|w_regular|το|3rd|singular|pluperfect|indicative|middle
-verbinfl.wreg3rd24|w_regular|το|3rd|singular|pluperfect|indicative|passive
+verbinfl.wregthird22|w_regular|κει|third|singular|pluperfect|indicative|active
+verbinfl.wregthird23|w_regular|το|third|singular|pluperfect|indicative|middle
+verbinfl.wregthird24|w_regular|το|third|singular|pluperfect|indicative|passive
 

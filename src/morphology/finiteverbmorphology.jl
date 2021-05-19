@@ -44,7 +44,33 @@ end
 $(SIGNATURES)
 """
 function finiteverbabbrurn(fstdata)
-    nothing
+    # Example rule string:
+    #  "<w_regular><finiteverb>ει<third><singular><present><indicative><active>"
+    # Extract PNTMV from a string like the example:
+    verbrulere = r"<[^<]+><finiteverb>[^<]*<([^<]+)><([^<]+)><([^<]+)><([^<]+)><([^<]+)><[^<]+>"
+    matchedup = collect(eachmatch(verbrulere, fstdata))
+
+    if isempty(matchedup)
+        @warn("Unable to parse FST analysis \"" * fstdata * "\" as verb form.")
+        nothing
+    else
+        (p,n, t, m, v) = matchedup[1].captures
+
+        persondict = labeldict(personpairs)
+        numberdict = labeldict(numberpairs)
+        tensedict = labeldict(tensepairs)
+        mooddict = labeldict(moodpairs)
+        voicedict = labeldict(voicepairs)
+        verbform = FiniteVerbForm(persondict[p], p,
+        numberdict[n], n,
+        tensedict[t], t,
+        mooddict[m], m,
+        voicedict[v], v
+        )
+
+        FormUrn(string("morphforms.", FINITEVERB,"0",verbform.vperson, verbform.vnumber, 
+        verbform.vtense, verbform.vmood, verbform.vvoice, "000"))
+    end
 end
 
 
