@@ -20,7 +20,7 @@
 %
 % 3. Verb morphology:
 %
-#person# = <1st><2nd><3rd>
+#person# = <first><second><third>
 % number already defined in noun morphology
 #tense# = <present><imperfect><future><aorist><perfect><pluperfect>
 #mood# = <indicative><subjunctive><optative><imperative>
