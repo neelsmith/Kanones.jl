@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-struct FiniteVerbStem <: Stem
+struct VerbStem <: Stem
     stemid::Kanones.AbbreviatedUrn
     lexid::Kanones.AbbreviatedUrn
     stem::AbstractString
@@ -37,7 +37,7 @@ function readstemrow(usp::VerbParser, delimited::AbstractString, delimiter = "|"
     lexid = Kanones.LexemeUrn(parts[2])
     stem = parts[3]
     stemclass = parts[4]
-    FiniteVerbStem(stemid,lexid,stem,stemclass)
+    VerbStem(stemid,lexid,stem,stemclass)
     # Rule|LexicalEntity|StemClass|Stem|
 end
 

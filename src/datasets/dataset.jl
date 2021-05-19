@@ -74,13 +74,15 @@ function rulesarray(dirlist)
         [
         "uninflected" => UninflectedParser("uninflected"),
         "irregulars" => IrregularRuleParser("irregulars"),
-        "nouns" => NounParser("noun")
+        "nouns" => NounParser("noun"),
+        "finiteverbs" => VerbParser("verb")
         ]
     )
     rulesdirs = [
         "uninflected",
-        "irregulars",
-        "nouns"
+        irregulars",
+        "nouns",
+        "finiteverbs"
 
     ]
     rulesarr = Rule[]
@@ -117,15 +119,18 @@ end
 $(SIGNATURES)
 """
 function stemsarray(dirlist)
+    @info "Getting stems for $dirlist"
     iodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
-        "nouns" => NounParser("noun")
+        "nouns" => NounParser("noun"),
+        "verbs-simplex" => VerbParser("verb")
         ]
     )
     stemdirs = [
         "uninflected",
-        "nouns"
+        "nouns",
+        "verbs-simplex"
     ]
 
     stemsarr = []
@@ -156,7 +161,7 @@ function stemsarray(dirlist)
         "nouns"
     ]
     for datasrc in dirlist
-        for dirname in stemdirs 
+        for dirname in irregstemdirs 
             dir = datasrc * "/irregular-stems/" * dirname * "/"
             cexfiles = glob("*.cex", dir)
             delimitedreader = (irregiodict[dirname])

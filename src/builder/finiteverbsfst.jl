@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-function fst(stem::Kanones.FiniteVerbStem, ortho::T) where {T <: GreekOrthography}
+function fst(stem::Kanones.VerbStem, ortho::T) where {T <: GreekOrthography}
     string(
         fstsafe(stem.stemid),
         fstsafe(stem.lexid),

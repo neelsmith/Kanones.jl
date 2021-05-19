@@ -11,7 +11,7 @@ export Stem, Rule
 export rulesarray, stemsarray
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
-export FiniteVerbStem
+export VerbStem
 
 export IrregularRule
 export IrregularNounForm, IrregularNounStem
