@@ -80,7 +80,7 @@ function rulesarray(dirlist)
     )
     rulesdirs = [
         "uninflected",
-        irregulars",
+        "irregulars",
         "nouns",
         "finiteverbs"
 
