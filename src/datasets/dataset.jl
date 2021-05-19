@@ -83,7 +83,6 @@ function rulesarray(dirlist)
         "irregulars",
         "nouns",
         "finiteverbs"
-
     ]
     rulesarr = Rule[]
 
@@ -141,6 +140,7 @@ function stemsarray(dirlist)
             delimitedreader = (iodict[dirname])
             for f in cexfiles
                 raw = readlines(f)
+                # Trim lines first!
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
                     stem = readstemrow(delimitedreader, lines[i])

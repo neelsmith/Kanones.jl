@@ -1,3 +1,7 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 verbinfl.wpp6_1|w_pp6|θήσεται|3rd|singular|future|indicative|passive
-verbinfl.wpp6_2|w_pp6|θη|3rd|singular|aorist|indicative|passive
+verbinfl.wpp6_2|w_pp6|θήσοιτο|3rd|singular|future|optative|passive
+
+verbinfl.wpp6_3|w_pp6|θη|3rd|singular|aorist|indicative|passive
+verbinfl.wpp6_4|w_pp6|θῇ|3rd|singular|aorist|subjunctive|passive
+verbinfl.wpp6_5|w_pp6|θείη|3rd|singular|aorist|optative|passive
