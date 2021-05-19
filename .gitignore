@@ -5,3 +5,4 @@ parsers/*/*.fst
 parsers/*/*.a
 parsers/*/symbols/*.fst
 datasets/debug/
+*~

@@ -10,11 +10,13 @@ function buildacceptor(target)
     squashers = join([
         irregularsquasher(),
         uninflsquasher(),
-        nounsquasher()
+        nounsquasher(),
+        finiteverbsquasher()
+
     ], "\n")
     squasherunion = join([
         "% Union of all URN squashers:",
-        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$"
+        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$ | $squashverburn$"
     ], "\n")
     stripper = join([
         "%% Put all symbols in 2 categories:  pass",
@@ -75,6 +77,19 @@ function irregularsquasher()
 end
 
 
+
+
+"""Compose transducer for filtering finite verb forms.
+
+$(SIGNATURES)"""
+function finiteverbsquasher()
+    join(["% Conjugated verb form acceptor",
+    raw"$=verbclass$ = [#verbclass#]",
+    raw"$squashverburn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+<finiteverb>$=verbclass$ <div> $=verbclass$ <finiteverb> [#stemchars#]* [#person#] [#number#] [#tense#] [#mood#] [#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>",
+    ], "\n")
+    
+
+end
 #=
 #include "/Users/nsmith/Desktop/linglat/morphology/parsers/shared-shared-xls-lat23/symbols.fst"
 

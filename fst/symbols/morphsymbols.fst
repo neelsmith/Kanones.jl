@@ -23,7 +23,7 @@
 #person# = <1st><2nd><3rd>
 % number already defined in noun morphology
 #tense# = <present><imperfect><future><aorist><perfect><pluperfect>
-#mood# = <indicactive><subj><opt><imptv>
+#mood# = <indicative><subjunctive><optative><imperative>
 #voice# = <active><middle><passive>
 #vadj# =  <vadj1><vadj2>
 #finiteform# = <infinitive><participle><vadj1><vadj2>
