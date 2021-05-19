@@ -4,13 +4,11 @@
 $(SIGNATURES)
 """
 function installalphabet(src::Kanones.Dataset, target::AbstractString)
-    #srcfile = src.root * "/orthography/alphabet.fst"
     targetdir = target * "/symbols/"
     if ! ispath(targetdir)
         mkdir(targetdir)
     end
     targetfile = targetdir * "/alphabet.fst"
-    #cp(srcfile, targetfile)
     lines = [
         "% Characters list supplied by dataset's orthography functions:",
         string("#consonant# = ", consonants(src.orthography)),
@@ -19,14 +17,6 @@ function installalphabet(src::Kanones.Dataset, target::AbstractString)
     open(targetfile, "w") do io
         write(io, join(lines,"\n"))
     end
-    #=
-    % Characters for Greek character set:
-#consonant# = βγδζθκλμνξπρστφχψς
-#vowel# = αειοηυω
-
-
-
-    =#
 end
 
 
