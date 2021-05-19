@@ -10,13 +10,9 @@ end
 
 
 @testset "Format fst lexicon for verb stems" begin
-    #=
-
-    cex = "nounstems.n22502|lexent.n22502|γνωμ|masculine|h_hs|recessive|"
-    nounparser = Kanones.NounParser("nouns")
-    stemrow = Kanones.readstemrow(nounparser, cex)
-    # Note that "." and "_" must be protected in FST string values, but not in symbols.
-    expected = "<u>nounstems\\.n22502</u><u>lexent\\.n22502</u>γνωμ<noun><masculine><h_hs>"
-    @test FstBuilder.fst(stemrow, literaryGreek()) == expected
-    =#
+    cex = "verbstems.n56496|lexent.n56496|κελευ|w_regular|"
+    verbparser = Kanones.VerbParser("verbs")
+    stemrow = Kanones.readstemrow(verbparser, cex)
+    expected = "<u>verbstems\\.n56496</u><u>lexent\\.n56496</u>κελευ<finiteverb><w_regular>"
+    @test FstBuilder.fst(rulerow, literaryGreek()) == expected
 end

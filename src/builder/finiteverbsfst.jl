@@ -6,7 +6,7 @@ function fst(stem::Kanones.FiniteVerbStem, ortho::T) where {T <: GreekOrthograph
     string(
         fstsafe(stem.stemid),
         fstsafe(stem.lexid),
-        stem.form,
+        stem.stem,
         "<finiteverb>",
         "<", stem.stemclass, ">"
     )
