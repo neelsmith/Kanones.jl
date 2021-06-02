@@ -1,7 +1,17 @@
 using Kanones
 using Kanones.FstBuilder
 
-kd = Kanones.Dataset([pwd() * "/datasets/synoptic/"])
-tgt = pwd() * "/parsers/tempparser/"
+
 fstsrc  =  pwd() * "/fst/"
+
+synoptic = pwd() * "/datasets/synoptic/"
+core = pwd() * "/datasets/core/"
+
+datasets = [core, synoptic]
+
+
+Kanones.Dataset(datasets)
+
+
+tgt = pwd() * "/parsers/tempparser/"
 parser = buildparser(kd,fstsrc, tgt)
