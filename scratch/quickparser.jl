@@ -1,5 +1,5 @@
-using Kanones
 using Kanones.FstBuilder
+using Kanones
 
 
 fstsrc  =  pwd() * "/fst/"
@@ -13,5 +13,5 @@ datasets = [core, synoptic]
 Kanones.Dataset(datasets)
 
 
-tgt = pwd() * "/parsers/tempparser/"
+tgt = pwd() * "/parsers/comboparser/"
 parser = buildparser(kd,fstsrc, tgt)
