@@ -6,12 +6,21 @@ fstsrc  =  pwd() * "/fst/"
 
 synoptic = pwd() * "/datasets/synoptic/"
 core = pwd() * "/datasets/core/"
+lysias = pwd()  * "/datasets/lysias/"
 
-datasets = [core, synoptic]
-
-
-Kanones.Dataset(datasets)
+datasets = [core, synoptic, lysias]
 
 
-tgt = pwd() * "/parsers/comboparser/"
+kd = Kanones.Dataset(datasets)
+
+
+tgt = pwd() * "/parsers/comboparser3/"
 parser = buildparser(kd,fstsrc, tgt)
+
+coreex = "ἀπό"
+synex = "γνώμη"
+lysex = "τέχνης"
+
+parsetoken(parser, coreex)
+parsetoken(parser, synex)
+parsetoken(parser, lysex)
