@@ -1,0 +1,5 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+verbinfl.aor2dep_2|w_aor2_dep|ετο|third|singular|aorist|indicative|middle
+verbinfl.aor2dep_20|w_aor2_dep|ηται|third|singular|aorist|subjunctive|middle
+verbinfl.aor2dep_39|w_aor2_dep|οιτο|third|singular|aorist|optative|middle
+
