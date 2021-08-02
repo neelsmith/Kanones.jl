@@ -42,10 +42,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Verb stem types
 #omega# = <w_regular> <ew_contract> <short_ew_contract><aw_contract> <long_aw_contract><ow_contract>
-#deponent# = <w_pp1_dep> <w_pp2_dep> <w_pp3_dep> <aor2_dep>
+#deponent# = <w_pp1_dep> <w_pp2_dep> <w_pp3_dep> <w_aor2_dep>
 #omegaprincparts# = <w_pp1> <w_pp2> <w_pp3> <w_pp4> <w_pp5> <w_pp6> 
 #perfectactives# = <g_pp5> <m_pp5> <s_pp5> <sm_pp5> <gm_pp5> <vowel_pp5>
-#otherprincparts# = <attic_fut> <aor2> <aor2pass>
+#otherprincparts# = <attic_fut> <w_aor2>
 #princparts# = #omegaprincparts#  #perfectactives#  #otherprincparts# 
 #mi# = <numi_pres>
 
