@@ -95,7 +95,7 @@ end
 
 $(SIGNATURES)
 """
-function morphform(code:AbstractString)
+function morphform(code::AbstractString)
     c = code[1]
     if poskey == UNANALYZED
         nothing
