@@ -68,30 +68,47 @@ end
 $(SIGNATURES)
 """
 function morphform(urn::Cite2Urn)
-    c = objectcomponent(urn)[1]
-    poskey = parse(Int64, c)
+    morphform(objectcomponent(urn))
+end
 
+
+"""Create a `MorphologicalForm` from a FormUrn.
+
+$(SIGNATURES)
+"""
+function morphform(u::FormUrn)
+    morphform(u.form)
+
+end
+
+
+"""Create a `MorphologicalForm` from an Analysis.
+
+$(SIGNATURES)
+"""
+function morphform(a::Analysis)
+    morphform(a.form)
+end
+
+
+"""Create a `MorphologicalForm` from an string value.
+
+$(SIGNATURES)
+"""
+function morphform(code:AbstractString)
+    c = code[1]
     if poskey == UNANALYZED
         nothing
     elseif poskey == UNINFLECTED
-        uninflectedform(urn)
+        uninflectedform(u)
     elseif poskey == NOUN
-        nounform(urn)
+        nounform(u)
     elseif poskey == FINITEVERB
-        finiteverbform(urn)
+        finiteverbform(u)
     else
         @warn("morphform: unrecognized part of speech value in urn ", urn.urn)
         nothing
     end
- 
-    # FINITEVERB
-    # ktl...
-end
-
-
-function morphform(u::FormUrn)
-    c = u.form[1]
-    
 end
 
 

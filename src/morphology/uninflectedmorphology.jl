@@ -33,7 +33,7 @@ function uninflectedform(codeString::AbstractString)
     uninflectedform(pos)
 end
 
-"""Create `UninflectedForm` from a string value.
+"""Create `UninflectedForm` from a Char.
 
 $(SIGNATURES)
 """
@@ -59,8 +59,6 @@ $(SIGNATURES)
 function uninflectedform(a::Analysis)
     uninflectedform(a.form)
 end
-
-
 
 
 """Compose URN for an `UninflectedForm`.
