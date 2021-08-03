@@ -60,8 +60,6 @@ Kanones.UninflectedParser
 Kanones.UninflectedStem
 Kanones.UninflectedRule
 Kanones.VerbParser
-Kanones.FiniteVerbStem
-Kanones.FiniteVerbRule
 ```
 
 ### Functions
