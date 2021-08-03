@@ -60,11 +60,19 @@ You can use the `labelform` function to get a human-readable label for a form.
 Kanones.labelform(a1.form.objectid)
 ```
 
-## Working with analyses
+### Working with analyses
 
-Test what kind of form it is.
+Get a morphform for the analysis.  You can give `morphform` just about anything you can think of:
 
 Then get appropriate information for that type of form.
+
+mform = Kanones.morphform(expan2)
+
+
+### URNs
+
+`FormUrn`s and `LexemeUrn`s are both subtypes of the `CitableParserBuilder`'s `AbbreviatedUrn` type.
+You can expand any `AbbreviatedUrn` using a diction mapping collection abbreviations to full `Cite2Urn`s for the collection.
 
 ```@example analysisexample
 using CitableParserBuilder
@@ -75,4 +83,4 @@ expanded = expand(a1.form, registry)
 ```
 
 
- mform = Kanones.morphform(expan2)
+ 

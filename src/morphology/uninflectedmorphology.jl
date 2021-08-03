@@ -31,7 +31,6 @@ $(SIGNATURES)
 function uninflectedform(codeString::AbstractString)
     pos = parse(Int64, codeString)
     uninflectedform(pos)
-
 end
 
 """Create `UninflectedForm` from a string value.
@@ -52,6 +51,17 @@ function uninflectedform(code::Int64)
     poslabel = dict[code]
     UninflectedForm(code, poslabel)
 end
+
+"""Create `UninflectedForm` from an Analysis.
+
+$(SIGNATURES)
+"""
+function uninflectedform(a::Analysis)
+    uninflectedform(a.form)
+end
+
+
+
 
 """Compose URN for an `UninflectedForm`.
 
