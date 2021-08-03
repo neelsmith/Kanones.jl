@@ -44,6 +44,4 @@ end
     @test vb.tenselabel == "future"
     @test vb.moodlabel == "indicative"
     @test vb.voicelabel == "active"
-    
-
 end
