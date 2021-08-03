@@ -9,6 +9,7 @@ struct NounForm <: MorphologicalForm
     numberlabel::AbstractString    
 end
 
+
 """Create a `NounForm` from a URN.
 
 $(SIGNATURES)
@@ -64,7 +65,7 @@ $(SIGNATURES)
 function cex(noun::NounForm)
 end
 
-"""Compose URN for noun form from FST representation of analytical data.
+"""Compose a FormUrn for a noun form from FST representation of analytical data.
 
 $(SIGNATURES)
 """

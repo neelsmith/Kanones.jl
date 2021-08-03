@@ -1,4 +1,4 @@
-# Model for URN values:
+# Model for Form URN values:
 # PosPNTMVGCDCat
 
 """Constants for analytical types ("parts of speech")"""

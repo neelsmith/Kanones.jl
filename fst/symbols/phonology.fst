@@ -28,3 +28,8 @@ $persistacc$ = [#persistacc#]
 % All valid chars used in stem file:
 #stemchars# = #character# #editorial#
 #inmorpheme# = #character# #vowelquant# #persistacc#
+
+
+% Temporary definition for debugging until this is implemented in 
+% Greek alphabet API.
+#augment# = ἐ

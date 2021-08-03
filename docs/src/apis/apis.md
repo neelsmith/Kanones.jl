@@ -36,14 +36,15 @@ Kanones.tensepairs
 Kanones.moodpairs
 Kanones.valuedict
 Kanones.labeldict
+Kanones.labelform
 Kanones.nounform
 Kanones.nounabbrurn
 Kanones.nounscex
 Kanones.uninflectedform
 Kanones.uninflectedabbrurn
 Kanones.uninflectedcex
+Kanones.finiteverbform
 Kanones.finiteverbabbrurn
-Kanones.labelform
 ```
 
 ## Datasets

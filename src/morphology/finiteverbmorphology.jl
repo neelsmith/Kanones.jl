@@ -13,19 +13,40 @@ struct FiniteVerbForm <: MorphologicalForm
     voicelabel::AbstractString 
 end
 
-"""Create a `NounForm` from a URN.
+"""Create a `VerbForm` from a Cite2URN.
 
 $(SIGNATURES)
 """
-function FiniteVerbForm(urn::Cite2Urn)
-    nothing
+function finiteverbform(urn::Cite2Urn)
+    
+    morphchars = split(objectcomponent(urn),"")
+    @info(morphchars)
+    # PosPNTMVGCDCat
+    prsn = parse(Int64,morphchars[3])
+    nmbr = parse(Int64,morphchars[4])
+    tns = parse(Int64,morphchars[5])
+    md = parse(Int64,morphchars[6])
+    vc = parse(Int64,morphchars[7])
+
+    persondict = valuedict(personpairs)
+    numberdict = valuedict(numberpairs)
+    tensedict = valuedict(tensepairs)
+    mooddict = valuedict(moodpairs)
+    voicedict = valuedict(voicepairs)
+    FiniteVerbForm(
+        prsn, persondict[prsn],
+        nmbr, numberdict[nmbr],
+        tns, tensedict[tns],
+        md, mooddict[md],
+        vc, voicedict[vc]
+    )
 end
 
 """Compose URN for a `FiniteVerbForm`.
 
 $(SIGNATURES)
 """
-function urn(noun::FiniteVerbForm)
+function urn(verb::FiniteVerbForm)
     nothing
 end
 
@@ -34,7 +55,7 @@ end
 
 $(SIGNATURES)
 """
-function cex(noun::FiniteVerbForm)
+function cex(verb::FiniteVerbForm)
     nothing
 end
 
