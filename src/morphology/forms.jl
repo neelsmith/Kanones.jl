@@ -22,6 +22,7 @@ Currently, includes only:
 - unanalyzed forms
 - uninflected forms
 - noun forms
+- inflected verb forms
 """
 function formscex()
     unanalyzed = "urn:cite2:kanones:morphforms.v1:0000000000|unanalyzed form"
@@ -62,7 +63,7 @@ function cex(MorphologicalForm)
 end
 
 
-"""Create a `MorphologicalForm` from a URN value.
+"""Create a `MorphologicalForm` from a Cite2Urn value.
 
 $(SIGNATURES)
 """
@@ -76,6 +77,8 @@ function morphform(urn::Cite2Urn)
         uninflectedform(urn)
     elseif poskey == NOUN
         nounform(urn)
+    elseif poskey == FINITEVERB
+        finiteverbform(urn)
     else
         @warn("morphform: unrecognized part of speech value in urn ", urn.urn)
         nothing
@@ -84,6 +87,13 @@ function morphform(urn::Cite2Urn)
     # FINITEVERB
     # ktl...
 end
+
+
+function morphform(u::FormUrn)
+    c = u.form[1]
+    
+end
+
 
 
 
@@ -97,6 +107,7 @@ function labelform(s::AbstractString)
     ivals = map(i -> parse(Int64,i), formcolumns)
 
     pos = parse(Int64, formcolumns[1])
+ 
     if pos == NOUN
         casedict = valuedict(casepairs)
         genderdict = valuedict(genderpairs)
@@ -107,8 +118,16 @@ function labelform(s::AbstractString)
         uninfldict = valuedict(uninflectedpairs)
         "uninflected $(uninfldict[ivals[10]])"
 
+    elseif pos == FINITEVERB
+        persondict = valuedict(personpairs)
+        numberdict = valuedict(numberpairs)
+        tensedict = valuedict(tensepairs)
+        mooddict = valuedict(moodpairs)
+        voicedict = valuedict(voicepairs)
+        "inflected verb: $(persondict[ivals[2]]) $(numberdict[ivals[3]]) $(tensedict[ivals[4]]) $(mooddict[ivals[5]]) $(voicedict[ivals[6]])"
+
     else
-        "UNRECOGINZED analytical form: $pos"
+        "UNRECOGNIZED analytical form: $pos"
     end
 end
 

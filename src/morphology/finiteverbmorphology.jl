@@ -22,11 +22,11 @@ function finiteverbform(urn::Cite2Urn)
     morphchars = split(objectcomponent(urn),"")
     @info(morphchars)
     # PosPNTMVGCDCat
-    prsn = parse(Int64,morphchars[3])
-    nmbr = parse(Int64,morphchars[4])
-    tns = parse(Int64,morphchars[5])
-    md = parse(Int64,morphchars[6])
-    vc = parse(Int64,morphchars[7])
+    prsn = parse(Int64,morphchars[2])
+    nmbr = parse(Int64,morphchars[3])
+    tns = parse(Int64,morphchars[4])
+    md = parse(Int64,morphchars[5])
+    vc = parse(Int64,morphchars[6])
 
     persondict = valuedict(personpairs)
     numberdict = valuedict(numberpairs)
@@ -89,7 +89,7 @@ function finiteverbabbrurn(fstdata)
         voicedict[v], v
         )
 
-        FormUrn(string("morphforms.", FINITEVERB,"0",verbform.vperson, verbform.vnumber, 
+        FormUrn(string("morphforms.", FINITEVERB,verbform.vperson, verbform.vnumber, 
         verbform.vtense, verbform.vmood, verbform.vvoice, "000"))
     end
 end
@@ -135,7 +135,7 @@ function finiteverbscex()
             for num in numberkeys
                 for voice in voicekeys
                     u = string(BASE_MORPHOLOGY_URN, FINITEVERB, 
-                    "0", pers, num, tense, INDICATIVE, voice,"0000")
+                     pers, num, tense, INDICATIVE, voice,"00000")
                     
                     label = string("verb: ", 
                     persondict[pers], numberdict[num], tensedict[tense], "indicative", voicedict[voice])
@@ -154,7 +154,7 @@ function finiteverbscex()
             for num in numberkeys
                 for voice in voicekeys
                     u = string(BASE_MORPHOLOGY_URN, FINITEVERB, 
-                    "0", pers, num, FUTURE, mood, voice,"0000")
+                    pers, num, FUTURE, mood, voice,"00000")
                     
                     label = string("verb: ", 
                     persondict[pers], numberdict[num], "future", mooddict[mood], voicedict[voice])
@@ -174,7 +174,7 @@ function finiteverbscex()
                 for mood in moodkeys
                     for voice in voicekeys
                         u = string(BASE_MORPHOLOGY_URN, FINITEVERB, 
-                        "0", pers, num, tense, mood, voice,"0000")
+                        pers, num, tense, mood, voice,"00000")
                         
                         label = string("verb: ", 
                         persondict[pers], numberdict[num], tensedict[tense], mooddict[mood], voicedict[voice])

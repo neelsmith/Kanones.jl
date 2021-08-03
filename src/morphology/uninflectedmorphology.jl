@@ -6,16 +6,51 @@ struct UninflectedForm <: MorphologicalForm
 end
 
 
-"""Create `UninflectedForm` from a URN.
+"""Create `UninflectedForm` from a Cite2Urn.
 
 $(SIGNATURES)
 """
 function uninflectedform(urn::Cite2Urn)
     c = objectcomponent(urn)[end]
-    pos = parse(Int64, c)
+    uninflectedform(c)
+end
+
+"""Create `UninflectedForm` from a FormUrn.
+
+$(SIGNATURES)
+"""
+function uninflectedform(u::FormUrn)
+    c = u.objectid[end]
+    uninflectedform(c)
+end
+
+"""Create `UninflectedForm` from a string value.
+
+$(SIGNATURES)
+"""
+function uninflectedform(codeString::AbstractString)
+    pos = parse(Int64, codeString)
+    uninflectedform(pos)
+
+end
+
+"""Create `UninflectedForm` from a string value.
+
+$(SIGNATURES)
+"""
+function uninflectedform(ch::Char)
+    pos = parse(Int64, ch)
+    uninflectedform(pos)
+end
+
+"""Create `UninflectedForm` from an Int.
+
+$(SIGNATURES)
+"""
+function uninflectedform(code::Int64)
     dict = valuedict(uninflectedpairs)
-    poslabel = dict[pos]
-    UninflectedForm(pos, poslabel)
+    poslabel = dict[code]
+    UninflectedForm(code, poslabel)
 end
 
 """Compose URN for an `UninflectedForm`.

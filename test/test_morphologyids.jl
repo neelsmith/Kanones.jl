@@ -36,7 +36,7 @@ end
 end
 
 @testset "Test construction of finite verb form from URN" begin
-    u = Cite2Urn("urn:cite2:kanones:morphforms.v1:3031311000")
+    u = Cite2Urn("urn:cite2:kanones:morphforms.v1:3313110000")
     vb = Kanones.finiteverbform(u)
     @test isa(vb, FiniteVerbForm)
     @test vb.personlabel == "third"

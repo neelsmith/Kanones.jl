@@ -53,6 +53,15 @@ a1.lexeme
 a1.form
 ```
 
+You can use the `labelform` function to get a human-readable label for a form.
+
+
+```@example analysisexample
+Kanones.labelform(a1.form.objectid)
+```
+
+## Working with analyses
+
 Test what kind of form it is.
 
 Then get appropriate information for that type of form.
@@ -65,8 +74,5 @@ registry = Dict(
 expanded = expand(a1.form, registry)
 ```
 
-Label it like this
 
-```@example analysisexample
-Kanones.labelform(a1.form.objectid)
-```
+ mform = Kanones.morphform(expan2)

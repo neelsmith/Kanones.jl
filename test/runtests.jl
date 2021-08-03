@@ -5,7 +5,6 @@ using PolytonicGreek, Orthography
 using Test
 
 
-#==#
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
 
@@ -24,6 +23,9 @@ include("nouns/test_nounsgenerate.jl")
 
 include("test_parse.jl")
 include("test_compile.jl")
+
+include("finiteverb/test_verbsanalysis.jl")
+
 
 #=
  =#
