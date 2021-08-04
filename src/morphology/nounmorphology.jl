@@ -1,4 +1,3 @@
-
 """Nouns have gender, case and number."""
 struct NounForm <: MorphologicalForm
     ngender::Int64
@@ -10,12 +9,12 @@ struct NounForm <: MorphologicalForm
 end
 
 
-"""Create a `NounForm` from a URN.
+"""Create a `NounForm` from a string value.
 
 $(SIGNATURES)
 """
-function nounform(urn::Cite2Urn)
-    morphchars = split(objectcomponent(urn),"")
+function nounform(code::AbstractString)
+    morphchars = split(code, "")
     ngender = parse(Int64, morphchars[7])
     ncase = parse(Int64, morphchars[8])
     nnumber = parse(Int64, morphchars[3])
@@ -30,6 +29,35 @@ function nounform(urn::Cite2Urn)
 end
 
 
+"""Create a `NounForm` from a `Cite2Urn`.
+
+$(SIGNATURES)
+"""
+function nounform(urn::Cite2Urn)
+    nounform(objectcomponent(urn))
+end
+
+
+"""Create a `NounForm` from a `FormUrn`.
+
+$(SIGNATURES)
+"""
+function nounform(f::FormUrn)
+    nounform(f.objectid)
+end
+
+"""Create a `NounForm` from an `Analysis`.
+
+$(SIGNATURES)
+"""
+function nounform(a::Analysis)
+    nounform(a.form)
+end
+
+"""Compose a label for a `NounForm`
+
+$(SIGNATURES)
+"""
 function label(noun::NounForm)
     join([noun.genderlabel, noun.caselabel, noun.numberlabel], " ")
 end

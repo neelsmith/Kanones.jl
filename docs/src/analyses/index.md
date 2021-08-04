@@ -62,12 +62,36 @@ Kanones.labelform(a1.form.objectid)
 
 ### Working with analyses
 
-Get a morphform for the analysis.  You can give `morphform` just about anything you can think of:
+Get a morphform for the analysis.  You can give `morphform` just about anything you can think of (`Cite2Urn`, `FormUrn`, string, for example).  Here, we'll just get it directly from the `Analysis`.
 
-Then get appropriate information for that type of form.
 
-mform = Kanones.morphform(expan2)
 
+```@example analysisexample
+mform = Kanones.morphform(a1)
+```
+
+
+We can check the type of form, and get appropriate information for that type.
+
+```@example analysisexample
+tensedata = if isa(mform, FiniteVerbForm)
+        (mform.vtense, mform.tenselabel)
+else
+        nothing
+end
+tensedata
+```
+```@example analysisexample
+analyses2 = parsetoken(parser, "δωρα")
+a2 = analyses2[1]
+form2 = Kanones.morphform(a2)
+genderdata = if isa(form2, NounForm)
+        (form2.ngender, form2.genderlabel)
+else
+        nothing
+end
+genderdata
+```
 
 ### URNs
 

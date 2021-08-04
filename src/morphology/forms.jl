@@ -77,7 +77,7 @@ end
 $(SIGNATURES)
 """
 function morphform(u::FormUrn)
-    morphform(u.form)
+    morphform(u.objectid)
 
 end
 
@@ -96,17 +96,17 @@ end
 $(SIGNATURES)
 """
 function morphform(code::AbstractString)
-    c = code[1]
+    poskey = parse(Int64, code[1])
     if poskey == UNANALYZED
         nothing
     elseif poskey == UNINFLECTED
-        uninflectedform(u)
+        uninflectedform(code)
     elseif poskey == NOUN
-        nounform(u)
+        nounform(code)
     elseif poskey == FINITEVERB
-        finiteverbform(u)
+        finiteverbform(code)
     else
-        @warn("morphform: unrecognized part of speech value in urn ", urn.urn)
+        @warn("morphform: unrecognized part of speech value ", poskey, " (from code ", code, ")")
         nothing
     end
 end

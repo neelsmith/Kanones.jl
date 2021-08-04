@@ -13,13 +13,12 @@ struct FiniteVerbForm <: MorphologicalForm
     voicelabel::AbstractString 
 end
 
-"""Create a `VerbForm` from a Cite2URN.
+"""Create a `FiniteVerbForm` from a string value.
 
 $(SIGNATURES)
 """
-function finiteverbform(urn::Cite2Urn)
-    
-    morphchars = split(objectcomponent(urn),"")
+function finiteverbform(code::AbstractString)
+    morphchars = split(code,"")
     @info(morphchars)
     # PosPNTMVGCDCat
     prsn = parse(Int64,morphchars[2])
@@ -41,6 +40,33 @@ function finiteverbform(urn::Cite2Urn)
         vc, voicedict[vc]
     )
 end
+
+
+"""Create a `FiniteVerbForm` from a `Cite2URN`.
+
+$(SIGNATURES)
+"""
+function finiteverbform(urn::Cite2Urn)
+    finiteverbform(objectcomponent(urn))
+end
+
+
+"""Create a `FiniteVerbForm` from a `FormUrn`.
+
+$(SIGNATURES)
+"""
+function finiteverbform(f::FormUrn)
+    finiteverbform(f.objectid)
+end
+
+"""Create a `FiniteVerbForm` from an `Analysis`.
+
+$(SIGNATURES)
+"""
+function finiteverbform(a::Analysis)
+    finiteverbform(a.form)
+end
+
 
 """Compose URN for a `FiniteVerbForm`.
 

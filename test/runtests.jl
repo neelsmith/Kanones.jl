@@ -7,6 +7,7 @@ using Test
 
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
+include("test_morphforms.jl")
 
 include("irregulars/test_irregrules.jl")
 
