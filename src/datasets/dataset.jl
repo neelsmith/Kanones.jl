@@ -75,14 +75,16 @@ function rulesarray(dirlist)
         "uninflected" => UninflectedParser("uninflected"),
         "irregulars" => IrregularRuleParser("irregulars"),
         "nouns" => NounParser("noun"),
-        "finiteverbs" => VerbParser("verb")
+        "finiteverbs" => VerbParser("verb"),
+        "infinitives" => InfinitiveRuleParser("infinitives")
         ]
     )
     rulesdirs = [
         "uninflected",
         "irregulars",
         "nouns",
-        "finiteverbs"
+        "finiteverbs",
+        "infinitives"
     ]
     rulesarr = Rule[]
 
