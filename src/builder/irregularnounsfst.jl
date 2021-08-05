@@ -11,7 +11,8 @@ function fst(stem::Kanones.IrregularNounStem, ortho::T) where {T <: GreekOrthogr
         fstsafe(stem.lexid),
         rmaccents(stem.form, ortho),
         "<irregular>",
-        "<", stem.inflectionclass, ">",
+        #"<", stem.inflectionclass, ">",
+        "<irregularnoun>",
         "<", stem.gender, ">",
         "<", stem.gcase, ">",
         "<", stem.gnumber, ">"

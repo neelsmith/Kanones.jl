@@ -6,7 +6,7 @@ struct IrregularNounStem <: Stem
     gender
     gcase
     gnumber
-    inflectionclass
+    #inflectionclass
 end
 
 
@@ -68,9 +68,5 @@ function readstemrow(usp::IrregularNounParser, delimited::AbstractString, delimi
     n = parts[6]
     inflclass = parts[7]
 
-    IrregularNounStem(stemid,lexid,stem,g,c,n,inflclass)
-end
-
-
-function fst
+    IrregularNounStem(stemid,lexid,stem,g,c,n)#,inflclass)
 end

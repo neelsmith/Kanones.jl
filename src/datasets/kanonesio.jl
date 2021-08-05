@@ -52,3 +52,12 @@ $(SIGNATURES)
 struct VerbParser <: KanonesIO
     label::AbstractString
 end
+
+"""
+KanonesIO type for reading and writing data for irregular finite verb forms.
+
+$(SIGNATURES)
+"""
+struct IrregularVerbParser <: KanonesIO
+    label::AbstractString
+end

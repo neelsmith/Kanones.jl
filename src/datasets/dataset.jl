@@ -118,7 +118,7 @@ end
 $(SIGNATURES)
 """
 function stemsarray(dirlist)
-    @info "Getting stems for $dirlist"
+    @info "Getting regular stems for $dirlist"
     iodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
@@ -154,12 +154,15 @@ function stemsarray(dirlist)
     irregiodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
-        "nouns" => IrregularNounParser("noun")
+        "nouns" => IrregularNounParser("noun"),
+        "verbs" => IrregularVerbParser("finite verb")
         ]
     )
     irregstemdirs = [
-        "nouns"
+        "nouns",
+        "verbs"
     ]
+    @info("Getting regular stems for $dirlist")
     for datasrc in dirlist
         for dirname in irregstemdirs 
             dir = datasrc * "/irregular-stems/" * dirname * "/"

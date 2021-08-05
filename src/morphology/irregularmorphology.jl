@@ -1,5 +1,5 @@
 
-"""Compose Abbreviated URN for irregular form from FST representation of analytical data.
+"""Compose a `MorphologicalForm` for irregular form from FST representation of analytical data.
 
 $(SIGNATURES)
 """
@@ -8,8 +8,10 @@ function irregularfromfst(fstdata::AbstractString)
     # based on irregular type, construct urn for form
     irregrulere = r"<([^<]+)>"  
     matchedup = collect(eachmatch(irregrulere, fstdata))
-    #(uninflclass, ruleid) = matchedup[1].captures
+
     if matchedup[1].captures[1] == "irregularnoun"
+        # Looks like:
+        #<u>irregnoun.irregn23069a</u><u>lsj.n23069</u>γυνη<irregular><irregularnoun><feminine><nominative><singular><div><irregularnoun><irregular><u>litgreek.irregular1</u>
         # 2-4 are gcn
         ngender =  matchedup[2].captures[1]
         ncase = matchedup[3].captures[1]
@@ -24,9 +26,31 @@ function irregularfromfst(fstdata::AbstractString)
             casedict[ncase], ncase,
             numdict[nnumber], nnumber
         )
-        # PosPNTMVGCDCat
-        #FormUrn(string("morphforms.", NOUN,"0",numdict[nnumber],"000",genderdict[ngender],casedict[ncase],"00"))
-        #<u>irregnoun.irregn23069a</u><u>lsj.n23069</u>γυνη<irregular><irregularnoun><feminine><nominative><singular><div><irregularnoun><irregular><u>litgreek.irregular1</u>
+        
+    elseif matchedup[1].captures[1] == "irregularfiniteverb"
+        # Looks like
+        # <u>irregverb.irregverbnn26447af</u><u>lsj.n26447</u>δοιντο<irregular><irregularfiniteverb><third><plural><aorist><subjunctive><middle>
+        # 2-6 are pntmv
+        prsn =  matchedup[2].captures[1]
+        nmbr = matchedup[3].captures[1]
+        tns = matchedup[4].captures[1]
+        md = matchedup[5].captures[1]
+        vc = matchedup[6].captures[1]
+
+        persondict = labeldict(personpairs)
+        numberdict = labeldict(numberpairs)
+        tensedict = labeldict(tensepairs)
+        mooddict = labeldict(moodpairs)
+        voicedict = labeldict(voicepairs)
+        
+        FiniteVerbForm(
+            persondict[prsn], prsn,
+            numberdict[nmbr], nmbr,
+            tensedict[tns], tns,
+            mooddict[md], md,
+            voicedict[vc], vc
+        )
+
     else
         @warn string("Unrecognized irregular type: ", matchedup[1].captures)
     end
