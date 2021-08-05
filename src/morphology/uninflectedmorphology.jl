@@ -90,24 +90,36 @@ end
 
 $(SIGNATURES)
 """
-function uninflectedabbrurn(fstdata)
-    #s = replace(fstdata, r"[<>]" => "")
+function uninflectedfromfst(fstdata)
+    #<u>uninflectedstems.n51951</u><u>lsj.n51951</u>και<uninflected><conjunction><div>
+    #<conjunction><uninflected><u>litgreek.indeclinable2</u>
     uninflrulere = r"<([^<]+)><([^<]+)>"  
     matchedup = collect(eachmatch(uninflrulere, fstdata))
-    #@warn("UNINFL MATHCED " * matchedup)
+
 
     if isempty(matchedup)
         @warn("uninflectedurn: unable to parse FST analysis \"" * fstdata * "\"")
         nothing
     else
-        # 1="h_hs", 2="noun", 3="feminine", 4="accusative", 5="singular")
-
         (uninflclass, ruleid) = matchedup[1].captures
-        
         dict = labeldict(uninflectedpairs)
-        FormUrn(string("morphforms.", UNINFLECTED, "00000000", dict[uninflclass]))
+        code = dict[uninflclass]
+        UninflectedForm(code, uninflclass)        
     end
+    
 end
+
+
+
+
+"""Compose a `FormUrn` for an `UninflectedForm`.
+
+$(SIGNATURES)
+"""
+function formurn(uninflected::UninflectedForm)
+    FormUrn(string("morphforms.", UNINFLECTED, "00000000", uninflected.pos))
+end
+
 
 """Compose CEX representation of URNs and labels for uninflected forms.
 

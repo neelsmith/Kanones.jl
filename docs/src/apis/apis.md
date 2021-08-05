@@ -26,6 +26,7 @@ Kanones.cex
 Kanones.morphform
 Kanones.abbrurn
 Kanones.formscex
+Kanones.formurn
 Kanones.pospairs
 Kanones.uninflectedpairs
 Kanones.casepairs

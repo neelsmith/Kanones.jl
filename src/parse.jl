@@ -24,15 +24,17 @@ $(SIGNATURES)
 """
 function functionforcategory()
     Dict(
-        "irregular" => Kanones.irregularabbrurn,
-        "uninflected" => Kanones.uninflectedabbrurn,
-        "noun" => Kanones.nounabbrurn,
-        "finiteverb" =>  Kanones.finiteverbabbrurn
+        "irregular" => Kanones.irregularfromfst,
+        "uninflected" => Kanones.uninflectedfromfst,
+        "noun" => Kanones.nounfromfst,
+        "finiteverb" =>  Kanones.verbfromfst
     )
 end
 
+"""Parse a single line of SFST output into an `Analysis`.
 
-# Get an Analysis from an FST output line
+$(SIGNATURES)
+"""
 function analysisforline(fst::AbstractString)
         (stem, rule) = split(fst, "<div>")
 
@@ -48,14 +50,14 @@ function analysisforline(fst::AbstractString)
         fnctndict = functionforcategory()
         fnct = fnctndict[analysiscat]
         # Depends on what is regular, what is irregular!
-        formurn = ""
+        formcode = ""
         if analysiscat == "irregular"
-            formurn = fnct(stemdata)
+            formcode = fnct(stemdata) |> formurn
         else
-            formurn =  string(typeinfo, ending, ruledata) |> fnct
+            formcode =  string(typeinfo, ending, ruledata) |> fnct |> formurn
         end
         
-        Analysis(string(tkn,ending), LexemeUrn(lexidval), formurn, RuleUrn(ruleidval), StemUrn(stemidval))
+        Analysis(string(tkn,ending), LexemeUrn(lexidval), formcode, RuleUrn(ruleidval), StemUrn(stemidval))
 end
 
 """Parse a string of FST output for a single token

@@ -93,11 +93,21 @@ $(SIGNATURES)
 function cex(noun::NounForm)
 end
 
+
+
+"""Compose a `FormUrn` for a `NounForm`.
+
+$(SIGNATURES)
+"""
+function formurn(nounform::NounForm)
+    FormUrn(string("morphforms.", NOUN,"0",nounform.nnumber,"000",nounform.ngender,nounform.ncase,"00"))
+end
+
 """Compose a FormUrn for a noun form from FST representation of analytical data.
 
 $(SIGNATURES)
 """
-function nounabbrurn(fstdata)
+function nounfromfst(fstdata)
     #<h_hs><noun>ας<feminine><accusative><singular>
     #@warn("Parse FST noun " * fstdata)
     nounrulere = r"<([^<]+)><([^<]+)>[^>]*<([^<]+)><([^<]+)><([^<]+)>"  
@@ -119,7 +129,7 @@ function nounabbrurn(fstdata)
         nounform = NounForm(genderdict[g], g,
         casedict[c], c,
         numberdict[n], n)
-        FormUrn(string("morphforms.", NOUN,"0",nounform.nnumber,"000",nounform.ngender,nounform.ncase,"00"))
+        #
     end
 end
 

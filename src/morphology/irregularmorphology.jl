@@ -3,7 +3,7 @@
 
 $(SIGNATURES)
 """
-function irregularabbrurn(fstdata::AbstractString)
+function irregularfromfst(fstdata::AbstractString)
     # Parse fstdata
     # based on irregular type, construct urn for form
     irregrulere = r"<([^<]+)>"  
@@ -18,9 +18,15 @@ function irregularabbrurn(fstdata::AbstractString)
         numdict = labeldict(numberpairs)
         casedict = labeldict(casepairs)
         genderdict = labeldict(genderpairs)
-        # PosPNTMVGCDCat
-        FormUrn(string("morphforms.", NOUN,"0",numdict[nnumber],"000",genderdict[ngender],casedict[ncase],"00"))
 
+        NounForm(
+            genderdict[ngender], ngender,
+            casedict[ncase], ncase,
+            numdict[nnumber], nnumber
+        )
+        # PosPNTMVGCDCat
+        #FormUrn(string("morphforms.", NOUN,"0",numdict[nnumber],"000",genderdict[ngender],casedict[ncase],"00"))
+        #<u>irregnoun.irregn23069a</u><u>lsj.n23069</u>γυνη<irregular><irregularnoun><feminine><nominative><singular><div><irregularnoun><irregular><u>litgreek.irregular1</u>
     else
         @warn string("Unrecognized irregular type: ", matchedup[1].captures)
     end

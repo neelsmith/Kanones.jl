@@ -90,7 +90,7 @@ end
 
 $(SIGNATURES)
 """
-function finiteverbabbrurn(fstdata)
+function verbfromfst(fstdata)
     # Example rule string:
     #  "<w_regular><finiteverb>ει<third><singular><present><indicative><active>"
     # Extract PNTMV from a string like the example:
@@ -115,11 +115,20 @@ function finiteverbabbrurn(fstdata)
         voicedict[v], v
         )
 
-        FormUrn(string("morphforms.", FINITEVERB,verbform.vperson, verbform.vnumber, 
-        verbform.vtense, verbform.vmood, verbform.vvoice, "000"))
+        #FormUrn(string("morphforms.", FINITEVERB,verbform.vperson, verbform.vnumber, 
+        #verbform.vtense, verbform.vmood, verbform.vvoice, "000"))
     end
 end
 
+
+"""Compose a `FormUrn` for a `FiniteVerbForm`.
+
+$(SIGNATURES)
+"""
+function formurn(verbform::FiniteVerbForm)
+    FormUrn(string("morphforms.", FINITEVERB,verbform.vperson, verbform.vnumber, 
+    verbform.vtense, verbform.vmood, verbform.vvoice, "000"))
+end
 
 
 """Compose delimited-text representation of CITE collection for morphological forms of finite verbs.
