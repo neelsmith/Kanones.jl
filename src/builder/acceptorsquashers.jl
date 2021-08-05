@@ -11,12 +11,13 @@ function buildacceptor(target)
         irregularsquasher(),
         uninflsquasher(),
         nounsquasher(),
-        finiteverbsquasher()
+        finiteverbsquasher(),
+        infinitivesquasher()
 
     ], "\n")
     squasherunion = join([
         "% Union of all URN squashers:",
-        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$ | $squashverburn$"
+        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$ | $squashverburn$ | $squashinfinitiveurn$"
     ], "\n")
     stripper = join([
         "%% Put all symbols in 2 categories:  pass",
@@ -88,6 +89,20 @@ function finiteverbsquasher()
     raw"$squashverburn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+<finiteverb>$=verbclass$ <div> $=verbclass$ <finiteverb> [#stemchars#]* [#person#] [#number#] [#tense#] [#mood#] [#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>",
     ], "\n")
 end
+
+
+"""Compose transducer for filtering infinitive verb forms.
+
+$(SIGNATURES)
+"""
+function infinitivesquasher()
+    join(["% Infinitive acceptor",
+    raw"$=verbclass$ = [#verbclass#]",
+    raw"$squashinfinitiveurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]+<verb>$=verbclass$  <div> $=verbclass$  <infinitive>  [#stemchars#]* $tense$ $voice$ <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
+    ], "\n")
+end
+
+
 #=
 #include "/Users/nsmith/Desktop/linglat/morphology/parsers/shared-shared-xls-lat23/symbols.fst"
 
