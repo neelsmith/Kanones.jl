@@ -38,10 +38,16 @@ $(SIGNATURES)
 function analysisforline(fst::AbstractString)
         (stem, rule) = split(fst, "<div>")
 
+        # Stem part of SFST has a regular structure:
+        # always begins with stem ID, lexeme ID,
+        # token, and analysis category, before
+        # then appending category-specific data.
         stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
         stemmatch = collect(eachmatch(stemre, FstBuilder.greekfromfst(stem)))
         (stemidval, lexidval, tkn, analysiscat, stemdata) = stemmatch[1].captures
         
+        # Rule part of SFST also has a regular structure:
+        # 
         rulere = r"(<[^>]+><[^>]+>)([^<]*)(.*)<u>(.+)</u>"
         rulematch = collect(eachmatch(rulere, rule))
         (typeinfo, ending, ruledata, ruleidval) = rulematch[1].captures
