@@ -12,7 +12,7 @@ end
 
 
 
-"""Read one row of a ri;es table for infinitives and create an `InfinitiveRule`.
+"""Read one row of a rules table for infinitives and create an `InfinitiveRule`.
 
 $(SIGNATURES)
 """

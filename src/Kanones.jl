@@ -33,6 +33,7 @@ include("datasets/irregularnounsdata.jl")
 include("datasets/irregularverbsdata.jl")
 include("datasets/irregularrules.jl")
 include("datasets/finiteverbsdata.jl")
+include("datasets/infinitivedata.jl")
 
 include("analyzer/analysis.jl")
 
@@ -76,6 +77,7 @@ module FstBuilder
     include("builder/irregularrulesfst.jl")
 
     include("builder/finiteverbsfst.jl")
+    include("builder/infinitivesfst.jl")
 end
 
 end # module

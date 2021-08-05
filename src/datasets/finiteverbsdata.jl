@@ -42,7 +42,7 @@ function readstemrow(usp::VerbParser, delimited::AbstractString, delimiter = "|"
 end
 
 
-"""Read one row of a stems table for verb tokens and create a `VerbStem`
+"""Read one row of a rules table for verb tokens and create a `FiniteVerbRule`
 
 $(SIGNATURES)
 """

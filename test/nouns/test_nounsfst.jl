@@ -1,4 +1,4 @@
-@testset "Format fst rules for noun tokens mu" begin
+@testset "Format fst rules for noun tokens" begin
     cex = "nouninfl.h_hs2|h_hs|ης|feminine|genitive|singular|recessive"
     nounparser = Kanones.NounParser("nouns")
     rulerow = Kanones.readrulerow(nounparser, cex)
