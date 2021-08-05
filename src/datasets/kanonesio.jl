@@ -61,3 +61,15 @@ $(SIGNATURES)
 struct IrregularVerbParser <: KanonesIO
     label::AbstractString
 end
+
+
+
+"""
+KanonesIO type for reading and writing data for infinitive rules only.
+
+$(SIGNATURES)
+
+"""
+struct InfinitiveRuleParser <: KanonesIO
+    label::AbstractString
+end

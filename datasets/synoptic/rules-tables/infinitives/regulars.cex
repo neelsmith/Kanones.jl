@@ -1,0 +1,15 @@
+
+Rule|StemClass|Ending|Tense|Voice
+infinfl.wreg1|w_regular|ειν|present|active
+infinfl.wreg2|w_regular|εσθαι|present|middle
+infinfl.wreg3|w_regular|εσθαι|present|passive
+
+infinfl.wreg4|w_regular|σειν|future|active
+infinfl.wreg5|w_regular|σεσθαι|future|middle
+infinfl.wreg6|w_regular|θήσεσθαι|future|passive
+
+infinfl.wreg4|w_regular|σαι|aorist|active
+infinfl.wreg5|w_regular|σασθαι|aorist|middle
+infinfl.wreg6|w_regular|θῆσαι|aorist|passive
+
+infinfl.wreg7|w_regular|κέναι|perfect|active
