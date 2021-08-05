@@ -7,7 +7,7 @@ function fst(rule::Kanones.InfinitiveRule, ortho::T) where {T <: GreekOrthograph
     rmaccents(rule.ending, ortho),  
     "<", rule.tense, ">",
     "<", rule.voice, ">",
-    string("<u>", fstsafe(rule.ruleid), "</u>")
+    fstsafe(rule.ruleid)
     )
     #$=verbclass$  <infin>  [#stemchars#]* $tense$ $voice$ <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
 end
