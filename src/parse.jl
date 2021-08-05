@@ -22,7 +22,7 @@ to determine a `FormUrn` from the FST description of form.
 
 $(SIGNATURES)
 """
-function functionfollowsform()
+function functionforcategory()
     Dict(
         "irregular" => Kanones.irregularabbrurn,
         "uninflected" => Kanones.uninflectedabbrurn,
@@ -45,7 +45,7 @@ function analysisforline(fst::AbstractString)
         (typeinfo, ending, ruledata, ruleidval) = rulematch[1].captures
   
 
-        fnctndict = functionfollowsform()
+        fnctndict = functionforcategory()
         fnct = fnctndict[analysiscat]
         # Depends on what is regular, what is irregular!
         formurn = ""
@@ -93,7 +93,7 @@ function parsefst(fststring::AbstractString)
         #@warn("RULEID " * ruleidval)
         
 
-        fnctndict = functionfollowsform()
+        fnctndict = functionforcategory()
         fnct = fnctndict[analysiscat]
         formurn =  string(typeinfo, ending, ruledata) |> fnct
         

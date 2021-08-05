@@ -100,7 +100,7 @@ parsewordlist
 Kanones.stemsforlex
 Kanones.fstinflpath
 Kanones.echopath
-Kanones.functionfollowsform
+Kanones.functionforcategory
 Kanones.parsefst
 Kanones.applyparser
 ```
