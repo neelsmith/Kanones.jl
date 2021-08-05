@@ -24,6 +24,8 @@ include("nouns/test_nounsgenerate.jl")
 
 
 include("infinitives/test_infinitivefst.jl") 
+include("infinitives/test_infinitivesdata.jl") 
+include("infinitives/test_infinitivesanalysis.jl") 
 
 
 include("test_parse.jl")

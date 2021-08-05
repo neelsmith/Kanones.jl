@@ -3,7 +3,7 @@
 $(SIGNATURES)
 """
 function fst(rule::Kanones.InfinitiveRule, ortho::T) where {T <: GreekOrthography}
-    string("<", rule.stemclass,"><infinitive>", 
+    string("<", rule.inflectionclass,"><infinitive>", 
     rmaccents(rule.ending, ortho),  
     "<", rule.tense, ">",
     "<", rule.voice, ">",

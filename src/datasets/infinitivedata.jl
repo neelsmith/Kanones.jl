@@ -4,7 +4,7 @@ $(SIGNATURES)
 """
 struct InfinitiveRule <: Rule
     ruleid::Kanones.AbbreviatedUrn
-    stemclass
+    inflectionclass
     ending
     tense
     voice
