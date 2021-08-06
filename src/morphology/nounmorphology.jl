@@ -108,19 +108,20 @@ end
 $(SIGNATURES)
 """
 function nounfromfst(fstdata)
-    #<h_hs><noun>ας<feminine><accusative><singular>
+    # Example:
+    # <feminine><accusative><singular>
     #@warn("Parse FST noun " * fstdata)
-    nounrulere = r"<([^<]+)><([^<]+)>[^>]*<([^<]+)><([^<]+)><([^<]+)>"  
-    # "<h_hs><noun>ας<feminine><accusative>"
+    nounrulere = r"<([^<]+)><([^<]+)><([^<]+)>"  
     matchedup = collect(eachmatch(nounrulere, fstdata))
     
     if isempty(matchedup)
         @warn("Unable to parse FST analysis \"" * fstdata * "\"")
         nothing
     else
-        # 1="h_hs", 2="noun", 3="feminine", 4="accusative", 5="singular")
+        # E.g.,
+        # 1="feminine", 2="accusative", 3="singular")
 
-        (nounclass,pos, g,c,n) = matchedup[1].captures
+        (g,c,n) = matchedup[1].captures
         
         genderdict = labeldict(genderpairs)
         casedict = labeldict(casepairs)

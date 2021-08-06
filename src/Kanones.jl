@@ -51,6 +51,7 @@ include("morphology/irregularmorphology.jl")
 include("morphology/uninflectedmorphology.jl")
 include("morphology/nounmorphology.jl")
 include("morphology/finiteverbmorphology.jl")
+include("morphology/infinitivemorphology.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder

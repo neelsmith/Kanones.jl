@@ -27,7 +27,8 @@ function functionforcategory()
         "irregular" => Kanones.irregularfromfst,
         "uninflected" => Kanones.uninflectedfromfst,
         "noun" => Kanones.nounfromfst,
-        "finiteverb" =>  Kanones.verbfromfst
+        "finiteverb" =>  Kanones.verbfromfst,
+        "infinitive" => Kanones.infinitivefromfst
     )
 end
 
@@ -44,23 +45,24 @@ function analysisforline(fst::AbstractString)
         # then appending category-specific data.
         stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
         stemmatch = collect(eachmatch(stemre, FstBuilder.greekfromfst(stem)))
-        (stemidval, lexidval, tkn, analysiscat, stemdata) = stemmatch[1].captures
+        (stemidval, lexidval, tkn, stemtype, stemdata) = stemmatch[1].captures
         
         # Rule part of SFST also has a regular structure:
         # 
-        rulere = r"(<[^>]+><[^>]+>)([^<]*)(.*)<u>(.+)</u>"
+        rulere = r"<([^>]+)><([^>]+)>([^<]*)(.*)<u>(.+)</u>"
         rulematch = collect(eachmatch(rulere, rule))
-        (typeinfo, ending, ruledata, ruleidval) = rulematch[1].captures
+        (inflclass, analysiscategory, ending, ruledata, ruleidval) = rulematch[1].captures
   
-
         fnctndict = functionforcategory()
-        fnct = fnctndict[analysiscat]
+        fnct = fnctndict[analysiscategory]
         # Depends on what is regular, what is irregular!
         formcode = ""
-        if analysiscat == "irregular"
+        if analysiscategory == "irregular"
             formcode = fnct(stemdata) |> formurn
+        elseif analysiscategory == "uninflected"
+            formcode = fnct(inflclass) |> formurn
         else
-            formcode =  string(typeinfo, ending, ruledata) |> fnct |> formurn
+            formcode =  string(ruledata) |> fnct |> formurn
         end
         
         Analysis(string(tkn,ending), LexemeUrn(lexidval), formcode, RuleUrn(ruleidval), StemUrn(stemidval))

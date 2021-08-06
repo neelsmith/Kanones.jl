@@ -92,9 +92,9 @@ $(SIGNATURES)
 """
 function verbfromfst(fstdata)
     # Example rule string:
-    #  "<w_regular><finiteverb>ει<third><singular><present><indicative><active>"
+    #  "<third><singular><present><indicative><active>"
     # Extract PNTMV from a string like the example:
-    verbrulere = r"<[^<]+><finiteverb>[^<]*<([^<]+)><([^<]+)><([^<]+)><([^<]+)><([^<]+)>"
+    verbrulere = r"<([^<]+)><([^<]+)><([^<]+)><([^<]+)><([^<]+)>"
     matchedup = collect(eachmatch(verbrulere, fstdata))
 
     if isempty(matchedup)
@@ -114,9 +114,6 @@ function verbfromfst(fstdata)
         mooddict[m], m,
         voicedict[v], v
         )
-
-        #FormUrn(string("morphforms.", FINITEVERB,verbform.vperson, verbform.vnumber, 
-        #verbform.vtense, verbform.vmood, verbform.vvoice, "000"))
     end
 end
 

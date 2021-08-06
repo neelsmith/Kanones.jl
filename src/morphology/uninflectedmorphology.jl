@@ -86,31 +86,15 @@ function cex(uform::UninflectedForm)
     string(urnval,"|uninflected form: ", uform.poslabel)
 end
 
-"""Compose Abbreviated URN for uninflected form from FST representation of analytical data.
+"""Compose Abbreviated URN for uninflected form from value for part of speech.
 
 $(SIGNATURES)
 """
-function uninflectedfromfst(fstdata)
-    #<u>uninflectedstems.n51951</u><u>lsj.n51951</u>και<uninflected><conjunction><div>
-    #<conjunction><uninflected><u>litgreek.indeclinable2</u>
-    uninflrulere = r"<([^<]+)><([^<]+)>"  
-    matchedup = collect(eachmatch(uninflrulere, fstdata))
-
-
-    if isempty(matchedup)
-        @warn("uninflectedurn: unable to parse FST analysis \"" * fstdata * "\"")
-        nothing
-    else
-        (uninflclass, ruleid) = matchedup[1].captures
-        dict = labeldict(uninflectedpairs)
-        code = dict[uninflclass]
-        UninflectedForm(code, uninflclass)        
-    end
-    
+function uninflectedfromfst(uninflclass)
+    dict = labeldict(uninflectedpairs)
+    code = dict[uninflclass]
+    UninflectedForm(code, uninflclass)            
 end
-
-
-
 
 """Compose a `FormUrn` for an `UninflectedForm`.
 
