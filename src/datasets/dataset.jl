@@ -75,6 +75,7 @@ function rulesarray(dirlist)
         "uninflected" => UninflectedParser("uninflected"),
         "irregulars" => IrregularRuleParser("irregulars"),
         "nouns" => NounParser("noun"),
+        "pronouns" => PronounParser("noun"),
         "adjectives" => AdjectiveParser("adjectives"),
         "finiteverbs" => VerbParser("verb"),
         "infinitives" => InfinitiveRuleParser("infinitives"),
@@ -86,6 +87,7 @@ function rulesarray(dirlist)
         "uninflected",
         "irregulars",
         "nouns",
+        "pronouns",
         "finiteverbs",
         "infinitives",
         "participles",
@@ -131,6 +133,7 @@ function stemsarray(dirlist)
         [
         "adjectives" => AdjectiveParser("adjective"),
         "nouns" => NounParser("noun"),
+        "pronouns" => PronounParser("pronoun"),
         "uninflected" => UninflectedParser("uninflected"),
         "verbs-simplex" => VerbParser("verb")
         ]
@@ -138,7 +141,7 @@ function stemsarray(dirlist)
     stemdirs = [
         "adjectives",
         "nouns",
-        #"pronouns",
+        "pronouns",
         "uninflected",
         "verbs-simplex",
         

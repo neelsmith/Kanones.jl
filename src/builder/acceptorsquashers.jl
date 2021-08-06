@@ -15,12 +15,13 @@ function buildacceptor(target)
         infinitivesquasher(),
         participlesquasher(),
         verbaladjectivesquasher(),
-        adjectivesquasher()
+        adjectivesquasher(),
+        pronounsquasher()
 
     ], "\n")
     squasherunion = join([
         "% Union of all URN squashers:",
-        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$ | $squashverburn$ | $squashinfinitiveurn$ | $squashparticipleurn$ | $squashverbaladjectiveurn$ | $squashadjectiveurn$ "
+        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$ | $squashverburn$ | $squashinfinitiveurn$ | $squashparticipleurn$ | $squashverbaladjectiveurn$ | $squashadjectiveurn$ | $squashpronounurn$ "
     ], "\n")
     stripper = join([
         "%% Put all symbols in 2 categories:  pass",
@@ -142,6 +143,22 @@ function adjectivesquasher()
         
     ], "\n")
 end
+
+
+
+"""Compose transducer for filtering pronoun forms.
+
+$(SIGNATURES)
+"""
+function pronounsquasher()
+    join([
+        "% Pronoun acceptor:",
+        raw"$=pronoun$ = [#pronoun#]",
+        raw"$squashpronounurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>  <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+ <pronoun> $gender$ $case$ $number$ $=pronoun$ <div> $=pronoun$<pronoun><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>",
+    ], "\n")
+end
+
+
 
 #=
 #include "/Users/nsmith/Desktop/linglat/morphology/parsers/shared-shared-xls-lat23/symbols.fst"

@@ -25,6 +25,13 @@
 #irregnoun#  = <irregularnoun>
 
 #nounclass# = #noun1# #noun2# #noun3# #irregnoun# 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pronoun stem types
+#pronoun# = <article><demonstrative><interrogative>
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Adjective stem types

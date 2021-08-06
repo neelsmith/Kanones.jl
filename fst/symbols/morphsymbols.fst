@@ -39,9 +39,16 @@
 %
 #irregular# =  <irregularnoun><irregularfiniteverb><irregularinfinitive><irregularadjective>
 
-#morphtag# = #pos# #gender# #case# #number# #person# #tense# #mood# #voice# #degree# #finiteform# #uninflected# #irregular# 
 
 
+%
+% 6. Pronouns
+%
+#pronoun# = <article><demonstrative><interrogative>
+
+
+#morphtag# = #pos# #gender# #case# #number# #person# #tense# #mood# #voice# #degree# #finiteform# #uninflected# #irregular# #pronoun#
+    
 % Consider whether those belong here or elsewhere...?
 
 % Transducers for the above variables:
@@ -61,3 +68,5 @@ $vadj$ = [#vadj#]
 $=gender$ = [#gender#]
 $=case$ = [#case#]
 $=number$ = [#number#]
+
+$=pronoun$ = [#pronoun#]

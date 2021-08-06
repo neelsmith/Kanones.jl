@@ -23,6 +23,9 @@ include("nouns/test_nounsanalysis.jl")
 include("nouns/test_nounsgenerate.jl")
 
 include("pronouns/test_pronounsdata.jl")
+include("pronouns/test_pronounsfst.jl")
+include("pronouns/test_pronounsanalysis.jl")
+
 
 include("adjectives/test_adjectivesdata.jl")
 include("adjectives/test_adjectivesfst.jl")
