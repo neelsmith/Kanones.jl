@@ -51,6 +51,18 @@ function irregularfromfst(fstdata::AbstractString)
             voicedict[vc], vc
         )
 
+    elseif matchedup[1].captures[1] == "irregularinfinitive"
+        tns = matchedup[2].captures[1]
+        vc = matchedup[3].captures[1]
+
+      
+        tensedict = labeldict(tensepairs)
+        voicedict = labeldict(voicepairs)
+        
+        InfinitiveForm(
+            tensedict[tns], tns,
+            voicedict[vc], vc
+        )
     else
         @warn string("Unrecognized irregular type: ", matchedup[1].captures)
     end
