@@ -3,9 +3,10 @@ module Kanones
 using CitableObject, CitableParserBuilder
 using Orthography, PolytonicGreek, AtticGreek
 using Unicode, Glob, DelimitedFiles
+using CSV, HTTP
 using Documenter, DocStringExtensions
 
-export parsetoken, parsewordlist
+export parsetoken, parsewordlist, parselistfromfile, parselistfromurl
 export dataset
 export rulesarray, stemsarray
 export UninflectedForm, UninflectedStem, UninflectedRule

@@ -94,28 +94,6 @@ function parsefst(fststring::AbstractString)
         for ln in filter(l -> ! isempty(l), lines[2:end])
             push!(analyses, analysisforline(ln))
         end
-        #=
-        (stem, rule) = split(lines[2], "<div>")
-
-        stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
-        stemmatch = collect(eachmatch(stemre, FstBuilder.greekfromfst(stem)))
-        (stemidval, lexidval, tkn, analysiscat, stemdata) = stemmatch[1].captures
-        
-        rulere = r"(<[^>]+><[^>]+>)([^<]*)(.*)<u>(.+)</u>"
-        rulematch = collect(eachmatch(rulere, rule))
-        (typeinfo, ending, ruledata, ruleidval) = rulematch[1].captures
-    
-        #@warn("ENDING " * ending)
-        #@warn("RULEDATA " * ruledata)
-        #@warn("RULEID " * ruleidval)
-        
-
-        fnctndict = functionforcategory()
-        fnct = fnctndict[analysiscat]
-        formurn =  string(typeinfo, ending, ruledata) |> fnct
-        
-        Analysis(string(tkn,ending), LexemeUrn(lexidval), formurn, RuleUrn(ruleidval), StemUrn(stemidval))
-        =#
     end
     analyses
 end
@@ -141,12 +119,23 @@ function parsetoken(parser, tkn::AbstractString)
 end
 
 
-"""Parse a list of words.
+"""Parse a list of words, and return a dictionary of tokens to a 
+(possibly empty) Vector of `Analysis` objects.
 
 $(SIGNATURES)
 
-NOT YET IMPLEMENTED.
 """
-function parsewordlist(parser, tokens)
-    nothing
+function parsewordlist(p, tokens)
+    parses = parsetoken.(p,tokens)
+    zip(tokens, parses) |> collect
+end
+
+function parselistfromfile(p,f)
+    words = readdlm(f,'|')
+    parsewordlist(p,words)
+end
+
+function parselistfromurl(p,u)
+    words = split(String(HTTP.get(u).body) , "\n")
+    parsewordlist(p,words)
 end
