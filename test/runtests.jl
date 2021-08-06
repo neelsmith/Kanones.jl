@@ -22,8 +22,11 @@ include("nouns/test_nounsanalysis.jl")
 
 include("nouns/test_nounsgenerate.jl")
 
+include("pronouns/test_pronounsdata.jl")
+
 include("adjectives/test_adjectivesdata.jl")
 include("adjectives/test_adjectivesfst.jl")
+include("adjectives/test_adjectivesanalysis.jl")
 
 include("infinitives/test_infinitivefst.jl") 
 include("infinitives/test_infinitivesdata.jl") 
