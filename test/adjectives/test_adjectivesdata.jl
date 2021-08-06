@@ -1,0 +1,55 @@
+#=
+@testset "Read rules for adjective stems from delimited text" begin
+    cex = "adjstems.n52840a|lsj.n52840|καλ|os_h_on_pos|inflectionaccented|"
+    adjparser = Kanones.AdjectiveParser("adjectives")
+    rulerow = Kanones.readrulerow(adjparser, cex)
+    @test rulerow.ruleid |> abbreviation == RuleUrn("nouninfl.h_hs2") |> abbreviation
+    @test rulerow.inflectionclass == "os_h_on_pos"
+    @test rulerow.ending == "ης"
+    @test rulerow.ngender == "feminine"
+    @test rulerow.ncase == "genitive"
+    @test rulerow.nnumber == "singular"
+end
+=#
+@testset "Read stems for adjective tokens from delimited text"  begin    
+    cex = "adjstems.n52840a|lsj.n52840|καλ|os_h_on_pos|inflectionaccented|"
+    adjparser = Kanones.AdjectiveParser("adjectives")
+    stemrow = Kanones.readstemrow(adjparser, cex)
+    @test  stemrow.stemid |> abbreviation == StemUrn("adjstems.n52840a") |> abbreviation
+    @test stemrow.lexid |> abbreviation == LexemeUrn("lsj.n52840") |> abbreviation
+    @test stemrow.form == "καλ"
+    @test stemrow.inflectionclass == "os_h_on_pos"
+    @test stemrow.accentpersistence == "inflectionaccented"
+end
+
+#=
+@testset "Read stems for irregular noun tokens from delimited text" begin
+    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
+    irregparser = Kanones.IrregularNounParser("irregular nouns")
+    stemrow = Kanones.readstemrow(irregparser, cex)
+
+    @test  stemrow.stemid  == StemUrn("irregnoun.irregn23069a")  #|> abbreviation
+    @test stemrow.lexid == LexemeUrn("lsj.n23069") 
+    @test stemrow.form == nfkc("γυνή")
+    @test stemrow.gender == "feminine"
+    @test stemrow.gcase == "nominative"
+    @test stemrow.gnumber == "singular"
+   # @test stemrow.inflectionclass == "irregularnoun"
+end
+
+
+@testset "Read rules for irregular noun tokens from delimited text" begin
+    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular"
+    nounparser = Kanones.IrregularNounParser("nouns")
+    @test_broken  Kanones.readrulerow(nounparser, cex)
+    #=
+    rulerow = Kanones.readrulerow(nounparser, cex)
+    @test rulerow.ruleid == RuleUrn("irregnoun.irregn23069a") 
+    @test rulerow.inflectionclass == "irregularnoun"
+    @test rulerow.ending == ""
+    @test rulerow.ngender == "feminine"
+    @test rulerow.ncase == "nominative"
+    @test rulerow.nnumber == "singular"
+    =#    
+end
+=#

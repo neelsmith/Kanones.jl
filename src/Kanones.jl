@@ -38,6 +38,7 @@ include("datasets/finiteverbsdata.jl")
 include("datasets/infinitivedata.jl")
 include("datasets/participledata.jl")
 include("datasets/verbaladjectivedata.jl")
+include("datasets/adjectivesdata.jl")
 
 include("analyzer/analysis.jl")
 
@@ -79,6 +80,7 @@ module FstBuilder
     # Specific analytical types ("parts of speech")
     include("builder/uninflectedfst.jl")
     include("builder/nounsfst.jl")
+    include("builder/adjectivesfst.jl")
     include("builder/irregularnounsfst.jl")
     include("builder/irregularverbsfst.jl")
     include("builder/irregularinfinitivesfst.jl")

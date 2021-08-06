@@ -119,3 +119,14 @@ $(SIGNATURES)
 struct VerbalAdjectiveRuleParser <: KanonesIO
     label::AbstractString
 end
+
+
+
+"""
+KanonesIO type for reading and writing data for adjective rules and stems.
+
+$(SIGNATURES)
+"""
+struct AdjectiveParser <: KanonesIO
+    label::AbstractString
+end

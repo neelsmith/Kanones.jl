@@ -28,7 +28,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Adjective stem types
-#adj1and2# = <os_h_on><os_a_on>
+#adj1and2# = <os_h_on><os_a_on><os_h_on_pos><os_h_on_comp><os_h_on_superl>
 
 #adjectiveclass# = #adj1and2#
 
