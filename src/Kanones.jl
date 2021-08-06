@@ -15,6 +15,7 @@ export FiniteVerbForm, VerbStem
 export IrregularRule
 export IrregularNounForm, IrregularNounStem
 export IrregularVerbForm, IrregularVerbStem
+export IrregularInfinitiveForm, IrregularInfinitiveStem
 
 
 export MorphologicalForm
@@ -31,6 +32,7 @@ include("datasets/uninflecteddata.jl")
 include("datasets/nounsdata.jl")
 include("datasets/irregularnounsdata.jl")
 include("datasets/irregularverbsdata.jl")
+include("datasets/irregularinfinitivedata.jl")
 include("datasets/irregularrules.jl")
 include("datasets/finiteverbsdata.jl")
 include("datasets/infinitivedata.jl")
@@ -75,6 +77,7 @@ module FstBuilder
     include("builder/nounsfst.jl")
     include("builder/irregularnounsfst.jl")
     include("builder/irregularverbsfst.jl")
+    include("builder/irregularinfinitivesfst.jl")
     include("builder/irregularrulesfst.jl")
 
     include("builder/finiteverbsfst.jl")

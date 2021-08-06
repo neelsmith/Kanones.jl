@@ -157,12 +157,14 @@ function stemsarray(dirlist)
         [
         "uninflected" => UninflectedParser("uninflected"),
         "nouns" => IrregularNounParser("noun"),
-        "verbs" => IrregularVerbParser("finite verb")
+        "verbs" => IrregularVerbParser("finite verb"),
+        "infinitives" => IrregularInfinitiveParser("infinitive")
         ]
     )
     irregstemdirs = [
         "nouns",
-        "verbs"
+        "verbs",
+        "infinitives"
     ]
     @info("Getting regular stems for $dirlist")
     for datasrc in dirlist
