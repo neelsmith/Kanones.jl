@@ -37,6 +37,7 @@ include("datasets/irregularrules.jl")
 include("datasets/finiteverbsdata.jl")
 include("datasets/infinitivedata.jl")
 include("datasets/participledata.jl")
+include("datasets/verbaladjectivedata.jl")
 
 include("analyzer/analysis.jl")
 
@@ -56,6 +57,7 @@ include("morphology/nounmorphology.jl")
 include("morphology/finiteverbmorphology.jl")
 include("morphology/infinitivemorphology.jl")
 include("morphology/participlemorphology.jl")
+include("morphology/verbaladjectivemorphology.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder
@@ -85,6 +87,7 @@ module FstBuilder
     include("builder/finiteverbsfst.jl")
     include("builder/infinitivesfst.jl")
     include("builder/participlesfst.jl")
+    include("builder/verbaladjectivesfst.jl")
 end
 
 end # module

@@ -27,10 +27,13 @@ include("infinitives/test_infinitivefst.jl")
 include("infinitives/test_infinitivesdata.jl") 
 include("infinitives/test_infinitivesanalysis.jl") 
 
-include("participles/test_participlesfst.jl") 
 include("participles/test_participlesdata.jl") 
+include("participles/test_participlesfst.jl") 
 include("participles/test_participlesanalysis.jl") 
 
+include("verbaladjectives/test_verbaladjectivesdata.jl")
+include("verbaladjectives/test_verbaladjectivesfst.jl")
+include("verbaladjectives/test_verbaladjectivesanalysis.jl")
 
 include("test_parse.jl")
 include("test_compile.jl")

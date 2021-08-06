@@ -13,12 +13,13 @@ function buildacceptor(target)
         nounsquasher(),
         finiteverbsquasher(),
         infinitivesquasher(),
-        participlesquasher()
+        participlesquasher(),
+        verbaladjectivesquasher()
 
     ], "\n")
     squasherunion = join([
         "% Union of all URN squashers:",
-        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$ | $squashverburn$ | $squashinfinitiveurn$ | $squashparticipleurn$"
+        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$ | $squashverburn$ | $squashinfinitiveurn$ | $squashparticipleurn$ | $squashverbaladjectiveurn$ "
     ], "\n")
     stripper = join([
         "%% Put all symbols in 2 categories:  pass",
@@ -115,6 +116,17 @@ function participlesquasher()
 end
 
 
+
+
+"""Compose transducer for filtering participial forms.
+
+$(SIGNATURES)
+"""
+function verbaladjectivesquasher()
+    join(["% Verbal adjective acceptor",
+    raw"$=verbclass$ = [#verbclass#]",
+    raw"$squashverbaladjectiveurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]+<finiteverb>$=verbclass$  <div> $=verbclass$  <verbaladjective>  [#stemchars#]* $gender$ $case$ $number$  <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"], "\n")
+end
 
 #=
 #include "/Users/nsmith/Desktop/linglat/morphology/parsers/shared-shared-xls-lat23/symbols.fst"

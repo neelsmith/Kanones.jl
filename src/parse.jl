@@ -29,7 +29,8 @@ function functionforcategory()
         "noun" => Kanones.nounfromfst,
         "finiteverb" =>  Kanones.verbfromfst,
         "infinitive" => Kanones.infinitivefromfst,
-        "participle" => Kanones.participlefromfst
+        "participle" => Kanones.participlefromfst,
+        "verbaladjective" => Kanones.verbaladjectivefromfst
     )
 end
 

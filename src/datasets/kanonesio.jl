@@ -107,3 +107,15 @@ $(SIGNATURES)
 struct IrregularParticipleParser <: KanonesIO
     label::AbstractString
 end
+
+
+
+"""
+KanonesIO type for reading and writing data for verbal adjective rules only.
+
+$(SIGNATURES)
+
+"""
+struct VerbalAdjectiveRuleParser <: KanonesIO
+    label::AbstractString
+end
