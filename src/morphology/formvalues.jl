@@ -66,6 +66,16 @@ const casepairs = [
     (5, "vocative")
 ]
 
+"""Constants for degree.
+
+$(SIGNATURES)
+"""
+const degreepairs = [
+    (1, "positive"),
+    (2, "comparative"),
+    (3, "superlative")
+]
+
 
 """Constants for persons.
 

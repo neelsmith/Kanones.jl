@@ -30,7 +30,8 @@ function functionforcategory()
         "finiteverb" =>  Kanones.verbfromfst,
         "infinitive" => Kanones.infinitivefromfst,
         "participle" => Kanones.participlefromfst,
-        "verbaladjective" => Kanones.verbaladjectivefromfst
+        "verbaladjective" => Kanones.verbaladjectivefromfst,
+        "adjective" => Kanones.adjectivefromfst
     )
 end
 

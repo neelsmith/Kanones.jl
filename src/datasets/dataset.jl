@@ -75,6 +75,7 @@ function rulesarray(dirlist)
         "uninflected" => UninflectedParser("uninflected"),
         "irregulars" => IrregularRuleParser("irregulars"),
         "nouns" => NounParser("noun"),
+        "adjectives" => AdjectiveParser("adjectives"),
         "finiteverbs" => VerbParser("verb"),
         "infinitives" => InfinitiveRuleParser("infinitives"),
         "participles" => ParticipleRuleParser("participles"),
@@ -88,7 +89,8 @@ function rulesarray(dirlist)
         "finiteverbs",
         "infinitives",
         "participles",
-        "verbaladjectives"
+        "verbaladjectives",
+        "adjectives"
     ]
     rulesarr = Rule[]
 
@@ -127,15 +129,19 @@ function stemsarray(dirlist)
     @info "Getting regular stems for $dirlist"
     iodict = Dict(
         [
-        "uninflected" => UninflectedParser("uninflected"),
+        "adjectives" => AdjectiveParser("adjective"),
         "nouns" => NounParser("noun"),
+        "uninflected" => UninflectedParser("uninflected"),
         "verbs-simplex" => VerbParser("verb")
         ]
     )
     stemdirs = [
-        "uninflected",
+        "adjectives",
         "nouns",
-        "verbs-simplex"
+        #"pronouns",
+        "uninflected",
+        "verbs-simplex",
+        
     ]
 
     stemsarr = []

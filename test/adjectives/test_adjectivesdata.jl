@@ -1,16 +1,17 @@
-#=
-@testset "Read rules for adjective stems from delimited text" begin
-    cex = "adjstems.n52840a|lsj.n52840|καλ|os_h_on_pos|inflectionaccented|"
+
+@testset "Read rules for adjective tokens from delimited text" begin
+    cex = "adjinfl.oshon_pos1|os_h_on_pos|ος|masculine|nominative|singular|positive|"
     adjparser = Kanones.AdjectiveParser("adjectives")
     rulerow = Kanones.readrulerow(adjparser, cex)
-    @test rulerow.ruleid |> abbreviation == RuleUrn("nouninfl.h_hs2") |> abbreviation
+    @test rulerow.ruleid |> abbreviation == RuleUrn("adjinfl.oshon_pos1") |> abbreviation
     @test rulerow.inflectionclass == "os_h_on_pos"
-    @test rulerow.ending == "ης"
-    @test rulerow.ngender == "feminine"
-    @test rulerow.ncase == "genitive"
-    @test rulerow.nnumber == "singular"
+    @test rulerow.ending == "ος"
+    @test rulerow.agender == "masculine"
+    @test rulerow.acase == "nominative"
+    @test rulerow.anumber == "singular"
+    @test rulerow.adegree == "positive"
 end
-=#
+
 @testset "Read stems for adjective tokens from delimited text"  begin    
     cex = "adjstems.n52840a|lsj.n52840|καλ|os_h_on_pos|inflectionaccented|"
     adjparser = Kanones.AdjectiveParser("adjectives")

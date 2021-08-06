@@ -11,3 +11,22 @@ function fst(stem::Kanones.AdjectiveStem, ortho::T) where {T <: GreekOrthography
         "<", stem.inflectionclass, ">"
     )
 end
+
+
+"""Compose FST representation of a single `AdjectiveRule`.
+
+$(SIGNATURES)
+"""
+function fst(rule::Kanones.AdjectiveRule, ortho::T) where {T <: GreekOrthography}
+    noaccs = rmaccents(rule.ending, ortho)
+
+    string(
+        "<", rule.inflectionclass,"><adjective>", 
+        noaccs,
+        "<", rule.agender, ">",
+        "<", rule.acase, ">",
+        "<", rule.anumber, ">",
+        "<", rule.adegree, ">",
+        fstsafe(rule.ruleid)
+    )
+end

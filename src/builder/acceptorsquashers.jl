@@ -14,12 +14,13 @@ function buildacceptor(target)
         finiteverbsquasher(),
         infinitivesquasher(),
         participlesquasher(),
-        verbaladjectivesquasher()
+        verbaladjectivesquasher(),
+        adjectivesquasher()
 
     ], "\n")
     squasherunion = join([
         "% Union of all URN squashers:",
-        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$ | $squashverburn$ | $squashinfinitiveurn$ | $squashparticipleurn$ | $squashverbaladjectiveurn$ "
+        raw"$acceptor$ = $squashuninflurn$ | $squashnounurn$ | $squashirregurn$ | $squashverburn$ | $squashinfinitiveurn$ | $squashparticipleurn$ | $squashverbaladjectiveurn$ | $squashadjectiveurn$ "
     ], "\n")
     stripper = join([
         "%% Put all symbols in 2 categories:  pass",
@@ -118,7 +119,7 @@ end
 
 
 
-"""Compose transducer for filtering participial forms.
+"""Compose transducer for filtering verbal adjectives.
 
 $(SIGNATURES)
 """
@@ -128,6 +129,20 @@ function verbaladjectivesquasher()
     raw"$squashverbaladjectiveurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]+<finiteverb>$=verbclass$  <div> $=verbclass$  <verbaladjective>  [#stemchars#]* $gender$ $case$ $number$  <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"], "\n")
 end
 
+
+"""Compose transducer for filtering adjective forms.
+
+$(SIGNATURES)
+"""
+function adjectivesquasher()
+    join([
+        "% Adjective acceptor:",
+        raw"$=adjectiveclass$ = [#adjectiveclass#]",
+        raw"$squashadjectiveurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]+<adjective>$=adjectiveclass$   <div> $=adjectiveclass$  <adjective> [#stemchars#]* $=gender$ $case$ $number$ $degree$ <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>"
+        
+    ], "\n")
+end
+
 #=
 #include "/Users/nsmith/Desktop/linglat/morphology/parsers/shared-shared-xls-lat23/symbols.fst"
 
@@ -135,21 +150,10 @@ end
 
 
 
-% Participle acceptor
-$=verbclass$ = [#verbclass#]
-$squashptcplurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]+<verb>$=verbclass$  <div> $=verbclass$  <ptcpl>  [#stemchars#]* $gender$ $case$ $number$ $tense$ $voice$ <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
 
 
 
 
-
-
-
-
-
-% Adjective acceptor:
-$=adjectiveclass$ = [#adjectiveclass#]
-$squashadjurn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]+<adj>$=adjectiveclass$   <div> $=adjectiveclass$  <adj> [#stemchars#]* $=gender$ $case$ $number$ $degree$ <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
 
 
 $=adjectiveclass$ = [#adjectiveclass#]
