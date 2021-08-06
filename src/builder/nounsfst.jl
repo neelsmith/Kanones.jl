@@ -13,7 +13,6 @@ function fst(stem::Kanones.NounStem, ortho::T) where {T <: GreekOrthography}
         "<", stem.gender, ">",
         "<", stem.inflectionclass, ">"
     )
-    
 end
 
 """Compose FST representation of a single `NounRule`.
