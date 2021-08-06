@@ -76,11 +76,34 @@ end
 
 
 """
-KanonesIO type for reading and writing data for infinitive rules only.
+KanonesIO type for reading and writing data for irregular infinitive forms.
 
 $(SIGNATURES)
 
 """
 struct IrregularInfinitiveParser <: KanonesIO
+    label::AbstractString
+end
+
+
+"""
+KanonesIO type for reading and writing data for participle rules only.
+
+$(SIGNATURES)
+
+"""
+struct ParticipleRuleParser <: KanonesIO
+    label::AbstractString
+end
+
+
+
+"""
+KanonesIO type for reading and writing data for irregular participial forms.
+
+$(SIGNATURES)
+
+"""
+struct IrregularParticipleParser <: KanonesIO
     label::AbstractString
 end

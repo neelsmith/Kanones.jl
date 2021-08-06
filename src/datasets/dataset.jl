@@ -76,7 +76,8 @@ function rulesarray(dirlist)
         "irregulars" => IrregularRuleParser("irregulars"),
         "nouns" => NounParser("noun"),
         "finiteverbs" => VerbParser("verb"),
-        "infinitives" => InfinitiveRuleParser("infinitives")
+        "infinitives" => InfinitiveRuleParser("infinitives"),
+        "participles" => ParticipleRuleParser("participles")
         ]
     )
     rulesdirs = [
@@ -84,7 +85,8 @@ function rulesarray(dirlist)
         "irregulars",
         "nouns",
         "finiteverbs",
-        "infinitives"
+        "infinitives",
+        "participles"
     ]
     rulesarr = Rule[]
 

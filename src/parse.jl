@@ -28,7 +28,8 @@ function functionforcategory()
         "uninflected" => Kanones.uninflectedfromfst,
         "noun" => Kanones.nounfromfst,
         "finiteverb" =>  Kanones.verbfromfst,
-        "infinitive" => Kanones.infinitivefromfst
+        "infinitive" => Kanones.infinitivefromfst,
+        "participle" => Kanones.participlefromfst
     )
 end
 

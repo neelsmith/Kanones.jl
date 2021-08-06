@@ -14,7 +14,7 @@ end
     verbparser = Kanones.VerbParser("verbs")
     stemrow = Kanones.readstemrow(verbparser, cex)
     expected = "<u>verbstems\\.n56496</u><u>lexent\\.n56496</u>κελευ<finiteverb><w_regular>"
-    @test FstBuilder.fst(rulerow, literaryGreek()) == expected
+    @test FstBuilder.fst(stemrow, literaryGreek()) == expected
 end
 
 @testset "Parse rule component FST reply into a form URN" begin
