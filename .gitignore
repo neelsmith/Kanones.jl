@@ -7,3 +7,4 @@ parsers/*/symbols/*.fst
 datasets/debug/
 *~
 notes*
+.vscode
