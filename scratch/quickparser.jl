@@ -4,18 +4,18 @@ using Kanones
 
 fstsrc  =  pwd() * "/fst/"
 
-synoptic = pwd() * "/datasets/synoptic/"
-core = pwd() * "/datasets/core/"
+coreinfl = pwd() * "/datasets/core-infl/"
+corevocab = pwd() * "/datasets/core-vocab/"
 lysias = pwd()  * "/datasets/lysias/"
 
-datasets = [core, synoptic, lysias]
-
+datasets = [corevocab, coreinfl, lysias]
 
 kd = Kanones.Dataset(datasets)
 
 
-tgt = pwd() * "/parsers/comboparser3/"
+tgt = pwd() * "/parsers/comboparser/"
 parser = buildparser(kd,fstsrc, tgt)
+
 
 coreex = "ἀπό"
 synex = "γνώμη"
