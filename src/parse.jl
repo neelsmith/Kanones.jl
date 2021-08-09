@@ -134,8 +134,11 @@ $(SIGNATURES)
 
 """
 function parsewordlist(p::KanonesParser, tokens)
-    parses = parsetoken.(p,tokens)
-    zip(tokens, parses) |> collect
+    parses = []
+    for t in tokens
+        push!(parses, parsetoken(p,t))
+    end
+    parses
 end
 
 function parselistfromfile(p::KanonesParser,f)
