@@ -5,7 +5,7 @@ $(SIGNATURES)
 Returns the path to the compiled binary `greek.a` which can then be used
 as an argument to the `parsetoken` function.
 """
-function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::AbstractString)
+function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::AbstractString, label = "Kanones parser")
     if ispath(target)
         println("Cowardly refusing to overwrite exising file $(target)")
     else 
@@ -28,7 +28,8 @@ function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::Abstr
         # Compile SFST binary
         compilefst(target)
     end
-    parser = target * "/greek.a"
+    path = target * "/greek.a"
+    Kanones.KanonesParser(label, path)
 end
 
 """Compile binary parser with `make`.

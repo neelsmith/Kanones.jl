@@ -9,7 +9,7 @@ end
     d = tempdir()
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset([repo * "/datasets/synoptic/"])
+    kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
     fst =  repo * "/fst/"
     FstBuilder.buildparser(kd,fst, d * "/testcompile/")
     

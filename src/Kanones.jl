@@ -6,6 +6,9 @@ using Unicode, Glob, DelimitedFiles
 using CSV, HTTP
 using Documenter, DocStringExtensions
 
+import CitableParserBuilder: parsetoken, parsewordlist,  parselistfromfile, parselistfromurl
+
+export KanonesParser
 export parsetoken, parsewordlist, parselistfromfile, parselistfromurl
 export dataset
 export rulesarray, stemsarray

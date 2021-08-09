@@ -4,7 +4,7 @@ using CitableObject, CitableParserBuilder
 using PolytonicGreek, Orthography
 using Test
 
-
+#=
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
 include("test_morphforms.jl")
@@ -13,7 +13,10 @@ include("irregulars/test_irregrules.jl")
 
 include("uninflected/test_uninflectedfst.jl")
 include("uninflected/test_uninflecteddata.jl")
+=#
 include("uninflected/test_uninflectedanalysis.jl")
+
+#=
 include("uninflected/test_uninflectedgenerate.jl")
 
 include("nouns/test_nounsfst.jl") 
@@ -49,5 +52,5 @@ include("test_compile.jl")
 include("finiteverb/test_verbsanalysis.jl")
 
 
-#=
+
  =#

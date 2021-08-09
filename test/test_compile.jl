@@ -1,9 +1,9 @@
 
-@testset "Compile parser for synoptic dataset" begin
+@testset "Compile parser for core-infl dataset" begin
     d = tempdir()
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset([repo * "/datasets/synoptic/"])
+    kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
     fst =  repo * "/fst/"
     FstBuilder.buildparser(kd,fst, d * "/testcompile/")
     

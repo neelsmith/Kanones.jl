@@ -1,3 +1,11 @@
+
+"""A parser"""
+struct KanonesParser <: CitableParser
+    label::AbstractString
+    sfstpath::AbstractString
+end
+
+
 """Find full path to `fst-infl`on your system.
 
 $(SIGNATURES)
@@ -72,7 +80,7 @@ function analysisforline(fst::AbstractString)
             formcode =  string(ruledata) |> fnct |> formurn
         end
         
-        Analysis(string(tkn,ending), LexemeUrn(lexidval), formcode, RuleUrn(ruleidval), StemUrn(stemidval))
+        Analysis(string(tkn,ending), LexemeUrn(lexidval), formcode, StemUrn(stemidval), RuleUrn(ruleidval))
 end
 
 """Parse a string of FST output for a single token
@@ -102,10 +110,10 @@ end
 
 $(SIGNATURES)
 """
-function applyparser(parser, tkn::AbstractString)
+function applyparser(parser::KanonesParser, tkn::AbstractString)
     fstinfl = fstinflpath()
     echo = echopath()
-    cmd = pipeline(`$echo $tkn`, `$fstinfl $parser`)
+    cmd = pipeline(`$echo $tkn`, `$fstinfl $(parser.sfstpath)`)
     rslt = read(cmd, String)
 end
 
@@ -113,7 +121,7 @@ end
 
 $(SIGNATURES)
 """
-function parsetoken(parser, tkn::AbstractString)
+function parsetoken(parser::KanonesParser, tkn::AbstractString)
     stripped = FstBuilder.fstgreek(tkn) 
     applyparser(parser, stripped) |> parsefst
 end
@@ -125,17 +133,18 @@ end
 $(SIGNATURES)
 
 """
-function parsewordlist(p, tokens)
+function parsewordlist(p::KanonesParser, tokens)
     parses = parsetoken.(p,tokens)
     zip(tokens, parses) |> collect
 end
 
-function parselistfromfile(p,f)
+function parselistfromfile(p::KanonesParser,f)
     words = readdlm(f,'|')
     parsewordlist(p,words)
 end
 
-function parselistfromurl(p,u)
+function parselistfromurl(p::KanonesParser,u)
     words = split(String(HTTP.get(u).body) , "\n")
     parsewordlist(p,words)
 end
+

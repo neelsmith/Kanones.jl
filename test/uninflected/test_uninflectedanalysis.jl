@@ -3,11 +3,11 @@
     
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset([repo * "/datasets/synoptic/"]; ortho = literaryGreek())
+    kd = Kanones.Dataset([repo * "/datasets/core-infl/"]; ortho = literaryGreek())
     fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+    
 
-    parser = d * "/testcompile/greek.a"
+    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/") #d * "/testcompile/greek.a"
     analyzed = parsetoken(parser, "καί")
     @test length(analyzed) == 1
     @test isa(analyzed[1], Analysis)
