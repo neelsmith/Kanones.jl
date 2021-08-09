@@ -17,6 +17,7 @@ tgt = pwd() * "/parsers/comboparser/"
 parser = buildparser(kd,fstsrc, tgt)
 
 
+#=
 coreex = "ἀπό"
 synex = "γνώμη"
 lysex = "τέχνης"
@@ -24,3 +25,8 @@ lysex = "τέχνης"
 parsetoken(parser, coreex)
 parsetoken(parser, synex)
 parsetoken(parser, lysex)
+=#
+
+# All words in Lysias
+f = "test/testdata/wordlist.txt"
+parses = parselistfromfile(parser, f)
