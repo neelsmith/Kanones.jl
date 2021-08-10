@@ -2,7 +2,7 @@ using Kanones.FstBuilder
 using Kanones
 using CitableParserBuilder
 
-function lysiasparser()
+function scholiaparser()
     fstsrc  =  pwd() * "/fst/"
     coreinfl = pwd() * "/datasets/core-infl/"
     corevocab = pwd() * "/datasets/core-vocab/"
@@ -15,15 +15,16 @@ function lysiasparser()
 end
 
 
-p = lysiasparser()
+p = scholiaparser()
 
-# All words in Lysias
-f = "test/testdata/wordlist.txt"
-parses = parselistfromfile(p, f)
+# All words in scholia
+#f = "test/testdata/wordlist.txt"
+url = "https://raw.githubusercontent.com/hmteditors/composite-summer21/main/data/wordlist.txt"
+parses = parselistfromurl(p, url)
 
-u = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/testdata/wordlist.txt"
+#u = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/testdata/wordlist.txt"
 using HTTP
-words = split(String(HTTP.get(u).body) , "\n")
+words = split(String(HTTP.get(url).body) , "\n")
 
 
 # Do CEX formatting to create a dictionary of tokens to serialzed analyses:
