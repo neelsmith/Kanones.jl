@@ -44,6 +44,3 @@ end
 # build new parser, reparse list
 p = lysiasparser()
 reportscore(lns, p)
-
-
-

@@ -1,35 +1,35 @@
 Rule|StemClass|Ending|Gender|Case|Number|Degree|
 
 adjinfl.os_h_on_comp1|os_h_on_comp|ος|masculine|nominative|singular|positive|
-adjinfl.os_h_on_comp2|os_h_on_comp|η|femine|nominative|singular|positive|
+adjinfl.os_h_on_comp2|os_h_on_comp|η|feminine|nominative|singular|positive|
 adjinfl.os_h_on_comp3|os_h_on_comp|ον|neuter|nominative|singular|positive|
 
 adjinfl.os_h_on_comp4|os_h_on_comp|ου|masculine|genitive|singular|positive|
-adjinfl.os_h_on_comp5|os_h_on_comp|ης|femine|genitive|singular|positive|
+adjinfl.os_h_on_comp5|os_h_on_comp|ης|feminine|genitive|singular|positive|
 adjinfl.os_h_on_comp6|os_h_on_comp|ου|neuter|genitive|singular|positive|
 
 adjinfl.os_h_on_comp7|os_h_on_comp|ῳ|masculine|dative|singular|positive|
-adjinfl.os_h_on_comp8|os_h_on_comp|ῃ|femine|dative|singular|positive|
+adjinfl.os_h_on_comp8|os_h_on_comp|ῃ|feminine|dative|singular|positive|
 adjinfl.os_h_on_comp9|os_h_on_comp|ῳ|neuter|dative|singular|positive|
 
 adjinfl.os_h_on_comp10|os_h_on_comp|ον|masculine|accusative|singular|positive|
-adjinfl.os_h_on_comp11|os_h_on_comp|ην|femine|accusative|singular|positive|
+adjinfl.os_h_on_comp11|os_h_on_comp|ην|feminine|accusative|singular|positive|
 adjinfl.os_h_on_comp12|os_h_on_comp|ον|neuter|accusative|singular|positive|
 
 
 
 adjinfl.os_h_on_comp13|os_h_on_comp|οι|masculine|nominative|plural|positive|
-adjinfl.os_h_on_comp14|os_h_on_comp|αι|femine|nominative|plural|positive|
+adjinfl.os_h_on_comp14|os_h_on_comp|αι|feminine|nominative|plural|positive|
 adjinfl.os_h_on_comp15|os_h_on_comp|α|neuter|nominative|plural|positive|
 
 adjinfl.os_h_on_comp16|os_h_on_comp|ων|masculine|genitive|plural|positive|
-adjinfl.os_h_on_comp17|os_h_on_comp|ων|femine|genitive|plural|positive|
+adjinfl.os_h_on_comp17|os_h_on_comp|ων|feminine|genitive|plural|positive|
 adjinfl.os_h_on_comp18|os_h_on_comp|ων|neuter|genitive|plural|positive|
 
 adjinfl.os_h_on_comp19|os_h_on_comp|οις|masculine|dative|plural|positive|
-adjinfl.os_h_on_comp20|os_h_on_comp|αις|femine|dative|plural|positive|
+adjinfl.os_h_on_comp20|os_h_on_comp|αις|feminine|dative|plural|positive|
 adjinfl.os_h_on_comp21|os_h_on_comp|οις|neuter|dative|plural|positive|
 
 adjinfl.os_h_on_comp22|os_h_on_comp|ους|masculine|accusative|plural|positive|
-adjinfl.os_h_on_comp23|os_h_on_comp|ας|femine|accusative|plural|positive|
+adjinfl.os_h_on_comp23|os_h_on_comp|ας|feminine|accusative|plural|positive|
 adjinfl.os_h_on_comp24|os_h_on_comp|α|neuter|accusative|plural|positive|

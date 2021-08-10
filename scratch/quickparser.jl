@@ -1,6 +1,6 @@
 using Kanones.FstBuilder
 using Kanones
-
+using CitableParserBuilder
 
 function lysiasparser()
     fstsrc  =  pwd() * "/fst/"
@@ -34,11 +34,11 @@ for pr in prs
         push!(cexlines, string(pr[1],"|"))
     else
         for id in pr[2]
-            push!(cexlines, string(pr[1],"|", cex(id)))
+            push!(cexlines, string(pr[1],"|", CitableParserBuilder.cex(id)))
         end
     end
 end
 
-open("analyses.cex","w") do io
+open("scratch/analyses.cex","w") do io
     write(io, join(cexlines,"\n"))
 end
