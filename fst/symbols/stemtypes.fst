@@ -28,7 +28,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Pronoun stem types
-#pronoun# = <article><demonstrative><interrogative>
+%#pronoun# = <article><demonstrative><interrogative>
 
 
 
