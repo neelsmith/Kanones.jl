@@ -38,6 +38,14 @@ function reportscore(hist, parser)
     checkboxes = checklist.(parses)
     scorecard = hcat(hist, checkboxes)
     writedlm("scorecard.cex", scorecard, '|')     
+
+    badonly = []
+    for i in 1:length(terms)
+        if checkboxes[i] == "❌"
+            push!(badonly, string(terms[i], " ❌"))
+        end
+    end
+    writedlm("failed.txt", badonly, '|')
 end
 
 # Rinse, lather, repeat:
