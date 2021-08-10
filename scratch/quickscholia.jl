@@ -40,6 +40,6 @@ for pr in prs
     end
 end
 
-open("scratch/analyses.cex","w") do io
+open("scratch/scholia-analyses.cex","w") do io
     write(io, join(cexlines,"\n"))
 end
