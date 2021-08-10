@@ -1,0 +1,11 @@
+StemUrn|LexicalEntity|String|Gender|Case|Number|PronounClass
+
+
+pronoun.n30657a|lsj.n30657|ἐγώ|masculine|nominative|singular|personal
+pronoun.n30657b|lsj.n30657|ἐγώ|feminine|nominative|singular|personal
+
+pronoun.n30657c|lsj.n30657|ἐμοῦ|masculine|genitive|singular|personal
+pronoun.n30657d|lsj.n30657|ἐμοῦ|feminine|genitive|singular|personal
+
+pronoun.n30657e|lsj.n30657|ἐμοί|masculine|dative|singular|personal
+pronoun.n30657f|lsj.n30657|ἐμοί|feminine|dative|singular|personal
