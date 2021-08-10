@@ -1,16 +1,21 @@
 StemID|LexicalEntity|Form|StemClass|
 
 uninflectedstems.n4357|lsj.n4357|ἀλλά|conjunction|
+uninflectedstems.n4357b|lsj.n4357|ἀλλ'|conjunction|
 uninflectedstems.n4845|lsj.n4845|ἅμα|adverb|
 uninflectedstems.n6207|lsj.n6207|ἄν|particle|
 uninflectedstems.n9778|lsj.n9778|ἀντί|preposition|
 uninflectedstems.n12243|lsj.n12243|ἀπό|preposition|
+uninflectedstems.n12243b|lsj.n12243|ἀπ'|preposition|
+uninflectedstems.n12243c|lsj.n12243|ἀφ'|preposition|
 uninflectedstems.n14639|lsj.n14639|ἄρα|particle|
 uninflectedstems.n21618|lsj.n21618|γάρ|particle|
 uninflectedstems.n21705|lsj.n21705|γε|particle|
 uninflectedstems.n23596|lsj.n23596|δέ|particle|
+uninflectedstems.n23596a|lsj.n23596|δ'|particle|
 uninflectedstems.n23799|lsj.n23799|δέκα|numeral|
 uninflectedstems.n24517|lsj.n24517|διά|preposition|
+uninflectedstems.n24517a|lsj.n24517|δι'|preposition|
 uninflectedstems.n27319|lsj.n27319|διότι|conjunction|
 uninflectedstems.n27438|lsj.n27438|δίς|adverb|
 uninflectedstems.n29859|lsj.n29859|ἐάν|conjunction|
@@ -23,7 +28,9 @@ uninflectedstems.n35364|lsj.n35364|ἕνεκα|preposition|
 uninflectedstems.n38466|lsj.n38466|ἐπεί|conjunction|
 uninflectedstems.n38471|lsj.n38471|ἐπειδή|conjunction|
 uninflectedstems.n38547|lsj.n38547|ἔπειτα|adverb|
-uninflectedstems.n38862|lsj.n38862|ἐπί|prepositio|
+uninflectedstems.n38862|lsj.n38862|ἐπί|preposition|
+uninflectedstems.n38862b|lsj.n38862|ἐπ'|preposition|
+uninflectedstems.n38862c|lsj.n38862|ἐφ'|preposition|
 uninflectedstems.n41918|lsj.n41918|ἑπτά|numeral|
 uninflectedstems.n43266|lsj.n43266|ἔτι|adverb|
 uninflectedstems.n46043|lsj.n46043|ἕως|conjunction|
@@ -32,6 +39,8 @@ uninflectedstems.n50492|lsj.n50492|ἵνα|conjunction|
 uninflectedstems.n51951|lsj.n51951|καί|conjunction|
 uninflectedstems.n52052|lsj.n52052|καίτοι|particle|
 uninflectedstems.n53647|lsj.n53647|κατά|preposition|
+uninflectedstems.n53647a|lsj.n53647|κατ'|preposition|
+uninflectedstems.n53647b|lsj.n53647|καθ'|preposition|
 uninflectedstems.n63013|lsj.n63013|λίαν|adverb|
 uninflectedstems.n64866|lsj.n64866|μᾶλλον|adverb|
 uninflectedstems.n66260|lsj.n66260|μέν|particle|
@@ -61,6 +70,7 @@ uninflectedstems.n76063|lsj.n76063|οὕτως|adverb|
 uninflectedstems.n76742|lsj.n76742|πάλαι|adverb|
 uninflectedstems.n76910|lsj.n76910|παλιν|adverb|
 uninflectedstems.n77763|lsj.n77763|παρά|preposition|
+uninflectedstems.n77763α|lsj.n77763|παρ‘|preposition|
 uninflectedstems.n80761|lsj.n80761|πέντε|numeral|
 uninflectedstems.n81017|lsj.n81017|περί|preposition|
 uninflectedstems.n85971|lsj.n85971|πότε|adverb|
