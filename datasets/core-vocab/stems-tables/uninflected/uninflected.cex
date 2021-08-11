@@ -1,5 +1,12 @@
 StemID|LexicalEntity|Form|StemClass|
 
+
+uninflectedstems.n22708|lsj.n22708|γοῦν|particle|
+
+
+
+uninflectedstems.n46568|lsj.n46568|ἤ|conjunction|
+
 uninflectedstems.n4357|lsj.n4357|ἀλλά|conjunction|
 uninflectedstems.n4357b|lsj.n4357|ἀλλ'|conjunction|
 uninflectedstems.n4845|lsj.n4845|ἅμα|adverb|
@@ -56,9 +63,13 @@ uninflectedstems.n74713|lsj.n74713|ὅπως|adverb|
 uninflectedstems.n75687|lsj.n75687|ὅταν|conjunction|
 uninflectedstems.n75688|lsj.n75688|ὅτε|adverb|
 uninflectedstems.n75695|lsj.n75695|ὅτι|conjunction|
-uninflectedstems.n75730|lsj.n75730|οὐ|adverb|
-uninflectedstems.n75730|lsj.n75730|οὐκ|adverb|
-uninflectedstems.n75730|lsj.n75730|οὐχ|adverb|
+uninflectedstems.n75730a|lsj.n75730|οὐ|adverb|
+uninflectedstems.n75730b|lsj.n75730|οὐκ|adverb|
+uninflectedstems.n75730c|lsj.n75730|οὐχ|adverb|
+
+uninflectedstems.n76068α|lsj.n76068|οὐχί|adverb|
+uninflectedstems.n76068b|lsj.n76068|οὐχ'|adverb|
+
 uninflectedstems.n75764|lsj.n75764|οὐδέ|conjunction|
 uninflectedstems.n75810|lsj.n75810|οὔκουν|particle|
 uninflectedstems.n75811|lsj.n75811|οὐκοῦν|particle|
@@ -70,7 +81,7 @@ uninflectedstems.n76063|lsj.n76063|οὕτως|adverb|
 uninflectedstems.n76742|lsj.n76742|πάλαι|adverb|
 uninflectedstems.n76910|lsj.n76910|παλιν|adverb|
 uninflectedstems.n77763|lsj.n77763|παρά|preposition|
-uninflectedstems.n77763α|lsj.n77763|παρ‘|preposition|
+uninflectedstems.n77763α|lsj.n77763|παρ'|preposition|
 uninflectedstems.n80761|lsj.n80761|πέντε|numeral|
 uninflectedstems.n81017|lsj.n81017|περί|preposition|
 uninflectedstems.n85971|lsj.n85971|πότε|adverb|
@@ -78,6 +89,9 @@ uninflectedstems.n85971a|lsj.n85971a|ποτε|adverb|
 uninflectedstems.n86087|lsj.n86087|ποῦ|adverb|
 uninflectedstems.n86088|lsj.n86088|που|adverb|
 uninflectedstems.n86371|lsj.n86371|πρίν|conjunction|
+
+uninflectedstems.n86405|lsj.n86405|πρό|preposition|
+
 uninflectedstems.n88443|lsj.n88443|πρός|preposition|
 uninflectedstems.n91991|lsj.n91991|πώποτε|adverb|
 uninflectedstems.n92010|lsj.n92010|πῶς|adverb|

@@ -1,6 +1,7 @@
 using HTTP
 using CSV
 using DataFrames
+using DelimitedFiles
 
 url = "https://raw.githubusercontent.com/hmteditors/composite-summer21/main/data/histowaccs-scholia-tweaked.cex"
 lnsdf = CSV.File(HTTP.get(url).body) |> DataFrame
@@ -50,10 +51,11 @@ function reportscore(hist, parser)
     badonly = []
     for i in 1:length(terms)
         if checkboxes[i] == "❌"
+            #push!(badonly, string(terms[i], "|", freqs[i], "| ❌"))
             push!(badonly, string(terms[i], " ❌"))
         end
     end
-    writedlm("failed.txt", badonly, '|')
+    writedlm("failed.cex", badonly, '|')
 end
 
 # Rinse, lather, repeat:

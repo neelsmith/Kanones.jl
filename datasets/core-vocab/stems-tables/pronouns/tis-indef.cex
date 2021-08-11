@@ -1,0 +1,11 @@
+StemUrn|LexicalEntity|String|Gender|Case|Number|PronounClass
+
+pronoun.n104051a|lsj.n104051|τις|masculine|nominative|singular|indefinite
+pronoun.n104051b|lsj.n104051|τις|feminine|nominative|singular|indefinite
+pronoun.n104051c|lsj.n104051|τι|neuter|nominative|singular|indefinite
+
+
+
+pronoun.n104051m|lsj.n104051|τινες|masculine|nominative|singular|indefinite
+pronoun.n104051n|lsj.n104051|τινες|feminine|nominative|singular|indefinite
+pronoun.n104051o|lsj.n104051|τινα|neuter|nominative|singular|indefinite

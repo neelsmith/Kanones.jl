@@ -1,0 +1,10 @@
+Rule|StemClass|Ending|Gender|Case|Number|
+nouninfl.wn_onos1|ws_onos|ων|masculine|nominative|singular|
+nouninfl.wn_onos2|ws_onos|ονος|masculine|genitive|singular|
+nouninfl.wn_onos3|ws_onos|ονι|masculine|dative|singular|
+nouninfl.wn_onos4|ws_onos|ονα|masculine|accusative|singular|
+
+nouninfl.wn_onos5|ws_onos|ονες|masculine|nominative|plural|
+nouninfl.wn_onos6|ws_onos|ονων|masculine|genitive|plural|
+nouninfl.wn_onos7|ws_onos|ουσι|masculine|dative|plural|
+nouninfl.wn_onos8|ws_onos|ονας|masculine|accusative|plural|

@@ -1,6 +1,11 @@
 StemUrn|LexicalEntity|String|Person|Number|Tense|Mood|Voice|IrregularClass
 
-irregverb.irregverbn31130a|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularverb
+irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularverb
+irregverb.irregverbn31130a2|lsj.n31130|ἐστί|third|singular|present|indicative|active|irregularverb
+irregverb.irregverbn31130a3|lsj.n31130|ἐστίν|third|singular|present|indicative|active|irregularverb
+
+
+irregverb.irregverbn31130b|lsj.n31130|ἦν|third|singular|imperfect|indicative|active|irregularverb
 
 
 
