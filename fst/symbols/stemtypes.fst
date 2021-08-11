@@ -55,8 +55,9 @@
 #otherprincparts# = <attic_fut> <w_aor2>
 #princparts# = #omegaprincparts#  #perfectactives#  #otherprincparts# 
 #mi# = <numi_pres>
+#verbaladjectives# = <vadj>
 
-#verbclass#  = #omega# #mi# #princparts# #deponent#
+#verbclass#  = #omega# #mi# #princparts# #deponent# #verbaladjectives# 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

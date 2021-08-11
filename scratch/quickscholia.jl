@@ -19,12 +19,18 @@ p = scholiaparser()
 
 # All words in scholia
 #f = "test/testdata/wordlist.txt"
-url = "https://raw.githubusercontent.com/hmteditors/composite-summer21/main/data/wordlist.txt"
-parses = parselistfromurl(p, url)
+#url = "https://raw.githubusercontent.com/hmteditors/composite-summer21/main/data/wordlist.txt"
+
+
+f = "test/testdata/topscholiawords.txt"
+parses = parselistfromfile(p,f)
+
+using DelimitedFiles
+words = readdlm(f)
 
 #u = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/testdata/wordlist.txt"
-using HTTP
-words = split(String(HTTP.get(url).body) , "\n")
+#using HTTP
+#words = split(String(HTTP.get(url).body) , "\n")
 
 
 # Do CEX formatting to create a dictionary of tokens to serialzed analyses:
