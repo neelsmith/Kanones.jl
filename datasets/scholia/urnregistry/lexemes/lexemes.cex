@@ -1,2 +1,3 @@
 CollectionId|CollectionUrn|Label
 lsj|urn:cite2:shot:lsj.v1:|Greek lexical entities in LSJ lexicon.
+pnsxlsj|urn:cite2:shot:pnsxlsj.v1:|Named entities not included in LSJ lexicon.
