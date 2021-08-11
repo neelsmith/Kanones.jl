@@ -6,9 +6,10 @@ function scholiaparser()
     fstsrc  =  pwd() * "/fst/"
     coreinfl = pwd() * "/datasets/core-infl/"
     corevocab = pwd() * "/datasets/core-vocab/"
+    lysias = pwd()  * "/datasets/lysias/"
     scholia = pwd()  * "/datasets/scholia/"
 
-    datasets = [corevocab, coreinfl, scholia]
+    datasets = [corevocab, coreinfl, lysias, scholia]
     kd = Kanones.Dataset(datasets)
     tgt = pwd() * "/parsers/scholiaparser/"
     buildparser(kd,fstsrc, tgt)
