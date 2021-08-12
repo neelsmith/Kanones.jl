@@ -4,22 +4,13 @@ using DataFrames
 using DelimitedFiles
 
 
-coreinfl = pwd() * "/datasets/core-infl/"
-corevocab = pwd() * "/datasets/core-vocab/"
-lysias = pwd()  * "/datasets/lysias/"
-scholia = pwd()  * "/datasets/scholia/"
-
-lysiasdatasets =  [ coreinfl, corevocab,lysias]
-scholiadatasets = [corevocab, coreinfl, lysias, scholia]
-
-
 
 using Kanones.FstBuilder
 using Kanones
 
 # Build a parser with datasets for Lysias 1.
 function kparser(kd)
-    tgt = Kanones.Dataset(pwd() * "/parsers/kanones/")
+    tgt = pwd() * "/parsers/kanones/"
     fstsrc  =  pwd() * "/fst/"
     buildparser(kd, fstsrc, tgt)
 end
@@ -34,7 +25,7 @@ end
 
 
 # Write a report on coverage.
-# - hist is a delimited-text histogram
+# - terms is a list of terms
 # - parser is a Kanones parser.
 function reportscore(terms, parser)
     if ! isdir("reports")
@@ -55,6 +46,31 @@ function reportscore(terms, parser)
     writedlm("reports/failed.cex", badonly, '|')
 end
 
+
+
+coreinfl = pwd() * "/datasets/core-infl/"
+corevocab = pwd() * "/datasets/core-vocab/"
+lysias = pwd()  * "/datasets/lysias/"
+scholia = pwd()  * "/datasets/scholia/"
+
+
+function lysias()
+    datasets =  [corevocab, coreinfl, lysias]
+
+    # Report on histogram of Lysias 1
+    lysiasurl = "https://raw.githubusercontent.com/hellenike/texts/main/data/histo-1-wbreathings.cex"
+
+    lysiaslnsdf = CSV.File(HTTP.get(lysiasurl).body) |> DataFrame
+    lysiaslns = lowercase.(lysiaslnsdf[:, :1])
+
+end
+
+function scholia()
+    datasets = [corevocab, coreinfl, lysias, scholia]
+end
+
+
+
 # Rinse, lather, repeat:
 # build new parser, reparse list
 p = kparser(lysiasdatasets)
@@ -62,7 +78,6 @@ p = kparser(lysiasdatasets)
 
 # Report on previous list of failures
 fails = readdlm("reports/failed.cex")[:,:1]
-
 reportscore(lowercase.(fails), p)
 
 
@@ -74,12 +89,6 @@ lns = lowercase.(lnsdf[:, :1])
 reportscore(lns[1:1000], p)
 
 
-
-# Report on histogram of Lysias 1
-lysiasurl = "https://raw.githubusercontent.com/hellenike/texts/main/data/histo-1-wbreathings.cex"
-
-lysiaslnsdf = CSV.File(HTTP.get(lysiasurl).body) |> DataFrame
-lysiaslns = lowercase.(lysiaslnsdf[:, :1])
 
 
 reportscore(lysiaslns, p)
