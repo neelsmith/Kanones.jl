@@ -65,8 +65,10 @@ end
 p = scholiaparser()
 
 # Report on previous list of failures
-fails = readdlm("failed.cex")
-reportscore(lowercase.(fails[:,:1]), p)
+fails = readdlm("reports/failed.cex")[:,:1]
+
+reportscore(lowercase.(fails), p)
+
 
 
 # Report on histogram
