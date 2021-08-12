@@ -29,18 +29,18 @@ end
 # Write a report on coverage.
 # - hist is a delimited-text histogram
 # - parser is a Kanones parser.
-function reportscore(terms, parser)
+function reportscore(terms, parser, freqs)
     #terms = hist[:,1]
     #freqs = hist[:,2]
     parses = parsewordlist(parser, terms)
     checkboxes = checklist.(parses)
-    scorecard = hcat(hist, checkboxes)
+    scorecard = hcat(terms, checkboxes, freqs)
     writedlm("scorecard.cex", scorecard, '|')     
 
     badonly = []
     for i in 1:length(terms)
         if checkboxes[i] == "❌"
-            push!(badonly, string(terms[i], " ❌"))
+            push!(badonly, string(terms[i], " ❌", freqs[i]))
         end
     end
     writedlm("failed.txt", badonly, '|')
@@ -53,8 +53,10 @@ p = lysiasparser()
 
 # Report on histogram
 f = "histo-1-wbreathings.cex"
-lns = readdlm(f, '|')
-reportscore(lns[:,:1], p)
+#lns = readdlm(f, '|')
+#terms = lns[:,:1]
+#counts = lns[:,:2]
+#reportscore(terms, p, counts)
 
 
 
@@ -66,7 +68,8 @@ using HTTP
 lysiasurl = "https://raw.githubusercontent.com/hellenike/texts/main/data/histo-1-wbreathings.cex"
 
 lysiaslnsdf = CSV.File(HTTP.get(lysiasurl).body) |> DataFrame
-lysiaslns = lowercase.(lysiaslnsdf[:, :1])
+terms = lowercase.(lysiaslnsdf[:, :1])
+counts = lysiaslnsdf[:, :2]
 
 
-reportscore(lysiaslns, p)
+reportscore(terms, p, counts)

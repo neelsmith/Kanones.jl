@@ -1,0 +1,17 @@
+StemUrn|LexicalEntity|String|Gender|Case|Number|PronounClass
+
+pronoun.n67302a|lsj.n67302|μηδείς|masculine|nominative|singular|personal
+pronoun.n67302b|lsj.n67302|μηδεμία|feminine|nominative|singular|personal
+pronoun.n67302c|lsj.n67302|μηδέν|neuter|nominative|singular|personal
+
+pronoun.n67302d|lsj.n67302|μηδενός|masculine|genitive|singular|personal
+pronoun.n67302e|lsj.n67302|μηδεμιᾶς|feminine|genitive|singular|personal
+pronoun.n67302f|lsj.n67302|μηδενός|neuter|genitive|singular|personal
+
+pronoun.n67302g|lsj.n67302|μηδενί|masculine|dative|singular|personal
+pronoun.n67302h|lsj.n67302|μηδεμιᾷ|feminine|dative|singular|personal
+pronoun.n67302i|lsj.n67302|μηδενί|neuter|dative|singular|personal
+
+pronoun.n67302j|lsj.n67302|μηδένα|masculine|accusative|singular|personal
+pronoun.n67302k|lsj.n67302|μηδεμίαν|feminine|accusative|singular|personal
+pronoun.n67302l|lsj.n67302|μηδέν|neuter|accusative|singular|personal

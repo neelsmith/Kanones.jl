@@ -1,0 +1,17 @@
+StemUrn|LexicalEntity|String|Gender|Case|Number|PronounClass
+
+pronoun.n75765a|lsj.n75765|οὐδείς|masculine|nominative|singular|personal
+pronoun.n75765b|lsj.n75765|οὐδεμία|feminine|nominative|singular|personal
+pronoun.n75765c|lsj.n75765|οὐδέν|neuter|nominative|singular|personal
+
+pronoun.n75765d|lsj.n75765|οὐδενός|masculine|genitive|singular|personal
+pronoun.n75765e|lsj.n75765|οὐδεμιᾶς|feminine|genitive|singular|personal
+pronoun.n75765f|lsj.n75765|οὐδενός|neuter|genitive|singular|personal
+
+pronoun.n75765g|lsj.n75765|οὐδενί|masculine|dative|singular|personal
+pronoun.n75765h|lsj.n75765|οὐδεμιᾷ|feminine|dative|singular|personal
+pronoun.n75765i|lsj.n75765|οὐδενί|neuter|dative|singular|personal
+
+pronoun.n75765j|lsj.n75765|οὐδένα|masculine|accusative|singular|personal
+pronoun.n75765k|lsj.n75765|οὐδεμίαν|feminine|accusative|singular|personal
+pronoun.n75765l|lsj.n75765|οὐδέν|neuter|accusative|singular|personal
