@@ -1,7 +1,5 @@
 using DelimitedFiles
 
-f = "histo-1-wbreathings.cex"
-lns = readdlm(f, '|')
 
 using Kanones.FstBuilder
 using Kanones
@@ -31,8 +29,8 @@ end
 # Write a report on coverage.
 # - hist is a delimited-text histogram
 # - parser is a Kanones parser.
-function reportscore(hist, parser)
-    terms = hist[:,1]
+function reportscore(terms, parser)
+    #terms = hist[:,1]
     #freqs = hist[:,2]
     parses = parsewordlist(parser, terms)
     checkboxes = checklist.(parses)
@@ -51,4 +49,9 @@ end
 # Rinse, lather, repeat:
 # build new parser, reparse list
 p = lysiasparser()
-reportscore(lns, p)
+
+
+# Report on histogram
+f = "histo-1-wbreathings.cex"
+lns = readdlm(f, '|')
+reportscore(lns[:,:1], p)
