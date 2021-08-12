@@ -55,3 +55,18 @@ p = lysiasparser()
 f = "histo-1-wbreathings.cex"
 lns = readdlm(f, '|')
 reportscore(lns[:,:1], p)
+
+
+
+
+# More..
+using CSV
+using HTTP
+
+lysiasurl = "https://raw.githubusercontent.com/hellenike/texts/main/data/histo-1-wbreathings.cex"
+
+lysiaslnsdf = CSV.File(HTTP.get(lysiasurl).body) |> DataFrame
+lysiaslns = lowercase.(lysiaslnsdf[:, :1])
+
+
+reportscore(lysiaslns, p)
