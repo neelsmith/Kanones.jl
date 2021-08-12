@@ -3,3 +3,9 @@ StemUrn|LexicalEntity|String|Gender|Case|Number|Degree|IrregularClass
 irregadj.n4490a|lsj.n4490|ἄλλος|masculine|nominative|singular|positive|irregularadjective
 irregadj.n4490b|lsj.n4490|ἄλλη|feminine|nominative|singular|positive|irregularadjective
 irregadj.n4490c|lsj.n4490|ἄλλο|neuter|nominative|singular|positive|irregularadjective
+
+
+
+irregadj.n4490m|lsj.n4490|ἄλλοι|masculine|nominative|plural|positive|irregularadjective
+irregadj.n4490n|lsj.n4490|ἄλλαι|feminine|nominative|plural|positive|irregularadjective
+irregadj.n4490n|lsj.n4490|ἄλλα|neuter|nominative|plural|positive|irregularadjective

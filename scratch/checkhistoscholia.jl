@@ -3,8 +3,7 @@ using CSV
 using DataFrames
 using DelimitedFiles
 
-url = "https://raw.githubusercontent.com/hmteditors/composite-summer21/main/data/histowaccs-scholia-tweaked.cex"
-lnsdf = CSV.File(HTTP.get(url).body) |> DataFrame
+
 
 #f = "histo-1-wbreathings.cex"
 #lns = readdlm(f, '|')
@@ -40,13 +39,16 @@ end
 # Write a report on coverage.
 # - hist is a delimited-text histogram
 # - parser is a Kanones parser.
-function reportscore(hist, parser)
-    terms = lowercase.(hist[:,1])
+function reportscore(terms, parser)
+    if ! isdir("reports")
+        mkdir("reports")
+    end
+    #terms = lowercase.(hist[:,1])
     #freqs = hist[:,2]
     parses = parsewordlist(parser, terms)
     checkboxes = checklist.(parses)
-    scorecard = hcat(hist, checkboxes)
-    writedlm("scorecard.cex", scorecard, '|')     
+    scorecard = hcat(terms, checkboxes)
+    writedlm("reports/scorecard.cex", scorecard, '|')     
 
     badonly = []
     for i in 1:length(terms)
@@ -55,11 +57,20 @@ function reportscore(hist, parser)
             push!(badonly, string(terms[i], " ❌"))
         end
     end
-    writedlm("failed.cex", badonly, '|')
+    writedlm("reports/failed.cex", badonly, '|')
 end
 
 # Rinse, lather, repeat:
 # build new parser, reparse list
-lns = lowercase.(lnsdf[:, :1])
 p = scholiaparser()
-reportscore(lns[1:1500], p)
+
+# Report on previous list of failures
+fails = readdlm("failed.cex")
+reportscore(lowercase.(fails[:,:1]), p)
+
+
+# Report on histogram
+url = "https://raw.githubusercontent.com/hmteditors/composite-summer21/main/data/histowaccs-scholia-tweaked.cex"
+lnsdf = CSV.File(HTTP.get(url).body) |> DataFrame
+lns = lowercase.(lnsdf[:, :1])
+reportscore(lns[1:1000][:,:1], p)
