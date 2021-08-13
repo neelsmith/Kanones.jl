@@ -44,7 +44,7 @@
 %
 % 6. Pronouns
 %
-#pronoun# = <article><demonstrative><interrogative><personal><indefinite><other>
+#pronoun# = <article><demonstrative><interrogative><personal><indefinite><other><reflexive>
 
 
 #morphtag# = #pos# #gender# #case# #number# #person# #tense# #mood# #voice# #degree# #finiteform# #uninflected# #irregular# #pronoun#

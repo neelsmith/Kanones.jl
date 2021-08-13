@@ -12,7 +12,7 @@
 
 #labialpalatal3# = <y_pos><y_bos><c_kos><gc_ggos><c_gos><c_xos>
 #dental3# = <s_tos><is_idos><is_itos><s_qos><s_ntos><wn_ontos>
-#neuttau3# = <ma_matos><r_tos><s_tos>
+#neuttau3# = <ma_matos><r_tos><s_tos><s_dos>
 #liquidnasal3# = <wr_oros><s_nos><wn_onos><hn_enos><n_nos>
 #rho3# = <hr_ros>
 #sigma3# = <hs_ous><as_ws>

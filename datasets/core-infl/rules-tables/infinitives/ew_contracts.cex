@@ -1,15 +1,15 @@
 
 Rule|StemClass|Ending|Tense|Voice
-infinfl.wreg1|w_regular|εῖν|present|active
-infinfl.wreg2|w_regular|εῖσθαι|present|middle
-infinfl.wreg3|w_regular|εῖσθαι|present|passive
+infinfl.ew_contract1|ew_contract|εῖν|present|active
+infinfl.ew_contract2|ew_contract|εῖσθαι|present|middle
+infinfl.ew_contract3|ew_contract|εῖσθαι|present|passive
 
-infinfl.wreg4|w_regular|ήσειν|future|active
-infinfl.wreg5|w_regular|ήσεσθαι|future|middle
-infinfl.wreg6|w_regular|ηθήσεσθαι|future|passive
+infinfl.ew_contract4|ew_contract|ήσειν|future|active
+infinfl.ew_contract5|ew_contract|ήσεσθαι|future|middle
+infinfl.ew_contract6|ew_contract|ηθήσεσθαι|future|passive
 
-infinfl.wreg4|w_regular|ῆσαι|aorist|active
-infinfl.wreg5|w_regular|ήσασθαι|aorist|middle
-infinfl.wreg6|w_regular|ηθῆσαι|aorist|passive
+infinfl.ew_contract4|ew_contract|ῆσαι|aorist|active
+infinfl.ew_contract5|ew_contract|ήσασθαι|aorist|middle
+infinfl.ew_contract6|ew_contract|ηθῆσαι|aorist|passive
 
-infinfl.wreg7|w_regular|ηκέναι|perfect|active
+infinfl.ew_contract7|ew_contract|ηκέναι|perfect|active

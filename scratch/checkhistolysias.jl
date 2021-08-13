@@ -35,7 +35,7 @@ function reportscore(terms, parser, freqs)
     parses = parsewordlist(parser, terms)
     checkboxes = checklist.(parses)
     scorecard = hcat(terms, checkboxes, freqs)
-    writedlm("scorecard.cex", scorecard, '|')     
+    writedlm("reports/lysias-scorecard.cex", scorecard, '|')     
 
     badonly = []
     for i in 1:length(terms)
@@ -43,7 +43,7 @@ function reportscore(terms, parser, freqs)
             push!(badonly, string(terms[i], " ❌", freqs[i]))
         end
     end
-    writedlm("failed.txt", badonly, '|')
+    writedlm("reports/lysias-failed.txt", badonly, '|')
 end
 
 # Rinse, lather, repeat:
@@ -52,7 +52,7 @@ p = lysiasparser()
 
 
 # Report on histogram
-f = "histo-1-wbreathings.cex"
+#f = "histo-1-wbreathings.cex"
 #lns = readdlm(f, '|')
 #terms = lns[:,:1]
 #counts = lns[:,:2]
@@ -70,6 +70,5 @@ lysiasurl = "https://raw.githubusercontent.com/hellenike/texts/main/data/histo-1
 lysiaslnsdf = CSV.File(HTTP.get(lysiasurl).body) |> DataFrame
 terms = lowercase.(lysiaslnsdf[:, :1])
 counts = lysiaslnsdf[:, :2]
-
 
 reportscore(terms, p, counts)
