@@ -5,10 +5,10 @@
 
     kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
     fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
     
-    parser = d * "/testcompile/greek.a"
-    @test isfile(parser)
+    #parser = d * "/testcompile/greek.a"
+    @test isfile(parser.sfstpath)
 
     fstout = Kanones.applyparser(parser, "και")
     lines = split(fstout, "\n")
@@ -25,9 +25,9 @@ end
 
     kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
     fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
     
-    parser = d * "/testcompile/greek.a"
+    #parser = d * "/testcompile/greek.a"
     analysislist = parsetoken(parser, "και")
 
     analyzed = analysislist[1]
@@ -58,9 +58,9 @@ end
 
     kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
     fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
     
-    parser = d * "/testcompile/greek.a"
+    #parser = d * "/testcompile/greek.a"
     analyzed = parsetoken(parser, "silly")
     @test isempty(analyzed)
 end
@@ -73,9 +73,9 @@ end
 
     kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
     fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
 
-    parser = d * "/testcompile/greek.a"
+    #parser = d * "/testcompile/greek.a"
     analyzed = parsetoken(parser, "γνώμαις")
     @test isa(analyzed[1], Analysis)
 

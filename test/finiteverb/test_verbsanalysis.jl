@@ -87,8 +87,8 @@
     repo = dirname(pwd())
     kd = Kanones.Dataset([  repo * "/datasets/debug/"])
     fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst,repo* "/parsers/debugkanones/")
-    parser =  repo * "/parsers/debugkanones/greek.a"
+    parser = FstBuilder.buildparser(kd,fst,repo* "/parsers/debugkanones/")
+    #parser =  repo * "/parsers/debugkanones/greek.a"
     analyzed = parsetoken(parser, "ἐκελευε")
     @test_broken length(analyzed) == 1
 end

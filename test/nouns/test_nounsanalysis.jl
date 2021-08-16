@@ -5,9 +5,9 @@
 
     kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
     fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
 
-    parser = d * "/testcompile/greek.a"
+    #parser = d * "/testcompile/greek.a"
     analyzed = parsetoken(parser, "γνώμαις")
     @test length(analyzed) == 1
     @test isa(analyzed[1], Analysis)
@@ -22,9 +22,9 @@ end
 
     kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
     fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
 
-    parser = d * "/testcompile/greek.a"
+    #parser = d * "/testcompile/greek.a"
     analyzed = parsetoken(parser, "γυνή")
     
     #=
