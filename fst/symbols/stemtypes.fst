@@ -51,7 +51,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Verb stem types
-#omega# = <w_regular> <w_dep> <ew_contract> <ew_contract_pp1> <short_ew_contract><aw_contract> <long_aw_contract><ow_contract>
+#omega# = <w_regular> <w_dep> <ew_contract> <ew_contract_pp1> <short_ew_contract><aw_contract> <long_aw_contract><ow_contract><izw>
 #deponent# = <w_pp1_dep> <w_pp2_dep> <w_pp3_dep> <w_aor2_dep>
 #omegaprincparts# = <w_pp1> <w_pp2> <w_pp3> <w_pp4> <w_pp5> <w_pp6> 
 #perfectactives# = <g_pp5> <m_pp5> <s_pp5> <sm_pp5> <gm_pp5> <vowel_pp5>
