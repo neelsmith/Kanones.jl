@@ -7,8 +7,9 @@ function lysiasparser()
     coreinfl = pwd() * "/datasets/core-infl/"
     corevocab = pwd() * "/datasets/core-vocab/"
     lysias = pwd()  * "/datasets/lysias/"
+    lysiasnouns = pwd()  * "/datasets/lysias-nouns/"
 
-    datasets = [corevocab, coreinfl, lysias]
+    datasets = [corevocab, coreinfl, lysias, lysiasnouns]
     kd = Kanones.Dataset(datasets)
     tgt = pwd() * "/parsers/lysiasparser/"
     buildparser(kd,fstsrc, tgt)
@@ -17,9 +18,44 @@ end
 
 p = lysiasparser()
 
+nouns = "/Users/nsmith/Desktop/lysias-nouns.txt"
+
+using DelimitedFiles
+nounlist = readdlm(nouns, '\t')
+# Drop header
+parses = parsewordlist(p, nounlist[2:end])
+labelledparses = hcat(nounlist[2:end], parses)
+labelledparses |> typeof
+labelledparses |> size
+
+
+missinglist = []
+for i in 1:size(labelledparses,1)
+    if isempty(labelledparses[i,2])
+        push!(missinglist, labelledparses[i,1])
+    end
+end
+
+missinglist |> length
+
+open("missinglysiasnouns.txt", "w") do io
+    write(io, join(missinglist, "\n"))
+end
+
+
+
+
+
+
+######
+
+
 # All words in Lysias
 f = "test/testdata/wordlist.txt"
 parses = parselistfromfile(p, f)
+
+
+
 
 u = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/testdata/wordlist.txt"
 using HTTP
