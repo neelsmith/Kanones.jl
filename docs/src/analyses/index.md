@@ -10,25 +10,27 @@
 
 ### Parse a token
 
-```@setup analysisexample  
-repo = pwd() |> dirname |> dirname  |> dirname
+```@setup analysisexample 
+using Kanones
+using Kanones.FstBuilder
+using CitableParserBuilder
+reporoot = pwd() |> dirname |> dirname |> dirname
+target = reporoot * "/parsers/demo/"
+datadirectory = reporoot * "/datasets/core-infl/"
+kd = dataset([datadirectory])
+fstsrc = reporoot *  "/fst/"
+parser = buildparser(kd, fstsrc, target)
 ```
 
-
-```@example analysisexample
-parser = repo * "/parsers/demo/greek.a"
-```
 Build a parser, as we did in the example on the previous page.
 
 ```@example analysisexample
-basename(parser)
+basename(parser.sfstpath)
 ```
 
 Parsing a token returns a (possibly empty) Vector of analyses.
 
 ```@example analysisexample
-using Kanones
-parser = repo * "/parsers/demo/greek.a"
 analyses = parsetoken(parser, "κελεύσει")
 ```
 
@@ -75,7 +77,7 @@ We can check the type of form, and get appropriate information for that type.
 
 ```@example analysisexample
 tensedata = if isa(mform, FiniteVerbForm)
-        (mform.vtense, mform.tenselabel)
+        (mform.vtense)
 else
         nothing
 end
@@ -86,7 +88,7 @@ analyses2 = parsetoken(parser, "δωρα")
 a2 = analyses2[1]
 form2 = Kanones.morphform(a2)
 genderdata = if isa(form2, NounForm)
-        (form2.ngender, form2.genderlabel)
+        (form2.ngender)
 else
         nothing
 end

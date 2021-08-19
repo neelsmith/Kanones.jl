@@ -31,15 +31,13 @@ reporoot = pwd() |> dirname |> dirname
 target = reporoot * "/parsers/demo/"
 ```
 
-
-
 ### Orthography and morphological dataset
 
 Load morphological data and definition of the dataset's orthography into a `Kanones.Dataset` structure.
 
 ```@example eg
-datadirectory = reporoot * "/datasets/synoptic/"
-kd = dataset(datadirectory)
+datadirectory = reporoot * "/datasets/core-infl/"
+kd = dataset([datadirectory])
 ```
 
 
@@ -53,15 +51,6 @@ kd = dataset(datadirectory)
 ```@example eg
 fstsrc = reporoot *  "/fst/"
 parser = buildparser(kd, fstsrc, target)
-basename(parser)
+basename(parser.sfstpath)
 ```
 
-
-### Parse a token
-
-Use the parser to parse a token.  The resulting `Analysis` object includes URN values for the form, the lexeme, the stem entry in the dataset's list of stems, and the rule entry in the dataset's list of rules.
-
-
-```@example eg
-parsetoken(parser, "γνώμην")
-```

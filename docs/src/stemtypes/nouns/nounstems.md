@@ -1,7 +1,7 @@
 # Noun stems
 
 
-The automatically generated paradigms on this page illustrate nouns accent belonging to various stem types, and with various patterns of persistent accent.  They belong to the dataset defined in the `datasets/synoptic` directory of the Kanones github repository.
+The automatically generated paradigms on this page illustrate nouns accent belonging to various stem types, and with various patterns of persistent accent.  They belong to the dataset defined in the `datasets/core-infl` directory of the Kanones github repository.
 
 In the tables below, the nouns are labelled with the Kanones stem type they belong to.
 
@@ -21,7 +21,7 @@ using Kanones, CitableParserBuilder, Markdown
 nouns = [γνωμη, βουλη,οικια,θεραπαινα]
 
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
-ds = dataset(repo * "/datasets/synoptic/")
+ds = dataset(repo * "/datasets/core-infl/")
 Markdown.parse(mddeclension(nouns, ds))
 ```
 
@@ -32,7 +32,7 @@ Attic orthography:
 using Kanones, CitableParserBuilder, Markdown, AtticGreek
 bole = LexemeUrn("lsj.n20600")
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
-attic = dataset(repo * "/datasets/attic/"; ortho=atticGreek())
+attic = dataset([repo * "/datasets/attic/"]; ortho=atticGreek())
 Markdown.parse(mddeclension([bole], attic))
 ```
 
@@ -44,7 +44,7 @@ Literary Greek orthography:
 ```@eval
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
 using Kanones, CitableParserBuilder, Markdown
-kd = dataset(repo * "/datasets/synoptic/")
+kd = dataset(repo * "/datasets/core-infl/")
 
 ανθρωπος = LexemeUrn("lsj.n8909")
 δωρον = LexemeUrn("lsj.n29828")
@@ -79,7 +79,7 @@ Literary Greek orthography:
 ```@eval
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
 using Kanones, CitableParserBuilder, Markdown
-kd = dataset(repo * "/datasets/synoptic/")
+kd = dataset(repo * "/datasets/core-infl/")
 
 πολις = LexemeUrn("lsj.n84494")
 

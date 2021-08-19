@@ -20,6 +20,7 @@ makedocs(
     sitename="Kanones.jl",
     pages = [
         "Home" => "index.md",
+        
         "Background" => "bg/index.md",
         "Manual" => Any[
             "Prerequisites" => "prereqs.md",
@@ -28,17 +29,18 @@ makedocs(
             "Working with analytical data" => "analyses/index.md"
            
         ],
+      
         "Reference: stem types" => Any[
             "Contents" => "stemtypes/index.md",
-            "Nouns" => "stemtypes/nouns/nounstems.md",
-            "Irregular nouns" => "stemtypes/nouns/irregulars.md",
-            "Uninflected types" => "stemtypes/uninflected.md",
-        ],
+           "Nouns" => "stemtypes/nouns/nounstems.md",
+           "Irregular nouns" => "stemtypes/nouns/irregulars.md",
+           "Uninflected types" => "stemtypes/uninflected.md",
+        ],   
         "Reference: code" => Any[
             "Julia API documentation" =>  "apis/apis.md",
             "FST" =>  "fst/index.md",
             
         ],
-        
+     
     ],
     )

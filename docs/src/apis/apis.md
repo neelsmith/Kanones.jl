@@ -39,13 +39,12 @@ Kanones.valuedict
 Kanones.labeldict
 Kanones.labelform
 Kanones.nounform
-Kanones.nounabbrurn
 Kanones.nounscex
 Kanones.uninflectedform
-Kanones.uninflectedabbrurn
+
 Kanones.uninflectedcex
 Kanones.finiteverbform
-Kanones.finiteverbabbrurn
+
 ```
 
 ## Datasets

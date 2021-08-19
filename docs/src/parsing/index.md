@@ -19,8 +19,8 @@ end
 
 ```@example parserexample
 using Kanones, Kanones.FstBuilder
-kd = dataset(repo * "/datasets/synoptic/")
+kd = dataset(repo * "/datasets/core-infl/")
 fstsrc = repo * "/fst/"
 parser = buildparser(kd, fstsrc, target)
-basename(parser)
+basename(parser.sfstpath)
 ```

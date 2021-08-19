@@ -3,7 +3,7 @@ using Kanones.FstBuilder
 using CitableObject, CitableParserBuilder
 using PolytonicGreek, Orthography
 using Test
-#=
+
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
 include("test_morphforms.jl")
@@ -21,10 +21,9 @@ include("uninflected/test_uninflectedgenerate.jl")
 include("nouns/test_nounsfst.jl") 
 include("nouns/test_nounsdata.jl")
 include("nouns/test_nounsanalysis.jl")
-=#
+
 include("nouns/test_nounsformatting.jl")
 
-#=
 include("nouns/test_nounsgenerate.jl")
 
 include("pronouns/test_pronounsdata.jl")
@@ -54,5 +53,3 @@ include("test_compile.jl")
 include("finiteverb/test_verbsanalysis.jl")
 
 
-
- =#

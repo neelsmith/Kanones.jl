@@ -50,8 +50,8 @@ Pass in a list of full paths to one or more directories laid out according to Ka
 
 ```@setup kd
 repo = pwd() |> dirname |> dirname  |> dirname
-src1 = repo * "/datasets/synoptic/"
-src2 = repo * "/datasets/core/"
+src1 = repo * "/datasets/core-infl/"
+src2 = repo * "/datasets/core-vocab/"
 using Kanones
 ```
 
