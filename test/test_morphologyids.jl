@@ -2,7 +2,7 @@
 @testset "Test uninflected form URNs" begin
     conjunctionurn = Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")
     uform = Kanones.uninflectedform(conjunctionurn)
-    @test uform.poslabel == "conjunction"
+    @test uform.pos == 1
 end
     #=
      "urn:cite2:kanones:morphforms.v1:1000000001|uninflected form: conjunction"
@@ -14,7 +14,7 @@ end
 =#
 
 @testset "Test conversion of uninflected form to URN" begin
-    uform = UninflectedForm(1, "conjunction")
+    uform = UninflectedForm(1)
     u = Kanones.urn(uform)
     @test u == Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")
 end

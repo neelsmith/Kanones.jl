@@ -3,7 +3,7 @@
     u = Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")
     uform = Kanones.uninflectedform(u)
     @test isa(uform, UninflectedForm)
-    @test uform.poslabel == "conjunction"
+    @test_broken uform.poslabel == "conjunction"
 end
 
 @testset "Test construction of noun form from URN" begin

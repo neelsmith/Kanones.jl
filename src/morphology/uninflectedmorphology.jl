@@ -2,7 +2,7 @@
 """Uninflected forms have a single property: the "part of speech"."""
 struct UninflectedForm <: MorphologicalForm
     pos::Int64
-    poslabel::AbstractString    
+    #poslabel::AbstractString    
 end
 
 
@@ -47,9 +47,9 @@ end
 $(SIGNATURES)
 """
 function uninflectedform(code::Int64)
-    dict = valuedict(uninflectedpairs)
-    poslabel = dict[code]
-    UninflectedForm(code, poslabel)
+    #dict = valuedict(uninflectedpairs)
+    #poslabel = dict[code]
+    UninflectedForm(code) #, poslabel)
 end
 
 """Create `UninflectedForm` from an Analysis.
@@ -83,7 +83,13 @@ $(SIGNATURES)
 """
 function cex(uform::UninflectedForm)
     urnval = urn(uform).urn
-    string(urnval,"|uninflected form: ", uform.poslabel)
+
+
+    uninfldict = valuedict(uninflectedpairs)
+    #string(urnval,"|uninflected form: ", uninfldict[])
+    # 
+    # NEED generic retrieval functions for Morphology string sequence.
+    nothing
 end
 
 """Compose Abbreviated URN for uninflected form from value for part of speech.
@@ -93,7 +99,7 @@ $(SIGNATURES)
 function uninflectedfromfst(uninflclass)
     dict = labeldict(uninflectedpairs)
     code = dict[uninflclass]
-    UninflectedForm(code, uninflclass)            
+    UninflectedForm(code) #, uninflclass)            
 end
 
 """Compose a `FormUrn` for an `UninflectedForm`.
