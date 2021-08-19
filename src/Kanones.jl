@@ -56,6 +56,8 @@ include("generator/nounsgen.jl")
 include("morphology/forms.jl")
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
+include("morphology/kanonesformurns.jl")
+
 
 include("morphology/irregularmorphology.jl")
 include("morphology/uninflectedmorphology.jl")
