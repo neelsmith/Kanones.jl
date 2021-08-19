@@ -1,5 +1,17 @@
-"""Abstract type of a morphological form."""
+"""Abstract type of a morphological form in Kanones."""
 abstract type MorphologicalForm end
+
+"""Generic function to convert form information in a `MorphologicalForm`
+to a `FormUrn`.
+
+$(SIGNATURES)
+"""
+function formurn(rule::T) where {T <: FormUrn}
+    @warn "Function formurn not implemented for type $typeof(rule)."
+    nothing
+end
+
+
 
 """Generic function to convert form information in a `Rule`
 to a `RuleUrn`.

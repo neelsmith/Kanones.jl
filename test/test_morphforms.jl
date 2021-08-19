@@ -1,12 +1,12 @@
 
-@testset "Test construction of uninflected form from URN" begin
+@testset "Test construction of uninflected form from a Cite2Urn" begin
     u = Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")
     uform = Kanones.uninflectedform(u)
     @test isa(uform, UninflectedForm)
-    @test_broken uform.poslabel == "conjunction"
+    @test uform.pos ==  1
 end
 
-@testset "Test construction of noun form from URN" begin
+@testset "Test construction of noun form from a Cite2Urn" begin
     u = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030003500")
     noun = Kanones.nounform(u)
     @test isa(noun, NounForm)
@@ -15,7 +15,7 @@ end
     @test noun.nnumber == 3
 end
 
-@testset "Test construction of finite verb form from URN" begin
+@testset "Test construction of finite verb form from a Cite2Urn" begin
     u = Cite2Urn("urn:cite2:kanones:morphforms.v1:3313110000")
     vb = Kanones.finiteverbform(u)
     @test isa(vb, FiniteVerbForm)

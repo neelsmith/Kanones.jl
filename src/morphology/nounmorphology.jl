@@ -60,7 +60,7 @@ function label(noun::NounForm)
     join([noun.genderlabel, noun.caselabel, noun.numberlabel], " ")
 end
 
-"""Compose URN for a `NounForm`.
+"""Compose a Cite2Urn for a `NounForm`.
 
 $(SIGNATURES)
 """
