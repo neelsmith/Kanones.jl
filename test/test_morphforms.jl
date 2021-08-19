@@ -10,9 +10,9 @@ end
     u = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030003500")
     noun = Kanones.nounform(u)
     @test isa(noun, NounForm)
-    @test noun.genderlabel == "neuter"
-    @test noun.caselabel == "vocative"
-    @test noun.numberlabel == "plural"
+    @test noun.ngender == 3
+    @test noun.ncase == 5
+    @test noun.nnumber == 3
 end
 
 @testset "Test construction of finite verb form from URN" begin

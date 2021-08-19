@@ -1,13 +1,12 @@
 """Nouns have gender, case and number."""
 struct NounForm <: MorphologicalForm
     ngender::Int64
-    genderlabel::AbstractString    
+    #genderlabel::AbstractString    
     ncase::Int64
-    caselabel::AbstractString    
+    #caselabel::AbstractString    
     nnumber::Int64
-    numberlabel::AbstractString    
+    #numberlabel::AbstractString    
 end
-
 
 """Create a `NounForm` from a string value.
 
@@ -18,13 +17,13 @@ function nounform(code::AbstractString)
     ngender = parse(Int64, morphchars[7])
     ncase = parse(Int64, morphchars[8])
     nnumber = parse(Int64, morphchars[3])
-    genderdict = valuedict(genderpairs)
-    casedict = valuedict(casepairs)
-    numberdict = valuedict(numberpairs)
+    #genderdict = valuedict(genderpairs)
+    #casedict = valuedict(casepairs)
+    #numberdict = valuedict(numberpairs)
     NounForm(
-        ngender, genderdict[ngender],
-        ncase, casedict[ncase],
-        nnumber, numberdict[nnumber]
+        ngender,# genderdict[ngender],
+        ncase, #casedict[ncase],
+        nnumber, #numberdict[nnumber]
     )
 end
 
@@ -36,7 +35,6 @@ $(SIGNATURES)
 function nounform(urn::Cite2Urn)
     nounform(objectcomponent(urn))
 end
-
 
 """Create a `NounForm` from a `FormUrn`.
 
@@ -127,10 +125,10 @@ function nounfromfst(fstdata)
         casedict = labeldict(casepairs)
         numberdict = labeldict(numberpairs)
 
-        nounform = NounForm(genderdict[g], g,
-        casedict[c], c,
-        numberdict[n], n)
-        #
+        nounform = NounForm(genderdict[g], #g,
+        casedict[c], #c,
+        numberdict[n] ) #, n)
+        
     end
 end
 

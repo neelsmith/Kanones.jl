@@ -22,9 +22,9 @@ function irregularfromfst(fstdata::AbstractString)
         genderdict = labeldict(genderpairs)
 
         NounForm(
-            genderdict[ngender], ngender,
-            casedict[ncase], ncase,
-            numdict[nnumber], nnumber
+            genderdict[ngender],# ngender,
+            casedict[ncase], #ncase,
+            numdict[nnumber] #, nnumber
         )
         
     elseif matchedup[1].captures[1] == "irregularfiniteverb"
