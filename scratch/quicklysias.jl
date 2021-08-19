@@ -1,6 +1,8 @@
 using Kanones.FstBuilder
 using Kanones
 using CitableParserBuilder
+using DelimitedFiles
+
 
 function lysiasparser()
     fstsrc  =  pwd() * "/fst/"
@@ -18,30 +20,28 @@ end
 
 p = lysiasparser()
 
-nouns = "/Users/nsmith/Desktop/lysias-nouns.txt"
 
-using DelimitedFiles
-nounlist = readdlm(nouns, '\t')
-# Drop header
-parses = parsewordlist(p, nounlist[2:end])
-labelledparses = hcat(nounlist[2:end], parses)
-labelledparses |> typeof
-labelledparses |> size
-
-
-missinglist = []
-for i in 1:size(labelledparses,1)
-    if isempty(labelledparses[i,2])
-        push!(missinglist, labelledparses[i,1])
+function missingnouns()
+    nouns = "/Users/nsmith/Desktop/lysias-nouns.txt"
+    nounlist = readdlm(nouns, '\t')
+    # Drop header
+    parses = parsewordlist(p, nounlist[2:end])
+    labelledparses = hcat(nounlist[2:end], parses)
+    #labelledparses |> typeof
+    #labelledparses |> size
+    missinglist = []
+    for i in 1:size(labelledparses,1)
+        if isempty(labelledparses[i,2])
+            push!(missinglist, labelledparses[i,1])
+        end
     end
+    missinglist
 end
-
-missinglist |> length
+    
 
 open("missinglysiasnouns.txt", "w") do io
-    write(io, join(missinglist, "\n"))
+    write(io, join(missingnouns(), "\n"))
 end
-
 
 
 
