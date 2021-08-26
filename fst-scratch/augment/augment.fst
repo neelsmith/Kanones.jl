@@ -10,12 +10,14 @@ $morph$ = $WORDS$ <div> $INFL$
 
 
 % Define the set of valid symbol pairs for the two-level rules.
-ALPHABET = [α-ω] ἐ <stem> <stem>:ἐ <imperfect> <present> <div>
+ALPHABET = [α-ω] [a-z] ἐ <stem> <stem>:ἐ <imperfect> <present> <finiteverb><ew_contract> <div> <u></u>
 
+%  <u>[#alpha#]:<>+</u>
+#urnchar# = a-z
 #alpha# = α-ω
 #cons# = βγδκφτπ
-$augment$ = <stem><=>ἐ ([#cons#] [#alpha#]+ <div><imperfect> )
-$pres$ = <stem>[#alpha#]+<div><present>[#alpha#]+
+$augment$ = (<u>[#urnchar#]:<>+</u><u>[#urnchar#]:<>+</u>) <stem><=>ἐ ([#cons#] [#alpha#]+ <finiteverb><ew_contract><div><imperfect> )
+$pres$ = <u>[#alpha#]:<>+</u><u>[#alpha#]:<>+</u><stem>[#alpha#]+<finiteverb><ew_contract><div><present>[#alpha#]+
 
 $verbs$ = $augment$ | $pres$
 
@@ -26,7 +28,7 @@ $augmented$ = $morph$ || $verbs$
 
 
 #alphachars# = α-ω ἐ
-#analysis# = <stem><imperfect><present><div>
+#analysis# = <stem><imperfect><present><div><u></u><finiteverb><ew_contract>
 ALPHABET = [#alphachars#] [#analysis#]:<>
 $stripsym$ = .+
 
