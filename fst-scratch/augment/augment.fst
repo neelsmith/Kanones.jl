@@ -1,7 +1,7 @@
 % Read the lexical items from a separate file
 $WORDS$ = "verbs.txt"
 % Define a transducer for the inflectional endings
-$INFL$ = (<ew_contract><finiteverb>ησε<third><singular><aorist><indicative><active> | <ew_contract><finiteverb>ει<third><singular><present><indicative><active>)
+$INFL$ = (<ew_contract><finiteverb>ησε<third><singular><aorist><indicative><active><u>urnx</urn> | <ew_contract><finiteverb>ει<third><singular><present><indicative><active><u>urny</u>)
 
 % Concatenate the lexical forms and the inflectional endings and
 % put a boundary in between
@@ -10,14 +10,14 @@ $morph$ = $WORDS$ <div> $INFL$
 
 
 % Define the set of valid symbol pairs for the two-level rules.
-ALPHABET = [α-ω] [a-z] ἐ <stem> <stem>:ἐ  <stem>:<> <third><singular><aorist><present> <indicative><active><finiteverb><ew_contract> <div> <u></u>
+ALPHABET = [α-ω] [a-z]:<> ἐ <stem> <stem>:ἐ  <stem>:<> <third><singular><aorist><present> <indicative><active><finiteverb><ew_contract> <div> <u>:<> </u>:<>
 
 #urnchar# = a-z
 #alpha# = α-ω
 #cons# = βγδκφτπ
-$augment$ = (<u>[#urnchar#]:<>+</u><u>[#urnchar#]:<>+</u>) <stem><=>ἐ ([#cons#] [#alpha#]+ <finiteverb><ew_contract><div><ew_contract><finiteverb>[#alpha#]+<third><singular><aorist><indicative><active> )
+$augment$ = (<u>[#urnchar#]+</u><u>[#urnchar#]+</u>) <stem><=>ἐ ([#cons#] [#alpha#]+ <finiteverb><ew_contract><div><ew_contract><finiteverb>[#alpha#]+<third><singular><aorist><indicative><active><u>[#urnchar#]+</u> )
 
-$pres$ = (<u>[#urnchar#]:<>+</u><u>[#urnchar#]:<>+</u>) <stem><=><> (<stem>[#alpha#]+<finiteverb><ew_contract><div><ew_contract><finiteverb>[#alpha#]+<third><singular><present><indicative><active>)
+$pres$ = (<u>[#urnchar#]+</u><u>[#urnchar#]+</u>) <stem><=><> (<stem>[#alpha#]+<finiteverb><ew_contract><div><ew_contract><finiteverb>[#alpha#]+<third><singular><present><indicative><active><u>[#urnchar#]+</u>)
 
 $verbs$ = $augment$ | $pres$
 
