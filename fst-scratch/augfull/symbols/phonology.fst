@@ -4,7 +4,7 @@
 % stem types (defined in stemtypes.fst)
 %
 % Basic alphabet specific to this orthographic system:
-#include "/Users/nsmith/Desktop/morphology/Kanones.jl/parsers/lysiasparser//symbols/alphabet.fst"
+#include "/Users/nsmith/Desktop/greek2021/Kanones.jl/parsers/lysiasparser//symbols/alphabet.fst"
 
 % phonology.fst
 %
@@ -26,7 +26,7 @@ $character$ = [#character#]
 % Additional editorial symbols used in stem files:
 %#vowelquant# = <lo><sh>
 #vowelquant# = _^
-#morpheme# = <#>
+#morpheme# = <stem>
 #persistacc# = <stemaccented><recessive><inflectionaccented><irregularaccent>
 #editorial# = #morpheme# #persistacc#  #vowelquant#
 % Transducer for persistent accent for convenenient
