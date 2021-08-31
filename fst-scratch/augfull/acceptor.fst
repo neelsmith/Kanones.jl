@@ -1,10 +1,11 @@
 #include "/Users/nsmith/Desktop/greek2021/Kanones.jl/fst-scratch/augfull/symbols.fst"
 
-%% Put all symbols in 2 categories:  in final transdcuer, we'll pass
+%% Put all symbols in 2 categories:  in τηε final transdcuer, we'll pass
 %% surface symbols through, and suppress analytical symbols.
+% Initially, though, we just let everything pass through:    
 #analysissymbol# = #editorial# #urntag# #uninflected# #pos# #morphtag# #stemtype#  #separator#
 #surfacesymbol# = #letter# #morpheme#
-% Initially, just let everything pass through:    
+
 ALPHABET = [#surfacesymbol#] [#analysissymbol#]   
 $passthrough$ = .+
 
@@ -16,14 +17,12 @@ $passthrough$ = .+
 #redupetense# = <pluperfect><perfect>
 #=cons# = βγδζθκλμνξπρστφχψς
 $reduplicated$ =  [#stemchars#]* <stem> {[#=cons#]<>}:{<stem>[#=cons#]ε[#=cons#]}[#stemchars#]* <div> [#stemchars#]+ [#redupetense#]
-
-$redupe$ = $reduplicated$  | $passthrough$
-
+%
+%
 % B: augmented form (imperfect, aorist, pluperfect indicative)
 #augmenttense# = <imperfect><aorist><pluperfect>
 #augmentinitial# = ἐ
 #augmentmedial# = ε
-
 % There are three patterns for augment:
 % 1. Simplex verb
 $simplex$ = <stem>:[#augmentinitial#] [#stemchars#]+ <div> [#stemchars#]+ [#augmenttense#]
@@ -34,19 +33,16 @@ $compoundconsonant$ = [#stemchars#]*[#consonant#] {<stem><>}:{<stem>[#augmentmed
 $augment$ = ($compoundvowel$ | $compoundconsonant$ | $simplex$)
 
 
-
 % C: reduplicated AND augmented. (pluperfect indicative)
-
-
+$plupft$ = $reduplicated$ || $augment$
 
 % D: other finite verb forms.
-
-
-
-
+$finite$ = [#stemchars#]* <stem> [#stemchars#]+ <div> [#stemchars#]+ [#tense#]
 
 
 ALPHABET = [#surfacesymbol#] [#analysissymbol#]:<>
 $stripsym$ = .+
 
-$redupe$ | $augment$  || $stripsym$
+($reduplicated$ | $augment$ | $plupft$ | $finite$ )  || $stripsym$
+
+%$plupft$

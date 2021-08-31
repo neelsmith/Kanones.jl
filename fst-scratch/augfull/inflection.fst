@@ -1,3 +1,3 @@
-$inflection$ = ησε<aorist> | ει<imperfect> | ηκε<perfect> | ηκει<perfect> | ει<present> |  ησει<future>
+$inflection$ = ησε<aorist> | ει<imperfect> | ηκε<perfect> | ηκει<pluperfect> | ει<present> |  ησει<future>
 
 $inflection$
