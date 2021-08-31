@@ -9,6 +9,9 @@
 ALPHABET = [#surfacesymbol#] [#analysissymbol#]   
 $passthrough$ = .+
 
+
+% Work on regular conjugation classes.
+#=regularclass# =  <w_regular> <ew_contract> <short_ew_contract><aw_contract> <long_aw_contract><ow_contract>
 % The acceptor transducer for finite verbs has four possibilities with distinct patterns:
 % reduplicated form, augmented form, reduplicated AND augmented, other form.
 % 
@@ -16,7 +19,7 @@ $passthrough$ = .+
 % We can automate regular reduplication when stem starts with a consonant.
 #redupetense# = <pluperfect><perfect>
 #=cons# = βγδζθκλμνξπρστφχψς
-$reduplicated$ =  [#stemchars#]* <stem> {[#=cons#]<>}:{<stem>[#=cons#]ε[#=cons#]}[#stemchars#]* <div> [#stemchars#]+ [#redupetense#][#mood#]
+$reduplicated$ =  [#stemchars#]* <stem> {[#=cons#]<>}:{<stem>[#=cons#]ε[#=cons#]}[#stemchars#]*  <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#redupetense#][#mood#][#voice#]
 %
 %
 % Possibility B: augmented form (imperfect, aorist, pluperfect indicative)
@@ -25,11 +28,11 @@ $reduplicated$ =  [#stemchars#]* <stem> {[#=cons#]<>}:{<stem>[#=cons#]ε[#=cons#
 #augmentmedial# = ε
 % There are three patterns for augment:
 % 1. Simplex verb
-$simplex$ = <stem>:[#augmentinitial#] [#stemchars#]+ <div> [#stemchars#]+ [#augmenttense#]<indicative>
+$simplex$ = <stem>:[#augmentinitial#] [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#augmenttense#]<indicative>[#voice#]
 % 2. Compound with prefix ending in vowel.
-$compoundvowel$ = [#stemchars#]*[#vowel#]:<> {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <div> [#stemchars#]+ [#augmenttense#]<indicative>
+$compoundvowel$ = [#stemchars#]*[#vowel#]:<> {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#augmenttense#]<indicative>[#voice#]
 % 3. Compound with prefix ending in consonant (e.g., poetic apocope of prefix)
-$compoundconsonant$ = [#stemchars#]*[#consonant#] {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <div> [#stemchars#]+ [#augmenttense#]<indicative>
+$compoundconsonant$ = [#stemchars#]*[#consonant#] {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#augmenttense#]<indicative>[#voice#]
 % Final augment transducer is disjunction of these possiblities:
 $augment$ = ($compoundvowel$ | $compoundconsonant$ | $simplex$)
 
@@ -42,9 +45,9 @@ $plupft$ = $reduplicated$ || $augment$
 % Exclude indicative tenses that take augment:
 #unaugmented# = <present><future><pluperfect>
 #nonindicative# = <subjunctive><optative><imperative>
-$finiteindic$ = [#stemchars#]* <stem> [#stemchars#]+ <div> [#stemchars#]+ [#unaugmented#]<indicative>
+$finiteindic$ = [#stemchars#]* <stem> [#stemchars#]+<finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#unaugmented#]<indicative>[#voice#]
 % Allow all tenses of other moods:
-$otherfinite$ = [#stemchars#]* <stem> [#stemchars#]+ <div> [#stemchars#]+ [#unaugmented#][#nonindicative#]
+$otherfinite$ = [#stemchars#]* <stem> [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#unaugmented#][#nonindicative#][#voice#]
 % Final transducer for other finite form:
 $finite$ = $finiteindic$ | $otherfinite$
 

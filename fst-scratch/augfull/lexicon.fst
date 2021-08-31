@@ -1,3 +1,3 @@
-<stem>ποι
-μετα<stem>ποι
-παρ<stem>ποι
+<stem>ποι<finiteverb><ew_contract>
+μετα<stem>ποι<finiteverb><ew_contract>
+παρ<stem>ποι<finiteverb><ew_contract>
