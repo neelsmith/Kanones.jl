@@ -12,37 +12,43 @@ $passthrough$ = .+
 % The acceptor transducer for finite verbs has four possibilities with distinct patterns:
 % reduplicated form, augmented form, reduplicated AND augmented, other form.
 % 
-% A: reduplicated form.  (perfect, pluperfect)
+% Possibility A: reduplicated form.  (perfect, pluperfect)
 % We can automate regular reduplication when stem starts with a consonant.
 #redupetense# = <pluperfect><perfect>
 #=cons# = βγδζθκλμνξπρστφχψς
-$reduplicated$ =  [#stemchars#]* <stem> {[#=cons#]<>}:{<stem>[#=cons#]ε[#=cons#]}[#stemchars#]* <div> [#stemchars#]+ [#redupetense#]
+$reduplicated$ =  [#stemchars#]* <stem> {[#=cons#]<>}:{<stem>[#=cons#]ε[#=cons#]}[#stemchars#]* <div> [#stemchars#]+ [#redupetense#][#mood#]
 %
 %
-% B: augmented form (imperfect, aorist, pluperfect indicative)
+% Possibility B: augmented form (imperfect, aorist, pluperfect indicative)
 #augmenttense# = <imperfect><aorist><pluperfect>
 #augmentinitial# = ἐ
 #augmentmedial# = ε
 % There are three patterns for augment:
 % 1. Simplex verb
-$simplex$ = <stem>:[#augmentinitial#] [#stemchars#]+ <div> [#stemchars#]+ [#augmenttense#]
+$simplex$ = <stem>:[#augmentinitial#] [#stemchars#]+ <div> [#stemchars#]+ [#augmenttense#]<indicative>
 % 2. Compound with prefix ending in vowel.
-$compoundvowel$ = [#stemchars#]*[#vowel#]:<> {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <div> [#stemchars#]+ [#augmenttense#]
+$compoundvowel$ = [#stemchars#]*[#vowel#]:<> {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <div> [#stemchars#]+ [#augmenttense#]<indicative>
 % 3. Compound with prefix ending in consonant (e.g., poetic apocope of prefix)
-$compoundconsonant$ = [#stemchars#]*[#consonant#] {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <div> [#stemchars#]+ [#augmenttense#]
+$compoundconsonant$ = [#stemchars#]*[#consonant#] {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <div> [#stemchars#]+ [#augmenttense#]<indicative>
+% Final augment transducer is disjunction of these possiblities:
 $augment$ = ($compoundvowel$ | $compoundconsonant$ | $simplex$)
 
 
-% C: reduplicated AND augmented. (pluperfect indicative)
+% Possiblity C: reduplicated AND augmented. (pluperfect indicative)
 $plupft$ = $reduplicated$ || $augment$
 
-% D: other finite verb forms.
-$finite$ = [#stemchars#]* <stem> [#stemchars#]+ <div> [#stemchars#]+ [#tense#]
-
+% Possiblity D: other finite verb forms.
+%
+% Exclude indicative tenses that take augment:
+#unaugmented# = <present><future><pluperfect>
+#nonindicative# = <subjunctive><optative><imperative>
+$finiteindic$ = [#stemchars#]* <stem> [#stemchars#]+ <div> [#stemchars#]+ [#unaugmented#]<indicative>
+% Allow all tenses of other moods:
+$otherfinite$ = [#stemchars#]* <stem> [#stemchars#]+ <div> [#stemchars#]+ [#unaugmented#][#nonindicative#]
+% Final transducer for other finite form:
+$finite$ = $finiteindic$ | $otherfinite$
 
 ALPHABET = [#surfacesymbol#] [#analysissymbol#]:<>
 $stripsym$ = .+
 
 ($reduplicated$ | $augment$ | $plupft$ | $finite$ )  || $stripsym$
-
-%$plupft$

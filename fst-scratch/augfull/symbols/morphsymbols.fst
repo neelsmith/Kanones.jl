@@ -26,7 +26,7 @@
 #mood# = <indicative><subjunctive><optative><imperative>
 #voice# = <active><middle><passive>
 #vadj# =  <vadj1><vadj2>
-#finiteform# = <infinitive><participle><vadj1><vadj2>
+#nonfiniteform# = <infinitive><participle><vadj1><vadj2>
 
 %
 % 4. Uninflected forms:
@@ -47,7 +47,7 @@
 #pronoun# = <article><demonstrative><interrogative><personal>
 
 
-#morphtag# = #pos# #gender# #case# #number# #person# #tense# #mood# #voice# #degree# #finiteform# #uninflected# #irregular# #pronoun#
+#morphtag# = #pos# #gender# #case# #number# #person# #tense# #mood# #voice# #degree# #nonfiniteform# #uninflected# #irregular# #pronoun#
     
 % Consider whether those belong here or elsewhere...?
 
