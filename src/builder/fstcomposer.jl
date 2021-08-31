@@ -12,7 +12,12 @@ function installalphabet(src::Kanones.Dataset, target::AbstractString)
     lines = [
         "% Characters list supplied by dataset's orthography functions:",
         string("#consonant# = ", consonants(src.orthography)),
-        string("#vowel# = ", vowels(src.orthography))
+        "#=consonant# = #consonant#",
+        "",
+        string("#vowel# = ", vowels(src.orthography)),
+        "",
+        "#augmentinitial# = ἐ", # SHOULD BE FUNCTION OUTPUT
+        "#augmentmedial# = ε" # SHOULD BE FUNCTION OUTPUT
     ]
     open(targetfile, "w") do io
         write(io, join(lines,"\n"))

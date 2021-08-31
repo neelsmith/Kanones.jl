@@ -10,6 +10,6 @@
     analyzed = parsetoken(parser, "ποιητέον")
     @test length(analyzed) == 2
     @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "ποιητεον"
+    @test analyzed[1].token == "#ποιητεον"
 
 end

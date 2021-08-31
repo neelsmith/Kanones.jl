@@ -84,15 +84,6 @@ end
 
 
 
-"""Compose transducer for filtering finite verb forms.
-
-$(SIGNATURES)"""
-function finiteverbsquasher()
-    join(["% Conjugated verb form acceptor",
-    raw"$=verbclass$ = [#verbclass#]",
-    raw"$squashverburn$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u> [#stemchars#]+<finiteverb>$=verbclass$ <div> $=verbclass$ <finiteverb> [#stemchars#]* [#person#] [#number#] [#tense#] [#mood#] [#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>",
-    ], "\n")
-end
 
 
 """Compose transducer for filtering infinitive verb forms.
@@ -160,6 +151,53 @@ end
 
 
 
+"""Compose transducer for filtering finite verb forms.
+
+$(SIGNATURES)"""
+function finiteverbsquasher()
+    join([raw"%% Put all symbols in 2 categories:  in τηε final transdcuer, we'll pass",
+    raw"%% surface symbols through, and suppress analytical symbols.",
+    raw"% Initially, though, we just let everything pass through:    ",
+    raw"#analysissymbol# = #editorial# #urntag# #uninflected# #pos# #morphtag# #stemtype#  #separator#",
+    raw"#surfacesymbol# = #letter# #morpheme#",
+    raw"ALPHABET = [#surfacesymbol#] [#analysissymbol#]   ",
+    raw"",
+    raw"% Work on regular conjugation classes.",
+    raw"% The acceptor transducer for finite verbs has four possibilities with distinct patterns:",
+    raw"% reduplicated form, augmented form, reduplicated AND augmented, other form.",
+    raw"% ",
+    raw"% Possibility A: reduplicated form.  (perfect, pluperfect)",
+    raw"% We can automate regular reduplication when stem starts with a consonant.",
+    raw"",
+    raw"$reduplicated$ =  [#stemchars#]* <stem> {[#=consonant#]<>}:{<stem>[#=consonant#]ε[#=consonant#]}[#stemchars#]*  <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#redupetense#][#mood#][#voice#]",
+    raw"%",
+    raw"% Possibility B: augmented form (imperfect, aorist, pluperfect indicative)",
+    raw"",
+    raw"% There are three patterns for augment:",
+    raw"% 1. Simplex verb",
+    raw"$simplex$ = <stem>:[#augmentinitial#] [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]",
+    raw"% 2. Compound with prefix ending in vowel.",
+    raw"$compoundvowel$ = [#stemchars#]*[#vowel#]:<> {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]",
+    raw"% 3. Compound with prefix ending in consonant (e.g., poetic apocope of prefix)",
+    raw"$compoundconsonant$ = [#stemchars#]*[#consonant#] {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]",
+    raw"% Final augment transducer is disjunction of these possiblities:",
+    raw"$augment$ = ($compoundvowel$ | $compoundconsonant$ | $simplex$)",
+    raw"%",
+    raw"% Possiblity C: reduplicated AND augmented. (pluperfect indicative)",
+    raw"$plupft$ = $reduplicated$ || $augment$",
+    raw"%",
+    raw"% Possiblity D: other finite verb forms.",
+    raw"% Exclude indicative tenses that take augment:",
+    raw"",
+    raw"$finiteindic$ = [#stemchars#]* <stem> [#stemchars#]+<finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#unaugmented#]<indicative>[#voice#]",
+    raw"% Allow all tenses of other moods:",
+    raw"$otherfinite$ = [#stemchars#]* <stem> [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#unaugmented#][#nonindicative#][#voice#]",
+    raw"% Final transducer for other finite form:",
+    raw"$finite$ = $finiteindic$ | $otherfinite$",
+    raw"",
+    raw"$squashverburn$ = ($reduplicated$ | $augment$ | $plupft$ | $finite$ )",
+    raw""], "\n")
+end
 #=
 #include "/Users/nsmith/Desktop/linglat/morphology/parsers/shared-shared-xls-lat23/symbols.fst"
 

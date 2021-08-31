@@ -22,7 +22,7 @@ function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::Abstr
 
         # Automatically composed FST, based on path to target directory.
         buildfinalfst(target * "/greek.fst")
-        buildacceptor(target * "/acceptor.fst")
+        buildacceptor(target  * "/acceptor.fst")
         buildmakefile(target * "/makefile")
         
         # Compile SFST binary

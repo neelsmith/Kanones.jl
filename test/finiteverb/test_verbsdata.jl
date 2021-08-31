@@ -16,7 +16,7 @@
 end
 
 
-@testset "Read stems for noun tokens from delimited text"  begin    
+@testset "Read stems for verb tokens from delimited text"  begin    
     #Rule|LexicalEntity|StemClass|Stem|
     cex = "verbstems.n56496|lexent.n56496|κελευ|w_regular|"
     verbparser = Kanones.VerbParser("verbs")

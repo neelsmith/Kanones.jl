@@ -27,6 +27,10 @@
 #voice# = <active><middle><passive>
 #vadj# =  <vadj1><vadj2>
 #nonfiniteform# = <infinitive><participle><vadj1><vadj2>
+#nonindicative# = <subjunctive><optative><imperative>
+#augmenttense# = <imperfect><aorist><pluperfect>
+#unaugmented# = <present><future><pluperfect>
+#redupetense# = <pluperfect><perfect>
 
 %
 % 4. Uninflected forms:

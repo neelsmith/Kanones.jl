@@ -56,7 +56,10 @@ function analysisforline(fst::AbstractString)
         # token, and analysis category, before
         # then appending category-specific data.
         stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
-        stemmatch = collect(eachmatch(stemre, FstBuilder.greekfromfst(stem)))
+        stemdata = replace(FstBuilder.greekfromfst(stem), "<stem>" => "#")
+        #@info("STEM DATA ", stemdata)
+        stemmatch = collect(eachmatch(stemre, stemdata))
+        
         (stemidval, lexidval, tkn, stemtype, stemdata) = stemmatch[1].captures
         #@info("STEM ANALYSIS ", (stemidval, lexidval, tkn, stemtype, stemdata) )
         # Rule part of SFST also has a regular structure:

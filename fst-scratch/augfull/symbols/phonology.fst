@@ -4,7 +4,7 @@
 % stem types (defined in stemtypes.fst)
 %
 % Basic alphabet specific to this orthographic system:
-#include "/Users/nsmith/Desktop/greek2021/Kanones.jl/parsers/lysiasparser//symbols/alphabet.fst"
+#include "/Users/nsmith/Desktop/greek2021/Kanones.jl/fst-scratch/augfull/symbols/alphabet.fst"
 
 % phonology.fst
 %

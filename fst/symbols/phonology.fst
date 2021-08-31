@@ -16,9 +16,8 @@
 $character$ = [#character#]
 
 % Additional editorial symbols used in stem files:
-%#vowelquant# = <lo><sh>
 #vowelquant# = _^
-#morpheme# = <#>
+#morpheme# =  <stem>
 #persistacc# = <stemaccented><recessive><inflectionaccented><irregularaccent>
 #editorial# = #morpheme# #persistacc#  #vowelquant#
 % Transducer for persistent accent for convenenient
@@ -29,7 +28,3 @@ $persistacc$ = [#persistacc#]
 #stemchars# = #character# #editorial#
 #inmorpheme# = #character# #vowelquant# #persistacc#
 
-
-% Temporary definition for debugging until this is implemented in 
-% Greek alphabet API.
-#augment# = ἐ

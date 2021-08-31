@@ -7,21 +7,17 @@
 #surfacesymbol# = #letter# #morpheme#
 ALPHABET = [#surfacesymbol#] [#analysissymbol#]   
 
-% Work on regular conjugation classes, enumerated in variable #omega#.
-#=regularclass# = #omega#
+% Work on regular conjugation classes.
 % The acceptor transducer for finite verbs has four possibilities with distinct patterns:
 % reduplicated form, augmented form, reduplicated AND augmented, other form.
 % 
 % Possibility A: reduplicated form.  (perfect, pluperfect)
 % We can automate regular reduplication when stem starts with a consonant.
-#redupetense# = <pluperfect><perfect>
-#=cons# = #consonant# %βγδζθκλμνξπρστφχψς
-$reduplicated$ =  [#stemchars#]* <stem> {[#=cons#]<>}:{<stem>[#=cons#]ε[#=cons#]}[#stemchars#]*  <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#redupetense#][#mood#][#voice#]
+
+$reduplicated$ =  [#stemchars#]* <stem> {[#=consonant#]<>}:{<stem>[#=consonant#]ε[#=consonant#]}[#stemchars#]*  <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#redupetense#][#mood#][#voice#]
 %
 % Possibility B: augmented form (imperfect, aorist, pluperfect indicative)
-#augmenttense# = <imperfect><aorist><pluperfect>
-#augmentinitial# = ἐ
-#augmentmedial# = ε
+
 % There are three patterns for augment:
 % 1. Simplex verb
 $simplex$ = <stem>:[#augmentinitial#] [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]
@@ -37,8 +33,7 @@ $plupft$ = $reduplicated$ || $augment$
 %
 % Possiblity D: other finite verb forms.
 % Exclude indicative tenses that take augment:
-#unaugmented# = <present><future><pluperfect>
-#nonindicative# = <subjunctive><optative><imperative>
+
 $finiteindic$ = [#stemchars#]* <stem> [#stemchars#]+<finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#unaugmented#]<indicative>[#voice#]
 % Allow all tenses of other moods:
 $otherfinite$ = [#stemchars#]* <stem> [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#unaugmented#][#nonindicative#][#voice#]
