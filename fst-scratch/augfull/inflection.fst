@@ -1,3 +1,3 @@
-$inflection$ = ησε<aorist> %| ει<present> | ηκε<perfect>
+$inflection$ = ησε<aorist> | ει<imperfect> | ηκε<perfect> | ει<present>
 
 $inflection$
