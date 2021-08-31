@@ -19,7 +19,7 @@ $passthrough$ = .+
 % We can automate regular reduplication when stem starts with a consonant.
 #redupetense# = <pluperfect><perfect>
 #=cons# = βγδζθκλμνξπρστφχψς
-$reduplicated$ =  [#stemchars#]* <stem> {[#=cons#]<>}:{<stem>[#=cons#]ε[#=cons#]}[#stemchars#]*  <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#redupetense#][#mood#][#voice#]
+$reduplicated$ =  [#stemchars#]* <stem> {[#=cons#]<>}:{<stem>[#=cons#]ε[#=cons#]}[#stemchars#]*  <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#redupetense#][#mood#][#voice#]
 %
 %
 % Possibility B: augmented form (imperfect, aorist, pluperfect indicative)
@@ -28,11 +28,11 @@ $reduplicated$ =  [#stemchars#]* <stem> {[#=cons#]<>}:{<stem>[#=cons#]ε[#=cons#
 #augmentmedial# = ε
 % There are three patterns for augment:
 % 1. Simplex verb
-$simplex$ = <stem>:[#augmentinitial#] [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#augmenttense#]<indicative>[#voice#]
+$simplex$ = <stem>:[#augmentinitial#] [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]
 % 2. Compound with prefix ending in vowel.
-$compoundvowel$ = [#stemchars#]*[#vowel#]:<> {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#augmenttense#]<indicative>[#voice#]
+$compoundvowel$ = [#stemchars#]*[#vowel#]:<> {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]
 % 3. Compound with prefix ending in consonant (e.g., poetic apocope of prefix)
-$compoundconsonant$ = [#stemchars#]*[#consonant#] {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#augmenttense#]<indicative>[#voice#]
+$compoundconsonant$ = [#stemchars#]*[#consonant#] {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]
 % Final augment transducer is disjunction of these possiblities:
 $augment$ = ($compoundvowel$ | $compoundconsonant$ | $simplex$)
 
@@ -45,9 +45,9 @@ $plupft$ = $reduplicated$ || $augment$
 % Exclude indicative tenses that take augment:
 #unaugmented# = <present><future><pluperfect>
 #nonindicative# = <subjunctive><optative><imperative>
-$finiteindic$ = [#stemchars#]* <stem> [#stemchars#]+<finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#unaugmented#]<indicative>[#voice#]
+$finiteindic$ = [#stemchars#]* <stem> [#stemchars#]+<finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#unaugmented#]<indicative>[#voice#]
 % Allow all tenses of other moods:
-$otherfinite$ = [#stemchars#]* <stem> [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#unaugmented#][#nonindicative#][#voice#]
+$otherfinite$ = [#stemchars#]* <stem> [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#unaugmented#][#nonindicative#][#voice#]
 % Final transducer for other finite form:
 $finite$ = $finiteindic$ | $otherfinite$
 
