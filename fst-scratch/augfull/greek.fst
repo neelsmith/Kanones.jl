@@ -19,8 +19,9 @@ $morph$ = $stems$ <div> $ends$
 % Acceptor (1) filters for content satisfying requirements for
 % morphological analysis and  (2) maps from underlying to surface form
 % by suppressing analytical symbols, and allowing only surface strings.
-$acceptor$ = "</Users/nsmith/Desktop/greek2021/Kanones.jl/fst-scratch/augfull/acceptor.a>"
+%$acceptor$ = "</Users/nsmith/Desktop/greek2021/Kanones.jl/fst-scratch/augfull/acceptor.a>"
 
+$acceptor$ = "</Users/nsmith/Desktop/greek2021/Kanones.jl/fst-scratch/augfull/acceptor.a>"
 
 % Final transducer:
 $morph$ || $acceptor$
