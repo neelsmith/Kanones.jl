@@ -14,35 +14,35 @@ ALPHABET = [#surfacesymbol#] [#analysissymbol#]
 % Possibility A: reduplicated form.  (perfect, pluperfect)
 % We can automate regular reduplication when stem starts with a consonant.
 
-$reduplicated$ = [#stemchars#]* <stem> {[#=consonant#]<>}:{<stem>[#=consonant#]ε[#=consonant#]}[#stemchars#]*  <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#redupetense#][#mood#][#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
+$reduplicated$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]* <stem> {[#=consonant#]<>}:{<stem>[#=consonant#]ε[#=consonant#]}[#stemchars#]*  <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#redupetense#][#mood#][#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
 
 %
 % Possibility B: augmented form (imperfect, aorist, pluperfect indicative)
 
 % There are three patterns for augment:
 % 1. Simplex verb
-$simplex$ = <stem>:[#augmentinitial#] [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
+$simplex$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u><stem>:[#augmentinitial#] [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
 
 % 2. Compound with prefix ending in vowel.
-$compoundvowel$ = [#stemchars#]*[#vowel#]:<> {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
+$compoundvowel$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]*[#vowel#]:<> {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
 
 % 3. Compound with prefix ending in consonant (e.g., poetic apocope of prefix)
-$compoundconsonant$ = [#stemchars#]*[#consonant#] {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
+$compoundconsonant$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]*[#consonant#] {<stem><>}:{<stem>[#augmentmedial#]} [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#augmenttense#]<indicative>[#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
 
 % Final augment transducer is disjunction of these possiblities:
 $augment$ = ($compoundvowel$ | $compoundconsonant$ | $simplex$)
 %
 % Possiblity C: reduplicated AND augmented. (pluperfect indicative)
-$unsquashedredupe$ = [#stemchars#]* <stem> {[#=consonant#]<>}:{<stem>[#=consonant#]ε[#=consonant#]}[#stemchars#]*  <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#redupetense#][#mood#][#voice#]<u>[#urnchar#]+\.[#urnchar#]+</u>
+$unsquashedredupe$ = <u>[#urnchar#]+\.[#urnchar#]+</u><u>[#urnchar#]+\.[#urnchar#]+</u>[#stemchars#]* <stem> {[#=consonant#]<>}:{<stem>[#=consonant#]ε[#=consonant#]}[#stemchars#]*  <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#redupetense#][#mood#][#voice#]<u>[#urnchar#]+\.[#urnchar#]+</u>
 $plupft$ = $unsquashedredupe$ || $augment$
 %
 % Possiblity D: other finite verb forms.
 % Exclude indicative tenses that take augment:
 
-$finiteindic$ = [#stemchars#]* <stem> [#stemchars#]+<finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#unaugmented#]<indicative>[#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
+$finiteindic$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]* <stem> [#stemchars#]+<finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb>  [#stemchars#]+ [#person#][#number#][#unaugmented#]<indicative>[#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
 
 % Allow all tenses of other moods:
-$otherfinite$ = [#stemchars#]* <stem> [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#unaugmented#][#nonindicative#][#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
+$otherfinite$ = <u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u><u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>[#stemchars#]* <stem> [#stemchars#]+ <finiteverb>[#=regularclass#] <div> [#=regularclass#]<finiteverb> [#stemchars#]+ [#person#][#number#][#unaugmented#][#nonindicative#][#voice#]<u>[#urnchar#]:<>+\.:<>[#urnchar#]:<>+</u>
 
 % Final transducer for other finite form:
 $finite$ = $finiteindic$ | $otherfinite$
