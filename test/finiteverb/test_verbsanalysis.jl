@@ -80,7 +80,7 @@
     @test length(analyzed) == 2
     @test isa(analyzed[1], Analysis)
     @test analyzed[1].token == "πεπρακται"
-    =#
+
 
 
 
@@ -91,4 +91,5 @@
     #parser =  repo * "/parsers/debugkanones/greek.a"
     analyzed = parsetoken(parser, "ἐκελευε")
     @test_broken length(analyzed) == 1
+        =#
 end
