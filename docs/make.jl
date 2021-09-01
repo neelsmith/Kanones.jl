@@ -44,3 +44,7 @@ makedocs(
      
     ],
     )
+
+deploydocs(
+        repo = "github.com/neelsmith/Kanones.jl.git",
+)
