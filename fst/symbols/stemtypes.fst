@@ -20,7 +20,7 @@
 #diphth3# = <eus_ews><w_ous>
 
 
-#noun3# = #labialpalatal3#  #dental3# #neuttau3# #liquidnasal3# #rho3# #iu3#  #diphth3#
+#noun3# = #labialpalatal3#  #dental3# #neuttau3# #liquidnasal3# #rho3# #iu3# #diphth3#
 
 #irregnoun#  = <irregularnoun>
 
@@ -54,13 +54,19 @@
 #omega# = <w_regular> <w_dep> <ew_contract> <ew_contract_pp1> <short_ew_contract><aw_contract> <long_aw_contract><ow_contract><izw>
 % Identity variable for verb classes that can automaticallyl construct
 % principal parts:
-#=regularclass# = #omega#
     
 #deponent# = <w_pp1_dep> <w_pp2_dep> <w_pp3_dep> <w_aor2_dep>
-#omegaprincparts# = <w_pp1> <w_pp2> <w_pp3> <w_pp4> <w_pp5> <w_pp6> 
+#omegaprincparts# = <w_pp1><aw_pp1><ew_pp1><ow_pp1> <w_pp2> <w_pp3> <w_pp4> <w_pp5> <w_pp6> 
+#=regularclass# = #omega# #deponent# #omegaprincparts#
+
+
+
+#irregaugments# = <w_pp1_aug><w_pp3_aug><w_pp5_aug><w_pp6_aug><w_aor2_aug>
+
 #perfectactives# = <g_pp5> <m_pp5> <s_pp5> <sm_pp5> <gm_pp5> <vowel_pp5>
 #otherprincparts# = <attic_fut> <w_aor2>
-#princparts# = #omegaprincparts#  #perfectactives#  #otherprincparts# 
+
+#princparts# = #omegaprincparts#  #perfectactives#  #otherprincparts# #irregaugments#
 #mi# = <numi_pres>
 #verbaladjectives# = <vadj>
 
