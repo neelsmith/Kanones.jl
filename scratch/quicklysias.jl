@@ -39,13 +39,38 @@ function missingnouns()
 end
     
 
+
+
+p = lysiasparser()
 open("missinglysiasnouns.txt", "w") do io
     write(io, join(missingnouns(), "\n"))
 end
 
 
 
+function missingverbs()
+    verbfile = "lysverbs1.txt"
+    verblist = readdlm(verbfile, '\t')
+    # Drop header
+    parses = parsewordlist(p, verblist[2:end])
+    labelledparses = hcat(verblist[2:end], parses)
+    #labelledparses |> typeof
+    #labelledparses |> size
+    missinglist = []
+    for i in 1:size(labelledparses,1)
+        if isempty(labelledparses[i,2])
+            push!(missinglist, labelledparses[i,1])
+        end
+    end
+    missinglist
+end
 
+
+p = lysiasparser()
+
+open("missinglysiasverbs.txt", "w") do io
+    write(io, join(missingverbs(), "\n"))
+end
 
 ######
 
