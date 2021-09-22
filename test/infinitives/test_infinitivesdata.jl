@@ -2,7 +2,7 @@
     cex = "infinfl.wreg1|w_regular|ειν|present|active"
     infinparser = Kanones.InfinitiveRuleParser("infinitives")
     rulerow = Kanones.readrulerow(infinparser, cex)
-    rulerow.ruleid |> abbreviation == "infinfl.wreg1"
+    rulerow.ruleid |> string == "infinfl.wreg1"
 
     @test rulerow.inflectionclass == "w_regular"
     @test rulerow.ending == "ειν"
