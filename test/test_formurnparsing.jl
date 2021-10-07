@@ -26,3 +26,16 @@
 
 
 end
+
+@testset "Test converting forms to URN values" begin
+    gdict = Kanones.genderpairs |> Kanones.labeldict
+    cdict = Kanones.casepairs |> Kanones.labeldict
+    ndict = Kanones.numberpairs |> Kanones.labeldict
+    nounForm = NounForm(gdict["feminine"], cdict["nominative"], ndict["plural"])
+
+    expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
+    @test CitableParserBuilder.urn(nounForm) == expectedUrn
+    #abbrurnstr = urn(nounForm) |> abbreviate
+    #expectedAbbrUrn = "morphforms.2030002100"
+    #@test abbrurnstr == expectedAbbrUrn
+end

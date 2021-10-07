@@ -7,6 +7,11 @@ using CSV, HTTP
 using Documenter, DocStringExtensions
 
 import CitableParserBuilder: parsetoken, parsewordlist,  parselistfromfile, parselistfromurl
+import CitableBase: urn
+import CitableBase: label
+import CitableBase: cex
+
+export urn
 
 export KanonesParser
 export parsetoken, parsewordlist, parselistfromfile, parselistfromurl
@@ -26,6 +31,8 @@ export MorphologicalForm
 
 export generate
 export decline, mddeclension
+
+export urn, abbrurn
 
 include("parse.jl")
 include("utils.jl")

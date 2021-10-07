@@ -98,7 +98,7 @@ end
 $(SIGNATURES)
 """
 function formurn(nounform::NounForm)
-    FormUrn(string("morphforms.", NOUN,"0",nounform.nnumber,"000",nounform.ngender,nounform.ncase,"00"))
+    FormUrn(string("morphforms.", NOUN,"0",nounform.nnumber,"000",nounform.ngender, nounform.ncase, "00"))
 end
 
 """Compose a FormUrn for a noun form from FST representation of analytical data.
