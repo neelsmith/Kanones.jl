@@ -27,7 +27,7 @@
 
 end
 
-@testset "Test converting forms to URN values" begin
+@testset "Test Citable interface and URN conversions for noun forms" begin
     gdict = Kanones.genderpairs |> Kanones.labeldict
     cdict = Kanones.casepairs |> Kanones.labeldict
     ndict = Kanones.numberpairs |> Kanones.labeldict
@@ -35,7 +35,10 @@ end
 
     expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
     @test CitableParserBuilder.urn(nounForm) == expectedUrn
-    #abbrurnstr = urn(nounForm) |> abbreviate
-    #expectedAbbrUrn = "morphforms.2030002100"
-    #@test abbrurnstr == expectedAbbrUrn
+    abbrurnstr = urn(nounForm) |> abbreviate
+    expectedAbbrUrn = "morphforms.2030002100"
+    @test abbrurnstr == expectedAbbrUrn
+
+    @test label(nounForm) == "feminine nominative plural"
+    @test cex(nounForm) == "urn:cite2:kanones:morphforms.v1:2030002100|feminine nominative plural"
 end

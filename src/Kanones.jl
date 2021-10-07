@@ -11,7 +11,7 @@ import CitableBase: urn
 import CitableBase: label
 import CitableBase: cex
 
-export urn
+export urn, label, cex
 
 export KanonesParser
 export parsetoken, parsewordlist, parselistfromfile, parselistfromurl

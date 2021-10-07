@@ -57,7 +57,10 @@ end
 $(SIGNATURES)
 """
 function label(noun::NounForm)
-    join([noun.genderlabel, noun.caselabel, noun.numberlabel], " ")
+    gdict = Kanones.genderpairs |> Kanones.valuedict
+    cdict = Kanones.casepairs |> Kanones.valuedict
+    ndict = Kanones.numberpairs |> Kanones.valuedict
+    join([gdict[noun.ngender], cdict[noun.ncase], ndict[noun.nnumber]], " ")
 end
 
 """Compose a Cite2Urn for a `NounForm`.
@@ -88,7 +91,8 @@ end
 
 $(SIGNATURES)
 """
-function cex(noun::NounForm)
+function cex(noun::NounForm, delim="|")
+    join([urn(noun), label(noun)], delim)
 end
 
 

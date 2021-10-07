@@ -10,5 +10,6 @@ notes*
 .vscode
 reports/*
 *dummy*
-scratch/*cex
+scratch/
+fst-scratch/
 *.a
