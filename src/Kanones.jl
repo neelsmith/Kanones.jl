@@ -19,6 +19,7 @@ export dataset
 export rulesarray, stemsarray
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
+export AdjectiveForm
 export FiniteVerbForm, VerbStem
 
 export IrregularRule

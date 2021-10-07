@@ -42,3 +42,24 @@ end
     @test label(nounForm) == "feminine nominative plural"
     @test cex(nounForm) == "urn:cite2:kanones:morphforms.v1:2030002100|feminine nominative plural"
 end
+
+
+
+
+@testset "Test Citable interface and URN conversions for adjective forms" begin
+    gdict = Kanones.genderpairs |> Kanones.labeldict
+    cdict = Kanones.casepairs |> Kanones.labeldict
+    ndict = Kanones.numberpairs |> Kanones.labeldict
+    degdict = Kanones.degreepairs |> Kanones.labeldict
+    adjForm = AdjectiveForm(gdict["feminine"], cdict["nominative"], ndict["plural"], degdict["positive"])
+#=
+    expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
+    @test CitableParserBuilder.urn(nounForm) == expectedUrn
+    abbrurnstr = urn(nounForm) |> abbreviate
+    expectedAbbrUrn = "morphforms.2030002100"
+    @test abbrurnstr == expectedAbbrUrn
+
+    @test label(nounForm) == "feminine nominative plural"
+    @test cex(nounForm) == "urn:cite2:kanones:morphforms.v1:2030002100|feminine nominative plural"
+    =#
+end
