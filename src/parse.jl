@@ -124,12 +124,13 @@ end
 
 $(SIGNATURES)
 """
-function parsetoken(parser::KanonesParser, tkn::AbstractString)
+function parsetoken(tkn::AbstractString, parser::KanonesParser)::Vector{Analysis}
     stripped = FstBuilder.fstgreek(tkn) 
     applyparser(parser, stripped) |> parsefst
 end
 
 
+#=
 """Parse a list of words, and return a dictionary of tokens to a 
 (possibly empty) Vector of `Analysis` objects.
 
@@ -153,4 +154,4 @@ function parselistfromurl(p::KanonesParser,u)
     words = split(String(HTTP.get(u).body) , "\n")
     parsewordlist(p,words)
 end
-
+=#
