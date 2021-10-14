@@ -6,7 +6,10 @@ using Unicode, Glob, DelimitedFiles
 using CSV, HTTP
 using Documenter, DocStringExtensions
 
-import CitableParserBuilder: parsetoken, parsewordlist,  parselistfromfile, parselistfromurl
+
+import CitableBase: CitableTrait
+import CitableParserBuilder: parsetoken
+
 import CitableBase: urn
 import CitableBase: label
 import CitableBase: cex

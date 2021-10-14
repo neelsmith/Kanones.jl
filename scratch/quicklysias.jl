@@ -1,19 +1,20 @@
 using Kanones.FstBuilder
 using Kanones
 using CitableParserBuilder
+import CitableParserBuilder: CitableTrait
 using DelimitedFiles
 
 
 function lysiasparser()
-    fstsrc  =  pwd() * "/fst/"
-    coreinfl = pwd() * "/datasets/core-infl/"
-    corevocab = pwd() * "/datasets/core-vocab/"
-    lysias = pwd()  * "/datasets/lysias/"
-    lysiasnouns = pwd()  * "/datasets/lysias-nouns/"
+    fstsrc  =  joinpath(pwd(), "fst")
+    coreinfl = joinpath(pwd(), "datasets", "core-infl")
+    corevocab = joinpath(pwd(), "datasets", "core-vocab")
+    lysias = joinpath(pwd(), "datasets", "lysias")
+    lysiasnouns = joinpath(pwd(),  "datasets","lysias-nouns")
 
     datasets = [corevocab, coreinfl, lysias, lysiasnouns]
     kd = Kanones.Dataset(datasets)
-    tgt = pwd() * "/parsers/lysiasparser/"
+    tgt = joinpath(pwd(),  "parsers", "lysiasparser")
     buildparser(kd,fstsrc, tgt)
 end
 
@@ -25,7 +26,7 @@ function missingnouns()
     nouns = "/Users/nsmith/Desktop/lysias-nouns.txt"
     nounlist = readdlm(nouns, '\t')
     # Drop header
-    parses = parsewordlist(p, nounlist[2:end])
+    parses = parsewordlist(nounlist[2:end], p)
     labelledparses = hcat(nounlist[2:end], parses)
     #labelledparses |> typeof
     #labelledparses |> size
