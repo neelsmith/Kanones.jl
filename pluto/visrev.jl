@@ -148,7 +148,9 @@ md"Instantiate an orthography."
 ortho = literaryGreek()
 
 # ╔═╡ 45042f08-0ecc-4868-9893-1f46278c7ab0
-md"Build a parser."
+md"""Build a parser. You can rebuild the parser with the button below, but be aware that the entire notebook will have to rebuild, and that can take a minute.
+$(@bind loadem Button("Rebuild parser"))
+"""
 
 # ╔═╡ 5f53329f-dbb6-4af6-bfe1-01f4ca6a63da
 function lysiasparser(rootdir)
@@ -165,7 +167,10 @@ function lysiasparser(rootdir)
 end
 
 # ╔═╡ ded514f6-56b9-4297-a72a-a2b9a3866bab
-p = lysiasparser(root)
+p = begin
+	loadem
+	lysiasparser(root)
+end
 
 # ╔═╡ 1f909578-1122-4fbc-a7db-b528a5bdb13b
 md"Load a text corpus."
@@ -266,7 +271,7 @@ Pkg.status()
 # ╟─02013e45-03ae-45d2-b2cb-7a8b009c46ac
 # ╟─57a434e6-3cf0-4ead-99b7-e78183a50840
 # ╟─133cb20b-c776-4de7-880c-466d73b685b7
-# ╠═7f0e4e18-f624-4519-8499-52626392e164
+# ╟─7f0e4e18-f624-4519-8499-52626392e164
 # ╟─9f96cefc-cd0c-4f9f-834e-6384ceec0fed
 # ╟─0c7a0ba8-e9cb-4259-9873-e62515e942dc
 # ╟─a7244e41-7ae3-439e-ae51-12f915342ac2
@@ -280,5 +285,5 @@ Pkg.status()
 # ╟─1f909578-1122-4fbc-a7db-b528a5bdb13b
 # ╟─089b6143-21dd-44ac-95a9-672c938aa4de
 # ╟─36342ffe-38a1-4653-9c37-6e2a439d51da
-# ╠═ef68914e-ec27-43a4-abd3-1c7ed506e594
+# ╟─ef68914e-ec27-43a4-abd3-1c7ed506e594
 # ╠═3a0da6d9-bcd7-4bea-827b-06d689347fc1

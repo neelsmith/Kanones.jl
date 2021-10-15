@@ -1,3 +1,14 @@
+
+"""Check if path exists, and remove it if force is true.
+$(SIGNATURES)
+"""
+function checktarget(path, force::Bool)
+    if ispath(path) && force
+        @info("Recursively deleting ", path)
+        rm(path, force = true, recursive = true)
+    end
+end
+
 """Read data from src and fstdir and compile a SFST parser in target.
 
 $(SIGNATURES)
@@ -5,9 +16,11 @@ $(SIGNATURES)
 Returns the path to the compiled binary `greek.a` which can then be used
 as an argument to the `parsetoken` function.
 """
-function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::AbstractString, label = "Kanones parser")
+function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::AbstractString, label = "Kanones parser"; force::Bool = false)
+    checktarget(target, force)
     if ispath(target)
         @warn("Cowardly refusing to overwrite exising file $(target)")
+        
     else 
         mkdir(target)
         # Translate tabular data to FST
