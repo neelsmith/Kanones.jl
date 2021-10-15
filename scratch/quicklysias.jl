@@ -1,9 +1,11 @@
 using Kanones.FstBuilder
 using Kanones
 using CitableParserBuilder
-import CitableParserBuilder: CitableTrait
-using DelimitedFiles
+#import CitableParserBuilder: parsetoken
+#import CitableParserBuilder: CanParseCitable
 
+
+#ParserTrait(::Type{KanonesParser}) = CanParseCitable()
 
 function lysiasparser()
     fstsrc  =  joinpath(pwd(), "fst")
@@ -17,12 +19,23 @@ function lysiasparser()
     tgt = joinpath(pwd(),  "parsers", "lysiasparser")
     buildparser(kd,fstsrc, tgt)
 end
-
-
 p = lysiasparser()
 
 
+# Get a corpus of Lysias 1.
+using CitableText, CitableCorpus
+f = joinpath("scratch", "lysias1.cex")
+c = read(f) |> corpus_fromcex
+psg = c.passages[7]
+# Work with a single passage, like Lysias 1.7
+lys1_7 = CitableTextCorpus([psg])
+
+using PolytonicGreek, Orthography
+ortho = literaryGreek()
+
+
 function missingnouns()
+    using DelimitedFiles
     nouns = "/Users/nsmith/Desktop/lysias-nouns.txt"
     nounlist = readdlm(nouns, '\t')
     # Drop header

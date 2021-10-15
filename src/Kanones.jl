@@ -1,23 +1,25 @@
 module Kanones
 
-using CitableObject, CitableParserBuilder
+using CitableParserBuilder
+import CitableParserBuilder: parsetoken
+import CitableParserBuilder: CanParseCitable
+
+export KanonesParser
+export parsetoken
+
+using CitableObject
 using Orthography, PolytonicGreek, AtticGreek
 using Unicode, Glob, DelimitedFiles
 using CSV, HTTP
 using Documenter, DocStringExtensions
 
-
 import CitableBase: CitableTrait
-import CitableParserBuilder: parsetoken
-
 import CitableBase: urn
 import CitableBase: label
 import CitableBase: cex
 
 export urn, label, cex
 
-export KanonesParser
-export parsetoken, parsewordlist, parselistfromfile, parselistfromurl
 export dataset
 export rulesarray, stemsarray
 export UninflectedForm, UninflectedStem, UninflectedRule
