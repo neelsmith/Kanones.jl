@@ -163,7 +163,7 @@ function lysiasparser(rootdir)
     datasets = [corevocab, coreinfl, lysias, lysiasnouns]
     kd = Kanones.Dataset(datasets)
     tgt = joinpath(rootdir,  "parsers", "lysiasparser")
-    buildparser(kd,fstsrc, tgt)
+    buildparser(kd,fstsrc, tgt; force = true)
 end
 
 # ╔═╡ ded514f6-56b9-4297-a72a-a2b9a3866bab
