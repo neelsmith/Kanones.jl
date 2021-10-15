@@ -13,7 +13,7 @@ function lysiasparser(rootdir)
     datasets = [corevocab, coreinfl, lysias, lysiasnouns]
     kd = Kanones.Dataset(datasets)
     tgt = joinpath(rootdir,  "parsers", "lysiasparser")
-    buildparser(kd,fstsrc, tgt)
+    buildparser(kd,fstsrc, tgt; force = true)
 end
 p = lysiasparser(pwd())
 
@@ -29,6 +29,8 @@ lys1_7 = CitableTextCorpus([psg])
 using PolytonicGreek, Orthography
 ortho = literaryGreek()
 
+
+map(psg -> passage_component(psg.urn), c.passages)
 
 function missingnouns()
     using DelimitedFiles
@@ -51,7 +53,7 @@ end
 
 
 
-p = lysiasparser()
+p = lysiasparser(pwd())
 open("missinglysiasnouns.txt", "w") do io
     write(io, join(missingnouns(), "\n"))
 end
