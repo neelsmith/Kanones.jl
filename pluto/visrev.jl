@@ -154,6 +154,7 @@ $(@bind loadem Button("Rebuild parser"))
 
 # ╔═╡ 5f53329f-dbb6-4af6-bfe1-01f4ca6a63da
 function lysiasparser(rootdir)
+	loadem
     fstsrc  =  joinpath(rootdir, "fst")
     coreinfl = joinpath(rootdir, "datasets", "core-infl")
     corevocab = joinpath(rootdir, "datasets", "core-vocab")
@@ -210,7 +211,10 @@ tknized = begin
 end
 
 # ╔═╡ 97b5f024-9646-492d-9101-ab8d6073225c
-parses = parsecorpus(tknized, p)
+parses = begin
+	loadem
+	parsecorpus(tknized, p)
+end
 
 # ╔═╡ 57a434e6-3cf0-4ead-99b7-e78183a50840
 function formatTokens()
@@ -225,7 +229,10 @@ end
 formatTokens()
 
 # ╔═╡ 17b69df8-f896-4b4a-a874-1f1dc00e7848
-profile_passage = profile(tknized, p)
+profile_passage = begin
+	loadem
+	profile(tknized, p)
+end
 
 # ╔═╡ fc5584fd-2fb7-4647-9e74-bdf8991e8911
 formatProfile(profile_passage)
@@ -235,7 +242,10 @@ alltokens = tokenizedcorpus(corpus, ortho)
 
 
 # ╔═╡ ef68914e-ec27-43a4-abd3-1c7ed506e594
-profile_lysias = profile(alltokens,p)
+profile_lysias = begin
+	loadem
+	profile(alltokens,p)
+end
 
 # ╔═╡ 23bafca4-9d83-4ca9-b2b0-69cf59c562b2
 formatProfile(profile_lysias)
