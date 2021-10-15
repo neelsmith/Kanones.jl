@@ -1,19 +1,30 @@
 module Kanones
 
-using CitableObject, CitableParserBuilder
+using CitableParserBuilder
+import CitableParserBuilder: parsetoken
+import CitableParserBuilder: CanParseCitable
+
+export KanonesParser
+export parsetoken
+
+using CitableObject
 using Orthography, PolytonicGreek, AtticGreek
 using Unicode, Glob, DelimitedFiles
 using CSV, HTTP
 using Documenter, DocStringExtensions
 
-import CitableParserBuilder: parsetoken, parsewordlist,  parselistfromfile, parselistfromurl
+import CitableBase: CitableTrait
+import CitableBase: urn
+import CitableBase: label
+import CitableBase: cex
 
-export KanonesParser
-export parsetoken, parsewordlist, parselistfromfile, parselistfromurl
+export urn, label, cex
+
 export dataset
 export rulesarray, stemsarray
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
+export AdjectiveForm
 export FiniteVerbForm, VerbStem
 
 export IrregularRule
@@ -26,6 +37,8 @@ export MorphologicalForm
 
 export generate
 export decline, mddeclension
+
+export urn, abbrurn
 
 include("parse.jl")
 include("utils.jl")

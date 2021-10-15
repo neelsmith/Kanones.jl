@@ -7,12 +7,12 @@ as an argument to the `parsetoken` function.
 """
 function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::AbstractString, label = "Kanones parser")
     if ispath(target)
-        println("Cowardly refusing to overwrite exising file $(target)")
+        @warn("Cowardly refusing to overwrite exising file $(target)")
     else 
         mkdir(target)
         # Translate tabular data to FST
-        buildlexicon(src, target * "/lexicon.fst")
-        buildinflection(src,target * "/inflection.fst")
+        buildlexicon(src, joinpath(target, "lexicon.fst"))
+        buildinflection(src,joinpath(target, "inflection.fst"))
 
         # Install alphabet from dataset's orthography:
         installalphabet(src, target)
@@ -21,15 +21,14 @@ function buildparser(src::Kanones.Dataset, fstdir::AbstractString, target::Abstr
         installsymbols(fstdir, target)
 
         # Automatically composed FST, based on path to target directory.
-        buildfinalfst(target * "/greek.fst")
-        buildacceptor(target  * "/acceptor.fst")
-        buildmakefile(target * "/makefile")
+        buildfinalfst(joinpath(target, "greek.fst"))
+        buildacceptor(joinpath(target, "acceptor.fst"))
+        buildmakefile(joinpath(target, "makefile"))
         
         # Compile SFST binary
         compilefst(target)
     end
-    path = target * "/greek.a"
-    Kanones.KanonesParser(label, path)
+    Kanones.KanonesParser(label, joinpath(target, "greek.a"))
 end
 
 """Compile binary parser with `make`.

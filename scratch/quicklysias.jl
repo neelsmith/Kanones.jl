@@ -1,31 +1,41 @@
 using Kanones.FstBuilder
 using Kanones
 using CitableParserBuilder
-using DelimitedFiles
 
 
-function lysiasparser()
-    fstsrc  =  pwd() * "/fst/"
-    coreinfl = pwd() * "/datasets/core-infl/"
-    corevocab = pwd() * "/datasets/core-vocab/"
-    lysias = pwd()  * "/datasets/lysias/"
-    lysiasnouns = pwd()  * "/datasets/lysias-nouns/"
+function lysiasparser(rootdir)
+    fstsrc  =  joinpath(rootdir, "fst")
+    coreinfl = joinpath(rootdir, "datasets", "core-infl")
+    corevocab = joinpath(rootdir, "datasets", "core-vocab")
+    lysias = joinpath(pwd(), "datasets", "lysias")
+    lysiasnouns = joinpath(rootdir,  "datasets","lysias-nouns")
 
     datasets = [corevocab, coreinfl, lysias, lysiasnouns]
     kd = Kanones.Dataset(datasets)
-    tgt = pwd() * "/parsers/lysiasparser/"
+    tgt = joinpath(rootdir,  "parsers", "lysiasparser")
     buildparser(kd,fstsrc, tgt)
 end
+p = lysiasparser(pwd())
 
 
-p = lysiasparser()
+# Get a corpus of Lysias 1.
+using CitableText, CitableCorpus
+f = joinpath("scratch", "lysias1.cex")
+c = read(f) |> corpus_fromcex
+psg = c.passages[7]
+# Work with a single passage, like Lysias 1.7
+lys1_7 = CitableTextCorpus([psg])
+
+using PolytonicGreek, Orthography
+ortho = literaryGreek()
 
 
 function missingnouns()
+    using DelimitedFiles
     nouns = "/Users/nsmith/Desktop/lysias-nouns.txt"
     nounlist = readdlm(nouns, '\t')
     # Drop header
-    parses = parsewordlist(p, nounlist[2:end])
+    parses = parsewordlist(nounlist[2:end], p)
     labelledparses = hcat(nounlist[2:end], parses)
     #labelledparses |> typeof
     #labelledparses |> size
@@ -39,13 +49,36 @@ function missingnouns()
 end
     
 
+
+
+p = lysiasparser()
 open("missinglysiasnouns.txt", "w") do io
     write(io, join(missingnouns(), "\n"))
 end
 
 
 
+function missingverbs()
+    verbfile = "lysverbs1.txt"
+    verblist = readdlm(verbfile, '\t')
+    # Drop header
+    parses = parsewordlist(p, verblist[2:end])
+    labelledparses = hcat(verblist[2:end], parses)
+    #labelledparses |> typeof
+    #labelledparses |> size
+    missinglist = []
+    for i in 1:size(labelledparses,1)
+        if isempty(labelledparses[i,2])
+            push!(missinglist, labelledparses[i,1])
+        end
+    end
+    missinglist
+end
+p = lysiasparser(pwd())
 
+open("missinglysiasverbs.txt", "w") do io
+    write(io, join(missingverbs(), "\n"))
+end
 
 ######
 

@@ -2,7 +2,7 @@
     cex = "nouninfl.h_hs2|h_hs|ης|feminine|genitive|singular|recessive"
     nounparser = Kanones.NounParser("nouns")
     rulerow = Kanones.readrulerow(nounparser, cex)
-    @test rulerow.ruleid |> abbreviation == RuleUrn("nouninfl.h_hs2") |> abbreviation
+    @test rulerow.ruleid |> string == RuleUrn("nouninfl.h_hs2") |> string
     @test rulerow.inflectionclass == "h_hs"
     @test rulerow.ending == "ης"
     @test rulerow.ngender == "feminine"
@@ -14,8 +14,8 @@ end
     cex = "nounstems.n22502|lexent.n22502|γνωμ|feminine|h_hs|recessive|"
     nounparser = Kanones.NounParser("nouns")
     stemrow = Kanones.readstemrow(nounparser, cex)
-    @test  stemrow.stemid |> abbreviation == StemUrn("nounstems.n22502") |> abbreviation
-    @test stemrow.lexid |> abbreviation == LexemeUrn("lexent.n22502") |> abbreviation
+    @test  stemrow.stemid |> string == StemUrn("nounstems.n22502") |> string
+    @test stemrow.lexid |> string == LexemeUrn("lexent.n22502") |> string
     @test stemrow.form == "γνωμ"
     @test stemrow.gender == "feminine"
     @test stemrow.inflectionclass == "h_hs"
@@ -28,7 +28,7 @@ end
     irregparser = Kanones.IrregularNounParser("irregular nouns")
     stemrow = Kanones.readstemrow(irregparser, cex)
 
-    @test  stemrow.stemid  == StemUrn("irregnoun.irregn23069a")  #|> abbreviation
+    @test  stemrow.stemid  == StemUrn("irregnoun.irregn23069a")  #|> string
     @test stemrow.lexid == LexemeUrn("lsj.n23069") 
     @test stemrow.form == nfkc("γυνή")
     @test stemrow.gender == "feminine"

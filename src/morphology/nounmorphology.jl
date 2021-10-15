@@ -57,7 +57,10 @@ end
 $(SIGNATURES)
 """
 function label(noun::NounForm)
-    join([noun.genderlabel, noun.caselabel, noun.numberlabel], " ")
+    gdict = Kanones.genderpairs |> Kanones.valuedict
+    cdict = Kanones.casepairs |> Kanones.valuedict
+    ndict = Kanones.numberpairs |> Kanones.valuedict
+    join([gdict[noun.ngender], cdict[noun.ncase], ndict[noun.nnumber]], " ")
 end
 
 """Compose a Cite2Urn for a `NounForm`.
@@ -88,7 +91,8 @@ end
 
 $(SIGNATURES)
 """
-function cex(noun::NounForm)
+function cex(noun::NounForm, delim="|")
+    join([urn(noun), label(noun)], delim)
 end
 
 
@@ -98,7 +102,7 @@ end
 $(SIGNATURES)
 """
 function formurn(nounform::NounForm)
-    FormUrn(string("morphforms.", NOUN,"0",nounform.nnumber,"000",nounform.ngender,nounform.ncase,"00"))
+    FormUrn(string("morphforms.", NOUN,"0",nounform.nnumber,"000",nounform.ngender, nounform.ncase, "00"))
 end
 
 """Compose a FormUrn for a noun form from FST representation of analytical data.

@@ -26,7 +26,7 @@ function labelid(str, dict)
 end
 
 
-labelled = map(au -> labelid(abbreviation(au), lsjdict), lexlist )
+labelled = map(au -> labelid(string(au), lsjdict), lexlist )
 
 
 

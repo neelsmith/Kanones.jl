@@ -3,19 +3,17 @@
     d = tempdir()
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
-    fst =  repo * "/fst/"
-    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
-    
-    #parser = d * "/testcompile/greek.a"
+    kd = Kanones.Dataset([joinpath(repo, "datasets", "core-infl")])
+    fst =  joinpath(repo, "fst")
+    parser = FstBuilder.buildparser(kd,fst, joinpath(d , "testcompile"))
     @test isfile(parser.sfstpath)
 
-    fstout = Kanones.applyparser(parser, "και")
+    fstout = Kanones.applyparser( parser, "και")
     lines = split(fstout, "\n")
     @test lines[1] == "> και"
     expecteddata = "<u>uninflectedstems.n51951</u><u>lsj.n51951</u>και<uninflected><conjunction><div><conjunction><uninflected><u>litgreek.indeclinable2</u>"
     @test lines[2] == expecteddata
-    rm(d * "/testcompile/", recursive=true)
+    rm(joinpath(d, "testcompile"), recursive=true)
 end
 
 
@@ -23,12 +21,10 @@ end
     d = tempdir()
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
-    fst =  repo * "/fst/"
-    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
-    
-    #parser = d * "/testcompile/greek.a"
-    analysislist = parsetoken(parser, "και")
+    kd = Kanones.Dataset([joinpath(repo, "datasets", "core-infl")])
+    fst =  joinpath(repo, "fst")
+    parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
+    analysislist = parsetoken( "και", parser)
 
     analyzed = analysislist[1]
 
@@ -56,27 +52,22 @@ end
     d = tempdir()
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
-    fst =  repo * "/fst/"
-    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
-    
-    #parser = d * "/testcompile/greek.a"
-    analyzed = parsetoken(parser, "silly")
+    kd = Kanones.Dataset([joinpath(repo, "datasets", "core-infl")])
+    fst =  joinpath(repo, "fst")
+    parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
+    analyzed = parsetoken( "silly", parser)
     @test isempty(analyzed)
 end
-
-
 
 @testset "Build parser and test form of resulting analysis" begin
     d = tempdir()
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
-    fst =  repo * "/fst/"
-    parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
-
-    #parser = d * "/testcompile/greek.a"
-    analyzed = parsetoken(parser, "γνώμαις")
+    kd = Kanones.Dataset([joinpath(repo, "datasets","core-infl")])
+    fst =  joinpath(repo, "fst")
+    parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
+    analyzed = parsetoken( "γνώμαις", parser)
+    @test length(analyzed) == 1
     @test isa(analyzed[1], Analysis)
 
 end

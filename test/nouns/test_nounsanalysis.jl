@@ -8,7 +8,7 @@
     parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
 
     #parser = d * "/testcompile/greek.a"
-    analyzed = parsetoken(parser, "γνώμαις")
+    analyzed = parsetoken( "γνώμαις", parser)
     @test length(analyzed) == 1
     @test isa(analyzed[1], Analysis)
     @test analyzed[1].token == "γνωμαις"
@@ -25,7 +25,7 @@ end
     parser = FstBuilder.buildparser(kd,fst, d * "/testcompile/")
 
     #parser = d * "/testcompile/greek.a"
-    analyzed = parsetoken(parser, "γυνή")
+    analyzed = parsetoken( "γυνή", parser)
     
     #=
     @test length(analyzed) == 1

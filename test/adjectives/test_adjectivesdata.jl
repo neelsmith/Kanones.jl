@@ -3,7 +3,7 @@
     cex = "adjinfl.oshon_pos1|os_h_on_pos|ος|masculine|nominative|singular|positive|"
     adjparser = Kanones.AdjectiveParser("adjectives")
     rulerow = Kanones.readrulerow(adjparser, cex)
-    @test rulerow.ruleid |> abbreviation == RuleUrn("adjinfl.oshon_pos1") |> abbreviation
+    @test rulerow.ruleid |> string == RuleUrn("adjinfl.oshon_pos1") |> string
     @test rulerow.inflectionclass == "os_h_on_pos"
     @test rulerow.ending == "ος"
     @test rulerow.agender == "masculine"
@@ -16,8 +16,8 @@ end
     cex = "adjstems.n52840a|lsj.n52840|καλ|os_h_on_pos|inflectionaccented|"
     adjparser = Kanones.AdjectiveParser("adjectives")
     stemrow = Kanones.readstemrow(adjparser, cex)
-    @test  stemrow.stemid |> abbreviation == StemUrn("adjstems.n52840a") |> abbreviation
-    @test stemrow.lexid |> abbreviation == LexemeUrn("lsj.n52840") |> abbreviation
+    @test  stemrow.stemid |> string == StemUrn("adjstems.n52840a") |> string
+    @test stemrow.lexid |> string == LexemeUrn("lsj.n52840") |> string
     @test stemrow.form == "καλ"
     @test stemrow.inflectionclass == "os_h_on_pos"
     @test stemrow.accentpersistence == "inflectionaccented"
@@ -29,7 +29,7 @@ end
     irregparser = Kanones.IrregularNounParser("irregular nouns")
     stemrow = Kanones.readstemrow(irregparser, cex)
 
-    @test  stemrow.stemid  == StemUrn("irregnoun.irregn23069a")  #|> abbreviation
+    @test  stemrow.stemid  == StemUrn("irregnoun.irregn23069a")  #|> string
     @test stemrow.lexid == LexemeUrn("lsj.n23069") 
     @test stemrow.form == nfkc("γυνή")
     @test stemrow.gender == "feminine"

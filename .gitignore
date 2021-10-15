@@ -1,5 +1,6 @@
 Manifest.toml
 docs/build/
+parsers/debug*/
 parsers/*/makefile
 parsers/*/*.fst
 parsers/*/*.a
@@ -10,5 +11,6 @@ notes*
 .vscode
 reports/*
 *dummy*
-scratch/*cex
+scratch/
+fst-scratch/
 *.a

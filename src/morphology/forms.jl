@@ -55,12 +55,22 @@ $(SIGNATURES)
 All subclasses of `MorphologicalForm` should implement this specifically
 for their subclass.
 """
-function urn(MorphologicalForm)
+function urn(mf::T) where {T <: MorphologicalForm}
     @warn("urn: unrecognized type of MorphologicalForm.")
     nothing
 end
 
 
+"""Label for a form.
+
+$(SIGNATURES)
+
+All subclasses of `MorphologicalForm` should implement this specifically for their subclass.
+"""
+function label(mf::T) where {T <: MorphologicalForm}
+    @warn("urn: unrecognized type of MorphologicalForm.")
+    nothing
+end
 
 """Convert a `MorphologicalForm` form to a delimited-text string. 
 
@@ -69,7 +79,7 @@ $(SIGNATURES)
 All subclasses of `MorphologicalForm` should implement this specifically
 for their subclass.
 """
-function cex(MorphologicalForm)
+function cex(mf::T, delim) where {T <: MorphologicalForm}
     @warn("cex: unrecognized type of MorphologicalForm.")
     nothing
 end
