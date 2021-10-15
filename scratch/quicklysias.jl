@@ -1,25 +1,21 @@
 using Kanones.FstBuilder
 using Kanones
 using CitableParserBuilder
-#import CitableParserBuilder: parsetoken
-#import CitableParserBuilder: CanParseCitable
 
 
-#ParserTrait(::Type{KanonesParser}) = CanParseCitable()
-
-function lysiasparser()
-    fstsrc  =  joinpath(pwd(), "fst")
-    coreinfl = joinpath(pwd(), "datasets", "core-infl")
-    corevocab = joinpath(pwd(), "datasets", "core-vocab")
+function lysiasparser(rootdir)
+    fstsrc  =  joinpath(rootdir, "fst")
+    coreinfl = joinpath(rootdir, "datasets", "core-infl")
+    corevocab = joinpath(rootdir, "datasets", "core-vocab")
     lysias = joinpath(pwd(), "datasets", "lysias")
-    lysiasnouns = joinpath(pwd(),  "datasets","lysias-nouns")
+    lysiasnouns = joinpath(rootdir,  "datasets","lysias-nouns")
 
     datasets = [corevocab, coreinfl, lysias, lysiasnouns]
     kd = Kanones.Dataset(datasets)
-    tgt = joinpath(pwd(),  "parsers", "lysiasparser")
+    tgt = joinpath(rootdir,  "parsers", "lysiasparser")
     buildparser(kd,fstsrc, tgt)
 end
-p = lysiasparser()
+p = lysiasparser(pwd())
 
 
 # Get a corpus of Lysias 1.
@@ -78,9 +74,7 @@ function missingverbs()
     end
     missinglist
 end
-
-
-p = lysiasparser()
+p = lysiasparser(pwd())
 
 open("missinglysiasverbs.txt", "w") do io
     write(io, join(missingverbs(), "\n"))
