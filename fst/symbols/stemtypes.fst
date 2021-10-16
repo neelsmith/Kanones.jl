@@ -37,10 +37,11 @@
 % Adjective stem types
 #adj1and2# = <os_h_on><os_a_on><os_h_on_pos><os_h_on_comp><os_h_on_sup><os_on>
 
-
 #consplusvowelstem# = <us_eia_u>
 
-#adjectiveclass# = #adj1and2# #consplusvowelstem# 
+#adj3# = <hs_es>
+
+#adjectiveclass# = #adj1and2# #adj3# #consplusvowelstem# 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

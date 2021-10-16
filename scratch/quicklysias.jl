@@ -1,8 +1,10 @@
 using Kanones.FstBuilder
 using Kanones
 using CitableParserBuilder
+using CitableText, CitableCorpus
+using PolytonicGreek, Orthography
 
-
+# Build lysias parser
 function lysiasparser(rootdir)
     fstsrc  =  joinpath(rootdir, "fst")
     coreinfl = joinpath(rootdir, "datasets", "core-infl")
@@ -15,21 +17,12 @@ function lysiasparser(rootdir)
     tgt = joinpath(rootdir,  "parsers", "lysiasparser")
     buildparser(kd,fstsrc, tgt; force = true)
 end
-p = lysiasparser(pwd())
 
-
-# Get a corpus of Lysias 1, parse an
-using CitableText, CitableCorpus
+# Get a corpus of Lysias 1 and make tokenized version
 f = joinpath(pwd(), "scratch", "lysias1.cex")
 c = read(f) |> corpus_fromcex
-
-
-using PolytonicGreek, Orthography
 ortho = literaryGreek()
-
-
 tknized = tokenizedcorpus(c,ortho)
-
 
 function reparse(tkncorpus, parser)
     parsed = parsecorpus(tkncorpus, parser)
