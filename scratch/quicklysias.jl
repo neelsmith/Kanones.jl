@@ -24,6 +24,13 @@ f = joinpath(pwd(), "scratch", "lysias1.cex")
 c = read(f) |> corpus_fromcex
 
 
+using PolytonicGreek, Orthography
+ortho = literaryGreek()
+
+
+tknized = tokenizedcorpus(c,ortho)
+
+
 function reparse(tkncorpus, parser)
     parsed = parsecorpus(tkncorpus, parser)
     open("lysias_parsed.cex","w") do io
@@ -31,17 +38,15 @@ function reparse(tkncorpus, parser)
     end
 end
 
-
+function rebuild()
+    p = lysiasparser(pwd())
+    reparse(tknized, p)
+end
 
 #psg = c.passages[7]
 # Work with a single passage, like Lysias 1.7
 #lys1_7 = CitableTextCorpus([psg])
 
-using PolytonicGreek, Orthography
-ortho = literaryGreek()
-
-
-tknized = tokenizedcorpus(c,ortho)
 
 map(psg -> passage_component(psg.urn), c.passages)
 
