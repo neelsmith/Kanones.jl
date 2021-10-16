@@ -4,6 +4,14 @@ using CitableParserBuilder
 using CitableText, CitableCorpus
 using PolytonicGreek, Orthography
 
+
+# Get a corpus of Lysias 1 and make tokenized version
+f = joinpath(pwd(), "scratch", "lysias1.cex")
+c = read(f) |> corpus_fromcex
+ortho = literaryGreek()
+tknized = tokenizedcorpus(c,ortho)
+
+
 # Build lysias parser
 function lysiasparser(rootdir)
     fstsrc  =  joinpath(rootdir, "fst")
@@ -18,11 +26,6 @@ function lysiasparser(rootdir)
     buildparser(kd,fstsrc, tgt; force = true)
 end
 
-# Get a corpus of Lysias 1 and make tokenized version
-f = joinpath(pwd(), "scratch", "lysias1.cex")
-c = read(f) |> corpus_fromcex
-ortho = literaryGreek()
-tknized = tokenizedcorpus(c,ortho)
 
 function reparse(tkncorpus, parser)
     parsed = parsecorpus(tkncorpus, parser)
