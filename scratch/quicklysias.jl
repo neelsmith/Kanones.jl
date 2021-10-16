@@ -18,17 +18,30 @@ end
 p = lysiasparser(pwd())
 
 
-# Get a corpus of Lysias 1.
+# Get a corpus of Lysias 1, parse an
 using CitableText, CitableCorpus
-f = joinpath("scratch", "lysias1.cex")
+f = joinpath(pwd(), "scratch", "lysias1.cex")
 c = read(f) |> corpus_fromcex
-psg = c.passages[7]
+
+
+function reparse(tkncorpus, parser)
+    parsed = parsecorpus(tkncorpus, parser)
+    open("lysias_parsed.cex","w") do io
+        write(io, delimited(parsed))
+    end
+end
+
+
+
+#psg = c.passages[7]
 # Work with a single passage, like Lysias 1.7
-lys1_7 = CitableTextCorpus([psg])
+#lys1_7 = CitableTextCorpus([psg])
 
 using PolytonicGreek, Orthography
 ortho = literaryGreek()
 
+
+tknized = tokenizedcorpus(c,ortho)
 
 map(psg -> passage_component(psg.urn), c.passages)
 
@@ -50,9 +63,6 @@ function missingnouns()
     missinglist
 end
     
-
-
-
 p = lysiasparser(pwd())
 open("missinglysiasnouns.txt", "w") do io
     write(io, join(missingnouns(), "\n"))
