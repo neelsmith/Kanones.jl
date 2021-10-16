@@ -250,9 +250,6 @@ end
 # ╔═╡ 23bafca4-9d83-4ca9-b2b0-69cf59c562b2
 formatProfile(profile_lysias)
 
-# ╔═╡ 133cb20b-c776-4de7-880c-466d73b685b7
-formatProfile(profile_lysias)
-
 # ╔═╡ 3a0da6d9-bcd7-4bea-827b-06d689347fc1
 Pkg.status()
 
@@ -260,7 +257,7 @@ Pkg.status()
 # ╟─33b04d82-dd06-4e14-a1a5-38d9eff4f39a
 # ╟─405697fa-2dd2-11ec-3ed2-231cc433c3f2
 # ╟─a16a811c-def6-4daf-bf0a-a8de1e913db7
-# ╠═7b71dc16-0309-4855-97ed-2dddd9783c25
+# ╟─7b71dc16-0309-4855-97ed-2dddd9783c25
 # ╟─57e9ca80-5e10-488c-8538-559a620bba2d
 # ╟─fc5584fd-2fb7-4647-9e74-bdf8991e8911
 # ╟─688703f9-b5bf-4ec1-b358-379337aa263b
@@ -271,25 +268,24 @@ Pkg.status()
 # ╟─607e0cbb-407d-4519-9420-17f79486f02e
 # ╟─c131d3a2-1d7e-4568-8978-e2b2e76528df
 # ╟─a907b1cd-f8f6-49cf-a98a-2fb71d45a2b9
-# ╠═d3e7cb60-08f4-4ee0-b1f3-aeccae3a7cdb
+# ╟─d3e7cb60-08f4-4ee0-b1f3-aeccae3a7cdb
 # ╟─17b290f2-3e8e-4565-a9da-13d39e9d0d4b
-# ╟─083bd203-e13b-45f7-934a-80cca2d9ed50
+# ╠═083bd203-e13b-45f7-934a-80cca2d9ed50
 # ╟─67475df5-1ad8-43e6-b766-aa86f7fe0b61
 # ╟─97b5f024-9646-492d-9101-ab8d6073225c
 # ╟─17b69df8-f896-4b4a-a874-1f1dc00e7848
 # ╟─b8a4209e-cb5f-4ce3-947a-bfae77688c6e
 # ╟─02013e45-03ae-45d2-b2cb-7a8b009c46ac
 # ╟─57a434e6-3cf0-4ead-99b7-e78183a50840
-# ╟─133cb20b-c776-4de7-880c-466d73b685b7
 # ╟─7f0e4e18-f624-4519-8499-52626392e164
 # ╟─9f96cefc-cd0c-4f9f-834e-6384ceec0fed
-# ╠═0c7a0ba8-e9cb-4259-9873-e62515e942dc
+# ╟─0c7a0ba8-e9cb-4259-9873-e62515e942dc
 # ╟─a7244e41-7ae3-439e-ae51-12f915342ac2
 # ╟─d69ebc92-49a4-4909-88c4-dc00433bd84b
 # ╟─260a62ba-6728-4902-abc7-6033d0035e0b
 # ╟─5a547c6a-ffb8-4b1a-8449-d105d5411d12
-# ╠═ff5cd607-77f0-4de0-9360-6a4696e8c70a
-# ╠═45042f08-0ecc-4868-9893-1f46278c7ab0
+# ╟─ff5cd607-77f0-4de0-9360-6a4696e8c70a
+# ╟─45042f08-0ecc-4868-9893-1f46278c7ab0
 # ╟─ded514f6-56b9-4297-a72a-a2b9a3866bab
 # ╟─5f53329f-dbb6-4af6-bfe1-01f4ca6a63da
 # ╟─1f909578-1122-4fbc-a7db-b528a5bdb13b
