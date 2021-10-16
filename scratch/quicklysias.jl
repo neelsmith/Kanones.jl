@@ -33,7 +33,7 @@ tknized = tokenizedcorpus(c,ortho)
 
 function reparse(tkncorpus, parser)
     parsed = parsecorpus(tkncorpus, parser)
-    open("lysias_parsed.cex","w") do io
+    open(joinpath(pwd(), "scratch", "lysias_parsed.cex"),"w") do io
         write(io, delimited(parsed))
     end
 end

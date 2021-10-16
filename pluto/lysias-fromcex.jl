@@ -77,8 +77,12 @@ repo = dirname(pwd())
 # ╔═╡ d805edb9-25bf-42dc-a57a-471a3947f10e
 md"Read preparsed analyses."
 
+# ╔═╡ 8baaf485-fd1f-445c-abd0-5c46816be7bf
+md"""$(@bind loadem Button("Reload data"))"""
+
 # ╔═╡ 74299b5f-fe7c-4085-9bca-1d9c6b99caac
 analyses = begin
+	loadem
 	read(joinpath(repo, "lysias_parsed.cex"), String) |> 
 	CitableParserBuilder.analyzedtokens_fromabbrcex
 end
@@ -122,8 +126,9 @@ formatTokens()
 alltokens = tokenizedcorpus(corpus, ortho)
 
 # ╔═╡ Cell order:
-# ╠═23c85baa-0c74-459b-aea4-e3865f5ecbf8
+# ╟─23c85baa-0c74-459b-aea4-e3865f5ecbf8
 # ╟─4b757271-be49-415f-9df3-207737d0bf40
+# ╟─8baaf485-fd1f-445c-abd0-5c46816be7bf
 # ╟─df6fd6c7-b224-43db-a824-00dd16a7eb05
 # ╟─b69d4ffa-5c2d-4494-bcb8-e27ab8617b46
 # ╟─f416597d-f07d-46f5-8e12-712cd6ecbe42
@@ -137,7 +142,7 @@ alltokens = tokenizedcorpus(corpus, ortho)
 # ╟─fead07b2-6909-42e8-9703-0eb0be2ac457
 # ╟─9ea64b8f-e7aa-4bb2-9c0e-a51b9ba6e936
 # ╟─d805edb9-25bf-42dc-a57a-471a3947f10e
-# ╟─74299b5f-fe7c-4085-9bca-1d9c6b99caac
+# ╠═74299b5f-fe7c-4085-9bca-1d9c6b99caac
 # ╟─2ca07e5b-9244-4230-bb8e-deb302ca095e
 # ╟─aea40b27-ca74-43b0-851a-624a3a7be06e
 # ╟─3cef06b1-5224-46fa-90d4-51819503a9b8
