@@ -36,6 +36,9 @@ begin
 	using PlutoUI
 end
 
+# ╔═╡ b9fc5aea-56d2-465d-b737-87626a9021f0
+Pkg.status()
+
 # ╔═╡ 4b757271-be49-415f-9df3-207737d0bf40
 md"""# Analyze parsed output for Lysias"""
 
@@ -180,6 +183,10 @@ end
 # ╔═╡ 62c2a59e-f1d2-4f3a-9c41-ebe7d2ef06b3
 formatProfile(profile_passage)
 
+# ╔═╡ 0b03fa06-7138-4dd6-95d2-5f987dec3c4b
+map(t -> t.analyses, selected)
+
+
 # ╔═╡ d7943035-dabc-44c4-aab0-afe2fba69832
 function formatTokens()
 	results = ["<b>$(psg)</b> "]
@@ -205,7 +212,8 @@ end
 formatProfile(profile_lysias)
 
 # ╔═╡ Cell order:
-# ╟─23c85baa-0c74-459b-aea4-e3865f5ecbf8
+# ╠═23c85baa-0c74-459b-aea4-e3865f5ecbf8
+# ╠═b9fc5aea-56d2-465d-b737-87626a9021f0
 # ╟─4b757271-be49-415f-9df3-207737d0bf40
 # ╟─df6fd6c7-b224-43db-a824-00dd16a7eb05
 # ╟─b837a989-9211-41f1-b198-3bef5b5528b8
@@ -218,9 +226,10 @@ formatProfile(profile_lysias)
 # ╟─5eaa82ad-ebbc-48a7-ad4e-91eeb1de5627
 # ╟─4869ebfd-d46a-4ab3-9957-e64c0749786d
 # ╟─787a22f2-1fb8-476e-8dea-3b4a3ece1463
-# ╟─d1f5babb-a882-4289-b673-74230e980967
 # ╟─e2a01953-390e-4d3d-9bb9-b50d77efea45
+# ╟─d1f5babb-a882-4289-b673-74230e980967
 # ╟─0521cdac-aade-4fcf-9cae-eda6a4baac9a
+# ╠═0b03fa06-7138-4dd6-95d2-5f987dec3c4b
 # ╟─5a1da098-ac37-49e1-ac18-569f3c84f733
 # ╟─d7943035-dabc-44c4-aab0-afe2fba69832
 # ╟─6482d576-da60-45fd-af9e-999c8689dd4d
@@ -229,7 +238,7 @@ formatProfile(profile_lysias)
 # ╟─fead07b2-6909-42e8-9703-0eb0be2ac457
 # ╟─9ea64b8f-e7aa-4bb2-9c0e-a51b9ba6e936
 # ╟─d805edb9-25bf-42dc-a57a-471a3947f10e
-# ╟─74299b5f-fe7c-4085-9bca-1d9c6b99caac
+# ╠═74299b5f-fe7c-4085-9bca-1d9c6b99caac
 # ╟─0700aead-926a-46e7-832c-a6b140920aa4
 # ╟─2ca07e5b-9244-4230-bb8e-deb302ca095e
 # ╟─aea40b27-ca74-43b0-851a-624a3a7be06e
