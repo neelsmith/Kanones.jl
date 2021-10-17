@@ -21,33 +21,45 @@ end
 # ╔═╡ 8ebab8ce-2f50-11ec-307e-5906655451b7
 md"""# Overview of text"""
 
-# ╔═╡ 4120b914-d415-468f-892f-ecdc4477c010
-md"""## Defining terms
-
-Select one or more items from the list to display definitions:
-
-"""
-
-# ╔═╡ 9b59e4cd-7dc6-4734-a47b-cc7d0fd39a30
-md""" $(@bind definitions MultiSelect(["vcoverage" => "coverage of vocabulary", "lcoverage" => "coverage of lexicon"  ]))"""
-
-
-
 # ╔═╡ b7c48c93-dbc0-4f44-abac-3ac7335d3124
 md"> Other"
 
+# ╔═╡ 9c8b59b8-c3e2-4f4c-872e-578571b04839
+definitionsmenu = [
+	"vcoverage" => "coverage of vocabulary", 
+	"lcoverage" => "coverage of lexicon",
+	"vdensity" => "vocabulary density",
+	"ldensity" => "lexical density",
+	"morphincorpus" => "morphological density (corpus)",
+	"morphinvocabulary" => "morphological density (vocabulary set)",
+	"morphinlexicon" => "morphological density (lexicon)"
+
+]
+
+# ╔═╡ 4120b914-d415-468f-892f-ecdc4477c010
+md"""## Defining terms
+
+Select one or more items from the list to display definitions: $(@bind definitions MultiSelect(definitionsmenu))
+
+"""
+
 # ╔═╡ 86b94493-db17-4562-b96f-ce0c3c3ca3f7
-defintionsdics = Dict(
+defintionsdictionary = Dict(
 	"vcoverage" =>  """- *Coverage of vocabulary*: proportion of all tokens ("words") in the text analyzed by the parser.""",
-	"lcoverage" =>  """- *Coverage of lexicon*: proportion of something."""
+	"lcoverage" =>  """- *Coverage of lexicon*: proportion of something.""",
+	"vdensity" => "- *Density of vocabulary (terms)*: proportion of something",
+	"ldensity" => "- *Lexical density*: proportion of something",
+	"morphincorpus" => "- *Morphological density (corpus)*: something",
+	"morphinvocabulary" => "- *Morphologyical density (vocabulary set)*: something",
+	"morphinlexicon" => "- *Morphological density (lexicon)*: something"
 	
 	)
 
 # ╔═╡ 41dec141-8ec3-4d95-8cc6-fec37f2b9f12
 begin
-	definitionsdisplay = isempty(definitions) ? [] : ["### Definitions"]
+	definitionsdisplay = isempty(definitions) ? [] : ["**Definitions**"]
 	for d in definitions
-		push!(definitionsdisplay, defintionsdics[d])
+		push!(definitionsdisplay, defintionsdictionary[d])
 	end
 	Markdown.parse(join(definitionsdisplay,"\n"))
 end
@@ -157,9 +169,9 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 # ╠═8231b799-b135-43bb-82bd-aa57053641c2
 # ╟─8ebab8ce-2f50-11ec-307e-5906655451b7
 # ╟─4120b914-d415-468f-892f-ecdc4477c010
-# ╟─9b59e4cd-7dc6-4734-a47b-cc7d0fd39a30
 # ╟─41dec141-8ec3-4d95-8cc6-fec37f2b9f12
 # ╟─b7c48c93-dbc0-4f44-abac-3ac7335d3124
-# ╟─86b94493-db17-4562-b96f-ce0c3c3ca3f7
+# ╟─9c8b59b8-c3e2-4f4c-872e-578571b04839
+# ╠═86b94493-db17-4562-b96f-ce0c3c3ca3f7
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
