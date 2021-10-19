@@ -86,6 +86,29 @@ function analysisforline(fst::AbstractString)
         Analysis(string(tkn,ending), LexemeUrn(lexidval), formcode, StemUrn(stemidval), RuleUrn(ruleidval))
 end
 
+
+function parsefst_multi(fst::AbstractString)
+    lines = split(fst,"\n")
+    popped = []
+    current = []
+    for ln in lines
+        if startswith(ln, ">")
+            if ! isempty(current)
+                fstparse = Kanones.parsefst(join(current, "\n"))
+                if !isempty(fstparse)
+                    @info("Pushing ", fstparse)
+                    push!(popped, fstparse)
+                else
+                    @info("Failed on ", current)
+                end
+                current = []
+            end
+        end
+        push!(current, ln)
+    end
+    popped
+end
+
 """Parse a string of FST output for a single token
 to a list of `Analysis` objects.
 

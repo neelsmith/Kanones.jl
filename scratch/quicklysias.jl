@@ -1,8 +1,18 @@
 using Kanones.FstBuilder
 using Kanones
 using CitableParserBuilder
+using CitableText, CitableCorpus
+using PolytonicGreek, Orthography
 
 
+# Get a corpus of Lysias 1 and make tokenized version
+f = joinpath(pwd(), "scratch", "lysias1.cex")
+c = read(f) |> corpus_fromcex
+ortho = literaryGreek()
+tknized = tokenizedcorpus(c,ortho)
+
+
+# Build lysias parser
 function lysiasparser(rootdir)
     fstsrc  =  joinpath(rootdir, "fst")
     coreinfl = joinpath(rootdir, "datasets", "core-infl")
@@ -15,19 +25,23 @@ function lysiasparser(rootdir)
     tgt = joinpath(rootdir,  "parsers", "lysiasparser")
     buildparser(kd,fstsrc, tgt; force = true)
 end
-p = lysiasparser(pwd())
 
 
-# Get a corpus of Lysias 1.
-using CitableText, CitableCorpus
-f = joinpath("scratch", "lysias1.cex")
-c = read(f) |> corpus_fromcex
-psg = c.passages[7]
+function reparse(tkncorpus, parser)
+    parsed = parsecorpus(tkncorpus, parser)
+    open(joinpath(pwd(), "scratch", "lysias_parsed.cex"),"w") do io
+        write(io, delimited(parsed))
+    end
+end
+
+function rebuild()
+    p = lysiasparser(pwd())
+    reparse(tknized, p)
+end
+
+#psg = c.passages[7]
 # Work with a single passage, like Lysias 1.7
-lys1_7 = CitableTextCorpus([psg])
-
-using PolytonicGreek, Orthography
-ortho = literaryGreek()
+#lys1_7 = CitableTextCorpus([psg])
 
 
 map(psg -> passage_component(psg.urn), c.passages)
@@ -50,9 +64,6 @@ function missingnouns()
     missinglist
 end
     
-
-
-
 p = lysiasparser(pwd())
 open("missinglysiasnouns.txt", "w") do io
     write(io, join(missingnouns(), "\n"))

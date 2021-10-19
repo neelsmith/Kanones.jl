@@ -10,23 +10,15 @@ coreinfl = pwd() * "/datasets/core-infl/"
 coreds = [coreinfl, corevocab]
 
 ds = Kanones.Dataset(coreds)
-lexlist = map(s -> s.lexid, stemsarray(ds))
+lexurns = map(s -> s.lexid, stemsarray(ds)) 
+lexlist = string.(lexurns) |> unique
 
 lsjurl = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/lsj/lsj-lemmata.cex"
 
 lsjdict = CSV.File(HTTP.get(lsjurl).body) |> Dict
 
 
-function labelid(str, dict)
-    if haskey(dict, str)
-        string(str,"_", dict[str])
-    else
-        string(str,"_nolabel")
-    end
-end
-
-
-labelled = map(au -> labelid(string(au), lsjdict), lexlist )
+labelled = map(au -> Kanones.attach_lemma(string(au), lsjdict), lexlist )
 
 
 

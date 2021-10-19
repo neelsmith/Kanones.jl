@@ -154,6 +154,7 @@ $(@bind loadem Button("Rebuild parser"))
 
 # ╔═╡ 5f53329f-dbb6-4af6-bfe1-01f4ca6a63da
 function lysiasparser(rootdir)
+	loadem
     fstsrc  =  joinpath(rootdir, "fst")
     coreinfl = joinpath(rootdir, "datasets", "core-infl")
     corevocab = joinpath(rootdir, "datasets", "core-vocab")
@@ -163,7 +164,7 @@ function lysiasparser(rootdir)
     datasets = [corevocab, coreinfl, lysias, lysiasnouns]
     kd = Kanones.Dataset(datasets)
     tgt = joinpath(rootdir,  "parsers", "lysiasparser")
-    buildparser(kd,fstsrc, tgt)
+    buildparser(kd,fstsrc, tgt; force = true)
 end
 
 # ╔═╡ ded514f6-56b9-4297-a72a-a2b9a3866bab
@@ -210,7 +211,10 @@ tknized = begin
 end
 
 # ╔═╡ 97b5f024-9646-492d-9101-ab8d6073225c
-parses = parsecorpus(tknized, p)
+parses = begin
+	loadem
+	parsecorpus(tknized, p)
+end
 
 # ╔═╡ 57a434e6-3cf0-4ead-99b7-e78183a50840
 function formatTokens()
@@ -225,7 +229,10 @@ end
 formatTokens()
 
 # ╔═╡ 17b69df8-f896-4b4a-a874-1f1dc00e7848
-profile_passage = profile(tknized, p)
+profile_passage = begin
+	loadem
+	profile(tknized, p)
+end
 
 # ╔═╡ fc5584fd-2fb7-4647-9e74-bdf8991e8911
 formatProfile(profile_passage)
@@ -235,12 +242,12 @@ alltokens = tokenizedcorpus(corpus, ortho)
 
 
 # ╔═╡ ef68914e-ec27-43a4-abd3-1c7ed506e594
-profile_lysias = profile(alltokens,p)
+profile_lysias = begin
+	loadem
+	profile(alltokens,p)
+end
 
 # ╔═╡ 23bafca4-9d83-4ca9-b2b0-69cf59c562b2
-formatProfile(profile_lysias)
-
-# ╔═╡ 133cb20b-c776-4de7-880c-466d73b685b7
 formatProfile(profile_lysias)
 
 # ╔═╡ 3a0da6d9-bcd7-4bea-827b-06d689347fc1
@@ -270,7 +277,6 @@ Pkg.status()
 # ╟─b8a4209e-cb5f-4ce3-947a-bfae77688c6e
 # ╟─02013e45-03ae-45d2-b2cb-7a8b009c46ac
 # ╟─57a434e6-3cf0-4ead-99b7-e78183a50840
-# ╟─133cb20b-c776-4de7-880c-466d73b685b7
 # ╟─7f0e4e18-f624-4519-8499-52626392e164
 # ╟─9f96cefc-cd0c-4f9f-834e-6384ceec0fed
 # ╟─0c7a0ba8-e9cb-4259-9873-e62515e942dc
