@@ -45,6 +45,7 @@ export decline, mddeclension
 export urn, abbrurn
 
 include("parse.jl")
+include("listparsing.jl")
 include("utils.jl")
 
 include("datasets/dataset.jl")
