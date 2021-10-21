@@ -86,7 +86,12 @@ function analysisforline(fst::AbstractString)
         Analysis(string(tkn,ending), LexemeUrn(lexidval), formcode, StemUrn(stemidval), RuleUrn(ruleidval))
 end
 
+"""Parse a string of FST output for multiple tokens
+to a list of `Analysis` objects.
 
+
+$(SIGNATURES)
+"""
 function parsefst_multi(fst::AbstractString)
     lines = split(fst,"\n")
     popped = []
@@ -96,10 +101,10 @@ function parsefst_multi(fst::AbstractString)
             if ! isempty(current)
                 fstparse = Kanones.parsefst(join(current, "\n"))
                 if !isempty(fstparse)
-                    @info("Pushing ", fstparse)
+                    #@info("Pushing ", fstparse)
                     push!(popped, fstparse)
                 else
-                    @info("Failed on ", current)
+                    #@info("Failed on ", current)
                 end
                 current = []
             end
@@ -137,7 +142,7 @@ Suppress standard error since this generates show-stopping IO demands if routed 
 
 $(SIGNATURES)
 """
-function applyparser(parser::KanonesParser, tkn::AbstractString)
+function applyparser(tkn::AbstractString, parser::KanonesParser )
     fstinfl = fstinflpath()
     echo = echopath()
     cmd1 = `$echo $tkn` 
@@ -148,12 +153,55 @@ function applyparser(parser::KanonesParser, tkn::AbstractString)
     close(err.in)
     rslt
 end
+#function parsedocument(doc::CitableDocument, p::T; data = nothing) 
 
+
+function parsecorpus(c::CitableTextCorpus, p::KanonesParser; data = nothing, countinterval = 100) 
+    @info("Corpus size ", length(c.passages) )
+    words = map(psg -> psg.text, c.passages) |> unique
+    parsewordlist(words, p, countinterval = countinterval)
+end
+
+function parsedocument(doc::CitableDocument, p::KanonesParser; data = nothing, countinterval = 100) 
+    @info("Document size ", length(doc.passages) )
+    words = map(psg -> psg.text, doc.passages) |> unique
+    parsewordlist(words, p, countinterval = countinterval)
+end
+
+function applyparser(vocablist, parser::KanonesParser) 
+    f = tempname()
+    write(f, join(vocablist,"\n"))
+    fstinfl = fstinflpath()
+    cmd = `$fstinfl $(parser.sfstpath) $f`
+    @info("Parsing vocabulary list ", length(vocablist))
+    err = Pipe()
+    rslt = pipeline(cmd, stderr = err)  |> read |> String
+    close(err.in)
+    rslt
+end
+
+function parsewordlist(vocablist, parser::KanonesParser; data = nothing, countinterval = 100) 
+    stripped = FstBuilder.fstgreek.(vocablist) 
+    applyparser(stripped, parser) |> parsefst_multi
+end
+#=
+function listparse(parser::KanonesParser, v)
+    f = tempname()
+    write(f, join(v,"\n"))
+    fstinfl = fstinflpath()
+    cmd = `$fstinfl $(parser.sfstpath) $f`
+    @info("Parsing vocabulary list ", length(v))
+    err = Pipe()
+    rslt = pipeline(cmd, stderr = err)  |> read |> String
+    close(err.in)
+    rslt
+end
+=#
 """Parse a single token to an array of `Analysis` or `nothing`.
 
 $(SIGNATURES)
 """
 function parsetoken(tkn::AbstractString, parser::KanonesParser; data = nothing)
     stripped = FstBuilder.fstgreek(tkn) 
-    applyparser(parser, stripped) |> parsefst
+    applyparser(stripped, parser) |> parsefst
 end

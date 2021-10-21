@@ -2,11 +2,15 @@ module Kanones
 
 using CitableParserBuilder
 import CitableParserBuilder: parsetoken
+import CitableParserBuilder: parsewordlist
+import CitableParserBuilder: parsecorpus
+import CitableParserBuilder: parsedocument
 import CitableParserBuilder: CanParseCitable
 
 export KanonesParser
-export parsetoken
+export parsetoken, parsewordlist
 
+using CitableCorpus
 using CitableObject
 using Orthography, PolytonicGreek, AtticGreek
 using Unicode, Glob, DelimitedFiles
