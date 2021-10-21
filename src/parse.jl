@@ -133,14 +133,20 @@ function parsefst(fststring::AbstractString)
 end
 
 """Apply a parser to a token using `fst-infl`.
+Suppress standard error since this generates show-stopping IO demands if routed to terminal.
 
 $(SIGNATURES)
 """
 function applyparser(parser::KanonesParser, tkn::AbstractString)
     fstinfl = fstinflpath()
     echo = echopath()
-    cmd = pipeline(`$echo $tkn`, `$fstinfl $(parser.sfstpath)`)
-    rslt = read(cmd, String)
+    cmd1 = `$echo $tkn` 
+    cmd2 = `$fstinfl $(parser.sfstpath)`
+
+    err = Pipe()
+    rslt = pipeline(cmd1, stdout = cmd2, stderr = err)  |> read |> String
+    close(err.in)
+    rslt
 end
 
 """Parse a single token to an array of `Analysis` or `nothing`.
