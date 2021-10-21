@@ -149,6 +149,19 @@ function applyparser(parser::KanonesParser, tkn::AbstractString)
     rslt
 end
 
+
+function listparse(parser::KanonesParser, v)
+    f = tempname()
+    write(f, join(v,"\n"))
+    fstinfl = fstinflpath()
+    cmd = `$fstinfl $(parser.sfstpath) $f`
+    @info("Parsing vocabulary list ", length(v))
+    err = Pipe()
+    rslt = pipeline(cmd, stderr = err)  |> read |> String
+    close(err.in)
+    rslt
+end
+
 """Parse a single token to an array of `Analysis` or `nothing`.
 
 $(SIGNATURES)
