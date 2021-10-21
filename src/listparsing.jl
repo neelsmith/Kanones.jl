@@ -4,7 +4,7 @@ function applyparser(vocablist, parser::KanonesParser)
     write(f, join(vocablist,"\n") * "\n")
     fstinfl = fstinflpath()
     cmd = `$fstinfl $(parser.sfstpath) $f`
-    @info("Parsing vocabulary list ", length(vocablist))
+    @info("List size ", length(vocablist))
     err = Pipe()
     rslt = pipeline(cmd, stderr = err)  |> read |> String
     close(err.in)
@@ -39,7 +39,6 @@ function parsefst_multi(fst::AbstractString)
     end
     # Catch final entry:
     fstparse = Kanones.parsefst(join(current, "\n"))
-    @info(fstparse)
     isempty(fstparse) ? push!(popped, (term, Analysis[])) : push!(popped, (term, fstparse))
 
     popped |> Dict
@@ -54,16 +53,34 @@ Returns a Dict mapping strings to a (possibly empty) vector of `Analysis` object
 """
 function parsewordlist(vocablist, parser::KanonesParser; data = nothing, countinterval = 100) 
     stripped = FstBuilder.fstgreek.(vocablist) 
-    @info(stripped)
     applyparser(stripped, parser) |> parsefst_multi
 end
 
 
 
+"""Override implementation in `CitableParserBuilder`.
+
+$(SIGNATURES)
+
+Should return a list of `AnalyzedToken`s.
+"""
 function parsedocument(doc::CitableDocument, p::KanonesParser; data = nothing, countinterval = 100) 
     @info("Document size ", length(doc.passages) )
     words = map(psg -> psg.text, doc.passages) |> unique
-    parsewordlist(words, p, countinterval = countinterval)
+    parsedict = parsewordlist(words, p, countinterval = countinterval)
+
+    keylist = keys(parsedict)
+    results = AnalyzedToken[]
+    for psg in doc.passages
+        if psg.text in keylist
+            at = AnalyzedToken(psg, parsedict[psg.text])
+            push!(results, at)
+        else
+            at = AnalyzedToken(psg, AnalyzedToken[])
+            push!(results, at)
+        end
+    end
+    results
 end
 
 
@@ -92,7 +109,5 @@ function parsecorpus(c::CitableTextCorpus, p::KanonesParser; data = nothing, cou
         end
     end
     results
-
-
 end
 
