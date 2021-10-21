@@ -8,7 +8,7 @@ import CitableParserBuilder: parsedocument
 import CitableParserBuilder: CanParseCitable
 
 export KanonesParser
-export parsetoken, parsewordlist
+export parsetoken, parsewordlist, parsecorpus, parsedocument
 
 using CitableCorpus
 using CitableObject
