@@ -10,6 +10,7 @@ import CitableParserBuilder: CanParseCitable
 export KanonesParser
 export parsetoken, parsewordlist
 
+using CitableCorpus
 using CitableObject
 using Orthography, PolytonicGreek, AtticGreek
 using Unicode, Glob, DelimitedFiles

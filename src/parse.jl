@@ -154,21 +154,21 @@ function applyparser(tkn::AbstractString, parser::KanonesParser )
     rslt
 end
 #function parsedocument(doc::CitableDocument, p::T; data = nothing) 
-#function parsecorpus(c::CitableTextCorpus, p::T; data = nothing, countinterval = 100) where {T <: CitableParser}
 
-function applyparsertolist(vocablist, parser::KanonesParser; data = nothing, countinterval = 100) 
-    f = tempname()
-    write(f, join(vocablist,"\n"))
-    fstinfl = fstinflpath()
-    cmd = `$fstinfl $(parser.sfstpath) $f`
-    @info("Parsing vocabulary list ", length(vocablist))
-    err = Pipe()
-    rslt = pipeline(cmd, stderr = err)  |> read |> String
-    close(err.in)
-    rslt
+
+function parsecorpus(c::CitableTextCorpus, p::KanonesParser; data = nothing, countinterval = 100) 
+    @info("Corpus size ", length(c.passages) )
+    words = map(psg -> psg.text, c.passages) |> unique
+    parsewordlist(words, p, countinterval = countinterval)
 end
 
-function applyparsertolist(vocablist, parser::KanonesParser) 
+function parsedocument(doc::CitableDocument, p::KanonesParser; data = nothing, countinterval = 100) 
+    @info("Document size ", length(doc.passages) )
+    words = map(psg -> psg.text, doc.passages) |> unique
+    parsewordlist(words, p, countinterval = countinterval)
+end
+
+function applyparser(vocablist, parser::KanonesParser) 
     f = tempname()
     write(f, join(vocablist,"\n"))
     fstinfl = fstinflpath()
@@ -182,23 +182,9 @@ end
 
 function parsewordlist(vocablist, parser::KanonesParser; data = nothing, countinterval = 100) 
     stripped = FstBuilder.fstgreek.(vocablist) 
-    applyparsertolist(stripped, parser) |> parsefst_multi
+    applyparser(stripped, parser) |> parsefst_multi
 end
-
-#=function parsedocument(doc::CitableDocument, p::KanonesParser; data = nothing)
-
-    f = tempname()
-    write(f, join(vocablist,"\n"))
-    fstinfl = fstinflpath()
-    cmd = `$fstinfl $(parser.sfstpath) $f`
-    @info("Parsing vocabulary list ", length(vocablist))
-    err = Pipe()
-    rslt = pipeline(cmd, stderr = err)  |> read |> String
-    close(err.in)
-    rslt
-end
-=#
-
+#=
 function listparse(parser::KanonesParser, v)
     f = tempname()
     write(f, join(v,"\n"))
@@ -210,7 +196,7 @@ function listparse(parser::KanonesParser, v)
     close(err.in)
     rslt
 end
-
+=#
 """Parse a single token to an array of `Analysis` or `nothing`.
 
 $(SIGNATURES)
