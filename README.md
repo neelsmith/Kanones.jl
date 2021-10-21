@@ -1,3 +1,6 @@
+![build](https://github.com/neelsmith/Kanones.jl/actions/workflows/Documentation.yml/badge.svg)
+
+
 # Kanones.jl
 
 A julia package implementing the kanónes system for building Greek morphological parsers.
