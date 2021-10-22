@@ -92,6 +92,8 @@ Kanones.abbrformurn
 ```@docs
 parsetoken
 parsewordlist
+parsedocument
+parsecorpus
 ```
 
 ### Functions used internally in parsing via a FST
