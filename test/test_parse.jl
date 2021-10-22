@@ -8,11 +8,16 @@
     parser = FstBuilder.buildparser(kd,fst, joinpath(d , "testcompile"))
     @test isfile(parser.sfstpath)
 
-    fstout = Kanones.applyparser(  "και", parser)
+    fstout = Kanones.applyparser("και", parser)
     lines = split(fstout, "\n")
     @test lines[1] == "> και"
     expecteddata = "<u>uninflectedstems.n51951</u><u>lsj.n51951</u>και<uninflected><conjunction><div><conjunction><uninflected><u>litgreek.indeclinable2</u>"
     @test lines[2] == expecteddata
+
+
+    ucout = Kanones.applyparser("Και", parser)
+    @test ucout == fstout
+
     rm(joinpath(d, "testcompile"), recursive=true)
 end
 

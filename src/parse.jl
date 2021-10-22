@@ -132,6 +132,6 @@ end
 $(SIGNATURES)
 """
 function parsetoken(tkn::AbstractString, parser::KanonesParser; data = nothing)
-    stripped = FstBuilder.fstgreek(tkn) 
+    stripped = FstBuilder.fstgreek(tkn)  |> lowercase
     applyparser(stripped, parser) |> parsefst
 end

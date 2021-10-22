@@ -61,7 +61,8 @@ Returns a Dict mapping strings to a (possibly empty) vector of `Analysis` object
 """
 function parsewordlist(vocablist, parser::KanonesParser; data = nothing, countinterval = 100) 
     stripped = FstBuilder.fstgreek.(vocablist) 
-    applyparser(stripped, parser) |> parsefst_multi
+    lc = lowercase.(stripped)
+    applyparser(lc, parser) |> parsefst_multi
 end
 
 
