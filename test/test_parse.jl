@@ -51,7 +51,7 @@ end
     ucanalysis = Kanones.parsetoken("Και", parser)
     @test ucanalysis == analysislist
 
-    psg = CitablePassage(CtsUrn("urn:cts:greekLit:tlg4036.tlg023.normed:Homer.title.1"), "Πρόκλου")
+    psg = CitablePassage(CtsUrn("urn:cts:greekLit:tlg4036.tlg023.normed:Homer.title.1"), "Καὶ")
     psgs = [psg]
     psgparses =  Kanones.parsepassagelist(psgs, parser)
     tinycorpus = CitableTextCorpus(psgs)
