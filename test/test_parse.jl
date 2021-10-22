@@ -49,7 +49,7 @@ end
 
 
     ucanalysis = Kanones.parsetoken("Και", parser)
-    @test ucout == fstout
+    @test ucanalysis == analysislist
 
 end
 
