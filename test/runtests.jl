@@ -1,6 +1,6 @@
 using Kanones
 using Kanones.FstBuilder
-using CitableObject, CitableParserBuilder
+using CitableObject, CitableParserBuilder, CitableText
 using PolytonicGreek, Orthography
 using Test
 

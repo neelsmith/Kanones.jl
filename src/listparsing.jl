@@ -74,7 +74,7 @@ function parsepassagelist(psgs, p, ortho = literaryGreek())
     # Map accented to unaccented form:
     wordsmap = []
     for w in words
-        push!(wordsmap, (w, rmaccents(w, ortho)))
+        push!(wordsmap, (w, lowercase(rmaccents(w, ortho))))
     end
     wordsdict = wordsmap |> Dict
     # Parse stripped form of word, then...
@@ -84,7 +84,7 @@ function parsepassagelist(psgs, p, ortho = literaryGreek())
     keylist = keys(parsedict)
     results = AnalyzedToken[]
     for psg in psgs
-        stripped = rmaccents(psg.text, ortho)
+        stripped = rmaccents(psg.text, ortho) |> lowercase
         if stripped in keylist
             at = AnalyzedToken(psg, parsedict[stripped])
             push!(results, at)

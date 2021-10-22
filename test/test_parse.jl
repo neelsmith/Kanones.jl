@@ -51,6 +51,17 @@ end
     ucanalysis = Kanones.parsetoken("Και", parser)
     @test ucanalysis == analysislist
 
+    psg = CitablePassage(CtsUrn("urn:cts:greekLit:tlg4036.tlg023.normed:Homer.title.1"), "Πρόκλου")
+    psgs = [psg]
+    psgparses =  Kanones.parsepassagelist(psgs, parser)
+    tinycorpus = CitableTextCorpus(psgs)
+    corpusparses =  parsecorpus(tinycorpus, parser)
+    @test psgparses[1].analyses[1] == corpusparses[1].analyses[1]
+    doc = documents(tinycorpus)[1]
+    docparses = parsedocument(doc, parser)
+    @test psgparses[1].analyses[1] == docparses[1].analyses[1]
+
+
 end
 
 @testset "Build parser and handle bad output to parser" begin
