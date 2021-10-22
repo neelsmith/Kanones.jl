@@ -31,7 +31,7 @@ basename(parser.sfstpath)
 Parsing a token returns a (possibly empty) Vector of analyses.
 
 ```@example analysisexample
-analyses = parsetoken(parser, "κελεύσει")
+analyses = parsetoken("κελεύσει", parser)
 ```
 
 
@@ -84,7 +84,7 @@ end
 tensedata
 ```
 ```@example analysisexample
-analyses2 = parsetoken(parser, "δωρα")
+analyses2 = parsetoken("δωρα", parser)
 a2 = analyses2[1]
 form2 = Kanones.morphform(a2)
 genderdata = if isa(form2, NounForm)
