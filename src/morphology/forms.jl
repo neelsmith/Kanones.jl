@@ -84,7 +84,7 @@ for their subclass.
 function cex(mf::T; delimiter = "|") where {T <: MorphologicalForm}
     #@warn("cex: unrecognized type of MorphologicalForm.")
     #nothing
-    join([urn(mf), label(mf)]; delimiter)
+    join([urn(mf), label(mf)], delimiter)
 end
 
 

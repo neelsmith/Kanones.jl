@@ -155,7 +155,7 @@ label(nounform)
 ```
 
 ```@example impleg
-abbrurn(nounform)
+formurn(nounform)
 ```
 
 ```@example impleg
