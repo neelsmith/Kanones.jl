@@ -14,11 +14,11 @@ struct UninflectedParser <: KanonesIO
 end
 
 """
-KanonesIO type for reading and writing data for noun forms.
+KanonesIO type for reading and writing data for regular noun forms.
 
 $(SIGNATURES)
 """
-struct NounParser <: KanonesIO
+struct NounIO <: KanonesIO
     label::AbstractString
 end
 
@@ -27,7 +27,7 @@ KanonesIO type for reading and writing data for irregular noun forms.
 
 $(SIGNATURES)
 """
-struct IrregularNounParser <: KanonesIO
+struct IrregularNounIO <: KanonesIO
     label::AbstractString
 end
 

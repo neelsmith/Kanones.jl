@@ -26,7 +26,8 @@ makedocs(
             "Prerequisites" => "prereqs.md",
             "Managing Kanones datasets" => "datasets/index.md",
             "Compiling and parsing" => "parsing/index.md",
-            "Working with analytical data" => "analyses/index.md"
+            "Working with analytical data" => "analyses/index.md",
+            "Programmer's notes on implementation" => "implementation/overview.md"
            
         ],
       
@@ -40,7 +41,8 @@ makedocs(
             "Julia API documentation" =>  "apis/apis.md",
             "FST" =>  "fst/index.md",
             
-        ],
+        ]
+       
      
     ],
     )

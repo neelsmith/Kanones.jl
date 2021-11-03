@@ -54,7 +54,7 @@ Kanones.finiteverbform
 ```@docs
 Kanones.Dataset
 Kanones.KanonesIO
-Kanones.NounParser
+Kanones.NounIO
 Kanones.NounStem
 Kanones.NounRule
 Kanones.UninflectedParser

@@ -4,5 +4,5 @@
     rulerow = Kanones.readrulerow(infinparser, cex)
     # Note that "." and "_" must be protected in FST string values, but not in symbols.
     expected = "<w_regular><infinitive>ειν<present><active><u>infinfl\\.wreg1</u>"
-    @test FstBuilder.fst(rulerow, literaryGreek()) == expected
+    @test FstBuilder.fst(rulerow) == expected
 end

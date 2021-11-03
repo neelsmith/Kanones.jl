@@ -48,7 +48,7 @@ Read one row of a stems table for noun tokens and create a `NounStem`.
 
 $(SIGNATURES)    
 """
-function readstemrow(usp::NounParser, delimited::AbstractString, delimiter = "|")
+function readstemrow(usp::NounIO, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
     stemid = Kanones.StemUrn(parts[1])
     lexid = Kanones.LexemeUrn(parts[2])
@@ -63,7 +63,7 @@ end
 
 $(SIGNATURES) 
 """
-function readrulerow(usp::NounParser, delimited::AbstractString, delimiter = "|")
+function readrulerow(usp::NounIO, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
     
     if length(parts) < 7

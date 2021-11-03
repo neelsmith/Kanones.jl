@@ -24,9 +24,9 @@ end
 end
 
 #=
-@testset "Read stems for irregular noun tokens from delimited text" begin
+@testset "Read stems for irregular adjective tokens from delimited text" begin
     cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
-    irregparser = Kanones.IrregularNounParser("irregular nouns")
+    irregparser = Kanones.IrregularNounIO("irregular nouns")
     stemrow = Kanones.readstemrow(irregparser, cex)
 
     @test  stemrow.stemid  == StemUrn("irregnoun.irregn23069a")  #|> string
@@ -39,9 +39,9 @@ end
 end
 
 
-@testset "Read rules for irregular noun tokens from delimited text" begin
+@testset "Read rules for irregular adjective tokens from delimited text" begin
     cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular"
-    nounparser = Kanones.IrregularNounParser("nouns")
+    nounparser = Kanones.IrregularNounIO("nouns")
     @test_broken  Kanones.readrulerow(nounparser, cex)
     #=
     rulerow = Kanones.readrulerow(nounparser, cex)

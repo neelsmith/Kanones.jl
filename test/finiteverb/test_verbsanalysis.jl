@@ -1,95 +1,87 @@
 @testset "Test resulting values in verb analysis" begin
     d = tempdir()
     repo = dirname(pwd())
-#=
-    kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
-    fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
 
-    parser = d * "/testcompile/greek.a"
-    analyzed = parsetoken(parser, "κελευσει")
-    @test length(analyzed) == 1
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "κελευσει"
+    kd = Kanones.Dataset([joinpath(repo, "datasets", "core-infl"), joinpath(repo, "datasets", "core-vocab")])
+    fst =  joinpath(repo, "fst")
+    parser = FstBuilder.buildparser(kd, fst, joinpath(d, "testcompile"))
 
-
-    analyzed = parsetoken(parser, "γιγνεται")
+    analyzed = parsetoken("κελευσει", parser)
     @test length(analyzed) == 2
     @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "γιγνεται"
+    @test analyzed[1].token == "#κελευσει"
 
 
-    analyzed = parsetoken(parser, "δεικνυσι")
-    @test length(analyzed) == 1
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "δεικνυσι"
-
-    analyzed = parsetoken(parser, "δειξεται")
-    @test length(analyzed) == 1
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "δειξεται"
-
-    analyzed = parsetoken(parser, "δεδειχε")
-    @test length(analyzed) == 1
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "δεδειχε"
-
-    analyzed = parsetoken(parser, "δειχθησεται")
-    @test length(analyzed) == 1
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "δειχθησεται"
-
-    analyzed = parsetoken(parser, "γενησοιτο")
-    @test length(analyzed) == 1
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "γενησοιτο"
-
-    analyzed = parsetoken(parser, "γενοιτο")
-    @test length(analyzed) == 1
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "γενοιτο"
-
-    analyzed = parsetoken(parser, "γεγονε")
-    @test length(analyzed) == 1
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "γεγονε"
-
-    analyzed = parsetoken(parser, "γεγενηται")
+    analyzed = parsetoken("γιγνεται", parser)
     @test length(analyzed) == 2
     @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "γεγενηται"
-
-    analyzed = parsetoken(parser, "γενηθησεται")
-    @test length(analyzed) == 1
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "γενηθησεται"
+    @test analyzed[1].token == "#γιγνεται"
 
 
-    analyzed = parsetoken(parser, "ποιειται")
-    @test length(analyzed) == 2
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "ποιειται"
-
-
-    analyzed = parsetoken(parser, "πραττεται")
-    @test length(analyzed) == 2
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "πραττεται"
-
-    analyzed = parsetoken(parser, "πεπρακται")
-    @test length(analyzed) == 2
-    @test isa(analyzed[1], Analysis)
-    @test analyzed[1].token == "πεπρακται"
-
-
-
-
-    repo = dirname(pwd())
-    kd = Kanones.Dataset([  repo * "/datasets/debug/"])
-    fst =  repo * "/fst/"
-    parser = FstBuilder.buildparser(kd,fst,repo* "/parsers/debugkanones/")
-    #parser =  repo * "/parsers/debugkanones/greek.a"
-    analyzed = parsetoken(parser, "ἐκελευε")
+    analyzed = parsetoken("δεικνυσι", parser)
     @test_broken length(analyzed) == 1
-        =#
+    @test_broken isa(analyzed[1], Analysis)
+    @test_broken analyzed[1].token == "#δεικνυσι"
+
+    analyzed = parsetoken("δειξεται", parser)
+    @test length(analyzed) == 1
+    @test isa(analyzed[1], Analysis)
+    @test analyzed[1].token == "#δειξεται"
+
+    analyzed = parsetoken("δεδειχε", parser)
+    @test_broken length(analyzed) == 1
+    @test_broken isa(analyzed[1], Analysis)
+    @test_broken analyzed[1].token == "#δεδειχε"
+
+    analyzed = parsetoken("δειχθησεται", parser)
+    @test length(analyzed) == 1
+    @test isa(analyzed[1], Analysis)
+    @test analyzed[1].token == "#δειχθησεται"
+
+    analyzed = parsetoken("γενησοιτο", parser)
+    @test length(analyzed) == 1
+    @test isa(analyzed[1], Analysis)
+    @test analyzed[1].token == "#γενησοιτο"
+
+    analyzed = parsetoken("γενοιτο", parser)
+    @test_broken length(analyzed) == 1
+    @test_broken isa(analyzed[1], Analysis)
+    @test_broken analyzed[1].token == "#γενοιτο"
+
+    analyzed = parsetoken("γεγονε", parser)
+    @test_broken length(analyzed) == 1
+    @test_broken isa(analyzed[1], Analysis)
+    @test_broken analyzed[1].token == "γεγονε"
+
+    analyzed = parsetoken("γεγενηται", parser )
+    @test_broken length(analyzed) == 2
+    @test_broken isa(analyzed[1], Analysis)
+    @test_broken analyzed[1].token == "γεγενηται"
+
+    analyzed = parsetoken("γενηθησεται", parser)
+    @test length(analyzed) == 1
+    @test isa(analyzed[1], Analysis)
+    @test analyzed[1].token == "#γενηθησεται"
+
+
+    analyzed = parsetoken("ποιειται", parser)
+    @test length(analyzed) == 2
+    @test isa(analyzed[1], Analysis)
+    @test analyzed[1].token == "#ποιειται"
+
+
+    analyzed = parsetoken("πραττεται", parser)
+    @test length(analyzed) == 2
+    @test isa(analyzed[1], Analysis)
+    @test analyzed[1].token == "#πραττεται"
+
+    analyzed = parsetoken("πεπρακται", parser )
+    @test_broken length(analyzed) == 2
+    @test_broken isa(analyzed[1], Analysis)
+    @test_broken analyzed[1].token == "πεπρακται"
+
+    analyzed = parsetoken("ἐκελευε", parser )
+    @test length(analyzed) == 1
+    @test isa(analyzed[1], Analysis)
+    #@test_broken analyzed[1].token == "ἐκελευε"
 end

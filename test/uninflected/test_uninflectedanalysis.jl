@@ -3,11 +3,14 @@
     
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset([repo * "/datasets/core-infl/"]; ortho = literaryGreek())
+    infl = joinpath(repo, "datasets", "core-infl")
+    vocab = joinpath(repo, "datasets", "core-vocab")
+    kd = Kanones.Dataset([infl, vocab])
     fst =  joinpath(repo, "fst")
     
 
-    parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
+    compilerdir = joinpath(d, "testcompile")
+    parser = FstBuilder.buildparser(kd,fst, compilerdir)
     analyzed = parsetoken("καί", parser)
     @test length(analyzed) == 1
     @test isa(analyzed[1], Analysis)

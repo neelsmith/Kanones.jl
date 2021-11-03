@@ -22,7 +22,9 @@ end
     d = tempdir()
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset([joinpath(repo, "datasets", "core-infl")])
+    infl = joinpath(repo, "datasets", "core-infl")
+    vocab = joinpath(repo, "datasets", "core-vocab")
+    kd = Kanones.Dataset([infl, vocab])
     fst =  joinpath(repo, "fst")
     parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
     analysislist = parsetoken( "και", parser)

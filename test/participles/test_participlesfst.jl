@@ -4,5 +4,5 @@
     rulerow = Kanones.readrulerow(ptpclparser, cex)
     # Note that "." and "_" must be protected in FST string values, but not in symbols.
     expected = "<w_regular><participle>ομενον<present><middle><neuter><nominative><singular><u>ptcplinfl\\.wpres11p</u>"
-    @test FstBuilder.fst(rulerow, literaryGreek()) == expected
+    @test FstBuilder.fst(rulerow) == expected
 end

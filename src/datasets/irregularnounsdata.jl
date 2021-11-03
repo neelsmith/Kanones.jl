@@ -42,7 +42,7 @@ Read one row of a stems table for noun tokens and create a `NounStem`.
 
 $(SIGNATURES)    
 """
-function readstemrow(usp::IrregularNounParser, delimited::AbstractString, delimiter = "|")
+function readstemrow(usp::IrregularNounIO, delimited::AbstractString, delimiter = "|")
     parts = split(delimited, delimiter)
 
     # Example:

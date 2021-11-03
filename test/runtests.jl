@@ -20,18 +20,11 @@ include("uninflected/test_uninflectedanalysis.jl")
 
 include("uninflected/test_uninflectedgenerate.jl")
 
-include("nouns/test_nounsfst.jl") 
-include("nouns/test_nounsdata.jl")
-include("nouns/test_nounsanalysis.jl")
 
-include("nouns/test_nounsformatting.jl")
-
-include("nouns/test_nounsgenerate.jl")
 
 include("pronouns/test_pronounsdata.jl")
 include("pronouns/test_pronounsfst.jl")
 include("pronouns/test_pronounsanalysis.jl")
-
 
 include("adjectives/test_adjectivesdata.jl")
 include("adjectives/test_adjectivesfst.jl")
@@ -52,6 +45,14 @@ include("verbaladjectives/test_verbaladjectivesanalysis.jl")
 include("test_parse.jl")
 include("test_compile.jl")
 
+
 include("finiteverb/test_verbsanalysis.jl")
 
 
+
+
+include("nouns/test_nounsfst.jl") 
+include("nouns/test_nounsdata.jl")
+include("nouns/test_nounsanalysis.jl")
+include("nouns/test_nounsformatting.jl")
+include("nouns/test_nounsgenerate.jl")

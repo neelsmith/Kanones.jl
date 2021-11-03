@@ -4,7 +4,7 @@
 
 $(SIGNATURES)
 """
-function fst(stem::Kanones.NounStem, ortho::T) where {T <: GreekOrthography}
+function fst(stem::Kanones.NounStem; ortho::T = literaryGreek()) where {T <: GreekOrthography}
     string(
         fstsafe(stem.stemid),
         fstsafe(stem.lexid),
@@ -19,7 +19,7 @@ end
 
 $(SIGNATURES)
 """
-function fst(rule::Kanones.NounRule, ortho::T) where {T <: GreekOrthography}
+function fst(rule::Kanones.NounRule; ortho::T = literaryGreek()) where {T <: GreekOrthography}
     noaccs = rmaccents(rule.ending, ortho)
 
     string(

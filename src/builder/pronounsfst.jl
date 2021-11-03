@@ -4,7 +4,7 @@
 
 $(SIGNATURES)
 """
-function fst(stem::Kanones.PronounStem, ortho::T) where {T <: GreekOrthography}
+function fst(stem::Kanones.PronounStem; ortho::T = literaryGreek()) where {T <: GreekOrthography}
     string(
         fstsafe(stem.stemid),
         fstsafe(stem.lexid),
@@ -23,7 +23,7 @@ end
 
 $(SIGNATURES)
 """
-function fst(rule::Kanones.PronounRule, ortho::T) where {T <: GreekOrthography}
+function fst(rule::Kanones.PronounRule; ortho::T =  literaryGreek()) where {T <: GreekOrthography}
     string(
         "<", rule.pronountype, ">",
         "<pronoun>",

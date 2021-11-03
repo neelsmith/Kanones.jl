@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-function fst(rule::Kanones.VerbalAdjectiveRule, ortho::T) where {T <: GreekOrthography}
+function fst(rule::Kanones.VerbalAdjectiveRule; ortho::T = literaryGreek()) where {T <: GreekOrthography}
     string("<", rule.inflectionclass,"><verbaladjective>", 
     rmaccents(rule.ending, ortho),  
     "<", rule.vagender, ">",

@@ -3,7 +3,7 @@
 
 $(SIGNATURES)
 """
-function fst(rule::Kanones.IrregularRule, ortho::T) where {T <: GreekOrthography}
+function fst(rule::Kanones.IrregularRule; ortho::T = literaryGreek()) where {T <: GreekOrthography}
 
     string("<", rule.inflectionclass,"><irregular>", fstsafe(rule.ruleid))
 end
