@@ -93,11 +93,11 @@ end
 
 $(SIGNATURES)
 """
-function cex(noun::NounForm, delim="|")
-    join([urn(noun), label(noun)], delim)
+function cex(noun::NounForm; delimiter ="|")
+    join([urn(noun), label(noun)], delimiter)
 end
-=#
 
+=#
 
 """Compose a `FormUrn` for a `NounForm`.
 
