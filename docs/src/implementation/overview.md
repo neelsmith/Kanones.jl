@@ -155,15 +155,15 @@ label(nounform)
 ```
 
 ```@example impleg
-formurn(nounform)
-```
-
-```@example impleg
 urn(nounform)
 ```
 
 ```@example impleg
 cex(nounform)
+```
+
+```@example impleg
+Kanones.formurn(nounform)
 ```
 
 ## Validating the result: analysis through synthesis
