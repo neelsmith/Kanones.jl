@@ -50,22 +50,14 @@ Pass in a list of full paths to one or more directories laid out according to Ka
 
 ```@setup kd
 repo = pwd() |> dirname |> dirname  |> dirname
-src1 = repo * "/datasets/core-infl/"
-src2 = repo * "/datasets/core-vocab/"
-using Kanones
+
 ```
 
 ```@example kd
+src1 = joinpath(reporoot, "datasets", "core-infl")
+src2 = joinpath(reporoot, "datasets", "core-vocab")
 datasrcs = [src1, src2]
 kdata = dataset(datasrcs)
 ```
 
 
-
-
-
-## Working with stems and rules
-
-
-- rulesarray
-- stemsarray

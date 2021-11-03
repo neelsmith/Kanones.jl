@@ -36,8 +36,9 @@ target = reporoot * "/parsers/demo/"
 Load morphological data and definition of the dataset's orthography into a `Kanones.Dataset` structure.
 
 ```@example eg
-datadirectory = reporoot * "/datasets/core-infl/"
-kd = dataset([datadirectory])
+core_inflection = joinpath(reporoot, "datasets", "core-infl")
+core_vocab = joinpath(reporoot, "datasets", "core-vocab")
+kd = dataset([core_inflection, core_vocab])
 ```
 
 
@@ -49,7 +50,7 @@ kd = dataset([datadirectory])
 
 
 ```@example eg
-fstsrc = reporoot *  "/fst/"
+fstsrc = joinpat(reporoot,  "fst")
 parser = buildparser(kd, fstsrc, target)
 basename(parser.sfstpath)
 ```

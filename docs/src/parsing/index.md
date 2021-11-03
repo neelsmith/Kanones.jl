@@ -19,8 +19,12 @@ end
 
 ```@example parserexample
 using Kanones, Kanones.FstBuilder
-kd = dataset(repo * "/datasets/core-infl/")
-fstsrc = repo * "/fst/"
+
+core_inflection = joinpath(reporoot, "datasets", "core-infl")
+core_vocab = joinpath(reporoot, "datasets", "core-vocab")
+kd = dataset([core_inflection, core_vocab])
+
+fstsrc = joinpath(repo, "fst")
 parser = buildparser(kd, fstsrc, target)
 basename(parser.sfstpath)
 ```
