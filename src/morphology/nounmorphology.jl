@@ -8,6 +8,8 @@ struct NounForm <: MorphologicalForm
     #numberlabel::AbstractString    
 end
 
+CitableTrait(::Type{NounForm}) = CitableByCite2Urn()
+
 """Create a `NounForm` from a string value.
 
 $(SIGNATURES)
@@ -86,7 +88,7 @@ function abbrurn(rule::NounRule)
     FormUrn(string("morphforms.", NOUN,"0",numdict[rule.nnumber],"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
 end
 
-
+#=
 """Compose CEX representation for a `NounForm`.
 
 $(SIGNATURES)
@@ -94,7 +96,7 @@ $(SIGNATURES)
 function cex(noun::NounForm, delim="|")
     join([urn(noun), label(noun)], delim)
 end
-
+=#
 
 
 """Compose a `FormUrn` for a `NounForm`.

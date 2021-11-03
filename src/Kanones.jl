@@ -17,6 +17,7 @@ using Unicode, Glob, DelimitedFiles
 using CSV, HTTP
 using Documenter, DocStringExtensions
 
+using CitableBase
 import CitableBase: CitableTrait
 import CitableBase: urn
 import CitableBase: label

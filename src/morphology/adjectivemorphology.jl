@@ -113,8 +113,8 @@ end
 
 $(SIGNATURES)
 """
-function cex(adj::AdjectiveForm, delim="|")
-    join([urn(adj), label(adj)], delim)
+function cex(adj::AdjectiveForm; delimiter="|")
+    join([urn(adj), label(adj)], delimiter)
 end
 
 #PosPNTMVGCDCat

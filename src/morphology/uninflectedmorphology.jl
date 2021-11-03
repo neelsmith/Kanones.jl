@@ -73,15 +73,16 @@ end
 function abbrurn(rule::UninflectedRule)
     posdict = labeldict(uninflectedpairs)
     # PosPNTMVGCDCat
-    FormUrn(string("morphforms.", UNINFLECTED,"00000000",posdict[rule.infltype]))
+    FormUrn(string("morphforms.", UNINFLECTED,"00000000",posdict[rule.infltype])) 
 
 end
 
+#=
 """Compose URN for an `UninflectedForm`.
 
 $(SIGNATURES)
 """
-function cex(uform::UninflectedForm)
+function cex(uform::UninflectedForm; delim="|")
     urnval = urn(uform).urn
 
 
@@ -91,6 +92,7 @@ function cex(uform::UninflectedForm)
     # NEED generic retrieval functions for Morphology string sequence.
     nothing
 end
+=#
 
 """Compose Abbreviated URN for uninflected form from value for part of speech.
 

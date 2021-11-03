@@ -98,11 +98,11 @@ The `Kanones.KanonesFstBuilder.fst` formats `Stem` and `Rule` objects in the SFS
 
 
 ```@example impleg
- Kanones.FstBuilder.fst(stem)
+Kanones.FstBuilder.fst(stem)
 ```
 
 ```@example impleg
- Kanones.FstBuilder.fst(rule)
+Kanones.FstBuilder.fst(rule)
 ```
 
 When the source files for a parser are composed, the SFST code for stems are combined in SFST's "lexicon" format (one entry per line, and written to `lexicon.fst`. Rules files are combined as source for a single transducer that is the disjunction of all possible inflectional rules, and written to `inflection.fst`.  
@@ -112,3 +112,60 @@ The `buildparser` function additionally composes the SFST logic for filtering ou
 
 ## Reading the output of an SFST parser
 
+When a `Kanones` parser parses a token, the SFST parser returns line-oriented string data that looks like this:
+
+
+```@example impleg
+rawreply = "> ἀνθρωπου\n<u>nounstems.n8909</u><u>lsj.n8909</u>ἀνθρωπ<noun><masculine><os_ou><div><os_ou><noun>ου<masculine><genitive><singular><u>nouninfl.os_ou2</u>\n"
+```
+
+For successful parses, lines beginning with `> ` identify the token being parsed; subsequent lines list one successful parse per line.
+
+```@example impleg
+lines = split(rawreply,"\n")
+```
+
+Several functions parse data like this by passing non-empty lines with parse output to `Kanones.analysisforline` -- here, the second line of the reply.
+
+```@example impleg
+lines[2]
+```
+
+Stem and rule components are separated by the FST token `<div>`.  
+
+`Kanones.analysisforline` divides the reply into separate stem and rule components, and extracts the second token of the rule component to determine an analysis type -- here, `<noun>`.
+
+```@example impleg
+(stemfst, rulefst) = split(lines[2], "<div>")
+rule
+```
+
+The equivalent of what happens inside the `Kanones.analysisforline` is:
+
+
+```@example impleg
+nounform = Kanones.nounfromfst("<masculine><genitive><singular>")
+```
+
+It uses a dictionary mapping names of analysis types to functions that can parse FST output for that analytical type into a `FormUrn`.  For analyses identifed by `<noun>`, it applies the `Kanones.nounfromfst` function.  These are versatile objects that can be used in many ways.
+
+
+```@example impleg
+label(nounform)
+```
+
+```@example impleg
+abbrurn(nounform)
+```
+
+```@example impleg
+urn(nounform)
+```
+
+```@example impleg
+cex(nounform)
+```
+
+## Validating the result: analysis through synthesis
+
+TBA

@@ -72,6 +72,8 @@ function label(mf::T) where {T <: MorphologicalForm}
     nothing
 end
 
+
+#=
 """Convert a `MorphologicalForm` form to a delimited-text string. 
 
 $(SIGNATURES)
@@ -79,11 +81,12 @@ $(SIGNATURES)
 All subclasses of `MorphologicalForm` should implement this specifically
 for their subclass.
 """
-function cex(mf::T, delim) where {T <: MorphologicalForm}
-    @warn("cex: unrecognized type of MorphologicalForm.")
-    nothing
+function cex(mf::T; delimiter = "|") where {T <: MorphologicalForm}
+    #@warn("cex: unrecognized type of MorphologicalForm.")
+    #nothing
+    join([urn(mf), label(mf)]; delimiter = delimiter)
 end
-
+=#
 
 """Create a `MorphologicalForm` from a Cite2Urn value.
 

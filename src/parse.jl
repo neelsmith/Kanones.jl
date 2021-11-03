@@ -27,7 +27,6 @@ end
 """Dictionary of functions to use with each analytical type
 to determine a `FormUrn` from the FST description of form.
 
-
 $(SIGNATURES)
 """
 function functionforcategory()
