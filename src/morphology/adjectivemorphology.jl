@@ -103,7 +103,7 @@ end
 
 $(SIGNATURES)
 """
-function abbrurn(rule::AdjectiveRule)
+function ruleurn(rule::AdjectiveRule)
     missing
 end
 

@@ -24,7 +24,7 @@ Kanones.FiniteVerbForm
 Kanones.urn
 Kanones.cex
 Kanones.morphform
-Kanones.abbrurn
+Kanones.ruleurn
 Kanones.formscex
 Kanones.formurn
 Kanones.pospairs

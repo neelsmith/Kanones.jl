@@ -20,5 +20,5 @@ end
 @testset "Parse rule component FST reply into a form URN" begin
     rule = "<w_regular><finiteverb>ει<third><singular><present><indicative><active>"
     expected = FormUrn("morphforms.3031111000")
-    @test Kanones.finiteverbabbrurn(rule) == expected
+    @test Kanones.finiteverbruleurn(rule) == expected
 end

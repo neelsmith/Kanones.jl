@@ -79,7 +79,7 @@ end
 
 $(SIGNATURES)
 """
-function abbrurn(rule::NounRule)
+function ruleurn(rule::NounRule)
     numdict = labeldict(numberpairs)
     casedict = labeldict(casepairs)
     genderdict = labeldict(genderpairs)

@@ -43,7 +43,7 @@ export MorphologicalForm
 export generate
 export decline, mddeclension
 
-export urn, abbrurn
+export urn, ruleurn
 
 include("parse.jl")
 include("listparsing.jl")

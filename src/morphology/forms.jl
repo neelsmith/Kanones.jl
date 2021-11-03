@@ -18,8 +18,8 @@ to a `RuleUrn`.
 
 $(SIGNATURES)
 """
-function abbrurn(rule::T) where {T <: RuleUrn}
-    @warn "Function abbrurn not implemented for type $typeof(rule)."
+function ruleurn(rule::T) where {T <: RuleUrn}
+    @warn "Function ruleurn not implemented for type $typeof(rule)."
     nothing
 end
 
