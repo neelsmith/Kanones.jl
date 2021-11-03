@@ -98,7 +98,7 @@ function rulesarray(dirlist)
 
     for datasrc in dirlist
         for dirname in rulesdirs 
-            dir = datasrc * "/rules-tables/" * dirname * "/"
+            dir = joinpath(datasrc, "rules-tables", dirname)
             cexfiles = glob("*.cex", dir)
             delimitedreader = (iodict[dirname])
             for f in cexfiles
@@ -128,7 +128,7 @@ end
 $(SIGNATURES)
 """
 function stemsarray(dirlist)
-    @info "Getting regular stems for $dirlist"
+    @info("Getting regular stems for $dirlist")
     iodict = Dict(
         [
         "adjectives" => AdjectiveParser("adjective"),
@@ -150,12 +150,12 @@ function stemsarray(dirlist)
     stemsarr = []
     for datasrc in dirlist
         for dirname in stemdirs 
-            dir = datasrc * "/stems-tables/" * dirname * "/"
+            dir = joinpath(datasrc, "stems-tables", dirname)
             cexfiles = glob("*.cex", dir)
             delimitedreader = (iodict[dirname])
             for f in cexfiles
                 raw = readlines(f)
-                # Trim lines first!
+                # Trim lines first:
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
                     stem = readstemrow(delimitedreader, lines[i])
@@ -179,7 +179,7 @@ function stemsarray(dirlist)
         "verbs",
         "infinitives"
     ]
-    @info("Getting regular stems for $dirlist")
+    @info("Getting irrregular stems for $dirlist")
     for datasrc in dirlist
         for dirname in irregstemdirs 
             dir = datasrc * "/irregular-stems/" * dirname * "/"
