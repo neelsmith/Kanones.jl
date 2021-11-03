@@ -74,7 +74,7 @@ function rulesarray(dirlist)
         [
         "uninflected" => UninflectedParser("uninflected"),
         "irregulars" => IrregularRuleParser("irregulars"),
-        "nouns" => NounParser("noun"),
+        "nouns" => NounIO("noun"),
         "pronouns" => PronounParser("noun"),
         "adjectives" => AdjectiveParser("adjectives"),
         "finiteverbs" => VerbParser("verb"),
@@ -132,7 +132,7 @@ function stemsarray(dirlist)
     iodict = Dict(
         [
         "adjectives" => AdjectiveParser("adjective"),
-        "nouns" => NounParser("noun"),
+        "nouns" => NounIO("noun"),
         "pronouns" => PronounParser("pronoun"),
         "uninflected" => UninflectedParser("uninflected"),
         "verbs-simplex" => VerbParser("verb")
@@ -147,7 +147,7 @@ function stemsarray(dirlist)
         
     ]
 
-    stemsarr = []
+    stemsarr = Stem[]
     for datasrc in dirlist
         for dirname in stemdirs 
             dir = joinpath(datasrc, "stems-tables", dirname)
@@ -169,7 +169,7 @@ function stemsarray(dirlist)
     irregiodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
-        "nouns" => IrregularNounParser("noun"),
+        "nouns" => IrregularNounIO("noun"),
         "verbs" => IrregularVerbParser("finite verb"),
         "infinitives" => IrregularInfinitiveParser("infinitive")
         ]
