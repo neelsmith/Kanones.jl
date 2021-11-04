@@ -15,12 +15,12 @@ end
 @testset "Read stems for adjective tokens from delimited text"  begin    
     cexsrc = "adjstems.n52840a|lsj.n52840|καλ|os_h_on_pos|inflectionaccented|"
     adjectiveio = Kanones.AdjectiveIO("adjectives")
-    stemrow = Kanones.readstemrow(adjectiveio, cexsrc)
-    @test  stemrow.stemid |> string == StemUrn("adjstems.n52840a") |> string
-    @test stemrow.lexid |> string == LexemeUrn("lsj.n52840") |> string
-    @test stemrow.form == "καλ"
-    @test stemrow.inflectionclass == "os_h_on_pos"
-    @test stemrow.accentpersistence == "inflectionaccented"
+    stem = Kanones.readstemrow(adjectiveio, cexsrc)
+    @test  stem.stemid |> string == StemUrn("adjstems.n52840a") |> string
+    @test stem.lexid |> string == LexemeUrn("lsj.n52840") |> string
+    @test stem.form == "καλ"
+    @test stem.inflectionclass == "os_h_on_pos"
+    @test stem.accentpersistence == "inflectionaccented"
 end
 
 
