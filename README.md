@@ -20,11 +20,11 @@ Kanones.jl recognizes nine analytical types, defined by the kind of analysis a p
 | Analytical type | morphology | analyze literary Greek regular form |  analyze literary Greek irregular form  |  generate literary Greek | generate literary Greek irregular  | analyze Attic regular form | analyze Attic irregular form  | generate Attic |
 | --- | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | uninflected token | part of speech | ✔️  | **N/A** | ✔️  | **N/A** | ✔️ | **N/A** | ✔️ |
-| noun | gender, case, number (gender inherent) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️  | ✔️  |
+| noun | gender, case, number (gender inherent) | ✅ | ✅ | ✔️ | ✔️ | ✔️ | ✔️  | ✔️  |
 | pronoun | gender, case, number (gender not inherent) |  **N/A** | ✔️| | |  **N/A** | | | 
 | finite verb | person, number, tense, mood, voice | ✔️ | ✔️  | | | | | |
 | infinitive | tense, voice | ✔️ | ✔️ | | | | | |
-| participle | tense, voice, gender, case, number |✔️ |  | | | |   | |
+| participle | tense, voice, gender, case, number |✔️ | **N/A** | | | |   | |
 | verbal adjective |  gender, case, number | ✔️ |  **N/A** |  | |   | **N/A** | |
 | adjective | gender, case, number, degree |✔️ | | | | | | |
 | adverb | degree |  |  **N/A** | | | |  **N/A** | |
