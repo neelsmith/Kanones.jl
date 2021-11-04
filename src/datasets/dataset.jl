@@ -61,15 +61,15 @@ end
 
 $(SIGNATURES)
 """
-function rulesarray(kd::Kanones.Dataset)
-    rulesarray(kd.dirs)
+function rulesarray(kd::Kanones.Dataset; delimiter = "|")
+    rulesarray(kd.dirs, delimiter = delimiter)
 end
 
 """Read all rules data from a `Kanones.Dataset` into an array of `Rule`s.
 
 $(SIGNATURES)
 """
-function rulesarray(dirlist)
+function rulesarray(dirlist; delimiter = "|")
     iodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
@@ -105,7 +105,7 @@ function rulesarray(dirlist)
                 raw = readlines(f)
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
-                    rule = readrulerow(delimitedreader, lines[i])
+                    rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
                     push!(rulesarr,rule)
                 end
             end
@@ -127,7 +127,7 @@ end
 
 $(SIGNATURES)
 """
-function stemsarray(dirlist)
+function stemsarray(dirlist; delimiter = "|")
     @info("Getting regular stems for $dirlist")
     iodict = Dict(
         [
@@ -158,7 +158,7 @@ function stemsarray(dirlist)
                 # Trim lines first:
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
-                    stem = readstemrow(delimitedreader, lines[i])
+                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
                     push!(stemsarr,stem)
                 end
             end
@@ -182,14 +182,14 @@ function stemsarray(dirlist)
     @info("Getting irregular stems for $dirlist")
     for datasrc in dirlist
         for dirname in irregstemdirs 
-            dir = datasrc * "/irregular-stems/" * dirname * "/"
+            dir = joinpath(datasrc, "irregular-stems", dirname)
             cexfiles = glob("*.cex", dir)
             delimitedreader = (irregiodict[dirname])
             for f in cexfiles
                 raw = readlines(f)
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
-                    stem = readstemrow(delimitedreader, lines[i])
+                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
                     push!(stemsarr,stem)
                 end
             end

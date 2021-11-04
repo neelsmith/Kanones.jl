@@ -16,14 +16,14 @@ end
 
 $(SIGNATURES)
 """
-function readrulerow(usp::InfinitiveRuleParser, delimited::AbstractString, delimiter = "|")
+function readrulerow(usp::InfinitiveRuleParser, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     
     if length(parts) < 5
         msg = "Invalid syntax for finite verb rule: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
-        ruleid = Kanones.RuleUrn(parts[1])
+        ruleid = RuleUrn(parts[1])
         inflclass = parts[2]
         ending = parts[3]
         t = parts[4]

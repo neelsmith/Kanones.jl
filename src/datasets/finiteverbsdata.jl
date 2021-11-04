@@ -31,10 +31,10 @@ end
 
 $(SIGNATURES)
 """
-function readstemrow(usp::VerbParser, delimited::AbstractString, delimiter = "|")
+function readstemrow(usp::VerbParser, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
-    stemid = Kanones.StemUrn(parts[1])
-    lexid = Kanones.LexemeUrn(parts[2])
+    stemid = StemUrn(parts[1])
+    lexid = LexemeUrn(parts[2])
     stem = parts[3]
     stemclass = parts[4]
     VerbStem(stemid,lexid,stem,stemclass)
@@ -46,14 +46,14 @@ end
 
 $(SIGNATURES)
 """
-function readrulerow(usp::VerbParser, delimited::AbstractString, delimiter = "|")
+function readrulerow(usp::VerbParser, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     
     if length(parts) < 8
         msg = "Invalid syntax for finite verb rule: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
-        ruleid = Kanones.RuleUrn(parts[1])
+        ruleid = RuleUrn(parts[1])
         inflclass = parts[2]
         ending = parts[3]
         

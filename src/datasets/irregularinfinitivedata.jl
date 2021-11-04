@@ -8,7 +8,7 @@ struct IrregularInfinitiveStem <: Stem
 end
 
 
-function readstemrow(usp::Kanones.IrregularInfinitiveParser, delimited::AbstractString, delimiter = "|")
+function readstemrow(usp::Kanones.IrregularInfinitiveParser, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
 
 
@@ -18,8 +18,8 @@ function readstemrow(usp::Kanones.IrregularInfinitiveParser, delimited::Abstract
         throw(new(ArgumentError(msg)))
     end
     
-    stemid = Kanones.StemUrn(parts[1])
-    lexid = Kanones.LexemeUrn(parts[2])
+    stemid = StemUrn(parts[1])
+    lexid = LexemeUrn(parts[2])
     stem = nfkc(parts[3])
     t = parts[4]
     v = parts[5]

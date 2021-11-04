@@ -8,6 +8,7 @@ struct NounForm <: MorphologicalForm
     #numberlabel::AbstractString    
 end
 
+"""Noun forms are citable by Cite2Urn"""
 CitableTrait(::Type{NounForm}) = CitableByCite2Urn()
 
 """Create a `NounForm` from a string value.

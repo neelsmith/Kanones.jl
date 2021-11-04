@@ -12,13 +12,13 @@ end
 
 $(SIGNATURES) 
 """
-function readrulerow(ruleparser::Kanones.IrregularRuleParser,  delimited::AbstractString, delimiter = "|")
+function readrulerow(ruleparser::Kanones.IrregularRuleParser, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     if length(parts) < 2
         msg = "Invalid syntax for irregular rule: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
-        ruleid = Kanones.RuleUrn(parts[1])
+        ruleid = RuleUrn(parts[1])
         inflectionaltype = parts[2]
         IrregularRule(ruleid, inflectionaltype)
     end
