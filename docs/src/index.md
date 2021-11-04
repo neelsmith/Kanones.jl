@@ -39,6 +39,7 @@ Load morphological data and definition of the dataset's orthography into a `Kano
 core_inflection = joinpath(reporoot, "datasets", "core-infl")
 core_vocab = joinpath(reporoot, "datasets", "core-vocab")
 kd = dataset([core_inflection, core_vocab])
+typeof(kd)
 ```
 
 

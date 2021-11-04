@@ -179,7 +179,7 @@ function stemsarray(dirlist)
         "verbs",
         "infinitives"
     ]
-    @info("Getting irrregular stems for $dirlist")
+    @info("Getting irregular stems for $dirlist")
     for datasrc in dirlist
         for dirname in irregstemdirs 
             dir = datasrc * "/irregular-stems/" * dirname * "/"

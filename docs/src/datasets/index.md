@@ -60,6 +60,7 @@ datasrcs = [src1, src2]
 
 using Kanones
 kdata = dataset(datasrcs)
+typeof(kdata)
 ```
 
 
