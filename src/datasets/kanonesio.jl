@@ -135,6 +135,16 @@ KanonesIO type for reading and writing data for adjective rules and stems.
 
 $(SIGNATURES)
 """
-struct AdjectiveParser <: KanonesIO
+struct AdjectiveIO <: KanonesIO
+    label::AbstractString
+end
+
+
+"""
+KanonesIO type for reading and writing data for irregular noun forms.
+
+$(SIGNATURES)
+"""
+struct IrregularAdjectiveIO <: KanonesIO
     label::AbstractString
 end

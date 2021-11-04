@@ -76,7 +76,7 @@ function rulesarray(dirlist; delimiter = "|")
         "irregulars" => IrregularRuleParser("irregulars"),
         "nouns" => NounIO("noun"),
         "pronouns" => PronounParser("noun"),
-        "adjectives" => AdjectiveParser("adjectives"),
+        "adjectives" => AdjectiveIO("adjectives"),
         "finiteverbs" => VerbParser("verb"),
         "infinitives" => InfinitiveRuleParser("infinitives"),
         "participles" => ParticipleRuleParser("participles"),
@@ -131,7 +131,7 @@ function stemsarray(dirlist; delimiter = "|")
     @info("Getting regular stems for $dirlist")
     iodict = Dict(
         [
-        "adjectives" => AdjectiveParser("adjective"),
+        "adjectives" => AdjectiveIO("adjective"),
         "nouns" => NounIO("noun"),
         "pronouns" => PronounParser("pronoun"),
         "uninflected" => UninflectedParser("uninflected"),

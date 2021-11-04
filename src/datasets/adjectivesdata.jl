@@ -26,7 +26,7 @@ Read one row of a stems table for adjective tokens and create an `AdjectiveStem`
 
 $(SIGNATURES)    
 """
-function readstemrow(usp::AdjectiveParser, delimited::AbstractString; delimiter = "|")
+function readstemrow(usp::AdjectiveIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
@@ -42,7 +42,7 @@ end
 
 $(SIGNATURES) 
 """
-function readrulerow(usp::AdjectiveParser, delimited::AbstractString; delimiter = "|")
+function readrulerow(usp::AdjectiveIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     
     if length(parts) < 7

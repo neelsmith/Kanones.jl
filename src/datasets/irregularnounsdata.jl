@@ -3,9 +3,9 @@ struct IrregularNounStem <: Stem
     stemid::Kanones.AbbreviatedUrn
     lexid::Kanones.AbbreviatedUrn
     form::AbstractString
-    gender
-    gcase
-    gnumber
+    noungender
+    nouncase
+    nounnumber
     #inflectionclass
 end
 

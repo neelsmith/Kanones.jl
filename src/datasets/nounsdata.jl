@@ -70,6 +70,8 @@ function lexeme(n::NounStem)
     n.lexid
 end
 
+
+
 "Inflectional rule for a noun form."
 struct NounRule <: Rule
     ruleid
