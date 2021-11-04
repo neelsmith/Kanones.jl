@@ -50,7 +50,7 @@ kd = dataset([core_inflection, core_vocab])
 
 
 ```@example eg
-fstsrc = joinpat(reporoot,  "fst")
+fstsrc = joinpath(reporoot,  "fst")
 parser = buildparser(kd, fstsrc, target)
 basename(parser.sfstpath)
 ```

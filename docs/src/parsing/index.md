@@ -20,8 +20,8 @@ end
 ```@example parserexample
 using Kanones, Kanones.FstBuilder
 
-core_inflection = joinpath(reporoot, "datasets", "core-infl")
-core_vocab = joinpath(reporoot, "datasets", "core-vocab")
+core_inflection = joinpath(repo, "datasets", "core-infl")
+core_vocab = joinpath(repo, "datasets", "core-vocab")
 kd = dataset([core_inflection, core_vocab])
 
 fstsrc = joinpath(repo, "fst")

@@ -57,6 +57,8 @@ repo = pwd() |> dirname |> dirname  |> dirname
 src1 = joinpath(repo, "datasets", "core-infl")
 src2 = joinpath(repo, "datasets", "core-vocab")
 datasrcs = [src1, src2]
+
+using Kanones
 kdata = dataset(datasrcs)
 ```
 
