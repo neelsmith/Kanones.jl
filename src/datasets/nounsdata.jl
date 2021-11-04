@@ -11,13 +11,49 @@ end
 """Noun stems are citable by Cite2Urn"""
 CitableTrait(::Type{NounStem}) = CitableByCite2Urn()
 
-# cex
-# label
-# urn
+"""Human-readlable label for a `NounStem`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function label(ns::NounStem)
+    string("Noun stem ", ns.form, "- (", ns.gender, ")")
+end
+
+"""Compose CEX text for a `NounStem`.
+If `registry` is nothing, use abbreivated URN;
+otherwise, expand identifier to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function cex(ns::NounStem; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([label(ns), ns.stemid], delimiter)
+    else
+        c2urn = expand(ns.stemid, registry)
+        join([label(ns), c2urn], delimiter)
+    end
+end
 
 
+"""Identifying URN for a `NounStem`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
 
-"""Identify identifier URN for a `NounStem`.
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(ns::NounStem; registry = nothing)
+    if isnothing(registry)
+        ns.stemid
+    else
+        expand(ns.stemid, registry)
+    end
+end
+
+"""Identifier for a `NounStem`, as an
+abbreviated URN.
 
 $(SIGNATURES)
 """
@@ -25,7 +61,8 @@ function id(n::NounStem)
     n.stemid
 end
 
-"""Identify lexeme URN for a `NounStem`.
+"""Lexeme for a `NounStem`, as an 
+abbreviated URN.
 
 $(SIGNATURES)
 """
@@ -33,7 +70,7 @@ function lexeme(n::NounStem)
     n.lexid
 end
 
-"Inflectional rule for uninflected lexical items."
+"Inflectional rule for a noun form."
 struct NounRule <: Rule
     ruleid
     inflectionclass
@@ -43,8 +80,56 @@ struct NounRule <: Rule
     nnumber
 end
 
+"""Noun rules are citable by Cite2Urn"""
+CitableTrait(::Type{NounRule}) = CitableByCite2Urn()
 
-"""Identify identifier URN for a `NounRule`.
+
+
+"""Human-readlable label for a `NounRule`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function label(nr::NounRule)
+    string("Noun inflection rule: ending -", nr.ending, " in class ", nr.inflectionclass, " can be ", nr.ngender, " ", nr.ncase, " ", nr.nnumber, ".")
+end
+
+"""Compose CEX text for a `NounRule`.
+If `registry` is nothing, use abbreivated URN;
+otherwise, expand identifier to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function cex(nr::NounRule; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([label(nr), nr.ruleid], delimiter)
+    else
+        c2urn = expand(nr.ruleid, registry)
+        join([label(nr), c2urn], delimiter)
+    end
+end
+
+
+"""Identifying URN for a `NounRule`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(nr::NounRule; registry = nothing)
+    if isnothing(registry)
+        nr.ruleid
+    else
+        expand(nr.ruleid, registry)
+    end
+end
+
+
+
+"""Identifier for a  `NounRule`, as an
+abbreviated URN.
 
 $(SIGNATURES)
 """
@@ -68,7 +153,8 @@ function readstemrow(usp::NounIO, delimited::AbstractString; delimiter = "|")
     NounStem(stemid,lexid,stem,gender,inflclass,accent)
 end
 
-"""Implementation of reading one row of a rules table for uninflected tokens.
+"""Read one row of a rules table for noun tokens,
+and create a `NounRule`.
 
 $(SIGNATURES) 
 """

@@ -48,16 +48,17 @@ include("test_compile.jl")
 
 include("finiteverb/test_verbsanalysis.jl")
 
-#==#
 
-#==#
+
 include("nouns/test_nounsfst.jl") 
 include("nouns/test_nounsdata.jl")
-include("nouns/test_nounsanalysis.jl")
+
 include("nouns/test_nounsformatting.jl")
-include("nouns/test_nounsgenerate.jl")
-#==#
 include("nouns/test_nounstems.jl")
 include("nouns/test_nounrules.jl")
 
-include("test_analysisids.jl")
+include("parsing_output/test_nounsparsing.jl")
+#=
+
+include("nouns/test_nounsgenerate.jl")
+=#
