@@ -1,22 +1,25 @@
-"""Nouns have gender, case and number."""
+"""Adjectives have gender, case, number and degree."""
 struct AdjectiveForm <: MorphologicalForm
-    agender::Int64
-    #genderlabel::AbstractString    
-    acase::Int64
-    #caselabel::AbstractString    
-    anumber::Int64
-    #numberlabel::AbstractString    
-    adegree::Int64
-    #degreelabel::AbstractString    
+    adjgender::Int64
+    adjcase::Int64
+    adjnumber::Int64
+    adjdegree::Int64
 end
 
+"""Adjective forms are citable by Cite2Urn"""
+CitableTrait(::Type{AdjectiveForm}) = CitableByCite2Urn()
 
 """Create an `AdjectiveForm` from a string value.
 
 $(SIGNATURES)
 """
 function adjectiveform(code::AbstractString)
-    missing
+    morphchars = split(code, "")    
+    agender = parse(Int64, morphchars[7])
+    acase = parse(Int64, morphchars[8])
+    anumber = parse(Int64, morphchars[3])
+    adegree = parse(Int64, morphchars[9])    
+    AdjectiveForm(agender, acase, anumber, adegree)
 end
 
 """Create an `AdjectiveForm` from a CITE2 URN.
@@ -24,25 +27,56 @@ end
 $(SIGNATURES)
 """
 function adjectiveform(urn::Cite2Urn)
-    missing
+    adjectiveform(objectcomponent(urn))
 end
+
 
 """Create a `AdjectiveForm` from a `FormUrn`.
 
 $(SIGNATURES)
 """
 function adjectiveform(f::FormUrn)
-    missing
+     adjectiveform(f.objectid)
 end
-
 
 """Create a `AdjectiveForm` from an `Analysis`.
 
 $(SIGNATURES)
 """
 function adjectiveform(a::Analysis)
-    #nounform(a.form)
-    missing
+    adjectiveform(a.form)
+end
+
+"""Compose a label for an `AdjectiveForm`
+
+$(SIGNATURES)
+"""
+function label(adj::AdjectiveForm)
+    gdict = Kanones.genderpairs |> Kanones.valuedict
+    cdict = Kanones.casepairs |> Kanones.valuedict
+    ndict = Kanones.numberpairs |> Kanones.valuedict
+    ddict = Kanones.degreepairs |> Kanones.valuedict
+    join([gdict[adj.adjgender], cdict[adj.adjcase], ndict[adj.adjnumber], ddict[adj.adjdegree]], " ")
+end
+
+
+"""Compose a Cite2Urn for an `AdjectiveForm`.
+
+$(SIGNATURES)
+"""
+function urn(adj::AdjectiveForm)
+      # PosPNTMVGCDCat
+      Cite2Urn(string(BASE_MORPHOLOGY_URN, ADJECTIVE,"0",adj.adjnumber,"000",adj.adjgender,adj.adjcase,adj.adjdegree,"0"))
+end
+
+
+
+"""Compose a `FormUrn` for an `AdjectiveForm`.
+
+$(SIGNATURES)
+"""
+function formurn(adj::AdjectiveForm)
+    FormUrn(string("morphforms.", ADJECTIVE, "0" ,adj.adjnumber,"000",adj.adjgender, adj.adjcase, adj.adjdegree, "0"))
 end
 
 
@@ -73,48 +107,19 @@ function adjectivefromfst(fstdata)
     end
 end
 
-"""Compose a label for a `NounForm`
 
-$(SIGNATURES)
-"""
-function label(adj::AdjectiveForm)
-    missing
-end
-
-
-"""Compose a `FormUrn` for an `AdjectiveForm`.
-
-$(SIGNATURES)
-"""
-function formurn(adj::AdjectiveForm)
-    FormUrn(string("morphforms.", ADJECTIVE, "0" ,adj.anumber,"000",adj.agender, adj.acase, adj.adegree, "0"))
-end
-
-"""Compose a Cite2Urn for an `AdjectiveForm`.
-
-$(SIGNATURES)
-"""
-function urn(adj::AdjectiveForm)
-    missing
-end
-
-
-"""Compose an abbreviated URN for a form from a `AdjectiveRule`.
+"""Compose an abbreviated URN for a rule from a `AdjectiveRule`.
 
 $(SIGNATURES)
 """
 function ruleurn(rule::AdjectiveRule)
-    missing
-end
+    numdict = labeldict(numberpairs)
+    casedict = labeldict(casepairs)
+    genderdict = labeldict(genderpairs)
+    degreedict = labeldict(degreepairs)
 
-
-
-"""Compose CEX representation for a `AdjectiveForm`.
-
-$(SIGNATURES)
-"""
-function cex(adj::AdjectiveForm; delimiter="|")
-    join([urn(adj), label(adj)], delimiter)
+    # PosPNTMVGCDCat
+    RuleUrn(string("morphforms.", ADJECTIVE,"0",numdict[rule.anumber],"000",genderdict[rule.agender],casedict[rule.acase],degreedict[rule.adegree],"0"))
 end
 
 #PosPNTMVGCDCat

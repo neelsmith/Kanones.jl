@@ -6,15 +6,14 @@
     noun = Kanones.nounfromfst(infl)
     expected = NounForm(2, 1, 1)
     @test noun == expected
-    
 end
 
-@testset "Test parsing a FormUrn into a Noun form" begin
+@testset "Test parsing a NounForm from a FormUrn" begin
     frm = FormUrn("morphforms.2010001100")
     @test Kanones.nounform(frm) == NounForm(1,1,1)
 end
 
-@testset "Test getting FormUrn for Noun form" begin
+@testset "Test parsing a FormUrn from a NounForm" begin
     noun = NounForm(1,1,1)
     formU = Kanones.formurn(noun)
     @test formU == FormUrn("morphforms.2010001100")
@@ -49,7 +48,7 @@ end
 end
 
 
-@testset "Test format conversions for noun forms" begin
+@testset "Test CitableTrait for noun forms" begin
     sfst = "<u>nounstems.n20600</u><u>lsj.n20600</u>βουλ<noun><feminine><h_hs><div><h_hs><noun>η<feminine><nominative><singular><u>nouninfl.h_hs1</u>"
     infl = split(sfst,"<div>")[2]
     noun = Kanones.nounfromfst(infl)
@@ -57,13 +56,12 @@ end
     @test label(noun) == "feminine nominative singular"
     @test cex(noun) == "urn:cite2:kanones:morphforms.v1:2010002100|feminine nominative singular"
     @test Kanones.formurn(noun) ==  FormUrn("morphforms.2010002100")
-
 end
 
-@testset "Test format conversions for noun rules" begin
+@testset "Test parsing a RuleUrn from a NounRule" begin
     cexsrc = "nouninfl.h_hs2|h_hs|ης|feminine|genitive|singular|recessive"
     nounparser = Kanones.NounIO("nouns")
     rule = Kanones.readrulerow(nounparser, cexsrc)
 
-    @test string(ruleurn(rule)) == string(RuleUrn("morphforms.2010002200"))
+    @test ruleurn(rule) == RuleUrn("morphforms.2010002200")
 end

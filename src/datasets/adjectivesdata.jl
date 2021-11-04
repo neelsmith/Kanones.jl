@@ -8,7 +8,7 @@ struct AdjectiveStem <: Stem
 end
 
 
-"Inflectional rule for uninflected lexical items."
+"Inflectional rule for adjectives."
 struct AdjectiveRule <: Rule
     ruleid::Kanones.AbbreviatedUrn
     inflectionclass

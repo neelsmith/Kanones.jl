@@ -1,11 +1,8 @@
 """Nouns have gender, case and number."""
 struct NounForm <: MorphologicalForm
     ngender::Int64
-    #genderlabel::AbstractString    
     ncase::Int64
-    #caselabel::AbstractString    
     nnumber::Int64
-    #numberlabel::AbstractString    
 end
 
 """Noun forms are citable by Cite2Urn"""
@@ -73,7 +70,6 @@ function urn(noun::NounForm)
     # PosPNTMVGCDCat
     Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",noun.nnumber,"000",noun.ngender,noun.ncase,"00"))
 end
-
 
 
 
@@ -152,5 +148,5 @@ function ruleurn(rule::NounRule)
     genderdict = labeldict(genderpairs)
 
     # PosPNTMVGCDCat
-    FormUrn(string("morphforms.", NOUN,"0",numdict[rule.nnumber],"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
+    RuleUrn(string("morphforms.", NOUN,"0",numdict[rule.nnumber],"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
 end
