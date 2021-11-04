@@ -54,8 +54,8 @@ repo = pwd() |> dirname |> dirname  |> dirname
 ```
 
 ```@example kd
-src1 = joinpath(reporoot, "datasets", "core-infl")
-src2 = joinpath(reporoot, "datasets", "core-vocab")
+src1 = joinpath(repo, "datasets", "core-infl")
+src2 = joinpath(repo, "datasets", "core-vocab")
 datasrcs = [src1, src2]
 kdata = dataset(datasrcs)
 ```
