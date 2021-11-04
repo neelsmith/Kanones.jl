@@ -5,7 +5,7 @@ using CitableCorpus, CitableText
 using PolytonicGreek, Orthography
 using Test
 
-
+#=
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
 include("test_morphforms.jl")
@@ -48,11 +48,13 @@ include("test_compile.jl")
 
 include("finiteverb/test_verbsanalysis.jl")
 
+=#
 
 
+#include("nouns/test_nounsfst.jl") 
+#include("nouns/test_nounsdata.jl")
+#include("nouns/test_nounsanalysis.jl")
+#include("nouns/test_nounsformatting.jl")
+#include("nouns/test_nounsgenerate.jl")
 
-include("nouns/test_nounsfst.jl") 
-include("nouns/test_nounsdata.jl")
-include("nouns/test_nounsanalysis.jl")
-include("nouns/test_nounsformatting.jl")
-include("nouns/test_nounsgenerate.jl")
+include("test_analysisids.jl")

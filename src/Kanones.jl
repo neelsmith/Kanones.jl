@@ -65,6 +65,7 @@ include("datasets/verbaladjectivedata.jl")
 include("datasets/adjectivesdata.jl")
 
 include("analyzer/analysis.jl")
+include("analyzer/cite_analyses.jl")
 
 include("generator/generate.jl")
 include("generator/uninflectedgen.jl")

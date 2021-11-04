@@ -29,7 +29,6 @@ function nounform(code::AbstractString)
     )
 end
 
-
 """Create a `NounForm` from a `Cite2Urn`.
 
 $(SIGNATURES)
@@ -75,29 +74,7 @@ function urn(noun::NounForm)
 end
 
 
-"""Compose an abbreviated URN for a form from a `NounRule`.
 
-$(SIGNATURES)
-"""
-function ruleurn(rule::NounRule)
-    numdict = labeldict(numberpairs)
-    casedict = labeldict(casepairs)
-    genderdict = labeldict(genderpairs)
-
-    # PosPNTMVGCDCat
-    FormUrn(string("morphforms.", NOUN,"0",numdict[rule.nnumber],"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
-end
-
-#=
-"""Compose CEX representation for a `NounForm`.
-
-$(SIGNATURES)
-"""
-function cex(noun::NounForm; delimiter ="|")
-    join([urn(noun), label(noun)], delimiter)
-end
-
-=#
 
 """Compose a `FormUrn` for a `NounForm`.
 
@@ -162,4 +139,17 @@ function nounscex()
         end
     end
     join(lines, "\n")    
+end
+
+"""Compose an abbreviated URN for a rule from a `NounRule`.
+
+$(SIGNATURES)
+"""
+function ruleurn(rule::NounRule)
+    numdict = labeldict(numberpairs)
+    casedict = labeldict(casepairs)
+    genderdict = labeldict(genderpairs)
+
+    # PosPNTMVGCDCat
+    FormUrn(string("morphforms.", NOUN,"0",numdict[rule.nnumber],"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
 end
