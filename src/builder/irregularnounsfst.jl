@@ -13,9 +13,9 @@ function fst(stem::Kanones.IrregularNounStem; ortho::T = literaryGreek()) where 
         "<irregular>",
         #"<", stem.inflectionclass, ">",
         "<irregularnoun>",
-        "<", stem.gender, ">",
-        "<", stem.gcase, ">",
-        "<", stem.gnumber, ">"
+        "<", stem.noungender, ">",
+        "<", stem.nouncase, ">",
+        "<", stem.nounnumber, ">"
     )
     
 end

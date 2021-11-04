@@ -113,6 +113,7 @@ module FstBuilder
     include("builder/nounsfst.jl")
     include("builder/pronounsfst.jl")
     include("builder/adjectivesfst.jl")
+    include("builder/irregularadjsfst.jl")
     include("builder/irregularnounsfst.jl")
     include("builder/irregularverbsfst.jl")
     include("builder/irregularinfinitivesfst.jl")
