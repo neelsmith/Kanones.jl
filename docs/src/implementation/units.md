@@ -6,6 +6,8 @@ For each analytical type, there is a subdirectory of the `tests` directory with 
 1. write SFST source files for rules and stems: `test_TYPEfst.jl`
 1. parse morphological forms to/from FST format: `test_TYPEformatting.jl`
 1. parse strings in `Analysis` objects:  `test_TYPEanalysis.jl`
+1. implement `CitableTrait` for stems: `test_TYPEstems.jl`
+1. implement `CitableTrait` for rules: `test_TYPErules.jl`
 1. test forward-generating forms: `test_TYPEgenerate.jl`
 
 
