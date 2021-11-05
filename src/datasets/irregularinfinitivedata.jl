@@ -7,8 +7,12 @@ struct IrregularInfinitiveStem <: Stem
     voice
 end
 
+"""
+Read one row of a stems table for irregular infinititve tokens and create an `IrregularInfinitiveStem`.
 
-function readstemrow(usp::Kanones.IrregularInfinitiveParser, delimited::AbstractString; delimiter = "|")
+$(SIGNATURES)    
+"""
+function readstemrow(infinio::Kanones.IrregularInfinitiveIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
 
 

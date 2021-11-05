@@ -9,7 +9,7 @@ struct IrregularNounStem <: Stem
     #inflectionclass
 end
 
-"""Noun stems are citable by Cite2Urn"""
+"""Irregular noun stems are citable by Cite2Urn"""
 CitableTrait(::Type{IrregularNounStem}) = CitableByCite2Urn()
 """Human-readlable label for an `IrregularNounStem`.
 

@@ -10,13 +10,11 @@ struct InfinitiveRule <: Rule
     voice
 end
 
-
-
 """Read one row of a rules table for infinitives and create an `InfinitiveRule`.
 
 $(SIGNATURES)
 """
-function readrulerow(usp::InfinitiveRuleParser, delimited::AbstractString; delimiter = "|")
+function readrulerow(infio::InfinitiveIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     
     if length(parts) < 5

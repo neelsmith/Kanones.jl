@@ -78,7 +78,7 @@ KanonesIO type for reading and writing data for infinitive rules only.
 $(SIGNATURES)
 
 """
-struct InfinitiveRuleParser <: KanonesIO
+struct InfinitiveIO <: KanonesIO
     label::AbstractString
 end
 
@@ -89,7 +89,7 @@ KanonesIO type for reading and writing data for irregular infinitive forms.
 $(SIGNATURES)
 
 """
-struct IrregularInfinitiveParser <: KanonesIO
+struct IrregularInfinitiveIO <: KanonesIO
     label::AbstractString
 end
 

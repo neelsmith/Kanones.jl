@@ -1,6 +1,6 @@
 @testset "Read rules for infinitives from delimited text" begin
     cex = "infinfl.wreg1|w_regular|ειν|present|active"
-    infinparser = Kanones.InfinitiveRuleParser("infinitives")
+    infinparser = Kanones.InfinitiveIO("infinitives")
     rulerow = Kanones.readrulerow(infinparser, cex)
     rulerow.ruleid |> string == "infinfl.wreg1"
 
