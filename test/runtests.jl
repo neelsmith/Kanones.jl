@@ -63,7 +63,7 @@ include("adjectives/test_5.adjectiverules.jl")
 
 
 
-include("nouns/test_4.nounstems.jl")
+
 
 include("nouns/test_5.nounrules.jl")
 
@@ -75,6 +75,10 @@ include("infinitives/test_1.infinitivesdata.jl")
 include("nouns/test_2.nounsfst.jl") 
 include("infinitives/test_2.infinitivesfst.jl") 
 
-=#
+
 include("nouns/test_3.nounsformatting.jl")
 include("infinitives/test_3.infinitivesformatting.jl")
+=#
+
+include("nouns/test_4.nounstems.jl")
+include("infinitives/test_4.infinitivestems.jl")
