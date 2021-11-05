@@ -71,7 +71,7 @@ include("adjectives/test_4.adjectivestems.jl")
 
 include("nouns/test_5.nounrules.jl")
 include("adjectives/test_5.adjectiverules.jl")
-
 =#
+
 include("nouns/test_1.nounsdata.jl")
 include("infinitives/test_1.infinitivesdata.jl") 
