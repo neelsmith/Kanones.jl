@@ -32,6 +32,7 @@ export NounForm, NounStem, NounRule
 export AdjectiveForm, AdjectiveStem, AdjectiveRule
 export FiniteVerbForm, VerbStem
 export InfinitiveForm
+export VerbalAdjectiveForm
 
 export IrregularRule
 export IrregularNounForm, IrregularNounStem
