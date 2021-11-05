@@ -29,10 +29,10 @@ Required for `CitableTrait`.
 """
 function cex(ns::NounStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([label(ns), ns.stemid], delimiter)
+        join([ns.stemid, label(ns) ], delimiter)
     else
         c2urn = expand(ns.stemid, registry)
-        join([label(ns), c2urn], delimiter)
+        join([c2urn, label(ns)], delimiter)
     end
 end
 
@@ -86,7 +86,6 @@ end
 CitableTrait(::Type{NounRule}) = CitableByCite2Urn()
 
 
-
 """Human-readlable label for a `NounRule`.
 
 @(SIGNATURES)
@@ -105,10 +104,10 @@ Required for `CitableTrait`.
 """
 function cex(nr::NounRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([label(nr), nr.ruleid], delimiter)
+        join([nr.ruleid, label(nr)], delimiter)
     else
         c2urn = expand(nr.ruleid, registry)
-        join([label(nr), c2urn], delimiter)
+        join([c2urn, label(nr)], delimiter)
     end
 end
 
