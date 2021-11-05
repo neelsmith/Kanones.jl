@@ -23,5 +23,5 @@ end
     @test stem.lexid == LexemeUrn("lsj.n26447") 
     @test stem.form == nfkc("διδόναι")
     @test stem.tense == "present"
-    @teset stem.voice == "active"
+    @test stem.voice == "active"
 end
