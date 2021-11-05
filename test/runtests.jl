@@ -62,7 +62,8 @@ include("nouns/test_nounsfst.jl")
 include("adjectives/test_adjectivesfst.jl")
 include("nouns/test_nounsformatting.jl")
 include("adjectives/test_adjsformatting.jl")
-
+#include("nouns/test_nounstems.jl")
+#include("adjectives/test_adjectivestems.jl")
 
 
 include("parsing_output/test_nounsparsing.jl")
@@ -72,7 +73,6 @@ include("parsing_output/test_adjsparsing.jl")
 
 
 
-include("nouns/test_nounstems.jl")
-include("adjectives/test_adjectivestems.jl")
+
 include("nouns/test_nounrules.jl")
 # include("adjectives/test_adjectiverules.jl")
