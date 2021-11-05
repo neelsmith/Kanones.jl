@@ -10,6 +10,50 @@ struct IrregularAdjectiveStem <: Stem
     #inflectionclass
 end
 
+"""Irregular adjective stems are citable by Cite2Urn"""
+CitableTrait(::Type{IrregularAdjectiveStem}) = CitableByCite2Urn()
+
+
+"""Human-readlable label for an `IrregularAdjectiveStem`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function label(astem::IrregularAdjectiveStem)
+    string("Irregular adjective form ", astem.form, " (", astem.adjgender, " ", astem.adjcase, " ", astem.adjnumber," ", astem.adjdegree, ")")
+end
+
+"""Identifying URN for an `IrregularAdjectiveStem`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(adj::IrregularAdjectiveStem; registry = nothing)
+    if isnothing(registry)
+        adj.stemid
+    else
+        expand(adj.stemid, registry)
+    end
+end
+
+
+"""Compose CEX text for an `IrregularAdjectiveStem`.
+If `registry` is nothing, use abbreivated URN;
+otherwise, expand identifier to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function cex(adj::IrregularAdjectiveStem; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([adj.stemid, label(adj) ], delimiter)
+    else
+        c2urn = expand(adj.stemid, registry)
+        join([c2urn, label(adj)], delimiter)
+    end
+end
 
 """
 Read one row of a stems table for irregular adjective tokens and create an `AdjectiveStem`.

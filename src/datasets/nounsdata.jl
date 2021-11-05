@@ -8,6 +8,7 @@ struct NounStem <: Stem
     accentpersistence
 end
 
+
 """Noun stems are citable by Cite2Urn"""
 CitableTrait(::Type{NounStem}) = CitableByCite2Urn()
 
@@ -19,6 +20,23 @@ Required for `CitableTrait`.
 function label(ns::NounStem)
     string("Noun stem ", ns.form, "- (", ns.gender, ")")
 end
+
+
+"""Identifying URN for a `NounStem`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(ns::NounStem; registry = nothing)
+    if isnothing(registry)
+        ns.stemid
+    else
+        expand(ns.stemid, registry)
+    end
+end
+
 
 """Compose CEX text for a `NounStem`.
 If `registry` is nothing, use abbreivated URN;
@@ -37,20 +55,6 @@ function cex(ns::NounStem; delimiter = "|", registry = nothing)
 end
 
 
-"""Identifying URN for a `NounStem`.  If
-no registry is included, use abbreviated URN;
-otherwise, expand to full `Cite2Urn`.
-
-@(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function urn(ns::NounStem; registry = nothing)
-    if isnothing(registry)
-        ns.stemid
-    else
-        expand(ns.stemid, registry)
-    end
-end
 
 """Identifier for a `NounStem`, as an
 abbreviated URN.

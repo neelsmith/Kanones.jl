@@ -8,7 +8,7 @@ struct AdjectiveStem <: Stem
 end
 
 
-"""Noun stems are citable by Cite2Urn"""
+"""Adjective stems are citable by Cite2Urn"""
 CitableTrait(::Type{AdjectiveStem}) = CitableByCite2Urn()
 
 """Human-readlable label for an `AdjectiveStem`.
@@ -44,10 +44,10 @@ Required for `CitableTrait`.
 """
 function cex(adj::AdjectiveStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([label(adj), adj.stemid], delimiter)
+        join([adj.stemid, label(adj) ], delimiter)
     else
         c2urn = expand(adj.stemid, registry)
-        join([label(adj), c2urn], delimiter)
+        join([c2urn, label(adj)], delimiter)
     end
 end
 

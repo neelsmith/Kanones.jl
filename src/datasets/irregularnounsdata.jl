@@ -9,8 +9,49 @@ struct IrregularNounStem <: Stem
     #inflectionclass
 end
 
+"""Noun stems are citable by Cite2Urn"""
+CitableTrait(::Type{IrregularNounStem}) = CitableByCite2Urn()
+"""Human-readlable label for an `IrregularNounStem`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function label(ns::IrregularNounStem)
+    string("Irregular noun form ", ns.form, " (", ns.noungender," ", ns.nouncase, " ", ns.nounnumber, ")")
+end
 
 
+"""Identifying URN for an `IrregularNounStem`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(ns::IrregularNounStem; registry = nothing)
+    if isnothing(registry)
+        ns.stemid
+    else
+        expand(ns.stemid, registry)
+    end
+end
+
+
+"""Compose CEX text for an `IrregularNounStem`.
+If `registry` is nothing, use abbreivated URN;
+otherwise, expand identifier to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function cex(ns::IrregularNounStem; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([ns.stemid, label(ns) ], delimiter)
+    else
+        c2urn = expand(ns.stemid, registry)
+        join([c2urn, label(ns)], delimiter)
+    end
+end
 #=
 function formurn(irregstem::IrregularNounStem)
     numdict = labeldict(numberpairs)
