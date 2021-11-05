@@ -72,9 +72,13 @@ include("nouns/test_3.nounsformatting.jl")
 include("nouns/test_4.nounstems.jl")
 include("nouns/test_5.nounrules.jl")
 
-include("nouns/test_2.nounsfst.jl") 
-include("verbaladjectives/test_2.verbaladjectivesfst.jl")
- =#
+
+
+
 
 include("nouns/test_1.nounsdata.jl")
 include("verbaladjectives/test_1.verbaladjectivesdata.jl")
+ =#
+ include("nouns/test_2.nounsfst.jl") 
+ include("verbaladjectives/test_2.verbaladjectivesfst.jl")
+ 
