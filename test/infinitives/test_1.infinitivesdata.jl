@@ -1,13 +1,13 @@
 @testset "Read rules for infinitives from delimited text" begin
-    cex = "infinfl.wreg1|w_regular|ειν|present|active"
+    cexsrc = "infinfl.wreg1|w_regular|ειν|present|active"
     infinparser = Kanones.InfinitiveIO("infinitives")
-    rulerow = Kanones.readrulerow(infinparser, cex)
-    rulerow.ruleid |> string == "infinfl.wreg1"
+    rule = Kanones.readrulerow(infinparser, cexsrc)
+    rule.ruleid |> string == "infinfl.wreg1"
 
-    @test rulerow.inflectionclass == "w_regular"
-    @test rulerow.ending == "ειν"
-    @test rulerow.tense == "present"
-    @test rulerow.voice == "active"
+    @test rule.inflectionclass == "w_regular"
+    @test rule.ending == "ειν"
+    @test rule.tense == "present"
+    @test rule.voice == "active"
 end
 
 # No need to test *regular* stems:  infinitives use same regular stem as finite verbs, where

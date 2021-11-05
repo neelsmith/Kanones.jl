@@ -56,6 +56,7 @@ end
     @test label(noun) == "feminine nominative singular"
     @test cex(noun) == "urn:cite2:kanones:morphforms.v1:2010002100|feminine nominative singular"
     @test Kanones.formurn(noun) ==  FormUrn("morphforms.2010002100")
+
 end
 
 @testset "Test parsing a RuleUrn from a NounRule" begin

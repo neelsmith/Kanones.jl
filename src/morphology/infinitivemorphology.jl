@@ -78,6 +78,41 @@ $(SIGNATURES)
 """
 function formurn(infinitive::InfinitiveForm)
     FormUrn(string("morphforms.", INFINITIVE, "00" ,
-    infinitive.tense, "0", infinitive.voice, "000"))
+    infinitive.tense, "0", infinitive.voice, "0000"))
 end
 
+"""Compose a label for an `InfinitiveForm`.
+
+$(SIGNATURES)
+"""
+function label(inf::InfinitiveForm)
+    tdict = Kanones.tensepairs |> Kanones.valuedict
+    vdict = Kanones.voicepairs |> Kanones.valuedict
+
+    join([tdict[inf.tense], vdict[inf.voice], "infinitive"]," ")
+end
+
+
+"""Compose a Cite2Urn for an `InfinitiveForm`.
+
+$(SIGNATURES)
+"""
+function urn(inf::InfinitiveForm)
+    # PosPNTMVGCDCat
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, INFINITIVE,"00",inf.tense,"0", inf.voice,"0000"))
+end
+
+
+
+"""Compose an abbreviated URN for a rule from an `InfinitiveRule`.
+
+$(SIGNATURES)
+"""
+function ruleurn(rule::InfinitiveRule)
+    tensedict = labeldict(tensepairs)
+    voicedict = labeldict(voicepairs)
+  
+
+    # PosPNTMVGCDCat
+    RuleUrn(string("morphforms.", INFINITIVE,"00",tensedict[rule.tense],"0",voicedict[rule.voice],"0000"))
+end
