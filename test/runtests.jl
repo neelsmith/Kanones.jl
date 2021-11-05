@@ -58,8 +58,7 @@ include("verbaladjectives/test_verbaladjectivesanalysis.jl")
 include("adjectives/test_1.adjectivesdata.jl")
 
 include("adjectives/test_2.adjectivesfst.jl")
-include("nouns/test_2.nounsfst.jl") 
-include("infinitives/test_2.infinitivesfst.jl") 
+
 
 include("nouns/test_3.nounsformatting.jl")
 include("adjectives/test_3.adjsformatting.jl")
@@ -71,7 +70,11 @@ include("adjectives/test_4.adjectivestems.jl")
 
 include("nouns/test_5.nounrules.jl")
 include("adjectives/test_5.adjectiverules.jl")
-=#
+
 
 include("nouns/test_1.nounsdata.jl")
 include("infinitives/test_1.infinitivesdata.jl") 
+=#
+
+include("nouns/test_2.nounsfst.jl") 
+include("infinitives/test_2.infinitivesfst.jl") 

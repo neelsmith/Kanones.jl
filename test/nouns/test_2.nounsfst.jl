@@ -18,10 +18,9 @@ end
 
 
 @testset "Format fst lexicon for irregular noun stems" begin
-    cex = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
-    
+    cexsrc = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
     irregnounio = Kanones.IrregularNounIO("irregular nouns")
-    stem = Kanones.readstemrow(irregnounio, cex)
+    stem = Kanones.readstemrow(irregnounio, cexsrc)
 
     expected = "<u>irregnoun\\.irregn23069a</u><u>lsj\\.n23069</u>γυνη<irregular><irregularnoun><feminine><nominative><singular>"
     @test FstBuilder.fst(stem) == expected
