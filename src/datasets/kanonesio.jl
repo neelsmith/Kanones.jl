@@ -14,11 +14,11 @@ struct UninflectedParser <: KanonesIO
 end
 
 """
-KanonesIO type for reading and writing data for noun forms.
+KanonesIO type for reading and writing data for regular noun forms.
 
 $(SIGNATURES)
 """
-struct NounParser <: KanonesIO
+struct NounIO <: KanonesIO
     label::AbstractString
 end
 
@@ -27,7 +27,7 @@ KanonesIO type for reading and writing data for irregular noun forms.
 
 $(SIGNATURES)
 """
-struct IrregularNounParser <: KanonesIO
+struct IrregularNounIO <: KanonesIO
     label::AbstractString
 end
 
@@ -78,7 +78,7 @@ KanonesIO type for reading and writing data for infinitive rules only.
 $(SIGNATURES)
 
 """
-struct InfinitiveRuleParser <: KanonesIO
+struct InfinitiveIO <: KanonesIO
     label::AbstractString
 end
 
@@ -89,7 +89,7 @@ KanonesIO type for reading and writing data for irregular infinitive forms.
 $(SIGNATURES)
 
 """
-struct IrregularInfinitiveParser <: KanonesIO
+struct IrregularInfinitiveIO <: KanonesIO
     label::AbstractString
 end
 
@@ -135,6 +135,16 @@ KanonesIO type for reading and writing data for adjective rules and stems.
 
 $(SIGNATURES)
 """
-struct AdjectiveParser <: KanonesIO
+struct AdjectiveIO <: KanonesIO
+    label::AbstractString
+end
+
+
+"""
+KanonesIO type for reading and writing data for irregular noun forms.
+
+$(SIGNATURES)
+"""
+struct IrregularAdjectiveIO <: KanonesIO
     label::AbstractString
 end

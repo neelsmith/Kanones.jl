@@ -45,13 +45,13 @@ end
 
 $(SIGNATURES)
 """
-function readrulerow(usp::UninflectedParser, delimited::AbstractString, delimiter = "|")
+function readrulerow(usp::UninflectedParser, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     if length(parts) < 2
         msg = "Invalid syntax for uninflected rule: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
-        ruleid = Kanones.RuleUrn(parts[1])
+        ruleid = RuleUrn(parts[1])
         inflectionaltype = parts[2]
         UninflectedRule(ruleid, inflectionaltype)
     end
@@ -63,14 +63,14 @@ end
 
 $(SIGNATURES)
 """
-function readstemrow(usp::UninflectedParser, delimited::AbstractString, delimiter = "|")
+function readstemrow(usp::UninflectedParser, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     if length(parts) < 4
         msg = "Invalid syntax for uninflected stem: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
-        stemid = Kanones.StemUrn(parts[1])
-        lexid = Kanones.LexemeUrn(parts[2])
+        stemid = StemUrn(parts[1])
+        lexid = LexemeUrn(parts[2])
         form = parts[3] # fstgreek(parts[3])
         stemclass = parts[4]
         UninflectedStem(stemid, lexid, form, stemclass)

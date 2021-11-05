@@ -5,7 +5,7 @@
 
 $(SIGNATURES)
 """
-function fst(stem::Kanones.IrregularVerbStem, ortho::T) where {T <: GreekOrthography}
+function fst(stem::Kanones.IrregularVerbStem; ortho::T = literaryGreek()) where {T <: GreekOrthography}
     string(
         fstsafe(stem.stemid),
         fstsafe(stem.lexid),

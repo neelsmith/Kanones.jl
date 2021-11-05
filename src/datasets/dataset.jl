@@ -61,24 +61,24 @@ end
 
 $(SIGNATURES)
 """
-function rulesarray(kd::Kanones.Dataset)
-    rulesarray(kd.dirs)
+function rulesarray(kd::Kanones.Dataset; delimiter = "|")
+    rulesarray(kd.dirs, delimiter = delimiter)
 end
 
 """Read all rules data from a `Kanones.Dataset` into an array of `Rule`s.
 
 $(SIGNATURES)
 """
-function rulesarray(dirlist)
+function rulesarray(dirlist; delimiter = "|")
     iodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
         "irregulars" => IrregularRuleParser("irregulars"),
-        "nouns" => NounParser("noun"),
+        "nouns" => NounIO("noun"),
         "pronouns" => PronounParser("noun"),
-        "adjectives" => AdjectiveParser("adjectives"),
+        "adjectives" => AdjectiveIO("adjectives"),
         "finiteverbs" => VerbParser("verb"),
-        "infinitives" => InfinitiveRuleParser("infinitives"),
+        "infinitives" => InfinitiveIO("infinitives"),
         "participles" => ParticipleRuleParser("participles"),
         "verbaladjectives" => VerbalAdjectiveRuleParser("verbal adjectives"),
         ]
@@ -98,14 +98,14 @@ function rulesarray(dirlist)
 
     for datasrc in dirlist
         for dirname in rulesdirs 
-            dir = datasrc * "/rules-tables/" * dirname * "/"
+            dir = joinpath(datasrc, "rules-tables", dirname)
             cexfiles = glob("*.cex", dir)
             delimitedreader = (iodict[dirname])
             for f in cexfiles
                 raw = readlines(f)
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
-                    rule = readrulerow(delimitedreader, lines[i])
+                    rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
                     push!(rulesarr,rule)
                 end
             end
@@ -127,12 +127,12 @@ end
 
 $(SIGNATURES)
 """
-function stemsarray(dirlist)
-    @info "Getting regular stems for $dirlist"
+function stemsarray(dirlist; delimiter = "|")
+    @info("Getting regular stems for $dirlist")
     iodict = Dict(
         [
-        "adjectives" => AdjectiveParser("adjective"),
-        "nouns" => NounParser("noun"),
+        "adjectives" => AdjectiveIO("adjective"),
+        "nouns" => NounIO("noun"),
         "pronouns" => PronounParser("pronoun"),
         "uninflected" => UninflectedParser("uninflected"),
         "verbs-simplex" => VerbParser("verb")
@@ -147,18 +147,18 @@ function stemsarray(dirlist)
         
     ]
 
-    stemsarr = []
+    stemsarr = Stem[]
     for datasrc in dirlist
         for dirname in stemdirs 
-            dir = datasrc * "/stems-tables/" * dirname * "/"
+            dir = joinpath(datasrc, "stems-tables", dirname)
             cexfiles = glob("*.cex", dir)
             delimitedreader = (iodict[dirname])
             for f in cexfiles
                 raw = readlines(f)
-                # Trim lines first!
+                # Trim lines first:
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
-                    stem = readstemrow(delimitedreader, lines[i])
+                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
                     push!(stemsarr,stem)
                 end
             end
@@ -169,9 +169,9 @@ function stemsarray(dirlist)
     irregiodict = Dict(
         [
         "uninflected" => UninflectedParser("uninflected"),
-        "nouns" => IrregularNounParser("noun"),
+        "nouns" => IrregularNounIO("noun"),
         "verbs" => IrregularVerbParser("finite verb"),
-        "infinitives" => IrregularInfinitiveParser("infinitive")
+        "infinitives" => IrregularInfinitiveIO("infinitive")
         ]
     )
     irregstemdirs = [
@@ -179,17 +179,17 @@ function stemsarray(dirlist)
         "verbs",
         "infinitives"
     ]
-    @info("Getting regular stems for $dirlist")
+    @info("Getting irregular stems for $dirlist")
     for datasrc in dirlist
         for dirname in irregstemdirs 
-            dir = datasrc * "/irregular-stems/" * dirname * "/"
+            dir = joinpath(datasrc, "irregular-stems", dirname)
             cexfiles = glob("*.cex", dir)
             delimitedreader = (irregiodict[dirname])
             for f in cexfiles
                 raw = readlines(f)
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
-                    stem = readstemrow(delimitedreader, lines[i])
+                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
                     push!(stemsarr,stem)
                 end
             end

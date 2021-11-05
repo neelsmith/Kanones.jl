@@ -22,10 +22,10 @@ Read one row of a stems table for noun tokens and create a `NounStem`.
 
 $(SIGNATURES)    
 """
-function readstemrow(usp::PronounParser, delimited::AbstractString, delimiter = "|")
+function readstemrow(usp::PronounParser, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
-    stemid = Kanones.StemUrn(parts[1])
-    lexid = Kanones.LexemeUrn(parts[2])
+    stemid = StemUrn(parts[1])
+    lexid = LexemeUrn(parts[2])
     stem = nfkc(parts[3])
     gndr = parts[4]
     cs = parts[5]
@@ -42,9 +42,9 @@ Read one row of a stems table for noun tokens and create a `NounStem`.
 
 $(SIGNATURES)    
 """
-function readrulerow(usp::PronounParser, delimited::AbstractString, delimiter = "|")
+function readrulerow(usp::PronounParser, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
-    stemid = Kanones.RuleUrn(parts[1])
+    stemid = RuleUrn(parts[1])
     pronountype = parts[2]
  
     PronounRule(stemid,pronountype)

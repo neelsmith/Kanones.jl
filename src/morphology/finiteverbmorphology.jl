@@ -76,15 +76,15 @@ function urn(verb::FiniteVerbForm)
     nothing
 end
 
-
+#=
 """Compose CEX representation for a `FiniteVerbForm`.
 
 $(SIGNATURES)
 """
-function cex(verb::FiniteVerbForm)
+function cex(verb::FiniteVerbForm; delimiter = "|")
     nothing
 end
-
+=#
 
 """Compose URN for finite verb form from FST representation of analytical data.
 

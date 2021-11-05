@@ -12,7 +12,7 @@ end
 #irregverb.irregverbnn26447a|lsj.n26447|δίδωσι|
 #third|singular|present|indicative|active|irregularverb
 
-function readstemrow(usp::Kanones.IrregularVerbParser, delimited::AbstractString, delimiter = "|")
+function readstemrow(usp::Kanones.IrregularVerbParser, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     # Example:
     #irregverb.irregverbnn26447b|lsj.n26447|διδόασι|third|plural|present|indicative|active|irregularverb
@@ -33,8 +33,8 @@ function readstemrow(usp::Kanones.IrregularVerbParser, delimited::AbstractString
         throw(new(ArgumentError(msg)))
     end
     
-    stemid = Kanones.StemUrn(parts[1])
-    lexid = Kanones.LexemeUrn(parts[2])
+    stemid = StemUrn(parts[1])
+    lexid = LexemeUrn(parts[2])
     stem = nfkc(parts[3])
     p = parts[4]
     n = parts[5]

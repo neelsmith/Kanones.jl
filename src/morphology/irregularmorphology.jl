@@ -60,8 +60,8 @@ function irregularfromfst(fstdata::AbstractString)
         voicedict = labeldict(voicepairs)
         
         InfinitiveForm(
-            tensedict[tns], tns,
-            voicedict[vc], vc
+            tensedict[tns],
+            voicedict[vc]
         )
     else
         @warn string("Unrecognized irregular type: ", matchedup[1].captures)

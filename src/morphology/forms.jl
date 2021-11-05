@@ -18,8 +18,8 @@ to a `RuleUrn`.
 
 $(SIGNATURES)
 """
-function abbrurn(rule::T) where {T <: RuleUrn}
-    @warn "Function abbrurn not implemented for type $typeof(rule)."
+function ruleurn(rule::T) where {T <: RuleUrn}
+    @warn "Function ruleurn not implemented for type $typeof(rule)."
     nothing
 end
 
@@ -72,6 +72,8 @@ function label(mf::T) where {T <: MorphologicalForm}
     nothing
 end
 
+
+
 """Convert a `MorphologicalForm` form to a delimited-text string. 
 
 $(SIGNATURES)
@@ -79,9 +81,10 @@ $(SIGNATURES)
 All subclasses of `MorphologicalForm` should implement this specifically
 for their subclass.
 """
-function cex(mf::T, delim) where {T <: MorphologicalForm}
-    @warn("cex: unrecognized type of MorphologicalForm.")
-    nothing
+function cex(mf::T; delimiter = "|") where {T <: MorphologicalForm}
+    #@warn("cex: unrecognized type of MorphologicalForm.")
+    #nothing
+    join([urn(mf), label(mf)], delimiter)
 end
 
 

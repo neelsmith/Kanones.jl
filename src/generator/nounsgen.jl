@@ -43,8 +43,8 @@ function selectregularnoun(form, stems, rules, ortho::GreekOrthography)
         #@info "generatenoun: found $(length(sameclass)) noun rules of class $(stem.inflectionclass)"
         
         # 2. Must have some morph form as analysis.
-        abbrs = map(r -> abbrurn(r), sameclass)
-        sameform = filter(r -> abbrurn(r) == form, sameclass)
+        abbrs = map(r -> ruleurn(r), sameclass)
+        sameform = filter(r -> ruleurn(r) == form, sameclass)
 
         # 3. combine stem and ending strings
         raw = map(r -> stem.form * r.ending, sameform)

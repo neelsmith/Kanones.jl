@@ -1,9 +1,11 @@
 @testset "Test converting NounRule to abbreviated URN for form" begin
     rule = NounRule(CitableParserBuilder.RuleUrn("nouninfl.os_ou19"), "os_ou", "α", "neuter", "accusative", "singular")
-    form = Kanones.abbrurn(rule)
-    expected = FormUrn("morphforms.2010003400")
+    form = Kanones.ruleurn(rule)
+    expected = RuleUrn("morphforms.2010003400")
     @test  form == expected
 end
+
+
 @testset "Build parser and parse noun forms" begin
     
     d = tempdir()

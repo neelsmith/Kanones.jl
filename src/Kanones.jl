@@ -17,6 +17,7 @@ using Unicode, Glob, DelimitedFiles
 using CSV, HTTP
 using Documenter, DocStringExtensions
 
+#using CitableBase
 import CitableBase: CitableTrait
 import CitableBase: urn
 import CitableBase: label
@@ -28,8 +29,9 @@ export dataset
 export rulesarray, stemsarray
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
-export AdjectiveForm
+export AdjectiveForm, AdjectiveStem, AdjectiveRule
 export FiniteVerbForm, VerbStem
+export InfinitiveForm
 
 export IrregularRule
 export IrregularNounForm, IrregularNounStem
@@ -42,7 +44,7 @@ export MorphologicalForm
 export generate
 export decline, mddeclension
 
-export urn, abbrurn
+export urn, ruleurn
 
 include("parse.jl")
 include("listparsing.jl")
@@ -54,6 +56,7 @@ include("datasets/uninflecteddata.jl")
 include("datasets/nounsdata.jl")
 include("datasets/pronounsdata.jl")
 include("datasets/irregularnounsdata.jl")
+include("datasets/irregularadjsdata.jl")
 include("datasets/irregularverbsdata.jl")
 include("datasets/irregularinfinitivedata.jl")
 include("datasets/irregularrules.jl")
@@ -64,6 +67,7 @@ include("datasets/verbaladjectivedata.jl")
 include("datasets/adjectivesdata.jl")
 
 include("analyzer/analysis.jl")
+include("analyzer/cite_analyses.jl")
 
 include("generator/generate.jl")
 include("generator/uninflectedgen.jl")
@@ -110,6 +114,7 @@ module FstBuilder
     include("builder/nounsfst.jl")
     include("builder/pronounsfst.jl")
     include("builder/adjectivesfst.jl")
+    include("builder/irregularadjsfst.jl")
     include("builder/irregularnounsfst.jl")
     include("builder/irregularverbsfst.jl")
     include("builder/irregularinfinitivesfst.jl")

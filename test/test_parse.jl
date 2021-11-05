@@ -22,7 +22,9 @@ end
     d = tempdir()
     repo = dirname(pwd())
 
-    kd = Kanones.Dataset([joinpath(repo, "datasets", "core-infl")])
+    infl = joinpath(repo, "datasets", "core-infl")
+    vocab = joinpath(repo, "datasets", "core-vocab")
+    kd = Kanones.Dataset([infl, vocab])
     fst =  joinpath(repo, "fst")
     parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
     analysislist = parsetoken( "και", parser)
@@ -51,7 +53,7 @@ end
     ucanalysis = Kanones.parsetoken("Και", parser)
     @test ucanalysis == analysislist
 
-    psg = CitablePassage(CtsUrn("urn:cts:greekLit:tlg4036.tlg023.normed:Homer.title.1"), "Πρόκλου")
+    psg = CitablePassage(CtsUrn("urn:cts:greekLit:tlg4036.tlg023.normed:Homer.title.1"), "Καὶ")
     psgs = [psg]
     psgparses =  Kanones.parsepassagelist(psgs, parser)
     tinycorpus = CitableTextCorpus(psgs)

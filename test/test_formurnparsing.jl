@@ -35,9 +35,9 @@ end
 
     expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
     @test CitableParserBuilder.urn(nounForm) == expectedUrn
-    abbrurnstr = urn(nounForm) |> abbreviate
+    ruleurnstr = urn(nounForm) |> abbreviate
     expectedAbbrUrn = "morphforms.2030002100"
-    @test abbrurnstr == expectedAbbrUrn
+    @test ruleurnstr == expectedAbbrUrn
 
     @test label(nounForm) == "feminine nominative plural"
     @test cex(nounForm) == "urn:cite2:kanones:morphforms.v1:2030002100|feminine nominative plural"
@@ -55,9 +55,9 @@ end
 #=
     expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
     @test CitableParserBuilder.urn(nounForm) == expectedUrn
-    abbrurnstr = urn(nounForm) |> abbreviate
+    ruleurnstr = urn(nounForm) |> abbreviate
     expectedAbbrUrn = "morphforms.2030002100"
-    @test abbrurnstr == expectedAbbrUrn
+    @test ruleurnstr == expectedAbbrUrn
 
     @test label(nounForm) == "feminine nominative plural"
     @test cex(nounForm) == "urn:cite2:kanones:morphforms.v1:2030002100|feminine nominative plural"

@@ -1,14 +1,16 @@
 
-@testset "Compile parser for core-infl dataset" begin
+@testset "Compile parser for core dataset" begin
     d = tempdir()
     repo = dirname(pwd())
+    infl = joinpath(repo, "datasets", "core-infl")
+    vocab = joinpath(repo, "datasets", "core-vocab")
+    kd = Kanones.Dataset([infl, vocab])
 
-    kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
-    fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+    fst =  joinpath(repo, "fst")
+    FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
     
-    expected = d * "/testcompile/greek.a"
+    expected = joinpath(d, "testcompile", "greek.a")
     @test isfile(expected)
 
-    rm(d * "/testcompile/", recursive=true)
+    rm(joinpath(d , "testcompile"), recursive=true)
 end

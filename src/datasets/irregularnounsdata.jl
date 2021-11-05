@@ -3,14 +3,55 @@ struct IrregularNounStem <: Stem
     stemid::Kanones.AbbreviatedUrn
     lexid::Kanones.AbbreviatedUrn
     form::AbstractString
-    gender
-    gcase
-    gnumber
+    noungender
+    nouncase
+    nounnumber
     #inflectionclass
 end
 
+"""Irregular noun stems are citable by Cite2Urn"""
+CitableTrait(::Type{IrregularNounStem}) = CitableByCite2Urn()
+"""Human-readlable label for an `IrregularNounStem`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function label(ns::IrregularNounStem)
+    string("Irregular noun form ", ns.form, " (", ns.noungender," ", ns.nouncase, " ", ns.nounnumber, ")")
+end
 
 
+"""Identifying URN for an `IrregularNounStem`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(ns::IrregularNounStem; registry = nothing)
+    if isnothing(registry)
+        ns.stemid
+    else
+        expand(ns.stemid, registry)
+    end
+end
+
+
+"""Compose CEX text for an `IrregularNounStem`.
+If `registry` is nothing, use abbreivated URN;
+otherwise, expand identifier to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function cex(ns::IrregularNounStem; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([ns.stemid, label(ns) ], delimiter)
+    else
+        c2urn = expand(ns.stemid, registry)
+        join([c2urn, label(ns)], delimiter)
+    end
+end
 #=
 function formurn(irregstem::IrregularNounStem)
     numdict = labeldict(numberpairs)
@@ -42,7 +83,7 @@ Read one row of a stems table for noun tokens and create a `NounStem`.
 
 $(SIGNATURES)    
 """
-function readstemrow(usp::IrregularNounParser, delimited::AbstractString, delimiter = "|")
+function readstemrow(usp::IrregularNounIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
 
     # Example:
@@ -60,8 +101,8 @@ function readstemrow(usp::IrregularNounParser, delimited::AbstractString, delimi
         throw(new(ArgumentError(msg)))
     end
     
-    stemid = Kanones.StemUrn(parts[1])
-    lexid = Kanones.LexemeUrn(parts[2])
+    stemid = StemUrn(parts[1])
+    lexid = LexemeUrn(parts[2])
     stem = nfkc(parts[3])
     g = parts[4]
     c = parts[5]

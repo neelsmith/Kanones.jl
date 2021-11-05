@@ -1,12 +1,12 @@
 """Nouns have gender, case and number."""
 struct NounForm <: MorphologicalForm
     ngender::Int64
-    #genderlabel::AbstractString    
     ncase::Int64
-    #caselabel::AbstractString    
     nnumber::Int64
-    #numberlabel::AbstractString    
 end
+
+"""Noun forms are citable by Cite2Urn"""
+CitableTrait(::Type{NounForm}) = CitableByCite2Urn()
 
 """Create a `NounForm` from a string value.
 
@@ -26,7 +26,6 @@ function nounform(code::AbstractString)
         nnumber, #numberdict[nnumber]
     )
 end
-
 
 """Create a `NounForm` from a `Cite2Urn`.
 
@@ -70,29 +69,6 @@ $(SIGNATURES)
 function urn(noun::NounForm)
     # PosPNTMVGCDCat
     Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",noun.nnumber,"000",noun.ngender,noun.ncase,"00"))
-end
-
-
-"""Compose an abbreviated URN for a form from a `NounRule`.
-
-$(SIGNATURES)
-"""
-function abbrurn(rule::NounRule)
-    numdict = labeldict(numberpairs)
-    casedict = labeldict(casepairs)
-    genderdict = labeldict(genderpairs)
-
-    # PosPNTMVGCDCat
-    FormUrn(string("morphforms.", NOUN,"0",numdict[rule.nnumber],"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
-end
-
-
-"""Compose CEX representation for a `NounForm`.
-
-$(SIGNATURES)
-"""
-function cex(noun::NounForm, delim="|")
-    join([urn(noun), label(noun)], delim)
 end
 
 
@@ -160,4 +136,17 @@ function nounscex()
         end
     end
     join(lines, "\n")    
+end
+
+"""Compose an abbreviated URN for a rule from a `NounRule`.
+
+$(SIGNATURES)
+"""
+function ruleurn(rule::NounRule)
+    numdict = labeldict(numberpairs)
+    casedict = labeldict(casepairs)
+    genderdict = labeldict(genderpairs)
+
+    # PosPNTMVGCDCat
+    RuleUrn(string("morphforms.", NOUN,"0",numdict[rule.nnumber],"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
 end
