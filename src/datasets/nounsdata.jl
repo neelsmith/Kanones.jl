@@ -99,6 +99,23 @@ function label(nr::NounRule)
     string("Noun inflection rule: ending -", nr.ending, " in class ", nr.inflectionclass, " can be ", nr.ngender, " ", nr.ncase, " ", nr.nnumber, ".")
 end
 
+
+"""Identifying URN for a `NounRule`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(nr::NounRule; registry = nothing)
+    if isnothing(registry)
+        nr.ruleid
+    else
+        expand(nr.ruleid, registry)
+    end
+end
+
+
 """Compose CEX text for a `NounRule`.
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
@@ -116,20 +133,6 @@ function cex(nr::NounRule; delimiter = "|", registry = nothing)
 end
 
 
-"""Identifying URN for a `NounRule`.  If
-no registry is included, use abbreviated URN;
-otherwise, expand to full `Cite2Urn`.
-
-@(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function urn(nr::NounRule; registry = nothing)
-    if isnothing(registry)
-        nr.ruleid
-    else
-        expand(nr.ruleid, registry)
-    end
-end
 
 
 

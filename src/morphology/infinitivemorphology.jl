@@ -54,9 +54,8 @@ end
 $(SIGNATURES)
 """
 function infinitivefromfst(fstdata)
-    # Example rule string:
-    #  "<w_regular><infinitive>εσθαι
-    # <present><middle><u>infinfl.wreg2</u>"
+    # The fst parameter shoud look like
+    # <present><middle>
     # Extract TV from a string like the example:
     infinitiverulere = r"<([^<]+)><([^<]+)>"
     matchedup = collect(eachmatch(infinitiverulere, fstdata))
@@ -65,7 +64,7 @@ function infinitivefromfst(fstdata)
         @warn("Unable to parse FST analysis \"" * fstdata * "\" as verb form.")
         nothing
     else
-        (t, v) = matchedup[2].captures
+        (t, v) = matchedup[1].captures
         tensedict = labeldict(tensepairs)
         voicedict = labeldict(voicepairs)
         InfinitiveForm(tensedict[t],voicedict[v])    
