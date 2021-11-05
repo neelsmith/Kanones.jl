@@ -69,9 +69,6 @@ include("infinitives/test_5.infinitiverules.jl")
 
 
 
-include("nouns/test_4.nounstems.jl")
-include("nouns/test_5.nounrules.jl")
-
 
 
 
@@ -82,7 +79,13 @@ include("verbaladjectives/test_1.verbaladjectivesdata.jl")
  include("nouns/test_2.nounsfst.jl") 
  include("verbaladjectives/test_2.verbaladjectivesfst.jl")
 
- =#
+include("nouns/test_3.nounsformatting.jl")
+include("verbaladjectives/test_3.verbaladjectivesformatting.jl")
 
- include("nouns/test_3.nounsformatting.jl")
- include("verbaladjectives/test_3.verbaladjectivesformatting.jl")
+
+include("nouns/test_4.nounstems.jl")
+
+=#
+
+include("nouns/test_5.nounrules.jl")
+include("verbaladjectives/test_5.verbaladjectiverules.jl")
