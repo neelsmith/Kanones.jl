@@ -10,6 +10,7 @@
     @test rule.nnumber == "singular"
 end
 
+
 @testset "Read stems for noun tokens from delimited text"  begin    
     cexsrc = "nounstems.n22502|lexent.n22502|γνωμ|feminine|h_hs|recessive|"
     nounsio = Kanones.NounIO("nouns")

@@ -1,5 +1,3 @@
-
-
 @testset "Test parsing a NounForm from SFST output" begin
     sfst = "<u>nounstems.n20600</u><u>lsj.n20600</u>βουλ<noun><feminine><h_hs><div><h_hs><noun>η<feminine><nominative><singular><u>nouninfl.h_hs1</u>"
     infl = split(sfst,"<div>")[2]
@@ -56,7 +54,6 @@ end
     @test label(noun) == "feminine nominative singular"
     @test cex(noun) == "urn:cite2:kanones:morphforms.v1:2010002100|feminine nominative singular"
     @test Kanones.formurn(noun) ==  FormUrn("morphforms.2010002100")
-
 end
 
 @testset "Test parsing a RuleUrn from a NounRule" begin
