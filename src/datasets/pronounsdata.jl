@@ -22,7 +22,7 @@ Read one row of a stems table for noun tokens and create a `NounStem`.
 
 $(SIGNATURES)    
 """
-function readstemrow(usp::PronounParser, delimited::AbstractString; delimiter = "|")
+function readstemrow(usp::PronounIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
@@ -42,7 +42,7 @@ Read one row of a stems table for noun tokens and create a `NounStem`.
 
 $(SIGNATURES)    
 """
-function readrulerow(usp::PronounParser, delimited::AbstractString; delimiter = "|")
+function readrulerow(usp::PronounIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     stemid = RuleUrn(parts[1])
     pronountype = parts[2]
