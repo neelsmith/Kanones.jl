@@ -57,13 +57,9 @@ include("utils.jl")
 include("dataset.jl")
 include("kanonesio.jl")
 
-include("datasets/uninflecteddata.jl")
-include("datasets/pronounsdata.jl")
 include("datasets/irregularverbsdata.jl")
 include("datasets/irregularrules.jl")
 include("datasets/finiteverbsdata.jl")
-
-
 
 include("analyzer/analysis.jl")
 include("analyzer/cite_analyses.jl")
@@ -74,14 +70,12 @@ include("generator/nounsgen.jl")
 
 include("lsj/labels.jl")
 
-# Conversion Form objects <-> URN values
+
 include("morphology/forms.jl")
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
 include("morphology/kanonesformurns.jl")
 include("morphology/irregularmorphology.jl")
-include("morphology/uninflectedmorphology.jl")
-include("morphology/pronounmorphology.jl")
 include("morphology/finiteverbmorphology.jl")
 
 
@@ -107,6 +101,15 @@ include("citable_forms/adjectives.jl")
 include("citable_rules/adjectives.jl")
 include("citable_stems/regularadjectives.jl")
 include("citable_stems/irregularadjectives.jl")
+
+include("citable_forms/pronouns.jl")
+include("citable_stems/pronouns.jl")
+include("citable_rules/pronouns.jl")
+
+
+include("citable_forms/uninflected.jl")
+include("citable_stems/uninflected.jl")
+include("citable_rules/uninflected.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder
