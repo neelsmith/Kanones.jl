@@ -57,9 +57,8 @@ include("utils.jl")
 include("dataset.jl")
 include("kanonesio.jl")
 
-include("datasets/irregularverbsdata.jl")
+
 include("datasets/irregularrules.jl")
-include("datasets/finiteverbsdata.jl")
 
 include("analyzer/analysis.jl")
 include("analyzer/cite_analyses.jl")
@@ -76,8 +75,11 @@ include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
 include("morphology/kanonesformurns.jl")
 include("morphology/irregularmorphology.jl")
-include("morphology/finiteverbmorphology.jl")
 
+include("citable_forms/finiteverbs.jl")
+include("citable_stems/verbs.jl")
+include("citable_stems/irregularverbs.jl")
+include("citable_rules/finiteverbs.jl")
 
 include("citable_forms/infinitives.jl")
 # regular stems are drawn from finite verb stems
