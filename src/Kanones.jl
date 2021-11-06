@@ -44,9 +44,6 @@ export IrregularNounForm, IrregularNounStem
 export IrregularVerbForm, IrregularVerbStem
 export IrregularInfinitiveForm, IrregularInfinitiveStem
 
-
-
-
 export generate
 export decline, mddeclension
 
@@ -60,7 +57,6 @@ include("dataset.jl")
 include("kanonesio.jl")
 
 include("analyzer/analysis.jl")
-include("analyzer/cite_analyses.jl")
 
 include("generator/generate.jl")
 include("generator/uninflectedgen.jl")
