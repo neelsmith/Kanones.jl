@@ -44,6 +44,8 @@ export IrregularNounForm, IrregularNounStem
 export IrregularVerbForm, IrregularVerbStem
 export IrregularInfinitiveForm, IrregularInfinitiveStem
 
+export Lexeme
+
 export generate
 export decline, mddeclension
 
@@ -62,6 +64,7 @@ include("generator/generate.jl")
 include("generator/uninflectedgen.jl")
 include("generator/nounsgen.jl")
 
+include("lexeme.jl")
 include("lsj/labels.jl")
 
 
