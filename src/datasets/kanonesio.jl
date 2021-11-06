@@ -100,7 +100,7 @@ KanonesIO type for reading and writing data for participle rules only.
 $(SIGNATURES)
 
 """
-struct ParticipleRuleParser <: KanonesIO
+struct ParticipleIO <: KanonesIO
     label::AbstractString
 end
 

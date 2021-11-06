@@ -1,15 +1,15 @@
-@testset "Read rules for infinitives from delimited text" begin
-    cex = "ptcplinfl.wpres11p|w_regular|όμενον|present|middle|neuter|nominative|singular|"
-    ptpclparser = Kanones.ParticipleRuleParser("participles")
-    rulerow = Kanones.readrulerow(ptpclparser, cex)
+@testset "Read rules for participle tokens from delimited text" begin
+    cexsrc = "ptcplinfl.wpres11p|w_regular|όμενον|present|middle|neuter|nominative|singular|"
+    ptpcplio = Kanones.ParticipleIO("participles")
+    rule = Kanones.readrulerow(ptpcplio, cexsrc)
 
-    rulerow.ruleid |> string == "ptcplinfl.wpres11p"
+    rule.ruleid |> string == "ptcplinfl.wpres11p"
 
-    @test rulerow.inflectionclass == "w_regular"
-    @test rulerow.ending == "όμενον"
-    @test rulerow.ptense == "present"
-    @test rulerow.pvoice == "middle"
-    @test rulerow.pgender == "neuter"
-    @test rulerow.pcase == "nominative"
-    @test rulerow.pnumber == "singular"
+    @test rule.inflectionclass == "w_regular"
+    @test rule.ending == "όμενον"
+    @test rule.ptense == "present"
+    @test rule.pvoice == "middle"
+    @test rule.pgender == "neuter"
+    @test rule.pcase == "nominative"
+    @test rule.pnumber == "singular"
 end

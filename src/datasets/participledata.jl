@@ -20,7 +20,7 @@ end
 
 $(SIGNATURES)
 """
-function readrulerow(usp::ParticipleRuleParser, delimited::AbstractString; delimiter = "|")
+function readrulerow(usp::ParticipleIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     
     if length(parts) < 5

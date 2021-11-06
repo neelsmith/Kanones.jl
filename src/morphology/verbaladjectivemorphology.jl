@@ -12,27 +12,6 @@ end
 """Verbal adjective forms are citable by Cite2Urn"""
 CitableTrait(::Type{VerbalAdjectiveForm}) = CitableByCite2Urn()
 
-
-"""Create a `VerbalAdjectiveForm` from a string value.
-
-$(SIGNATURES)
-"""
-function verbaladjectiveform(code::AbstractString)
-    morphchars = split(code, "")
-    vagender = parse(Int64, morphchars[7])
-    vacase = parse(Int64, morphchars[8])
-    vanumber = parse(Int64, morphchars[3])
-    VerbalAdjectiveForm(
-        vagender,
-        vacase,
-        vanumber
-    )
-end
-
-
-"""Verbal adjective forms are citable by Cite2Urn"""
-CitableTrait(::Type{VerbalAdjectiveForm}) = CitableByCite2Urn()
-
 """Compose a label for a `VerbalAdjectiveForm`
 
 $(SIGNATURES)
@@ -57,6 +36,21 @@ end
 
 
 
+"""Create a `VerbalAdjectiveForm` from a string value.
+
+$(SIGNATURES)
+"""
+function verbaladjectiveform(code::AbstractString)
+    morphchars = split(code, "")
+    vagender = parse(Int64, morphchars[7])
+    vacase = parse(Int64, morphchars[8])
+    vanumber = parse(Int64, morphchars[3])
+    VerbalAdjectiveForm(
+        vagender,
+        vacase,
+        vanumber
+    )
+end
 
 """Create a `VerbalAdjectiveForm` from a `Cite2Urn`.
 

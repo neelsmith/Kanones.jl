@@ -24,9 +24,8 @@ include("parsing_output/test_adjsparsing.jl")
 include("parsing_output/test_infinitivesparsing.jl")
 include("parsing_output/test_finiteverbparsing.jl")
 include("parsing_output/test_verbaladjectivesparsing.jl")
+include("parsing_output/test_participlesparsing.jl") 
 =#
-
-
 
 #=
 include("nouns/test_nounsgenerate.jl")
@@ -45,9 +44,6 @@ include("pronouns/test_pronounsdata.jl")
 include("pronouns/test_pronounsfst.jl")
 include("pronouns/test_pronounsanalysis.jl")
 
-include("participles/test_participlesdata.jl") 
-include("participles/test_participlesfst.jl") 
-include("participles/test_participlesanalysis.jl") 
 
 
 =#
@@ -72,20 +68,28 @@ include("infinitives/test_5.infinitiverules.jl")
 
 
 
-
 include("nouns/test_1.nounsdata.jl")
-include("verbaladjectives/test_1.verbaladjectivesdata.jl")
-
- include("nouns/test_2.nounsfst.jl") 
- include("verbaladjectives/test_2.verbaladjectivesfst.jl")
-
+include("nouns/test_2.nounsfst.jl") 
 include("nouns/test_3.nounsformatting.jl")
-include("verbaladjectives/test_3.verbaladjectivesformatting.jl")
-
-
 include("nouns/test_4.nounstems.jl")
+include("nouns/test_5.nounrules.jl")
+
+
+
+
+
+
+include("verbaladjectives/test_5.verbaladjectiverules.jl")
+
+
+include("verbaladjectives/test_1.verbaladjectivesdata.jl")
+include("participles/test_1.participlesdata.jl") 
+
+include("verbaladjectives/test_2.verbaladjectivesfst.jl")
+include("participles/test_2.participlesfst.jl") 
+
 
 =#
 
-include("nouns/test_5.nounrules.jl")
-include("verbaladjectives/test_5.verbaladjectiverules.jl")
+include("verbaladjectives/test_3.verbaladjectivesformatting.jl")
+include("participles/test_3.participlesformatting.jl")
