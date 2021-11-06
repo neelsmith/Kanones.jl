@@ -8,6 +8,28 @@ end
 """Noun forms are citable by Cite2Urn"""
 CitableTrait(::Type{NounForm}) = CitableByCite2Urn()
 
+
+"""Compose a label for a `NounForm`
+
+$(SIGNATURES)
+"""
+function label(noun::NounForm)
+    gdict = Kanones.genderpairs |> Kanones.valuedict
+    cdict = Kanones.casepairs |> Kanones.valuedict
+    ndict = Kanones.numberpairs |> Kanones.valuedict
+    join([gdict[noun.ngender], cdict[noun.ncase], ndict[noun.nnumber]], " ")
+end
+
+"""Compose a Cite2Urn for a `NounForm`.
+
+$(SIGNATURES)
+"""
+function urn(noun::NounForm)
+    # PosPNTMVGCDCat
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",noun.nnumber,"000",noun.ngender,noun.ncase,"00"))
+end
+
+
 """Create a `NounForm` from a string value.
 
 $(SIGNATURES)
@@ -50,27 +72,6 @@ $(SIGNATURES)
 function nounform(a::Analysis)
     nounform(a.form)
 end
-
-"""Compose a label for a `NounForm`
-
-$(SIGNATURES)
-"""
-function label(noun::NounForm)
-    gdict = Kanones.genderpairs |> Kanones.valuedict
-    cdict = Kanones.casepairs |> Kanones.valuedict
-    ndict = Kanones.numberpairs |> Kanones.valuedict
-    join([gdict[noun.ngender], cdict[noun.ncase], ndict[noun.nnumber]], " ")
-end
-
-"""Compose a Cite2Urn for a `NounForm`.
-
-$(SIGNATURES)
-"""
-function urn(noun::NounForm)
-    # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",noun.nnumber,"000",noun.ngender,noun.ncase,"00"))
-end
-
 
 
 """Compose a `FormUrn` for a `NounForm`.
@@ -136,17 +137,4 @@ function nounscex()
         end
     end
     join(lines, "\n")    
-end
-
-"""Compose an abbreviated URN for a rule from a `NounRule`.
-
-$(SIGNATURES)
-"""
-function ruleurn(rule::NounRule)
-    numdict = labeldict(numberpairs)
-    casedict = labeldict(casepairs)
-    genderdict = labeldict(genderpairs)
-
-    # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", NOUN,"0",numdict[rule.nnumber],"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
 end

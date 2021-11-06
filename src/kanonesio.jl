@@ -1,5 +1,5 @@
 """
-Implementations of this type can read delimited and write fst.
+Implementations of this type can read delimited text and write SFST.
 
 $(SIGNATURES)
 """
@@ -138,7 +138,6 @@ $(SIGNATURES)
 struct AdjectiveIO <: KanonesIO
     label::AbstractString
 end
-
 
 """
 KanonesIO type for reading and writing data for irregular noun forms.

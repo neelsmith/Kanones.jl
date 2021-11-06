@@ -1,4 +1,4 @@
-
+ 
 """Finite verbs have person, number, tense, mood and voice."""
 struct ParticipleForm <: MorphologicalForm
     tense::Int64
@@ -129,20 +129,3 @@ function formurn(ptcpl::ParticipleForm)
     ptcpl.pgender, ptcpl.pcase, "00"))
 end
 
-
-
-
-"""Compose an abbreviated URN for a rule from a `NounRule`.
-
-$(SIGNATURES)
-"""
-function ruleurn(rule::ParticipleRule)
-    numdict = labeldict(numberpairs)
-    casedict = labeldict(casepairs)
-    genderdict = labeldict(genderpairs)
-    tensedict = labeldict(tensepairs)
-    voicedict = labeldict(voicepairs)
-
-    # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", PARTICIPLE,"0",numdict[rule.pnumber],tensedict[rule.ptense], "0",voicedict[rule.pvoice],genderdict[rule.pgender],casedict[rule.pcase],"00"))
-end

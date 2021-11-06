@@ -11,12 +11,6 @@ end
 #pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article
 
 
-"Inflectional rule for uninflected lexical items."
-struct PronounRule <: Rule
-    ruleid::RuleUrn
-    pronountype
-end
-
 """
 Read one row of a stems table for noun tokens and create a `NounStem`.
 
@@ -37,8 +31,14 @@ end
 
 
 
+"Inflectional rule for uninflected lexical items."
+struct PronounRule <: Rule
+    ruleid::RuleUrn
+    pronountype
+end
+
 """
-Read one row of a stems table for noun tokens and create a `NounStem`.
+Read one row of a stems table for pronoun tokens and create a `PronounRule`.
 
 $(SIGNATURES)    
 """

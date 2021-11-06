@@ -27,14 +27,15 @@ export urn, label, cex
 
 export dataset
 export rulesarray, stemsarray
+
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 export PronounForm, PronounStem, PronounRule
 export AdjectiveForm, AdjectiveStem, AdjectiveRule
 export FiniteVerbForm, VerbStem
-export InfinitiveForm
-export VerbalAdjectiveForm
-export ParticipleForm
+export InfinitiveForm, InfinitiveRule
+export VerbalAdjectiveForm, VerbalAdjectiveRule
+export ParticipleForm, ParticipleRule
 
 export IrregularRule
 export IrregularNounForm, IrregularNounStem
@@ -53,21 +54,8 @@ include("parse.jl")
 include("listparsing.jl")
 include("utils.jl")
 
-include("datasets/dataset.jl")
-include("datasets/kanonesio.jl")
-include("datasets/uninflecteddata.jl")
-include("datasets/nounsdata.jl")
-include("datasets/pronounsdata.jl")
-include("datasets/irregularnounsdata.jl")
-include("datasets/irregularadjsdata.jl")
-include("datasets/irregularverbsdata.jl")
-include("datasets/irregularinfinitivedata.jl")
-include("datasets/irregularrules.jl")
-include("datasets/finiteverbsdata.jl")
-include("datasets/infinitivedata.jl")
-include("datasets/participledata.jl")
-include("datasets/verbaladjectivedata.jl")
-include("datasets/adjectivesdata.jl")
+include("dataset.jl")
+include("kanonesio.jl")
 
 include("analyzer/analysis.jl")
 include("analyzer/cite_analyses.jl")
@@ -78,22 +66,49 @@ include("generator/nounsgen.jl")
 
 include("lsj/labels.jl")
 
-# Conversion Form objects <-> URN values
+
 include("morphology/forms.jl")
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
 include("morphology/kanonesformurns.jl")
-
-
 include("morphology/irregularmorphology.jl")
-include("morphology/uninflectedmorphology.jl")
-include("morphology/nounmorphology.jl")
-include("morphology/pronounmorphology.jl")
-include("morphology/adjectivemorphology.jl")
-include("morphology/finiteverbmorphology.jl")
-include("morphology/infinitivemorphology.jl")
-include("morphology/participlemorphology.jl")
-include("morphology/verbaladjectivemorphology.jl")
+
+include("citable_rules/irregulars.jl")
+
+include("citable_forms/finiteverbs.jl")
+include("citable_stems/verbs.jl")
+include("citable_stems/irregularverbs.jl")
+include("citable_rules/finiteverbs.jl")
+
+# regular stems are drawn from finite verb stems
+include("citable_forms/infinitives.jl")
+include("citable_stems/irregularinfinitives.jl")
+include("citable_rules/infinitives.jl")
+
+include("citable_forms/participles.jl")
+include("citable_rules/participles.jl")
+
+include("citable_forms/verbaladjectives.jl")
+include("citable_rules/verbaladjectives.jl")
+
+include("citable_forms/nouns.jl")
+include("citable_stems/regularnouns.jl")
+include("citable_stems/irregularnouns.jl")
+include("citable_rules/nouns.jl")
+
+include("citable_forms/adjectives.jl")
+include("citable_rules/adjectives.jl")
+include("citable_stems/regularadjectives.jl")
+include("citable_stems/irregularadjectives.jl")
+
+include("citable_forms/pronouns.jl")
+include("citable_stems/pronouns.jl")
+include("citable_rules/pronouns.jl")
+
+
+include("citable_forms/uninflected.jl")
+include("citable_stems/uninflected.jl")
+include("citable_rules/uninflected.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder

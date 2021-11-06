@@ -101,17 +101,3 @@ function urn(inf::InfinitiveForm)
     Cite2Urn(string(BASE_MORPHOLOGY_URN, INFINITIVE,"00",inf.tense,"0", inf.voice,"0000"))
 end
 
-
-
-"""Compose an abbreviated URN for a rule from an `InfinitiveRule`.
-
-$(SIGNATURES)
-"""
-function ruleurn(rule::InfinitiveRule)
-    tensedict = labeldict(tensepairs)
-    voicedict = labeldict(voicepairs)
-  
-
-    # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", INFINITIVE,"00",tensedict[rule.tense],"0",voicedict[rule.voice],"0000"))
-end
