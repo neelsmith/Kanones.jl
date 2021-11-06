@@ -28,11 +28,13 @@ export urn, label, cex
 export dataset
 export rulesarray, stemsarray
 
+export MorphologicalForm
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 export PronounForm, PronounStem, PronounRule
 export AdjectiveForm, AdjectiveStem, AdjectiveRule
-export FiniteVerbForm, VerbStem
+
+export FiniteVerbForm, VerbStem, FiniteVerbRule
 export InfinitiveForm, InfinitiveRule
 export VerbalAdjectiveForm, VerbalAdjectiveRule
 export ParticipleForm, ParticipleRule
@@ -43,7 +45,7 @@ export IrregularVerbForm, IrregularVerbStem
 export IrregularInfinitiveForm, IrregularInfinitiveStem
 
 
-export MorphologicalForm
+
 
 export generate
 export decline, mddeclension
