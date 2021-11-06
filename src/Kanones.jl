@@ -28,11 +28,13 @@ export urn, label, cex
 export dataset
 export rulesarray, stemsarray
 
+export MorphologicalForm
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 export PronounForm, PronounStem, PronounRule
 export AdjectiveForm, AdjectiveStem, AdjectiveRule
-export FiniteVerbForm, VerbStem
+
+export FiniteVerbForm, VerbStem, FiniteVerbRule
 export InfinitiveForm, InfinitiveRule
 export VerbalAdjectiveForm, VerbalAdjectiveRule
 export ParticipleForm, ParticipleRule
@@ -41,9 +43,6 @@ export IrregularRule
 export IrregularNounForm, IrregularNounStem
 export IrregularVerbForm, IrregularVerbStem
 export IrregularInfinitiveForm, IrregularInfinitiveStem
-
-
-export MorphologicalForm
 
 export generate
 export decline, mddeclension
@@ -58,7 +57,6 @@ include("dataset.jl")
 include("kanonesio.jl")
 
 include("analyzer/analysis.jl")
-include("analyzer/cite_analyses.jl")
 
 include("generator/generate.jl")
 include("generator/uninflectedgen.jl")

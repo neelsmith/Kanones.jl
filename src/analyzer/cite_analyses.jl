@@ -1,3 +1,0 @@
-# Lexeme
-# Stem
-# Rule
