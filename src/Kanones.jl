@@ -59,13 +59,11 @@ include("kanonesio.jl")
 
 include("datasets/uninflecteddata.jl")
 include("datasets/pronounsdata.jl")
-
-include("datasets/irregularadjsdata.jl")
 include("datasets/irregularverbsdata.jl")
 include("datasets/irregularrules.jl")
 include("datasets/finiteverbsdata.jl")
 include("datasets/verbaladjectivedata.jl")
-include("datasets/adjectivesdata.jl")
+
 
 include("analyzer/analysis.jl")
 include("analyzer/cite_analyses.jl")
@@ -84,7 +82,6 @@ include("morphology/kanonesformurns.jl")
 include("morphology/irregularmorphology.jl")
 include("morphology/uninflectedmorphology.jl")
 include("morphology/pronounmorphology.jl")
-include("morphology/adjectivemorphology.jl")
 include("morphology/finiteverbmorphology.jl")
 include("morphology/verbaladjectivemorphology.jl")
 
@@ -102,6 +99,10 @@ include("citable_stems/regularnouns.jl")
 include("citable_stems/irregularnouns.jl")
 include("citable_rules/nouns.jl")
 
+include("citable_forms/adjectives.jl")
+include("citable_rules/adjectives.jl")
+include("citable_stems/regularadjectives.jl")
+include("citable_stems/irregularadjectives.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder

@@ -106,20 +106,3 @@ function adjectivefromfst(fstdata)
         )
     end
 end
-
-
-"""Compose an abbreviated URN for a rule from a `AdjectiveRule`.
-
-$(SIGNATURES)
-"""
-function ruleurn(rule::AdjectiveRule)
-    numdict = labeldict(numberpairs)
-    casedict = labeldict(casepairs)
-    genderdict = labeldict(genderpairs)
-    degreedict = labeldict(degreepairs)
-
-    # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", ADJECTIVE,"0",numdict[rule.anumber],"000",genderdict[rule.agender],casedict[rule.acase],degreedict[rule.adegree],"0"))
-end
-
-#PosPNTMVGCDCat
