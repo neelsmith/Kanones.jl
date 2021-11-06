@@ -83,7 +83,7 @@ include("morphology/irregularmorphology.jl")
 include("morphology/uninflectedmorphology.jl")
 include("morphology/pronounmorphology.jl")
 include("morphology/finiteverbmorphology.jl")
-include("morphology/verbaladjectivemorphology.jl")
+
 
 include("citable_forms/infinitives.jl")
 # regular stems are drawn from finite verb stems
@@ -93,6 +93,10 @@ include("citable_rules/infinitives.jl")
 include("citable_forms/participles.jl")
 # regular stems are drawn from finite verb stems
 include("citable_rules/participles.jl")
+
+include("citable_forms/verbaladjectives.jl")
+# regular stems are drawn from finite verb stems
+include("citable_rules/verbaladjectives.jl")
 
 include("citable_forms/nouns.jl")
 include("citable_stems/regularnouns.jl")

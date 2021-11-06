@@ -1,12 +1,9 @@
 
-"""Finite verbs have person, number, tense, mood and voice."""
+"""Verbal adjectives have gender, case and number."""
 struct VerbalAdjectiveForm <: MorphologicalForm
     vagender::Int64
-    #gender::AbstractString  
     vacase::Int64
-    #caselabel::AbstractString 
     vanumber::Int64
-    #numberlabel::AbstractString 
 end
 
 """Verbal adjective forms are citable by Cite2Urn"""
@@ -31,10 +28,6 @@ function urn(vadj::VerbalAdjectiveForm)
     # PosPNTMVGCDCat
     Cite2Urn(string(BASE_MORPHOLOGY_URN, VERBALADJECTIVE,"0",vadj.vanumber,"000",vadj.vagender,vadj.vacase,"00"))
 end
-
-
-
-
 
 """Create a `VerbalAdjectiveForm` from a string value.
 
@@ -78,7 +71,7 @@ function verbaladjectiveform(a::Analysis)
 end
 
 
-"""Compose URN for infinitive verb form from FST representation of analytical data.
+"""Compose URN for verbal adjective form from FST representation of analytical data.
 
 $(SIGNATURES)
 """
@@ -95,14 +88,14 @@ function verbaladjectivefromfst(fstdata)
         casedict = labeldict(casepairs)
         numberdict = labeldict(numberpairs)
         VerbalAdjectiveForm(
-        genderdict[g],# g,
-        casedict[c],# c,
-        numberdict[n],# n
+        genderdict[g],
+        casedict[c],
+        numberdict[n]
         )
     end
 end
 
-"""Compose a `FormUrn` for an `InfinitiveForm`.
+"""Compose a `FormUrn` for an `VerbalAdjectiveForm`.
 
 $(SIGNATURES)
 """
@@ -110,19 +103,3 @@ function formurn(vadj::VerbalAdjectiveForm)
     FormUrn(string("morphforms.", VERBALADJECTIVE, "0" ,vadj.vanumber,"000",vadj.vagender, vadj.vacase,"00"))
 end
 #PosPNTMVGCDCat
-
-
-
-
-"""Compose an abbreviated URN for a rule from a `NounRule`.
-
-$(SIGNATURES)
-"""
-function ruleurn(rule::VerbalAdjectiveRule)
-    numdict = labeldict(numberpairs)
-    casedict = labeldict(casepairs)
-    genderdict = labeldict(genderpairs)
-
-    # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", VERBALADJECTIVE,"0",numdict[rule.vanumber],"000",genderdict[rule.vagender],casedict[rule.vacase],"00"))
-end
