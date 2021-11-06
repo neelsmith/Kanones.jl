@@ -113,12 +113,4 @@ function pronounfromfst(fstdata)
 end
 
 
-
-"""Compose a `FormUrn` for a `PronounForm`.
-
-$(SIGNATURES)
-"""
-function formurn(pronounform::PronounForm)
-    FormUrn(string("morphforms.", PRONOUN,"0",pronounform.pnumber,"000",pronounform.pgender,pronounform.pcase,"00"))
-end
  # PosPNTMVGCDCat

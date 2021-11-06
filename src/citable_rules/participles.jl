@@ -84,3 +84,19 @@ function readrulerow(usp::ParticipleIO, delimited::AbstractString; delimiter = "
 
     # Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 end
+
+
+"""Compose an abbreviated URN for a rule from a `NounRule`.
+
+$(SIGNATURES)
+"""
+function ruleurn(rule::ParticipleRule)
+    numdict = labeldict(numberpairs)
+    casedict = labeldict(casepairs)
+    genderdict = labeldict(genderpairs)
+    tensedict = labeldict(tensepairs)
+    voicedict = labeldict(voicepairs)
+
+    # PosPNTMVGCDCat
+    RuleUrn(string("morphforms.", PARTICIPLE,"0",numdict[rule.pnumber],tensedict[rule.ptense], "0",voicedict[rule.pvoice],genderdict[rule.pgender],casedict[rule.pcase],"00"))
+end

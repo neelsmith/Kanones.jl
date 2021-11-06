@@ -33,9 +33,9 @@ export NounForm, NounStem, NounRule
 export PronounForm, PronounStem, PronounRule
 export AdjectiveForm, AdjectiveStem, AdjectiveRule
 export FiniteVerbForm, VerbStem
-export InfinitiveForm
-export VerbalAdjectiveForm
-export ParticipleForm
+export InfinitiveForm, InfinitiveRule
+export VerbalAdjectiveForm, VerbalAdjectiveRule
+export ParticipleForm, ParticipleRule
 
 export IrregularRule
 export IrregularNounForm, IrregularNounStem
@@ -62,10 +62,8 @@ include("datasets/pronounsdata.jl")
 
 include("datasets/irregularadjsdata.jl")
 include("datasets/irregularverbsdata.jl")
-include("datasets/irregularinfinitivedata.jl")
 include("datasets/irregularrules.jl")
 include("datasets/finiteverbsdata.jl")
-include("datasets/participledata.jl")
 include("datasets/verbaladjectivedata.jl")
 include("datasets/adjectivesdata.jl")
 
@@ -88,8 +86,6 @@ include("morphology/uninflectedmorphology.jl")
 include("morphology/pronounmorphology.jl")
 include("morphology/adjectivemorphology.jl")
 include("morphology/finiteverbmorphology.jl")
-include("morphology/infinitivemorphology.jl")
-include("morphology/participlemorphology.jl")
 include("morphology/verbaladjectivemorphology.jl")
 
 include("citable_forms/infinitives.jl")
@@ -97,6 +93,9 @@ include("citable_forms/infinitives.jl")
 include("citable_stems/irregularinfinitives.jl")
 include("citable_rules/infinitives.jl")
 
+include("citable_forms/participles.jl")
+# regular stems are drawn from finite verb stems
+include("citable_rules/participles.jl")
 
 include("citable_forms/nouns.jl")
 include("citable_stems/regularnouns.jl")
