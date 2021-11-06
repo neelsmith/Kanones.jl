@@ -1,11 +1,32 @@
 """Nouns have gender, case and number."""
 struct PronounForm <: MorphologicalForm
     pgender::Int64
-    genderlabel::AbstractString    
     pcase::Int64
-    caselabel::AbstractString    
     pnumber::Int64
-    numberlabel::AbstractString        
+end
+
+"""Pronoun forms are citable by Cite2Urn"""
+CitableTrait(::Type{PronounForm}) = CitableByCite2Urn()
+
+
+"""Compose a label for a `PronounForm`
+
+$(SIGNATURES)
+"""
+function label(pronoun::PronounForm)
+    gdict = Kanones.genderpairs |> Kanones.valuedict
+    cdict = Kanones.casepairs |> Kanones.valuedict
+    ndict = Kanones.numberpairs |> Kanones.valuedict
+    join([gdict[pronoun.pgender], cdict[pronoun.pcase], ndict[pronoun.pnumber]], " ")
+end
+
+"""Compose a Cite2Urn for a `PronounForm`.
+
+$(SIGNATURES)
+"""
+function urn(pronoun::PronounForm)
+    # PosPNTMVGCDCat
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, PRONOUN,"0",pronoun.pnumber,"000",pronoun.pgender,pronoun.pcase,"00"))
 end
 
 """Create a `PronounForm` from a string value.
@@ -17,17 +38,48 @@ function pronounform(code::AbstractString)
     ngender = parse(Int64, morphchars[7])
     ncase = parse(Int64, morphchars[8])
     nnumber = parse(Int64, morphchars[3])
-    genderdict = valuedict(genderpairs)
-    casedict = valuedict(casepairs)
-    numberdict = valuedict(numberpairs)
     PronounForm(
-        ngender, genderdict[ngender],
-        ncase, casedict[ncase],
-        nnumber, numberdict[nnumber]
+        ngender, #genderdict[ngender],
+        ncase, #casedict[ncase],
+        nnumber, #numberdict[nnumber]
     )
 end
  # PosPNTMVGCDCat
 
+
+ """Create a `PronounForm` from a `Cite2Urn`.
+
+ $(SIGNATURES)
+ """
+ function pronounform(urn::Cite2Urn)
+     pronounform(objectcomponent(urn))
+ end
+
+
+ """Create a `PronounForm` from a `FormUrn`.
+
+ $(SIGNATURES)
+ """
+ function pronounform(f::FormUrn)
+    pronounform(f.objectid)
+ end
+
+ """Create a `PronounForm` from an `Analysis`.
+
+ $(SIGNATURES)
+ """
+ function pronounform(a::Analysis)
+    pronounform(a.form)
+ end
+
+
+ """Compose a `FormUrn` for a `PronounForm`.
+
+$(SIGNATURES)
+"""
+function formurn(pronounform::PronounForm)
+    FormUrn(string("morphforms.", PRONOUN,"0",nounform.nnumber,"000",nounform.ngender, nounform.ncase, "00"))
+end
 
 
 """Compose a PronounForm for a noun form from FST representation of analytical data.
@@ -53,9 +105,10 @@ function pronounfromfst(fstdata)
         genderdict = labeldict(genderpairs)
         casedict = labeldict(casepairs)
         numberdict = labeldict(numberpairs)
-        nounform = PronounForm(genderdict[g], g,
-        casedict[c], c,
-        numberdict[n], n)
+        PronounForm(genderdict[g],
+            casedict[c],
+            numberdict[n]  
+        )
     end
 end
 
