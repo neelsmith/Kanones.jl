@@ -27,6 +27,7 @@ export urn, label, cex
 
 export dataset
 export rulesarray, stemsarray
+
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 export PronounForm, PronounStem, PronounRule
@@ -53,10 +54,10 @@ include("parse.jl")
 include("listparsing.jl")
 include("utils.jl")
 
-include("datasets/dataset.jl")
-include("datasets/kanonesio.jl")
+include("dataset.jl")
+include("kanonesio.jl")
+
 include("datasets/uninflecteddata.jl")
-include("datasets/nounsdata.jl")
 include("datasets/pronounsdata.jl")
 include("datasets/irregularnounsdata.jl")
 include("datasets/irregularadjsdata.jl")
@@ -87,13 +88,16 @@ include("morphology/kanonesformurns.jl")
 
 include("morphology/irregularmorphology.jl")
 include("morphology/uninflectedmorphology.jl")
-include("morphology/nounmorphology.jl")
 include("morphology/pronounmorphology.jl")
 include("morphology/adjectivemorphology.jl")
 include("morphology/finiteverbmorphology.jl")
 include("morphology/infinitivemorphology.jl")
 include("morphology/participlemorphology.jl")
 include("morphology/verbaladjectivemorphology.jl")
+
+include("citable_forms/nouns.jl")
+include("citable_stems/regularnouns.jl")
+include("citable_rules/nouns.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder
