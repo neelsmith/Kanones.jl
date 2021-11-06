@@ -13,14 +13,57 @@ struct ParticipleRule <: Rule
     pnumber
 end
 
+"""Participle rules are citable by Cite2Urn"""
+CitableTrait(::Type{ParticipleRule}) = CitableByCite2Urn()
 
 
+"""Human-readlable label for a `ParticipleRule`.
 
-"""Read one row of a rules table for infinitives and create an `InfinitiveRule`.
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function label(ptcpl::ParticipleRule)
+    string("Participle inflection rule: ending -", ptcpl.ending, " in class ", ptcpl.inflectionclass, " can be ", ptcpl.ptense, " ", ptcpl.pvoice, " ", ptcpl.pgender, " ", ptcpl.pcase, " ", ptcpl.pnumber, ".")
+end
+
+"""Identifying URN for a `ParticipleRule`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(ptcpl::ParticipleRule; registry = nothing)
+    if isnothing(registry)
+        ptcpl.ruleid
+    else
+        expand(ptcpl.ruleid, registry)
+    end
+end
+
+
+"""Compose CEX text for a `VerbalAdjectiveRule`.
+If `registry` is nothing, use abbreivated URN;
+otherwise, expand identifier to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function cex(ptcpl::ParticipleRule; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([ptcpl.ruleid, label(ptcpl)], delimiter)
+    else
+        c2urn = expand(ptcpl.ruleid, registry)
+        join([c2urn, label(ptcpl)], delimiter)
+    end
+end
+
+
+"""Read one row of a rules table for infinitives and create an`ParticipleRule`.
 
 $(SIGNATURES)
 """
-function readrulerow(usp::ParticipleRuleParser, delimited::AbstractString; delimiter = "|")
+function readrulerow(usp::ParticipleIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     
     if length(parts) < 5

@@ -5,6 +5,7 @@
     @test vadj == expected
 end
 
+
 @testset "Test parsing a VerbalAdjectiveForm from a FormUrn" begin
     frm = FormUrn("morphforms.6010003400")
     @test Kanones.verbaladjectiveform(frm) == VerbalAdjectiveForm(3, 4, 1)

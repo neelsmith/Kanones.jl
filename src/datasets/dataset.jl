@@ -79,7 +79,7 @@ function rulesarray(dirlist; delimiter = "|")
         "adjectives" => AdjectiveIO("adjectives"),
         "finiteverbs" => VerbParser("verb"),
         "infinitives" => InfinitiveIO("infinitives"),
-        "participles" => ParticipleRuleParser("participles"),
+        "participles" => ParticipleIO("participles"),
         "verbaladjectives" => VerbalAdjectiveRuleParser("verbal adjectives"),
         ]
     )
