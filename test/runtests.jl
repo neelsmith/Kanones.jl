@@ -79,7 +79,6 @@ include("nouns/test_5.nounrules.jl")
 
 
 
-include("verbaladjectives/test_5.verbaladjectiverules.jl")
 
 
 include("verbaladjectives/test_1.verbaladjectivesdata.jl")
@@ -89,7 +88,9 @@ include("verbaladjectives/test_2.verbaladjectivesfst.jl")
 include("participles/test_2.participlesfst.jl") 
 
 
-=#
-
 include("verbaladjectives/test_3.verbaladjectivesformatting.jl")
 include("participles/test_3.participlesformatting.jl")
+=#
+
+include("verbaladjectives/test_5.verbaladjectiverules.jl")
+include("participles/test_5.participlerules.jl")

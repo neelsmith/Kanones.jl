@@ -12,7 +12,7 @@ struct VerbalAdjectiveRule <: Rule
 end
 
 
-"""Verabl adjective rules are citable by Cite2Urn"""
+"""Verbal adjective rules are citable by Cite2Urn"""
 CitableTrait(::Type{VerbalAdjectiveRule}) = CitableByCite2Urn()
 
 """Human-readlable label for a `VerbalAdjectiveRule`.
