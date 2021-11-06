@@ -59,13 +59,12 @@ include("kanonesio.jl")
 
 include("datasets/uninflecteddata.jl")
 include("datasets/pronounsdata.jl")
-include("datasets/irregularnounsdata.jl")
+
 include("datasets/irregularadjsdata.jl")
 include("datasets/irregularverbsdata.jl")
 include("datasets/irregularinfinitivedata.jl")
 include("datasets/irregularrules.jl")
 include("datasets/finiteverbsdata.jl")
-include("datasets/infinitivedata.jl")
 include("datasets/participledata.jl")
 include("datasets/verbaladjectivedata.jl")
 include("datasets/adjectivesdata.jl")
@@ -84,8 +83,6 @@ include("morphology/forms.jl")
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
 include("morphology/kanonesformurns.jl")
-
-
 include("morphology/irregularmorphology.jl")
 include("morphology/uninflectedmorphology.jl")
 include("morphology/pronounmorphology.jl")
@@ -95,9 +92,17 @@ include("morphology/infinitivemorphology.jl")
 include("morphology/participlemorphology.jl")
 include("morphology/verbaladjectivemorphology.jl")
 
+include("citable_forms/infinitives.jl")
+# regular stems are drawn from finite verb stems
+include("citable_stems/irregularinfinitives.jl")
+include("citable_rules/infinitives.jl")
+
+
 include("citable_forms/nouns.jl")
 include("citable_stems/regularnouns.jl")
+include("citable_stems/irregularnouns.jl")
 include("citable_rules/nouns.jl")
+
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder
