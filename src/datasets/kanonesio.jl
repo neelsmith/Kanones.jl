@@ -37,7 +37,7 @@ KanonesIO type for reading and writing data for pronoun forms.
 
 $(SIGNATURES)
 """
-struct PronounParser <: KanonesIO
+struct PronounIO <: KanonesIO
     label::AbstractString
 end
 
