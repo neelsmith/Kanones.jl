@@ -1,10 +1,10 @@
 """Lexemes are citable objects."""
-struct Lexeme :< Citable 
-    id
+struct Lexeme <: Citable
+    lexid
 end
 
 function label(lex::Lexeme)
-    id
+    lex.lexid
 end
 
 
