@@ -73,13 +73,13 @@ end
  end
 
 
- """Compose a `FormUrn` for a `PronounForm`.
-
+"""Compose a `FormUrn` for a `PronounForm`.
 $(SIGNATURES)
 """
 function formurn(pronounform::PronounForm)
-    FormUrn(string("morphforms.", PRONOUN,"0",nounform.nnumber,"000",nounform.ngender, nounform.ncase, "00"))
+    FormUrn(string("morphforms.", PRONOUN,"0",pronounform.pnumber,"000",pronounform.pgender,pronounform.pcase,"00"))
 end
+
 
 
 """Compose a PronounForm for a noun form from FST representation of analytical data.
