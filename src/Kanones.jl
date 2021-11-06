@@ -62,7 +62,7 @@ include("datasets/pronounsdata.jl")
 include("datasets/irregularverbsdata.jl")
 include("datasets/irregularrules.jl")
 include("datasets/finiteverbsdata.jl")
-include("datasets/verbaladjectivedata.jl")
+
 
 
 include("analyzer/analysis.jl")
