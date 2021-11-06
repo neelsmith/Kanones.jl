@@ -56,10 +56,3 @@ end
     @test Kanones.formurn(noun) ==  FormUrn("morphforms.2010002100")
 end
 
-@testset "Test parsing a RuleUrn from a NounRule" begin
-    cexsrc = "nouninfl.h_hs2|h_hs|ης|feminine|genitive|singular|recessive"
-    nounparser = Kanones.NounIO("nouns")
-    rule = Kanones.readrulerow(nounparser, cexsrc)
-
-    @test ruleurn(rule) == RuleUrn("morphforms.2010002200")
-end

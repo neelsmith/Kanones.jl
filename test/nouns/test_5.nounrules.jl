@@ -14,3 +14,11 @@
     @test cex(rule; registry = dict) == "urn:cite2:kanones:nouninfl.v1:h_hs2|Noun inflection rule: ending -ης in class h_hs can be feminine genitive singular."
 
 end
+
+@testset "Test parsing a RuleUrn from a NounRule" begin
+    cexsrc = "nouninfl.h_hs2|h_hs|ης|feminine|genitive|singular|recessive"
+    nounparser = Kanones.NounIO("nouns")
+    rule = Kanones.readrulerow(nounparser, cexsrc)
+
+    @test ruleurn(rule) == RuleUrn("morphforms.2010002200")
+end
