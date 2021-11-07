@@ -10,14 +10,19 @@ end
 
 
 @testset "Format fst lexicon for regular verb stems" begin
-    cexsrc = "verbstems.n56496|lexent.n56496|κελευ|w_regular|"
-    verbio = Kanones.VerbIO("verbs")
+    cexsrc = "irregverb.n110639a|lsj.n110639|φησί|third|singular|present|indicative|active|irregularverb"
+    verbio = Kanones.IrregularVerbIO("verbs")
     stem = Kanones.readstemrow(verbio, cexsrc)
-    expected = "<u>verbstems\\.n56496</u><u>lexent\\.n56496</u><stem>κελευ<finiteverb><w_regular>"
+    expected = "<u>irregverb\\.n110639a</u><u>lsj\\.n110639</u>φησι<irregular><irregularfiniteverb><third><singular><present><indicative><active>"
     @test FstBuilder.fst(stem) == expected
 end
 
 @testset "Format fst lexicon for irregular verb stems" begin
+    cexsrc = "irregverb.n110639a|lsj.n110639|φησί|third|singular|present|indicative|active|irregularverb"
+    verbio = Kanones.IrregularVerbIO("verbs")
+    stem = Kanones.readstemrow(verbio, cexsrc)
+    expected = "<u>irregverb\\.n110639a</u><u>lsj\\.n110639</u>φησι<irregular><irregularfiniteverb><third><singular><present><indicative><active>"
+    @test FstBuilder.fst(stem) == expected
 end
 
 
