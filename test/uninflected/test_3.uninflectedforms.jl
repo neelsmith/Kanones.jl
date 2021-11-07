@@ -3,7 +3,7 @@
     sfstvalue = "conjunction"
     uninflected = Kanones.uninflectedfromfst(sfstvalue)
     expected = UninflectedForm(1)
-    @test Kanones.uninflectedfromfst(fst) == expected
+    @test uninflected == expected
 end
 
 @testset "Test parsing a UninflectedForm from a FormUrn" begin
@@ -53,6 +53,6 @@ end
     @test urn(uninflected) == Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")
     @test label(uninflected) == "conjunction"
     @test cex(uninflected) == "urn:cite2:kanones:morphforms.v1:1000000001|conjunction"
-    @test Kanones.formurn(noun) ==  FormUrn("morphforms.1000000001")
+    @test Kanones.formurn(uninflected) ==  FormUrn("morphforms.1000000001")
 end
 
