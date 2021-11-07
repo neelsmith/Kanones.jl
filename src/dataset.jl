@@ -72,7 +72,7 @@ $(SIGNATURES)
 function rulesarray(dirlist; delimiter = "|")
     iodict = Dict(
         [
-        "uninflected" => UninflectedParser("uninflected"),
+        "uninflected" => UninflectedIO("uninflected"),
         "irregulars" => IrregularRuleParser("irregulars"),
         "nouns" => NounIO("noun"),
         "pronouns" => PronounIO("noun"),
@@ -134,7 +134,7 @@ function stemsarray(dirlist; delimiter = "|")
         "adjectives" => AdjectiveIO("adjective"),
         "nouns" => NounIO("noun"),
         "pronouns" => PronounIO("pronoun"),
-        "uninflected" => UninflectedParser("uninflected"),
+        "uninflected" => UninflectedIO("uninflected"),
         "verbs-simplex" => VerbParser("verb")
         ]
     )
@@ -168,7 +168,7 @@ function stemsarray(dirlist; delimiter = "|")
 
     irregiodict = Dict(
         [
-        "uninflected" => UninflectedParser("uninflected"),
+        "uninflected" => UninflectedIO("uninflected"),
         "nouns" => IrregularNounIO("noun"),
         "verbs" => IrregularVerbParser("finite verb"),
         "infinitives" => IrregularInfinitiveIO("infinitive")

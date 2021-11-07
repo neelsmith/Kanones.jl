@@ -1,7 +1,7 @@
 
 @testset "Read rules for uninflected tokens from delimited text" begin
     cexsrc = "uninflectedrules.indeclinable2|conjunction"
-    uninfl = Kanones.UninflectedParser("uninflected")
+    uninfl = Kanones.UninflectedIO("uninflected")
     rule = Kanones.readrulerow(uninfl, cexsrc)
     @test rule.infltype == "conjunction"
     expectedrule = RuleUrn("uninflectedrules.indeclinable2")
@@ -13,7 +13,7 @@ end
 
 @testset "Read stems for uninflected tokens from delimited text" begin
     cexsrc = "uninflectedstems.uninf2|lsj.n51951|καί|conjunction|"
-    uninfl = Kanones.UninflectedParser("uninflected")
+    uninfl = Kanones.UninflectedIO("uninflected")
     stem = Kanones.readstemrow(uninfl, cexsrc)
 
     actualstemid = stem.stemid

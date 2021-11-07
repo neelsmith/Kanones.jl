@@ -19,7 +19,7 @@ end
 
 $(SIGNATURES)
 """
-function readrulerow(usp::UninflectedParser, delimited::AbstractString; delimiter = "|")
+function readrulerow(usp::UninflectedIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     if length(parts) < 2
         msg = "Invalid syntax for uninflected rule: too few components in $(delimited)"
