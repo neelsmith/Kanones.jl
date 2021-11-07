@@ -60,7 +60,7 @@ Kanones.NounRule
 Kanones.UninflectedIO
 Kanones.UninflectedStem
 Kanones.UninflectedRule
-Kanones.VerbParser
+Kanones.VerbIO
 ```
 
 ### Functions
