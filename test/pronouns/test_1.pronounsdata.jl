@@ -13,9 +13,9 @@
 end
 
 @testset "Read rules for pronoun tokens from delimited text" begin
-    cex = "litgreek.pronouns1|article"
+    cexsrc = "litgreek.pronouns1|article"
     pronounio = Kanones.PronounIO("pronouns")
-    rulerow = Kanones.readrulerow(pronounio, cex)
+    rulerow = Kanones.readrulerow(pronounio, cexsrc)
     @test rulerow.ruleid |> string ==  "litgreek.pronouns1"
     @test rulerow.pronountype == "article"
 end
