@@ -33,7 +33,6 @@ function readrulerow(usp::NounIO, delimited::AbstractString; delimiter = "|")
     
 end
 
-
 """Noun rules are citable by Cite2Urn"""
 CitableTrait(::Type{NounRule}) = CitableByCite2Urn()
 

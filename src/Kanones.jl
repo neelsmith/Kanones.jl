@@ -1,6 +1,9 @@
 module Kanones
 
-using CitableParserBuilder
+using CitableParserBuilder: CitableByCite2Urn
+using CitableParserBuilder: CitableParser
+using CitableParserBuilder: LexemeUrn, StemUrn, FormUrn, RuleUrn, AbbreviatedUrn, expand
+using CitableParserBuilder: Rule, Stem, Analysis
 import CitableParserBuilder: parsetoken
 import CitableParserBuilder: parsewordlist
 import CitableParserBuilder: parsecorpus
