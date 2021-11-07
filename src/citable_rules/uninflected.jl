@@ -83,6 +83,6 @@ end
 function ruleurn(stem::UninflectedStem)
     posdict = labeldict(uninflectedpairs)
     # PosPNTMVGCDCat
-    FormUrn(string("morphforms.", UNINFLECTED,"00000000",posdict[stem.stemcategory])) 
+    RuleUrn(string("morphforms.", UNINFLECTED,"00000000",posdict[stem.stemcategory])) 
 
 end
