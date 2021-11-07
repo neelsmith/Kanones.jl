@@ -69,28 +69,24 @@ include("participles/test_3.participleforms.jl")
 include("verbaladjectives/test_5.verbaladjectiverules.jl")
 include("participles/test_5.participlerules.jl")
 
-include("nouns/test_1.nounsdata.jl")
+
 include("pronouns/test_1.pronounsdata.jl")
-
-include("nouns/test_2.nounsfst.jl") 
 include("pronouns/test_2.pronounsfst.jl")
-
-include("nouns/test_3.nounforms.jl")
 include("pronouns/test_3.pronounforms.jl")
-
-
-include("nouns/test_4.nounstems.jl")
 include("pronouns/test_4.pronounstems.jl")
-include("nouns/test_5.nounrules.jl")
 include("pronouns/test_5.pronounrules.jl")
 
-=#
 
-
-
-
-
-#=
+include("nouns/test_1.nounsdata.jl")
 include("uninflected/test_1.uninflecteddata.jl")
-include("uninflected/test_2.uninflectedfst.jl")
+
+include("nouns/test_3.nounforms.jl")
+include("nouns/test_4.nounstems.jl")
+include("nouns/test_5.nounrules.jl")
+
 =#
+
+include("nouns/test_2.nounsfst.jl") 
+include("uninflected/test_2.uninflectedfst.jl")
+
+
