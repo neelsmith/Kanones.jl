@@ -19,7 +19,7 @@ Kanones.jl recognizes nine analytical types, defined by the kind of analysis a p
 
 | Analytical type | morphology | analyze literary Greek regular form |  analyze literary Greek irregular form  |  generate literary Greek | generate literary Greek irregular  | analyze Attic regular form | analyze Attic irregular form  | generate Attic |
 | --- | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| uninflected token | part of speech | ✔️  | **N/A** | ✔️  | **N/A** | ✔️ | **N/A** | ✔️ |
+| uninflected token | part of speech | ✅  | **N/A** | ✔️  | **N/A** | ✔️ | **N/A** | ✔️ |
 | noun | gender, case, number (gender inherent) | ✅ | ✅ | ✔️ | ✔️ | ✔️ | ✔️  | ✔️  |
 | pronoun | gender, case, number (gender not inherent) |  **N/A** | ✅| | |  **N/A** | | | 
 | finite verb | person, number, tense, mood, voice | ✔️ | ✔️  | | | | | |
