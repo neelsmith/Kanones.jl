@@ -96,4 +96,4 @@ include("uninflected/test_3.uninflectedforms.jl")
 
 
 include("nouns/test_4.nounstems.jl")
-include("uninflected/test_4.uninflectedstems.jl")
+#include("uninflected/test_4.uninflectedstems.jl")

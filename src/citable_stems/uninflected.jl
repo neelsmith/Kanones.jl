@@ -7,7 +7,54 @@ struct UninflectedStem <: Stem
     stemcategory::AbstractString
 end
 
-"""Identify identifier URN for an `UninflectedStem`.
+
+"""Uninfleced stems are citable by Cite2Urn"""
+CitableTrait(::Type{UninflectedStem}) = CitableByCite2Urn()
+
+"""Human-readlable label for an `UninflectedStem`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function label(us::UninflectedStem)
+    string("Uninflected ", us.stemcategory, " ", us.form)
+end
+
+
+"""Identifying URN for a `NounStem`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(us::UninflectedStem; registry = nothing)
+    if isnothing(registry)
+        
+        us.stemid
+    else
+        expand(us.stemid, registry)
+    end
+end
+
+
+"""Compose CEX text for a `UninflectedStem`.
+If `registry` is nothing, use abbreivated URN;
+otherwise, expand identifier to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function cex(us::UninflectedStem; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([us.stemid, label(us) ], delimiter)
+    else
+        c2urn = expand(us.stemid, registry)
+        join([c2urn, label(us)], delimiter)
+    end
+end
+
+"""Identifier string for an `UninflectedStem`.
 
 $(SIGNATURES)
 """
