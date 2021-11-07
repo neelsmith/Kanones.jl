@@ -79,7 +79,7 @@ include("pronouns/test_5.pronounrules.jl")
 
 
 
-include("nouns/test_4.nounstems.jl")
+
 include("nouns/test_5.nounrules.jl")
 
 
@@ -89,7 +89,11 @@ include("uninflected/test_1.uninflecteddata.jl")
 include("nouns/test_2.nounsfst.jl") 
 include("uninflected/test_2.uninflectedfst.jl")
 
-=#
-
 include("nouns/test_3.nounforms.jl")
 include("uninflected/test_3.uninflectedforms.jl")
+
+=#
+
+
+include("nouns/test_4.nounstems.jl")
+include("uninflected/test_4.uninflectedstems.jl")
