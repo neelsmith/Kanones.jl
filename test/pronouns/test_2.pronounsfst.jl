@@ -9,11 +9,11 @@ end
 
 
 @testset "Format fst rules for pronoun tokens" begin
-    cexsrc = "litgreek.pronouns1|article"
+    cexsrc = "pronounrules.pronouns1|article"
     pronounio = Kanones.PronounIO("pronouns")
     rulerow = Kanones.readrulerow(pronounio, cexsrc)
     # Note that "." and "_" must be protected in FST string values, but not in symbols.
     #expected = "<h_hs><noun>ης<feminine><genitive><singular><u>nouninfl\\.h\\_hs2</u>"
-    expected = "<article><pronoun><u>litgreek\\.pronouns1</u>"
+    expected = "<article><pronoun><u>pronounrules\\.pronouns1</u>"
     @test FstBuilder.fst(rulerow) == expected
 end

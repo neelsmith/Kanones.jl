@@ -29,7 +29,7 @@ end
 
 $(SIGNATURES)
 """
-function readstemrow(usp::UninflectedParser, delimited::AbstractString; delimiter = "|")
+function readstemrow(usp::UninflectedIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     if length(parts) < 4
         msg = "Invalid syntax for uninflected stem: too few components in $(delimited)"

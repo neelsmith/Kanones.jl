@@ -1,9 +1,37 @@
 #<u>uninflectedstems.n21618</u><u>lsj.n21618</u>γαρ<uninflected><particle><div><particle><uninflected><u>litgreek.indeclinable1</u>
+
 """Uninflected forms have a single property: the "part of speech"."""
 struct UninflectedForm <: MorphologicalForm
-    pos::Int64
-    #poslabel::AbstractString    
+    pos::Int64  
 end
+
+
+"""Uninflected forms are citable by Cite2Urn"""
+CitableTrait(::Type{UninflectedForm}) = CitableByCite2Urn()
+
+"""Compose URN for an `UninflectedForm`.
+
+$(SIGNATURES)
+Required by `CitableTrait`.
+"""
+function urn(uform::UninflectedForm)
+    urnstring = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", uform.pos)
+    Cite2Urn(urnstring)
+end
+
+
+
+"""Compose a human-readable label for an `UninflectedForm`.
+
+$(SIGNATURES)
+Required by `CitableTrait`.
+"""
+function label(uform::UninflectedForm)
+    udict = Kanones.uninflectedpairs |> Kanones.valuedict
+    udict[uform.pos]
+end
+
+
 
 
 """Create `UninflectedForm` from a Cite2Urn.
@@ -47,9 +75,7 @@ end
 $(SIGNATURES)
 """
 function uninflectedform(code::Int64)
-    #dict = valuedict(uninflectedpairs)
-    #poslabel = dict[code]
-    UninflectedForm(code) #, poslabel)
+    UninflectedForm(code)
 end
 
 """Create `UninflectedForm` from an Analysis.
@@ -61,32 +87,7 @@ function uninflectedform(a::Analysis)
 end
 
 
-"""Compose URN for an `UninflectedForm`.
 
-$(SIGNATURES)
-"""
-function urn(uform::UninflectedForm)
-    urnstring = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", uform.pos)
-    Cite2Urn(urnstring)
-end
-
-
-#=
-"""Compose URN for an `UninflectedForm`.
-
-$(SIGNATURES)
-"""
-function cex(uform::UninflectedForm; delim="|")
-    urnval = urn(uform).urn
-
-
-    uninfldict = valuedict(uninflectedpairs)
-    #string(urnval,"|uninflected form: ", uninfldict[])
-    # 
-    # NEED generic retrieval functions for Morphology string sequence.
-    nothing
-end
-=#
 
 """Compose Abbreviated URN for uninflected form from value for part of speech.
 

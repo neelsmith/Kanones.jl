@@ -57,7 +57,7 @@ Kanones.KanonesIO
 Kanones.NounIO
 Kanones.NounStem
 Kanones.NounRule
-Kanones.UninflectedParser
+Kanones.UninflectedIO
 Kanones.UninflectedStem
 Kanones.UninflectedRule
 Kanones.VerbParser

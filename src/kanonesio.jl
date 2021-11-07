@@ -9,7 +9,7 @@ abstract type KanonesIO end
 KanonesIO type for reading and writing stem for uninflected forms.
 $(SIGNATURES)
 """
-struct UninflectedParser <: KanonesIO
+struct UninflectedIO <: KanonesIO
     label::AbstractString
 end
 
