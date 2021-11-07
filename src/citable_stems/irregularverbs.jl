@@ -12,7 +12,7 @@ end
 #irregverb.irregverbnn26447a|lsj.n26447|δίδωσι|
 #third|singular|present|indicative|active|irregularverb
 
-function readstemrow(usp::Kanones.IrregularVerbParser, delimited::AbstractString; delimiter = "|")
+function readstemrow(usp::Kanones.IrregularVerbIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     # Example:
     #irregverb.irregverbnn26447b|lsj.n26447|διδόασι|third|plural|present|indicative|active|irregularverb

@@ -57,7 +57,7 @@ KanonesIO type for reading and writing data for finite verb form.
 
 $(SIGNATURES)
 """    
-struct VerbParser <: KanonesIO
+struct VerbIO <: KanonesIO
     label::AbstractString
 end
 
@@ -66,7 +66,7 @@ KanonesIO type for reading and writing data for irregular finite verb forms.
 
 $(SIGNATURES)
 """
-struct IrregularVerbParser <: KanonesIO
+struct IrregularVerbIO <: KanonesIO
     label::AbstractString
 end
 

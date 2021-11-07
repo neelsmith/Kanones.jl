@@ -77,7 +77,7 @@ function rulesarray(dirlist; delimiter = "|")
         "nouns" => NounIO("noun"),
         "pronouns" => PronounIO("noun"),
         "adjectives" => AdjectiveIO("adjectives"),
-        "finiteverbs" => VerbParser("verb"),
+        "finiteverbs" => VerbIO("verb"),
         "infinitives" => InfinitiveIO("infinitives"),
         "participles" => ParticipleIO("participles"),
         "verbaladjectives" => VerbalAdjectiveRuleParser("verbal adjectives"),
@@ -135,7 +135,7 @@ function stemsarray(dirlist; delimiter = "|")
         "nouns" => NounIO("noun"),
         "pronouns" => PronounIO("pronoun"),
         "uninflected" => UninflectedIO("uninflected"),
-        "verbs-simplex" => VerbParser("verb")
+        "verbs-simplex" => VerbIO("verb")
         ]
     )
     stemdirs = [
@@ -170,7 +170,7 @@ function stemsarray(dirlist; delimiter = "|")
         [
         "uninflected" => UninflectedIO("uninflected"),
         "nouns" => IrregularNounIO("noun"),
-        "verbs" => IrregularVerbParser("finite verb"),
+        "verbs" => IrregularVerbIO("finite verb"),
         "infinitives" => IrregularInfinitiveIO("infinitive")
         ]
     )

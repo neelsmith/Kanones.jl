@@ -81,7 +81,7 @@ include("pronouns/test_5.pronounrules.jl")
 
 include("uninflected/test_1.uninflecteddata.jl")
 
-include("nouns/test_2.nounsfst.jl") 
+
 include("uninflected/test_2.uninflectedfst.jl")
 
 include("nouns/test_3.nounforms.jl")
@@ -94,6 +94,10 @@ include("uninflected/test_4.uninflectedstems.jl")
 include("nouns/test_5.nounrules.jl")
 include("uninflected/test_5.uninflectedrules.jl")
 
-=#
+
 include("nouns/test_1.nounsdata.jl")
-#include("finiteverbs/test_1.verbsdata.jl")
+include("finiteverbs/test_1.verbsdata.jl")
+=#
+
+include("nouns/test_2.nounsfst.jl") 
+include("finiteverbs/test_2.verbsfst.jl") 

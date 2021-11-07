@@ -31,7 +31,7 @@ end
 
 $(SIGNATURES)
 """
-function readstemrow(usp::VerbParser, delimited::AbstractString; delimiter = "|")
+function readstemrow(usp::VerbIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
