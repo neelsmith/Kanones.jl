@@ -3,9 +3,9 @@ struct PronounStem <: Stem
     stemid::Kanones.AbbreviatedUrn
     lexid::Kanones.AbbreviatedUrn
     form::AbstractString
-    pgender
-    pcase
-    pnumber
+    pgender::GMPGender
+    pcase::GMPCase
+    pnumber::GMPNumber
     pronountype
 end
 #pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article
@@ -20,12 +20,12 @@ function readstemrow(usp::PronounIO, delimited::AbstractString; delimiter = "|")
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
     stem = nfkc(parts[3])
-    gndr = parts[4]
-    cs = parts[5]
-    nmbr = parts[6]
+    gndr = gmpGender(parts[4])
+    cs = gmpCase(parts[5])
+    nmbr = gmpNumber(parts[6])
     inflclass = parts[7]
  
-    PronounStem(stemid,lexid,stem,gndr, cs, nmbr,inflclass)
+    PronounStem(stemid, lexid, stem,gndr, cs, nmbr,inflclass)
 end
 
 
@@ -39,7 +39,8 @@ CitableTrait(::Type{PronounStem}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(pns::PronounStem)
-    formlist = join([pns.pgender, pns.pcase, pns.pnumber], ", ")
+    
+    formlist = join([label(pns.pgender), label(pns.pcase), label(pns.pnumber)], ", ")
     string("Stem ", pns.form, " (", pns.pronountype, ": ", formlist, ")")
 end
 
@@ -54,7 +55,6 @@ Required for `CitableTrait`.
 """
 function urn(pns::PronounStem; registry = nothing)
     if isnothing(registry)
-        
         pns.stemid
     else
         expand(pns.stemid, registry)

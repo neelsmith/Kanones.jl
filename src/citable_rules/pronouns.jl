@@ -71,10 +71,6 @@ end
 $(SIGNATURES)
 """
 function ruleurn(rule::PronounStem)
-    numdict = labeldict(numberpairs)
-    casedict = labeldict(casepairs)
-    genderdict = labeldict(genderpairs)
-
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", PRONOUN,"0",numdict[rule.pnumber],"000",genderdict[rule.pgender],casedict[rule.pcase],"00"))
+    RuleUrn(string("morphforms.", PRONOUN,"0",code(rule.pnumber),"000",code(rule.pgender),code(rule.pcase),"00"))
 end
