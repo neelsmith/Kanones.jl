@@ -35,24 +35,28 @@ export rulesarray, stemsarray
 export GreekMorphologicalProperty
 export GMPVoice, gmpVoice
 export GMPMood, gmpMood
+export GMPTense, gmpTense
+export GMPPerson, gmpPerson
+export GMPNumber, gmpNumber
 
 export GreekMorphologicalForm
-export UninflectedForm, UninflectedStem, UninflectedRule
-export NounForm, NounStem, NounRule
-export PronounForm, PronounStem, PronounRule
-export AdjectiveForm, AdjectiveStem, AdjectiveRule
 
 export GMFFiniteVerb, VerbStem, FiniteVerbRule
 export InfinitiveForm, InfinitiveRule
 export VerbalAdjectiveForm, VerbalAdjectiveRule
 export ParticipleForm, ParticipleRule
 
+export NounForm, NounStem, NounRule
+export PronounForm, PronounStem, PronounRule
+export AdjectiveForm, AdjectiveStem, AdjectiveRule
+
+export UninflectedForm, UninflectedStem, UninflectedRule
+
+
 export IrregularRule
 export IrregularNounForm, IrregularNounStem
 export IrregularVerbForm, IrregularVerbStem
 export IrregularInfinitiveForm, IrregularInfinitiveStem
-
-
 
 export Lexeme
 
@@ -81,8 +85,11 @@ include("lsj/labels.jl")
 include("morphology/forms.jl")
 
 include("morphologicalproperties/properties.jl")
+include("morphologicalproperties/tense.jl")
 include("morphologicalproperties/mood.jl")
 include("morphologicalproperties/voice.jl")
+include("morphologicalproperties/person.jl")
+include("morphologicalproperties/number.jl")
 
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
@@ -125,7 +132,6 @@ include("citable_rules/pronouns.jl")
 include("citable_forms/uninflected.jl")
 include("citable_stems/uninflected.jl")
 include("citable_rules/uninflected.jl")
-
 
 
 

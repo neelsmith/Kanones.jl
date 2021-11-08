@@ -1,16 +1,32 @@
-
 """Finite verbs have person, number, tense, mood and voice."""
 struct GMFFiniteVerb <: GreekMorphologicalForm
-    vperson::Int64
-    vnumber::Int64
-    vtense::Int64
+    vperson::GMPPerson
+    vnumber::GMPNumber
+    vtense::GMPTense
     vmood::GMPMood
     vvoice::GMPVoice
+end
+
+function gmpTense(verb::GMFFiniteVerb)
+    verb.vmood
+end
+
+function gmpTense(verb::GMFFiniteVerb)
+    verb.vtense
 end
 
 function gmpVoice(verb::GMFFiniteVerb)
     verb.vvoice
 end
+
+function gmpPerson(verb::GMFFiniteVerb)
+    verb.vperson
+end
+
+function gmpNumber(verb::GMFFiniteVerb)
+    verb.vnumber
+end
+
 
 """Finite verb forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
@@ -21,18 +37,14 @@ CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function label(verb::GMFFiniteVerb)
-    pdict = Kanones.personpairs |> Kanones.valuedict
-    ndict = Kanones.numberpairs |> Kanones.valuedict
-    tdict = Kanones.tensepairs |> Kanones.valuedict
- 
     join(
         [
-            pdict[verb.vperson],  
-            ndict[verb.vnumber], 
-            tdict[verb.vtense], 
-            label(verb.vmood), 
-            label(verb.vvoice)
-            ], " ")
+        label(verb.vtense), 
+        label(verb.vmood), 
+        label(verb.vvoice),
+        label(verb.vperson),  
+        label(verb.vnumber)
+        ], " ")
 end
 
 """Compose a Cite2Urn for a `GMFFiniteVerb`.
@@ -41,7 +53,7 @@ $(SIGNATURES)
 """
 function urn(verb::GMFFiniteVerb)
     # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, FINITEVERB,verb.vperson,verb.vnumber, verb.vtense, code(verb.vmood), code(verb.vvoice),"0000"))
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, FINITEVERB, code(verb.vperson),code(verb.vnumber), code(verb.vtense), code(verb.vmood), code(verb.vvoice),"0000"))
 end
 
 """Create a `GMFFiniteVerb` from a string value.
@@ -51,16 +63,11 @@ $(SIGNATURES)
 function finiteverbform(code::AbstractString)
     morphchars = split(code,"")
     # PosPNTMVGCDCat
-    prsn = parse(Int64,morphchars[2])
-    nmbr = parse(Int64,morphchars[3])
-    tns = parse(Int64,morphchars[4])
+    tns = GMPTense(morphchars[4])
     md = GMPMood(morphchars[5])
     vc = GMPVoice(morphchars[6])
-
-    persondict = valuedict(personpairs)
-    numberdict = valuedict(numberpairs)
-    tensedict = valuedict(tensepairs)
-
+    prsn = GMPPerson(morphchars[2])
+    nmbr = GMPNumber(morphchars[3])
     
     GMFFiniteVerb(
         prsn,
@@ -114,16 +121,12 @@ function verbfromfst(fstdata)
         nothing
     else
         (p,n, t, m, v) = matchedup[1].captures
-
-        persondict = labeldict(personpairs)
-        numberdict = labeldict(numberpairs)
-        tensedict = labeldict(tensepairs)
-        
-        GMFFiniteVerb(persondict[p],
-        numberdict[n], 
-        tensedict[t],
-        gmpMood(m),
-        gmpVoice(v)
+        GMFFiniteVerb(
+            gmpPerson(p),
+            gmpNumber(n), 
+            gmpTense(t),
+            gmpMood(m),
+            gmpVoice(v)
         )
     end
 end
@@ -134,8 +137,7 @@ end
 $(SIGNATURES)
 """
 function formurn(verbform::GMFFiniteVerb)
-    FormUrn(string("morphforms.", FINITEVERB,verbform.vperson, verbform.vnumber, 
-    verbform.vtense, code(verbform.vmood), code(verbform.vvoice), "0000"))
+    FormUrn(string("morphforms.", FINITEVERB, code(verbform.vperson), code(verbform.vnumber), code(verbform.vtense), code(verbform.vmood), code(verbform.vvoice), "0000"))
 end
 
 
@@ -147,20 +149,18 @@ $(SIGNATURES)
 """
 function finiteverbscex()
 
-    persondict = valuedict(personpairs)
-    personkeys = keys(persondict)  |> collect |> sort 
+    
+    
 
     
-    numberdict = valuedict(numberpairs)
-    numberkeys = keys(numberdict)  |> collect |> sort 
-
-    tensedict = valuedict(tensepairs)
-    tensekeys = keys(tensedict)  |> collect |> sort 
 
 
-    moodkeys = keys(Kanones.moodlabels)
-    voicekeys = keys(Kanones.voicelabels)
 
+    tensekeys = keys(Kanones.tenselabels)   |> collect |> sort 
+    moodkeys = keys(Kanones.moodlabels)   |> collect |> sort 
+    voicekeys = keys(Kanones.voicelabels)   |> collect |> sort 
+    personkeys = keys(Kanones.personlabels)  |> collect |> sort 
+    numberkeys = keys(Kanones.numberlabels)  |> collect |> sort 
 
     lines = []
     PRESENT = 1
@@ -182,9 +182,9 @@ function finiteverbscex()
                      pers, num, tense, INDICATIVE, voice,"00000")
                     
                     label = string("verb: ", 
-                    persondict[pers], 
-                    numberdict[num], 
-                    tensedict[tense], 
+                    label(gmpPerson(pers)), 
+                    label(gmpNumber(num)), 
+                    label(gmpTense(tense)), 
                     "indicative", 
                     label(gmpVoice(voice)))
                     
@@ -205,10 +205,10 @@ function finiteverbscex()
                     pers, num, FUTURE, mood, voice,"00000")
                     
                     label = string("verb: ", 
-                    persondict[pers], 
-                    numberdict[num], 
+                    code(gmpPerson(pers)), 
+                    code(gmpNumber(num))s, 
                     "future", 
-                    code(gmpVoice(mood)), 
+                    code(gmpMood(mood)), 
                     code(gmpVoice(voice)))
                     
                     cex = string(u, "|", label)
@@ -229,9 +229,9 @@ function finiteverbscex()
                         pers, num, tense, mood, voice,"00000")
                         
                         label = string("verb: ", 
-                        persondict[pers], 
-                        numberdict[num], 
-                        tensedict[tense], 
+                        code(gmpPerson(pers)), 
+                        code(gmpNumber(num)), 
+                        code(gmpTense(tense)), 
                         code(gmpMood(mood)), 
                         code(gmpVoice(voice)))
                         

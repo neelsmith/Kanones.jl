@@ -1,8 +1,8 @@
 @testset "Format fst rules for verb tokens" begin
-    cexsrc = "verbinfl.wreg3rd1|w_regular|ει|3rd|singular|present|indicative|active"
+    cexsrc = "verbinfl.wreg3rd1|w_regular|ει|third|singular|present|indicative|active"
     verbio = Kanones.VerbIO("verbs")
     rulerow = Kanones.readrulerow(verbio, cexsrc)
-    expected = "<w_regular><finiteverb>ει<3rd><singular><present><indicative><active><u>verbinfl\\.wreg3rd1</u>"
+    expected = "<w_regular><finiteverb>ει<third><singular><present><indicative><active><u>verbinfl\\.wreg3rd1</u>"
 
     
     @test FstBuilder.fst(rulerow) == expected

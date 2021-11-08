@@ -77,39 +77,9 @@ const degreepairs = [
 ]
 
 
-"""Constants for persons.
-
-$(SIGNATURES)
-"""
-const personpairs = [
-    (1, "first"),
-    (2, "second"),
-    (3, "third")
-]
-
-"""Constants for number.
-
-$(SIGNATURES)
-"""
-const numberpairs = [
-    (1, "singular"),
-    (2, "dual"),
-    (3, "plural")
-]
 
 
-"""Constants for tense.
 
-$(SIGNATURES)
-"""
-const tensepairs = [
-    (1, "present"),
-    (2, "imperfect"),
-    (3, "future"),
-    (4, "aorist"),
-    (5, "perfect"),
-    (6, "pluperfect")
-]
 
 
 

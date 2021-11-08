@@ -28,7 +28,7 @@ end
 $SIGNATURES
 """
 function personlabel(f::FormUrn)
-    personcode(f) == 0 ? "none" : valuedict(personpairs)[personcode(f)]
+    personcode(f) == 0 ? "none" : label(gmpPerson(personcode(f)))
 end
 
 
@@ -43,7 +43,7 @@ end
 $SIGNATURES
 """
 function numberlabel(f::FormUrn)
-    numbercode(f) == 0 ? "none" : valuedict(numberpairs)[numbercode(f)]
+    numbercode(f) == 0 ? "none" : label(gmpNumber(numbercode(f)))
 end
 
 
@@ -58,7 +58,7 @@ end
 $SIGNATURES
 """
 function tenselabel(f::FormUrn)
-    tensecode(f) == 0 ? "none" : valuedict(tensepairs)[tensecode(f)]
+    tensecode(f) == 0 ? "none" : label(gmpTense(tensecode(f)))
 end
 
 
