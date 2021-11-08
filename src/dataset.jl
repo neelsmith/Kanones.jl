@@ -98,13 +98,17 @@ function rulesarray(dirlist; delimiter = "|")
 
     for datasrc in dirlist
         for dirname in rulesdirs 
+            @info("PROCESSING DIR ", dirname)
             dir = joinpath(datasrc, "rules-tables", dirname)
             cexfiles = glob("*.cex", dir)
+
             delimitedreader = (iodict[dirname])
             for f in cexfiles
+                @info("PROCESS FILE ", f)
                 raw = readlines(f)
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
+                    @info("LINE IS ", lines[i])
                     rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
                     push!(rulesarr,rule)
                 end

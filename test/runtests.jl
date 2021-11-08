@@ -14,8 +14,9 @@ include("test_formurnparsing.jl")
 
 #=
 include("test_parse.jl")
-include("test_compile.jl")
+
 =#
+include("test_compile.jl")
 
 #include("test_lexeme.jl")
 
@@ -43,9 +44,9 @@ include("generate/test_uninflectedgenerate.jl")
 include("irregulars/test_irregrules.jl")
 =#
 
-# =
+#=
 include("test_morphproperties.jl")
-# =#
+=#
 
 #= 
 include("finiteverbs/test_1.verbsdata.jl")
@@ -89,14 +90,10 @@ include("uninflected/test_3.uninflectedforms.jl")
 include("uninflected/test_4.uninflectedstems.jl")
 include("uninflected/test_5.uninflectedrules.jl")
 
-=#
-
-
-
-
 include("adjectives/test_1.adjectivesdata.jl")
 include("adjectives/test_2.adjectivesfst.jl")
 include("adjectives/test_3.adjectiveforms.jl")
 include("adjectives/test_4.adjectivestems.jl")
 include("adjectives/test_5.adjectiverules.jl")
 
+=#
