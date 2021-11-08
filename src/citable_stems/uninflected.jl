@@ -1,10 +1,10 @@
 
 "A record for a single uninflected stem."
 struct UninflectedStem <: Stem
-    stemid::Kanones.AbbreviatedUrn
-    lexid::Kanones.AbbreviatedUrn
+    stemid::AbbreviatedUrn
+    lexid::AbbreviatedUrn
     form::AbstractString
-    stemcategory::AbstractString
+    stemcategory::GMPUninflectedType
 end
 
 

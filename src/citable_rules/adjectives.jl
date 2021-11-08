@@ -1,7 +1,7 @@
 
 "Inflectional rule for adjectives."
 struct AdjectiveRule <: Rule
-    ruleid::Kanones.AbbreviatedUrn
+    ruleid::AbbreviatedUrn
     inflectionclass
     ending
     agender

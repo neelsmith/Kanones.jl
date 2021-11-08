@@ -1,7 +1,7 @@
 "A record for a single irregular noun stem."
 struct IrregularNounStem <: Stem
-    stemid::Kanones.AbbreviatedUrn
-    lexid::Kanones.AbbreviatedUrn
+    stemid::AbbreviatedUrn
+    lexid::AbbreviatedUrn
     form::AbstractString
     noungender::GMPGender
     nouncase::GMPCase

@@ -1,7 +1,7 @@
 "A record for a single irregular verb stem."
 struct IrregularInfinitiveStem <: Stem
-    stemid::Kanones.AbbreviatedUrn
-    lexid::Kanones.AbbreviatedUrn
+    stemid::AbbreviatedUrn
+    lexid::AbbreviatedUrn
     form::AbstractString
     tense::GMPTense
     voice::GMPVoice

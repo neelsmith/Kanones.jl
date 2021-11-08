@@ -3,7 +3,7 @@
 $(SIGNATURES)
 """
 struct FiniteVerbRule <: Rule
-    ruleid::Kanones.AbbreviatedUrn
+    ruleid::AbbreviatedUrn
     stemclass
     ending
     vperson::GMPPerson

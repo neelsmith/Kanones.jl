@@ -1,7 +1,7 @@
 "A record for a single noun stem."
 struct PronounStem <: Stem
-    stemid::Kanones.AbbreviatedUrn
-    lexid::Kanones.AbbreviatedUrn
+    stemid::AbbreviatedUrn
+    lexid::AbbreviatedUrn
     form::AbstractString
     pgender::GMPGender
     pcase::GMPCase

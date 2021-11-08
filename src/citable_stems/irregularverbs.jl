@@ -1,7 +1,7 @@
 "A record for a single irregular verb stem."
 struct IrregularVerbStem <: Stem
-    stemid::Kanones.AbbreviatedUrn
-    lexid::Kanones.AbbreviatedUrn
+    stemid::AbbreviatedUrn
+    lexid::AbbreviatedUrn
     form::AbstractString
     vperson
     vnumber

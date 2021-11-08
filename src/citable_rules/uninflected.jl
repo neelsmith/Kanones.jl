@@ -3,7 +3,7 @@
 $(SIGNATURES)
 """
 struct UninflectedRule <: Rule
-    ruleid::Kanones.AbbreviatedUrn
+    ruleid::AbbreviatedUrn
     infltype
 end
 
