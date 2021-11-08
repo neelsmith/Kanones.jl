@@ -6,7 +6,7 @@ struct NounRule <: Rule
     ending
     ngender
     ncase
-    nnumber
+    nnumber::GMPNumber
 end
 
 """Read one row of a rules table for noun tokens,
@@ -26,7 +26,7 @@ function readrulerow(usp::NounIO, delimited::AbstractString; delimiter = "|")
         ending = nfkc(parts[3])
         g = parts[4]
         c = parts[5]
-        n = parts[6]
+        n = gmpNumber(parts[6])
  
         NounRule(ruleid, inflclass, ending, g,c,n)
     end
@@ -43,7 +43,7 @@ CitableTrait(::Type{NounRule}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(nr::NounRule)
-    string("Noun inflection rule: ending -", nr.ending, " in class ", nr.inflectionclass, " can be ", nr.ngender, " ", nr.ncase, " ", nr.nnumber, ".")
+    string("Noun inflection rule: ending -", nr.ending, " in class ", nr.inflectionclass, " can be ", nr.ngender, " ", nr.ncase, " ", label(nr.nnumber), ".")
 end
 
 
@@ -93,10 +93,9 @@ end
 $(SIGNATURES)
 """
 function ruleurn(rule::NounRule)
-    numdict = labeldict(numberpairs)
     casedict = labeldict(casepairs)
     genderdict = labeldict(genderpairs)
 
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", NOUN,"0",numdict[rule.nnumber],"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
+    RuleUrn(string("morphforms.", NOUN,"0",code(rule.nnumber),"000",genderdict[rule.ngender],casedict[rule.ncase],"00"))
 end

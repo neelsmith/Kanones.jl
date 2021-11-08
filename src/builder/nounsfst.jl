@@ -27,7 +27,7 @@ function fst(rule::Kanones.NounRule; ortho::T = literaryGreek()) where {T <: Gre
         noaccs,
         "<", rule.ngender, ">",
         "<", rule.ncase, ">",
-        "<", rule.nnumber, ">",
+        "<", label(rule.nnumber), ">",
         fstsafe(rule.ruleid)
     )
 end

@@ -2,7 +2,7 @@
 struct NounForm <: GreekMorphologicalForm
     ngender::Int64
     ncase::Int64
-    nnumber::Int64
+    nnumber::GMPNumber
 end
 
 """Noun forms are citable by Cite2Urn"""
@@ -16,8 +16,8 @@ $(SIGNATURES)
 function label(noun::NounForm)
     gdict = Kanones.genderpairs |> Kanones.valuedict
     cdict = Kanones.casepairs |> Kanones.valuedict
-    ndict = Kanones.numberpairs |> Kanones.valuedict
-    join([gdict[noun.ngender], cdict[noun.ncase], ndict[noun.nnumber]], " ")
+    
+    join([gdict[noun.ngender], cdict[noun.ncase], label(noun.nnumber)], " ")
 end
 
 """Compose a Cite2Urn for a `NounForm`.
@@ -26,7 +26,7 @@ $(SIGNATURES)
 """
 function urn(noun::NounForm)
     # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",noun.nnumber,"000",noun.ngender,noun.ncase,"00"))
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",code(noun.nnumber),"000",noun.ngender,noun.ncase,"00"))
 end
 
 
@@ -38,15 +38,9 @@ function nounform(code::AbstractString)
     morphchars = split(code, "")
     ngender = parse(Int64, morphchars[7])
     ncase = parse(Int64, morphchars[8])
-    nnumber = parse(Int64, morphchars[3])
-    #genderdict = valuedict(genderpairs)
-    #casedict = valuedict(casepairs)
-    #numberdict = valuedict(numberpairs)
-    NounForm(
-        ngender,# genderdict[ngender],
-        ncase, #casedict[ncase],
-        nnumber, #numberdict[nnumber]
-    )
+    nnumber = gmpNumber(parse(Int64,morphchars[3]))
+    
+    NounForm(ngender, ncase, nnumber)
 end
 
 """Create a `NounForm` from a `Cite2Urn`.
@@ -79,7 +73,7 @@ end
 $(SIGNATURES)
 """
 function formurn(nounform::NounForm)
-    FormUrn(string("morphforms.", NOUN,"0",nounform.nnumber,"000",nounform.ngender, nounform.ncase, "00"))
+    FormUrn(string("morphforms.", NOUN,"0",code(nounform.nnumber),"000",nounform.ngender, nounform.ncase, "00"))
 end
 
 """Compose a FormUrn for a noun form from FST representation of analytical data.
@@ -104,11 +98,12 @@ function nounfromfst(fstdata)
         
         genderdict = labeldict(genderpairs)
         casedict = labeldict(casepairs)
-        numberdict = labeldict(numberpairs)
+    
 
-        nounform = NounForm(genderdict[g], #g,
-        casedict[c], #c,
-        numberdict[n] ) #, n)
+        nounform = NounForm(
+            genderdict[g], 
+            casedict[c],
+            gmpNumber(n)) 
         
     end
 end
@@ -122,8 +117,7 @@ function nounscex()
     genderkeys = keys(genderdict)  |> collect |> sort 
     casedict = valuedict(casepairs)
     casekeys = keys(casedict)  |> collect |> sort 
-    numberdict = valuedict(numberpairs)
-    numberkeys = keys(numberdict)  |> collect |> sort 
+    numberkeys = keys(numberlabels)  |> collect |> sort 
     lines = []
     # PosPNTMVGCDCat
     for num in numberkeys

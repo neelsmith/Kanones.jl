@@ -2,12 +2,12 @@
     cexsrc = "nouninfl.h_hs2|h_hs|ης|feminine|genitive|singular|recessive"
     nounparser = Kanones.NounIO("nouns")
     rule = Kanones.readrulerow(nounparser, cexsrc)
-    @test rule.ruleid |> string == RuleUrn("nouninfl.h_hs2") |> string
+    @test rule.ruleid == RuleUrn("nouninfl.h_hs2") 
     @test rule.inflectionclass == "h_hs"
     @test rule.ending == "ης"
     @test rule.ngender == "feminine"
     @test rule.ncase == "genitive"
-    @test rule.nnumber == "singular"
+    @test rule.nnumber == GMPNumber(1)
 end
 
 
@@ -34,6 +34,6 @@ end
     @test stem.form == nfkc("γυνή")
     @test stem.noungender == "feminine"
     @test stem.nouncase == "nominative"
-    @test stem.nounnumber == "singular"
+    @test stem.nounnumber ==  GMPNumber(1)
 end
 

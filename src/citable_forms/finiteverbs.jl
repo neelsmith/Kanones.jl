@@ -7,9 +7,7 @@ struct GMFFiniteVerb <: GreekMorphologicalForm
     vvoice::GMPVoice
 end
 
-function gmpTense(verb::GMFFiniteVerb)
-    verb.vmood
-end
+
 
 function gmpTense(verb::GMFFiniteVerb)
     verb.vtense
@@ -17,6 +15,10 @@ end
 
 function gmpVoice(verb::GMFFiniteVerb)
     verb.vvoice
+end
+
+function gmpMood(verb::GMFFiniteVerb)
+    verb.vmood
 end
 
 function gmpPerson(verb::GMFFiniteVerb)

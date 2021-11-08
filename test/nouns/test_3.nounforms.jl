@@ -2,25 +2,27 @@
     sfst = "<u>nounstems.n20600</u><u>lsj.n20600</u>βουλ<noun><feminine><h_hs><div><h_hs><noun>η<feminine><nominative><singular><u>nouninfl.h_hs1</u>"
     infl = split(sfst,"<div>")[2]
     noun = Kanones.nounfromfst(infl)
-    expected = NounForm(2, 1, 1)
+    expected = NounForm(2, 1, GMPNumber(1))
+
     @test noun == expected
 end
 
 @testset "Test parsing a NounForm from a FormUrn" begin
     frm = FormUrn("morphforms.2010001100")
-    @test Kanones.nounform(frm) == NounForm(1,1,1)
+    @test Kanones.nounform(frm) == NounForm(1, 1, GMPNumber(1))
 end
 
 @testset "Test parsing a FormUrn from a NounForm" begin
-    noun = NounForm(1,1,1)
+    noun = NounForm(2, 1, GMPNumber(1))
+
     formU = Kanones.formurn(noun)
-    @test formU == FormUrn("morphforms.2010001100")
+    @test formU == FormUrn("morphforms.2010002100")
 
     @test Kanones.poscode(formU) == 2
     @test Kanones.poslabel(formU) == "noun"
 
-    @test Kanones.gendercode(formU) == 1
-    @test Kanones.genderlabel(formU) == "masculine"
+    @test Kanones.gendercode(formU) == 2
+    @test Kanones.genderlabel(formU) == "feminine"
 
 
     @test Kanones.casecode(formU) == 1

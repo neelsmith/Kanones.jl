@@ -5,7 +5,7 @@ struct IrregularNounStem <: Stem
     form::AbstractString
     noungender
     nouncase
-    nounnumber
+    nounnumber::GMPNumber
     #inflectionclass
 end
 
@@ -17,7 +17,7 @@ CitableTrait(::Type{IrregularNounStem}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(ns::IrregularNounStem)
-    string("Irregular noun form ", ns.form, " (", ns.noungender," ", ns.nouncase, " ", ns.nounnumber, ")")
+    string("Irregular noun form ", ns.form, " (", ns.noungender," ", ns.nouncase, " ", label(ns.nounnumber), ")")
 end
 
 
@@ -70,11 +70,10 @@ For irregulars, all form information is in the stem entry, so we need
 a function to create form urns directory from this.
 """
 function abbrformurn(irregstem::IrregularNounStem)
-    numdict = labeldict(numberpairs)
     genderdict = labeldict(genderpairs)
     casedict = labeldict(casepairs)
     # PosPNTMVGCDCat
-    FormUrn(string("morphforms.", NOUN,"0",numdict[irregstem.gnumber],"000",genderdict[irregstem.gender],casedict[irregstem.gcase],"00"))
+    FormUrn(string("morphforms.", NOUN,"0", code(irregstem.gnumber),"000",genderdict[irregstem.gender],casedict[irregstem.gcase],"00"))
 end
 
 
@@ -106,8 +105,8 @@ function readstemrow(usp::IrregularNounIO, delimited::AbstractString; delimiter 
     stem = nfkc(parts[3])
     g = parts[4]
     c = parts[5]
-    n = parts[6]
+    n = gmpNumber(parts[6])
     inflclass = parts[7]
 
-    IrregularNounStem(stemid,lexid,stem,g,c,n)#,inflclass)
+    IrregularNounStem(stemid,lexid,stem,g,c,n)
 end
