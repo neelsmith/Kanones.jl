@@ -6,8 +6,8 @@
 
     @test rule.inflectionclass == "w_regular"
     @test rule.ending == "ειν"
-    @test rule.tense == "present"
-    @test rule.voice == "active"
+    @test rule.tense == GMPTense(1)
+    @test rule.voice == GMPVoice(1)
 end
 
 # No need to test *regular* stems:  infinitives use same regular stem as finite verbs, where
@@ -22,6 +22,6 @@ end
     @test  stem.stemid  == StemUrn("irreginf.irreginfln26447a") 
     @test stem.lexid == LexemeUrn("lsj.n26447") 
     @test stem.form == nfkc("διδόναι")
-    @test stem.tense == "present"
-    @test stem.voice == "active"
+    @test stem.tense == GMPTense(1)
+    @test stem.voice == GMPVoice(1)
 end

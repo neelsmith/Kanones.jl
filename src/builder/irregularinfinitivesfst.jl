@@ -1,6 +1,3 @@
-
-
-
 """Compose FST representation of a single `IrregularVerbStem`.
 
 $(SIGNATURES)
@@ -12,7 +9,7 @@ function fst(stem::Kanones.IrregularInfinitiveStem; ortho::T = literaryGreek()) 
         rmaccents(stem.form, ortho),
         "<irregular>",
         "<irregularinfinitive>",
-        "<", stem.tense, ">",
-        "<", stem.voice, ">"
+        "<", label(stem.tense), ">",
+        "<", label(stem.voice), ">"
     )
 end

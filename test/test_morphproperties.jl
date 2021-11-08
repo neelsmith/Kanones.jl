@@ -1,5 +1,3 @@
-
-
 @testset "Test GMPTense" begin
     tense = gmpTense("present")
     @test isa(tense, GMPTense)
@@ -28,13 +26,10 @@ end
     @test isa(num, GMPNumber)
 end
 
-
-
 @testset "Test GMPGender" begin
     gender = gmpGender("feminine")
     @test isa(gender, GMPGender)
 end
 
-
-# case
 # degree
+# uninflected part of speech

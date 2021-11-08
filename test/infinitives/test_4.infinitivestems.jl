@@ -4,9 +4,6 @@
     irreginfio = Kanones.IrregularInfinitiveIO("irregular infinitives")
     stem = Kanones.readstemrow(irreginfio, cexsrc)
 
-
-
-
     @test label(stem) == "Irregular infinitive form διδόναι (present active)"
     @test urn(stem) == StemUrn("irreginf.irreginfln26447a")
     @test cex(stem) == "irreginf.irreginfln26447a|Irregular infinitive form διδόναι (present active)"

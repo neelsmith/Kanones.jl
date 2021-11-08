@@ -1,6 +1,6 @@
 """Infinitive verbs have tense and voice."""
 struct InfinitiveForm <: GreekMorphologicalForm
-    tense::Int64
+    tense::GMPTense
     voice::GMPVoice
 end
 
@@ -14,7 +14,7 @@ $(SIGNATURES)
 """
 function infinitiveform(code::AbstractString)
     morphchars = split(code, "")
-    tense = parse(Int64, morphchars[4])
+    tense = gmpTense(parse(Int64, morphchars[4]))
     voice = gmpVoice(parse(Int64, morphchars[6]) )
     InfinitiveForm(tense, voice)
 end
@@ -65,9 +65,7 @@ function infinitivefromfst(fstdata)
         nothing
     else
         (t, v) = matchedup[1].captures
-        tensedict = labeldict(tensepairs)
-        voicedict = labeldict(voicepairs)
-        InfinitiveForm(tensedict[t],voicedict[v])    
+        InfinitiveForm(gmpTense(t),gmpVoice(v))    
     end
 end
 
@@ -77,7 +75,7 @@ $(SIGNATURES)
 """
 function formurn(infinitive::InfinitiveForm)
     FormUrn(string("morphforms.", INFINITIVE, "00" ,
-    infinitive.tense, "0", infinitive.voice, "0000"))
+    code(infinitive.tense), "0", code(infinitive.voice), "0000"))
 end
 
 """Compose a label for an `InfinitiveForm`.
@@ -85,10 +83,7 @@ end
 $(SIGNATURES)
 """
 function label(inf::InfinitiveForm)
-    tdict = Kanones.tensepairs |> Kanones.valuedict
-    vdict = Kanones.voicepairs |> Kanones.valuedict
-
-    join([tdict[inf.tense], vdict[inf.voice], "infinitive"]," ")
+    join([label(inf.tense), label(inf.voice), "infinitive"]," ")
 end
 
 
@@ -98,6 +93,6 @@ $(SIGNATURES)
 """
 function urn(inf::InfinitiveForm)
     # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, INFINITIVE,"00",inf.tense,"0", inf.voice,"0000"))
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, INFINITIVE,"00",code(inf.tense),"0", code(inf.voice),"0000"))
 end
 
