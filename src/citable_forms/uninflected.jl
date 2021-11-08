@@ -5,7 +5,6 @@ struct UninflectedForm <: GreekMorphologicalForm
     pos::GMPUninflectedType  
 end
 
-
 """Uninflected forms are citable by Cite2Urn"""
 CitableTrait(::Type{UninflectedForm}) = CitableByCite2Urn()
 
@@ -19,8 +18,6 @@ function urn(uform::UninflectedForm)
     Cite2Urn(urnstring)
 end
 
-
-
 """Compose a human-readable label for an `UninflectedForm`.
 
 $(SIGNATURES)
@@ -30,16 +27,14 @@ function label(uform::UninflectedForm)
     label(uform.pos)
 end
 
-
-
-
 """Create `UninflectedForm` from a Cite2Urn.
 
 $(SIGNATURES)
 """
 function uninflectedform(urn::Cite2Urn)
     c = objectcomponent(urn)[end]
-    uninflectedform(c)
+    pos = parse(Int64, c)
+    UninflectedForm(gmpUninflectedType(pos))
 end
 
 """Create `UninflectedForm` from a FormUrn.
@@ -48,7 +43,7 @@ $(SIGNATURES)
 """
 function uninflectedform(u::FormUrn)
     c = u.objectid[end]
-    uninflectedform(c)
+    UninflectedForm(gmpUninflectedType(parse(Int64,c)))
 end
 
 """Create `UninflectedForm` from a string value.
@@ -75,6 +70,8 @@ $(SIGNATURES)
 """
 function uninflectedform(code::Int64)
     UninflectedForm(code)
+
+
 end
 
 """Create `UninflectedForm` from an Analysis.
@@ -93,7 +90,7 @@ end
 $(SIGNATURES)
 """
 function uninflectedfromfst(uninflclass)
-    UninflectedForm(uninflclass) #, uninflclass)            
+    UninflectedForm(gmpUninflectedType(uninflclass)         )
 end
 
 """Compose a `FormUrn` for an `UninflectedForm`.
