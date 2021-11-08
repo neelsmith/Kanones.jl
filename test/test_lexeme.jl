@@ -1,4 +1,4 @@
 @testset "Test CitableTrait functions for lexeme" begin
-    lex = Lexeme("id1")
+    lex = GreekLexeme("id1")
     @test_broken lex == "TBA"
 end

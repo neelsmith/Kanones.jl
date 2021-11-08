@@ -1,9 +1,9 @@
 """Lexemes are citable objects."""
-struct Lexeme <: Citable
+struct GreekLexeme <: Citable
     lexid
 end
 
-function label(lex::Lexeme)
+function label(lex::GreekLexeme)
     lex.lexid
 end
 

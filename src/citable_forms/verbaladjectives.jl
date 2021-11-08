@@ -1,6 +1,6 @@
 
 """Verbal adjectives have gender, case and number."""
-struct VerbalAdjectiveForm <: MorphologicalForm
+struct VerbalAdjectiveForm <: GreekMorphologicalForm
     vagender::Int64
     vacase::Int64
     vanumber::Int64

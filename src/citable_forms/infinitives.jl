@@ -1,5 +1,5 @@
 """Infinitive verbs have tense and voice."""
-struct InfinitiveForm <: MorphologicalForm
+struct InfinitiveForm <: GreekMorphologicalForm
     tense::Int64
     voice::Int64
 end

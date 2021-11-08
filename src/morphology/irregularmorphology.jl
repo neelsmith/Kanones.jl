@@ -1,5 +1,5 @@
 
-"""Compose a `MorphologicalForm` for irregular form from FST representation of analytical data.
+"""Compose a `GreekMorphologicalForm` for irregular form from FST representation of analytical data.
 
 $(SIGNATURES)
 """

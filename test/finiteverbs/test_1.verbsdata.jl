@@ -18,12 +18,19 @@ end
 
 @testset "Read stems for verb tokens from delimited text"  begin    
     #Rule|LexicalEntity|StemClass|Stem|
-    cexsrc = "verbstems.n56496|lexent.n56496|κελευ|w_regular|"
-    verbparser = Kanones.VerbIO("verbs")
-    stem = Kanones.readstemrow(verbparser, cexsrc)
+    cexsrc = "verbstems.n56496|lsj.n56496|κελευ|w_regular|"
+    verbio = Kanones.VerbIO("verbs")
+    stem = Kanones.readstemrow(verbio, cexsrc)
     @test stem.stemid == StemUrn("verbstems.n56496")
-    @test stem.lexid == LexemeUrn("lexent.n56496")
+    @test stem.lexid == LexemeUrn("lsj.n56496")
     @test stem.stem == "κελευ"
     @test stem.stemclass == "w_regular"
 
+end
+
+@testset "Read stems for irregular verb tokens from delimited text"  begin  
+    cexsrc = "irregverb.n110639a|lsj.n110639|φησί|third|singular|present|indicative|active|irregularverb"
+    verbio = Kanones.VerbIO("verbs")
+    stem = Kanones.readstemrow(verbio, cexsrc)
+    @test_broken stem.stemclass == "irregular"
 end

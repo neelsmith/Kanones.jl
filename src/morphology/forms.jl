@@ -1,7 +1,7 @@
 """Abstract type of a morphological form in Kanones."""
-abstract type MorphologicalForm end
+abstract type GreekMorphologicalForm end
 
-"""Generic function to convert form information in a `MorphologicalForm`
+"""Generic function to convert form information in a `GreekMorphologicalForm`
 to a `FormUrn`.
 
 $(SIGNATURES)
@@ -48,15 +48,15 @@ function formscex()
 end
  
 
-"""Convert a `MorphologicalForm` to a Cite2Urn.
+"""Convert a `GreekMorphologicalForm` to a Cite2Urn.
 
 $(SIGNATURES)
 
-All subclasses of `MorphologicalForm` should implement this specifically
+All subclasses of `GreekMorphologicalForm` should implement this specifically
 for their subclass.
 """
-function urn(mf::T) where {T <: MorphologicalForm}
-    @warn("urn: unrecognized type of MorphologicalForm.")
+function urn(mf::T) where {T <: GreekMorphologicalForm}
+    @warn("urn: unrecognized type of GreekMorphologicalForm.")
     nothing
 end
 
@@ -65,30 +65,30 @@ end
 
 $(SIGNATURES)
 
-All subclasses of `MorphologicalForm` should implement this specifically for their subclass.
+All subclasses of `GreekMorphologicalForm` should implement this specifically for their subclass.
 """
-function label(mf::T) where {T <: MorphologicalForm}
-    @warn("urn: unrecognized type of MorphologicalForm.")
+function label(mf::T) where {T <: GreekMorphologicalForm}
+    @warn("urn: unrecognized type of GreekMorphologicalForm.")
     nothing
 end
 
 
 
-"""Convert a `MorphologicalForm` form to a delimited-text string. 
+"""Convert a `GreekMorphologicalForm` form to a delimited-text string. 
 
 $(SIGNATURES)
 
-All subclasses of `MorphologicalForm` should implement this specifically
+All subclasses of `GreekMorphologicalForm` should implement this specifically
 for their subclass.
 """
-function cex(mf::T; delimiter = "|") where {T <: MorphologicalForm}
-    #@warn("cex: unrecognized type of MorphologicalForm.")
+function cex(mf::T; delimiter = "|") where {T <: GreekMorphologicalForm}
+    #@warn("cex: unrecognized type of GreekMorphologicalForm.")
     #nothing
     join([urn(mf), label(mf)], delimiter)
 end
 
 
-"""Create a `MorphologicalForm` from a Cite2Urn value.
+"""Create a `GreekMorphologicalForm` from a Cite2Urn value.
 
 $(SIGNATURES)
 """
@@ -97,7 +97,7 @@ function morphform(urn::Cite2Urn)
 end
 
 
-"""Create a `MorphologicalForm` from a FormUrn.
+"""Create a `GreekMorphologicalForm` from a FormUrn.
 
 $(SIGNATURES)
 """
@@ -107,7 +107,7 @@ function morphform(u::FormUrn)
 end
 
 
-"""Create a `MorphologicalForm` from an Analysis.
+"""Create a `GreekMorphologicalForm` from an Analysis.
 
 $(SIGNATURES)
 """
@@ -116,7 +116,7 @@ function morphform(a::Analysis)
 end
 
 
-"""Create a `MorphologicalForm` from an string value.
+"""Create a `GreekMorphologicalForm` from an string value.
 
 $(SIGNATURES)
 """
