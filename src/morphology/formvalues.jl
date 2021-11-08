@@ -97,15 +97,6 @@ const numberpairs = [
     (3, "plural")
 ]
 
-"""Constants for voice.
-
-$(SIGNATURES)
-"""
-const voicepairs = [
-    (1, "active"),
-    (2, "middle"),
-    (3, "passive")
-]
 
 """Constants for tense.
 
@@ -120,17 +111,6 @@ const tensepairs = [
     (6, "pluperfect")
 ]
 
-"""Constants for mood.
-
-
-$(SIGNATURES)
-"""
-const moodpairs = [
-    (1, "indicative"),
-    (2, "subjunctive"),
-    (3, "optative"),
-    (4, "imperative")
-]
 
 
 

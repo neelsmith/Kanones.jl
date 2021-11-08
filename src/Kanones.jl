@@ -32,13 +32,17 @@ export urn, label, cex
 export dataset
 export rulesarray, stemsarray
 
+export GreekMorphologicalProperty
+export GMPVoice, gmpVoice
+export GMPMood, gmpMood
+
 export GreekMorphologicalForm
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 export PronounForm, PronounStem, PronounRule
 export AdjectiveForm, AdjectiveStem, AdjectiveRule
 
-export FiniteVerbForm, VerbStem, FiniteVerbRule
+export GMFFiniteVerb, VerbStem, FiniteVerbRule
 export InfinitiveForm, InfinitiveRule
 export VerbalAdjectiveForm, VerbalAdjectiveRule
 export ParticipleForm, ParticipleRule
@@ -47,6 +51,8 @@ export IrregularRule
 export IrregularNounForm, IrregularNounStem
 export IrregularVerbForm, IrregularVerbStem
 export IrregularInfinitiveForm, IrregularInfinitiveStem
+
+
 
 export Lexeme
 
@@ -73,6 +79,11 @@ include("lsj/labels.jl")
 
 
 include("morphology/forms.jl")
+
+include("morphologicalproperties/properties.jl")
+include("morphologicalproperties/mood.jl")
+include("morphologicalproperties/voice.jl")
+
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
 include("morphology/kanonesformurns.jl")
@@ -114,6 +125,9 @@ include("citable_rules/pronouns.jl")
 include("citable_forms/uninflected.jl")
 include("citable_stems/uninflected.jl")
 include("citable_rules/uninflected.jl")
+
+
+
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder

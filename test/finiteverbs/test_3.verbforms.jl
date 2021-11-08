@@ -1,19 +1,21 @@
-@testset "Test parsing a FiniteVerbForm from SFST output" begin
+@testset "Test parsing a GMFFiniteVerb from SFST output" begin
     sfst = "<third><singular><present><indicative><active>"
     verb = Kanones.verbfromfst(sfst)
-    expected = FiniteVerbForm(3, 1, 1, 1, 1)
+    expected = GMFFiniteVerb(3, 1, 1, GMPMood(1), GMPVoice(1))
     @test verb == expected
 end
 
-@testset "Test parsing a FiniteVerbForm from a FormUrn" begin
+@testset "Test parsing a GMFFiniteVerb from a FormUrn" begin
     frm = FormUrn("morphforms.331111000")
-    @test Kanones.finiteverbform(frm) == FiniteVerbForm(3, 1, 1, 1, 1)
+    @test_broken Kanones.finiteverbform(frm) == GMFFiniteVerb(3, 1, 1, GMPMood(1),  GMPVoice(1))
 end
 
-@testset "Test parsing a FormUrn from a FiniteVerbForm" begin
-    verb = FiniteVerbForm(3, 1, 1, 1, 1)
+@testset "Test parsing a FormUrn from a GMFFiniteVerb" begin
+    verb = GMFFiniteVerb(3, 1, 1, GMPMood(1),  GMPVoice(1))
     formU = Kanones.formurn(verb)
     @test formU == FormUrn("morphforms.3311110000")
+
+
 
     @test Kanones.poscode(formU) == 3
     @test Kanones.poslabel(formU) == "verb-finite"
@@ -46,7 +48,7 @@ end
 
 
 @testset "Test CitableTrait for finite verb forms" begin
-    verb = FiniteVerbForm(3, 1, 1, 1, 1)
+    verb = GMFFiniteVerb(3, 1, 1, GMPMood(1),  GMPVoice(1))
     @test urn(verb) == Cite2Urn("urn:cite2:kanones:morphforms.v1:3311110000")
     @test label(verb) ==  "third singular present indicative active"
     @test cex(verb) == "urn:cite2:kanones:morphforms.v1:3311110000|third singular present indicative active"

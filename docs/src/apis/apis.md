@@ -14,7 +14,7 @@ Depth = 3
 GreekMorphologicalForm
 Kanones.UninflectedForm
 Kanones.NounForm
-Kanones.FiniteVerbForm
+Kanones.GMFFiniteVerb
 ```
 
 
