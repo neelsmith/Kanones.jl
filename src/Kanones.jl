@@ -35,17 +35,21 @@ export rulesarray, stemsarray
 export GreekMorphologicalProperty
 export GMPVoice, gmpVoice
 export GMPMood, gmpMood
+export GMPTense, gmpTense
 
 export GreekMorphologicalForm
-export UninflectedForm, UninflectedStem, UninflectedRule
-export NounForm, NounStem, NounRule
-export PronounForm, PronounStem, PronounRule
-export AdjectiveForm, AdjectiveStem, AdjectiveRule
 
 export GMFFiniteVerb, VerbStem, FiniteVerbRule
 export InfinitiveForm, InfinitiveRule
 export VerbalAdjectiveForm, VerbalAdjectiveRule
 export ParticipleForm, ParticipleRule
+
+export NounForm, NounStem, NounRule
+export PronounForm, PronounStem, PronounRule
+export AdjectiveForm, AdjectiveStem, AdjectiveRule
+
+export UninflectedForm, UninflectedStem, UninflectedRule
+
 
 export IrregularRule
 export IrregularNounForm, IrregularNounStem
@@ -81,6 +85,7 @@ include("lsj/labels.jl")
 include("morphology/forms.jl")
 
 include("morphologicalproperties/properties.jl")
+include("morphologicalproperties/tense.jl")
 include("morphologicalproperties/mood.jl")
 include("morphologicalproperties/voice.jl")
 

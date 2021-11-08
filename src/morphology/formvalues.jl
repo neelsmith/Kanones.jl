@@ -98,18 +98,7 @@ const numberpairs = [
 ]
 
 
-"""Constants for tense.
 
-$(SIGNATURES)
-"""
-const tensepairs = [
-    (1, "present"),
-    (2, "imperfect"),
-    (3, "future"),
-    (4, "aorist"),
-    (5, "perfect"),
-    (6, "pluperfect")
-]
 
 
 

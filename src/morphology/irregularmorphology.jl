@@ -39,27 +39,23 @@ function irregularfromfst(fstdata::AbstractString)
 
         persondict = labeldict(personpairs)
         numberdict = labeldict(numberpairs)
-        tensedict = labeldict(tensepairs)
+        
         
         
         
         GMFFiniteVerb(
-            persondict[prsn], #prsn,
-            numberdict[nmbr],# nmbr,
-            tensedict[tns], #tns,
-            gmpMood(md), #md,
-            gmpVoice(vc) #, vc
+            persondict[prsn],
+            numberdict[nmbr],
+        
+            gmpMood(tns), 
+            gmpMood(md), 
+            gmpVoice(vc) 
         )
 
-    elseif matchedup[1].captures[1] == "irregularinfinitive"
-        tns = matchedup[2].captures[1]
-        vc = matchedup[3].captures[1]
-        tensedict = labeldict(tensepairs)
-       
-        
+    elseif matchedup[1].captures[1] == "irregularinfinitive"     
         InfinitiveForm(
-            tensedict[tns],
-            gmpVoice(vc)
+            gmpTense(matchedup[2].captures[1]),
+            gmpVoice(matchedup[3].captures[1])
         )
     else
         @warn string("Unrecognized irregular type: ", matchedup[1].captures)

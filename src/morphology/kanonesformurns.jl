@@ -58,7 +58,7 @@ end
 $SIGNATURES
 """
 function tenselabel(f::FormUrn)
-    tensecode(f) == 0 ? "none" : valuedict(tensepairs)[tensecode(f)]
+    tensecode(f) == 0 ? "none" : label(gmpTense(tensecode(f)))
 end
 
 
