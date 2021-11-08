@@ -34,6 +34,7 @@ export rulesarray, stemsarray
 
 export GreekMorphologicalProperty
 export GMPVoice, gmpVoice
+export GMPMood, gmpMood
 
 export GreekMorphologicalForm
 export UninflectedForm, UninflectedStem, UninflectedRule
@@ -80,6 +81,7 @@ include("lsj/labels.jl")
 include("morphology/forms.jl")
 
 include("morphologicalproperties/properties.jl")
+include("morphologicalproperties/mood.jl")
 include("morphologicalproperties/voice.jl")
 
 include("morphology/formvalues.jl")

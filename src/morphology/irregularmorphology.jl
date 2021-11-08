@@ -40,14 +40,14 @@ function irregularfromfst(fstdata::AbstractString)
         persondict = labeldict(personpairs)
         numberdict = labeldict(numberpairs)
         tensedict = labeldict(tensepairs)
-        mooddict = labeldict(moodpairs)
+        
         
         
         GMFFiniteVerb(
             persondict[prsn], #prsn,
             numberdict[nmbr],# nmbr,
             tensedict[tns], #tns,
-            mooddict[md], #md,
+            gmpMood(md), #md,
             gmpVoice(vc) #, vc
         )
 

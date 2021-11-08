@@ -74,7 +74,7 @@ end
 $SIGNATURES
 """
 function moodlabel(f::FormUrn)
-    moodcode(f) == 0 ? "none" : valuedict(moodpairs)[moodcode(f)]
+    moodcode(f) == 0 ? "none" :  label(gmpMood(moodcode(f)))
 end
 
 

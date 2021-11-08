@@ -111,17 +111,6 @@ const tensepairs = [
     (6, "pluperfect")
 ]
 
-"""Constants for mood.
-
-
-$(SIGNATURES)
-"""
-const moodpairs = [
-    (1, "indicative"),
-    (2, "subjunctive"),
-    (3, "optative"),
-    (4, "imperative")
-]
 
 
 
