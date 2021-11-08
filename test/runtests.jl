@@ -98,4 +98,4 @@ include("nouns/test_5.nounrules.jl")
 =#
 
 include("nouns/test_3.nounforms.jl")
-#include("finiteverbs/test_3.verbforms.jl")
+include("finiteverbs/test_3.verbforms.jl")
