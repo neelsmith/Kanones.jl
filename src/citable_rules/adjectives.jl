@@ -39,8 +39,6 @@ end
 """Adjective rules are citable by Cite2Urn"""
 CitableTrait(::Type{AdjectiveRule}) = CitableByCite2Urn()
 
-
-
 """Human-readlable label for an `AdjectiveRule`.
 
 @(SIGNATURES)
@@ -75,7 +73,7 @@ Required for `CitableTrait`.
 """
 function cex(adj::AdjectiveRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([label(adj), adj.ruleid], delimiter)
+        join([adj.ruleid, label(adj)], delimiter)
     else
         c2urn = expand(adj.ruleid, registry)
         join([c2urn, label(adj)], delimiter)

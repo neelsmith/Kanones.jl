@@ -19,11 +19,11 @@ $(SIGNATURES)
 function fst(rule::Kanones.FiniteVerbRule; ortho::T = literaryGreek()) where {T <: GreekOrthography}
     string("<", rule.stemclass,"><finiteverb>", 
     rmaccents(rule.ending, ortho),
-    "<", rule.vperson, ">",
-    "<", rule.vnumber, ">",
-    "<", rule.vtense, ">",
-    "<", rule.vmood, ">",
-    "<", rule.vvoice, ">",
+    "<", label(rule.vperson), ">",
+    "<", label(rule.vnumber), ">",
+    "<", label(rule.vtense), ">",
+    "<", label(rule.vmood), ">",
+    "<", label(rule.vvoice), ">",
     fstsafe(rule.ruleid)
     )
 end

@@ -2,17 +2,18 @@
 @testset "Read rules for verb tokens from delimited text" begin
     #Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
-    cexsrc = "verbinfl.wreg3rd1|w_regular|ει|3rd|singular|present|indicative|active"
+    cexsrc = "verbinfl.wreg3rd1|w_regular|ει|third|singular|present|indicative|active"
     verbparser = Kanones.VerbIO("verbs")
     rule = Kanones.readrulerow(verbparser, cexsrc)
-    @test rule.ruleid |> string == "verbinfl.wreg3rd1"
+    #@test rule == FiniteVerbRule(RuleUrn("verbinfl.wreg3rd1"), "w_regular", "ει", GMPPerson(3), GMPNumber(1), GMPTense(1), GMPMood(1), GMPVoice(1))
+    @test isa(rule, FiniteVerbRule)
     @test rule.stemclass == "w_regular"
     @test rule.ending == "ει"
-    @test rule.vperson == "3rd"
-    @test rule.vnumber == "singular"
-    @test rule.vtense == "present"
-    @test rule.vmood == "indicative"
-    @test rule.vvoice == "active"
+    @test rule.vperson == GMPPerson(3)
+    @test rule.vnumber == GMPNumber(1)
+    @test rule.vtense == GMPTense(1)
+    @test rule.vmood == GMPMood(1)
+    @test rule.vvoice == GMPVoice(1)
 end
 
 
