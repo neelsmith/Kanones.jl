@@ -1,8 +1,8 @@
 """Nouns have gender, case and number."""
 struct PronounForm <: GreekMorphologicalForm
-    pgender::Int64
-    pcase::Int64
-    pnumber::Int64
+    pgender::GMPGender
+    pcase::GMPCase
+    pnumber::GMPNumber
 end
 
 """Pronoun forms are citable by Cite2Urn"""
@@ -14,10 +14,7 @@ CitableTrait(::Type{PronounForm}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function label(pronoun::PronounForm)
-    gdict = Kanones.genderpairs |> Kanones.valuedict
-    cdict = Kanones.casepairs |> Kanones.valuedict
-    ndict = Kanones.numberpairs |> Kanones.valuedict
-    join([gdict[pronoun.pgender], cdict[pronoun.pcase], ndict[pronoun.pnumber]], " ")
+    join([ label(pronoun.pgender), label(pronoun.pcase), label(pronoun.pnumber)], " ")
 end
 
 """Compose a Cite2Urn for a `PronounForm`.
@@ -26,7 +23,7 @@ $(SIGNATURES)
 """
 function urn(pronoun::PronounForm)
     # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, PRONOUN,"0",pronoun.pnumber,"000",pronoun.pgender,pronoun.pcase,"00"))
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, PRONOUN,"0",code(pronoun.pnumber),"000",code(pronoun.pgender),code(pronoun.pcase),"00"))
 end
 
 """Create a `PronounForm` from a string value.
@@ -35,14 +32,10 @@ $(SIGNATURES)
 """
 function pronounform(code::AbstractString)
     morphchars = split(code, "")
-    ngender = parse(Int64, morphchars[7])
-    ncase = parse(Int64, morphchars[8])
-    nnumber = parse(Int64, morphchars[3])
-    PronounForm(
-        ngender, #genderdict[ngender],
-        ncase, #casedict[ncase],
-        nnumber, #numberdict[nnumber]
-    )
+    ngender = gmpGender(parse(Int64, morphchars[7]))
+    ncase = gmpCase(parse(Int64, morphchars[8]))
+    nnumber = gmpNumber(parse(Int64, morphchars[3]))
+    PronounForm(ngender, ncase,nnumber)
 end
  # PosPNTMVGCDCat
 
@@ -77,7 +70,7 @@ end
 $(SIGNATURES)
 """
 function formurn(pronounform::PronounForm)
-    FormUrn(string("morphforms.", PRONOUN,"0",pronounform.pnumber,"000",pronounform.pgender,pronounform.pcase,"00"))
+    FormUrn(string("morphforms.", PRONOUN,"0", code(pronounform.pnumber),"000",code(pronounform.pgender),code(pronounform.pcase),"00"))
 end
 
 
@@ -97,20 +90,8 @@ function pronounfromfst(fstdata)
         @warn("pronounfromfst: unable to parse FST analysis \"" * fstdata * "\"")
         nothing
     else
-        # E.g.,
-        # 1="feminine", 2="accusative", 3="singular")
-
         (g,c,n) = matchedup[1].captures
-        
-        genderdict = labeldict(genderpairs)
-        casedict = labeldict(casepairs)
-        numberdict = labeldict(numberpairs)
-        PronounForm(genderdict[g],
-            casedict[c],
-            numberdict[n]  
-        )
+        PronounForm(gmpGender(g), gmpCase(c), gmpNumber(n))
     end
 end
-
-
  # PosPNTMVGCDCat

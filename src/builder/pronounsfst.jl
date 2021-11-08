@@ -10,9 +10,9 @@ function fst(stem::Kanones.PronounStem; ortho::T = literaryGreek()) where {T <: 
         fstsafe(stem.lexid),
         rmaccents(stem.form, ortho),
         "<pronoun>",
-        "<", stem.pgender, ">",
-        "<", stem.pcase, ">",
-        "<", stem.pnumber, ">",
+        "<", label(stem.pgender), ">",
+        "<", label(stem.pcase), ">",
+        "<", label(stem.pnumber), ">",
         "<", stem.pronountype, ">"
     )
 end

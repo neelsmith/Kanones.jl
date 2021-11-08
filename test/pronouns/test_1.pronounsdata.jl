@@ -6,9 +6,9 @@
     @test stemrow.stemid |> string == "pronoun.n71882a"
     @test stemrow.lexid |> string  == "lsj.n71882"
     @test stemrow.form == "ὁ"
-    @test stemrow.pgender == "masculine"
-    @test stemrow.pcase == "nominative"
-    @test stemrow.pnumber == "singular"
+    @test stemrow.pgender == GMPGender(1)
+    @test stemrow.pcase == GMPCase(1)
+    @test stemrow.pnumber == GMPNumber(1)
     @test stemrow.pronountype == "article"
 end
 

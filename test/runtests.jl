@@ -75,13 +75,6 @@ include("verbaladjectives/test_5.verbaladjectiverules.jl")
 include("participles/test_5.participlerules.jl")
 
 
-include("pronouns/test_1.pronounsdata.jl")
-include("pronouns/test_2.pronounsfst.jl")
-include("pronouns/test_3.pronounforms.jl")
-include("pronouns/test_4.pronounstems.jl")
-include("pronouns/test_5.pronounrules.jl")
-
-
 
 
 include("uninflected/test_1.uninflecteddata.jl")
@@ -99,7 +92,7 @@ include("finiteverbs/test_3.verbforms.jl")
 include("finiteverbs/test_4.verbstems.jl")
 include("finiteverbs/test_5.finiteverbrules.jl")
 
-=#
+
 
 
 include("nouns/test_1.nounsdata.jl")
@@ -107,3 +100,12 @@ include("nouns/test_2.nounsfst.jl")
 include("nouns/test_3.nounforms.jl")
 include("nouns/test_4.nounstems.jl")
 include("nouns/test_5.nounrules.jl")
+=#
+
+
+
+include("pronouns/test_1.pronounsdata.jl")
+include("pronouns/test_2.pronounsfst.jl")
+include("pronouns/test_3.pronounforms.jl")
+include("pronouns/test_4.pronounstems.jl")
+include("pronouns/test_5.pronounrules.jl")
