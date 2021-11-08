@@ -6,10 +6,10 @@
     @test rule.ruleid |> string == RuleUrn("adjinfl.oshon_pos1") |> string
     @test rule.inflectionclass == "os_h_on_pos"
     @test rule.ending == "ος"
-    @test rule.agender == "masculine"
-    @test rule.acase == "nominative"
-    @test rule.anumber == "singular"
-    @test rule.adegree == "positive"
+    @test rule.agender == GMPGender(1)
+    @test rule.acase == GMPCase(1)
+    @test rule.anumber == GMPNumber(1)
+    @test rule.adegree == GMPDegree(1)
 end
 
 @testset "Read stems for adjective tokens from delimited text"  begin    
@@ -32,8 +32,9 @@ end
     @test  stem.stemid  == StemUrn("irregadj.n79904a") 
     @test stem.lexid == LexemeUrn("lsj.n79904") 
     @test stem.form == nfkc("πᾶς")
-    @test stem.adjgender == "masculine"
-    @test stem.adjcase == "nominative"
-    @test stem.adjnumber == "singular"
+    @test stem.adjgender == GMPGender(1)
+    @test stem.adjcase == GMPCase(1)
+    @test stem.adjnumber == GMPNumber(1)
+    @test stem.adjdegree == GMPDegree(1)
    # @test stemrow.inflectionclass == "irregularnoun"
 end

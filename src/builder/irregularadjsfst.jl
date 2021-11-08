@@ -12,9 +12,9 @@ function fst(stem::Kanones.IrregularAdjectiveStem; ortho::T = literaryGreek()) w
         "<irregular>",
         #"<", stem.inflectionclass, ">",
         "<irregularnoun>",
-        "<", stem.adjgender, ">",
-        "<", stem.adjcase, ">",
-        "<", stem.adjnumber, ">",
-        "<", stem.adjdegree, ">",
+        "<", label(stem.adjgender), ">",
+        "<", label(stem.adjcase), ">",
+        "<", label(stem.adjnumber), ">",
+        "<", label(stem.adjdegree), ">",
     )
 end

@@ -5,7 +5,7 @@
 
     @test label(rule) == "Adjective inflection rule: ending -ος in class os_h_on_pos can be masculine nominative singular positive."
     @test urn(rule) == RuleUrn("adjinfl.oshon_pos1")
-    @test cex(rule) == "Adjective inflection rule: ending -ος in class os_h_on_pos can be masculine nominative singular positive.|adjinfl.oshon_pos1"
+    @test cex(rule) == "adjinfl.oshon_pos1|Adjective inflection rule: ending -ος in class os_h_on_pos can be masculine nominative singular positive."
 
     dict = Dict(
        "adjinfl" => "urn:cite2:kanones:adjinfl.v1:"

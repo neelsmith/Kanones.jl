@@ -46,18 +46,7 @@ include("irregulars/test_irregrules.jl")
 # =
 include("test_morphproperties.jl")
 # =#
-#=
 
-include("adjectives/test_1.adjectivesdata.jl")
-include("adjectives/test_2.adjectivesfst.jl")
-include("adjectives/test_3.adjectiveforms.jl")
-include("adjectives/test_4.adjectivestems.jl")
-include("adjectives/test_5.adjectiverules.jl")
-
-
-
-
-=#
 #= 
 include("finiteverbs/test_1.verbsdata.jl")
 include("finiteverbs/test_2.verbsfst.jl") 
@@ -93,13 +82,21 @@ include("participles/test_2.participlesfst.jl")
 include("participles/test_3.participleforms.jl")
 include("participles/test_5.participlerules.jl")
 
-=#
-
-
-
 
 include("uninflected/test_1.uninflecteddata.jl")
 include("uninflected/test_2.uninflectedfst.jl")
 include("uninflected/test_3.uninflectedforms.jl")
 include("uninflected/test_4.uninflectedstems.jl")
 include("uninflected/test_5.uninflectedrules.jl")
+
+=#
+
+
+
+
+include("adjectives/test_1.adjectivesdata.jl")
+include("adjectives/test_2.adjectivesfst.jl")
+include("adjectives/test_3.adjectiveforms.jl")
+include("adjectives/test_4.adjectivestems.jl")
+include("adjectives/test_5.adjectiverules.jl")
+

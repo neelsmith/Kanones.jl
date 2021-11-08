@@ -3,11 +3,10 @@ struct IrregularAdjectiveStem <: Stem
     stemid::AbbreviatedUrn
     lexid::AbbreviatedUrn
     form::AbstractString
-    adjgender
-    adjcase
-    adjnumber
-    adjdegree
-    #inflectionclass
+    adjgender::GMPGender
+    adjcase::GMPCase
+    adjnumber::GMPNumber
+    adjdegree::GMPDegree
 end
 
 """Irregular adjective stems are citable by Cite2Urn"""
@@ -20,7 +19,7 @@ CitableTrait(::Type{IrregularAdjectiveStem}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(astem::IrregularAdjectiveStem)
-    string("Irregular adjective form ", astem.form, " (", astem.adjgender, " ", astem.adjcase, " ", astem.adjnumber," ", astem.adjdegree, ")")
+    string("Irregular adjective form ", astem.form, " (", label(astem.adjgender), " ", label(astem.adjcase), " ", label(astem.adjnumber)," ", label(astem.adjdegree), ")")
 end
 
 """Identifying URN for an `IrregularAdjectiveStem`.  If
@@ -82,11 +81,11 @@ function readstemrow(usp::IrregularAdjectiveIO, delimited::AbstractString; delim
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
     stem = nfkc(parts[3])
-    g = parts[4]
-    c = parts[5]
-    n = parts[6]
-    d = parts[7]
+    g = gmpGender(parts[4])
+    c = gmpCase(parts[5])
+    n = gmpNumber(parts[6])
+    d = gmpDegree(parts[7])
     inflclass = parts[8]
 
-    IrregularAdjectiveStem(stemid,lexid,stem,g,c,n,d )#,inflclass)
+    IrregularAdjectiveStem(stemid,lexid,stem,g,c,n,d)
 end

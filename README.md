@@ -26,5 +26,5 @@ Kanones.jl recognizes nine analytical types, defined by the kind of analysis a p
 | infinitive | tense, voice | ☑️ | ☑️  | | | | | |
 | participle | tense, voice, gender, case, number |☑️ | **N/A** | | | |   | |
 | verbal adjective |  gender, case, number | ☑️  |  **N/A** |  | |   | **N/A** | |
-| adjective | gender, case, number, degree |✅ | ✅ | | | | | |
+| adjective | gender, case, number, degree |☑️  | ☑️ | | | | | |
 | adverb | degree |  |  **N/A** | | | |  **N/A** | |
