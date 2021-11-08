@@ -29,32 +29,3 @@ const poslabels = Dict(
     ADVERB => "adverb",
     PRONOUN => "pronoun"
 )
-
-
-#=
-
-"""Create a dictionary keyed by the value of a label-value pair.
-
-$(SIGNATURES)
-"""
-function valuedict(prs)
-    dict = Dict()
-    for pr in prs
-        push!(dict, pr[1] => pr[2])
-    end
-    dict
-end
-
-"""Create a dictionary keyed by the label of a label-value pair.
-
-
-$(SIGNATURES)
-"""
-function labeldict(prs)
-    dict = Dict()
-    for pr in prs
-        push!(dict, pr[2] => pr[1])
-    end
-    dict
-end
-=#

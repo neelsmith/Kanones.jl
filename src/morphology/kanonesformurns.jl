@@ -121,7 +121,7 @@ end
 $SIGNATURES
 """
 function caselabel(f::FormUrn)
-    casecode(f) == 0 ? "none" :  valuedict(casepairs)[casecode(f)]
+    casecode(f) == 0 ? "none" :  label(gmpCase(casecode(f)))
 end
 
 
@@ -138,7 +138,7 @@ end
 $SIGNATURES
 """
 function degreelabel(f::FormUrn)
-    degreecode(f) == 0 ? "none" :  valuedict(degreepairs)[degreecode(f)]
+    degreecode(f) == 0 ? "none" :  label(gmpDegree(degreecode(f)))
 end
 
 
@@ -154,7 +154,7 @@ end
 $SIGNATURES
 """
 function uninflectedlabel(f::FormUrn)
-    uninflectedcode(f) == 0 ? "none" :  valuedict(uninflectedpairs)[uninflectedcode(f)]
+    uninflectedcode(f) == 0 ? "none" :  label(gmpUninflectedType(uninflectedcode(f)))
 end
 
 # PosPNTMVGCDCat

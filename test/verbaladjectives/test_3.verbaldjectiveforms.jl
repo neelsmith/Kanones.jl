@@ -47,7 +47,7 @@ end
 
 
 @testset "Test CitableTrait for verbal adjective forms" begin
-    vadj =VerbalAdjectiveForm(GMPGender(3), GMPCase(4), GMPNumber(1))
+    vadj = VerbalAdjectiveForm(GMPGender(3), GMPCase(4), GMPNumber(1))
 
     @test urn(vadj) == Cite2Urn("urn:cite2:kanones:morphforms.v1:6010003400")
     @test label(vadj) == "neuter accusative singular"
