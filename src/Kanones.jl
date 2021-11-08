@@ -40,6 +40,8 @@ export GMPPerson, gmpPerson
 export GMPNumber, gmpNumber
 export GMPGender, gmpGender
 export GMPCase, gmpCase
+export GMPDegree, gmpDegree
+export GMPUninflectedType, gmpUninflectedType
 
 export GreekMorphologicalForm
 
@@ -94,6 +96,8 @@ include("morphologicalproperties/person.jl")
 include("morphologicalproperties/number.jl")
 include("morphologicalproperties/gender.jl")
 include("morphologicalproperties/case.jl")
+include("morphologicalproperties/degree.jl")
+include("morphologicalproperties/uninflectedtype.jl")
 
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")

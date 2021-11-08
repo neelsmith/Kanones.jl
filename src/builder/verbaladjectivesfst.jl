@@ -5,9 +5,9 @@ $(SIGNATURES)
 function fst(rule::Kanones.VerbalAdjectiveRule; ortho::T = literaryGreek()) where {T <: GreekOrthography}
     string("<", rule.inflectionclass,"><verbaladjective>", 
     rmaccents(rule.ending, ortho),  
-    "<", rule.vagender, ">",
-    "<", rule.vacase, ">",
-    "<", rule.vanumber, ">",
+    "<", label(rule.vagender), ">",
+    "<", label(rule.vacase), ">",
+    "<", label(rule.vanumber), ">",
     fstsafe(rule.ruleid)
     )
 end

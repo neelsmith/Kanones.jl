@@ -6,9 +6,9 @@ struct VerbalAdjectiveRule <: Rule
     ruleid::Kanones.AbbreviatedUrn
     inflectionclass
     ending
-    vagender
-    vacase
-    vanumber
+    vagender::GMPGender
+    vacase::GMPCase
+    vanumber::GMPNumber
 end
 
 
@@ -21,7 +21,7 @@ CitableTrait(::Type{VerbalAdjectiveRule}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(vadj::VerbalAdjectiveRule)
-    string("Verbal adjective inflection rule: ending -", vadj.ending, " in class ", vadj.inflectionclass, " can be ", vadj.vagender, " ", vadj.vacase, " ", vadj.vanumber, ".")
+    string("Verbal adjective inflection rule: ending -", vadj.ending, " in class ", vadj.inflectionclass, " can be ", label(vadj.vagender), " ", label(vadj.vacase), " ", label(vadj.vanumber), ".")
 end
 
 """Identifying URN for a `VerbalAdjectiveRule`.  If
@@ -70,9 +70,9 @@ function readrulerow(usp::VerbalAdjectiveRuleParser, delimited::AbstractString; 
         ruleid = RuleUrn(parts[1])
         inflclass = parts[2]
         ending = parts[3]
-        g = parts[4]
-        c = parts[5]
-        n = parts[6]
+        g = gmpGender(parts[4])
+        c = gmpCase(parts[5])
+        n = gmpNumber(parts[6])
 
         VerbalAdjectiveRule(ruleid, inflclass, ending,g,c,n)
     end
@@ -84,10 +84,6 @@ end
 $(SIGNATURES)
 """
 function ruleurn(rule::VerbalAdjectiveRule)
-    numdict = labeldict(numberpairs)
-    casedict = labeldict(casepairs)
-    genderdict = labeldict(genderpairs)
-
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", VERBALADJECTIVE,"0",numdict[rule.vanumber],"000",genderdict[rule.vagender],casedict[rule.vacase],"00"))
+    RuleUrn(string("morphforms.", VERBALADJECTIVE,"0",code(rule.vanumber),"000",code(rule.vagender),code(rule.vacase),"00"))
 end

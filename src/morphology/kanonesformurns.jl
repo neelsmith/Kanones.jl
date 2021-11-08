@@ -14,7 +14,7 @@ end
 $SIGNATURES
 """
 function poslabel(f::FormUrn)
-    poscode(f) == 0 ? "none" : valuedict(pospairs)[poscode(f)]
+    poscode(f) == 0 ? "none" : poslabels[poscode(f)]
 end
 
 """Extract person code from a `FormUrn`.
@@ -148,7 +148,6 @@ $SIGNATURES
 function uninflectedcode(f::FormUrn)
     parse(Int64, split(f.objectid, "")[10])
 end
-
 
 
 """Look up label for uninflected code from a `FormUrn`.
