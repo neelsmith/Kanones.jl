@@ -90,7 +90,7 @@ end
 $SIGNATURES
 """
 function voicelabel(f::FormUrn)
-    voicecode(f) == 0 ? "none" :  valuedict(voicepairs)[voicecode(f)]
+    voicecode(f) == 0 ? "none" :  label(gmpVoice(voicecode(f)))
 end
 
 

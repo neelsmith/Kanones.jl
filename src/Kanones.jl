@@ -51,6 +51,8 @@ export IrregularNounForm, IrregularNounStem
 export IrregularVerbForm, IrregularVerbStem
 export IrregularInfinitiveForm, IrregularInfinitiveStem
 
+
+
 export Lexeme
 
 export generate
@@ -74,10 +76,12 @@ include("generator/nounsgen.jl")
 include("lexeme.jl")
 include("lsj/labels.jl")
 
+
+include("morphology/forms.jl")
+
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/voice.jl")
 
-include("morphology/forms.jl")
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
 include("morphology/kanonesformurns.jl")
@@ -119,6 +123,9 @@ include("citable_rules/pronouns.jl")
 include("citable_forms/uninflected.jl")
 include("citable_stems/uninflected.jl")
 include("citable_rules/uninflected.jl")
+
+
+
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder

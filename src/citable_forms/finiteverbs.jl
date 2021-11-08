@@ -8,11 +8,15 @@ struct GMFFiniteVerb <: GreekMorphologicalForm
     vvoice::GMPVoice
 end
 
+function gmpVoice(verb::GMFFiniteVerb)
+    verb.vvoice
+end
+
 """Finite verb forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
 
 
-"""Compose a label for a `NounForm`
+"""Compose a label for a `GMFFiniteVerb`
 
 $(SIGNATURES)
 """
@@ -21,14 +25,14 @@ function label(verb::GMFFiniteVerb)
     ndict = Kanones.numberpairs |> Kanones.valuedict
     tdict = Kanones.tensepairs |> Kanones.valuedict
     mdict = Kanones.moodpairs |> Kanones.valuedict
-    vdict = Kanones.voicepairs |> Kanones.valuedict
+ 
     join(
         [
             pdict[verb.vperson],  
             ndict[verb.vnumber], 
             tdict[verb.vtense], 
             mdict[verb.vmood], 
-            vdict[verb.vvoice]
+            label(verb.vvoice)
             ], " ")
 end
 
@@ -38,7 +42,7 @@ $(SIGNATURES)
 """
 function urn(verb::GMFFiniteVerb)
     # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, FINITEVERB,verb.vperson,verb.vnumber, verb.vtense, verb.vmood, verb.vvoice,"0000"))
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, FINITEVERB,verb.vperson,verb.vnumber, verb.vtense, verb.vmood, code(gmpVoice(verb)),"0000"))
 end
 
 """Create a `GMFFiniteVerb` from a string value.
@@ -52,13 +56,13 @@ function finiteverbform(code::AbstractString)
     nmbr = parse(Int64,morphchars[3])
     tns = parse(Int64,morphchars[4])
     md = parse(Int64,morphchars[5])
-    vc = parse(Int64,morphchars[6])
+    vc = GMPVoice(morphchars[6])
 
     persondict = valuedict(personpairs)
     numberdict = valuedict(numberpairs)
     tensedict = valuedict(tensepairs)
     mooddict = valuedict(moodpairs)
-    voicedict = valuedict(voicepairs)
+    
     GMFFiniteVerb(
         prsn,
         nmbr,
@@ -116,12 +120,11 @@ function verbfromfst(fstdata)
         numberdict = labeldict(numberpairs)
         tensedict = labeldict(tensepairs)
         mooddict = labeldict(moodpairs)
-        voicedict = labeldict(voicepairs)
-        verbform = GMFFiniteVerb(persondict[p], #p,
+        GMFFiniteVerb(persondict[p], #p,
         numberdict[n], #n,
         tensedict[t],# t,
         mooddict[m], #m,
-        voicedict[v]#, v
+        gmpVoice(v) #, v
         )
     end
 end
@@ -133,8 +136,14 @@ $(SIGNATURES)
 """
 function formurn(verbform::GMFFiniteVerb)
     FormUrn(string("morphforms.", FINITEVERB,verbform.vperson, verbform.vnumber, 
-    verbform.vtense, verbform.vmood, verbform.vvoice, "0000"))
+    verbform.vtense, verbform.vmood, code(gmpVoice(verbform)), "0000"))
 end
+
+
+
+
+
+
 
 
 """Compose delimited-text representation of CITE collection for morphological forms of finite verbs.
@@ -155,9 +164,8 @@ function finiteverbscex()
 
     mooddict = valuedict(moodpairs)
     moodkeys = keys(mooddict)  |> collect |> sort 
+    voicekeys = keys(Kanones.voicelabels)
 
-    voicedict = valuedict(voicepairs)
-    voicekeys = keys(voicedict)  |> collect |> sort 
 
     lines = []
     PRESENT = 1
@@ -179,7 +187,7 @@ function finiteverbscex()
                      pers, num, tense, INDICATIVE, voice,"00000")
                     
                     label = string("verb: ", 
-                    persondict[pers], numberdict[num], tensedict[tense], "indicative", voicedict[voice])
+                    persondict[pers], numberdict[num], tensedict[tense], "indicative", label(gmpVoice(voice)))
                     
                     cex = string(u, "|", label)
                     push!(lines, cex)
@@ -198,7 +206,7 @@ function finiteverbscex()
                     pers, num, FUTURE, mood, voice,"00000")
                     
                     label = string("verb: ", 
-                    persondict[pers], numberdict[num], "future", mooddict[mood], voicedict[voice])
+                    persondict[pers], numberdict[num], "future", mooddict[mood], code(gmpVoice(voice)))
                     
                     cex = string(u, "|", label)
                     push!(lines, cex)
@@ -218,7 +226,7 @@ function finiteverbscex()
                         pers, num, tense, mood, voice,"00000")
                         
                         label = string("verb: ", 
-                        persondict[pers], numberdict[num], tensedict[tense], mooddict[mood], voicedict[voice])
+                        persondict[pers], numberdict[num], tensedict[tense], mooddict[mood], code(gmpVoice(voice)))
                         
                         cex = string(u, "|", label)
                         push!(lines, cex)

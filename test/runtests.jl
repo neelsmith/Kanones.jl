@@ -5,43 +5,48 @@ using CitableCorpus, CitableText
 using PolytonicGreek, Orthography
 using Test
 
-# =
+#=
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
 include("test_morphforms.jl")
 include("test_formurnparsing.jl")
-# =#
+=#
 
-# =
+#=
 include("test_parse.jl")
 include("test_compile.jl")
-# =#
+=#
 
 #include("test_lexeme.jl")
 
 
-# =
+#=
 include("parsing_output/test_nounsparsing.jl")
 include("parsing_output/test_adjsparsing.jl")
 include("parsing_output/test_infinitivesparsing.jl")
-include("parsing_output/test_finiteverbparsing.jl")
 include("parsing_output/test_verbaladjectivesparsing.jl")
 include("parsing_output/test_participlesparsing.jl") 
 include("parsing_output/test_pronounsparsing.jl")
 include("parsing_output/test_uninflectedparsing.jl")
-# =#
+include("parsing_output/test_finiteverbparsing.jl")
+=#
 
-# =
+
+
+#=
 include("generate/test_nounsgenerate.jl")
 include("generate/test_uninflectedgenerate.jl")
-# =#
+=#
 
 
-# =
+#=
 include("irregulars/test_irregrules.jl")
-# =#
+=#
 
 # =
+include("test_morphproperties.jl")
+# =#
+#=
 
 include("adjectives/test_1.adjectivesdata.jl")
 include("adjectives/test_2.adjectivesfst.jl")
@@ -87,19 +92,17 @@ include("uninflected/test_5.uninflectedrules.jl")
 
 
 include("nouns/test_1.nounsdata.jl")
-include("finiteverbs/test_1.verbsdata.jl")
-
-
 include("nouns/test_2.nounsfst.jl") 
-include("finiteverbs/test_2.verbsfst.jl") 
-
+include("nouns/test_3.nounforms.jl")
 
 include("nouns/test_5.nounrules.jl")
+=#
 
-include("nouns/test_3.nounforms.jl")
+#include("finiteverbs/test_1.verbsdata.jl")
+#include("finiteverbs/test_2.verbsfst.jl") 
 include("finiteverbs/test_3.verbforms.jl")
-# =#
 
 
-include("nouns/test_4.nounstems.jl")
+
+#include("nouns/test_4.nounstems.jl")
 #include("finiteverbs/test_4.verbstems.jl")

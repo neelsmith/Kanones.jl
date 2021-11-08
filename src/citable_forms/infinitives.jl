@@ -1,7 +1,7 @@
 """Infinitive verbs have tense and voice."""
 struct InfinitiveForm <: GreekMorphologicalForm
     tense::Int64
-    voice::Int64
+    voice::GMPVoice
 end
 
 """Infinitive forms are citable by Cite2Urn"""
@@ -15,7 +15,7 @@ $(SIGNATURES)
 function infinitiveform(code::AbstractString)
     morphchars = split(code, "")
     tense = parse(Int64, morphchars[4])
-    voice = parse(Int64, morphchars[6]) 
+    voice = gmpVoice(parse(Int64, morphchars[6]) )
     InfinitiveForm(tense, voice)
 end
 

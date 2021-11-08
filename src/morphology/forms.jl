@@ -13,8 +13,7 @@ end
 
 
 
-"""Generic function to convert form information in a `Rule`
-to a `RuleUrn`.
+"""Generic function to convert form information in a `Rule` to a `RuleUrn`.
 
 $(SIGNATURES)
 """
@@ -72,8 +71,6 @@ function label(mf::T) where {T <: GreekMorphologicalForm}
     nothing
 end
 
-
-
 """Convert a `GreekMorphologicalForm` form to a delimited-text string. 
 
 $(SIGNATURES)
@@ -86,6 +83,10 @@ function cex(mf::T; delimiter = "|") where {T <: GreekMorphologicalForm}
     #nothing
     join([urn(mf), label(mf)], delimiter)
 end
+
+
+
+#=
 
 
 """Create a `GreekMorphologicalForm` from a Cite2Urn value.
@@ -116,6 +117,9 @@ function morphform(a::Analysis)
 end
 
 
+
+
+
 """Create a `GreekMorphologicalForm` from an string value.
 
 $(SIGNATURES)
@@ -137,12 +141,11 @@ function morphform(code::AbstractString)
 end
 
 
-
-
 """Compose a human-readable lable for a morphological form identifier.
 
 $(SIGNATURES)
 """
+
 function labelform(s::AbstractString)
     #PosPNTMVGCDCat
     formcolumns = split(s,"")
@@ -165,13 +168,14 @@ function labelform(s::AbstractString)
         numberdict = valuedict(numberpairs)
         tensedict = valuedict(tensepairs)
         mooddict = valuedict(moodpairs)
-        voicedict = valuedict(voicepairs)
+       
         "inflected verb: $(persondict[ivals[2]]) $(numberdict[ivals[3]]) $(tensedict[ivals[4]]) $(mooddict[ivals[5]]) $(voicedict[ivals[6]])"
 
     else
         "UNRECOGNIZED analytical form: $pos"
     end
 end
+
 
 """Compose a human-readable label for a `FormUrn`.
 
@@ -190,3 +194,4 @@ function labelform(furn::Cite2Urn)
     labelform(objectcomponent(furn))
 end
 
+=#
