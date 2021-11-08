@@ -1,7 +1,7 @@
 struct GMPMood <: GreekMorphologicalProperty
     code::Int64
     function GMPMood(code)
-        code in 1:4 ? new(code) : throw(DomainError(string(code, " is not in range 1-4.")))
+        code in keys(moodlabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 

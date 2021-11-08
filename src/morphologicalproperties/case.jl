@@ -1,7 +1,7 @@
 struct GMPCase <: GreekMorphologicalProperty
     code::Int64
     function GMPCase(code)
-        code in 1:3 ? new(code) : throw(DomainError(string(code, " is not in range 1-3.")))
+        code in keys(caselabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 

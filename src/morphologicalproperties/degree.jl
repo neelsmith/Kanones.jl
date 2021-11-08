@@ -1,7 +1,7 @@
 struct GMPDegree <: GreekMorphologicalProperty
     code::Int64
     function GMPDegree(code)
-        code in 1:3 ? new(code) : throw(DomainError(string(code, " is not in range 1-3.")))
+        code in keys(degreelabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 
@@ -22,7 +22,7 @@ function label(degree::GMPDegree)
 end
 
 
-"""Dict mapping codes to labels for degree.
+"""Dictionary mapping codes to labels for degree.
 
 $(SIGNATURES)
 """
@@ -32,7 +32,7 @@ const degreelabels = Dict(
     3 => "superlative"
 )
 
-"""Dict mapping labels to codes for degree.
+"""Dictionary mapping labels to codes for degree.
 
 $(SIGNATURES)
 """

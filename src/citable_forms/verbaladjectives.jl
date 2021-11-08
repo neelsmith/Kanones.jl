@@ -81,14 +81,7 @@ function verbaladjectivefromfst(fstdata)
         nothing
     else
         (g,c,n) = matchedup[1].captures
-        genderdict = labeldict(genderpairs)
-        casedict = labeldict(casepairs)
-        numberdict = labeldict(numberpairs)
-        VerbalAdjectiveForm(
-        genderdict[g],
-        casedict[c],
-        numberdict[n]
-        )
+        VerbalAdjectiveForm(gmpGender(g),gmpCase(c),gmpNumber(n))
     end
 end
 
@@ -97,6 +90,6 @@ end
 $(SIGNATURES)
 """
 function formurn(vadj::VerbalAdjectiveForm)
-    FormUrn(string("morphforms.", VERBALADJECTIVE, "0" ,vadj.vanumber,"000",vadj.vagender, vadj.vacase,"00"))
+    FormUrn(string("morphforms.", VERBALADJECTIVE, "0" ,code(vadj.vanumber),"000", code(vadj.vagender), code(vadj.vacase),"00"))
 end
 #PosPNTMVGCDCat

@@ -112,7 +112,7 @@ KanonesIO type for reading and writing data for irregular participial forms.
 $(SIGNATURES)
 
 """
-struct IrregularParticipleParser <: KanonesIO
+struct IrregularParticipleIO <: KanonesIO
     label::AbstractString
 end
 
@@ -124,7 +124,7 @@ KanonesIO type for reading and writing data for verbal adjective rules only.
 $(SIGNATURES)
 
 """
-struct VerbalAdjectiveRuleParser <: KanonesIO
+struct VerbalAdjectiveIO <: KanonesIO
     label::AbstractString
 end
 

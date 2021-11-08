@@ -1,7 +1,7 @@
 struct GMPVoice <: GreekMorphologicalProperty
     code::Int64
     function GMPVoice(code)
-        code in 1:3 ? new(code) : throw(DomainError(string(code, " is not in range 1-3.")))
+        code in keys(voicelabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 
@@ -21,7 +21,6 @@ function label(voice::GMPVoice)
     voicelabels[voice.code]
 end
 
-
 """Dict mapping codes to labels for voice.
 
 $(SIGNATURES)
@@ -31,8 +30,6 @@ const voicelabels = Dict(
     2 => "middle",
     3 => "passive"
 )
-
-
 
 """Dict mapping labels to codes for voice.
 

@@ -60,7 +60,7 @@ end
 
 $(SIGNATURES)
 """
-function readrulerow(usp::VerbalAdjectiveRuleParser, delimited::AbstractString; delimiter = "|")
+function readrulerow(usp::VerbalAdjectiveIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     
     if length(parts) < 6
