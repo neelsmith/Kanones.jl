@@ -1,9 +1,9 @@
 """Adjectives have gender, case, number and degree."""
 struct AdjectiveForm <: GreekMorphologicalForm
-    adjgender::Int64
-    adjcase::Int64
-    adjnumber::Int64
-    adjdegree::Int64
+    adjgender::GMPGender
+    adjcase::GMPCase
+    adjnumber::GMPNumber
+    adjdegree::GMPDegree
 end
 
 """Adjective forms are citable by Cite2Urn"""
@@ -15,10 +15,10 @@ $(SIGNATURES)
 """
 function adjectiveform(code::AbstractString)
     morphchars = split(code, "")    
-    agender = parse(Int64, morphchars[7])
-    acase = parse(Int64, morphchars[8])
-    anumber = parse(Int64, morphchars[3])
-    adegree = parse(Int64, morphchars[9])    
+    agender = gmpGender(parse(Int64, morphchars[7]))
+    acase = gmpCase(parse(Int64, morphchars[8]))
+    anumber = gmpNumber(parse(Int64, morphchars[3]))
+    adegree = gmpDegree(parse(Int64, morphchars[9]))
     AdjectiveForm(agender, acase, anumber, adegree)
 end
 
@@ -52,11 +52,7 @@ end
 $(SIGNATURES)
 """
 function label(adj::AdjectiveForm)
-    gdict = Kanones.genderpairs |> Kanones.valuedict
-    cdict = Kanones.casepairs |> Kanones.valuedict
-    ndict = Kanones.numberpairs |> Kanones.valuedict
-    ddict = Kanones.degreepairs |> Kanones.valuedict
-    join([gdict[adj.adjgender], cdict[adj.adjcase], ndict[adj.adjnumber], ddict[adj.adjdegree]], " ")
+    join([label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree)], " ")
 end
 
 
@@ -66,7 +62,7 @@ $(SIGNATURES)
 """
 function urn(adj::AdjectiveForm)
       # PosPNTMVGCDCat
-      Cite2Urn(string(BASE_MORPHOLOGY_URN, ADJECTIVE,"0",adj.adjnumber,"000",adj.adjgender,adj.adjcase,adj.adjdegree,"0"))
+      Cite2Urn(string(BASE_MORPHOLOGY_URN, ADJECTIVE,"0",code(adj.adjnumber),"000", code(adj.adjgender),code(adj.adjcase),code(adj.adjdegree),"0"))
 end
 
 
@@ -76,7 +72,7 @@ end
 $(SIGNATURES)
 """
 function formurn(adj::AdjectiveForm)
-    FormUrn(string("morphforms.", ADJECTIVE, "0" ,adj.adjnumber,"000",adj.adjgender, adj.adjcase, adj.adjdegree, "0"))
+    FormUrn(string("morphforms.", ADJECTIVE, "0" , code(adj.adjnumber),"000", code(adj.adjgender), code(adj.adjcase), code(adj.adjdegree), "0"))
 end
 
 
@@ -93,16 +89,11 @@ function adjectivefromfst(fstdata)
         nothing
     else
         (g,c,n, d) = matchedup[1].captures
-        genderdict = labeldict(genderpairs)
-        casedict = labeldict(casepairs)
-        numberdict = labeldict(numberpairs)
-        degreedict = labeldict(degreepairs)
-        
         AdjectiveForm(
-        genderdict[g],# g,
-        casedict[c], #c,
-        numberdict[n], #n,
-        degreedict[d], #d
+            gmpGender(g),
+            gmpCase(c),
+            gmpNumber(n),
+            gmpDegree(d)
         )
     end
 end

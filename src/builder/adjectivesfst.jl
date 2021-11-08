@@ -23,10 +23,10 @@ function fst(rule::Kanones.AdjectiveRule; ortho::T = literaryGreek()) where {T <
     string(
         "<", rule.inflectionclass,"><adjective>", 
         noaccs,
-        "<", rule.agender, ">",
-        "<", rule.acase, ">",
-        "<", rule.anumber, ">",
-        "<", rule.adegree, ">",
+        "<", label(rule.agender), ">",
+        "<", label(rule.acase), ">",
+        "<", label(rule.anumber), ">",
+        "<", label(rule.adegree), ">",
         fstsafe(rule.ruleid)
     )
 end

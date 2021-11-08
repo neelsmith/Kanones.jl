@@ -1,13 +1,12 @@
-
 "Inflectional rule for adjectives."
 struct AdjectiveRule <: Rule
     ruleid::AbbreviatedUrn
     inflectionclass
     ending
-    agender
-    acase
-    anumber
-    adegree
+    agender::GMPGender
+    acase::GMPCase
+    anumber::GMPNumber
+    adegree::GMPDegree
 end
 
 
@@ -25,11 +24,10 @@ function readrulerow(usp::AdjectiveIO, delimited::AbstractString; delimiter = "|
         ruleid = RuleUrn(parts[1])
         inflclass = parts[2]
         ending = nfkc(parts[3])
-        g = parts[4]
-        c = parts[5]
-        n = parts[6]
-        d = parts[7]
- 
+        g = gmpGender(parts[4])
+        c = gmpCase(parts[5])
+        n = gmpNumber(parts[6])
+        d = gmpDegree(parts[7])
         AdjectiveRule(ruleid, inflclass, ending, g,c,n,d)
     end
     
@@ -45,7 +43,7 @@ CitableTrait(::Type{AdjectiveRule}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(adj::AdjectiveRule)
-    string("Adjective inflection rule: ending -", adj.ending, " in class ", adj.inflectionclass, " can be ", adj.agender, " ", adj.acase, " ", adj.anumber, " ", adj.adegree,".")
+    string("Adjective inflection rule: ending -", adj.ending, " in class ", adj.inflectionclass, " can be ", label(adj.agender), " ", label(adj.acase), " ", label(adj.anumber), " ", label(adj.adegree),".")
 end
 
 
@@ -86,13 +84,7 @@ end
 $(SIGNATURES)
 """
 function ruleurn(rule::AdjectiveRule)
-    numdict = labeldict(numberpairs)
-    casedict = labeldict(casepairs)
-    genderdict = labeldict(genderpairs)
-    degreedict = labeldict(degreepairs)
-
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", ADJECTIVE,"0",numdict[rule.anumber],"000",genderdict[rule.agender],casedict[rule.acase],degreedict[rule.adegree],"0"))
+    RuleUrn(string("morphforms.", ADJECTIVE,"0",code(rule.anumber),"000",code(rule.agender),code(rule.acase),code(rule.adegree),"0"))
 end
-
 #PosPNTMVGCDCat
