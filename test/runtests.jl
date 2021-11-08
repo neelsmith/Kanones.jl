@@ -62,11 +62,6 @@ include("uninflected/test_4.uninflectedstems.jl")
 include("uninflected/test_5.uninflectedrules.jl")
 
 
-include("participles/test_1.participlesdata.jl") 
-include("participles/test_2.participlesfst.jl") 
-include("participles/test_3.participleforms.jl")
-include("participles/test_5.participlerules.jl")
-
 
 =#
 #= 
@@ -93,10 +88,17 @@ include("infinitives/test_2.infinitivesfst.jl")
 include("infinitives/test_3.infinitiveforms.jl")
 include("infinitives/test_4.infinitivestems.jl")
 include("infinitives/test_5.infinitiverules.jl")
-=#
-
 
 include("verbaladjectives/test_1.verbaladjectivesdata.jl")
 include("verbaladjectives/test_2.verbaladjectivesfst.jl")
 include("verbaladjectives/test_3.verbaldjectiveforms.jl")
 include("verbaladjectives/test_5.verbaladjectiverules.jl")
+
+=#
+
+
+
+include("participles/test_1.participlesdata.jl") 
+include("participles/test_2.participlesfst.jl") 
+include("participles/test_3.participleforms.jl")
+include("participles/test_5.participlerules.jl")

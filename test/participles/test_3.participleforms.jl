@@ -3,19 +3,20 @@
 #<u>verbstems.n56496</u><u>lsj.n56496</u><stem>κελευ<finiteverb><w_regular><div><w_regular><participle>ομενον<present><middle><masculine><accusative><singular><u>ptcplinfl.wpres4</u>
 
     ptcpl = Kanones.participlefromfst(sfst)
-    expected = Kanones.ParticipleForm(1, 2, 1, 4, 1)
+    expected = ParticipleForm(GMPTense(1), GMPVoice(2), GMPGender(1), GMPCase(4), GMPNumber(1))
+
     @test ptcpl == expected
 end
 
 
 @testset "Test parsing a ParticipleForm from a FormUrn" begin
     frm = FormUrn("morphforms.5011021400")
-    @test Kanones.participleform(frm) == ParticipleForm(1, 2, 1, 4, 1)
+    @test Kanones.participleform(frm) == ParticipleForm(GMPTense(1), GMPVoice(2), GMPGender(1), GMPCase(4), GMPNumber(1))
 end
 
 
 @testset "Test parsing a FormUrn from a ParticipleForm" begin
-    ptcpl = ParticipleForm(1, 2, 1, 4, 1)
+    ptcpl = ParticipleForm(GMPTense(1), GMPVoice(2), GMPGender(1), GMPCase(4), GMPNumber(1))
     formU = Kanones.formurn(ptcpl)
     @test formU == FormUrn("morphforms.5011021400")
 
@@ -50,7 +51,7 @@ end
 
 
 @testset "Test CitableTrait for participle forms" begin
-    ptcpl = ParticipleForm(1, 2, 1, 4, 1)
+    ptcpl = ParticipleForm(GMPTense(1), GMPVoice(2), GMPGender(1), GMPCase(4), GMPNumber(1))
 
     @test urn(ptcpl) == Cite2Urn("urn:cite2:kanones:morphforms.v1:5011021400")
     @test label(ptcpl) == "present middle masculine accusative singular"

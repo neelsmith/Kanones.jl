@@ -1,16 +1,10 @@
- 
-"""Finite verbs have person, number, tense, mood and voice."""
+ """Finite verbs have person, number, tense, mood and voice."""
 struct ParticipleForm <: GreekMorphologicalForm
-    tense::Int64
-    #tenselabel::AbstractString  
-    voice::Int64
-    #voicelabel::AbstractString 
-    pgender::Int64
-    #genderlabel::AbstractString    
-    pcase::Int64
-    #caselabel::AbstractString    
-    pnumber::Int64
-    #numberlabel::AbstractString  
+    tense::GMPTense
+    voice::GMPVoice
+    pgender::GMPGender
+    pcase::GMPCase
+    pnumber::GMPNumber
 end
 
 """Participle forms are citable by Cite2Urn"""
@@ -21,12 +15,7 @@ CitableTrait(::Type{ParticipleForm}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function label(ptcpl::ParticipleForm)
-    gdict = Kanones.genderpairs |> Kanones.valuedict
-    cdict = Kanones.casepairs |> Kanones.valuedict
-    ndict = Kanones.numberpairs |> Kanones.valuedict
-    tdict = Kanones.tensepairs |> Kanones.valuedict
-    vdict = Kanones.voicepairs |> Kanones.valuedict
-    join([tdict[ptcpl.tense],vdict[ptcpl.voice],gdict[ptcpl.pgender], cdict[ptcpl.pcase], ndict[ptcpl.pnumber]], " ")
+    join([label(ptcpl.tense), label(ptcpl.voice), label(ptcpl.pgender), label(ptcpl.pcase), label(ptcpl.pnumber)], " ")
 end
 
 
@@ -36,7 +25,7 @@ $(SIGNATURES)
 """
 function urn(ptcpl::ParticipleForm)
     # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, PARTICIPLE,"0",ptcpl.pnumber,ptcpl.tense, "0",ptcpl.voice,ptcpl.pgender,ptcpl.pcase,"00"))
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, PARTICIPLE,"0",code(ptcpl.pnumber), code(ptcpl.tense), "0", code(ptcpl.voice), code(ptcpl.pgender), code(ptcpl.pcase), "00"))
 end
 
 
@@ -46,11 +35,11 @@ $(SIGNATURES)
 """
 function participleform(code::AbstractString)
     morphchars = split(code, "")
-    pgender = parse(Int64, morphchars[7])
-    pcase = parse(Int64, morphchars[8])
-    pnumber = parse(Int64, morphchars[3])
-    ptense = parse(Int64, morphchars[4])
-    pvoice = parse(Int64, morphchars[6])
+    pgender = gmpGender(parse(Int64, morphchars[7]))
+    pcase = gmpCase(parse(Int64, morphchars[8]))
+    pnumber = gmpNumber(parse(Int64, morphchars[3]))
+    ptense = gmpTense(parse(Int64, morphchars[4]))
+    pvoice = gmpVoice(parse(Int64, morphchars[6]))
     ParticipleForm(
         ptense,
         pvoice,
@@ -92,28 +81,17 @@ end
 $(SIGNATURES)
 """
 function participlefromfst(fstdata)
-    # Example rule string:
-
-    # Extract TVGCN from a string like the example:
+    # Extract TVGCN from a string:
     ptcprulere = r"<([^<]+)><([^<]+)><([^<]+)><([^<]+)><([^<]+)>"
     matchedup = collect(eachmatch(ptcprulere, fstdata))
-
     if isempty(matchedup)
-        @warn("Unable to parse FST analysis \"" * fstdata * "\" as verb form.")
+        @warn("Unable to parse FST analysis \"" * fstdata * "\" as participle form.")
         nothing
     else
         (t, v, g, c, n) = matchedup[1].captures
-        tensedict = labeldict(tensepairs)
-        voicedict = labeldict(voicepairs)
-        genderdict = labeldict(genderpairs)
-        casedict = labeldict(casepairs)
-        numberdict = labeldict(numberpairs)
         ParticipleForm(
-        tensedict[t],# t,
-        voicedict[v], #v,
-        genderdict[g], #g,
-        casedict[c], #c,
-        numberdict[n] #, n
+        gmpTense(t), gmpVoice(v),
+        gmpGender(g), gmpCase(c), gmpNumber(n)
         )
     end
 end
@@ -125,7 +103,7 @@ $(SIGNATURES)
 function formurn(ptcpl::ParticipleForm)
     #PosPNTMVGCDCat
     FormUrn(string("morphforms.", PARTICIPLE, 
-    "0",ptcpl.pnumber, ptcpl.tense, "0", ptcpl.voice, 
-    ptcpl.pgender, ptcpl.pcase, "00"))
+    "0", code(ptcpl.pnumber), code(ptcpl.tense), "0", code(ptcpl.voice), 
+    code(ptcpl.pgender), code(ptcpl.pcase), "00"))
 end
 

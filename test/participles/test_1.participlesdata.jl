@@ -7,9 +7,9 @@
 
     @test rule.inflectionclass == "w_regular"
     @test rule.ending == "όμενον"
-    @test rule.ptense == "present"
-    @test rule.pvoice == "middle"
-    @test rule.pgender == "neuter"
-    @test rule.pcase == "nominative"
-    @test rule.pnumber == "singular"
+    @test rule.ptense == GMPTense(1)
+    @test rule.pvoice == GMPVoice(2)
+    @test rule.pgender == GMPGender(3)
+    @test rule.pcase == GMPCase(1)
+    @test rule.pnumber == GMPNumber(1)
 end

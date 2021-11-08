@@ -6,16 +6,15 @@ struct ParticipleRule <: Rule
     ruleid::Kanones.AbbreviatedUrn
     inflectionclass
     ending
-    ptense
-    pvoice
-    pgender
-    pcase
-    pnumber
+    ptense::GMPTense
+    pvoice::GMPVoice
+    pgender::GMPGender
+    pcase::GMPCase
+    pnumber::GMPNumber
 end
 
 """Participle rules are citable by Cite2Urn"""
 CitableTrait(::Type{ParticipleRule}) = CitableByCite2Urn()
-
 
 """Human-readlable label for a `ParticipleRule`.
 
@@ -23,7 +22,7 @@ CitableTrait(::Type{ParticipleRule}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(ptcpl::ParticipleRule)
-    string("Participle inflection rule: ending -", ptcpl.ending, " in class ", ptcpl.inflectionclass, " can be ", ptcpl.ptense, " ", ptcpl.pvoice, " ", ptcpl.pgender, " ", ptcpl.pcase, " ", ptcpl.pnumber, ".")
+    string("Participle inflection rule: ending -", ptcpl.ending, " in class ", ptcpl.inflectionclass, " can be ", label(ptcpl.ptense), " ", label(ptcpl.pvoice), " ", label(ptcpl.pgender), " ", label(ptcpl.pcase), " ", label(ptcpl.pnumber), ".")
 end
 
 """Identifying URN for a `ParticipleRule`.  If
@@ -73,15 +72,13 @@ function readrulerow(usp::ParticipleIO, delimited::AbstractString; delimiter = "
         ruleid = RuleUrn(parts[1])
         inflclass = parts[2]
         ending = parts[3]
-        t = parts[4]
-        v = parts[5]
-        g = parts[6]
-        c = parts[7]
-        n = parts[8]
-
+        t = gmpTense(parts[4])
+        v = gmpVoice(parts[5])
+        g = gmpGender(parts[6])
+        c = gmpCase(parts[7])
+        n = gmpNumber(parts[8])
         ParticipleRule(ruleid, inflclass, ending,t,v,g,c,n)
     end
-
     # Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 end
 
@@ -91,12 +88,6 @@ end
 $(SIGNATURES)
 """
 function ruleurn(rule::ParticipleRule)
-    numdict = labeldict(numberpairs)
-    casedict = labeldict(casepairs)
-    genderdict = labeldict(genderpairs)
-    tensedict = labeldict(tensepairs)
-    voicedict = labeldict(voicepairs)
-
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", PARTICIPLE,"0",numdict[rule.pnumber],tensedict[rule.ptense], "0",voicedict[rule.pvoice],genderdict[rule.pgender],casedict[rule.pcase],"00"))
+    RuleUrn(string("morphforms.", PARTICIPLE,"0",code(rule.pnumber), code(rule.ptense), "0", code(rule.pvoice), code(rule.pgender), code(rule.pcase),"00"))
 end
