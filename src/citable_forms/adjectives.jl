@@ -1,5 +1,5 @@
 """Adjectives have gender, case, number and degree."""
-struct AdjectiveForm <: MorphologicalForm
+struct AdjectiveForm <: GreekMorphologicalForm
     adjgender::Int64
     adjcase::Int64
     adjnumber::Int64

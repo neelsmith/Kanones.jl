@@ -19,9 +19,9 @@ end
     u = Cite2Urn("urn:cite2:kanones:morphforms.v1:3313110000")
     vb = Kanones.finiteverbform(u)
     @test isa(vb, FiniteVerbForm)
-    @test vb.personlabel == "third"
-    @test vb.numberlabel == "singular"
-    @test vb.tenselabel == "future"
-    @test vb.moodlabel == "indicative"
-    @test vb.voicelabel == "active"
+    #@test vb.personlabel == "third"
+    #@test vb.numberlabel == "singular"
+    #@test vb.tenselabel == "future"
+    #@test vb.moodlabel == "indicative"
+    #@test vb.voicelabel == "active"
 end

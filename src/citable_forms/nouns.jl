@@ -1,5 +1,5 @@
 """Nouns have gender, case and number."""
-struct NounForm <: MorphologicalForm
+struct NounForm <: GreekMorphologicalForm
     ngender::Int64
     ncase::Int64
     nnumber::Int64

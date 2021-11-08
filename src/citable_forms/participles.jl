@@ -1,6 +1,6 @@
  
 """Finite verbs have person, number, tense, mood and voice."""
-struct ParticipleForm <: MorphologicalForm
+struct ParticipleForm <: GreekMorphologicalForm
     tense::Int64
     #tenselabel::AbstractString  
     voice::Int64

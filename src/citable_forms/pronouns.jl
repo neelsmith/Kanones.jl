@@ -1,5 +1,5 @@
 """Nouns have gender, case and number."""
-struct PronounForm <: MorphologicalForm
+struct PronounForm <: GreekMorphologicalForm
     pgender::Int64
     pcase::Int64
     pnumber::Int64

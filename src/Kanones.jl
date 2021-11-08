@@ -1,5 +1,6 @@
 module Kanones
 
+using CitableParserBuilder: AnalyzedToken
 using CitableParserBuilder: CitableByCite2Urn
 using CitableParserBuilder: CitableParser
 using CitableParserBuilder: LexemeUrn, StemUrn, FormUrn, RuleUrn, AbbreviatedUrn, expand
@@ -31,7 +32,7 @@ export urn, label, cex
 export dataset
 export rulesarray, stemsarray
 
-export MorphologicalForm
+export GreekMorphologicalForm
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 export PronounForm, PronounStem, PronounRule

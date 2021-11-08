@@ -1,6 +1,6 @@
 
 """Finite verbs have person, number, tense, mood and voice."""
-struct FiniteVerbForm <: MorphologicalForm
+struct FiniteVerbForm <: GreekMorphologicalForm
     vperson::Int64
     vnumber::Int64
     vtense::Int64

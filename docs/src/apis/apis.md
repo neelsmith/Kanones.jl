@@ -11,7 +11,7 @@ Depth = 3
 ### Structures
 
 ```@docs
-MorphologicalForm
+GreekMorphologicalForm
 Kanones.UninflectedForm
 Kanones.NounForm
 Kanones.FiniteVerbForm

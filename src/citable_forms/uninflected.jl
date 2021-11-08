@@ -1,7 +1,7 @@
 #<u>uninflectedstems.n21618</u><u>lsj.n21618</u>γαρ<uninflected><particle><div><particle><uninflected><u>litgreek.indeclinable1</u>
 
 """Uninflected forms have a single property: the "part of speech"."""
-struct UninflectedForm <: MorphologicalForm
+struct UninflectedForm <: GreekMorphologicalForm
     pos::Int64  
 end
 
