@@ -5,11 +5,11 @@ $(SIGNATURES)
 function fst(rule::Kanones.ParticipleRule; ortho::T = literaryGreek()) where {T <: GreekOrthography}
     string("<", rule.inflectionclass,"><participle>", 
     rmaccents(rule.ending, ortho),  
-    "<", rule.ptense, ">",
-    "<", rule.pvoice, ">",
-    "<", rule.pgender, ">",
-    "<", rule.pcase, ">",
-    "<", rule.pnumber, ">",
+    "<", label(rule.ptense), ">",
+    "<", label(rule.pvoice), ">",
+    "<", label(rule.pgender), ">",
+    "<", label(rule.pcase), ">",
+    "<", label(rule.pnumber), ">",
     fstsafe(rule.ruleid)
     )
 end
