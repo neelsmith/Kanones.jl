@@ -28,6 +28,13 @@ end
     @test isa(num, GMPNumber)
 end
 
-# gender
+
+
+@testset "Test GMPGender" begin
+    gender = gmpGender("feminine")
+    @test isa(gender, GMPGender)
+end
+
+
 # case
 # degree

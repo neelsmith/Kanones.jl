@@ -3,21 +3,21 @@ struct IrregularNounStem <: Stem
     stemid::Kanones.AbbreviatedUrn
     lexid::Kanones.AbbreviatedUrn
     form::AbstractString
-    noungender
-    nouncase
+    noungender::GMPGender
+    nouncase::GMPCase
     nounnumber::GMPNumber
-    #inflectionclass
 end
 
 """Irregular noun stems are citable by Cite2Urn"""
 CitableTrait(::Type{IrregularNounStem}) = CitableByCite2Urn()
+
 """Human-readlable label for an `IrregularNounStem`.
 
 @(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(ns::IrregularNounStem)
-    string("Irregular noun form ", ns.form, " (", ns.noungender," ", ns.nouncase, " ", label(ns.nounnumber), ")")
+    string("Irregular noun form ", ns.form, " (", label(ns.noungender)," ", label(ns.nouncase), " ", label(ns.nounnumber), ")")
 end
 
 
@@ -52,15 +52,6 @@ function cex(ns::IrregularNounStem; delimiter = "|", registry = nothing)
         join([c2urn, label(ns)], delimiter)
     end
 end
-#=
-function formurn(irregstem::IrregularNounStem)
-    numdict = labeldict(numberpairs)
-    genderdict = labeldict(genderpairs)
-    casedict = labeldict(casepairs)
-    # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",numdict[irregstem.gnumber],"000",genderdict[irregstem.gender],casedict[irregstem.gcase],"00"))
-end
-=#
 
 """Compose FormUrn for an irregular noun stem.
 
@@ -70,10 +61,10 @@ For irregulars, all form information is in the stem entry, so we need
 a function to create form urns directory from this.
 """
 function abbrformurn(irregstem::IrregularNounStem)
-    genderdict = labeldict(genderpairs)
+
     casedict = labeldict(casepairs)
     # PosPNTMVGCDCat
-    FormUrn(string("morphforms.", NOUN,"0", code(irregstem.gnumber),"000",genderdict[irregstem.gender],casedict[irregstem.gcase],"00"))
+    FormUrn(string("morphforms.", NOUN,"0", code(irregstem.gnumber),"000",code(irregstem.gender),code(irregstem.gcase),"00"))
 end
 
 
@@ -103,8 +94,8 @@ function readstemrow(usp::IrregularNounIO, delimited::AbstractString; delimiter 
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
     stem = nfkc(parts[3])
-    g = parts[4]
-    c = parts[5]
+    g = gmpGender(parts[4])
+    c = gmpCase(parts[5])
     n = gmpNumber(parts[6])
     inflclass = parts[7]
 

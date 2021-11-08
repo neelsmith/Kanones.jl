@@ -5,8 +5,8 @@
     @test rule.ruleid == RuleUrn("nouninfl.h_hs2") 
     @test rule.inflectionclass == "h_hs"
     @test rule.ending == "ης"
-    @test rule.ngender == "feminine"
-    @test rule.ncase == "genitive"
+    @test rule.ngender ==  GMPGender(2)
+    @test rule.ncase == GMPCase(2)
     @test rule.nnumber == GMPNumber(1)
 end
 
@@ -18,7 +18,7 @@ end
     @test  stem.stemid == StemUrn("nounstems.n22502")
     @test stem.lexid == LexemeUrn("lexent.n22502")
     @test stem.form == "γνωμ"
-    @test stem.gender == "feminine"
+    @test stem.gender ==  GMPGender(2)
     @test stem.inflectionclass == "h_hs"
     @test stem.accentpersistence == "recessive"
 end
@@ -32,8 +32,8 @@ end
     @test  stem.stemid  == StemUrn("irregnoun.irregn23069a") 
     @test stem.lexid == LexemeUrn("lsj.n23069") 
     @test stem.form == nfkc("γυνή")
-    @test stem.noungender == "feminine"
-    @test stem.nouncase == "nominative"
+    @test stem.noungender == GMPGender(2)
+    @test stem.nouncase == GMPCase(1)
     @test stem.nounnumber ==  GMPNumber(1)
 end
 

@@ -105,7 +105,7 @@ end
 $SIGNATURES
 """
 function genderlabel(f::FormUrn)
-    gendercode(f) == 0 ? "none" :  valuedict(genderpairs)[gendercode(f)]
+    gendercode(f) == 0 ? "none" :  label(gmpGender(gendercode(f)))
 end
 
 

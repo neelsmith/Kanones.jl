@@ -44,15 +44,6 @@ const uninflectedpairs = [
     (6, "interjection")
 ]
 
-"""Constants for gender.
-
-$(SIGNATURES)
-"""
-const genderpairs = [
-    (1, "masculine"),
-    (2, "feminine"),
-    (3, "neuter")
-]
 
 """Constants for substantive case.
 

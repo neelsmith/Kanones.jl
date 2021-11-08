@@ -3,7 +3,7 @@ struct NounStem <: Stem
     stemid
     lexid
     form::AbstractString
-    gender
+    gender::GMPGender
     inflectionclass
     accentpersistence
 end
@@ -18,7 +18,7 @@ function readstemrow(usp::NounIO, delimited::AbstractString; delimiter = "|")
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
     stem = nfkc(parts[3])
-    gender = parts[4]
+    gender = gmpGender(parts[4])
     inflclass = parts[5]
     accent = parts[6]
     NounStem(stemid,lexid,stem,gender,inflclass,accent)
@@ -33,7 +33,7 @@ CitableTrait(::Type{NounStem}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(ns::NounStem)
-    string("Noun stem ", ns.form, "- (", ns.gender, ")")
+    string("Noun stem ", ns.form, "- (", label(ns.gender), ")")
 end
 
 
@@ -46,7 +46,6 @@ Required for `CitableTrait`.
 """
 function urn(ns::NounStem; registry = nothing)
     if isnothing(registry)
-        
         ns.stemid
     else
         expand(ns.stemid, registry)
