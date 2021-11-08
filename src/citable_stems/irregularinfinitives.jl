@@ -3,8 +3,8 @@ struct IrregularInfinitiveStem <: Stem
     stemid::Kanones.AbbreviatedUrn
     lexid::Kanones.AbbreviatedUrn
     form::AbstractString
-    tense
-    voice
+    tense::GMPTense
+    voice::GMPVoice
 end
 
 
@@ -16,7 +16,7 @@ CitableTrait(::Type{IrregularInfinitiveStem}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(inf::IrregularInfinitiveStem)
-    string("Irregular infinitive form ", inf.form, " (", inf.tense," ", inf.voice, ")")
+    string("Irregular infinitive form ", inf.form, " (", label(inf.tense)," ", label(inf.voice), ")")
 end
 
 """Identifying URN for an `IrregularNounStem`.  If
@@ -71,8 +71,8 @@ function readstemrow(infinio::Kanones.IrregularInfinitiveIO, delimited::Abstract
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
     stem = nfkc(parts[3])
-    t = parts[4]
-    v = parts[5]
+    t = gmpTense(parts[4])
+    v = gmpVoice(parts[5])
 
     IrregularInfinitiveStem(stemid,lexid,stem,t,v)
 

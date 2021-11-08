@@ -1,4 +1,3 @@
-
 """Inflectional rule for infinitive verb form.
 
 $(SIGNATURES)
@@ -7,8 +6,8 @@ struct InfinitiveRule <: Rule
     ruleid::Kanones.AbbreviatedUrn
     inflectionclass
     ending
-    tense
-    voice
+    tense::GMPTense
+    voice::GMPVoice
 end
 
 """Infinitive rules are citable by Cite2Urn"""
@@ -21,7 +20,7 @@ CitableTrait(::Type{InfinitiveRule}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(inf::InfinitiveRule)
-    string("Infinitive inflection rule: ending -", inf.ending, " in class ", inf.inflectionclass, " can be ", inf.tense, " ", inf.voice, ".")
+    string("Infinitive inflection rule: ending -", inf.ending, " in class ", inf.inflectionclass, " can be ", label(inf.tense), " ", label(inf.voice), ".")
 end
 
 
@@ -72,8 +71,8 @@ function readrulerow(infio::InfinitiveIO, delimited::AbstractString; delimiter =
         ruleid = RuleUrn(parts[1])
         inflclass = parts[2]
         ending = parts[3]
-        t = parts[4]
-        v = parts[5]
+        t = gmpTense(parts[4])
+        v = gmpVoice(parts[5])
 
         InfinitiveRule(ruleid, inflclass, ending,t,v)
     end
@@ -86,10 +85,6 @@ end
 $(SIGNATURES)
 """
 function ruleurn(rule::InfinitiveRule)
-    tensedict = labeldict(tensepairs)
-    voicedict = labeldict(voicepairs)
-  
-
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", INFINITIVE,"00",tensedict[rule.tense],"0",voicedict[rule.voice],"0000"))
+    RuleUrn(string("morphforms.", INFINITIVE,"00",code(rule.tense),"0",code(rule.voice),"0000"))
 end
