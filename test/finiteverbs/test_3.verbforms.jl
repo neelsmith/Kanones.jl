@@ -1,0 +1,56 @@
+@testset "Test parsing a FiniteVerbForm from SFST output" begin
+    sfst = "<third><singular><present><indicative><active>"
+    verb = Kanones.verbfromfst(sfst)
+    expected = FiniteVerbForm(3, 1, 1, 1, 1)
+    @test verb == expected
+end
+
+@testset "Test parsing a FiniteVerbForm from a FormUrn" begin
+    frm = FormUrn("morphforms.331111000")
+    @test Kanones.finiteverbform(frm) == FiniteVerbForm(3, 1, 1, 1, 1)
+end
+
+@testset "Test parsing a FormUrn from a FiniteVerbForm" begin
+    verb = FiniteVerbForm(3, 1, 1, 1, 1)
+    formU = Kanones.formurn(verb)
+    @test formU == FormUrn("morphforms.3311110000")
+
+    @test Kanones.poscode(formU) == 3
+    @test Kanones.poslabel(formU) == "verb-finite"
+
+    @test Kanones.gendercode(formU) == 0
+    @test Kanones.genderlabel(formU) == "none"
+
+
+    @test Kanones.casecode(formU) == 0
+    @test Kanones.caselabel(formU) == "none"
+    @test Kanones.numbercode(formU) == 1
+    @test Kanones.numberlabel(formU) == "singular"
+
+
+    @test Kanones.personcode(formU) == 3
+    @test Kanones.personlabel(formU) == "third"
+    
+    @test Kanones.tensecode(formU) == 1
+    @test Kanones.tenselabel(formU) == "present"
+    @test Kanones.moodcode(formU) == 1
+    @test Kanones.moodlabel(formU) == "indicative"
+    @test Kanones.voicecode(formU) == 1
+    @test Kanones.voicelabel(formU) == "active"
+
+    @test Kanones.degreecode(formU) == 0
+    @test Kanones.degreelabel(formU) == "none"
+    @test Kanones.uninflectedcode(formU) == 0
+
+end
+
+
+@testset "Test CitableTrait for finite verb forms" begin
+    verb = FiniteVerbForm(3, 1, 1, 1, 1)
+    @test urn(verb) == Cite2Urn("urn:cite2:kanones:morphforms.v1:3311110000")
+    @test label(verb) ==  "third singular present indicative active"
+    @test cex(verb) == "urn:cite2:kanones:morphforms.v1:3311110000|third singular present indicative active"
+    @test Kanones.formurn(verb) ==  FormUrn("morphforms.3311110000")
+    
+end
+

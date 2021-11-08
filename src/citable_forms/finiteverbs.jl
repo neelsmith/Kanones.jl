@@ -2,15 +2,43 @@
 """Finite verbs have person, number, tense, mood and voice."""
 struct FiniteVerbForm <: MorphologicalForm
     vperson::Int64
-    personlabel::AbstractString    
     vnumber::Int64
-    numberlabel::AbstractString    
     vtense::Int64
-    tenselabel::AbstractString   
     vmood::Int64
-    moodlabel::AbstractString    
     vvoice::Int64
-    voicelabel::AbstractString 
+end
+
+"""Finite verb forms are citable by Cite2Urn"""
+CitableTrait(::Type{FiniteVerbForm}) = CitableByCite2Urn()
+
+
+"""Compose a label for a `NounForm`
+
+$(SIGNATURES)
+"""
+function label(verb::FiniteVerbForm)
+    pdict = Kanones.personpairs |> Kanones.valuedict
+    ndict = Kanones.numberpairs |> Kanones.valuedict
+    tdict = Kanones.tensepairs |> Kanones.valuedict
+    mdict = Kanones.moodpairs |> Kanones.valuedict
+    vdict = Kanones.voicepairs |> Kanones.valuedict
+    join(
+        [
+            pdict[verb.vperson],  
+            ndict[verb.vnumber], 
+            tdict[verb.vtense], 
+            mdict[verb.vmood], 
+            vdict[verb.vvoice]
+            ], " ")
+end
+
+"""Compose a Cite2Urn for a `FiniteVerbForm`.
+
+$(SIGNATURES)
+"""
+function urn(verb::FiniteVerbForm)
+    # PosPNTMVGCDCat
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, FINITEVERB,verb.vperson,verb.vnumber, verb.vtense, verb.vmood, verb.vvoice,"0000"))
 end
 
 """Create a `FiniteVerbForm` from a string value.
@@ -19,7 +47,6 @@ $(SIGNATURES)
 """
 function finiteverbform(code::AbstractString)
     morphchars = split(code,"")
-    @info(morphchars)
     # PosPNTMVGCDCat
     prsn = parse(Int64,morphchars[2])
     nmbr = parse(Int64,morphchars[3])
@@ -33,11 +60,11 @@ function finiteverbform(code::AbstractString)
     mooddict = valuedict(moodpairs)
     voicedict = valuedict(voicepairs)
     FiniteVerbForm(
-        prsn, persondict[prsn],
-        nmbr, numberdict[nmbr],
-        tns, tensedict[tns],
-        md, mooddict[md],
-        vc, voicedict[vc]
+        prsn,
+        nmbr,
+        tns,
+        md, 
+        vc
     )
 end
 
@@ -68,24 +95,6 @@ function finiteverbform(a::Analysis)
 end
 
 
-"""Compose URN for a `FiniteVerbForm`.
-
-$(SIGNATURES)
-"""
-function urn(verb::FiniteVerbForm)
-    nothing
-end
-
-#=
-"""Compose CEX representation for a `FiniteVerbForm`.
-
-$(SIGNATURES)
-"""
-function cex(verb::FiniteVerbForm; delimiter = "|")
-    nothing
-end
-=#
-
 """Compose URN for finite verb form from FST representation of analytical data.
 
 $(SIGNATURES)
@@ -108,11 +117,11 @@ function verbfromfst(fstdata)
         tensedict = labeldict(tensepairs)
         mooddict = labeldict(moodpairs)
         voicedict = labeldict(voicepairs)
-        verbform = FiniteVerbForm(persondict[p], p,
-        numberdict[n], n,
-        tensedict[t], t,
-        mooddict[m], m,
-        voicedict[v], v
+        verbform = FiniteVerbForm(persondict[p], #p,
+        numberdict[n], #n,
+        tensedict[t],# t,
+        mooddict[m], #m,
+        voicedict[v]#, v
         )
     end
 end
@@ -124,7 +133,7 @@ $(SIGNATURES)
 """
 function formurn(verbform::FiniteVerbForm)
     FormUrn(string("morphforms.", FINITEVERB,verbform.vperson, verbform.vnumber, 
-    verbform.vtense, verbform.vmood, verbform.vvoice, "000"))
+    verbform.vtense, verbform.vmood, verbform.vvoice, "0000"))
 end
 
 
