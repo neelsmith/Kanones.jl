@@ -36,6 +36,7 @@ export GreekMorphologicalProperty
 export GMPVoice, gmpVoice
 export GMPMood, gmpMood
 export GMPTense, gmpTense
+export GMPPerson, gmpPerson
 
 export GreekMorphologicalForm
 
@@ -55,8 +56,6 @@ export IrregularRule
 export IrregularNounForm, IrregularNounStem
 export IrregularVerbForm, IrregularVerbStem
 export IrregularInfinitiveForm, IrregularInfinitiveStem
-
-
 
 export Lexeme
 
@@ -88,6 +87,7 @@ include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/tense.jl")
 include("morphologicalproperties/mood.jl")
 include("morphologicalproperties/voice.jl")
+include("morphologicalproperties/person.jl")
 
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
@@ -130,7 +130,6 @@ include("citable_rules/pronouns.jl")
 include("citable_forms/uninflected.jl")
 include("citable_stems/uninflected.jl")
 include("citable_rules/uninflected.jl")
-
 
 
 

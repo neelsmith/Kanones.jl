@@ -28,7 +28,7 @@ end
 $SIGNATURES
 """
 function personlabel(f::FormUrn)
-    personcode(f) == 0 ? "none" : valuedict(personpairs)[personcode(f)]
+    personcode(f) == 0 ? "none" : label(gmpPerson(personcode(f)))
 end
 
 

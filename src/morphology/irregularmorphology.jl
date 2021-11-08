@@ -37,14 +37,11 @@ function irregularfromfst(fstdata::AbstractString)
         md = matchedup[5].captures[1]
         vc = matchedup[6].captures[1]
 
-        persondict = labeldict(personpairs)
+        
         numberdict = labeldict(numberpairs)
         
-        
-        
-        
         GMFFiniteVerb(
-            persondict[prsn],
+            gmpTense(prsn),
             numberdict[nmbr],
         
             gmpMood(tns), 

@@ -76,17 +76,6 @@ const degreepairs = [
     (3, "superlative")
 ]
 
-
-"""Constants for persons.
-
-$(SIGNATURES)
-"""
-const personpairs = [
-    (1, "first"),
-    (2, "second"),
-    (3, "third")
-]
-
 """Constants for number.
 
 $(SIGNATURES)

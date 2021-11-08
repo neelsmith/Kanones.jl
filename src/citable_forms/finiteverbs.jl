@@ -1,7 +1,7 @@
 
 """Finite verbs have person, number, tense, mood and voice."""
 struct GMFFiniteVerb <: GreekMorphologicalForm
-    vperson::Int64
+    vperson::GMPPerson
     vnumber::Int64
     vtense::GMPTense
     vmood::GMPMood
@@ -30,7 +30,7 @@ CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function label(verb::GMFFiniteVerb)
-    pdict = Kanones.personpairs |> Kanones.valuedict
+    
     ndict = Kanones.numberpairs |> Kanones.valuedict
  
     join(
@@ -39,9 +39,9 @@ function label(verb::GMFFiniteVerb)
             label(verb.vtense), 
             label(verb.vmood), 
             label(verb.vvoice),
-            pdict[verb.vperson],  
+            label(verb.vperson),  
             ndict[verb.vnumber]
-            
+
             ], " ")
 end
 
@@ -51,7 +51,7 @@ $(SIGNATURES)
 """
 function urn(verb::GMFFiniteVerb)
     # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, FINITEVERB,verb.vperson,verb.vnumber, code(verb.vtense), code(verb.vmood), code(verb.vvoice),"0000"))
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, FINITEVERB, code(verb.vperson),verb.vnumber, code(verb.vtense), code(verb.vmood), code(verb.vvoice),"0000"))
 end
 
 """Create a `GMFFiniteVerb` from a string value.
@@ -61,17 +61,16 @@ $(SIGNATURES)
 function finiteverbform(code::AbstractString)
     morphchars = split(code,"")
     # PosPNTMVGCDCat
-    prsn = parse(Int64,morphchars[2])
+    
     nmbr = parse(Int64,morphchars[3])
     tns = GMPTense(morphchars[4])
     md = GMPMood(morphchars[5])
     vc = GMPVoice(morphchars[6])
+    prsn = GMPPerson(morphchars[2])
 
-    persondict = valuedict(personpairs)
     numberdict = valuedict(numberpairs)
 
-
-    
+   
     GMFFiniteVerb(
         prsn,
         nmbr,
@@ -125,15 +124,13 @@ function verbfromfst(fstdata)
     else
         (p,n, t, m, v) = matchedup[1].captures
 
-        persondict = labeldict(personpairs)
-        numberdict = labeldict(numberpairs)
-
-        
-        GMFFiniteVerb(persondict[p],
-        numberdict[n], 
-        gmpTense(t),
-        gmpMood(m),
-        gmpVoice(v)
+        numberdict = labeldict(numberpairs)        
+        GMFFiniteVerb(
+            gmpPerson(p),
+            numberdict[n], 
+            gmpTense(t),
+            gmpMood(m),
+            gmpVoice(v)
         )
     end
 end
@@ -144,7 +141,7 @@ end
 $(SIGNATURES)
 """
 function formurn(verbform::GMFFiniteVerb)
-    FormUrn(string("morphforms.", FINITEVERB,verbform.vperson, verbform.vnumber, 
+    FormUrn(string("morphforms.", FINITEVERB, code(verbform.vperson), verbform.vnumber, 
     code(verbform.vtense), code(verbform.vmood), code(verbform.vvoice), "0000"))
 end
 
@@ -157,8 +154,8 @@ $(SIGNATURES)
 """
 function finiteverbscex()
 
-    persondict = valuedict(personpairs)
-    personkeys = keys(persondict)  |> collect |> sort 
+    
+    
 
     
     numberdict = valuedict(numberpairs)
@@ -167,7 +164,7 @@ function finiteverbscex()
     tensekeys = keys(Kanones.tenselabels)   |> collect |> sort 
     moodkeys = keys(Kanones.moodlabels)   |> collect |> sort 
     voicekeys = keys(Kanones.voicelabels)   |> collect |> sort 
-
+    personkeys = keys(Kanones.personlabels)  |> collect |> sort 
 
     lines = []
     PRESENT = 1
