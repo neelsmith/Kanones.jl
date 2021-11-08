@@ -43,7 +43,7 @@ end
 $SIGNATURES
 """
 function numberlabel(f::FormUrn)
-    numbercode(f) == 0 ? "none" : valuedict(numberpairs)[numbercode(f)]
+    numbercode(f) == 0 ? "none" : label(gmpNumber(numbercode(f)))
 end
 
 

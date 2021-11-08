@@ -1,4 +1,4 @@
-
+#=
 """Compose a `GreekMorphologicalForm` for irregular form from FST representation of analytical data.
 
 $(SIGNATURES)
@@ -36,13 +36,10 @@ function irregularfromfst(fstdata::AbstractString)
         tns = matchedup[4].captures[1]
         md = matchedup[5].captures[1]
         vc = matchedup[6].captures[1]
-
-        
-        numberdict = labeldict(numberpairs)
         
         GMFFiniteVerb(
             gmpTense(prsn),
-            numberdict[nmbr],
+            gmpNumber(nmbr),
         
             gmpMood(tns), 
             gmpMood(md), 
@@ -58,3 +55,4 @@ function irregularfromfst(fstdata::AbstractString)
         @warn string("Unrecognized irregular type: ", matchedup[1].captures)
     end
 end
+=#

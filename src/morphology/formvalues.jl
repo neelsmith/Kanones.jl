@@ -76,15 +76,7 @@ const degreepairs = [
     (3, "superlative")
 ]
 
-"""Constants for number.
 
-$(SIGNATURES)
-"""
-const numberpairs = [
-    (1, "singular"),
-    (2, "dual"),
-    (3, "plural")
-]
 
 
 
