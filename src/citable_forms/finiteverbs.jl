@@ -21,8 +21,6 @@ function gmpVoice(verb::GMFFiniteVerb)
 end
 
 
-
-
 """Finite verb forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
 
@@ -37,11 +35,13 @@ function label(verb::GMFFiniteVerb)
  
     join(
         [
-            pdict[verb.vperson],  
-            ndict[verb.vnumber], 
+             
             label(verb.vtense), 
             label(verb.vmood), 
-            label(verb.vvoice)
+            label(verb.vvoice),
+            pdict[verb.vperson],  
+            ndict[verb.vnumber]
+            
             ], " ")
 end
 

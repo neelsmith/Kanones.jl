@@ -50,8 +50,8 @@ end
 @testset "Test CitableTrait for finite verb forms" begin
     verb = GMFFiniteVerb(3, 1,  GMPTense(1), GMPMood(1),  GMPVoice(1))
     @test urn(verb) == Cite2Urn("urn:cite2:kanones:morphforms.v1:3311110000")
-    @test label(verb) ==  "third singular present indicative active"
-    @test cex(verb) == "urn:cite2:kanones:morphforms.v1:3311110000|third singular present indicative active"
+    @test label(verb) ==  "present indicative active third singular"
+    @test cex(verb) == "urn:cite2:kanones:morphforms.v1:3311110000|present indicative active third singular"
     @test Kanones.formurn(verb) ==  FormUrn("morphforms.3311110000")
     
 end
