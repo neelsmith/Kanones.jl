@@ -18,11 +18,11 @@ end
 
 @testset "Read stems for verb tokens from delimited text"  begin    
     #Rule|LexicalEntity|StemClass|Stem|
-    cexsrc = "verbstems.n56496|lexent.n56496|κελευ|w_regular|"
+    cexsrc = "verbstems.n56496|lsj.n56496|κελευ|w_regular|"
     verbparser = Kanones.VerbIO("verbs")
     stem = Kanones.readstemrow(verbparser, cexsrc)
     @test stem.stemid == StemUrn("verbstems.n56496")
-    @test stem.lexid == LexemeUrn("lexent.n56496")
+    @test stem.lexid == LexemeUrn("lsj.n56496")
     @test stem.stem == "κελευ"
     @test stem.stemclass == "w_regular"
 
