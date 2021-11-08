@@ -1,3 +1,19 @@
+"""Inflectional rule for uninflected lexical items.
+
+$(SIGNATURES)
+"""
+struct FiniteVerbRule <: Rule
+    ruleid::Kanones.AbbreviatedUrn
+    stemclass
+    ending
+    vperson
+    vnumber
+    vtense
+    vmood
+    vvoice
+end
+
+
 """Read one row of a rules table for verb tokens and create a `FiniteVerbRule`
 
 $(SIGNATURES)
