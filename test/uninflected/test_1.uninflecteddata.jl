@@ -3,7 +3,7 @@
     cexsrc = "uninflectedrules.indeclinable2|conjunction"
     uninfl = Kanones.UninflectedIO("uninflected")
     rule = Kanones.readrulerow(uninfl, cexsrc)
-    @test rule.infltype == "conjunction"
+    @test rule.infltype == GMPUninflectedType(1)
     expectedrule = RuleUrn("uninflectedrules.indeclinable2")
     @test rule.ruleid.collection == "uninflectedrules"
     @test rule.ruleid.objectid == "indeclinable2"
@@ -30,5 +30,5 @@ end
 
      
     @test stem.form == "καί"
-    @test stem.stemcategory == "conjunction"
+    @test stem.stemcategory == GMPUninflectedType(1)
 end

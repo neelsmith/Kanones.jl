@@ -2,9 +2,8 @@
 
 """Uninflected forms have a single property: the "part of speech"."""
 struct UninflectedForm <: GreekMorphologicalForm
-    pos::Int64  
+    pos::GMPUninflectedType  
 end
-
 
 """Uninflected forms are citable by Cite2Urn"""
 CitableTrait(::Type{UninflectedForm}) = CitableByCite2Urn()
@@ -15,11 +14,9 @@ $(SIGNATURES)
 Required by `CitableTrait`.
 """
 function urn(uform::UninflectedForm)
-    urnstring = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", uform.pos)
+    urnstring = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", code(uform.pos))
     Cite2Urn(urnstring)
 end
-
-
 
 """Compose a human-readable label for an `UninflectedForm`.
 
@@ -27,12 +24,8 @@ $(SIGNATURES)
 Required by `CitableTrait`.
 """
 function label(uform::UninflectedForm)
-    udict = Kanones.uninflectedpairs |> Kanones.valuedict
-    udict[uform.pos]
+    label(uform.pos)
 end
-
-
-
 
 """Create `UninflectedForm` from a Cite2Urn.
 
@@ -40,7 +33,8 @@ $(SIGNATURES)
 """
 function uninflectedform(urn::Cite2Urn)
     c = objectcomponent(urn)[end]
-    uninflectedform(c)
+    pos = parse(Int64, c)
+    UninflectedForm(gmpUninflectedType(pos))
 end
 
 """Create `UninflectedForm` from a FormUrn.
@@ -49,7 +43,7 @@ $(SIGNATURES)
 """
 function uninflectedform(u::FormUrn)
     c = u.objectid[end]
-    uninflectedform(c)
+    UninflectedForm(gmpUninflectedType(parse(Int64,c)))
 end
 
 """Create `UninflectedForm` from a string value.
@@ -57,7 +51,7 @@ end
 $(SIGNATURES)
 """
 function uninflectedform(codeString::AbstractString)
-    pos = parse(Int64, codeString)
+    pos = gmpUninflectedType(parse(Int64, codeString))
     uninflectedform(pos)
 end
 
@@ -66,7 +60,7 @@ end
 $(SIGNATURES)
 """
 function uninflectedform(ch::Char)
-    pos = parse(Int64, ch)
+    pos = gmpUninflectedType(parse(Int64, ch))
     uninflectedform(pos)
 end
 
@@ -76,6 +70,8 @@ $(SIGNATURES)
 """
 function uninflectedform(code::Int64)
     UninflectedForm(code)
+
+
 end
 
 """Create `UninflectedForm` from an Analysis.
@@ -94,9 +90,7 @@ end
 $(SIGNATURES)
 """
 function uninflectedfromfst(uninflclass)
-    dict = labeldict(uninflectedpairs)
-    code = dict[uninflclass]
-    UninflectedForm(code) #, uninflclass)            
+    UninflectedForm(gmpUninflectedType(uninflclass)         )
 end
 
 """Compose a `FormUrn` for an `UninflectedForm`.
@@ -104,7 +98,7 @@ end
 $(SIGNATURES)
 """
 function formurn(uninflected::UninflectedForm)
-    FormUrn(string("morphforms.", UNINFLECTED, "00000000", uninflected.pos))
+    FormUrn(string("morphforms.", UNINFLECTED, "00000000", code(uninflected.pos)))
 end
 
 
@@ -113,11 +107,10 @@ end
 $(SIGNATURES)
 """
 function uninflectedcex()
-    dict = valuedict(uninflectedpairs)
     lines = []
-    sortedkeys = keys(dict)  |> collect |> sort 
+    sortedkeys = keys(uninflectedlabels)  |> collect |> sort 
     for k in sortedkeys
-        s = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", k, "|", "uninflected form: ", dict[k])
+        s = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", k, "|", "uninflected form: ", sortedkeys[k])
         push!(lines, s)
     end
     join(lines, "\n")

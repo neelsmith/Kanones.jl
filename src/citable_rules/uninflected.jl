@@ -3,8 +3,8 @@
 $(SIGNATURES)
 """
 struct UninflectedRule <: Rule
-    ruleid::Kanones.AbbreviatedUrn
-    infltype
+    ruleid::AbbreviatedUrn
+    infltype::GMPUninflectedType
 end
 
 
@@ -18,7 +18,7 @@ CitableTrait(::Type{UninflectedRule}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(ur::UninflectedRule)
-    string("Uninflected rule: ", ur.ruleid, " indicates a ", ur.infltype, ".")
+    string("Uninflected rule: ", ur.ruleid, " indicates a ", label(ur.infltype), ".")
 end
 
 """Identifying URN for a `UninflectedRule`.  If
@@ -75,14 +75,13 @@ function readrulerow(usp::UninflectedIO, delimited::AbstractString; delimiter = 
         throw(ArgumentError(msg))
     else
         ruleid = RuleUrn(parts[1])
-        inflectionaltype = parts[2]
+        inflectionaltype = gmpUninflectedType(parts[2])
         UninflectedRule(ruleid, inflectionaltype)
     end
 end
 
 function ruleurn(stem::UninflectedStem)
-    posdict = labeldict(uninflectedpairs)
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", UNINFLECTED,"00000000",posdict[stem.stemcategory])) 
+    RuleUrn(string("morphforms.", UNINFLECTED,"00000000",code(stem.stemcategory))) 
 
 end

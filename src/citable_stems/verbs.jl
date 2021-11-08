@@ -3,8 +3,8 @@
 $(SIGNATURES)
 """
 struct VerbStem <: Stem
-    stemid::Kanones.AbbreviatedUrn
-    lexid::Kanones.AbbreviatedUrn
+    stemid::AbbreviatedUrn
+    lexid::AbbreviatedUrn
     stem::AbstractString
     stemclass::AbstractString  
 end

@@ -9,7 +9,7 @@ function fst(stem::Kanones.UninflectedStem; ortho::T = literaryGreek()) where {T
         fstsafe(stem.lexid),
         fstgreek(noaccs),
         "<uninflected>",
-        "<", stem.stemcategory, ">"
+        "<", label(stem.stemcategory), ">"
     )
 end
 
@@ -19,5 +19,5 @@ $(SIGNATURES)
 """
 function fst(rule::Kanones.UninflectedRule; ortho::T = literaryGreek()) where {T <: GreekOrthography}
 
-    string("<", rule.infltype,"><uninflected>", fstsafe(rule.ruleid))
+    string("<", label(rule.infltype),"><uninflected>", fstsafe(rule.ruleid))
 end

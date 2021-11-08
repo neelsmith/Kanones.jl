@@ -3,7 +3,7 @@
 $(SIGNATURES)
 """
 struct InfinitiveRule <: Rule
-    ruleid::Kanones.AbbreviatedUrn
+    ruleid::AbbreviatedUrn
     inflectionclass
     ending
     tense::GMPTense

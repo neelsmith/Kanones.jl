@@ -4,7 +4,7 @@
 
 "Inflectional rule for irregular form."
 struct IrregularRule <: Rule
-    ruleid::Kanones.AbbreviatedUrn
+    ruleid::AbbreviatedUrn
     inflectionclass
 end
 

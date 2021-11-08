@@ -1,10 +1,10 @@
 
 "A record for a single uninflected stem."
 struct UninflectedStem <: Stem
-    stemid::Kanones.AbbreviatedUrn
-    lexid::Kanones.AbbreviatedUrn
+    stemid::AbbreviatedUrn
+    lexid::AbbreviatedUrn
     form::AbstractString
-    stemcategory::AbstractString
+    stemcategory::GMPUninflectedType
 end
 
 
@@ -17,7 +17,7 @@ CitableTrait(::Type{UninflectedStem}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(us::UninflectedStem)
-    string("Uninflected ", us.stemcategory, " ", us.form)
+    string("Uninflected ", label(us.stemcategory), " ", us.form)
 end
 
 
@@ -30,7 +30,6 @@ Required for `CitableTrait`.
 """
 function urn(us::UninflectedStem; registry = nothing)
     if isnothing(registry)
-        
         us.stemid
     else
         expand(us.stemid, registry)
@@ -84,8 +83,8 @@ function readstemrow(usp::UninflectedIO, delimited::AbstractString; delimiter = 
     else
         stemid = StemUrn(parts[1])
         lexid = LexemeUrn(parts[2])
-        form = parts[3] # fstgreek(parts[3])
-        stemclass = parts[4]
+        form = parts[3]
+        stemclass = gmpUninflectedType(parts[4])
         UninflectedStem(stemid, lexid, form, stemclass)
     end
 end

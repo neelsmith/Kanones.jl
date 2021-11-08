@@ -3,7 +3,7 @@
 $(SIGNATURES)
 """
 struct ParticipleRule <: Rule
-    ruleid::Kanones.AbbreviatedUrn
+    ruleid::AbbreviatedUrn
     inflectionclass
     ending
     ptense::GMPTense

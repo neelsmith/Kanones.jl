@@ -3,7 +3,7 @@
 $(SIGNATURES)
 """
 struct VerbalAdjectiveRule <: Rule
-    ruleid::Kanones.AbbreviatedUrn
+    ruleid::AbbreviatedUrn
     inflectionclass
     ending
     vagender::GMPGender
