@@ -11,11 +11,10 @@ function fst(stem::Kanones.IrregularNounStem; ortho::T = literaryGreek()) where 
         fstsafe(stem.lexid),
         rmaccents(stem.form, ortho),
         "<irregular>",
-        #"<", stem.inflectionclass, ">",
         "<irregularnoun>",
-        "<", stem.noungender, ">",
-        "<", stem.nouncase, ">",
-        "<", stem.nounnumber, ">"
+        "<", label(stem.noungender), ">",
+        "<", label(stem.nouncase), ">",
+        "<", label(stem.nounnumber), ">"
     )
     
 end

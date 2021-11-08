@@ -8,12 +8,12 @@
 end
 
 @testset "Format fst lexicon for noun stems" begin
-    cexsrc = "nounstems.n22502|lexent.n22502|γνωμ|masculine|h_hs|recessive|"
-    nounparser = Kanones.NounIO("nouns")
-    stemrow = Kanones.readstemrow(nounparser, cexsrc)
+    cexsrc = "nounstems.n22502|lexent.n22502|γνωμ|feminine|h_hs|recessive|"
+    nounio = Kanones.NounIO("nouns")
+    stem = Kanones.readstemrow(nounio, cexsrc)
     # Note that "." and "_" must be protected in FST string values, but not in symbols.
-    expected = "<u>nounstems\\.n22502</u><u>lexent\\.n22502</u>γνωμ<noun><masculine><h_hs>"
-    @test FstBuilder.fst(stemrow) == expected
+    expected = "<u>nounstems\\.n22502</u><u>lexent\\.n22502</u>γνωμ<noun><feminine><h_hs>"
+    @test FstBuilder.fst(stem) == expected
 end
 
 

@@ -10,7 +10,7 @@ function fst(stem::Kanones.NounStem; ortho::T = literaryGreek()) where {T <: Gre
         fstsafe(stem.lexid),
         rmaccents(stem.form, ortho),
         "<noun>",
-        "<", stem.gender, ">",
+        "<", label(stem.gender), ">",
         "<", stem.inflectionclass, ">"
     )
 end
@@ -25,9 +25,9 @@ function fst(rule::Kanones.NounRule; ortho::T = literaryGreek()) where {T <: Gre
     string(
         "<", rule.inflectionclass,"><noun>", 
         noaccs,
-        "<", rule.ngender, ">",
-        "<", rule.ncase, ">",
-        "<", rule.nnumber, ">",
+        "<", label(rule.ngender), ">",
+        "<", label(rule.ncase), ">",
+        "<", label(rule.nnumber), ">",
         fstsafe(rule.ruleid)
     )
 end

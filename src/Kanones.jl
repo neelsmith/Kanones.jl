@@ -38,6 +38,8 @@ export GMPMood, gmpMood
 export GMPTense, gmpTense
 export GMPPerson, gmpPerson
 export GMPNumber, gmpNumber
+export GMPGender, gmpGender
+export GMPCase, gmpCase
 
 export GreekMorphologicalForm
 
@@ -90,6 +92,8 @@ include("morphologicalproperties/mood.jl")
 include("morphologicalproperties/voice.jl")
 include("morphologicalproperties/person.jl")
 include("morphologicalproperties/number.jl")
+include("morphologicalproperties/gender.jl")
+include("morphologicalproperties/case.jl")
 
 include("morphology/formvalues.jl")
 include("morphology/forapps.jl")
