@@ -1,22 +1,22 @@
 
 """Finite verbs have person, number, tense, mood and voice."""
-struct FiniteVerbForm <: GreekMorphologicalForm
+struct GMFFiniteVerb <: GreekMorphologicalForm
     vperson::Int64
     vnumber::Int64
     vtense::Int64
     vmood::Int64
-    vvoice::Int64
+    vvoice::GMPVoice
 end
 
 """Finite verb forms are citable by Cite2Urn"""
-CitableTrait(::Type{FiniteVerbForm}) = CitableByCite2Urn()
+CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
 
 
 """Compose a label for a `NounForm`
 
 $(SIGNATURES)
 """
-function label(verb::FiniteVerbForm)
+function label(verb::GMFFiniteVerb)
     pdict = Kanones.personpairs |> Kanones.valuedict
     ndict = Kanones.numberpairs |> Kanones.valuedict
     tdict = Kanones.tensepairs |> Kanones.valuedict
@@ -32,16 +32,16 @@ function label(verb::FiniteVerbForm)
             ], " ")
 end
 
-"""Compose a Cite2Urn for a `FiniteVerbForm`.
+"""Compose a Cite2Urn for a `GMFFiniteVerb`.
 
 $(SIGNATURES)
 """
-function urn(verb::FiniteVerbForm)
+function urn(verb::GMFFiniteVerb)
     # PosPNTMVGCDCat
     Cite2Urn(string(BASE_MORPHOLOGY_URN, FINITEVERB,verb.vperson,verb.vnumber, verb.vtense, verb.vmood, verb.vvoice,"0000"))
 end
 
-"""Create a `FiniteVerbForm` from a string value.
+"""Create a `GMFFiniteVerb` from a string value.
 
 $(SIGNATURES)
 """
@@ -59,7 +59,7 @@ function finiteverbform(code::AbstractString)
     tensedict = valuedict(tensepairs)
     mooddict = valuedict(moodpairs)
     voicedict = valuedict(voicepairs)
-    FiniteVerbForm(
+    GMFFiniteVerb(
         prsn,
         nmbr,
         tns,
@@ -69,7 +69,7 @@ function finiteverbform(code::AbstractString)
 end
 
 
-"""Create a `FiniteVerbForm` from a `Cite2URN`.
+"""Create a `GMFFiniteVerb` from a `Cite2URN`.
 
 $(SIGNATURES)
 """
@@ -78,7 +78,7 @@ function finiteverbform(urn::Cite2Urn)
 end
 
 
-"""Create a `FiniteVerbForm` from a `FormUrn`.
+"""Create a `GMFFiniteVerb` from a `FormUrn`.
 
 $(SIGNATURES)
 """
@@ -86,7 +86,7 @@ function finiteverbform(f::FormUrn)
     finiteverbform(f.objectid)
 end
 
-"""Create a `FiniteVerbForm` from an `Analysis`.
+"""Create a `GMFFiniteVerb` from an `Analysis`.
 
 $(SIGNATURES)
 """
@@ -117,7 +117,7 @@ function verbfromfst(fstdata)
         tensedict = labeldict(tensepairs)
         mooddict = labeldict(moodpairs)
         voicedict = labeldict(voicepairs)
-        verbform = FiniteVerbForm(persondict[p], #p,
+        verbform = GMFFiniteVerb(persondict[p], #p,
         numberdict[n], #n,
         tensedict[t],# t,
         mooddict[m], #m,
@@ -127,11 +127,11 @@ function verbfromfst(fstdata)
 end
 
 
-"""Compose a `FormUrn` for a `FiniteVerbForm`.
+"""Compose a `FormUrn` for a `GMFFiniteVerb`.
 
 $(SIGNATURES)
 """
-function formurn(verbform::FiniteVerbForm)
+function formurn(verbform::GMFFiniteVerb)
     FormUrn(string("morphforms.", FINITEVERB,verbform.vperson, verbform.vnumber, 
     verbform.vtense, verbform.vmood, verbform.vvoice, "0000"))
 end

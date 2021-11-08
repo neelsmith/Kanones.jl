@@ -43,7 +43,7 @@ function irregularfromfst(fstdata::AbstractString)
         mooddict = labeldict(moodpairs)
         voicedict = labeldict(voicepairs)
         
-        FiniteVerbForm(
+        GMFFiniteVerb(
             persondict[prsn], prsn,
             numberdict[nmbr], nmbr,
             tensedict[tns], tns,

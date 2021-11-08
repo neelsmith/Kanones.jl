@@ -32,13 +32,16 @@ export urn, label, cex
 export dataset
 export rulesarray, stemsarray
 
+export GreekMorphologicalProperty
+export GMPVoice, gmpVoice
+
 export GreekMorphologicalForm
 export UninflectedForm, UninflectedStem, UninflectedRule
 export NounForm, NounStem, NounRule
 export PronounForm, PronounStem, PronounRule
 export AdjectiveForm, AdjectiveStem, AdjectiveRule
 
-export FiniteVerbForm, VerbStem, FiniteVerbRule
+export GMFFiniteVerb, VerbStem, FiniteVerbRule
 export InfinitiveForm, InfinitiveRule
 export VerbalAdjectiveForm, VerbalAdjectiveRule
 export ParticipleForm, ParticipleRule
@@ -71,6 +74,8 @@ include("generator/nounsgen.jl")
 include("lexeme.jl")
 include("lsj/labels.jl")
 
+include("morphologicalproperties/properties.jl")
+include("morphologicalproperties/voice.jl")
 
 include("morphology/forms.jl")
 include("morphology/formvalues.jl")

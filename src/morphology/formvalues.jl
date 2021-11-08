@@ -97,15 +97,6 @@ const numberpairs = [
     (3, "plural")
 ]
 
-"""Constants for voice.
-
-$(SIGNATURES)
-"""
-const voicepairs = [
-    (1, "active"),
-    (2, "middle"),
-    (3, "passive")
-]
 
 """Constants for tense.
 

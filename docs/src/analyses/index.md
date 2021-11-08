@@ -77,7 +77,7 @@ mform = Kanones.morphform(a1)
 We can check the type of form, and get appropriate information for that type.
 
 ```@example analysisexample
-tensedata = if isa(mform, FiniteVerbForm)
+tensedata = if isa(mform, GMFFiniteVerb)
         (mform.vtense)
 else
         nothing
