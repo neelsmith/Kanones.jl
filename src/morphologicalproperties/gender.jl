@@ -1,7 +1,7 @@
 struct GMPGender <: GreekMorphologicalProperty
     code::Int64
     function GMPGender(code)
-        code in 1:3 ? new(code) : throw(DomainError(string(code, " is not in range 1-3.")))
+        code in keys(genderlabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 

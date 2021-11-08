@@ -1,7 +1,7 @@
 struct GMPTense <: GreekMorphologicalProperty
     code::Int64
     function GMPTense(code)
-        code in 1:5 ? new(code) : throw(DomainError(string(code, " is not in range 1-5.")))
+        code in keys(tenselabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 

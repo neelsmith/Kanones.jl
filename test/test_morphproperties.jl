@@ -31,5 +31,16 @@ end
     @test isa(gender, GMPGender)
 end
 
+@testset "Test GMPDegree" begin
+    degree = gmpDegree("superlative")
+    @test isa(degree, GMPDegree)
+end
+
+@testset "Test GMPUninflectedType" begin
+    uninfl = gmpUninflectedType("conjunction")
+    @test isa(uninfl, GMPUninflectedType)
+end
+
+
 # degree
 # uninflected part of speech

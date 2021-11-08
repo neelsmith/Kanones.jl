@@ -17,85 +17,15 @@ const PRONOUN = 9
 
 $(SIGNATURES)
 """
-const pospairs = [
-    (UNANALYZED, "unanalyzed"),
-    (UNINFLECTED, "uninflected"),
-    (NOUN, "noun"),
-    (FINITEVERB, "verb-finite"),
-    (INFINITIVE, "infinitive"),
-    (PARTICIPLE, "participle"),
-    (VERBALADJECTIVE, "verbal-adjective"),
-    (ADJECTIVE, "adjective"),
-    (ADVERB, "adverb"),
-    (PRONOUN, "pronoun")
-]
-
-
-"""Constants for uninflected type of uninflected form.
-
-$(SIGNATURES)
-"""
-const uninflectedpairs = [
-    (1, "conjunction"),
-    (2, "preposition"),
-    (3, "particle"),
-    (4, "adverb"),
-    (5, "numeral"),
-    (6, "interjection")
-]
-
-
-"""Constants for substantive case.
-
-$(SIGNATURES)
-"""
-const casepairs = [
-    (1, "nominative"),
-    (2, "genitive"),
-    (3, "dative"),
-    (4, "accusative"),
-    (5, "vocative")
-]
-
-"""Constants for degree.
-
-$(SIGNATURES)
-"""
-const degreepairs = [
-    (1, "positive"),
-    (2, "comparative"),
-    (3, "superlative")
-]
-
-
-
-
-
-
-
-
-
-"""Create a dictionary keyed by the value of a label-value pair.
-
-$(SIGNATURES)
-"""
-function valuedict(prs)
-    dict = Dict()
-    for pr in prs
-        push!(dict, pr[1] => pr[2])
-    end
-    dict
-end
-
-"""Create a dictionary keyed by the label of a label-value pair.
-
-
-$(SIGNATURES)
-"""
-function labeldict(prs)
-    dict = Dict()
-    for pr in prs
-        push!(dict, pr[2] => pr[1])
-    end
-    dict
-end
+const poslabels = Dict(
+    UNANALYZED => "unanalyzed",
+    UNINFLECTED => "uninflected",
+    NOUN => "noun",
+    FINITEVERB => "verb-finite",
+    INFINITIVE => "infinitive",
+    PARTICIPLE => "participle",
+    VERBALADJECTIVE => "verbal-adjective",
+    ADJECTIVE => "adjective",
+    ADVERB => "adverb",
+    PRONOUN => "pronoun"
+)

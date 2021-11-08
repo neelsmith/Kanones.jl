@@ -1,7 +1,7 @@
 @testset "Test citable trait for VerbalAdjectiveRule" begin
     cexsrc = "vadjinfl.econtr1|ew_contract|ητέον|neuter|nominative|singular|"
-    vadjparser = Kanones.VerbalAdjectiveRuleParser("verbal adjective")
-    rule = Kanones.readrulerow(vadjparser, cexsrc)
+    vadjio = Kanones.VerbalAdjectiveIO("verbal adjective")
+    rule = Kanones.readrulerow(vadjio, cexsrc)
 
     @test label(rule) == "Verbal adjective inflection rule: ending -ητέον in class ew_contract can be neuter nominative singular."
     @test urn(rule) == RuleUrn("vadjinfl.econtr1")

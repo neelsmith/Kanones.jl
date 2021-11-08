@@ -80,7 +80,7 @@ function rulesarray(dirlist; delimiter = "|")
         "finiteverbs" => VerbIO("verb"),
         "infinitives" => InfinitiveIO("infinitives"),
         "participles" => ParticipleIO("participles"),
-        "verbaladjectives" => VerbalAdjectiveRuleParser("verbal adjectives"),
+        "verbaladjectives" => VerbalAdjectiveIO("verbal adjectives"),
         ]
     )
     rulesdirs = [
