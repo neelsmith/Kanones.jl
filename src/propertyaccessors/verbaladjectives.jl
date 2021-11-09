@@ -1,20 +1,16 @@
 # Forms:
 
-function gmpGender(vadj::GMFVerbaAdjective)    
+function gmpGender(vadj::GMFVerbalAdjective)    
     va.adjgender
 end
 
-function gmpCase(vadj::GMFVerbaAdjective)    
+function gmpCase(vadj::GMFVerbalAdjective)    
     va.adjcase
 end
 
-function gmpNumber(vadj::GMFVerbaAdjective)    
+function gmpNumber(vadj::GMFVerbalAdjective)    
     va.adjnumber
 end
-
-
-
-
 
 # Rules
 

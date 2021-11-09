@@ -106,7 +106,6 @@ include("morphology/irregularmorphology.jl")
 
 include("citable_rules/irregulars.jl")
 
-
 include("citable_forms/finiteverbs.jl")
 include("citable_stems/verbs.jl")
 include("citable_stems/irregularverbs.jl")
@@ -142,13 +141,15 @@ include("citable_forms/uninflected.jl")
 include("citable_stems/uninflected.jl")
 include("citable_rules/uninflected.jl")
 
-
 include("propertyaccessors/adjectives.jl")
 include("propertyaccessors/nouns.jl")
 include("propertyaccessors/pronouns.jl")
 include("propertyaccessors/verbs.jl")
 include("propertyaccessors/infinitives.jl")
 include("propertyaccessors/participles.jl")
+include("propertyaccessors/uninflecteds.jl")
+include("propertyaccessors/verbaladjectives.jl")
+
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder

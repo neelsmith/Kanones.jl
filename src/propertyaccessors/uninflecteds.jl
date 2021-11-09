@@ -1,30 +1,10 @@
 # Forms:
-function gmpTense(inf::GMFInfinitive)    
-    inf.tense
+function gmpUninflectedType(uninf::GMFUninflected)    
+    uninf.pos
 end
 
-function gmpVoice(inf::GMFInfinitive)    
-    inf.voice
-end
+# Stems
 
-
-# Irregular stem
-
-function gmpTense(inf::IrregularInfinitiveStem)    
-    inf.tense
-end
-
-function gmpVoice(inf::IrregularInfinitiveStem)    
-    inf.voice
-end
-
-
-
-# Rules
-function gmpTense(inf::InfinitiveRule)    
-    inf.tense
-end
-
-function gmpVoice(inf::InfinitiveRule)    
-    inf.voice
+function gmpUninflectedType(uninf::UninflectedStem)    
+    uninf.pos
 end
