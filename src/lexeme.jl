@@ -3,7 +3,7 @@ struct GreekLexeme <: Citable
     lexid
 end
 
-function label(lex::GreekLexeme)
+function label(lex::GreekLexeme; )
     lex.lexid
 end
 

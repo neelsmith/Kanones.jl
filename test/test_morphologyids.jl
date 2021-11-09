@@ -1,7 +1,7 @@
 
 @testset "Test uninflected form URNs" begin
     conjunctionurn = Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")
-    uform = Kanones.uninflectedform(conjunctionurn)
+    uform = Kanones.gmfUninflected(conjunctionurn)
     @test uform.pos ==  GMPUninflectedType(1)
 end
     #=
@@ -14,7 +14,7 @@ end
 =#
 
 @testset "Test conversion of uninflected form to URN" begin
-    uform = UninflectedForm(GMPUninflectedType(1))
+    uform = GMFUninflected(GMPUninflectedType(1))
     u = Kanones.urn(uform)
     @test u == Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")
 end

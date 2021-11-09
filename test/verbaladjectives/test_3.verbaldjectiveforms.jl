@@ -1,18 +1,18 @@
-@testset "Test parsing a VerbalAdjectiveForm from SFST output" begin
+@testset "Test parsing a GMFVerbalAdjective from SFST output" begin
     sfst =  "<verbaladjective>ητεον<neuter><accusative><singular><u>vadjinfl.econtr1</u>"
     vadj = Kanones.verbaladjectivefromfst(sfst)
-    expected = VerbalAdjectiveForm(GMPGender(3), GMPCase(4), GMPNumber(1))
+    expected = GMFVerbalAdjective(GMPGender(3), GMPCase(4), GMPNumber(1))
     @test vadj == expected
 end
 
 
-@testset "Test parsing a VerbalAdjectiveForm from a FormUrn" begin
+@testset "Test parsing a GMFVerbalAdjective from a FormUrn" begin
     frm = FormUrn("morphforms.6010003400")
-    @test Kanones.verbaladjectiveform(frm) == VerbalAdjectiveForm(GMPGender(3), GMPCase(4), GMPNumber(1))
+    @test Kanones.gmfVerbalAdjective(frm) == GMFVerbalAdjective(GMPGender(3), GMPCase(4), GMPNumber(1))
 end
 
-@testset "Test parsing a FormUrn from a VerbalAdjectiveForm" begin
-    vadj = VerbalAdjectiveForm(GMPGender(3), GMPCase(4), GMPNumber(1))
+@testset "Test parsing a FormUrn from a GMFVerbalAdjective" begin
+    vadj = GMFVerbalAdjective(GMPGender(3), GMPCase(4), GMPNumber(1))
     formU = Kanones.formurn(vadj)
     @test formU == FormUrn("morphforms.6010003400")
 
@@ -47,7 +47,7 @@ end
 
 
 @testset "Test CitableTrait for verbal adjective forms" begin
-    vadj = VerbalAdjectiveForm(GMPGender(3), GMPCase(4), GMPNumber(1))
+    vadj = GMFVerbalAdjective(GMPGender(3), GMPCase(4), GMPNumber(1))
 
     @test urn(vadj) == Cite2Urn("urn:cite2:kanones:morphforms.v1:6010003400")
     @test label(vadj) == "neuter accusative singular"

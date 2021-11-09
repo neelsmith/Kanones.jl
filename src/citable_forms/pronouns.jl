@@ -1,81 +1,81 @@
 """Nouns have gender, case and number."""
-struct PronounForm <: GreekMorphologicalForm
+struct GMFPronoun <: GreekMorphologicalForm
     pgender::GMPGender
     pcase::GMPCase
     pnumber::GMPNumber
 end
 
 """Pronoun forms are citable by Cite2Urn"""
-CitableTrait(::Type{PronounForm}) = CitableByCite2Urn()
+CitableTrait(::Type{GMFPronoun}) = CitableByCite2Urn()
 
 
-"""Compose a label for a `PronounForm`
+"""Compose a label for a `GMFPronoun`
 
 $(SIGNATURES)
 """
-function label(pronoun::PronounForm)
+function label(pronoun::GMFPronoun)
     join([ label(pronoun.pgender), label(pronoun.pcase), label(pronoun.pnumber)], " ")
 end
 
-"""Compose a Cite2Urn for a `PronounForm`.
+"""Compose a Cite2Urn for a `GMFPronoun`.
 
 $(SIGNATURES)
 """
-function urn(pronoun::PronounForm)
+function urn(pronoun::GMFPronoun)
     # PosPNTMVGCDCat
     Cite2Urn(string(BASE_MORPHOLOGY_URN, PRONOUN,"0",code(pronoun.pnumber),"000",code(pronoun.pgender),code(pronoun.pcase),"00"))
 end
 
-"""Create a `PronounForm` from a string value.
+"""Create a `GMFPronoun` from a string value.
 
 $(SIGNATURES)
 """
-function pronounform(code::AbstractString)
+function gmfPronoun(code::AbstractString)
     morphchars = split(code, "")
     ngender = gmpGender(parse(Int64, morphchars[7]))
     ncase = gmpCase(parse(Int64, morphchars[8]))
     nnumber = gmpNumber(parse(Int64, morphchars[3]))
-    PronounForm(ngender, ncase,nnumber)
+    GMFPronoun(ngender, ncase,nnumber)
 end
  # PosPNTMVGCDCat
 
 
- """Create a `PronounForm` from a `Cite2Urn`.
+ """Create a `GMFPronoun` from a `Cite2Urn`.
 
  $(SIGNATURES)
  """
- function pronounform(urn::Cite2Urn)
-     pronounform(objectcomponent(urn))
+ function gmfPronoun(urn::Cite2Urn)
+     gmfPronoun(objectcomponent(urn))
  end
 
 
- """Create a `PronounForm` from a `FormUrn`.
+ """Create a `GMFPronoun` from a `FormUrn`.
 
  $(SIGNATURES)
  """
- function pronounform(f::FormUrn)
-    pronounform(f.objectid)
+ function gmfPronoun(f::FormUrn)
+    gmfPronoun(f.objectid)
  end
 
- """Create a `PronounForm` from an `Analysis`.
+ """Create a `GMFPronoun` from an `Analysis`.
 
  $(SIGNATURES)
  """
- function pronounform(a::Analysis)
-    pronounform(a.form)
+ function gmfPronoun(a::Analysis)
+    gmfPronoun(a.form)
  end
 
 
-"""Compose a `FormUrn` for a `PronounForm`.
+"""Compose a `FormUrn` for a `GMFPronoun`.
 $(SIGNATURES)
 """
-function formurn(pronounform::PronounForm)
-    FormUrn(string("morphforms.", PRONOUN,"0", code(pronounform.pnumber),"000",code(pronounform.pgender),code(pronounform.pcase),"00"))
+function formurn(gmfPronoun::GMFPronoun)
+    FormUrn(string("morphforms.", PRONOUN,"0", code(gmfPronoun.pnumber),"000",code(gmfPronoun.pgender),code(gmfPronoun.pcase),"00"))
 end
 
 
 
-"""Compose a PronounForm for a noun form from FST representation of analytical data.
+"""Compose a GMFPronoun for a noun form from FST representation of analytical data.
 
 $(SIGNATURES)
 """
@@ -91,7 +91,7 @@ function pronounfromfst(fstdata)
         nothing
     else
         (g,c,n) = matchedup[1].captures
-        PronounForm(gmpGender(g), gmpCase(c), gmpNumber(n))
+        GMFPronoun(gmpGender(g), gmpCase(c), gmpNumber(n))
     end
 end
  # PosPNTMVGCDCat

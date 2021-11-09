@@ -1,85 +1,85 @@
 #<u>uninflectedstems.n21618</u><u>lsj.n21618</u>γαρ<uninflected><particle><div><particle><uninflected><u>litgreek.indeclinable1</u>
 
 """Uninflected forms have a single property: the "part of speech"."""
-struct UninflectedForm <: GreekMorphologicalForm
+struct GMFUninflected <: GreekMorphologicalForm
     pos::GMPUninflectedType  
 end
 
 """Uninflected forms are citable by Cite2Urn"""
-CitableTrait(::Type{UninflectedForm}) = CitableByCite2Urn()
+CitableTrait(::Type{GMFUninflected}) = CitableByCite2Urn()
 
-"""Compose URN for an `UninflectedForm`.
+"""Compose URN for an `GMFUninflected`.
 
 $(SIGNATURES)
 Required by `CitableTrait`.
 """
-function urn(uform::UninflectedForm)
+function urn(uform::GMFUninflected)
     urnstring = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", code(uform.pos))
     Cite2Urn(urnstring)
 end
 
-"""Compose a human-readable label for an `UninflectedForm`.
+"""Compose a human-readable label for an `GMFUninflected`.
 
 $(SIGNATURES)
 Required by `CitableTrait`.
 """
-function label(uform::UninflectedForm)
+function label(uform::GMFUninflected)
     label(uform.pos)
 end
 
-"""Create `UninflectedForm` from a Cite2Urn.
+"""Create `GMFUninflected` from a Cite2Urn.
 
 $(SIGNATURES)
 """
-function uninflectedform(urn::Cite2Urn)
+function gmfUninflected(urn::Cite2Urn)
     c = objectcomponent(urn)[end]
     pos = parse(Int64, c)
-    UninflectedForm(gmpUninflectedType(pos))
+    GMFUninflected(gmpUninflectedType(pos))
 end
 
-"""Create `UninflectedForm` from a FormUrn.
+"""Create `GMFUninflected` from a FormUrn.
 
 $(SIGNATURES)
 """
-function uninflectedform(u::FormUrn)
+function gmfUninflected(u::FormUrn)
     c = u.objectid[end]
-    UninflectedForm(gmpUninflectedType(parse(Int64,c)))
+    GMFUninflected(gmpUninflectedType(parse(Int64,c)))
 end
 
-"""Create `UninflectedForm` from a string value.
+"""Create `GMFUninflected` from a string value.
 
 $(SIGNATURES)
 """
-function uninflectedform(codeString::AbstractString)
+function gmfUninflected(codeString::AbstractString)
     pos = gmpUninflectedType(parse(Int64, codeString))
-    uninflectedform(pos)
+    gmfUninflected(pos)
 end
 
-"""Create `UninflectedForm` from a Char.
+"""Create `GMFUninflected` from a Char.
 
 $(SIGNATURES)
 """
-function uninflectedform(ch::Char)
+function gmfUninflected(ch::Char)
     pos = gmpUninflectedType(parse(Int64, ch))
-    uninflectedform(pos)
+    gmfUninflected(pos)
 end
 
-"""Create `UninflectedForm` from an Int.
+"""Create `GMFUninflected` from an Int.
 
 $(SIGNATURES)
 """
-function uninflectedform(code::Int64)
-    UninflectedForm(code)
+function gmfUninflected(code::Int64)
+    GMFUninflected(code)
 
 
 end
 
-"""Create `UninflectedForm` from an Analysis.
+"""Create `GMFUninflected` from an Analysis.
 
 $(SIGNATURES)
 """
-function uninflectedform(a::Analysis)
-    uninflectedform(a.form)
+function gmfUninflected(a::Analysis)
+    gmfUninflected(a.form)
 end
 
 
@@ -90,14 +90,14 @@ end
 $(SIGNATURES)
 """
 function uninflectedfromfst(uninflclass)
-    UninflectedForm(gmpUninflectedType(uninflclass)         )
+    GMFUninflected(gmpUninflectedType(uninflclass)         )
 end
 
-"""Compose a `FormUrn` for an `UninflectedForm`.
+"""Compose a `FormUrn` for an `GMFUninflected`.
 
 $(SIGNATURES)
 """
-function formurn(uninflected::UninflectedForm)
+function formurn(uninflected::GMFUninflected)
     FormUrn(string("morphforms.", UNINFLECTED, "00000000", code(uninflected.pos)))
 end
 

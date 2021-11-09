@@ -44,23 +44,21 @@ export GMPDegree, gmpDegree
 export GMPUninflectedType, gmpUninflectedType
 
 export GreekMorphologicalForm
+export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
+export GMFInfinitive, gmfInfinitive, InfinitiveRule
+export GMFVerbalAdjective, gmfVerbalAdjective, VerbalAdjectiveRule
+export GMFParticiple, gmfParticiple, ParticipleRule
 
-export GMFFiniteVerb, VerbStem, FiniteVerbRule
-export InfinitiveForm, InfinitiveRule
-export VerbalAdjectiveForm, VerbalAdjectiveRule
-export ParticipleForm, ParticipleRule
+export GMFNoun, gmfNoun, NounStem, NounRule
+export GMFPronoun, gmfPronoun, PronounStem, PronounRule
+export GMFAdjective, gmfAdjective, AdjectiveStem, AdjectiveRule
 
-export NounForm, NounStem, NounRule
-export PronounForm, PronounStem, PronounRule
-export AdjectiveForm, AdjectiveStem, AdjectiveRule
-
-export UninflectedForm, UninflectedStem, UninflectedRule
-
+export GMFUninflected, gmfUninflected, UninflectedStem, UninflectedRule
 
 export IrregularRule
-export IrregularNounForm, IrregularNounStem
-export IrregularVerbForm, IrregularVerbStem
-export IrregularInfinitiveForm, IrregularInfinitiveStem
+export IrregularNounStem
+export IrregularVerbStem
+export IrregularInfinitiveStem
 
 export GreekLexeme
 

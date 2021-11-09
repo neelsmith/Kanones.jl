@@ -88,7 +88,7 @@ tensedata
 analyses2 = parsetoken("δωρα", parser)
 a2 = analyses2[1]
 form2 = Kanones.morphform(a2)
-genderdata = if isa(form2, NounForm)
+genderdata = if isa(form2, GMFNoun)
         (form2.ngender)
 else
         nothing

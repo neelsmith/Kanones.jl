@@ -144,26 +144,26 @@ The equivalent of what happens inside the `Kanones.analysisforline` is:
 
 
 ```@example impleg
-nounform = Kanones.nounfromfst("<masculine><genitive><singular>")
+gmfNoun = Kanones.nounfromfst("<masculine><genitive><singular>")
 ```
 
 It uses a dictionary mapping names of analysis types to functions that can parse FST output for that analytical type into a `FormUrn`.  For analyses identifed by `<noun>`, it applies the `Kanones.nounfromfst` function.  These are versatile objects that can be used in many ways.
 
 
 ```@example impleg
-label(nounform)
+label(gmfNoun)
 ```
 
 ```@example impleg
-urn(nounform)
+urn(gmfNoun)
 ```
 
 ```@example impleg
-cex(nounform)
+cex(gmfNoun)
 ```
 
 ```@example impleg
-Kanones.formurn(nounform)
+Kanones.formurn(gmfNoun)
 ```
 
 ## Validating the result: analysis through synthesis
