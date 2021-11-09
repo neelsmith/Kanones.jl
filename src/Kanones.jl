@@ -43,7 +43,7 @@ export GMPCase, gmpCase
 export GMPDegree, gmpDegree
 export GMPUninflectedType, gmpUninflectedType
 
-export GreekMorphologicalForm
+export GreekMorphologicalForm, KanonesStem, KanonesRule
 export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
 export GMFInfinitive, gmfInfinitive, InfinitiveRule
 export GMFVerbalAdjective, gmfVerbalAdjective, VerbalAdjectiveRule
@@ -85,6 +85,8 @@ include("lsj/labels.jl")
 
 
 include("morphology/forms.jl")
+include("citable_stems/stems.jl")
+include("citable_rules/rules.jl")
 
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/tense.jl")
@@ -103,8 +105,7 @@ include("morphology/kanonesformurns.jl")
 include("morphology/irregularmorphology.jl")
 
 include("citable_rules/irregulars.jl")
-include("citable_stems/stems.jl")
-include("citable_rules/rules.jl")
+
 
 include("citable_forms/finiteverbs.jl")
 include("citable_stems/verbs.jl")
