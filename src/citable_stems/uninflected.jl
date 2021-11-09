@@ -4,7 +4,7 @@ struct UninflectedStem <: Stem
     stemid::AbbreviatedUrn
     lexid::AbbreviatedUrn
     form::AbstractString
-    stemcategory
+    stemcategory::AbstractString
 end
 
 
@@ -86,7 +86,7 @@ function readstemrow(usp::UninflectedIO, delimited::AbstractString; delimiter = 
         stemid = StemUrn(parts[1])
         lexid = LexemeUrn(parts[2])
         form = parts[3]
-        stemclass = gmpUninflectedType(parts[4]) # THIS IS BAD
+        stemclass = parts[4]
 
         @info("Uninflected type ", stemclass, " from ", parts[4])
         UninflectedStem(stemid, lexid, form, stemclass)

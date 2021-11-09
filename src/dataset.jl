@@ -98,17 +98,17 @@ function rulesarray(dirlist; delimiter = "|")
 
     for datasrc in dirlist
         for dirname in rulesdirs 
-            @info("PROCESSING DIR ", dirname)
+            #@info("PROCESSING DIR ", dirname)
             dir = joinpath(datasrc, "rules-tables", dirname)
             cexfiles = glob("*.cex", dir)
 
             delimitedreader = (iodict[dirname])
             for f in cexfiles
-                @info("PROCESS FILE ", f)
+                #@info("PROCESS FILE ", f)
                 raw = readlines(f)
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
-                    @info("LINE IS ", lines[i])
+                    #@info("LINE IS ", lines[i])
                     rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
                     push!(rulesarr,rule)
                 end
@@ -132,7 +132,7 @@ end
 $(SIGNATURES)
 """
 function stemsarray(dirlist; delimiter = "|")
-    @info("Getting regular stems for $dirlist")
+    #@info("Getting regular stems for $dirlist")
     iodict = Dict(
         [
         "adjectives" => AdjectiveIO("adjective"),
@@ -154,14 +154,14 @@ function stemsarray(dirlist; delimiter = "|")
     stemsarr = Stem[]
     for datasrc in dirlist
         for dirname in stemdirs 
-            @info("Read stems from dir ", dirname)
+            #@info("Read stems from dir ", dirname)
             dir = joinpath(datasrc, "stems-tables", dirname)
-            @info("dir = ", dir)
+            #@info("dir = ", dir)
             cexfiles = glob("*.cex", dir)
             delimitedreader = (iodict[dirname])
             for f in cexfiles
                 raw = readlines(f)
-                @info("reading steam from raw ", raw)
+                #@info("reading steam from raw ", raw)
                 # Trim lines first:
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
