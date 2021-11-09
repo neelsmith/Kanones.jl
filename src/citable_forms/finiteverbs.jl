@@ -62,7 +62,7 @@ end
 
 $(SIGNATURES)
 """
-function finiteverbform(code::AbstractString)
+function gmfFiniteVerb(code::AbstractString)
     morphchars = split(code,"")
     # PosPNTMVGCDCat
     
@@ -86,8 +86,8 @@ end
 
 $(SIGNATURES)
 """
-function finiteverbform(urn::Cite2Urn)
-    finiteverbform(objectcomponent(urn))
+function gmfFiniteVerb(urn::Cite2Urn)
+    gmfFiniteVerb(objectcomponent(urn))
 end
 
 
@@ -95,16 +95,16 @@ end
 
 $(SIGNATURES)
 """
-function finiteverbform(f::FormUrn)
-    finiteverbform(f.objectid)
+function gmfFiniteVerb(f::FormUrn)
+    gmfFiniteVerb(f.objectid)
 end
 
 """Create a `GMFFiniteVerb` from an `Analysis`.
 
 $(SIGNATURES)
 """
-function finiteverbform(a::Analysis)
-    finiteverbform(a.form)
+function gmfFiniteVerb(a::Analysis)
+    gmfFiniteVerb(a.form)
 end
 
 

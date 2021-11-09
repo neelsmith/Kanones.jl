@@ -45,7 +45,7 @@ export GMPUninflectedType, gmpUninflectedType
 
 export GreekMorphologicalForm
 
-export GMFFiniteVerb, VerbStem, FiniteVerbRule
+export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
 export InfinitiveForm, InfinitiveRule
 export VerbalAdjectiveForm, VerbalAdjectiveRule
 export ParticipleForm, ParticipleRule
@@ -56,11 +56,10 @@ export AdjectiveForm, AdjectiveStem, AdjectiveRule
 
 export UninflectedForm, UninflectedStem, UninflectedRule
 
-
 export IrregularRule
-export IrregularNounForm, IrregularNounStem
-export IrregularVerbForm, IrregularVerbStem
-export IrregularInfinitiveForm, IrregularInfinitiveStem
+export IrregularNounStem
+export IrregularVerbStem
+export IrregularInfinitiveStem
 
 export GreekLexeme
 

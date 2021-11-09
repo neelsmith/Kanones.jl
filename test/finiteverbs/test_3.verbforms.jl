@@ -7,7 +7,7 @@ end
 
 @testset "Test parsing a GMFFiniteVerb from a FormUrn" begin
     frm = FormUrn("morphforms.331111000")
-    @test Kanones.finiteverbform(frm) == GMFFiniteVerb(GMPPerson(3),  GMPNumber(1),  GMPTense(1), GMPMood(1),  GMPVoice(1))
+    @test Kanones.gmfFiniteVerb(frm) == GMFFiniteVerb(GMPPerson(3),  GMPNumber(1),  GMPTense(1), GMPMood(1),  GMPVoice(1))
 end
 
 @testset "Test parsing a FormUrn from a GMFFiniteVerb" begin
