@@ -143,8 +143,9 @@ include("citable_stems/uninflected.jl")
 include("citable_rules/uninflected.jl")
 
 
-
+include("propertyaccessors/adjectives.jl")
 include("propertyaccessors/nouns.jl")
+include("propertyaccessors/pronouns.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder
