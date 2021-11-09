@@ -1,19 +1,19 @@
-@testset "Test parsing a NounForm from SFST output" begin
+@testset "Test parsing a GMFNoun from SFST output" begin
     sfst = "<u>nounstems.n20600</u><u>lsj.n20600</u>βουλ<noun><feminine><h_hs><div><h_hs><noun>η<feminine><nominative><singular><u>nouninfl.h_hs1</u>"
     infl = split(sfst,"<div>")[2]
     noun = Kanones.nounfromfst(infl)
-    expected = NounForm(GMPGender(2), GMPCase(1), GMPNumber(1))
+    expected = GMFNoun(GMPGender(2), GMPCase(1), GMPNumber(1))
 
     @test noun == expected
 end
 
-@testset "Test parsing a NounForm from a FormUrn" begin
+@testset "Test parsing a GMFNoun from a FormUrn" begin
     frm = FormUrn("morphforms.2010001100")
-    @test Kanones.nounform(frm) == NounForm(GMPGender(1), GMPCase(1), GMPNumber(1))
+    @test Kanones.gmfNoun(frm) == GMFNoun(GMPGender(1), GMPCase(1), GMPNumber(1))
 end
 
-@testset "Test parsing a FormUrn from a NounForm" begin
-    noun = NounForm(GMPGender(2), GMPCase(1), GMPNumber(1))
+@testset "Test parsing a FormUrn from a GMFNoun" begin
+    noun = GMFNoun(GMPGender(2), GMPCase(1), GMPNumber(1))
 
     formU = Kanones.formurn(noun)
     @test formU == FormUrn("morphforms.2010002100")

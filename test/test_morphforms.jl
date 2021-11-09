@@ -8,8 +8,8 @@ end
 
 @testset "Test construction of noun form from a Cite2Urn" begin
     u = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030003500")
-    noun = Kanones.nounform(u)
-    @test isa(noun, NounForm)
+    noun = Kanones.gmfNoun(u)
+    @test isa(noun, GMFNoun)
     @test noun.ngender == GMPGender(3)
     @test noun.ncase == GMPCase(5)
     @test noun.nnumber == GMPNumber(3)

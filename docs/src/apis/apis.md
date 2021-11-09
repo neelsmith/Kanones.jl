@@ -13,7 +13,7 @@ Depth = 3
 ```@docs
 GreekMorphologicalForm
 Kanones.UninflectedForm
-Kanones.NounForm
+Kanones.GMFNoun
 Kanones.GMFFiniteVerb
 ```
 
@@ -38,7 +38,7 @@ Kanones.moodpairs
 Kanones.valuedict
 Kanones.labeldict
 Kanones.labelform
-Kanones.nounform
+Kanones.gmfNoun
 Kanones.nounscex
 Kanones.uninflectedform
 

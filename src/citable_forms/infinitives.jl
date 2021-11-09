@@ -1,49 +1,49 @@
 """Infinitive verbs have tense and voice."""
-struct InfinitiveForm <: GreekMorphologicalForm
+struct GMFInfinitive <: GreekMorphologicalForm
     tense::GMPTense
     voice::GMPVoice
 end
 
 """Infinitive forms are citable by Cite2Urn"""
-CitableTrait(::Type{InfinitiveForm}) = CitableByCite2Urn()
+CitableTrait(::Type{GMFInfinitive}) = CitableByCite2Urn()
 
 
-"""Create an `InfinitiveForm` from a string value.
+"""Create an `GMFInfinitive` from a string value.
 
 $(SIGNATURES)
 """
-function infinitiveform(code::AbstractString)
+function gmfInfinitive(code::AbstractString)
     morphchars = split(code, "")
     tense = gmpTense(parse(Int64, morphchars[4]))
     voice = gmpVoice(parse(Int64, morphchars[6]) )
-    InfinitiveForm(tense, voice)
+    GMFInfinitive(tense, voice)
 end
 
 
-"""Create an `InfinitiveForm` from a `Cite2Urn`.
+"""Create an `GMFInfinitive` from a `Cite2Urn`.
 
 $(SIGNATURES)
 """
-function infinitiveform(urn::Cite2Urn)
-    infinitiveform(objectcomponent(urn))
+function gmfInfinitive(urn::Cite2Urn)
+    gmfInfinitive(objectcomponent(urn))
 end
 
 
-"""Create an `InfinitiveForm` from a `FormUrn`.
+"""Create an `GMFInfinitive` from a `FormUrn`.
 
 $(SIGNATURES)
 """
-function infinitiveform(f::FormUrn)
-    infinitiveform(f.objectid)
+function gmfInfinitive(f::FormUrn)
+    gmfInfinitive(f.objectid)
 end
 
 
-"""Create an `InfinitiveForm` from an `Analysis`.
+"""Create an `GMFInfinitive` from an `Analysis`.
 
 $(SIGNATURES)
 """
-function infinitiveform(a::Analysis)
-    infinitiveform(a.form)
+function gmfInfinitive(a::Analysis)
+    gmfInfinitive(a.form)
 end
 
 
@@ -65,33 +65,33 @@ function infinitivefromfst(fstdata)
         nothing
     else
         (t, v) = matchedup[1].captures
-        InfinitiveForm(gmpTense(t),gmpVoice(v))    
+        GMFInfinitive(gmpTense(t),gmpVoice(v))    
     end
 end
 
-"""Compose a `FormUrn` for an `InfinitiveForm`.
+"""Compose a `FormUrn` for an `GMFInfinitive`.
 
 $(SIGNATURES)
 """
-function formurn(infinitive::InfinitiveForm)
+function formurn(infinitive::GMFInfinitive)
     FormUrn(string("morphforms.", INFINITIVE, "00" ,
     code(infinitive.tense), "0", code(infinitive.voice), "0000"))
 end
 
-"""Compose a label for an `InfinitiveForm`.
+"""Compose a label for an `GMFInfinitive`.
 
 $(SIGNATURES)
 """
-function label(inf::InfinitiveForm)
+function label(inf::GMFInfinitive)
     join([label(inf.tense), label(inf.voice), "infinitive"]," ")
 end
 
 
-"""Compose a Cite2Urn for an `InfinitiveForm`.
+"""Compose a Cite2Urn for an `GMFInfinitive`.
 
 $(SIGNATURES)
 """
-function urn(inf::InfinitiveForm)
+function urn(inf::GMFInfinitive)
     # PosPNTMVGCDCat
     Cite2Urn(string(BASE_MORPHOLOGY_URN, INFINITIVE,"00",code(inf.tense),"0", code(inf.voice),"0000"))
 end

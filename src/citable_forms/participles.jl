@@ -1,5 +1,5 @@
  """Finite verbs have person, number, tense, mood and voice."""
-struct ParticipleForm <: GreekMorphologicalForm
+struct GMFParticiple <: GreekMorphologicalForm
     tense::GMPTense
     voice::GMPVoice
     pgender::GMPGender
@@ -8,39 +8,39 @@ struct ParticipleForm <: GreekMorphologicalForm
 end
 
 """Participle forms are citable by Cite2Urn"""
-CitableTrait(::Type{ParticipleForm}) = CitableByCite2Urn()
+CitableTrait(::Type{GMFParticiple}) = CitableByCite2Urn()
 
-"""Compose a label for a `VerbalAdjectiveForm`
+"""Compose a label for a `GMFVerbalAdjective`
 
 $(SIGNATURES)
 """
-function label(ptcpl::ParticipleForm)
+function label(ptcpl::GMFParticiple)
     join([label(ptcpl.tense), label(ptcpl.voice), label(ptcpl.pgender), label(ptcpl.pcase), label(ptcpl.pnumber)], " ")
 end
 
 
-"""Compose a Cite2Urn for a `ParticipleForm`.
+"""Compose a Cite2Urn for a `GMFParticiple`.
 
 $(SIGNATURES)
 """
-function urn(ptcpl::ParticipleForm)
+function urn(ptcpl::GMFParticiple)
     # PosPNTMVGCDCat
     Cite2Urn(string(BASE_MORPHOLOGY_URN, PARTICIPLE,"0",code(ptcpl.pnumber), code(ptcpl.tense), "0", code(ptcpl.voice), code(ptcpl.pgender), code(ptcpl.pcase), "00"))
 end
 
 
-"""Create a `ParticipleForm` from a string value.
+"""Create a `GMFParticiple` from a string value.
 
 $(SIGNATURES)
 """
-function participleform(code::AbstractString)
+function gmfParticiple(code::AbstractString)
     morphchars = split(code, "")
     pgender = gmpGender(parse(Int64, morphchars[7]))
     pcase = gmpCase(parse(Int64, morphchars[8]))
     pnumber = gmpNumber(parse(Int64, morphchars[3]))
     ptense = gmpTense(parse(Int64, morphchars[4]))
     pvoice = gmpVoice(parse(Int64, morphchars[6]))
-    ParticipleForm(
+    GMFParticiple(
         ptense,
         pvoice,
         pgender,
@@ -49,29 +49,29 @@ function participleform(code::AbstractString)
     )
 end
 
-"""Create a `ParticipleForm` from a `Cite2Urn`.
+"""Create a `GMFParticiple` from a `Cite2Urn`.
 
 $(SIGNATURES)
 """
-function participleform(urn::Cite2Urn)
-    participleform(objectcomponent(urn))
+function gmfParticiple(urn::Cite2Urn)
+    gmfParticiple(objectcomponent(urn))
 end
 
-"""Create a `ParticipleForm` from a `FormUrn`.
+"""Create a `GMFParticiple` from a `FormUrn`.
 
 $(SIGNATURES)
 """
-function participleform(f::FormUrn)
-    participleform(f.objectid)
+function gmfParticiple(f::FormUrn)
+    gmfParticiple(f.objectid)
 end
 
 
-"""Create a `ParticipleForm` from an `Analysis`.
+"""Create a `GMFParticiple` from an `Analysis`.
 
 $(SIGNATURES)
 """
-function participleform(a::Analysis)
-    participleform(a.form)
+function gmfParticiple(a::Analysis)
+    gmfParticiple(a.form)
 end
 
 
@@ -89,18 +89,18 @@ function participlefromfst(fstdata)
         nothing
     else
         (t, v, g, c, n) = matchedup[1].captures
-        ParticipleForm(
+        GMFParticiple(
         gmpTense(t), gmpVoice(v),
         gmpGender(g), gmpCase(c), gmpNumber(n)
         )
     end
 end
 
-"""Compose a `FormUrn` for an `InfinitiveForm`.
+"""Compose a `FormUrn` for an `GMFInfinitive`.
 
 $(SIGNATURES)
 """
-function formurn(ptcpl::ParticipleForm)
+function formurn(ptcpl::GMFParticiple)
     #PosPNTMVGCDCat
     FormUrn(string("morphforms.", PARTICIPLE, 
     "0", code(ptcpl.pnumber), code(ptcpl.tense), "0", code(ptcpl.voice), 

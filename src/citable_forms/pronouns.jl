@@ -30,7 +30,7 @@ end
 
 $(SIGNATURES)
 """
-function pronounform(code::AbstractString)
+function progmfNoun(code::AbstractString)
     morphchars = split(code, "")
     ngender = gmpGender(parse(Int64, morphchars[7]))
     ncase = gmpCase(parse(Int64, morphchars[8]))
@@ -44,8 +44,8 @@ end
 
  $(SIGNATURES)
  """
- function pronounform(urn::Cite2Urn)
-     pronounform(objectcomponent(urn))
+ function progmfNoun(urn::Cite2Urn)
+     progmfNoun(objectcomponent(urn))
  end
 
 
@@ -53,24 +53,24 @@ end
 
  $(SIGNATURES)
  """
- function pronounform(f::FormUrn)
-    pronounform(f.objectid)
+ function progmfNoun(f::FormUrn)
+    progmfNoun(f.objectid)
  end
 
  """Create a `PronounForm` from an `Analysis`.
 
  $(SIGNATURES)
  """
- function pronounform(a::Analysis)
-    pronounform(a.form)
+ function progmfNoun(a::Analysis)
+    progmfNoun(a.form)
  end
 
 
 """Compose a `FormUrn` for a `PronounForm`.
 $(SIGNATURES)
 """
-function formurn(pronounform::PronounForm)
-    FormUrn(string("morphforms.", PRONOUN,"0", code(pronounform.pnumber),"000",code(pronounform.pgender),code(pronounform.pcase),"00"))
+function formurn(progmfNoun::PronounForm)
+    FormUrn(string("morphforms.", PRONOUN,"0", code(progmfNoun.pnumber),"000",code(progmfNoun.pgender),code(progmfNoun.pcase),"00"))
 end
 
 

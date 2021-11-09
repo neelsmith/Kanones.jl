@@ -6,15 +6,15 @@ $(SIGNATURES)
 # Arguments
 
 - `irreglist` A list of 1 or more `IrregularNounStem`s for a given noun lexeme.
-- `nounform` The gender, case, number identification to select.
+- `gmfNoun` The gender, case, number identification to select.
 """
-function selectirregnoun(irreglist, nounform::FormUrn)
-    matched = filter(irreg -> abbrformurn(irreg) == nounform,  irreglist)
+function selectirregnoun(irreglist, gmfNoun::FormUrn)
+    matched = filter(irreg -> abbrformurn(irreg) == gmfNoun,  irreglist)
     if isempty(matched)
-        @warn "Dataset has no match for irregular noun form $nounform"
+        @warn "Dataset has no match for irregular noun form $gmfNoun"
         nothing
     elseif length(matched) > 1
-        @warn "Dataset has multiple matches for irregular noun form $nounform"
+        @warn "Dataset has multiple matches for irregular noun form $gmfNoun"
         nothing
     else
         matched[1].form

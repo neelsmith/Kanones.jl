@@ -1,17 +1,17 @@
-@testset "Test parsing an InfinitiveForm from SFST output" begin
+@testset "Test parsing an GMFInfinitive from SFST output" begin
     infl = "<present><active>"
     infinitive = Kanones.infinitivefromfst(infl)
-    expected = InfinitiveForm(GMPTense(1), GMPVoice(1))
+    expected = GMFInfinitive(GMPTense(1), GMPVoice(1))
     @test infinitive == expected
 end
 
-@testset "Test parsing an InfinitiveForm from a FormUrn" begin
+@testset "Test parsing an GMFInfinitive from a FormUrn" begin
     frm = FormUrn("morphforms.400101000")
-    @test Kanones.infinitiveform(frm) == InfinitiveForm(GMPTense(1), GMPVoice(1))
+    @test Kanones.gmfInfinitive(frm) == GMFInfinitive(GMPTense(1), GMPVoice(1))
 end
 
-@testset "Test parsing a FormUrn from an InfinitiveForm" begin
-    infinitive = InfinitiveForm(GMPTense(1), GMPVoice(1))
+@testset "Test parsing a FormUrn from an GMFInfinitive" begin
+    infinitive = GMFInfinitive(GMPTense(1), GMPVoice(1))
     formU = Kanones.formurn(infinitive)
     @test formU == FormUrn("morphforms.4001010000")
 
@@ -42,7 +42,7 @@ end
 end
 
 @testset "Test CitableTrait for infinitive forms" begin
-    infinitive = InfinitiveForm(GMPTense(1), GMPVoice(1))
+    infinitive = GMFInfinitive(GMPTense(1), GMPVoice(1))
     @test urn(infinitive) == Cite2Urn("urn:cite2:kanones:morphforms.v1:4001010000")
     @test label(infinitive) == "present active infinitive"
     @test cex(infinitive) == "urn:cite2:kanones:morphforms.v1:4001010000|present active infinitive"

@@ -8,7 +8,7 @@ end
 
 @testset "Test parsing a PronounForm from a FormUrn" begin
     frm = FormUrn("morphforms.9010001200")
-    @test Kanones.pronounform(frm) == PronounForm(GMPGender(1), GMPCase(2), GMPNumber(1))
+    @test Kanones.progmfNoun(frm) == PronounForm(GMPGender(1), GMPCase(2), GMPNumber(1))
 end
 
 

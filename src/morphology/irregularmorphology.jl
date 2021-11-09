@@ -15,7 +15,7 @@ function irregularfromfst(fstdata::AbstractString)
         Kanones.irregularverbfromfst(fstdata)
        
     elseif matchedup[1].captures[1] == "irregularinfinitive"     
-        InfinitiveForm(
+        GMFInfinitive(
             gmpTense(matchedup[2].captures[1]),
             gmpVoice(matchedup[3].captures[1])
         )

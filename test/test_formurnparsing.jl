@@ -28,7 +28,7 @@
 end
 
 @testset "Test Citable interface and URN conversions for noun forms" begin
-    nounForm = NounForm(gmpGender("feminine"), gmpCase("nominative"), gmpNumber("plural"))
+    nounForm = GMFNoun(gmpGender("feminine"), gmpCase("nominative"), gmpNumber("plural"))
 
     expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
     @test CitableParserBuilder.urn(nounForm) == expectedUrn
