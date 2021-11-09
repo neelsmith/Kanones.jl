@@ -41,7 +41,5 @@ function cex(lex::GreekLexeme; delimiter = "|", registry = nothing, lexicon = no
         join([u,delimiter,label(lex; registry = registry)])
     else
        join([u,delimiter,label(lex; registry = registry, lexicon = lexicon)])
-    end
-
-      
+    end    
 end
