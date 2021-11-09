@@ -154,11 +154,14 @@ function stemsarray(dirlist; delimiter = "|")
     stemsarr = Stem[]
     for datasrc in dirlist
         for dirname in stemdirs 
+            @info("Read stems from dir ", dirname)
             dir = joinpath(datasrc, "stems-tables", dirname)
+            @info("dir = ", dir)
             cexfiles = glob("*.cex", dir)
             delimitedreader = (iodict[dirname])
             for f in cexfiles
                 raw = readlines(f)
+                @info("reading steam from raw ", raw)
                 # Trim lines first:
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)

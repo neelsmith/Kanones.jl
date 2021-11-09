@@ -14,11 +14,13 @@ Read one row of a stems table for noun tokens and create a `NounStem`.
 $(SIGNATURES)    
 """
 function readstemrow(usp::NounIO, delimited::AbstractString; delimiter = "|")
+    @warn("Looking at stem row ", delimited)
     parts = split(delimited, delimiter)
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
     stem = nfkc(parts[3])
     gender = gmpGender(parts[4])
+    @warn("Reading reg.nouns stem row with gender ", gender, " from ", parts[4])
     inflclass = parts[5]
     accent = parts[6]
     NounStem(stemid,lexid,stem,gender,inflclass,accent)

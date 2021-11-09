@@ -1,7 +1,16 @@
 struct GMPGender <: GreekMorphologicalProperty
     code::Int64
     function GMPGender(code)
-        code in keys(genderlabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
+        @info("Creating gender property for code ", code)
+        if code in keys(genderlabels)
+            new(code)
+        else
+            @warn(string(code, " is out of range. TYpe of code ", typeof(code)))
+            throw(DomainError(string(code, " is out of range.")))
+            nothing
+        end
+        #code in keys(genderlabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
+        
     end
 end
 
