@@ -50,10 +50,10 @@ export GMFVerbalAdjective, gmfVerbalAdjective, VerbalAdjectiveRule
 export GMFParticiple, gmfParticiple, ParticipleRule
 
 export GMFNoun, gmfNoun, NounStem, NounRule
-export PronounForm, PronounStem, PronounRule
-export AdjectiveForm, AdjectiveStem, AdjectiveRule
+export GMFPronoun, gmfPronoun, PronounStem, PronounRule
+export GMFAdjective, gmfAdjective, AdjectiveStem, AdjectiveRule
 
-export UninflectedForm, UninflectedStem, UninflectedRule
+export GMFUninflected, gmfUninflected, UninflectedStem, UninflectedRule
 
 export IrregularRule
 export IrregularNounStem

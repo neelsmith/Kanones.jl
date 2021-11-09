@@ -2,13 +2,13 @@
 
 
 @testset "Test composition of complete CEX for all uninflected forms" begin
-    uninflectedforms = split(Kanones.uninflectedcex(), "\n")
-    @test length(uninflectedforms) == 6
+    gmfUninflecteds = split(Kanones.uninflectedcex(), "\n")
+    @test length(gmfUninflecteds) == 6
 end
 
 
 @testset "Test composition of CEX for uninflected form" begin
-    uform = UninflectedForm(GMPUninflectedType(1))
+    uform = GMFUninflected(GMPUninflectedType(1))
     @test_broken Kanones.cex(uform) == "urn:cite2:kanones:morphforms.v1:1000000001|uninflected form: conjunction"
 end
 

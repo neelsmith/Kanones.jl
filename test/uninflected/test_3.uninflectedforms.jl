@@ -1,20 +1,20 @@
-@testset "Test parsing an UninflectedForm from SFST output" begin
+@testset "Test parsing an GMFUninflected from SFST output" begin
 
     sfstvalue = "conjunction"
     uninflected = Kanones.uninflectedfromfst(sfstvalue)
-    expected = UninflectedForm(GMPUninflectedType(1))
+    expected = GMFUninflected(GMPUninflectedType(1))
 
     @test uninflected == expected
 end
 
-@testset "Test parsing a UninflectedForm from a FormUrn" begin
+@testset "Test parsing a GMFUninflected from a FormUrn" begin
     frm = FormUrn("morphforms.1000000001")
-    @test Kanones.uninflectedform(frm) == UninflectedForm(GMPUninflectedType(1))
+    @test Kanones.gmfUninflected(frm) == GMFUninflected(GMPUninflectedType(1))
 
 end
 
-@testset "Test parsing a FormUrn from a UninflectedForm" begin
-    uninflected = UninflectedForm(GMPUninflectedType(1))
+@testset "Test parsing a FormUrn from a GMFUninflected" begin
+    uninflected = GMFUninflected(GMPUninflectedType(1))
 
     formU = Kanones.formurn(uninflected)
     @test formU == FormUrn("morphforms.1000000001")
@@ -51,7 +51,7 @@ end
 
 
 @testset "Test CitableTrait for uninflected forms" begin
-    uninflected = UninflectedForm(GMPUninflectedType(1))
+    uninflected = GMFUninflected(GMPUninflectedType(1))
 
 
     @test urn(uninflected) == Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")

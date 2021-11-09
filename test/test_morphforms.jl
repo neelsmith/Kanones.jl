@@ -1,8 +1,8 @@
 
 @testset "Test construction of uninflected form from a Cite2Urn" begin
     u = Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")
-    uform = Kanones.uninflectedform(u)
-    @test isa(uform, UninflectedForm)
+    uform = Kanones.gmfUninflected(u)
+    @test isa(uform, GMFUninflected)
     @test uform.pos ==  GMPUninflectedType(1)
 end
 

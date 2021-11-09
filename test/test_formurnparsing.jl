@@ -44,7 +44,7 @@ end
 
 
 @testset "Test Citable interface and URN conversions for adjective forms" begin
-    adjForm = AdjectiveForm(gmpGender("feminine"), gmpCase("nominative"), gmpNumber("plural"), gmpDegree("positive"))
+    adjForm = GMFAdjective(gmpGender("feminine"), gmpCase("nominative"), gmpNumber("plural"), gmpDegree("positive"))
 #=
     expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
     @test CitableParserBuilder.urn(nounForm) == expectedUrn

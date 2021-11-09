@@ -1,4 +1,4 @@
 """Adverbs have degree."""
-struct AdjectiveForm <: GreekMorphologicalForm
+struct GMFAdjective <: GreekMorphologicalForm
     advdegree::Int64
 end
