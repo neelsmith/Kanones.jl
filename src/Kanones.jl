@@ -43,7 +43,7 @@ export GMPCase, gmpCase
 export GMPDegree, gmpDegree
 export GMPUninflectedType, gmpUninflectedType
 
-export GreekMorphologicalForm
+export GreekMorphologicalForm, KanonesStem, KanonesRule
 export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
 export GMFInfinitive, gmfInfinitive, InfinitiveRule
 export GMFVerbalAdjective, gmfVerbalAdjective, VerbalAdjectiveRule
@@ -80,11 +80,12 @@ include("generator/generate.jl")
 include("generator/uninflectedgen.jl")
 include("generator/nounsgen.jl")
 
-include("lexeme.jl")
-include("lsj/labels.jl")
-
+include("lexemes/lexeme.jl")
+include("lexemes/lexica.jl")
 
 include("morphology/forms.jl")
+include("citable_stems/stems.jl")
+include("citable_rules/rules.jl")
 
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/tense.jl")
@@ -139,6 +140,14 @@ include("citable_forms/uninflected.jl")
 include("citable_stems/uninflected.jl")
 include("citable_rules/uninflected.jl")
 
+include("propertyaccessors/adjectives.jl")
+include("propertyaccessors/nouns.jl")
+include("propertyaccessors/pronouns.jl")
+include("propertyaccessors/verbs.jl")
+include("propertyaccessors/infinitives.jl")
+include("propertyaccessors/participles.jl")
+include("propertyaccessors/uninflecteds.jl")
+include("propertyaccessors/verbaladjectives.jl")
 
 
 "Submodule to read a Kanones Dataset and build SFST parser."

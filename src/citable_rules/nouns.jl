@@ -1,6 +1,6 @@
 
 "Inflectional rule for a noun rule."
-struct NounRule <: Rule
+struct NounRule <: KanonesRule
     ruleid
     inflectionclass
     ending
@@ -96,3 +96,4 @@ function ruleurn(rule::NounRule)
     # PosPNTMVGCDCat
     RuleUrn(string("morphforms.", NOUN,"0",code(rule.nnumber),"000",code(rule.ngender),code(rule.ncase),"00"))
 end
+

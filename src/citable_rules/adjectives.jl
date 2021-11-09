@@ -1,5 +1,5 @@
 "Inflectional rule for adjectives."
-struct AdjectiveRule <: Rule
+struct AdjectiveRule <: KanonesRule
     ruleid::AbbreviatedUrn
     inflectionclass
     ending

@@ -1,5 +1,5 @@
 "A record for a single irregular verb stem."
-struct IrregularInfinitiveStem <: Stem
+struct IrregularInfinitiveStem <: KanonesStem
     stemid::AbbreviatedUrn
     lexid::AbbreviatedUrn
     form::AbstractString

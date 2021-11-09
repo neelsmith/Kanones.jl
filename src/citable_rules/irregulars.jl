@@ -3,7 +3,7 @@
 
 
 "Inflectional rule for irregular form."
-struct IrregularRule <: Rule
+struct IrregularRule <: KanonesRule
     ruleid::AbbreviatedUrn
     inflectionclass
 end

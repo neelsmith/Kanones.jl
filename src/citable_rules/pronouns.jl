@@ -1,6 +1,6 @@
 
 "Inflectional rule for uninflected lexical items."
-struct PronounRule <: Rule
+struct PronounRule <: KanonesRule
     ruleid::RuleUrn
     pronountype
 end

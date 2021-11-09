@@ -1,5 +1,5 @@
 "A record for a single adjective stem."
-struct AdjectiveStem <: Stem
+struct AdjectiveStem <: KanonesStem
     stemid
     lexid
     form::AbstractString

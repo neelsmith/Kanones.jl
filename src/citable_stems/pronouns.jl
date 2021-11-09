@@ -1,5 +1,5 @@
 "A record for a single noun stem."
-struct PronounStem <: Stem
+struct PronounStem <: KanonesStem
     stemid::AbbreviatedUrn
     lexid::AbbreviatedUrn
     form::AbstractString

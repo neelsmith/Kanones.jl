@@ -1,5 +1,5 @@
 "A record for a single noun stem."
-struct NounStem <: Stem
+struct NounStem <: KanonesStem
     stemid
     lexid
     form::AbstractString

@@ -7,29 +7,6 @@ struct GMFFiniteVerb <: GreekMorphologicalForm
     vvoice::GMPVoice
 end
 
-
-
-function gmpTense(verb::GMFFiniteVerb)
-    verb.vtense
-end
-
-function gmpVoice(verb::GMFFiniteVerb)
-    verb.vvoice
-end
-
-function gmpMood(verb::GMFFiniteVerb)
-    verb.vmood
-end
-
-function gmpPerson(verb::GMFFiniteVerb)
-    verb.vperson
-end
-
-function gmpNumber(verb::GMFFiniteVerb)
-    verb.vnumber
-end
-
-
 """Finite verb forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
 

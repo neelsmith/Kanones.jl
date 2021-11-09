@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-struct UninflectedRule <: Rule
+struct UninflectedRule <: KanonesRule
     ruleid::AbbreviatedUrn
     infltype::GMPUninflectedType
 end

@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-struct VerbalAdjectiveRule <: Rule
+struct VerbalAdjectiveRule <: KanonesRule
     ruleid::AbbreviatedUrn
     inflectionclass
     ending

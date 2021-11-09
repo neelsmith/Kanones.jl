@@ -1,6 +1,6 @@
 
 "A record for a single uninflected stem."
-struct UninflectedStem <: Stem
+struct UninflectedStem <: KanonesStem
     stemid::AbbreviatedUrn
     lexid::AbbreviatedUrn
     form::AbstractString

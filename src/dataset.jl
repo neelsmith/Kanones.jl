@@ -178,13 +178,15 @@ function stemsarray(dirlist; delimiter = "|")
         "uninflected" => UninflectedIO("uninflected"),
         "nouns" => IrregularNounIO("noun"),
         "verbs" => IrregularVerbIO("finite verb"),
-        "infinitives" => IrregularInfinitiveIO("infinitive")
+        "infinitives" => IrregularInfinitiveIO("infinitive"),
+        "adjectives" => IrregularAdjectiveIO("adjectives")
         ]
     )
     irregstemdirs = [
         "nouns",
         "verbs",
-        "infinitives"
+        "infinitives",
+        "adjectives"
     ]
     #@info("Getting irregular stems for $dirlist")
     for datasrc in dirlist

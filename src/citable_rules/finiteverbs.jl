@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-struct FiniteVerbRule <: Rule
+struct FiniteVerbRule <: KanonesRule
     ruleid::AbbreviatedUrn
     stemclass
     ending
