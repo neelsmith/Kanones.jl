@@ -1,6 +1,6 @@
 
 "Inflectional rule for a noun rule."
-struct NounRule <: Rule
+struct NounRule <: KanonesRule
     ruleid
     inflectionclass
     ending

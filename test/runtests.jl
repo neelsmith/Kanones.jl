@@ -101,3 +101,7 @@ include("uninflected/test_5.uninflectedrules.jl")
 
 
 # =#
+
+# =
+include("accessors/test_nounaccessors.jl")
+# =#

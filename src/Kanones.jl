@@ -103,6 +103,8 @@ include("morphology/kanonesformurns.jl")
 include("morphology/irregularmorphology.jl")
 
 include("citable_rules/irregulars.jl")
+include("citable_stems/stems.jl")
+include("citable_rules/rules.jl")
 
 include("citable_forms/finiteverbs.jl")
 include("citable_stems/verbs.jl")
@@ -140,6 +142,8 @@ include("citable_stems/uninflected.jl")
 include("citable_rules/uninflected.jl")
 
 
+
+include("propertyaccessors/nouns.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder
