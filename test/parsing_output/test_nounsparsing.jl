@@ -1,4 +1,3 @@
-
 @testset "Test resulting values in noun analysis" begin
     d = tempdir()
     repo = dirname(pwd())

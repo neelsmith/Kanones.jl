@@ -62,7 +62,7 @@ export IrregularNounForm, IrregularNounStem
 export IrregularVerbForm, IrregularVerbStem
 export IrregularInfinitiveForm, IrregularInfinitiveStem
 
-export Lexeme
+export GreekLexeme
 
 export generate
 export decline, mddeclension
