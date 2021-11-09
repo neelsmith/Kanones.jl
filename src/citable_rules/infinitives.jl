@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-struct InfinitiveRule <: Rule
+struct InfinitiveRule <: KanonesRule
     ruleid::AbbreviatedUrn
     inflectionclass
     ending

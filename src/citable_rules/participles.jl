@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-struct ParticipleRule <: Rule
+struct ParticipleRule <: KanonesRule
     ruleid::AbbreviatedUrn
     inflectionclass
     ending
