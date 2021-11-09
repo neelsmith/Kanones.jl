@@ -30,7 +30,8 @@ const tenselabels = Dict(
     2 => "imperfect",
     3 => "aorist",
     4 => "perfect",
-    5 => "pluperfect"
+    5 => "pluperfect",
+    6 => "future"
 )
 
 """Dict mapping labels to codes for mood.
@@ -42,5 +43,6 @@ const tensecodes = Dict(
     "imperfect" => 2,
     "aorist" => 3,
     "perfect" => 4,
-    "pluperfect" => 5
+    "pluperfect" => 5,
+    "future" => 6
 )

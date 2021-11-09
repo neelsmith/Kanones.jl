@@ -93,6 +93,26 @@ function nounfromfst(fstdata)
     end
 end
 
+
+"""Compose a FormUrn for a noun form from FST representation of analytical data.
+
+$(SIGNATURES)
+"""
+function irregularnounfromfst(fstdata)
+    # Looks like:
+    #<u>irregnoun.irregn23069a</u><u>lsj.n23069</u>γυνη<irregular><irregularnoun><feminine><nominative><singular><div><irregularnoun><irregular><u>litgreek.irregular1</u>
+    # 2-4 are gcn
+    ngender =  matchedup[2].captures[1]
+    ncase = matchedup[3].captures[1]
+    nnumber = matchedup[4].captures[1]
+    NounForm(
+        gmpGender(ngender),
+        gmpCase(ncase),
+        gmpNumber(nnumber)
+    )
+end
+
+
 """Compose CEX representation of URNs and labels for noun forms.
 
 $(SIGNATURES)
