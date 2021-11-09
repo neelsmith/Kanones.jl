@@ -28,10 +28,7 @@
 end
 
 @testset "Test Citable interface and URN conversions for noun forms" begin
-    gdict = Kanones.genderpairs |> Kanones.labeldict
-    cdict = Kanones.casepairs |> Kanones.labeldict
-    ndict = Kanones.numberpairs |> Kanones.labeldict
-    nounForm = NounForm(gdict["feminine"], cdict["nominative"], ndict["plural"])
+    nounForm = NounForm(gmpGender("feminine"), gmpCase("nominative"), gmpNumber("plural"))
 
     expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
     @test CitableParserBuilder.urn(nounForm) == expectedUrn
@@ -47,11 +44,7 @@ end
 
 
 @testset "Test Citable interface and URN conversions for adjective forms" begin
-    gdict = Kanones.genderpairs |> Kanones.labeldict
-    cdict = Kanones.casepairs |> Kanones.labeldict
-    ndict = Kanones.numberpairs |> Kanones.labeldict
-    degdict = Kanones.degreepairs |> Kanones.labeldict
-    adjForm = AdjectiveForm(gdict["feminine"], cdict["nominative"], ndict["plural"], degdict["positive"])
+    adjForm = AdjectiveForm(gmpGender("feminine"), gmpCase("nominative"), gmpNumber("plural"), gmpDegree("positive"))
 #=
     expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
     @test CitableParserBuilder.urn(nounForm) == expectedUrn

@@ -65,11 +65,12 @@ $(SIGNATURES)
 function finiteverbform(code::AbstractString)
     morphchars = split(code,"")
     # PosPNTMVGCDCat
-    tns = GMPTense(morphchars[4])
-    md = GMPMood(morphchars[5])
-    vc = GMPVoice(morphchars[6])
-    prsn = GMPPerson(morphchars[2])
-    nmbr = GMPNumber(morphchars[3])
+    
+    tns = gmpTense(parse(Int64, morphchars[4]))
+    md = gmpMood(parse(Int64, morphchars[5]))
+    vc = gmpVoice(parse(Int64,morphchars[6]))
+    prsn = gmpPerson(parse(Int64, morphchars[2]))
+    nmbr = gmpNumber(parse(Int64, morphchars[3]))
     
     GMFFiniteVerb(
         prsn,

@@ -8,7 +8,6 @@ end
 """Noun forms are citable by Cite2Urn"""
 CitableTrait(::Type{NounForm}) = CitableByCite2Urn()
 
-
 """Compose a label for a `NounForm`
 
 $(SIGNATURES)
@@ -64,7 +63,6 @@ function nounform(a::Analysis)
     nounform(a.form)
 end
 
-
 """Compose a `FormUrn` for a `NounForm`.
 
 $(SIGNATURES)
@@ -99,6 +97,9 @@ end
 $(SIGNATURES)
 """
 function irregularnounfromfst(fstdata)
+    irregrulere = r"<([^<]+)>"  
+    matchedup = collect(eachmatch(irregrulere, fstdata))
+
     # Looks like:
     #<u>irregnoun.irregn23069a</u><u>lsj.n23069</u>γυνη<irregular><irregularnoun><feminine><nominative><singular><div><irregularnoun><irregular><u>litgreek.irregular1</u>
     # 2-4 are gcn
@@ -118,16 +119,16 @@ end
 $(SIGNATURES)
 """
 function nounscex()
-    genderkeys = keys(genderlabels)  |> collect |> sort 
-    casekeys = keys(caselabels)  |> collect |> sort 
-    numberkeys = keys(numberlabels)  |> collect |> sort 
+    genderkeys = keys(Kanones.genderlabels)  |> collect |> sort 
+    casekeys = keys(Kanones.caselabels)  |> collect |> sort 
+    numberkeys = keys(Kanones.numberlabels)  |> collect |> sort 
     lines = []
     # PosPNTMVGCDCat
     for num in numberkeys
         for gen in genderkeys
             for cs in casekeys
                 u = string(BASE_MORPHOLOGY_URN, NOUN, "0", num, "000", gen, cs, "00")
-                label = string("noun: ", genderdict[gen], " ", casedict[cs], " ", numberdict[num])
+                label = string("noun: ", label(gmpGender(gen)), " ", label(gmpCase(cs)), " ", label(gmpNumber(num)))
                 cex = string(u, "|", label)
                 push!(lines, cex)
             end
