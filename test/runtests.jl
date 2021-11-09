@@ -102,4 +102,6 @@ include("accessors/test_verbaccessors.jl")
 include("accessors/test_infinitiveaccessors.jl")
 =#
 
+include("accessors/test_ptcplaccessors.jl")
+
 

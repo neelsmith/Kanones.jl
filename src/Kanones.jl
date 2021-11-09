@@ -148,6 +148,7 @@ include("propertyaccessors/nouns.jl")
 include("propertyaccessors/pronouns.jl")
 include("propertyaccessors/verbs.jl")
 include("propertyaccessors/infinitives.jl")
+include("propertyaccessors/participles.jl")
 
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder
