@@ -18,13 +18,11 @@ include("test_compile.jl")
 =#
 
 
-include("test_lexeme.jl")
-
-
-#=
-include("parsing_output/test_nounsparsing.jl")
+# include("test_lexeme.jl")
 
 include("parsing_output/test_adjsparsing.jl")
+#=
+include("parsing_output/test_nounsparsing.jl")
 include("parsing_output/test_infinitivesparsing.jl")
 include("parsing_output/test_verbaladjectivesparsing.jl")
 include("parsing_output/test_participlesparsing.jl") 

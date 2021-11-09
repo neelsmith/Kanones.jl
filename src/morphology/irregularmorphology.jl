@@ -10,7 +10,11 @@ function irregularfromfst(fstdata::AbstractString)
 
     if matchedup[1].captures[1] == "irregularnoun"
         Kanones.irregularnounfromfst(fstdata)
-        
+
+    elseif matchedup[1].captures[1] == "irregularadjective"
+        #Kanones.irregularverbfromfst(fstdata)
+        @warn("ITS AN ADJECTIVE BUT IRREGULAR!")
+
     elseif matchedup[1].captures[1] == "irregularfiniteverb"
         Kanones.irregularverbfromfst(fstdata)
        

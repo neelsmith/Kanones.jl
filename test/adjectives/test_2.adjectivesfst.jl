@@ -18,7 +18,7 @@ end
 end
 
 
-@testset "Format fst lexicon for irregular noun stems" begin
+@testset "Format fst lexicon for irregular adjective stems" begin
     cexsrc = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
     irregadjio = Kanones.IrregularAdjectiveIO("irregular adjs r/w")
     stem = Kanones.readstemrow(irregadjio, cexsrc)
