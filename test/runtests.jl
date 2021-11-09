@@ -100,8 +100,9 @@ include("accessors/test_pronounaccessors.jl")
 include("accessors/test_adjaccessors.jl")
 include("accessors/test_verbaccessors.jl")
 include("accessors/test_infinitiveaccessors.jl")
+include("accessors/test_ptcplaccessors.jl")
 =#
 
-include("accessors/test_ptcplaccessors.jl")
+include("accessors/test_uninflectedaccessors.jl")
 
 
