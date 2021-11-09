@@ -80,9 +80,8 @@ include("generator/generate.jl")
 include("generator/uninflectedgen.jl")
 include("generator/nounsgen.jl")
 
-include("lexeme.jl")
-include("lsj/labels.jl")
-
+include("lexemes/lexeme.jl")
+include("lexemes/lexica.jl")
 
 include("morphology/forms.jl")
 include("citable_stems/stems.jl")

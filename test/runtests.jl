@@ -94,7 +94,7 @@ include("uninflected/test_4.uninflectedstems.jl")
 include("uninflected/test_5.uninflectedrules.jl")
 =#
 
-# =
+#=
 include("accessors/test_nounaccessors.jl")
 include("accessors/test_pronounaccessors.jl")
 include("accessors/test_adjaccessors.jl")
@@ -105,4 +105,4 @@ include("accessors/test_vadjaccessors.jl")
 include("accessors/test_uninflectedaccessors.jl")
 
 
-# =#
+=#
