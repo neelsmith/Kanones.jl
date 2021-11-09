@@ -77,7 +77,6 @@ $(SIGNATURES)
 """
 function readrulerow(usp::VerbIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
-    @info("READING RULE FROM ", parts)
     if length(parts) < 8
         msg = "Invalid syntax for finite verb rule: too few components in $(delimited)"
         @warn(msg)

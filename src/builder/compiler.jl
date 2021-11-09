@@ -142,7 +142,6 @@ function buildlexicon(src, target)
      stems = Kanones.stemsarray(src)
      lexicon = []
      for s in stems
-        @warn("Building lexicon from stem ", s)
         push!(lexicon, fst(s; ortho = src.orthography))
      end
     open(target, "w") do io

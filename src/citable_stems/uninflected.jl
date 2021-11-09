@@ -76,7 +76,6 @@ end
 $(SIGNATURES)
 """
 function readstemrow(usp::UninflectedIO, delimited::AbstractString; delimiter = "|")
-    @warn("Read stem row for uninflected ", delimited)
     parts = split(delimited, delimiter)
     if length(parts) < 4
         msg = "Invalid syntax for uninflected stem: too few components in $(delimited)"
@@ -87,8 +86,6 @@ function readstemrow(usp::UninflectedIO, delimited::AbstractString; delimiter = 
         lexid = LexemeUrn(parts[2])
         form = parts[3]
         stemclass = parts[4]
-
-        @info("Uninflected type ", stemclass, " from ", parts[4])
         UninflectedStem(stemid, lexid, form, stemclass)
     end
 end

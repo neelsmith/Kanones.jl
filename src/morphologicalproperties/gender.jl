@@ -1,7 +1,6 @@
 struct GMPGender <: GreekMorphologicalProperty
     code::Int64
     function GMPGender(code)
-        @info("Creating gender property for code ", code)
         if code in keys(genderlabels)
             new(code)
         else

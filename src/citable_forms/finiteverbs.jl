@@ -133,6 +133,29 @@ function verbfromfst(fstdata)
     end
 end
 
+"""Compose URN for finite verb form from FST representation of analytical data.
+
+$(SIGNATURES)
+"""
+function irregularverbfromfst(fstdata)
+     # Looks like
+    # <u>irregverb.irregverbnn26447af</u><u>lsj.n26447</u>δοιντο<irregular><irregularfiniteverb><third><plural><aorist><subjunctive><middle>
+    # 2-6 are pntmv
+    prsn =  matchedup[2].captures[1]
+    nmbr = matchedup[3].captures[1]
+    tns = matchedup[4].captures[1]
+    md = matchedup[5].captures[1]
+    vc = matchedup[6].captures[1]
+    
+    GMFFiniteVerb(
+        gmpTense(prsn),
+        gmpNumber(nmbr),
+    
+        gmpMood(tns), 
+        gmpMood(md), 
+        gmpVoice(vc) 
+    )
+end
 
 """Compose a `FormUrn` for a `GMFFiniteVerb`.
 
@@ -150,13 +173,6 @@ end
 $(SIGNATURES)
 """
 function finiteverbscex()
-
-    
-    
-
-    
-
-
 
     tensekeys = keys(Kanones.tenselabels)   |> collect |> sort 
     moodkeys = keys(Kanones.moodlabels)   |> collect |> sort 

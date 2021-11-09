@@ -186,7 +186,7 @@ function stemsarray(dirlist; delimiter = "|")
         "verbs",
         "infinitives"
     ]
-    @info("Getting irregular stems for $dirlist")
+    #@info("Getting irregular stems for $dirlist")
     for datasrc in dirlist
         for dirname in irregstemdirs 
             dir = joinpath(datasrc, "irregular-stems", dirname)

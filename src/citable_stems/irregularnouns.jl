@@ -53,6 +53,7 @@ function cex(ns::IrregularNounStem; delimiter = "|", registry = nothing)
     end
 end
 
+#=
 """Compose FormUrn for an irregular noun stem.
 
 $(SIGNATURES)
@@ -66,7 +67,7 @@ function abbrformurn(irregstem::IrregularNounStem)
     # PosPNTMVGCDCat
     FormUrn(string("morphforms.", NOUN,"0", code(irregstem.gnumber),"000",code(irregstem.gender),code(irregstem.gcase),"00"))
 end
-
+=#
 
 """
 Read one row of a stems table for noun tokens and create a `NounStem`.
@@ -101,3 +102,4 @@ function readstemrow(usp::IrregularNounIO, delimited::AbstractString; delimiter 
 
     IrregularNounStem(stemid,lexid,stem,g,c,n)
 end
+
