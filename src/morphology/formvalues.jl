@@ -13,7 +13,7 @@ const ADJECTIVE = 7
 const ADVERB = 8
 const PRONOUN = 9
 
-"""Constants for analytical types ("parts of speech").
+"""Dictionary of labels for analytical types ("parts of speech").
 
 $(SIGNATURES)
 """

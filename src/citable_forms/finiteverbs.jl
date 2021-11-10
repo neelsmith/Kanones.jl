@@ -111,7 +111,7 @@ function verbfromfst(fstdata)
     end
 end
 
-"""Compose URN for finite verb form from FST representation of analytical data.
+"""Compose `GMFFiniteVerb`` for finite verb form from FST representation of analytical data.
 
 $(SIGNATURES)
 """
@@ -144,15 +144,13 @@ function formurn(verbform::GMFFiniteVerb)
 end
 
 
-
-
 """Compose delimited-text representation of CITE collection for morphological forms of finite verbs.
 
 $(SIGNATURES)
 """
 function finiteverbscex()
 
-    tensekeys = keys(Kanones.tenselabels)   |> collect |> sort 
+    #tensekeys = keys(Kanones.tenselabels)   |> collect |> sort 
     moodkeys = keys(Kanones.moodlabels)   |> collect |> sort 
     voicekeys = keys(Kanones.voicelabels)   |> collect |> sort 
     personkeys = keys(Kanones.personlabels)  |> collect |> sort 
