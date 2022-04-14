@@ -13,7 +13,14 @@ end
 
     kd = Kanones.Dataset([repo * "/datasets/core-infl/"])
     fst =  repo * "/fst/"
-    FstBuilder.buildparser(kd,fst, d * "/testcompile/")
+
+
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    FstBuilder.buildparser(kd,fst, fullpath)
+
     
     parser = d * "/testcompile/greek.a"
     

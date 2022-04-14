@@ -10,7 +10,11 @@
     
 
     compilerdir = joinpath(d, "testcompile")
-    parser = FstBuilder.buildparser(kd,fst, compilerdir)
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    parser = FstBuilder.buildparser(kd,fst, fullpath)
     analyzed = parsetoken("καί", parser)
     @test length(analyzed) == 1
     @test isa(analyzed[1], Analysis)
