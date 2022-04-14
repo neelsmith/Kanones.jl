@@ -26,7 +26,7 @@ end
     fst =  joinpath(repo, "fst")
     parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
     tkn = "πᾶς"
-    analyzed = parsetoken( tkn, parser)
+    analyzed = parsetoken(tkn, parser)
     parse1 = analyzed[1]
     @test isa(parse1, Analysis)
     @test parse1.token == "πας"
