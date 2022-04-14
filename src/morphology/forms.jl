@@ -6,8 +6,8 @@ to a `FormUrn`.
 
 $(SIGNATURES)
 """
-function formurn(rule::T) where {T <: FormUrn}
-    @warn "Function formurn not implemented for type $typeof(rule)."
+function formurn(form::T) where {T <: FormUrn}
+    @warn "Function formurn not implemented for type $typeof(form)."
     nothing
 end
 
