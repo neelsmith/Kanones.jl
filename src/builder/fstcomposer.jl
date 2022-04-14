@@ -16,10 +16,8 @@ function installalphabet(src::Kanones.Dataset, target::AbstractString)
         "",
         string("#vowel# = ", vowels(src.orthography)),
         "",
-        #"#augmentinitial# = ἐ", # SHOULD BE FUNCTION OUTPUT
         string("#augmentinitial# = ", augment_initial(src.orthography)),
-        #"#augmentmedial# = ε" # SHOULD BE FUNCTION OUTPUT
-        string("#augmentmedial# = ", augment_medial(src.orthography) ) # SHOULD BE FUNCTION OUTPUT
+        string("#augmentmedial# = ", augment_medial(src.orthography))
     ]
     open(targetfile, "w") do io
         write(io, join(lines,"\n"))

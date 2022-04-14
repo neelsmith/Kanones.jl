@@ -1,4 +1,6 @@
-@testset ExtendedTestSet "Test tearing apart FormUrns" begin
+@testset ExtendedTestSet begin
+    
+@testset "Test tearing apart FormUrns" begin
     frm = FormUrn("morphforms.1000000003")
     @test Kanones.poscode(frm) == 1
     @test Kanones.poslabel(frm) == "uninflected"
@@ -55,4 +57,6 @@ end
     @test label(nounForm) == "feminine nominative plural"
     @test cex(nounForm) == "urn:cite2:kanones:morphforms.v1:2030002100|feminine nominative plural"
     =#
+end
+
 end
