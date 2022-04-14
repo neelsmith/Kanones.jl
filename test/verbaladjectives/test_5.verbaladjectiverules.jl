@@ -1,4 +1,4 @@
-@testset "Test citable trait for VerbalAdjectiveRule" begin
+@testset ExtendedTestSet "Test citable trait for VerbalAdjectiveRule" begin
     cexsrc = "vadjinfl.econtr1|ew_contract|ητέον|neuter|nominative|singular|"
     vadjio = Kanones.VerbalAdjectiveIO("verbal adjective")
     rule = Kanones.readrulerow(vadjio, cexsrc)

@@ -1,4 +1,4 @@
-@testset "Format fst rules for verbal adjective forms" begin
+@testset ExtendedTestSet "Format fst rules for verbal adjective forms" begin
     cexsrc = "vadjinfl.econtr1|ew_contract|ητέον|neuter|nominative|singular|"
     vadjio = Kanones.VerbalAdjectiveIO("verbal adjective")
     rule = Kanones.readrulerow(vadjio, cexsrc)

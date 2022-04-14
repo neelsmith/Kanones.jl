@@ -7,6 +7,12 @@ A julia package implementing the kanónes system for building Greek morphologica
 
 For a succinct outline of the technical process, see the [project wiki](https://github.com/neelsmith/Kanones.jl/wiki).
 
+
+## Unit tests
+
+Kanones includes an extensive suite of unit tests that can take a while to run.  For that reason, unit testing is implemented with [TestSetExtensions.jl](https://github.com/ssfrr/TestSetExtensions.jl) so that you can selectively run some tests. From within the `tests` directory, run `julia runtests.jl [FILENAMES]`.  To run the entire suite, from within the `tests` directory, run `julia runtests *.jl */*.jl`
+
+
 ## Current coverage
 
 

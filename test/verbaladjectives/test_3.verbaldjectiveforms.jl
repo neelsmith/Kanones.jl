@@ -1,3 +1,4 @@
+@testset ExtendedTestSet "Parsing verbal adjectives" begin
 @testset "Test parsing a GMFVerbalAdjective from SFST output" begin
     sfst =  "<verbaladjective>ητεον<neuter><accusative><singular><u>vadjinfl.econtr1</u>"
     vadj = Kanones.verbaladjectivefromfst(sfst)
@@ -63,4 +64,5 @@ end
     rule = Kanones.readrulerow(vadjio, cexsrc)
 
     @test ruleurn(rule) == RuleUrn("morphforms.6010003100")
+end
 end
