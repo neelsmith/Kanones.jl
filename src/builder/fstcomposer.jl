@@ -16,8 +16,10 @@ function installalphabet(src::Kanones.Dataset, target::AbstractString)
         "",
         string("#vowel# = ", vowels(src.orthography)),
         "",
-        "#augmentinitial# = ἐ", # SHOULD BE FUNCTION OUTPUT
-        "#augmentmedial# = ε" # SHOULD BE FUNCTION OUTPUT
+        #"#augmentinitial# = ἐ", # SHOULD BE FUNCTION OUTPUT
+        string("#augmentinitial# = ", augment_initial(src.orthography)),
+        #"#augmentmedial# = ε" # SHOULD BE FUNCTION OUTPUT
+        string("#augmentmedial# = ", augment_medial(src.orthography) ) # SHOULD BE FUNCTION OUTPUT
     ]
     open(targetfile, "w") do io
         write(io, join(lines,"\n"))
@@ -44,7 +46,7 @@ function installsymbols(src::AbstractString, target::AbstractString)
     open(toplevel, "w") do io
         print(io, symbolsfst(target))
     end
-    phonologyfst = open(joinpath(src, "symbols", "phonology.fst","r")) do phonology
+    phonologyfst = open(joinpath(src, "symbols", "phonology.fst"),"r") do phonology
         read(phonology, String)
     end
     prefix = join([
@@ -56,7 +58,7 @@ function installsymbols(src::AbstractString, target::AbstractString)
         "% Basic alphabet specific to this orthographic system:",
         "#include \"" * target * "/symbols/alphabet.fst\""
     ], "\n")
-    open(joinpath(target, "symbols", "phonology.fst", "w")) do io
+    open(joinpath(target, "symbols", "phonology.fst"), "w") do io
         print(io, prefix * "\n\n" * phonologyfst * "\n")
     end
     
