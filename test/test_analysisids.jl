@@ -1,16 +1,16 @@
-@testset "Test working with lexemes" begin
+@testset ExtendedTestSet "Test working with lexemes" begin
     @test_broken "Analysis" == "citable thing"
 end
 
 
-@testset "Test working with rules" begin
+@testset ExtendedTestSet "Test working with rules" begin
     cexsrc = "nouninfl.h_hs2|h_hs|ης|feminine|genitive|singular|recessive"
     nounparser = Kanones.NounIO("nouns")
     rule = Kanones.readrulerow(nounparser, cexsrc)
     @test_broken rule == "citable thing"
 end
 
-@testset "Test working with stems" begin
+@testset ExtendedTestSet "Test working with stems" begin
     cexsrc = "nounstems.n22502|lexent.n22502|γνωμ|feminine|h_hs|recessive|"
     nounparser = Kanones.NounIO("nouns")
     stem = Kanones.readstemrow(nounparser, cexsrc)

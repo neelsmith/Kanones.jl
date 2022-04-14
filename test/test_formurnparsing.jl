@@ -1,4 +1,4 @@
-@testset "Test tearing apart FormUrns" begin
+@testset ExtendedTestSet "Test tearing apart FormUrns" begin
     frm = FormUrn("morphforms.1000000003")
     @test Kanones.poscode(frm) == 1
     @test Kanones.poslabel(frm) == "uninflected"

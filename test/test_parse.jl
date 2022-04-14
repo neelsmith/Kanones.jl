@@ -1,5 +1,5 @@
 
-@testset "Build parser and get SFST output" begin
+@testset ExtendedTestSet "Build parser and get SFST output" begin
     d = tempdir()
     repo = dirname(pwd())
 
@@ -22,7 +22,7 @@
 end
 
 
-@testset "Build parser and get Analysis object" begin
+@testset ExtendedTestSet "Build parser and get Analysis object" begin
     d = tempdir()
     repo = dirname(pwd())
 
@@ -77,7 +77,7 @@ end
 
 end
 
-@testset "Build parser and handle bad output to parser" begin
+@testset ExtendedTestSet "Build parser and handle bad output to parser" begin
     d = tempdir()
     repo = dirname(pwd())
 
@@ -92,7 +92,7 @@ end
     @test isempty(analyzed)
 end
 
-@testset "Build parser and test form of resulting analysis" begin
+@testset ExtendedTestSet "Build parser and test form of resulting analysis" begin
     d = tempdir()
     repo = dirname(pwd())
 

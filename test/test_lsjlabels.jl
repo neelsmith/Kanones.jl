@@ -1,4 +1,4 @@
-@testset "Test labelling of LSJ lemmata" begin
+@testset ExtendedTestSet "Test labelling of LSJ lemmata" begin
     f = joinpath(dirname(pwd(), "lsj", "lsj-lemmata.cex")
     dict = lsjdict(f)
 

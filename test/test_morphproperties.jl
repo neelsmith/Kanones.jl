@@ -1,42 +1,42 @@
-@testset "Test GMPTense" begin
+@testset ExtendedTestSet "Test GMPTense" begin
     tense = gmpTense("present")
     @test isa(tense, GMPTense)
 end
 
-@testset "Test GMPMood" begin
+@testset ExtendedTestSet "Test GMPMood" begin
     mood = gmpMood("optative")
     @test isa(mood, GMPMood)
 end
 
 
-@testset "Test GMPVoice" begin
+@testset ExtendedTestSet "Test GMPVoice" begin
     vc = gmpVoice("middle")
     @test isa(vc, GMPVoice)
 end
 
 
-@testset "Test GMPPerson" begin
+@testset ExtendedTestSet "Test GMPPerson" begin
     pers = gmpPerson("third")
     @test isa(pers, GMPPerson)
 end
 
 
-@testset "Test GMPNumber" begin
+@testset ExtendedTestSet "Test GMPNumber" begin
     num = gmpNumber("singular")
     @test isa(num, GMPNumber)
 end
 
-@testset "Test GMPGender" begin
+@testset ExtendedTestSet "Test GMPGender" begin
     gender = gmpGender("feminine")
     @test isa(gender, GMPGender)
 end
 
-@testset "Test GMPDegree" begin
+@testset ExtendedTestSet "Test GMPDegree" begin
     degree = gmpDegree("superlative")
     @test isa(degree, GMPDegree)
 end
 
-@testset "Test GMPUninflectedType" begin
+@testset ExtendedTestSet "Test GMPUninflectedType" begin
     uninfl = gmpUninflectedType("conjunction")
     @test isa(uninfl, GMPUninflectedType)
 end

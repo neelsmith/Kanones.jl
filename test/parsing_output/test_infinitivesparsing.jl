@@ -1,4 +1,4 @@
-@testset "Test resulting values in infinitive analysis" begin
+@testset ExtendedTestSet "Test resulting values in infinitive analysis" begin
     d = tempdir()
     repo = dirname(pwd())
     infl = joinpath(repo, "datasets","core-infl")

@@ -1,16 +1,16 @@
-@testset "Test parsing an GMFInfinitive from SFST output" begin
+@testset ExtendedTestSet "Test parsing an GMFInfinitive from SFST output" begin
     infl = "<present><active>"
     infinitive = Kanones.infinitivefromfst(infl)
     expected = GMFInfinitive(GMPTense(1), GMPVoice(1))
     @test infinitive == expected
 end
 
-@testset "Test parsing an GMFInfinitive from a FormUrn" begin
+@testset ExtendedTestSet "Test parsing an GMFInfinitive from a FormUrn" begin
     frm = FormUrn("morphforms.400101000")
     @test Kanones.gmfInfinitive(frm) == GMFInfinitive(GMPTense(1), GMPVoice(1))
 end
 
-@testset "Test parsing a FormUrn from an GMFInfinitive" begin
+@testset ExtendedTestSet "Test parsing a FormUrn from an GMFInfinitive" begin
     infinitive = GMFInfinitive(GMPTense(1), GMPVoice(1))
     formU = Kanones.formurn(infinitive)
     @test formU == FormUrn("morphforms.4001010000")
@@ -41,7 +41,7 @@ end
 
 end
 
-@testset "Test CitableTrait for infinitive forms" begin
+@testset ExtendedTestSet "Test CitableTrait for infinitive forms" begin
     infinitive = GMFInfinitive(GMPTense(1), GMPVoice(1))
     @test urn(infinitive) == Cite2Urn("urn:cite2:kanones:morphforms.v1:4001010000")
     @test label(infinitive) == "present active infinitive"
@@ -50,7 +50,7 @@ end
     @test Kanones.formurn(infinitive) ==  FormUrn("morphforms.4001010000")
 end
 
-@testset "Test parsing a RuleUrn from an InfinitiveRule" begin
+@testset ExtendedTestSet "Test parsing a RuleUrn from an InfinitiveRule" begin
     cexsrc = "infinfl.wreg1|w_regular|ειν|present|active"
     infinparser = Kanones.InfinitiveIO("infinitives")
     rule = Kanones.readrulerow(infinparser, cexsrc)

@@ -1,5 +1,5 @@
 
-@testset "Read rules for irregulars tokens from delimited text" begin
+@testset ExtendedTestSet "Read rules for irregulars tokens from delimited text" begin
     cex = "litgreek.irregular1|irregularnoun"
     uninfl = Kanones.IrregularRuleParser("irregular rules")
     rulerow = Kanones.readrulerow(uninfl, cex)

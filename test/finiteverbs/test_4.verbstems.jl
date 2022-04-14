@@ -1,4 +1,4 @@
-@testset "Test citable trait for VerbStem" begin
+@testset ExtendedTestSet "Test citable trait for VerbStem" begin
     cexsrc = "verbstems.n56496|lsj.n56496|κελευ|w_regular|"
     verbio = Kanones.VerbIO("verbs")
     stem = Kanones.readstemrow(verbio, cexsrc)
@@ -13,7 +13,7 @@
     @test cex(stem; registry = dict) == "urn:cite2:kanones:verbstems.v1:n56496|Verb stem κελευ- (lsj.n56496, stem class w_regular)"
 end
 
-@testset "Test citable trait for IrreglarVerbStem" begin
+@testset ExtendedTestSet "Test citable trait for IrreglarVerbStem" begin
     cexsrc = "irregverb.n110639a|lsj.n110639|φησί|third|singular|present|indicative|active|irregularverb"
     verbio = Kanones.VerbIO("verbs")
     stem = Kanones.readstemrow(verbio, cexsrc)

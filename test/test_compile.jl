@@ -1,5 +1,5 @@
 
-@testset "Compile parser for core dataset" begin
+@testset ExtendedTestSet "Compile parser for core dataset" begin
     d = tempdir()
     repo = dirname(pwd())
     infl = joinpath(repo, "datasets", "core-infl")

@@ -1,4 +1,4 @@
-@testset "Test citable trait for InfinitiveRule" begin
+@testset ExtendedTestSet "Test citable trait for InfinitiveRule" begin
     cexsrc = "infinfl.wreg1|w_regular|ειν|present|active"
     infinparser = Kanones.InfinitiveIO("infinitives")
     rule = Kanones.readrulerow(infinparser, cexsrc)

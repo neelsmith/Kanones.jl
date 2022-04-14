@@ -1,4 +1,4 @@
-@testset "Test citable trait for PronounStem" begin
+@testset ExtendedTestSet "Test citable trait for PronounStem" begin
     cexsrc = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article"
     pronounio = Kanones.PronounIO("pronouns")
     stem = Kanones.readstemrow(pronounio, cexsrc)

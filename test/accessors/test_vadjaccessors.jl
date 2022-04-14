@@ -1,4 +1,4 @@
-@testset "Test accessing adjective form properties" begin
+@testset ExtendedTestSet "Test accessing adjective form properties" begin
     adj = GMFAdjective(gmpGender("feminine"), gmpCase("dative"), gmpNumber("singular"), gmpDegree("positive"))
     @test gmpGender(adj) == GMPGender(2)
     @test gmpCase(adj) == GMPCase(3)
@@ -6,7 +6,7 @@
     @test gmpDegree(adj) == GMPDegree(1)
 end
 
-@testset "Test accessing adjective rule properties" begin
+@testset ExtendedTestSet "Test accessing adjective rule properties" begin
     cexsrc = "adjinfl.oshon_pos1|os_h_on_pos|ος|masculine|nominative|singular|positive|"
     adjectiveio = Kanones.AdjectiveIO("adjectives")
     rule = Kanones.readrulerow(adjectiveio, cexsrc)
@@ -16,7 +16,7 @@ end
     @test gmpDegree(rule) == GMPDegree(1)
 end
 
-@testset "Test accessing irregular adjective stem properties" begin
+@testset ExtendedTestSet "Test accessing irregular adjective stem properties" begin
     cexsrc = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
     irregadjio = Kanones.IrregularAdjectiveIO("irregular adjs r/w")
     stem = Kanones.readstemrow(irregadjio, cexsrc)

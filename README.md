@@ -10,7 +10,9 @@ For a succinct outline of the technical process, see the [project wiki](https://
 
 ## Unit tests
 
-Kanones includes an extensive suite of unit tests that can take a while to run.  For that reason, unit testing is implemented with [TestSetExtensions.jl](https://github.com/ssfrr/TestSetExtensions.jl) so that you can selectively run some tests. From within the `tests` directory, run `julia runtests.jl [FILENAMES]`.  To run the entire suite, from within the `tests` directory, run `julia runtests *.jl */*.jl`
+Kanones includes an extensive suite of unit tests that take some time to run.  To run all of all them, just use the standard `test` command from package mode (and be prepared to wait).
+
+If you want to run a selection of tests, you can do that from the `tests` directory by running `julia select_tests.jl [FILENAMES]`.   `select_tests.jl` uses the `TestSetExtensions.jl` package; if you prefer its reporting format, you can run all the tests with  `julia select_tests.jl test* */test*jl`.
 
 
 ## Current coverage

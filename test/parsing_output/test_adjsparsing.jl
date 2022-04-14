@@ -1,4 +1,4 @@
-@testset "Test resulting values in adjective analysis" begin
+@testset ExtendedTestSet "Test resulting values in adjective analysis" begin
     d = tempdir()
     repo = dirname(pwd())
     infl = joinpath(repo, "datasets", "core-infl")
@@ -24,7 +24,7 @@
     @test parse1.rule == RuleUrn("adjinfl.os_h_on_pos1")
 end
 
-@testset "Test parsing irregular adjectives" begin
+@testset ExtendedTestSet "Test parsing irregular adjectives" begin
     d = tempdir()
     repo = dirname(pwd())
     infl = joinpath(repo, "datasets", "core-infl")

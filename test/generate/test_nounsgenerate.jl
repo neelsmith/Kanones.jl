@@ -1,4 +1,4 @@
-@testset "Test converting NounRule to abbreviated URN for form" begin
+@testset ExtendedTestSet "Test converting NounRule to abbreviated URN for form" begin
     rule = NounRule(CitableParserBuilder.RuleUrn("nouninfl.os_ou19"), "os_ou", "α", gmpGender("neuter"), gmpCase("accusative"), gmpNumber("singular"))
     form = Kanones.ruleurn(rule)
     expected = RuleUrn("morphforms.2010003400")
@@ -6,7 +6,7 @@
 end
 
 
-@testset "Build parser and parse noun forms" begin
+@testset ExtendedTestSet "Build parser and parse noun forms" begin
     
     d = tempdir()
     repo = dirname(pwd())

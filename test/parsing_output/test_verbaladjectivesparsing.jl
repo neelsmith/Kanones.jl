@@ -1,4 +1,4 @@
-@testset "Test resulting values in verbal adjective analysis" begin
+@testset ExtendedTestSet "Test resulting values in verbal adjective analysis" begin
     d = tempdir()
     repo = dirname(pwd())
 

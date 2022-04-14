@@ -1,4 +1,4 @@
-@testset "Test resulting token in uninflected analysis" begin
+@testset ExtendedTestSet "Test resulting token in uninflected analysis" begin
     d = tempdir()
     
     repo = dirname(pwd())

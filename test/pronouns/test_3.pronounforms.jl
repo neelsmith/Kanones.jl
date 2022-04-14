@@ -1,4 +1,4 @@
-@testset "Test parsing a GMFPronoun from SFST output" begin
+@testset ExtendedTestSet "Test parsing a GMFPronoun from SFST output" begin
     sfst = "<masculine><genitive><singular>"
     pronoun = Kanones.pronounfromfst(sfst)
     expected = GMFPronoun(GMPGender(1), GMPCase(2), GMPNumber(1))
@@ -6,13 +6,13 @@
 end
 
 
-@testset "Test parsing a GMFPronoun from a FormUrn" begin
+@testset ExtendedTestSet "Test parsing a GMFPronoun from a FormUrn" begin
     frm = FormUrn("morphforms.9010001200")
     @test Kanones.gmfPronoun(frm) == GMFPronoun(GMPGender(1), GMPCase(2), GMPNumber(1))
 end
 
 
-@testset "Test parsing a FormUrn from a GMFPronoun" begin
+@testset ExtendedTestSet "Test parsing a FormUrn from a GMFPronoun" begin
     pronoun = GMFPronoun(GMPGender(1), GMPCase(2), GMPNumber(1))
     formU = Kanones.formurn(pronoun)
     @test formU == FormUrn("morphforms.9010001200")
@@ -48,7 +48,7 @@ end
 
 
 
-@testset "Test CitableTrait for pronoun forms" begin
+@testset ExtendedTestSet "Test CitableTrait for pronoun forms" begin
     pronoun = GMFPronoun(GMPGender(1), GMPCase(2), GMPNumber(1))
     
     @test urn(pronoun) == Cite2Urn("urn:cite2:kanones:morphforms.v1:9010001200")

@@ -1,36 +1,20 @@
-using Pkg
-Pkg.activate("..")
-
-
 using Kanones
 using Kanones.FstBuilder
 using CitableObject, CitableParserBuilder
 using CitableCorpus, CitableText
 using PolytonicGreek, Orthography
-using Compat.Test
-using TestSetExtensions
-
-@testset "All the tests" begin
-    println(map(s -> replace(s, r".jl$" => ""), ARGS))
-    @includetests map(s -> replace(s, r".jl$" => ""), ARGS)
-end
+using Test
 
 
-#=
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
 include("test_morphforms.jl")
 include("test_formurnparsing.jl")
 include("test_lexeme.jl")
-=#
 
-#=
 include("test_parse.jl")
 include("test_compile.jl")
-=#
 
-
-#=
 include("parsing_output/test_adjsparsing.jl")
 include("parsing_output/test_nounsparsing.jl")
 include("parsing_output/test_infinitivesparsing.jl")
@@ -39,15 +23,10 @@ include("parsing_output/test_participlesparsing.jl")
 include("parsing_output/test_pronounsparsing.jl")
 include("parsing_output/test_uninflectedparsing.jl")
 include("parsing_output/test_finiteverbparsing.jl")
-=#
 
-#=
 include("generate/test_nounsgenerate.jl")
 include("generate/test_uninflectedgenerate.jl")
-=#
 
-
-#=
 include("irregulars/test_irregrules.jl")
 include("test_morphproperties.jl")
 
@@ -96,9 +75,7 @@ include("uninflected/test_2.uninflectedfst.jl")
 include("uninflected/test_3.uninflectedforms.jl")
 include("uninflected/test_4.uninflectedstems.jl")
 include("uninflected/test_5.uninflectedrules.jl")
-=#
 
-#=
 include("accessors/test_nounaccessors.jl")
 include("accessors/test_pronounaccessors.jl")
 include("accessors/test_adjaccessors.jl")
@@ -107,4 +84,3 @@ include("accessors/test_infinitiveaccessors.jl")
 include("accessors/test_ptcplaccessors.jl")
 include("accessors/test_vadjaccessors.jl")
 include("accessors/test_uninflectedaccessors.jl")
-=#

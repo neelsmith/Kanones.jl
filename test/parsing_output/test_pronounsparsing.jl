@@ -1,5 +1,5 @@
 
-@testset "Test resulting values in pronoun analysis" begin
+@testset ExtendedTestSet "Test resulting values in pronoun analysis" begin
     d = tempdir()
     repo = dirname(pwd())
 

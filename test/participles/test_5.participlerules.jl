@@ -1,4 +1,4 @@
-@testset "Test citable trait for ParticipleRule" begin
+@testset ExtendedTestSet "Test citable trait for ParticipleRule" begin
     cexsrc = "ptcplinfl.wpres11p|w_regular|όμενον|present|middle|neuter|nominative|singular|"
     ptpcplio = Kanones.ParticipleIO("participles")
     rule = Kanones.readrulerow(ptpcplio, cexsrc)

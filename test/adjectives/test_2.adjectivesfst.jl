@@ -1,5 +1,5 @@
 
-@testset "Format fst lexicon for adjective stems" begin
+@testset ExtendedTestSet "Format fst lexicon for adjective stems" begin
     cexsrc = "adjstems.n52840a|lsj.n52840|καλ|os_h_on_pos|inflectionaccented|"
     adjio = Kanones.AdjectiveIO("adjectives")
     stem = Kanones.readstemrow(adjio, cexsrc)
@@ -8,7 +8,7 @@
     @test FstBuilder.fst(stem) == expected
 end
 
-@testset "Format fst rules for adjective tokens" begin
+@testset ExtendedTestSet "Format fst rules for adjective tokens" begin
     cexsrc = "adjinfl.oshon_pos1|os_h_on_pos|ος|masculine|nominative|singular|positive|"
     adjectiveio = Kanones.AdjectiveIO("adjectives")
     rule = Kanones.readrulerow(adjectiveio, cexsrc)
@@ -18,7 +18,7 @@ end
 end
 
 
-@testset "Format fst lexicon for irregular adjective stems" begin
+@testset ExtendedTestSet "Format fst lexicon for irregular adjective stems" begin
     cexsrc = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
     irregadjio = Kanones.IrregularAdjectiveIO("irregular adjs r/w")
     stem = Kanones.readstemrow(irregadjio, cexsrc)
