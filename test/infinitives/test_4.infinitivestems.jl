@@ -1,5 +1,5 @@
 
-@testset "Test citable trait for IrreglarInfinitiveStem" begin
+@testset ExtendedTestSet "Test citable trait for IrreglarInfinitiveStem" begin
     cexsrc = "irreginf.irreginfln26447a|lsj.n26447|διδόναι|present|active|irregularinfinitive"
     irreginfio = Kanones.IrregularInfinitiveIO("irregular infinitives")
     stem = Kanones.readstemrow(irreginfio, cexsrc)

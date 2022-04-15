@@ -1,11 +1,18 @@
-@testset "Test resulting values in adjective analysis" begin
+@testset ExtendedTestSet "Test resulting values in adjective analysis" begin
     d = tempdir()
     repo = dirname(pwd())
     infl = joinpath(repo, "datasets", "core-infl")
     vocab = joinpath(repo, "datasets", "core-vocab")
     kd = Kanones.Dataset([infl, vocab])
     fst =  joinpath(repo, "fst")
-    parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
+
+
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    parser = FstBuilder.buildparser(kd,fst, fullpath)
+
     tkn = "καλός"
     analyzed = parsetoken( tkn, parser)
     parse1 = analyzed[1]
@@ -17,16 +24,20 @@
     @test parse1.rule == RuleUrn("adjinfl.os_h_on_pos1")
 end
 
-@testset "Test parsing irregular adjectives" begin
+@testset ExtendedTestSet "Test parsing irregular adjectives" begin
     d = tempdir()
     repo = dirname(pwd())
     infl = joinpath(repo, "datasets", "core-infl")
     vocab = joinpath(repo, "datasets", "core-vocab")
     kd = Kanones.Dataset([infl, vocab])
     fst =  joinpath(repo, "fst")
-    parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    parser = FstBuilder.buildparser(kd,fst, fullpath)
     tkn = "πᾶς"
-    analyzed = parsetoken( tkn, parser)
+    analyzed = parsetoken(tkn, parser)
     parse1 = analyzed[1]
     @test isa(parse1, Analysis)
     @test parse1.token == "πας"

@@ -92,8 +92,8 @@ end
 
 $(SIGNATURES)
 """
-function ruleurn(rule::NounRule)
+function formurn(rule::NounRule)
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", NOUN,"0",code(rule.nnumber),"000",code(rule.ngender),code(rule.ncase),"00"))
+    FormUrn(string("morphforms.", NOUN,"0",code(rule.nnumber),"000",code(rule.ngender),code(rule.ncase),"00"))
 end
 

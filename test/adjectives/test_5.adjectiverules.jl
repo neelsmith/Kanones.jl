@@ -1,4 +1,4 @@
-@testset "Test citable trait for AdjectiveRule" begin
+@testset ExtendedTestSet "Test citable trait for AdjectiveRule" begin
     cexsrc = "adjinfl.oshon_pos1|os_h_on_pos|ος|masculine|nominative|singular|positive|"
     adjectiveio = Kanones.AdjectiveIO("adjectives")
     rule = Kanones.readrulerow(adjectiveio, cexsrc)

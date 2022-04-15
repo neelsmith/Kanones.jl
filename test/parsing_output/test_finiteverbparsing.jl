@@ -1,10 +1,14 @@
-@testset "Test resulting values in verb analysis" begin
+@testset ExtendedTestSet "Test resulting values in verb analysis" begin
     d = tempdir()
     repo = dirname(pwd())
 
     kd = Kanones.Dataset([joinpath(repo, "datasets", "core-infl"), joinpath(repo, "datasets", "core-vocab")])
     fst =  joinpath(repo, "fst")
-    parser = FstBuilder.buildparser(kd, fst, joinpath(d, "testcompile"))
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    parser = FstBuilder.buildparser(kd,fst, fullpath)
 
     analyzed = parsetoken("κελευσει", parser)
     @test length(analyzed) == 2

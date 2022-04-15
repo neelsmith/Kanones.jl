@@ -1,4 +1,4 @@
-@testset "Test citable trait for AdjectiveStem" begin
+@testset ExtendedTestSet "Test citable trait for AdjectiveStem" begin
     cexsrc = "adjstems.n52840a|lsj.n52840|καλ|os_h_on_pos|inflectionaccented|"
     adjectiveio = Kanones.AdjectiveIO("adjectives")
     stem = Kanones.readstemrow(adjectiveio, cexsrc)
@@ -15,7 +15,7 @@
 
 end
 
-@testset "Test citable trait for IrregularAdjectiveStem" begin
+@testset ExtendedTestSet "Test citable trait for IrregularAdjectiveStem" begin
     cexsrc = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
     irregadjio = Kanones.IrregularAdjectiveIO("irregular adjs r/w")
     stem = Kanones.readstemrow(irregadjio, cexsrc)

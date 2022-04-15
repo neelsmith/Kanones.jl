@@ -1,4 +1,5 @@
 
+@testset ExtendedTestSet begin
 @testset "Read rules for verb tokens from delimited text" begin
     #Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
@@ -17,7 +18,7 @@
 end
 
 
-@testset "Read stems for verb tokens from delimited text"  begin    
+@testset  "Read stems for verb tokens from delimited text"  begin    
     #Rule|LexicalEntity|StemClass|Stem|
     cexsrc = "verbstems.n56496|lsj.n56496|κελευ|w_regular|"
     verbio = Kanones.VerbIO("verbs")
@@ -29,7 +30,7 @@ end
 
 end
 
-@testset "Read stems for irregular verb tokens from delimited text"  begin  
+@testset  "Read stems for irregular verb tokens from delimited text"  begin  
     cexsrc = "irregverb.n110639a|lsj.n110639|φησί|third|singular|present|indicative|active|irregularverb"
     verbio = Kanones.VerbIO("verbs")
     stem = Kanones.readstemrow(verbio, cexsrc)
@@ -37,4 +38,6 @@ end
     @test stem.lexid == LexemeUrn("lsj.n110639")
     @test stem.stem == "φησί"
     @test_broken stem.stemclass == "irregular"
+end
+
 end

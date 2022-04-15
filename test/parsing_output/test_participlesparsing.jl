@@ -1,11 +1,15 @@
-@testset "Test resulting values in participle analysis" begin
+@testset ExtendedTestSet "Test resulting values in participle analysis" begin
     d = tempdir()
     repo = dirname(pwd())
     infl = joinpath(repo, "datasets", "core-infl")
     vocab = joinpath(repo, "datasets", "core-vocab")
     kd = Kanones.Dataset([infl, vocab])
     fst =  joinpath(repo, "fst")
-    parser = FstBuilder.buildparser(kd,fst, joinpath(d,  "testcompile"))
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    parser = FstBuilder.buildparser(kd,fst, fullpath)
 
     #parser = d * "/testcompile/greek.a"
     analyzed = parsetoken("κελευόμενον", parser)

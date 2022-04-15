@@ -1,4 +1,4 @@
-@testset "Test CitableTrait functions for lexeme" begin
+@testset ExtendedTestSet "Test CitableTrait functions for lexeme" begin
     glex = GreekLexeme(LexemeUrn("lsj.n102429"))
     dict = Dict(
         "lsj" => "urn:cite2:kanones:lsj.v1:"

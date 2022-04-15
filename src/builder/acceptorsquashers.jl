@@ -2,6 +2,8 @@
 """Compose `acceptor.fst` and write to file `target`.
 
 $(SIGNATURES)
+
+- `target` is the full path to acceptor.fst
 """
 function buildacceptor(target)
     fstroot = dirname(target)

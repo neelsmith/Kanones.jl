@@ -1,5 +1,5 @@
 
-@testset "Read stems for pronoun tokens from delimited text" begin
+@testset ExtendedTestSet "Read stems for pronoun tokens from delimited text" begin
     cexsrc = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article"
     pronounio = Kanones.PronounIO("pronouns")
     stemrow = Kanones.readstemrow(pronounio, cexsrc)
@@ -12,7 +12,7 @@
     @test stemrow.pronountype == "article"
 end
 
-@testset "Read rules for pronoun tokens from delimited text" begin
+@testset ExtendedTestSet "Read rules for pronoun tokens from delimited text" begin
     cexsrc = "pronounrules.pronouns1|article"
     pronounio = Kanones.PronounIO("pronouns")
     rulerow = Kanones.readrulerow(pronounio, cexsrc)

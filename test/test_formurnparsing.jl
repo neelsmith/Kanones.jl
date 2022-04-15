@@ -1,3 +1,5 @@
+@testset ExtendedTestSet "Test using FormUrns" begin
+    
 @testset "Test tearing apart FormUrns" begin
     frm = FormUrn("morphforms.1000000003")
     @test Kanones.poscode(frm) == 1
@@ -42,7 +44,6 @@ end
 
 
 
-
 @testset "Test Citable interface and URN conversions for adjective forms" begin
     adjForm = GMFAdjective(gmpGender("feminine"), gmpCase("nominative"), gmpNumber("plural"), gmpDegree("positive"))
 #=
@@ -55,4 +56,6 @@ end
     @test label(nounForm) == "feminine nominative plural"
     @test cex(nounForm) == "urn:cite2:kanones:morphforms.v1:2030002100|feminine nominative plural"
     =#
+end
+
 end

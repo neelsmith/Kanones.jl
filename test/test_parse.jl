@@ -1,11 +1,15 @@
 
-@testset "Build parser and get SFST output" begin
+@testset ExtendedTestSet "Build parser and get SFST output" begin
     d = tempdir()
     repo = dirname(pwd())
 
     kd = Kanones.Dataset([joinpath(repo, "datasets", "core-infl")])
     fst =  joinpath(repo, "fst")
-    parser = FstBuilder.buildparser(kd,fst, joinpath(d , "testcompile"))
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    parser = FstBuilder.buildparser(kd,fst, fullpath)
     @test isfile(parser.sfstpath)
 
     fstout = Kanones.applyparser("και", parser)
@@ -18,7 +22,7 @@
 end
 
 
-@testset "Build parser and get Analysis object" begin
+@testset ExtendedTestSet "Build parser and get Analysis object" begin
     d = tempdir()
     repo = dirname(pwd())
 
@@ -26,7 +30,14 @@ end
     vocab = joinpath(repo, "datasets", "core-vocab")
     kd = Kanones.Dataset([infl, vocab])
     fst =  joinpath(repo, "fst")
-    parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
+
+
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    parser = FstBuilder.buildparser(kd,fst, fullpath)
+   
     analysislist = parsetoken( "και", parser)
 
     analyzed = analysislist[1]
@@ -59,31 +70,40 @@ end
     tinycorpus = CitableTextCorpus(psgs)
     corpusparses =  parsecorpus(tinycorpus, parser)
     @test psgparses[1].analyses[1] == corpusparses[1].analyses[1]
-    doc = documents(tinycorpus)[1]
-    docparses = parsedocument(doc, parser)
-    @test psgparses[1].analyses[1] == docparses[1].analyses[1]
+    #doc = documents(tinycorpus)[1]
+    #docparses = parsedocument(doc, parser)
+    #@test psgparses[1].analyses[1] == docparses[1].analyses[1]
 
 
 end
 
-@testset "Build parser and handle bad output to parser" begin
+@testset ExtendedTestSet "Build parser and handle bad output to parser" begin
     d = tempdir()
     repo = dirname(pwd())
 
     kd = Kanones.Dataset([joinpath(repo, "datasets", "core-infl")])
     fst =  joinpath(repo, "fst")
-    parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    parser = FstBuilder.buildparser(kd,fst, fullpath)
     analyzed = parsetoken( "silly", parser)
     @test isempty(analyzed)
 end
 
-@testset "Build parser and test form of resulting analysis" begin
+@testset ExtendedTestSet "Build parser and test form of resulting analysis" begin
     d = tempdir()
     repo = dirname(pwd())
 
     kd = Kanones.Dataset([joinpath(repo, "datasets","core-infl")])
     fst =  joinpath(repo, "fst")
-    parser = FstBuilder.buildparser(kd,fst, joinpath(d, "testcompile"))
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    parser = FstBuilder.buildparser(kd,fst, fullpath)
+
     analyzed = parsetoken( "γνώμαις", parser)
     @test length(analyzed) == 1
     @test isa(analyzed[1], Analysis)

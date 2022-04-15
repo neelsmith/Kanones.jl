@@ -1,10 +1,7 @@
 module Kanones
 
-using CitableParserBuilder: AnalyzedToken
-using CitableParserBuilder: CitableByCite2Urn
-using CitableParserBuilder: CitableParser
-using CitableParserBuilder: LexemeUrn, StemUrn, FormUrn, RuleUrn, AbbreviatedUrn, expand
-using CitableParserBuilder: Rule, Stem, Analysis
+
+using CitableParserBuilder
 import CitableParserBuilder: parsetoken
 import CitableParserBuilder: parsewordlist
 import CitableParserBuilder: parsecorpus
@@ -42,8 +39,10 @@ export GMPGender, gmpGender
 export GMPCase, gmpCase
 export GMPDegree, gmpDegree
 export GMPUninflectedType, gmpUninflectedType
+export code
 
 export GreekMorphologicalForm, KanonesStem, KanonesRule
+export greekForm
 export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
 export GMFInfinitive, gmfInfinitive, InfinitiveRule
 export GMFVerbalAdjective, gmfVerbalAdjective, VerbalAdjectiveRule
@@ -65,7 +64,8 @@ export GreekLexeme
 export generate
 export decline, mddeclension
 
-export urn, ruleurn
+export urn, formurn
+export ruleurn # ??
 
 include("parse.jl")
 include("listparsing.jl")

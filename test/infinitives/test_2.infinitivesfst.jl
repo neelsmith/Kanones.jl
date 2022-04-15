@@ -1,4 +1,4 @@
-@testset "Format fst rules for infinitive tokens" begin
+@testset ExtendedTestSet "Format fst rules for infinitive tokens" begin
     cex = "infinfl.wreg1|w_regular|ειν|present|active"
     infinparser = Kanones.InfinitiveIO("infinitives")
     rulerow = Kanones.readrulerow(infinparser, cex)
@@ -9,7 +9,7 @@ end
 
 # Regular verb stems are tested under finite verbs
 
-@testset "Format fst lexicon for irregular infinitive stems" begin
+@testset ExtendedTestSet "Format fst lexicon for irregular infinitive stems" begin
     cexsrc = "irreginf.irreginfln26447a|lsj.n26447|διδόναι|present|active|irregularinfinitive"
     irreginfio = Kanones.IrregularInfinitiveIO("irregular infinitives")
     stem = Kanones.readstemrow(irreginfio, cexsrc)

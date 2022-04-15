@@ -1,6 +1,6 @@
 # Kanones.jl
 
-*Build corpus-specific parsers for ancient Greek texts in a specified orthography*.
+> ☛ *Build corpus-specific parsers for ancient Greek texts in a specified orthography*.
 
 Kanones.jl lets you build morphological parsers for ancient Greek.  It works with three central concepts: 
 
@@ -19,9 +19,16 @@ Read more about the rationale and approach to parsing a historical language in "
 
 ## Shortest possible example
 
+Behind the scenes, Kanones builds a finite state transducer using the [Stuttgart Finite State Transducer](https://github.com/santhoshtr/sfst) (see more details about [prerequisites](https://neelsmith.github.io/Kanones.jl/stable/prereqs/)). The Julia package provides support for validating your source data, compiling and querying the transducer, and analyzing the results of parsing.
+
+
 
 !!! note
-    The example builds a parser using a sample dataset included in the Kanones.jl git repository.  See the user's manual for a fuller explanation .
+    The example builds a parser using a sample dataset included in the Kanones.jl git repository.  The following pages of the user's manual explain the organization of Kanones datasets more fully.
+
+
+
+
 
 ```@setup eg
 using Kanones
@@ -33,7 +40,7 @@ target = reporoot * "/parsers/demo/"
 
 ### Orthography and morphological dataset
 
-Load morphological data and definition of the dataset's orthography into a `Kanones.Dataset` structure.
+Start by loading morphological data and the definition of the dataset's orthography into a `Kanones.Dataset` structure.  If the orthography is not explicitly given, it defaults to `LiteraryGreekOrthography` from the `PolytonicGreek` package (as here).
 
 ```@example eg
 core_inflection = joinpath(reporoot, "datasets", "core-infl")
@@ -41,13 +48,15 @@ core_vocab = joinpath(reporoot, "datasets", "core-vocab")
 kd = dataset([core_inflection, core_vocab])
 typeof(kd)
 ```
+```@example eg
+typeof(kd.orthography)
+```
+
 
 
 ### Compile a parser
 
-- identify a directory with the core FST files from the Kanones.jl repository
-- identify a target directory where you want to compile a parser
-- compile a parser. The binary FST parser will be named `greek.a`
+In addition to the `Kanones.Dataset` you have created, identify a directory with the core FST files (normally, this will be the `fst` directory in a copy the `Kanones.jl` github repository), and a target directory where you want to compile the transducer.  The file in that directory with the binary FST parser will be named `greek.a`.
 
 
 ```@example eg
@@ -56,3 +65,32 @@ parser = buildparser(kd, fstsrc, target)
 basename(parser.sfstpath)
 ```
 
+### Parse a token
+
+Parsing an individual token returns a (possibly empty) Vector of `Analysis` objects.  In this example, only one analysis is possible for the token  "γνώμαις".
+
+```@example eg
+parses = parsetoken( "γνώμαις", parser)
+parse = parses[1]
+```
+
+
+
+### Reading an analysis
+
+Each `Analysis` object includes identifying URNs for a *form* and a *lexeme*. Numerous functions (documented in the following pages) are available when you convert the generic form to a `GreekForm`.
+
+```@example eg
+morph_form = greekForm(parse.form)
+label(morph_form)
+```
+
+If you have a dictionary of Liddell-Scott-Jones identifiers handy, you can convert the generic lexeme to a `GreekLexeme`, and label it with a lemma.  This example loads the LSJ dictionary that is included in the Kanones repository.
+
+
+```@example eg
+greeklex = GreekLexeme(parse.lexeme)
+lsjfile = joinpath(reporoot, "lsj", "lsj-lemmata.cex")
+lsj = Kanones.lsjdict(lsjfile)
+label(greeklex, lexicon  = lsj)
+```

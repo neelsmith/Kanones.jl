@@ -1,4 +1,4 @@
-@testset "Test citable trait for FiniteVerbRule" begin
+@testset ExtendedTestSet "Test citable trait for FiniteVerbRule" begin
     cexsrc = "verbinfl.wreg3rd1|w_regular|ει|third|singular|present|indicative|active"
     verbparser = Kanones.VerbIO("verbs")
     rule = Kanones.readrulerow(verbparser, cexsrc)
@@ -16,7 +16,7 @@
 
 end
 
-@testset "Test parsing a RuleUrn from a FiniteVerbRule" begin
+@testset ExtendedTestSet "Test parsing a RuleUrn from a FiniteVerbRule" begin
     cexsrc = "verbinfl.wreg3rd1|w_regular|ει|third|singular|present|indicative|active"
     verbparser = Kanones.VerbIO("verbs")
     rule = Kanones.readrulerow(verbparser, cexsrc)

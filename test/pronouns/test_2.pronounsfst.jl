@@ -1,4 +1,4 @@
-@testset "Format fst lexicon for pronoun stems" begin
+@testset ExtendedTestSet "Format fst lexicon for pronoun stems" begin
     cexsrc = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article"
     pronounio = Kanones.PronounIO("pronouns")
     stemrow = Kanones.readstemrow(pronounio, cexsrc)
@@ -8,7 +8,7 @@
 end
 
 
-@testset "Format fst rules for pronoun tokens" begin
+@testset ExtendedTestSet "Format fst rules for pronoun tokens" begin
     cexsrc = "pronounrules.pronouns1|article"
     pronounio = Kanones.PronounIO("pronouns")
     rulerow = Kanones.readrulerow(pronounio, cexsrc)

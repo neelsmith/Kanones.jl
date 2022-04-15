@@ -32,10 +32,9 @@ Attic orthography:
 using Kanones, CitableParserBuilder, Markdown, AtticGreek
 bole = LexemeUrn("lsj.n20600")
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
-attic = dataset([repo * "/datasets/attic/"]; ortho=atticGreek())
+attic = dataset([joinpath(repo, "datasets", "attic")]; ortho=atticGreek())
 Markdown.parse(mddeclension([bole], attic))
 ```
-
 
 ## Second declension types
 

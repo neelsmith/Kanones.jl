@@ -8,60 +8,81 @@ Depth = 3
 ```
 ## Morphology
 
-### Structures
 
 ```@docs
+GreekMorphologicalProperty
+GMPVoice
+gmpVoice
+GMPMood
+gmpMood
+GMPTense
+gmpTense
+GMPPerson
+gmpPerson
+GMPNumber
+gmpNumber
+GMPGender
+gmpGender
+GMPCase
+gmpCase
+GMPDegree
+gmpDegree
+GMPUninflectedType
+gmpUninflectedType
+code
+
 GreekMorphologicalForm
-Kanones.GMFUninflected
-Kanones.GMFNoun
-Kanones.GMFFiniteVerb
+KanonesStem
+KanonesRule
+greekForm
+GMFFiniteVerb
+gmfFiniteVerb
+VerbStem
+FiniteVerbRule
+GMFInfinitive
+gmfInfinitive
+InfinitiveRule
+GMFVerbalAdjective
+gmfVerbalAdjective
+VerbalAdjectiveRule
+GMFParticiple
+gmfParticiple
+ParticipleRule
+
+GMFNoun
+gmfNoun
+NounStem
+NounRule
+GMFPronoun
+gmfPronoun
+PronounStem
+PronounRule
+GMFAdjective
+gmfAdjective
+AdjectiveStem
+AdjectiveRule
+
+GMFUninflected
+gmfUninflected
+UninflectedStem
+UninflectedRule
+
+IrregularRule
+IrregularNounStem
+IrregularVerbStem
+IrregularInfinitiveStem
+
+GreekLexeme
 ```
 
-
-### Functions
 
 ```@docs
-Kanones.urn
-Kanones.cex
-Kanones.morphform
-Kanones.ruleurn
-Kanones.formscex
-Kanones.formurn
-Kanones.pospairs
-Kanones.uninflectedpairs
-Kanones.casepairs
-Kanones.personpairs
-Kanones.numberpairs
-Kanones.voicepairs
-Kanones.tensepairs
-Kanones.moodpairs
-Kanones.valuedict
-Kanones.labeldict
-Kanones.labelform
-Kanones.gmfNoun
-Kanones.nounscex
-Kanones.gmfUninflected
-
-Kanones.uninflectedcex
-Kanones.finiteverbform
-
+generate
+decline
+mddeclension
+formurn
 ```
 
-## Datasets
-
-### Structures
-
-```@docs
-Kanones.Dataset
-Kanones.KanonesIO
-Kanones.NounIO
-Kanones.NounStem
-Kanones.NounRule
-Kanones.UninflectedIO
-Kanones.UninflectedStem
-Kanones.UninflectedRule
-Kanones.VerbIO
-```
 
 ### Functions
 

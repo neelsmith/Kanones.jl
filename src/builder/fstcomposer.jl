@@ -4,11 +4,11 @@
 $(SIGNATURES)
 """
 function installalphabet(src::Kanones.Dataset, target::AbstractString)
-    targetdir = target * "/symbols/"
+    targetdir = joinpath(target,  "symbols")
     if ! ispath(targetdir)
         mkdir(targetdir)
     end
-    targetfile = targetdir * "/alphabet.fst"
+    targetfile = joinpath(targetdir, "alphabet.fst")
     lines = [
         "% Characters list supplied by dataset's orthography functions:",
         string("#consonant# = ", consonants(src.orthography)),
@@ -16,8 +16,8 @@ function installalphabet(src::Kanones.Dataset, target::AbstractString)
         "",
         string("#vowel# = ", vowels(src.orthography)),
         "",
-        "#augmentinitial# = ἐ", # SHOULD BE FUNCTION OUTPUT
-        "#augmentmedial# = ε" # SHOULD BE FUNCTION OUTPUT
+        string("#augmentinitial# = ", augment_initial(src.orthography)),
+        string("#augmentmedial# = ", augment_medial(src.orthography))
     ]
     open(targetfile, "w") do io
         write(io, join(lines,"\n"))
@@ -30,21 +30,21 @@ end
 $(SIGNATURES)
 """
 function installsymbols(src::AbstractString, target::AbstractString)
-    targetdir = target * "/symbols/"
+    targetdir = joinpath(target, "symbols")
     if ! ispath(targetdir)
         mkdir(targetdir)
     end
     fstfiles = ["markup.fst", "morphsymbols.fst", "stemtypes.fst"]
     for fst in fstfiles
-        srcfile = src * "/symbols/" * fst
-        targetfile = targetdir * fst
+        srcfile = joinpath(src, "symbols", fst)
+        targetfile = joinpath(targetdir, fst)
         cp(srcfile, targetfile)
     end
-    toplevel = target * "/symbols.fst"
+    toplevel = joinpath(target, "symbols.fst")
     open(toplevel, "w") do io
         print(io, symbolsfst(target))
     end
-    phonologyfst = open(src * "/symbols/phonology.fst","r") do phonology
+    phonologyfst = open(joinpath(src, "symbols", "phonology.fst"),"r") do phonology
         read(phonology, String)
     end
     prefix = join([
@@ -56,7 +56,7 @@ function installsymbols(src::AbstractString, target::AbstractString)
         "% Basic alphabet specific to this orthographic system:",
         "#include \"" * target * "/symbols/alphabet.fst\""
     ], "\n")
-    open(target * "/symbols/phonology.fst", "w") do io
+    open(joinpath(target, "symbols", "phonology.fst"), "w") do io
         print(io, prefix * "\n\n" * phonologyfst * "\n")
     end
     

@@ -1,4 +1,4 @@
-@testset "Read rules for infinitives from delimited text" begin
+@testset ExtendedTestSet "Read rules for infinitives from delimited text" begin
     cexsrc = "infinfl.wreg1|w_regular|ειν|present|active"
     infinparser = Kanones.InfinitiveIO("infinitives")
     rule = Kanones.readrulerow(infinparser, cexsrc)
@@ -14,7 +14,7 @@ end
 # those are tested.
 
 
-@testset "Read stems for irregular infinitives from delimited text" begin
+@testset ExtendedTestSet "Read stems for irregular infinitives from delimited text" begin
     cexsrc = "irreginf.irreginfln26447a|lsj.n26447|διδόναι|present|active|irregularinfinitive"
     irreginfio = Kanones.IrregularInfinitiveIO("irregular infinitives")
     stem = Kanones.readstemrow(irreginfio, cexsrc)

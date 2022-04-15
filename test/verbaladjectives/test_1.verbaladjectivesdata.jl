@@ -1,4 +1,4 @@
-@testset "Read rules for verbal adjective tokens from delimited text" begin
+@testset ExtendedTestSet "Read rules for verbal adjective tokens from delimited text" begin
     cexsrc = "vadjinfl.econtr1|ew_contract|ητέον|neuter|nominative|singular|"
     vadjparser = Kanones.VerbalAdjectiveIO("verbal adjective")
     rule = Kanones.readrulerow(vadjparser, cexsrc)

@@ -1,13 +1,67 @@
 """Abstract type of a morphological form in Kanones."""
 abstract type GreekMorphologicalForm end
 
+
+"""Create a `GreekMorphologicalForm` from a `FormUrn`.
+$(SIGNATURES)
+"""
+function greekForm(u::CitableParserBuilder.FormUrn)
+    if poslabel(u) == "noun"
+        gmfNoun(u)
+    elseif poslabel(u)== "pronoun"
+        gmfPronoun(u)
+    elseif poslabel(u) == "adjective"
+        gmfAdjective(u)
+    
+    elseif poslabel(u)== "verb-finite"
+        gmfFiniteVerb(u)
+    elseif poslabel(u)== "infinitive"
+        gmfInfinitive(u)
+    elseif poslabel(u)== "participle"
+        gmfParticiple(u)
+    elseif poslabel(u)== "verbal-adjective"
+        gmfVerbalAdjective(u)
+
+    elseif poslabel(u)== "adverb"
+        throw(DomainError("Unrecognized PoS $(poslabel(u)) from $(u)"))
+ 
+    elseif poslabel(u) == "uninflected"
+        gmfUninflected(u)
+        
+    else
+        throw(DomainError("Unrecognized PoS $(poslabel(u)) from $(u)"))
+    end
+end
+
+"""Create a `GreekMorphologicalForm` from a `u`, a `Cite2Urn` identifying a form.
+$(SIGNATURES)
+"""
+function greekForm(u::Cite2Urn)
+    greekForm(abbreviate(u))
+end
+
+
+"""Create a `GreekMorphologicalForm` from the string value of a `FormUrn`.
+$(SIGNATURES)
+"""
+function greekForm(s::AbstractString)
+    greekForm(CitableParserBuilder.FormUrn(s))
+end
+
+"""Create a `GreekMorphologicalForm` from the `FormUrn` in `a`.
+$(SIGNATURES)
+"""
+function greekForm(a::Analysis)
+    greekForm(a.form)
+end
+
 """Generic function to convert form information in a `GreekMorphologicalForm`
 to a `FormUrn`.
 
 $(SIGNATURES)
 """
-function formurn(rule::T) where {T <: FormUrn}
-    @warn "Function formurn not implemented for type $typeof(rule)."
+function formurn(form::T) where {T <: FormUrn}
+    @warn "Function formurn not implemented for type $typeof(form)."
     nothing
 end
 

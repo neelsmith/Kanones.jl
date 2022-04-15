@@ -1,4 +1,4 @@
-@testset "Read rules for noun tokens from delimited text" begin
+@testset ExtendedTestSet "Read rules for noun tokens from delimited text" begin
     cexsrc = "nouninfl.h_hs2|h_hs|ης|feminine|genitive|singular|recessive"
     nounparser = Kanones.NounIO("nouns")
     rule = Kanones.readrulerow(nounparser, cexsrc)
@@ -11,7 +11,7 @@
 end
 
 
-@testset "Read stems for noun tokens from delimited text"  begin    
+@testset ExtendedTestSet "Read stems for noun tokens from delimited text"  begin    
     cexsrc = "nounstems.n22502|lexent.n22502|γνωμ|feminine|h_hs|recessive|"
     nounsio = Kanones.NounIO("nouns")
     stem = Kanones.readstemrow(nounsio, cexsrc)
@@ -24,7 +24,7 @@ end
 end
 
 
-@testset "Read stems for irregular noun tokens from delimited text" begin
+@testset ExtendedTestSet "Read stems for irregular noun tokens from delimited text" begin
     cexsrc = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
     irregnounio = Kanones.IrregularNounIO("irregular nouns")
     stem = Kanones.readstemrow(irregnounio, cexsrc)

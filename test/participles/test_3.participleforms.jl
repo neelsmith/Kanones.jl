@@ -1,4 +1,4 @@
-@testset "Test parsing a GMFParticiple from SFST output" begin
+@testset ExtendedTestSet "Test parsing a GMFParticiple from SFST output" begin
     sfst =  "<participle>ομενον<present><middle><masculine><accusative><singular><u>ptcplinfl.wpres4</u>"
 #<u>verbstems.n56496</u><u>lsj.n56496</u><stem>κελευ<finiteverb><w_regular><div><w_regular><participle>ομενον<present><middle><masculine><accusative><singular><u>ptcplinfl.wpres4</u>
 

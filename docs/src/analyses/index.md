@@ -39,7 +39,7 @@ analyses = parsetoken("κελεύσει", parser)
 
 ### Analyses
 
-Each analysis has a form of the token stripped of accents, plus four objects with special types of Cite2URNs
+Each analysis has a modified form of the token, plus four objects with special types of Cite2URNs. The modified form removes all accents, and explicitly marks morpheme boundaries in verb forms (using the `#` character).
 
 ```@example analysisexample  
 a1 = analyses[1]
@@ -52,26 +52,34 @@ The two most important URNs are the *lexeme* and the *form*.
 a1.lexeme
 ```
 
+You can convert this to a `GreekLexeme`, and use it together with a dictionary of Liddell-Short-Jones lemmata for more readable labelling.  (The `Kanones.jl` github repository includes a dictionary of LSJ lemmata in the `lsj` directory, as illustrated in this example.)
+
+```@example analysisexample
+lsjfile = joinpath(reporoot, "lsj", "lsj-lemmata.cex")
+lsj = Kanones.lsjdict(lsjfile)
+
+greeklex = GreekLexeme(a1.lexeme)
+label(greeklex, lexicon  = lsj)
+```
+
+
+Use the `greekForm` function to create a rich object model of the morphological form (a subtype of `GreekMorphologicalForm`).
+
+
 ```@example analysisexample
 a1.form
 ```
 
-You can use the `labelform` function to get a human-readable label for a form.
-
-
 ```@example analysisexample
-Kanones.labelform(a1.form.objectid)
+mform = greekForm(a1.form)
+label(mform)
 ```
+ 
+
 
 ### Working with analyses
 
-Get a morphform for the analysis.  You can give `morphform` just about anything you can think of (`Cite2Urn`, `FormUrn`, string, for example).  Here, we'll just get it directly from the `Analysis`.
 
-
-
-```@example analysisexample
-mform = Kanones.morphform(a1)
-```
 
 
 We can check the type of form, and get appropriate information for that type.
@@ -87,7 +95,7 @@ tensedata
 ```@example analysisexample
 analyses2 = parsetoken("δωρα", parser)
 a2 = analyses2[1]
-form2 = Kanones.morphform(a2)
+form2 = greekForm(a2.form)
 genderdata = if isa(form2, GMFNoun)
         (form2.ngender)
 else
@@ -108,6 +116,3 @@ registry = Dict(
 )
 expanded = expand(a1.form, registry)
 ```
-
-
- 
