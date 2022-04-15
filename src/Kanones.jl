@@ -63,7 +63,8 @@ export GreekLexeme
 export generate
 export decline, mddeclension
 
-export urn, ruleurn
+export urn, formurn
+export ruleurn # ??
 
 include("parse.jl")
 include("listparsing.jl")

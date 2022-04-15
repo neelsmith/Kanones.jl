@@ -1,6 +1,6 @@
 # Kanones.jl
 
-*Build corpus-specific parsers for ancient Greek texts in a specified orthography*.
+> ☛ *Build corpus-specific parsers for ancient Greek texts in a specified orthography*.
 
 Kanones.jl lets you build morphological parsers for ancient Greek.  It works with three central concepts: 
 
@@ -24,7 +24,7 @@ Behind the scenes, Kanones builds a finite state transducer using the [Stuttgart
 
 
 !!! note
-    The example builds a parser using a sample dataset included in the Kanones.jl git repository.  See the user's manual for a fuller explanation .
+    The example builds a parser using a sample dataset included in the Kanones.jl git repository.  The following pages of the user's manual explain the organization of Kanones datasets more fully.
 
 
 
@@ -78,11 +78,14 @@ parse = parses[1]
 
 ### Reading an analysis
 
-Each `Analysis` object includes identifying URNs for a *form* and a *lexeme*.
+Each `Analysis` object includes identifying URNs for a *form* and a *lexeme*. Numerous functions (documented in the following pages) are available when you convert the generic form to a `GreekForm`.
 
+```@example eg
+morph_form = greekForm(parse.form)
+label(morph_form)
+```
 
-
-If you have a dictionary of Liddell-Scott-Jones identifiers handy, you can convert the generic lexeme to a `GreekLexem`, and label it with a lemma.  This example loads the LSJ dictionary that is included in the Kanones repository.
+If you have a dictionary of Liddell-Scott-Jones identifiers handy, you can convert the generic lexeme to a `GreekLexeme`, and label it with a lemma.  This example loads the LSJ dictionary that is included in the Kanones repository.
 
 
 ```@example eg

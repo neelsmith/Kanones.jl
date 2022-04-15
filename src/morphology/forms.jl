@@ -33,6 +33,28 @@ function greekForm(u::CitableParserBuilder.FormUrn)
     end
 end
 
+"""Create a `GreekMorphologicalForm` from a `u`, a `Cite2Urn` identifying a form.
+$(SIGNATURES)
+"""
+function greekForm(u::Cite2Urn)
+    greekForm(abbreviate(u))
+end
+
+
+"""Create a `GreekMorphologicalForm` from the string value of a `FormUrn`.
+$(SIGNATURES)
+"""
+function greekForm(s::AbstractString)
+    greekForm(CitableParserBuilder.FormUrn(s))
+end
+
+"""Create a `GreekMorphologicalForm` from the `FormUrn` in `a`.
+$(SIGNATURES)
+"""
+function greekForm(a::Analysis)
+    greekForm(a.form)
+end
+
 """Generic function to convert form information in a `GreekMorphologicalForm`
 to a `FormUrn`.
 

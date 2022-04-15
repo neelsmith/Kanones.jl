@@ -10,7 +10,7 @@ $(SIGNATURES)
 Because uninflected  forms record a full, accented string in their stem record,
 all we have to do is find matching stem records, and extract their `form` members.
 """
-function generateuninflected(analysis::Analysis, kd::Kanones.Dataset; ortho::T = literaryGreek()) where { T <: GreekOrthography}
+function generateuninflected(analysis::Analysis, kd::Kanones.Dataset; ortho::T = literaryGreek())::Vector{AbstractString} where { T <: GreekOrthography}
     # Find stem record corresponding to this analysis.
     stems = stemsarray(kd)
     matches = filter(s -> s.lexid == analysis.lexeme, stems)

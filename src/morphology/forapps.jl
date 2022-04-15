@@ -16,8 +16,9 @@ function decline(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = false
     else
         gender = stemmatches[1].gender
         # Find gender and construct form ids:
-        genderdict = labeldict(genderpairs)
-        genderint = genderdict[stemmatches[1].gender]
+        genderint = Kanones.code(gender)
+
+
         sg = [
             FormUrn("morphforms.201000$(genderint)100"),
             FormUrn("morphforms.201000$(genderint)200"),
@@ -65,7 +66,6 @@ end
 $(SIGNATURES)
 """
 function mddeclension(lexlist::Array, kd::Kanones.Dataset; withvocative::Bool = false)
-    columns = []
     labels = ["nominative", "genitive", "dative", "accusative"]
     gendervalues = genders(lexlist, kd)
     inflclasses = stemtypes(lexlist, kd)
@@ -120,11 +120,10 @@ end
 
 $(SIGNATURES)
 """
-function genders(lexlist::Array, kd::Kanones.Dataset)
+function genders(lexlist, kd::Kanones.Dataset)
     stems = stemsarray(kd)
     nounstems = filter(s -> typeof(s) == NounStem, stems)
 
-    genderdict = labeldict(genderpairs)
     genderlist = []
     for lex in lexlist
         stemmatches = filter(s -> s.lexid == lex, nounstems)
@@ -133,9 +132,7 @@ function genders(lexlist::Array, kd::Kanones.Dataset)
             push!(genderlist, nothing)
     
         else
-            gender = stemmatches[1].gender
-            # Find gender and construct form ids:
-            push!(genderlist, genderdict[gender])
+            push!(genderlist, code(gmpGender(stemmatches[1])))
         end
     end
     genderlist

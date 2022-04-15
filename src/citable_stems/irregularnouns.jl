@@ -63,7 +63,7 @@ a function to create form urns directory from this.
 """
 function abbrformurn(irregstem::IrregularNounStem)
 
-    casedict = labeldict(casepairs)
+    casedict = ...
     # PosPNTMVGCDCat
     FormUrn(string("morphforms.", NOUN,"0", code(irregstem.gnumber),"000",code(irregstem.gender),code(irregstem.gcase),"00"))
 end
