@@ -25,4 +25,59 @@ end
     #@test vb.moodlabel == "indicative"
     #@test vb.voicelabel == "active"
 end
+
+
+
+@testset "Test composing form objects from parse output" begin
+    d = tempdir()
+    repo = dirname(pwd())
+    infl = joinpath(repo, "datasets", "core-infl")
+    vocab = joinpath(repo, "datasets", "core-vocab")
+    kd = Kanones.Dataset([infl, vocab])
+    fst =  joinpath(repo, "fst")
+    fullpath = joinpath(d, "testcompile")
+    if isdir(fullpath)
+        rm(fullpath; recursive = true)
+    end
+    parser = FstBuilder.buildparser(kd,fst, fullpath)
+
+    parse1 = parsetoken("κελεύσει", parser)[1]
+    vb = greekForm(parse1.form)
+    @test vb isa GMFFiniteVerb
+
+    parse2 = parsetoken("γνώμαις", parser)[1]
+    noun = greekForm(parse2.form)
+    @test noun isa GMFNoun
+
+    parse3 = parsetoken("καλός", parser)[1]
+    adj = greekForm(parse3.form)
+    @test adj isa GMFAdjective
+
+    parse4 = parsetoken("τοῦ", parser)[1]
+    pron = greekForm(parse4.form)
+    @test pron isa GMFPronoun
+
+    parse5 = parsetoken("κελεύειν", parser)[1]
+    inf = greekForm(parse5.form)
+    @test inf isa GMFInfinitive
+
+    parse6 = parsetoken("κελευόμενον", parser)[1]
+    ptcpl = greekForm(parse6.form)
+    @test ptcpl isa GMFParticiple
+
+    parse7 = parsetoken("κελευτέον", parser)[1]
+    vadj = greekForm(parse7.form)
+    @test vadj isa GMFVerbalAdjective
+
+    parse8 = parsetoken("γάρ", parser)[1]
+    uninfl = greekForm(parse8.form)
+    @test uninfl isa GMFUninflected
+
+    parse9 = parsetoken("καλῶς", parser)
+    @test_broken ! isempty(parse9)
+    # Not yet implemented
+
+end
+
+
 end
