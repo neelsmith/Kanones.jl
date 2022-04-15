@@ -39,6 +39,7 @@ export GMPGender, gmpGender
 export GMPCase, gmpCase
 export GMPDegree, gmpDegree
 export GMPUninflectedType, gmpUninflectedType
+export code
 
 export GreekMorphologicalForm, KanonesStem, KanonesRule
 export greekForm

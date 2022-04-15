@@ -67,18 +67,17 @@ function selectregularnoun(form, stem, rules, ortho::GreekOrthography)::Vector{A
                 push!(msgs,clean)
 
             else 
-            #=
-                casedict = valuedict(casepairs)
-                morphchars = split(form.objectid,"")
-                ncase = parse(Int64, morphchars[8])
-                if casedict[ncase] == "genitive" || casedict[ncase] == "dative"
+                # place correct accent on ultima:
+                @debug("ACC.ULTIMA:", r)
+                caselabel = label(greekForm(form).ncase)   
+                if caselabel == "genitive" || caselabel == "dative"
                     push!(msgs,  stripmetachars(accentultima(r, :CIRCUMFLEX, ortho)))
                     
                 else
                     push!(msgs, stripmetachars(accentultima(r, :ACUTE, ortho)))
                     
                 end
-                =#
+            
             end
         end
     end  
