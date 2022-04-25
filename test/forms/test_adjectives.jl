@@ -11,6 +11,21 @@
 
     # round-trip a FormUrn
     abbrurn = formurn(adj)
-    
+    expectedabbr = FormUrn("forms.7030002410")
+    @test abbrurn == expectedabbr
+    @test adj == gmfAdjective(abbrurn)
 
+    # round-trip a digital code
+    adjcode = code(adj)
+    expectedcode = "7030002410"
+    @test adjcode == expectedcode
+    @test adj == gmfAdjective(adjcode)
+end
+
+@testset "Test property accessors" begin
+    adj = GMFAdjective(gmpGender("feminine"), gmpCase("accusative"), gmpNumber("plural"), gmpDegree("positive"))   
+    @test label(gmpGender(adj)) == "feminine"
+    @test label(gmpCase(adj)) == "accusative"
+    @test label(gmpNumber(adj)) == "plural"
+    @test label(gmpDegree(adj)) == "positive"
 end
