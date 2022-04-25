@@ -20,7 +20,7 @@ makedocs(
     sitename="Kanones.jl",
     pages = [
         "Home" => "index.md",
-        
+        #=
         "Background" => "bg/index.md",
         "Manual" => Any[
             "Prerequisites" => "prereqs.md",
@@ -43,7 +43,7 @@ makedocs(
             "FST" =>  "fst/index.md",
             
         ]
-       
+       =#
      
     ],
     )

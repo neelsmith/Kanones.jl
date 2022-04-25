@@ -15,7 +15,7 @@ using CitableCorpus
 using CitableObject
 using Orthography, PolytonicGreek, AtticGreek
 using Unicode, Glob, DelimitedFiles
-using CSV, HTTP
+using CSV
 using Documenter, DocStringExtensions
 
 using CitableBase: Citable
@@ -67,6 +67,7 @@ export decline, mddeclension
 export urn, formurn
 export ruleurn # ??
 
+#=
 include("parse.jl")
 include("listparsing.jl")
 include("utils.jl")
@@ -82,12 +83,15 @@ include("generator/nounsgen.jl")
 
 include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
-
+=#
 include("morphology/forms.jl")
+
+#=
 include("citable_stems/stems.jl")
 include("citable_rules/rules.jl")
-
+=#
 include("morphologicalproperties/properties.jl")
+
 include("morphologicalproperties/tense.jl")
 include("morphologicalproperties/mood.jl")
 include("morphologicalproperties/voice.jl")
@@ -98,11 +102,12 @@ include("morphologicalproperties/case.jl")
 include("morphologicalproperties/degree.jl")
 include("morphologicalproperties/uninflectedtype.jl")
 
+
 include("morphology/formvalues.jl")
-include("morphology/forapps.jl")
+#include("morphology/forapps.jl")
 include("morphology/kanonesformurns.jl")
 include("morphology/irregularmorphology.jl")
-
+#=
 include("citable_rules/irregulars.jl")
 
 include("citable_forms/finiteverbs.jl")
@@ -148,8 +153,10 @@ include("propertyaccessors/infinitives.jl")
 include("propertyaccessors/participles.jl")
 include("propertyaccessors/uninflecteds.jl")
 include("propertyaccessors/verbaladjectives.jl")
+=#
 
 
+#=
 "Submodule to read a Kanones Dataset and build SFST parser."
 module FstBuilder
     import ..Kanones
@@ -183,5 +190,5 @@ module FstBuilder
     include("builder/participlesfst.jl")
     include("builder/verbaladjectivesfst.jl")
 end
-
+=#
 end # module

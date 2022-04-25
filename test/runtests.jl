@@ -1,10 +1,12 @@
 using Kanones
-using Kanones.FstBuilder
 using CitableObject, CitableParserBuilder
 using CitableCorpus, CitableText
 using PolytonicGreek, Orthography
 using Test
 
+include("properties/test_properties.jl")
+
+#=
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
 include("test_morphforms.jl")
@@ -83,3 +85,4 @@ include("accessors/test_infinitiveaccessors.jl")
 include("accessors/test_ptcplaccessors.jl")
 include("accessors/test_vadjaccessors.jl")
 include("accessors/test_uninflectedaccessors.jl")
+=#
