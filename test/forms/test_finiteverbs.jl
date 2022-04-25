@@ -15,4 +15,12 @@
     @test abbrurn == expectedabbr
     @test gmfFiniteVerb(abbrurn) == verb
 
+    # test roundtripping code
+
+end
+
+
+
+@testset "Test property accessors and labelling" begin
+    ## TBA
 end
