@@ -9,6 +9,7 @@ include("properties/test_properties.jl")
 include("forms/test_adjectives.jl")
 include("forms/test_adverbs.jl")
 include("forms/test_finiteverbs.jl")
+include("forms/test_infinitives.jl")
 
 #=
 include("test_morphologyids.jl")
