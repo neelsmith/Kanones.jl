@@ -20,7 +20,9 @@
 end
 
 
-@testset "Test property accessors" begin
+@testset "Test property accessors and labelling" begin
     adv = GMFAdverb(gmpDegree("comparative"))
     @test gmpDegree(adv) == gmpDegree(2)
+
+    @test label(adv) == "adverb: comparative degree"
 end

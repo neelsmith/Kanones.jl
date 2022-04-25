@@ -22,10 +22,12 @@
     @test adj == gmfAdjective(adjcode)
 end
 
-@testset "Test property accessors" begin
+@testset "Test property accessors and labelling" begin
     adj = GMFAdjective(gmpGender("feminine"), gmpCase("accusative"), gmpNumber("plural"), gmpDegree("positive"))   
     @test label(gmpGender(adj)) == "feminine"
     @test label(gmpCase(adj)) == "accusative"
     @test label(gmpNumber(adj)) == "plural"
     @test label(gmpDegree(adj)) == "positive"
+
+    @test label(adj) == "adjective:  feminine accusative plural positive"
 end

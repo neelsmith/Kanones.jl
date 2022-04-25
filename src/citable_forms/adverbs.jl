@@ -3,6 +3,10 @@ struct GMFAdverb <: GreekMorphologicalForm
     advdegree::GMPDegree
 end
 
+function label(adv::GMFAdverb)
+    string("adverb: ", label(adv.advdegree), " degree")
+end
+
 """Construct a `GMFAdverb` from a digital code.
 $(SIGNATURES)
 """

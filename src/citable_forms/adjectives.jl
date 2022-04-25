@@ -55,7 +55,7 @@ end
 $(SIGNATURES)
 """
 function label(adj::GMFAdjective)
-    join([label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree)], " ")
+    join(["adjective: ", label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree)], " ")
 end
 
 """Compose a digital code for `adj`.
