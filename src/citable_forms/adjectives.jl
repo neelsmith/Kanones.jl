@@ -62,6 +62,7 @@ end
 $(SIGNATURES)
 """
 function code(adj::GMFAdjective)
+    # PosPNTMVGCDCat
     string(ADJECTIVE,"0",code(adj.adjnumber),"000", code(adj.adjgender),code(adj.adjcase),code(adj.adjdegree),"0")
 end
 
@@ -70,7 +71,6 @@ end
 $(SIGNATURES)
 """
 function urn(adj::GMFAdjective)
-      # PosPNTMVGCDCat
       Cite2Urn(BASE_MORPHOLOGY_URN * code(adj))
 end
 
