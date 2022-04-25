@@ -84,7 +84,7 @@ include("generator/nounsgen.jl")
 include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
 =#
-include("morphology/forms.jl")
+include("citable_forms/forms.jl")
 
 #=
 include("citable_stems/stems.jl")
@@ -103,48 +103,49 @@ include("morphologicalproperties/degree.jl")
 include("morphologicalproperties/uninflectedtype.jl")
 
 
-include("morphology/formvalues.jl")
+include("citable_forms/formvalues.jl")
 #include("morphology/forapps.jl")
-include("morphology/kanonesformurns.jl")
-include("morphology/irregularmorphology.jl")
-#=
-include("citable_rules/irregulars.jl")
+#include("citable_forms/kanonesformurns.jl")
+#include("citable_forms/irregularmorphology.jl")
+
+#include("citable_rules/irregulars.jl")
 
 include("citable_forms/finiteverbs.jl")
-include("citable_stems/verbs.jl")
-include("citable_stems/irregularverbs.jl")
-include("citable_rules/finiteverbs.jl")
+#include("citable_stems/verbs.jl")
+#include("citable_stems/irregularverbs.jl")
+#include("citable_rules/finiteverbs.jl")
 
 # regular stems are drawn from finite verb stems
 include("citable_forms/infinitives.jl")
-include("citable_stems/irregularinfinitives.jl")
-include("citable_rules/infinitives.jl")
+#include("citable_stems/irregularinfinitives.jl")
+#include("citable_rules/infinitives.jl")
 
 include("citable_forms/participles.jl")
-include("citable_rules/participles.jl")
+#include("citable_rules/participles.jl")
 
 include("citable_forms/verbaladjectives.jl")
-include("citable_rules/verbaladjectives.jl")
+#include("citable_rules/verbaladjectives.jl")
 
 include("citable_forms/nouns.jl")
-include("citable_stems/regularnouns.jl")
-include("citable_stems/irregularnouns.jl")
-include("citable_rules/nouns.jl")
+#include("citable_stems/regularnouns.jl")
+#include("citable_stems/irregularnouns.jl")
+#include("citable_rules/nouns.jl")
 
 include("citable_forms/adjectives.jl")
-include("citable_rules/adjectives.jl")
-include("citable_stems/regularadjectives.jl")
-include("citable_stems/irregularadjectives.jl")
+#include("citable_rules/adjectives.jl")
+#include("citable_stems/regularadjectives.jl")
+#include("citable_stems/irregularadjectives.jl")
 
 include("citable_forms/pronouns.jl")
-include("citable_stems/pronouns.jl")
-include("citable_rules/pronouns.jl")
+#include("citable_stems/pronouns.jl")
+#include("citable_rules/pronouns.jl")
 
 
 include("citable_forms/uninflected.jl")
-include("citable_stems/uninflected.jl")
-include("citable_rules/uninflected.jl")
+#include("citable_stems/uninflected.jl")
+#include("citable_rules/uninflected.jl")
 
+#=
 include("propertyaccessors/adjectives.jl")
 include("propertyaccessors/nouns.jl")
 include("propertyaccessors/pronouns.jl")
