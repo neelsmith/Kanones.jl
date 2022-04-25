@@ -19,7 +19,7 @@
     @test isa(parse1, Analysis)
     @test parse1.token == "καλος"
     @test parse1.lexeme == LexemeUrn("lsj.n52840")
-    @test parse1.form == FormUrn("morphforms.7010001110")
+    @test parse1.form == FormUrn("$(COLLECTION_ID).7010001110")
     @test parse1.stem == StemUrn("adjstems.n52840a")
     @test parse1.rule == RuleUrn("adjinfl.os_h_on_pos1")
 end

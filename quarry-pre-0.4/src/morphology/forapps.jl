@@ -20,17 +20,17 @@ function decline(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = false
 
 
         sg = [
-            FormUrn("morphforms.201000$(genderint)100"),
-            FormUrn("morphforms.201000$(genderint)200"),
-            FormUrn("morphforms.201000$(genderint)300"),
-            FormUrn("morphforms.201000$(genderint)400")
+            FormUrn("$(COLLECTION_ID).201000$(genderint)100"),
+            FormUrn("$(COLLECTION_ID).201000$(genderint)200"),
+            FormUrn("$(COLLECTION_ID).201000$(genderint)300"),
+            FormUrn("$(COLLECTION_ID).201000$(genderint)400")
         ]
         # No duals by default
         pl = [
-            FormUrn("morphforms.203000$(genderint)100"),
-            FormUrn("morphforms.203000$(genderint)200"),
-            FormUrn("morphforms.203000$(genderint)300"),
-            FormUrn("morphforms.203000$(genderint)400")
+            FormUrn("$(COLLECTION_ID).203000$(genderint)100"),
+            FormUrn("$(COLLECTION_ID).203000$(genderint)200"),
+            FormUrn("$(COLLECTION_ID).203000$(genderint)300"),
+            FormUrn("$(COLLECTION_ID).203000$(genderint)400")
         ]
 
         rules = rulesarray(kd)
@@ -84,7 +84,7 @@ function mddeclension(lexlist::Array, kd::Kanones.Dataset; withvocative::Bool = 
     for y in 1:length(labels)
         row =  string("| **", labels[y], "** | ")   
         for x in 1:length(lexlist)
-            form = FormUrn("morphforms.201000$(gendervalues[x])$(y)00")
+            form = FormUrn("$(COLLECTION_ID).201000$(gendervalues[x])$(y)00")
             surface = generatenoun( form, lexlist[x], kd)
             row = row * string(join(surface, ", "),  " | ")
 
@@ -105,7 +105,7 @@ function mddeclension(lexlist::Array, kd::Kanones.Dataset; withvocative::Bool = 
     for y in 1:length(labels)
         row =  string("| **", labels[y], "** | ")   
         for x in 1:length(lexlist)
-            form = FormUrn("morphforms.203000$(gendervalues[x])$(y)00")
+            form = FormUrn("$(COLLECTION_ID).203000$(gendervalues[x])$(y)00")
             surface = generatenoun( form, lexlist[x], kd)
             row = row * string(join(surface, ", "),  " | ")
         end

@@ -21,5 +21,5 @@ end
     pronounio = Kanones.PronounIO("pronouns")
     stem = Kanones.readstemrow(pronounio, cexsrc)
 
-    @test ruleurn(stem) == RuleUrn("morphforms.9010001100")
+    @test ruleurn(stem) == RuleUrn("$(COLLECTION_ID).9010001100")
 end

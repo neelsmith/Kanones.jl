@@ -68,7 +68,7 @@ end
 $(SIGNATURES)
 """
 function formurn(gmfNoun::GMFNoun)
-    FormUrn(string("morphforms.", NOUN,"0",code(gmfNoun.nnumber),"000", code(gmfNoun.ngender), code(gmfNoun.ncase), "00"))
+    FormUrn(string("$(COLLECTION_ID).", NOUN,"0",code(gmfNoun.nnumber),"000", code(gmfNoun.ngender), code(gmfNoun.ncase), "00"))
 end
 
 """Compose a FormUrn for a noun form from FST representation of analytical data.

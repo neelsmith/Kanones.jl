@@ -65,7 +65,7 @@ function abbrformurn(irregstem::IrregularNounStem)
 
     casedict = ...
     # PosPNTMVGCDCat
-    FormUrn(string("morphforms.", NOUN,"0", code(irregstem.gnumber),"000",code(irregstem.gender),code(irregstem.gcase),"00"))
+    FormUrn(string("$(COLLECTION_ID).", NOUN,"0", code(irregstem.gnumber),"000",code(irregstem.gender),code(irregstem.gcase),"00"))
 end
 =#
 

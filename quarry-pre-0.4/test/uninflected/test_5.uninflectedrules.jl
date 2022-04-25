@@ -20,5 +20,5 @@ end
     uninfl = Kanones.UninflectedIO("uninflected")
     stem = Kanones.readstemrow(uninfl, cexsrc)
 
-    @test ruleurn(stem) == RuleUrn("morphforms.1000000001")
+    @test ruleurn(stem) == RuleUrn("$(COLLECTION_ID).1000000001")
 end

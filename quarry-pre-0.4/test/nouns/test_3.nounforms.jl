@@ -8,7 +8,7 @@
 end
 
 @testset "Test parsing a GMFNoun from a FormUrn" begin
-    frm = FormUrn("morphforms.2010001100")
+    frm = FormUrn("$(COLLECTION_ID).2010001100")
     @test Kanones.gmfNoun(frm) == GMFNoun(GMPGender(1), GMPCase(1), GMPNumber(1))
 end
 
@@ -16,7 +16,7 @@ end
     noun = GMFNoun(GMPGender(2), GMPCase(1), GMPNumber(1))
 
     formU = Kanones.formurn(noun)
-    @test formU == FormUrn("morphforms.2010002100")
+    @test formU == FormUrn("$(COLLECTION_ID).2010002100")
 
     @test Kanones.poscode(formU) == 2
     @test Kanones.poslabel(formU) == "noun"
@@ -55,6 +55,6 @@ end
     @test urn(noun) == Cite2Urn("urn:cite2:kanones:morphforms.v1:2010002100")
     @test label(noun) == "feminine nominative singular"
     @test cex(noun) == "urn:cite2:kanones:morphforms.v1:2010002100|feminine nominative singular"
-    @test Kanones.formurn(noun) ==  FormUrn("morphforms.2010002100")
+    @test Kanones.formurn(noun) ==  FormUrn("$(COLLECTION_ID).2010002100")
 end
 

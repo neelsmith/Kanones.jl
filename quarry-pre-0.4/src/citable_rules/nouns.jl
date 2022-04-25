@@ -94,6 +94,6 @@ $(SIGNATURES)
 """
 function formurn(rule::NounRule)
     # PosPNTMVGCDCat
-    FormUrn(string("morphforms.", NOUN,"0",code(rule.nnumber),"000",code(rule.ngender),code(rule.ncase),"00"))
+    FormUrn(string("$(COLLECTION_ID).", NOUN,"0",code(rule.nnumber),"000",code(rule.ngender),code(rule.ncase),"00"))
 end
 

@@ -20,5 +20,5 @@ end
     nounparser = Kanones.NounIO("nouns")
     rule = Kanones.readrulerow(nounparser, cexsrc)
 
-    @test ruleurn(rule) == RuleUrn("morphforms.2010002200")
+    @test ruleurn(rule) == RuleUrn("$(COLLECTION_ID).2010002200")
 end

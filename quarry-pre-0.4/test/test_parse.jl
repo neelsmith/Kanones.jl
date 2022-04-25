@@ -46,7 +46,7 @@ end
     @test analyzed.lexeme.collection == expectedlex.collection
     @test analyzed.lexeme.objectid == expectedlex.objectid
 
-    expectedform = FormUrn("morphforms.1000000001")
+    expectedform = FormUrn("$(COLLECTION_ID).1000000001")
     @test analyzed.form.collection == expectedform.collection
     @test analyzed.form.objectid == expectedform.objectid
 

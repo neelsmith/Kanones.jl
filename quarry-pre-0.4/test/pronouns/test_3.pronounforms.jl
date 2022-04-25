@@ -7,7 +7,7 @@ end
 
 
 @testset ExtendedTestSet "Test parsing a GMFPronoun from a FormUrn" begin
-    frm = FormUrn("morphforms.9010001200")
+    frm = FormUrn("$(COLLECTION_ID).9010001200")
     @test Kanones.gmfPronoun(frm) == GMFPronoun(GMPGender(1), GMPCase(2), GMPNumber(1))
 end
 
@@ -15,7 +15,7 @@ end
 @testset ExtendedTestSet "Test parsing a FormUrn from a GMFPronoun" begin
     pronoun = GMFPronoun(GMPGender(1), GMPCase(2), GMPNumber(1))
     formU = Kanones.formurn(pronoun)
-    @test formU == FormUrn("morphforms.9010001200")
+    @test formU == FormUrn("$(COLLECTION_ID).9010001200")
 
     @test Kanones.poscode(formU) == 9
     @test Kanones.poslabel(formU) == "pronoun"
@@ -54,5 +54,5 @@ end
     @test urn(pronoun) == Cite2Urn("urn:cite2:kanones:morphforms.v1:9010001200")
     @test label(pronoun) == "masculine genitive singular"
     @test cex(pronoun) == "urn:cite2:kanones:morphforms.v1:9010001200|masculine genitive singular"
-    @test Kanones.formurn(pronoun) ==  FormUrn("morphforms.9010001200")
+    @test Kanones.formurn(pronoun) ==  FormUrn("$(COLLECTION_ID).9010001200")
 end

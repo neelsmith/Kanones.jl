@@ -6,14 +6,14 @@
 end
 
 @testset ExtendedTestSet "Test parsing an GMFInfinitive from a FormUrn" begin
-    frm = FormUrn("morphforms.400101000")
+    frm = FormUrn("$(COLLECTION_ID).400101000")
     @test Kanones.gmfInfinitive(frm) == GMFInfinitive(GMPTense(1), GMPVoice(1))
 end
 
 @testset ExtendedTestSet "Test parsing a FormUrn from an GMFInfinitive" begin
     infinitive = GMFInfinitive(GMPTense(1), GMPVoice(1))
     formU = Kanones.formurn(infinitive)
-    @test formU == FormUrn("morphforms.4001010000")
+    @test formU == FormUrn("$(COLLECTION_ID).4001010000")
 
     @test Kanones.poscode(formU) == 4
     @test Kanones.poslabel(formU) == "infinitive"
@@ -47,7 +47,7 @@ end
     @test label(infinitive) == "present active infinitive"
     @test cex(infinitive) == "urn:cite2:kanones:morphforms.v1:4001010000|present active infinitive"
     
-    @test Kanones.formurn(infinitive) ==  FormUrn("morphforms.4001010000")
+    @test Kanones.formurn(infinitive) ==  FormUrn("$(COLLECTION_ID).4001010000")
 end
 
 @testset ExtendedTestSet "Test parsing a RuleUrn from an InfinitiveRule" begin
@@ -55,5 +55,5 @@ end
     infinparser = Kanones.InfinitiveIO("infinitives")
     rule = Kanones.readrulerow(infinparser, cexsrc)
 
-    @test ruleurn(rule) == RuleUrn("morphforms.4001010000")
+    @test ruleurn(rule) == RuleUrn("$(COLLECTION_ID).4001010000")
 end

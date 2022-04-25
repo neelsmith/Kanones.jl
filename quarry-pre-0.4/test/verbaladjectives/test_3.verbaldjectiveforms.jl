@@ -8,14 +8,14 @@ end
 
 
 @testset "Test parsing a GMFVerbalAdjective from a FormUrn" begin
-    frm = FormUrn("morphforms.6010003400")
+    frm = FormUrn("$(COLLECTION_ID).6010003400")
     @test Kanones.gmfVerbalAdjective(frm) == GMFVerbalAdjective(GMPGender(3), GMPCase(4), GMPNumber(1))
 end
 
 @testset "Test parsing a FormUrn from a GMFVerbalAdjective" begin
     vadj = GMFVerbalAdjective(GMPGender(3), GMPCase(4), GMPNumber(1))
     formU = Kanones.formurn(vadj)
-    @test formU == FormUrn("morphforms.6010003400")
+    @test formU == FormUrn("$(COLLECTION_ID).6010003400")
 
     @test Kanones.poscode(formU) == 6
     @test Kanones.poslabel(formU) == "verbal-adjective"
@@ -54,7 +54,7 @@ end
     @test label(vadj) == "neuter accusative singular"
     @test cex(vadj) == "urn:cite2:kanones:morphforms.v1:6010003400|neuter accusative singular"
     
-    @test Kanones.formurn(vadj) ==  FormUrn("morphforms.6010003400")
+    @test Kanones.formurn(vadj) ==  FormUrn("$(COLLECTION_ID).6010003400")
 end
 
 
@@ -63,6 +63,6 @@ end
     vadjio = Kanones.VerbalAdjectiveIO("verbal adjective")
     rule = Kanones.readrulerow(vadjio, cexsrc)
 
-    @test ruleurn(rule) == RuleUrn("morphforms.6010003100")
+    @test ruleurn(rule) == RuleUrn("$(COLLECTION_ID).6010003100")
 end
 end

@@ -6,6 +6,8 @@ using Test
 
 include("properties/test_properties.jl")
 
+include("forms/test_adjectives.jl")
+
 #=
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")

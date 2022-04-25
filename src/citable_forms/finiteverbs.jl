@@ -140,7 +140,7 @@ end
 $(SIGNATURES)
 """
 function formurn(verbform::GMFFiniteVerb)
-    FormUrn(string("morphforms.", FINITEVERB, code(verbform.vperson), code(verbform.vnumber), code(verbform.vtense), code(verbform.vmood), code(verbform.vvoice), "0000"))
+    FormUrn(string("$(COLLECTION_ID).", FINITEVERB, code(verbform.vperson), code(verbform.vnumber), code(verbform.vtense), code(verbform.vmood), code(verbform.vvoice), "0000"))
 end
 
 

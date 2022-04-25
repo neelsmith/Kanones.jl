@@ -6,14 +6,14 @@
 end
 
 @testset ExtendedTestSet "Test parsing a GMFFiniteVerb from a FormUrn" begin
-    frm = FormUrn("morphforms.331111000")
+    frm = FormUrn("$(COLLECTION_ID).331111000")
     @test Kanones.gmfFiniteVerb(frm) == GMFFiniteVerb(GMPPerson(3),  GMPNumber(1),  GMPTense(1), GMPMood(1),  GMPVoice(1))
 end
 
 @testset ExtendedTestSet "Test parsing a FormUrn from a GMFFiniteVerb" begin
     verb = GMFFiniteVerb(GMPPerson(3),  GMPNumber(1),  GMPTense(1), GMPMood(1),  GMPVoice(1))
     formU = Kanones.formurn(verb)
-    @test formU == FormUrn("morphforms.3311110000")
+    @test formU == FormUrn("$(COLLECTION_ID).3311110000")
 
 
 
@@ -52,7 +52,7 @@ end
     @test urn(verb) == Cite2Urn("urn:cite2:kanones:morphforms.v1:3311110000")
     @test label(verb) ==  "present indicative active third singular"
     @test cex(verb) == "urn:cite2:kanones:morphforms.v1:3311110000|present indicative active third singular"
-    @test Kanones.formurn(verb) ==  FormUrn("morphforms.3311110000")
+    @test Kanones.formurn(verb) ==  FormUrn("$(COLLECTION_ID).3311110000")
     
 end
 

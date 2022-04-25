@@ -82,6 +82,6 @@ end
 
 function ruleurn(stem::UninflectedStem)
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", UNINFLECTED,"00000000",code(stem.stemcategory))) 
+    RuleUrn(string("$(COLLECTION_ID).", UNINFLECTED,"00000000",code(stem.stemcategory))) 
 
 end

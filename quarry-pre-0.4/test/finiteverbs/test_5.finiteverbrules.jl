@@ -20,5 +20,5 @@ end
     cexsrc = "verbinfl.wreg3rd1|w_regular|ει|third|singular|present|indicative|active"
     verbparser = Kanones.VerbIO("verbs")
     rule = Kanones.readrulerow(verbparser, cexsrc)
-    @test ruleurn(rule) == RuleUrn("morphforms.3311110000")
+    @test ruleurn(rule) == RuleUrn("$(COLLECTION_ID).3311110000")
 end

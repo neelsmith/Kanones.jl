@@ -90,6 +90,6 @@ end
 $(SIGNATURES)
 """
 function formurn(vadj::GMFVerbalAdjective)
-    FormUrn(string("morphforms.", VERBALADJECTIVE, "0" ,code(vadj.vanumber),"000", code(vadj.vagender), code(vadj.vacase),"00"))
+    FormUrn(string("$(COLLECTION_ID).", VERBALADJECTIVE, "0" ,code(vadj.vanumber),"000", code(vadj.vagender), code(vadj.vacase),"00"))
 end
 #PosPNTMVGCDCat

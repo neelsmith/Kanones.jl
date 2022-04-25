@@ -102,7 +102,7 @@ $(SIGNATURES)
 """
 function formurn(ptcpl::GMFParticiple)
     #PosPNTMVGCDCat
-    FormUrn(string("morphforms.", PARTICIPLE, 
+    FormUrn(string("$(COLLECTION_ID).", PARTICIPLE, 
     "0", code(ptcpl.pnumber), code(ptcpl.tense), "0", code(ptcpl.voice), 
     code(ptcpl.pgender), code(ptcpl.pcase), "00"))
 end

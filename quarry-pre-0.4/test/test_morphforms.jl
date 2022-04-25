@@ -83,8 +83,8 @@ end
 @testset "Test constructing `GreekMorphologicalForm`s from different types of source" begin
     conjunctionurn = Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")
     @test greekForm(conjunctionUrn) isa GMFUninflected
-    @test greekForm("morphforms.1000000001") isa GMFUninflected
-    @test greekForm(FormUrn("morphforms.1000000001")) isa GMFUninflected
+    @test greekForm("$(COLLECTION_ID).1000000001") isa GMFUninflected
+    @test greekForm(FormUrn("$(COLLECTION_ID).1000000001")) isa GMFUninflected
 
 end
 end

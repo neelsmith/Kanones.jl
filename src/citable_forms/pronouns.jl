@@ -70,7 +70,7 @@ end
 $(SIGNATURES)
 """
 function formurn(gmfPronoun::GMFPronoun)
-    FormUrn(string("morphforms.", PRONOUN,"0", code(gmfPronoun.pnumber),"000",code(gmfPronoun.pgender),code(gmfPronoun.pcase),"00"))
+    FormUrn(string("$(COLLECTION_ID).", PRONOUN,"0", code(gmfPronoun.pnumber),"000",code(gmfPronoun.pgender),code(gmfPronoun.pcase),"00"))
 end
 
 

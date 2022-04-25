@@ -85,6 +85,6 @@ $(SIGNATURES)
 """
 function ruleurn(rule::AdjectiveRule)
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", ADJECTIVE,"0",code(rule.anumber),"000",code(rule.agender),code(rule.acase),code(rule.adegree),"0"))
+    RuleUrn(string("$(COLLECTION_ID).", ADJECTIVE,"0",code(rule.anumber),"000",code(rule.agender),code(rule.acase),code(rule.adegree),"0"))
 end
 #PosPNTMVGCDCat

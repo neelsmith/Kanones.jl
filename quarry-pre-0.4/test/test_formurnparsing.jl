@@ -1,7 +1,7 @@
 @testset ExtendedTestSet "Test using FormUrns" begin
     
 @testset "Test tearing apart FormUrns" begin
-    frm = FormUrn("morphforms.1000000003")
+    frm = FormUrn("$(COLLECTION_ID).1000000003")
     @test Kanones.poscode(frm) == 1
     @test Kanones.poslabel(frm) == "uninflected"
 
@@ -35,7 +35,7 @@ end
     expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
     @test CitableParserBuilder.urn(nounForm) == expectedUrn
     ruleurnstr = urn(nounForm) |> abbreviate
-    expectedAbbrUrn = "morphforms.2030002100"
+    expectedAbbrUrn = "$(COLLECTION_ID).2030002100"
     @test ruleurnstr == expectedAbbrUrn
 
     @test label(nounForm) == "feminine nominative plural"
@@ -50,7 +50,7 @@ end
     expectedUrn = Cite2Urn("urn:cite2:kanones:morphforms.v1:2030002100")
     @test CitableParserBuilder.urn(nounForm) == expectedUrn
     ruleurnstr = urn(nounForm) |> abbreviate
-    expectedAbbrUrn = "morphforms.2030002100"
+    expectedAbbrUrn = "$(COLLECTION_ID).2030002100"
     @test ruleurnstr == expectedAbbrUrn
 
     @test label(nounForm) == "feminine nominative plural"

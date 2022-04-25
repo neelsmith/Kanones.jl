@@ -8,7 +8,7 @@
 end
 
 @testset "Test parsing a GMFUninflected from a FormUrn" begin
-    frm = FormUrn("morphforms.1000000001")
+    frm = FormUrn("$(COLLECTION_ID).1000000001")
     @test Kanones.gmfUninflected(frm) == GMFUninflected(GMPUninflectedType(1))
 
 end
@@ -17,7 +17,7 @@ end
     uninflected = GMFUninflected(GMPUninflectedType(1))
 
     formU = Kanones.formurn(uninflected)
-    @test formU == FormUrn("morphforms.1000000001")
+    @test formU == FormUrn("$(COLLECTION_ID).1000000001")
 
     @test Kanones.poscode(formU) == 1
     @test Kanones.poslabel(formU) == "uninflected"
@@ -57,6 +57,6 @@ end
     @test urn(uninflected) == Cite2Urn("urn:cite2:kanones:morphforms.v1:1000000001")
     @test label(uninflected) == "conjunction"
     @test cex(uninflected) == "urn:cite2:kanones:morphforms.v1:1000000001|conjunction"
-    @test Kanones.formurn(uninflected) ==  FormUrn("morphforms.1000000001")
+    @test Kanones.formurn(uninflected) ==  FormUrn("$(COLLECTION_ID).1000000001")
 end
 

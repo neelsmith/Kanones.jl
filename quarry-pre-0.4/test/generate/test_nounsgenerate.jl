@@ -1,7 +1,7 @@
 @testset ExtendedTestSet "Test converting NounRule to abbreviated URN for form" begin
     rule = NounRule(CitableParserBuilder.RuleUrn("nouninfl.os_ou19"), "os_ou", "α", gmpGender("neuter"), gmpCase("accusative"), gmpNumber("singular"))
     form = Kanones.formurn(rule)
-    expected = FormUrn("morphforms.2010003400")
+    expected = FormUrn("$(COLLECTION_ID).2010003400")
     @test  form == expected
 end
 

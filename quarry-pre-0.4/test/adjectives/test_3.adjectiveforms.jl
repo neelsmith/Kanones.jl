@@ -8,7 +8,7 @@
 end
 
 @testset ExtendedTestSet "Test parsing an GMFAdjective from a FormUrn" begin
-    frm = FormUrn("morphforms.7010001110")
+    frm = FormUrn("$(COLLECTION_ID).7010001110")
     @test Kanones.gmfAdjective(frm) == GMFAdjective(GMPGender(1), GMPCase(1), GMPNumber(1), GMPDegree(1))
 end
 
@@ -16,7 +16,7 @@ end
 @testset ExtendedTestSet "Test parsing a FormUrn from an GMFAdjective" begin
     adj = GMFAdjective(GMPGender(1), GMPCase(1), GMPNumber(1), GMPDegree(1))
     formU = Kanones.formurn(adj)
-    @test formU == FormUrn("morphforms.7010001110")
+    @test formU == FormUrn("$(COLLECTION_ID).7010001110")
 
     @test Kanones.poscode(formU) == 7
     @test Kanones.poslabel(formU) == "adjective"
@@ -53,7 +53,7 @@ end
     @test urn(adj) == Cite2Urn("urn:cite2:kanones:morphforms.v1:7010001110")
     @test label(adj) == "masculine nominative singular positive"
     @test cex(adj) == "urn:cite2:kanones:morphforms.v1:7010001110|masculine nominative singular positive"
-    @test Kanones.formurn(adj) ==  FormUrn("morphforms.7010001110")
+    @test Kanones.formurn(adj) ==  FormUrn("$(COLLECTION_ID).7010001110")
 end
 
 
@@ -62,5 +62,5 @@ end
     adjio = Kanones.AdjectiveIO("r/w adjectives")
     rule = Kanones.readrulerow(adjio, cexsrc)
 
-    @test ruleurn(rule) == RuleUrn("morphforms.7010001110")
+    @test ruleurn(rule) == RuleUrn("$(COLLECTION_ID).7010001110")
 end

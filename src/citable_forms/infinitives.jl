@@ -74,7 +74,7 @@ end
 $(SIGNATURES)
 """
 function formurn(infinitive::GMFInfinitive)
-    FormUrn(string("morphforms.", INFINITIVE, "00" ,
+    FormUrn(string("$(COLLECTION_ID).", INFINITIVE, "00" ,
     code(infinitive.tense), "0", code(infinitive.voice), "0000"))
 end
 

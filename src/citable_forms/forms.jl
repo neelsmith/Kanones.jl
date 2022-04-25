@@ -1,7 +1,8 @@
 """Abstract type of a morphological form in Kanones."""
 abstract type GreekMorphologicalForm end
 
-const BASE_MORPHOLOGY_URN = "urn:cite2:kanones:forms.v1:"
+const COLLECTION_ID = "forms"
+const BASE_MORPHOLOGY_URN = "urn:cite2:kanones:$(COLLECTION_ID).v1:"
 
 """Greek morphological forms are citable by Cite2Urn"""
 CitableTrait(::T) where {T <: GreekMorphologicalForm} = CitableByCite2Urn()

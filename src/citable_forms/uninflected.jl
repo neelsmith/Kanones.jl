@@ -98,7 +98,7 @@ end
 $(SIGNATURES)
 """
 function formurn(uninflected::GMFUninflected)
-    FormUrn(string("morphforms.", UNINFLECTED, "00000000", code(uninflected.pos)))
+    FormUrn(string("$(COLLECTION_ID).", UNINFLECTED, "00000000", code(uninflected.pos)))
 end
 
 
