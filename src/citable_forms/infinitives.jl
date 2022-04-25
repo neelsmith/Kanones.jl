@@ -15,8 +15,6 @@ function gmpTense(inf::GMFInfinitive)
     inf.tense
 end
 
-
-
 """Extract voice value from `inf`.
 $(SIGNATURES)
 """
