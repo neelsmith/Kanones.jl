@@ -51,6 +51,7 @@ export GMFParticiple, gmfParticiple, ParticipleRule
 export GMFNoun, gmfNoun, NounStem, NounRule
 export GMFPronoun, gmfPronoun, PronounStem, PronounRule
 export GMFAdjective, gmfAdjective, AdjectiveStem, AdjectiveRule
+export GMFAdverb, gmfAdverb
 
 export GMFUninflected, gmfUninflected, UninflectedStem, UninflectedRule
 
@@ -135,6 +136,9 @@ include("citable_forms/adjectives.jl")
 #include("citable_rules/adjectives.jl")
 #include("citable_stems/regularadjectives.jl")
 #include("citable_stems/irregularadjectives.jl")
+
+include("citable_forms/adverbs.jl")
+
 
 include("citable_forms/pronouns.jl")
 #include("citable_stems/pronouns.jl")

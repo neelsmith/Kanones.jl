@@ -58,7 +58,9 @@ function label(adj::GMFAdjective)
     join([label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree)], " ")
 end
 
-
+"""Compose a digital code for `adj`.
+$(SIGNATURES)
+"""
 function code(adj::GMFAdjective)
     string(ADJECTIVE,"0",code(adj.adjnumber),"000", code(adj.adjgender),code(adj.adjcase),code(adj.adjdegree),"0")
 end
@@ -78,7 +80,8 @@ end
 $(SIGNATURES)
 """
 function formurn(adj::GMFAdjective)
-    FormUrn(string("$(COLLECTION_ID).", ADJECTIVE, "0" , code(adj.adjnumber),"000", code(adj.adjgender), code(adj.adjcase), code(adj.adjdegree), "0"))
+    FormUrn("$(COLLECTION_ID).$(code(adj))")
+    # ADJECTIVE, "0" , code(adj.adjnumber),"000", code(adj.adjgender), code(adj.adjcase), code(adj.adjdegree), "0"))
 end
 
 
