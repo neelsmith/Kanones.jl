@@ -23,10 +23,10 @@ function generate(stem::NounStem, rule::NounRule;           ortho::GreekOrthogra
             @debug("ACC.ULTIMA:", raw)
             caselabel = label(gmpCase(rule))   
             if caselabel == "genitive" || caselabel == "dative"
-                stripmetachars(accentultima(r, :CIRCUMFLEX, ortho))
+                stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))
                 
             else
-                stripmetachars(accentultima(r, :ACUTE, ortho))
+                stripmetachars(accentultima(raw, :ACUTE, ortho))
                 
             end
         end

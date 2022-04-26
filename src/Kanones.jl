@@ -156,5 +156,8 @@ include("generate/generatenoun.jl")
 
 include("forapps/mddeclension.jl")
 
+include("parser/parser.jl")
+include("parser/stringparser.jl")
+
 
 end # module
