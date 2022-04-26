@@ -1,29 +1,29 @@
 @testset "Test constructor and constructor functions" begin
     # True constructor from morphological properties
-    adv = GMFAdverb(gmpDegree("comparative"))
+    uninfl = GMFUninflected(gmpUninflectedType("preposition"))
 
-    advurn = urn(adv)
-    expectedurn = Cite2Urn("urn:cite2:kanones:forms.v1:8000000020")
-    @test advurn == expectedurn
-    @test adv == gmfAdverb(advurn)
+    uninflurn = urn(uninfl)
+    expectedurn = Cite2Urn("urn:cite2:kanones:forms.v1:1000000002")
+    @test uninflurn == expectedurn
+    @test uninfl == gmfUninflected(uninflurn)
     
 
-    abbrurn = formurn(adv)
-    expectedabbr = FormUrn("forms.8000000020")
+    abbrurn = formurn(uninfl)
+    expectedabbr = FormUrn("forms.1000000002")
     @test abbrurn == expectedabbr
-    @test adv == gmfAdverb(abbrurn)
+    @test uninfl == gmfUninflected(abbrurn)
 
-    advcode = code(adv)
-    expectedcode = "8000000020"
-    @test advcode == expectedcode
-    @test adv == gmfAdverb(advcode)
+    uninflcode = code(uninfl)
+    expectedcode = "1000000002"
+    @test uninflcode == expectedcode
+    @test uninfl == gmfUninflected(uninflcode)
 end
 
-#=
+
 @testset "Test property accessors and labelling" begin
-    adv = GMFAdverb(gmpDegree("comparative"))
-    @test gmpDegree(adv) == gmpDegree(2)
+    uninfl = GMFUninflected(gmpUninflectedType("preposition"))
+    
+    @test gmpUninflectedType(uninfl) == gmpUninflectedType("preposition")
 
-    @test label(adv) == "adverb: comparative degree"
+    @test label(uninfl) == "uninflected form: preposition"
 end
-=#

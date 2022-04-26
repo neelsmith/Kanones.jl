@@ -6,14 +6,28 @@ end
 """Uninflected forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFUninflected}) = CitableByCite2Urn()
 
+
+"""Extract "part of speech" type from `uform`.
+$(SIGNATURES)
+"""
+function gmpUninflectedType(uform::GMFUninflected)
+    uform.pos
+end
+
+"""Compose digital code for `uform`.
+$(SIGNATURES)
+"""
+function code(uform::GMFUninflected)
+    string(UNINFLECTED, "00000000", code(uform.pos))
+end
+
 """Compose URN for an `GMFUninflected`.
 
 $(SIGNATURES)
 Required by `CitableTrait`.
 """
 function urn(uform::GMFUninflected)
-    urnstring = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", code(uform.pos))
-    Cite2Urn(urnstring)
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(uform) )
 end
 
 """Compose a human-readable label for an `GMFUninflected`.
@@ -22,7 +36,7 @@ $(SIGNATURES)
 Required by `CitableTrait`.
 """
 function label(uform::GMFUninflected)
-    label(uform.pos)
+    "uninflected form: " * label(uform.pos)
 end
 
 """Create `GMFUninflected` from a Cite2Urn.
@@ -49,8 +63,9 @@ end
 $(SIGNATURES)
 """
 function gmfUninflected(codeString::AbstractString)
-    pos = gmpUninflectedType(parse(Int64, codeString))
-    gmfUninflected(pos)
+    morphchars = split(codeString, "")    
+    pos = parse(Int64, morphchars[10])
+    GMPUninflectedType(pos) |> GMFUninflected
 end
 
 """Create `GMFUninflected` from a Char.
