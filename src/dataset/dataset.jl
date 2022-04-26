@@ -98,8 +98,9 @@ function rulesarray(dirlist; delimiter = "|")
 
     for datasrc in dirlist
         for dirname in rulesdirs 
-            #@info("PROCESSING DIR ", dirname)
+            
             dir = joinpath(datasrc, "rules-tables", dirname)
+            @debug("PROCESSING DIR ", dir)
             cexfiles = glob("*.cex", dir)
 
             delimitedreader = (iodict[dirname])
