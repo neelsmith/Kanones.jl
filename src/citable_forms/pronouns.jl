@@ -33,7 +33,6 @@ function gmpNumber(p::GMFPronoun)
 end
 
 
-
 """Compose a label for a `GMFPronoun`
 
 $(SIGNATURES)

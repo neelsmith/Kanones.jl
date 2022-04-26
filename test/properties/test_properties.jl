@@ -51,3 +51,11 @@ end
     @test code(grammcase) == 1
     @test label(grammcase) == "nominative"
 end
+
+@testset "Test constructors, labelling and codes for uninflected type property" begin
+    
+    uninfl = gmpUninflectedType("preposition")
+    @test uninfl == gmpUninflectedType(2)
+    @test code(uninfl) == 2
+    @test label(uninfl) == "preposition"
+end
