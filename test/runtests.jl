@@ -10,6 +10,8 @@ include("forms/test_adjectives.jl")
 include("forms/test_adverbs.jl")
 include("forms/test_finiteverbs.jl")
 include("forms/test_infinitives.jl")
+include("forms/test_nouns.jl")
+include("forms/test_participles.jl")
 
 #=
 include("test_morphologyids.jl")
