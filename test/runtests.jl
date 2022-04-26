@@ -23,6 +23,9 @@ include("rules/test_adjrules.jl")
 include("rules/test_nounrules.jl")
 
 
+include("stems/test_nounstems.jl")
+
+
 #=
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")

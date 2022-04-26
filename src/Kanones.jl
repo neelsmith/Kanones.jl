@@ -44,7 +44,7 @@ export code
 export GreekMorphologicalForm
 export greekForm
 export KanonesRule, inflectionClass, ending
-# export KanonesStem
+export KanonesStem, lexeme, stemstring
 export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
 export GMFInfinitive, gmfInfinitive, InfinitiveRule
 export GMFVerbalAdjective, gmfVerbalAdjective, VerbalAdjectiveRule
@@ -91,7 +91,7 @@ include("lexemes/lexica.jl")
 include("citable_forms/forms.jl")
 
 
-#include("citable_stems/stems.jl")
+include("citable_stems/stems.jl")
 include("citable_rules/rules.jl")
 
 include("morphologicalproperties/properties.jl")
@@ -132,7 +132,7 @@ include("citable_forms/verbaladjectives.jl")
 
 include("citable_forms/nouns.jl")
 include("citable_rules/nounrules.jl")
-#include("citable_stems/regularnouns.jl")
+include("citable_stems/regularnouns.jl")
 #include("citable_stems/irregularnouns.jl")
 
 
