@@ -10,6 +10,20 @@ struct AdjectiveRule <: KanonesRule
 end
 
 
+"""Identify inflection class for `rule`.
+$(SIGNATURES)
+"""
+function inflectionClass(rule::AdjectiveRule)
+    rule.inflectionclass
+end
+
+"""Identify ending for `rule`.
+$(SIGNATURES)
+"""
+function ending(rule::AdjectiveRule)
+    rule.ending
+end
+
 """Implementation of reading one row of a rules table for uninflected tokens.
 
 $(SIGNATURES) 
@@ -33,7 +47,6 @@ function readrulerow(usp::AdjectiveIO, delimited::AbstractString; delimiter = "|
     
 end
 
-
 """Adjective rules are citable by Cite2Urn"""
 CitableTrait(::Type{AdjectiveRule}) = CitableByCite2Urn()
 
@@ -54,7 +67,7 @@ otherwise, expand to full `Cite2Urn`.
 @(SIGNATURES)
 Required for `CitableTrait`.
 """
-function urn(adj::AdjectiveRule; registry = nothing)
+function ruleurn(adj::AdjectiveRule; registry = nothing)
     if isnothing(registry)
         adj.ruleid
     else
@@ -79,13 +92,18 @@ function cex(adj::AdjectiveRule; delimiter = "|", registry = nothing)
 end
 
 
+"""Compose digital code for morphological form identified in `rule`.
+$(SIGNATURES)
+"""
+function code(rule::AdjectiveRule)
+    #PosPNTMVGCDCat
+    string(ADJECTIVE,"0",code(rule.anumber),"000",code(rule.agender),code(rule.acase),code(rule.adegree),"0")
+end
 
-"""Compose an abbreviated URN for a rule from a `AdjectiveRule`.
+"""Compose an abbreviated URN for a morphological form identified in `rule`.
 
 $(SIGNATURES)
 """
-function ruleurn(rule::AdjectiveRule)
-    # PosPNTMVGCDCat
-    RuleUrn(string("$(COLLECTION_ID).", ADJECTIVE,"0",code(rule.anumber),"000",code(rule.agender),code(rule.acase),code(rule.adegree),"0"))
+function formurn(rule::AdjectiveRule)
+    FormUrn("$(COLLECTION_ID)." * code(rule) )
 end
-#PosPNTMVGCDCat

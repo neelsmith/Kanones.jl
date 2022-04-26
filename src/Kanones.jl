@@ -41,8 +41,10 @@ export GMPDegree, gmpDegree
 export GMPUninflectedType, gmpUninflectedType
 export code
 
-export GreekMorphologicalForm, KanonesStem, KanonesRule
+export GreekMorphologicalForm
 export greekForm
+export KanonesRule, inflectionClass, ending
+# export KanonesStem
 export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
 export GMFInfinitive, gmfInfinitive, InfinitiveRule
 export GMFVerbalAdjective, gmfVerbalAdjective, VerbalAdjectiveRule
@@ -134,7 +136,7 @@ include("citable_forms/nouns.jl")
 include("citable_rules/nouns.jl")
 
 include("citable_forms/adjectives.jl")
-#include("citable_rules/adjectives.jl")
+include("citable_rules/adjectives.jl")
 #include("citable_stems/regularadjectives.jl")
 #include("citable_stems/irregularadjectives.jl")
 

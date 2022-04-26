@@ -37,7 +37,27 @@ function cex(mf::T; delimiter = "|") where {T <: GreekMorphologicalForm}
     join([urn(mf), label(mf)], delimiter)
 end
 
+"""Return Kanones code for analytical type
+encoded in first digit of `codestring`.
+$(SIGNATURES)
+"""
+function poscode(codestring::AbstractString)
+    parse(Int32, codestring[1])
+end
 
+# TEST THIS OUT!!
+function greekForm(codestr::AbstractString)
+    if poscode(codestr) == ADJECTIVE
+        gmfAdjective(codestr)
+    end
+end
+
+"""Create a `GreekMorphologicalForm` from a `FormUrn`.
+$(SIGNATURES)
+"""
+function greekForm(u::CitableParserBuilder.FormUrn)
+    greekForm(CitableParserBuilder.objectid(u))
+end
 
 #=
 """Create a `GreekMorphologicalForm` from a `FormUrn`.

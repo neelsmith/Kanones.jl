@@ -6,6 +6,7 @@ using Test
 
 include("properties/test_properties.jl")
 
+include("forms/test_formparsing.jl")
 include("forms/test_adjectives.jl")
 include("forms/test_adverbs.jl")
 include("forms/test_finiteverbs.jl")
@@ -15,6 +16,11 @@ include("forms/test_participles.jl")
 include("forms/test_pronouns.jl")
 include("forms/test_uninflected.jl")
 include("forms/test_verbaladjs.jl")
+
+
+
+include("rules/test_adjrules.jl")
+
 
 #=
 include("test_morphologyids.jl")
