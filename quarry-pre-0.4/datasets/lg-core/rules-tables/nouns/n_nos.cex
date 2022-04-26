@@ -1,0 +1,10 @@
+Rule|StemClass|Ending|Gender|Case|Number|
+nouninfl.n_nos1|n_nos|ν|masculine|nominative|singular|
+nouninfl.n_nos2|n_nos|νος|masculine|genitive|singular|
+nouninfl.n_nos3|n_nos|νι|masculine|dative|singular|
+nouninfl.n_nos4|n_nos|να|masculine|accusative|singular|
+
+nouninfl.n_nos5|n_nos|νες|masculine|nominative|plural|
+nouninfl.n_nos6|n_nos|νων|masculine|genitive|plural|
+nouninfl.n_nos7|n_nos|σι|masculine|dative|plural|
+nouninfl.n_nos8|n_nos|νας|masculine|accusative|plural|
