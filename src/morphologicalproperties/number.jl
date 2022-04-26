@@ -1,12 +1,12 @@
 struct GMPNumber <: GreekMorphologicalProperty
     code::Int64
     function GMPNumber(code)
-        code in keys(numberlabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
+        code in keys(numberlabeldict) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 
 function gmpNumber(s::AbstractString)
-    s in keys(numbercodes) ? GMPNumber(numbercodes[s]) : DomainError(string(s, " is not a valid value for number.")) 
+    s in keys(numbercodedict) ? GMPNumber(numbercodedict[s]) : DomainError(string(s, " is not a valid value for number.")) 
 end
 
 function gmpNumber(code::Int64)
@@ -18,7 +18,7 @@ function code(num::GMPNumber)
 end
 
 function label(num::GMPNumber)
-    numberlabels[num.code]
+    numberlabeldict[num.code]
 end
 
 
@@ -26,7 +26,7 @@ end
 
 $(SIGNATURES)
 """
-const numberlabels = Dict(
+const numberlabeldict = Dict(
     1 => "singular",
     2 => "dual",
     3 => "plural"
@@ -38,7 +38,7 @@ const numberlabels = Dict(
 
 $(SIGNATURES)
 """
-const numbercodes = Dict(
+const numbercodedict = Dict(
     "singular" => 1,
     "dual" => 2,
     "plural" => 3

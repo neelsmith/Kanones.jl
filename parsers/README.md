@@ -1,1 +1,0 @@
-Convenience directory for building binary parsers.

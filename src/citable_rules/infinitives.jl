@@ -86,5 +86,5 @@ $(SIGNATURES)
 """
 function ruleurn(rule::InfinitiveRule)
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", INFINITIVE,"00",code(rule.tense),"0",code(rule.voice),"0000"))
+    RuleUrn(string("$(COLLECTION_ID).", INFINITIVE,"00",code(rule.tense),"0",code(rule.voice),"0000"))
 end

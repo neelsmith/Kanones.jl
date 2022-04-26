@@ -1,12 +1,12 @@
 struct GMPCase <: GreekMorphologicalProperty
     code::Int64
     function GMPCase(code)
-        code in keys(caselabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
+        code in keys(caselabeldict) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 
 function gmpCase(s::AbstractString)
-    s in keys(casecodes) ? GMPCase(casecodes[s]) : DomainError(string(s, " is not a valid value for case.")) 
+    s in keys(casecodedict) ? GMPCase(casecodedict[s]) : DomainError(string(s, " is not a valid value for case.")) 
 end
 
 function gmpCase(code::Int64)
@@ -18,14 +18,14 @@ function code(mcase::GMPCase)
 end
 
 function label(mcase::GMPCase)
-    caselabels[mcase.code]
+    caselabeldict[mcase.code]
 end
 
 """Dict mapping codes to labels for case.
 
 $(SIGNATURES)
 """
-const caselabels = Dict(
+const caselabeldict = Dict(
     1 => "nominative",
     2 => "genitive",
     3 => "dative",
@@ -37,7 +37,7 @@ const caselabels = Dict(
 
 $(SIGNATURES)
 """
-const casecodes = Dict(
+const casecodedict = Dict(
     "nominative" => 1,
     "genitive" => 2,
     "dative" => 3,

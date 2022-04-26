@@ -1,10 +1,34 @@
 using Kanones
-using Kanones.FstBuilder
 using CitableObject, CitableParserBuilder
 using CitableCorpus, CitableText
 using PolytonicGreek, Orthography
 using Test
 
+include("properties/test_properties.jl")
+
+include("forms/test_formparsing.jl")
+include("forms/test_adjectives.jl")
+include("forms/test_adverbs.jl")
+include("forms/test_finiteverbs.jl")
+include("forms/test_infinitives.jl")
+include("forms/test_nouns.jl")
+include("forms/test_participles.jl")
+include("forms/test_pronouns.jl")
+include("forms/test_uninflected.jl")
+include("forms/test_verbaladjs.jl")
+
+
+
+include("rules/test_adjrules.jl")
+include("rules/test_nounrules.jl")
+
+
+include("stems/test_nounstems.jl")
+
+
+include("test_datasets.jl")
+
+#=
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")
 include("test_morphforms.jl")
@@ -83,3 +107,4 @@ include("accessors/test_infinitiveaccessors.jl")
 include("accessors/test_ptcplaccessors.jl")
 include("accessors/test_vadjaccessors.jl")
 include("accessors/test_uninflectedaccessors.jl")
+=#

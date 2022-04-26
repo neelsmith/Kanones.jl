@@ -8,6 +8,21 @@ end
 CitableTrait(::Type{GMFInfinitive}) = CitableByCite2Urn()
 
 
+"""Extract tense value from `inf`.
+$(SIGNATURES)
+"""
+function gmpTense(inf::GMFInfinitive)
+    inf.tense
+end
+
+"""Extract voice value from `inf`.
+$(SIGNATURES)
+"""
+function gmpVoice(inf::GMFInfinitive)
+    inf.voice
+end
+
+
 """Create an `GMFInfinitive` from a string value.
 
 $(SIGNATURES)
@@ -48,25 +63,12 @@ end
 
 
 
-
-"""Compose URN for infinitive verb form from FST representation of analytical data.
-
+"""Compose a digital code for `inf`.
 $(SIGNATURES)
 """
-function infinitivefromfst(fstdata)
-    # The fst parameter shoud look like
-    # <present><middle>
-    # Extract TV from a string like the example:
-    infinitiverulere = r"<([^<]+)><([^<]+)>"
-    matchedup = collect(eachmatch(infinitiverulere, fstdata))
-
-    if isempty(matchedup)
-        @warn("Unable to parse FST analysis \"" * fstdata * "\" as verb form.")
-        nothing
-    else
-        (t, v) = matchedup[1].captures
-        GMFInfinitive(gmpTense(t),gmpVoice(v))    
-    end
+function code(inf::GMFInfinitive)
+    # PosPNTMVGCDCat
+    string(INFINITIVE, "00" , code(inf.tense), "0", code(inf.voice), "0000")
 end
 
 """Compose a `FormUrn` for an `GMFInfinitive`.
@@ -74,8 +76,7 @@ end
 $(SIGNATURES)
 """
 function formurn(infinitive::GMFInfinitive)
-    FormUrn(string("morphforms.", INFINITIVE, "00" ,
-    code(infinitive.tense), "0", code(infinitive.voice), "0000"))
+    FormUrn("$(COLLECTION_ID)." * code(infinitive))
 end
 
 """Compose a label for an `GMFInfinitive`.
@@ -83,7 +84,7 @@ end
 $(SIGNATURES)
 """
 function label(inf::GMFInfinitive)
-    join([label(inf.tense), label(inf.voice), "infinitive"]," ")
+    join(["infinitive:", label(inf.tense), label(inf.voice)]," ")
 end
 
 
@@ -92,7 +93,6 @@ end
 $(SIGNATURES)
 """
 function urn(inf::GMFInfinitive)
-    # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, INFINITIVE,"00",code(inf.tense),"0", code(inf.voice),"0000"))
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, code(inf)))
 end
 

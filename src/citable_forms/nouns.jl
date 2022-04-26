@@ -8,12 +8,37 @@ end
 """Noun forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFNoun}) = CitableByCite2Urn()
 
+
+"""Extract gender from `n`.
+$(SIGNATURES)
+"""
+function gmpGender(n::GMFNoun)
+    n.ngender
+end
+
+
+"""Extract case from `n`.
+$(SIGNATURES)
+"""
+function gmpCase(n::GMFNoun)
+    n.ncase
+end
+
+
+"""Extract number from `n`.
+$(SIGNATURES)
+"""
+function gmpNumber(n::GMFNoun)
+    n.nnumber
+end
+
+
 """Compose a label for a `GMFNoun`
 
 $(SIGNATURES)
 """
 function label(noun::GMFNoun)    
-    join([ label(noun.ngender), label(noun.ncase), label(noun.nnumber)], " ")
+    join([ "noun:", label(noun.ngender), label(noun.ncase), label(noun.nnumber)], " ")
 end
 
 """Compose a Cite2Urn for a `GMFNoun`.
@@ -21,10 +46,8 @@ end
 $(SIGNATURES)
 """
 function urn(noun::GMFNoun)
-    # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, NOUN,"0",code(noun.nnumber),"000",code(noun.ngender),code(noun.ncase),"00"))
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, code(noun)))
 end
-
 
 """Create a `GMFNoun` from a string value.
 
@@ -63,54 +86,20 @@ function gmfNoun(a::Analysis)
     gmfNoun(a.form)
 end
 
+"""Compose a digital code for `noun`.
+$(SIGNATURES)
+"""
+function code(noun::GMFNoun)
+    # PosPNTMVGCDCat
+    string(NOUN,"0",code(noun.nnumber),"000", code(noun.ngender), code(noun.ncase), "00")
+end
+
 """Compose a `FormUrn` for a `GMFNoun`.
 
 $(SIGNATURES)
 """
-function formurn(gmfNoun::GMFNoun)
-    FormUrn(string("morphforms.", NOUN,"0",code(gmfNoun.nnumber),"000", code(gmfNoun.ngender), code(gmfNoun.ncase), "00"))
-end
-
-"""Compose a FormUrn for a noun form from FST representation of analytical data.
-
-$(SIGNATURES)
-"""
-function nounfromfst(fstdata)
-    # Example:
-    # <feminine><accusative><singular>
-    #@warn("Parse FST noun " * fstdata)
-    nounrulere = r"<([^<]+)><([^<]+)><([^<]+)>"  
-    matchedup = collect(eachmatch(nounrulere, fstdata))
-    
-    if isempty(matchedup)
-        @warn("Unable to parse FST analysis \"" * fstdata * "\"")
-        nothing
-    else
-        (g,c,n) = matchedup[1].captures
-        GMFNoun(gmpGender(g), gmpCase(c), gmpNumber(n)) 
-    end
-end
-
-
-"""Compose a FormUrn for a noun form from FST representation of analytical data.
-
-$(SIGNATURES)
-"""
-function irregularnounfromfst(fstdata)
-    irregrulere = r"<([^<]+)>"  
-    matchedup = collect(eachmatch(irregrulere, fstdata))
-
-    # Looks like:
-    #<u>irregnoun.irregn23069a</u><u>lsj.n23069</u>γυνη<irregular><irregularnoun><feminine><nominative><singular><div><irregularnoun><irregular><u>litgreek.irregular1</u>
-    # 2-4 are gcn
-    ngender =  matchedup[2].captures[1]
-    ncase = matchedup[3].captures[1]
-    nnumber = matchedup[4].captures[1]
-    GMFNoun(
-        gmpGender(ngender),
-        gmpCase(ncase),
-        gmpNumber(nnumber)
-    )
+function formurn(noun::GMFNoun)
+    FormUrn(string("$(COLLECTION_ID).", code(noun)))
 end
 
 
@@ -119,9 +108,9 @@ end
 $(SIGNATURES)
 """
 function nounscex()
-    genderkeys = keys(Kanones.genderlabels)  |> collect |> sort 
-    casekeys = keys(Kanones.caselabels)  |> collect |> sort 
-    numberkeys = keys(Kanones.numberlabels)  |> collect |> sort 
+    genderkeys = keys(Kanones.genderlabeldict)  |> collect |> sort 
+    casekeys = keys(Kanones.caselabeldict)  |> collect |> sort 
+    numberkeys = keys(Kanones.numberlabeldict)  |> collect |> sort 
     lines = []
     # PosPNTMVGCDCat
     for num in numberkeys

@@ -60,7 +60,7 @@ end
 
 function ruleurn(rule::FiniteVerbRule)
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", FINITEVERB,
+    RuleUrn(string("$(COLLECTION_ID).", FINITEVERB,
     code(rule.vperson),
     code(rule.vnumber),
     code(rule.vtense),

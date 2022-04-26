@@ -7,8 +7,53 @@ struct GMFFiniteVerb <: GreekMorphologicalForm
     vvoice::GMPVoice
 end
 
+
+"""Extract person property from `v`.
+$(SIGNATURES)
+"""
+function gmpPerson(v::GMFFiniteVerb)
+    v.vperson
+end
+
+"""Extract number property from `v`.
+$(SIGNATURES)
+"""
+function gmpNumber(v::GMFFiniteVerb)
+    v.vnumber
+end
+
+
+"""Extract tense property from `v`.
+$(SIGNATURES)
+"""
+function gmpTense(v::GMFFiniteVerb)
+    v.vtense
+end
+
+
+"""Extract mood property from `v`.
+$(SIGNATURES)
+"""
+function gmpMood(v::GMFFiniteVerb)
+    v.vmood
+end
+
+"""Extract voice property from `v`.
+$(SIGNATURES)
+"""
+function gmpVoice(v::GMFFiniteVerb)
+    v.vvoice
+end
+
 """Finite verb forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
+
+"""Compose a digital code for `adj`.
+$(SIGNATURES)
+"""
+function code(verb::GMFFiniteVerb)
+    string(FINITEVERB, code(verb.vperson),code(verb.vnumber), code(verb.vtense), code(verb.vmood), code(verb.vvoice),"0000")
+end
 
 
 """Compose a label for a `GMFFiniteVerb`
@@ -18,6 +63,7 @@ $(SIGNATURES)
 function label(verb::GMFFiniteVerb)
     join(
         [
+        "finite verb: ",
         label(verb.vtense), 
         label(verb.vmood), 
         label(verb.vvoice),
@@ -32,7 +78,7 @@ $(SIGNATURES)
 """
 function urn(verb::GMFFiniteVerb)
     # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, FINITEVERB, code(verb.vperson),code(verb.vnumber), code(verb.vtense), code(verb.vmood), code(verb.vvoice),"0000"))
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(verb) )
 end
 
 """Create a `GMFFiniteVerb` from a string value.
@@ -85,62 +131,13 @@ function gmfFiniteVerb(a::Analysis)
 end
 
 
-"""Compose URN for finite verb form from FST representation of analytical data.
-
-$(SIGNATURES)
-"""
-function verbfromfst(fstdata)
-    # Example rule string:
-    #  "<third><singular><present><indicative><active>"
-    # Extract PNTMV from a string like the example:
-    verbrulere = r"<([^<]+)><([^<]+)><([^<]+)><([^<]+)><([^<]+)>"
-    matchedup = collect(eachmatch(verbrulere, fstdata))
-
-    if isempty(matchedup)
-        @warn("Unable to parse FST analysis \"" * fstdata * "\" as verb form.")
-        nothing
-    else
-        (p,n, t, m, v) = matchedup[1].captures
-        GMFFiniteVerb(
-            gmpPerson(p),
-            gmpNumber(n), 
-            gmpTense(t),
-            gmpMood(m),
-            gmpVoice(v)
-        )
-    end
-end
-
-"""Compose `GMFFiniteVerb`` for finite verb form from FST representation of analytical data.
-
-$(SIGNATURES)
-"""
-function irregularverbfromfst(fstdata)
-     # Looks like
-    # <u>irregverb.irregverbnn26447af</u><u>lsj.n26447</u>δοιντο<irregular><irregularfiniteverb><third><plural><aorist><subjunctive><middle>
-    # 2-6 are pntmv
-    prsn =  matchedup[2].captures[1]
-    nmbr = matchedup[3].captures[1]
-    tns = matchedup[4].captures[1]
-    md = matchedup[5].captures[1]
-    vc = matchedup[6].captures[1]
-    
-    GMFFiniteVerb(
-        gmpTense(prsn),
-        gmpNumber(nmbr),
-    
-        gmpMood(tns), 
-        gmpMood(md), 
-        gmpVoice(vc) 
-    )
-end
 
 """Compose a `FormUrn` for a `GMFFiniteVerb`.
 
 $(SIGNATURES)
 """
 function formurn(verbform::GMFFiniteVerb)
-    FormUrn(string("morphforms.", FINITEVERB, code(verbform.vperson), code(verbform.vnumber), code(verbform.vtense), code(verbform.vmood), code(verbform.vvoice), "0000"))
+    FormUrn(string("$(COLLECTION_ID).", code(verbform)))
 end
 
 
@@ -150,11 +147,11 @@ $(SIGNATURES)
 """
 function finiteverbscex()
 
-    #tensekeys = keys(Kanones.tenselabels)   |> collect |> sort 
-    moodkeys = keys(Kanones.moodlabels)   |> collect |> sort 
-    voicekeys = keys(Kanones.voicelabels)   |> collect |> sort 
-    personkeys = keys(Kanones.personlabels)  |> collect |> sort 
-    numberkeys = keys(Kanones.numberlabels)  |> collect |> sort 
+    #tensekeys = keys(Kanones.tenselabeldict)   |> collect |> sort 
+    moodkeys = keys(Kanones.moodlabeldict)   |> collect |> sort 
+    voicekeys = keys(Kanones.voicelabeldict)   |> collect |> sort 
+    personkeys = keys(Kanones.personlabeldict)  |> collect |> sort 
+    numberkeys = keys(Kanones.numberlabeldict)  |> collect |> sort 
 
     lines = []
     PRESENT = 1

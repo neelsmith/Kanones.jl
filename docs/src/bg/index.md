@@ -1,19 +1,32 @@
-# Background
+# Background: analysis by synthesis
 
-- morphological analysis is most typically implement with finite state transducers (FSTs)
-- the morphology of accented Greek is not reversible with FSTs due to the complex interactions of morphology and mutable accent
-- Kanones addresses this by using the "analysis by synthesis" algorithm first developed by Kosman and Smith in the mid-1980s
 
-## Analysis by synthesis
+!!! note "Morphological analysis (parsing)"
 
-- the morphology of Greek *can* be analyzed with FSTs if accent is not considered
-- accent *can* be algorithmically added to a lexical token *if* the morphology is already known
+    Given a token (a string value), generate pairings of a vocabulary item (*lexeme*) and a morphological form.
 
-Consequenlty, to analyze a token,  the approach `Kanones` takes is:
+Symmetrical operation: synthesis.  Given a form and a lexeme, generate surface token.
 
-1. generate a normalized accented form:
-    - drop accents added from enclitics
-    - convert barytone accents to oxytone
-2. generate a form with all accents stripped
-3. analyze the accent-free form using a FST.  The result is an Array of 0 or more analyses that are considered hypotheses.
-4. For each hypothesis, add the appropriate accent to the unaccented string, and compare the result to the normalized accented form created in step 1.  If they match, the hypothetical analysis is valid.
+Normally assumed that analysis and synthesis are reversible.
+
+This is not true in Greek. Interaction of morphological systems, phonological systems, and movable accent are not stateless.
+
+
+## Kanones' solution
+
+1. Generate all possible forms
+2. "Parsing" becomes a lookup operation
+3. A "parser" becomes the set of all possible tokens associated with all possible analyses for that token
+
+Result in 2022: technologically minimal and fast for use; easily implemented from plain-text data sources that a classicist can modify or add to.
+
+## Analysis
+
+Kanones uses model of `CitableParserBuilder` module
+
+- four components:
+    1. lexeme
+    2. form
+    3. stem
+    4. rule
+- all elements other than string tokens identified by URN

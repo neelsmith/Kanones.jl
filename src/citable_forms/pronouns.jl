@@ -9,12 +9,45 @@ end
 CitableTrait(::Type{GMFPronoun}) = CitableByCite2Urn()
 
 
+"""Extract gender property from `p`.
+$(SIGNATURES)
+"""
+function gmpGender(p::GMFPronoun)
+    p.pgender
+end
+
+
+"""Extract case property from `p`.
+$(SIGNATURES)
+"""
+function gmpCase(p::GMFPronoun)
+    p.pcase
+end
+
+
+"""Extract number property from `p`.
+$(SIGNATURES)
+"""
+function gmpNumber(p::GMFPronoun)
+    p.pnumber
+end
+
+
 """Compose a label for a `GMFPronoun`
 
 $(SIGNATURES)
 """
 function label(pronoun::GMFPronoun)
-    join([ label(pronoun.pgender), label(pronoun.pcase), label(pronoun.pnumber)], " ")
+    join([ "pronoun:", label(pronoun.pgender), label(pronoun.pcase), label(pronoun.pnumber)], " ")
+end
+
+
+"""Compose a digital code for `pronoun`.
+$(SIGNATURES)
+"""
+function code(pronoun::GMFPronoun)
+     # PosPNTMVGCDCat
+     string(PRONOUN,"0",code(pronoun.pnumber),"000",code(pronoun.pgender),code(pronoun.pcase),"00")
 end
 
 """Compose a Cite2Urn for a `GMFPronoun`.
@@ -22,8 +55,7 @@ end
 $(SIGNATURES)
 """
 function urn(pronoun::GMFPronoun)
-    # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, PRONOUN,"0",code(pronoun.pnumber),"000",code(pronoun.pgender),code(pronoun.pcase),"00"))
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(pronoun))
 end
 
 """Create a `GMFPronoun` from a string value.
@@ -69,29 +101,7 @@ end
 """Compose a `FormUrn` for a `GMFPronoun`.
 $(SIGNATURES)
 """
-function formurn(gmfPronoun::GMFPronoun)
-    FormUrn(string("morphforms.", PRONOUN,"0", code(gmfPronoun.pnumber),"000",code(gmfPronoun.pgender),code(gmfPronoun.pcase),"00"))
+function formurn(pronoun ::GMFPronoun)
+    FormUrn("$(COLLECTION_ID)." * code(pronoun))
 end
 
-
-
-"""Compose a GMFPronoun for a noun form from FST representation of analytical data.
-
-$(SIGNATURES)
-"""
-function pronounfromfst(fstdata)
-    # Example:
-    # <feminine><accusative><singular>
-    #@warn("Parse FST noun " * fstdata)
-    nounrulere = r"<([^<]+)><([^<]+)><([^<]+)>"  
-    matchedup = collect(eachmatch(nounrulere, fstdata))
-    
-    if isempty(matchedup)
-        @warn("pronounfromfst: unable to parse FST analysis \"" * fstdata * "\"")
-        nothing
-    else
-        (g,c,n) = matchedup[1].captures
-        GMFPronoun(gmpGender(g), gmpCase(c), gmpNumber(n))
-    end
-end
- # PosPNTMVGCDCat

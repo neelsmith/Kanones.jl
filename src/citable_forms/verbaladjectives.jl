@@ -6,6 +6,30 @@ struct GMFVerbalAdjective <: GreekMorphologicalForm
     vanumber::GMPNumber
 end
 
+
+
+"""Extract gender property from `vadj`.
+$(SIGNATURES)
+"""
+function gmpGender(vadj::GMFVerbalAdjective)
+    vadj.vagender
+end
+
+"""Extract case property from `vadj`.
+$(SIGNATURES)
+"""
+function gmpCase(vadj::GMFVerbalAdjective)
+    vadj.vacase
+end
+
+
+"""Extract number property from `vadj`.
+$(SIGNATURES)
+"""
+function gmpNumber(vadj::GMFVerbalAdjective)
+    vadj.vanumber
+end
+
 """Verbal adjective forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFVerbalAdjective}) = CitableByCite2Urn()
 
@@ -14,7 +38,16 @@ CitableTrait(::Type{GMFVerbalAdjective}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function label(vadj::GMFVerbalAdjective)
-    join([label(vadj.vagender), label(vadj.vacase), label(vadj.vanumber)], " ")
+    join(["verbal adjective:", label(vadj.vagender), label(vadj.vacase), label(vadj.vanumber)], " ")
+end
+
+
+"""Compose a digital code for `vadj`.
+$(SIGNATURES)
+"""
+function code(vadj::GMFVerbalAdjective)
+    # PosPNTMVGCDCat
+    string(VERBALADJECTIVE,"0",code(vadj.vanumber),"000",code(vadj.vagender), code(vadj.vacase),"00")
 end
 
 """Compose a Cite2Urn for a `GMFVerbalAdjective`.
@@ -23,7 +56,7 @@ $(SIGNATURES)
 """
 function urn(vadj::GMFVerbalAdjective)
     # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, VERBALADJECTIVE,"0",code(vadj.vanumber),"000",code(vadj.vagender), code(vadj.vacase),"00"))
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(vadj))
 end
 
 """Create a `GMFVerbalAdjective` from a string value.
@@ -67,29 +100,10 @@ function gmfVerbalAdjective(a::Analysis)
     gmfVerbalAdjective(a.form)
 end
 
-
-"""Compose URN for verbal adjective form from FST representation of analytical data.
-
-$(SIGNATURES)
-"""
-function verbaladjectivefromfst(fstdata)
-    vadjrulere = r"<([^<]+)><([^<]+)><([^<]+)>"
-    matchedup = collect(eachmatch(vadjrulere, fstdata))
-
-    if isempty(matchedup)
-        @warn("Unable to parse FST analysis \"" * fstdata * "\" as verb form.")
-        nothing
-    else
-        (g,c,n) = matchedup[1].captures
-        GMFVerbalAdjective(gmpGender(g),gmpCase(c),gmpNumber(n))
-    end
-end
-
 """Compose a `FormUrn` for an `GMFVerbalAdjective`.
 
 $(SIGNATURES)
 """
 function formurn(vadj::GMFVerbalAdjective)
-    FormUrn(string("morphforms.", VERBALADJECTIVE, "0" ,code(vadj.vanumber),"000", code(vadj.vagender), code(vadj.vacase),"00"))
+    FormUrn("$(COLLECTION_ID)." * code(vadj))
 end
-#PosPNTMVGCDCat

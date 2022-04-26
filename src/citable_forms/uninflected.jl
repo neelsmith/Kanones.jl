@@ -1,5 +1,3 @@
-#<u>uninflectedstems.n21618</u><u>lsj.n21618</u>γαρ<uninflected><particle><div><particle><uninflected><u>litgreek.indeclinable1</u>
-
 """Uninflected forms have a single property: the "part of speech"."""
 struct GMFUninflected <: GreekMorphologicalForm
     pos::GMPUninflectedType  
@@ -8,14 +6,28 @@ end
 """Uninflected forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFUninflected}) = CitableByCite2Urn()
 
+
+"""Extract "part of speech" type from `uform`.
+$(SIGNATURES)
+"""
+function gmpUninflectedType(uform::GMFUninflected)
+    uform.pos
+end
+
+"""Compose digital code for `uform`.
+$(SIGNATURES)
+"""
+function code(uform::GMFUninflected)
+    string(UNINFLECTED, "00000000", code(uform.pos))
+end
+
 """Compose URN for an `GMFUninflected`.
 
 $(SIGNATURES)
 Required by `CitableTrait`.
 """
 function urn(uform::GMFUninflected)
-    urnstring = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", code(uform.pos))
-    Cite2Urn(urnstring)
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(uform) )
 end
 
 """Compose a human-readable label for an `GMFUninflected`.
@@ -24,11 +36,10 @@ $(SIGNATURES)
 Required by `CitableTrait`.
 """
 function label(uform::GMFUninflected)
-    label(uform.pos)
+    "uninflected form: " * label(uform.pos)
 end
 
 """Create `GMFUninflected` from a Cite2Urn.
-
 $(SIGNATURES)
 """
 function gmfUninflected(urn::Cite2Urn)
@@ -51,8 +62,9 @@ end
 $(SIGNATURES)
 """
 function gmfUninflected(codeString::AbstractString)
-    pos = gmpUninflectedType(parse(Int64, codeString))
-    gmfUninflected(pos)
+    morphchars = split(codeString, "")    
+    pos = parse(Int64, morphchars[10])
+    GMPUninflectedType(pos) |> GMFUninflected
 end
 
 """Create `GMFUninflected` from a Char.
@@ -70,8 +82,6 @@ $(SIGNATURES)
 """
 function gmfUninflected(code::Int64)
     GMFUninflected(code)
-
-
 end
 
 """Create `GMFUninflected` from an Analysis.
@@ -98,7 +108,7 @@ end
 $(SIGNATURES)
 """
 function formurn(uninflected::GMFUninflected)
-    FormUrn(string("morphforms.", UNINFLECTED, "00000000", code(uninflected.pos)))
+    FormUrn(string("$(COLLECTION_ID).", UNINFLECTED, "00000000", code(uninflected.pos)))
 end
 
 
@@ -108,7 +118,7 @@ $(SIGNATURES)
 """
 function uninflectedcex()
     lines = []
-    sortedkeys = keys(uninflectedlabels)  |> collect |> sort 
+    sortedkeys = keys(uninflectedlabeldict)  |> collect |> sort 
     for k in sortedkeys
         s = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", k, "|", "uninflected form: ", sortedkeys[k])
         push!(lines, s)

@@ -27,6 +27,34 @@ end
 """Noun stems are citable by Cite2Urn"""
 CitableTrait(::Type{NounStem}) = CitableByCite2Urn()
 
+"""Identify value of stem string for `ns`.
+$(SIGNATURES)
+"""
+function stemstring(ns::NounStem)
+    ns.form
+end
+
+"""Identify lexeme for `ns`.
+$(SIGNATURES)
+"""
+function lexeme(ns::NounStem)
+    ns.lexid
+end
+
+"""Identify inflection class for `ns`.
+$(SIGNATURES)
+"""
+function inflectionClass(ns::NounStem)
+    ns.inflectionclass
+end
+
+"""Identify gender of `ns`.
+$(SIGNATURES)
+"""
+function gmpGender(ns::NounStem)
+    ns.gender
+end
+
 """Human-readlable label for a `NounStem`.
 
 @(SIGNATURES)
@@ -53,7 +81,6 @@ function urn(ns::NounStem; registry = nothing)
 end
 
 
-
 """Compose CEX text for a `NounStem`.
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
@@ -63,10 +90,10 @@ Required for `CitableTrait`.
 """
 function cex(ns::NounStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([ns.stemid, label(ns) ], delimiter)
+        join([ns.stemid, label(ns), stemstring(ns), lexeme(ns), inflectionClass(ns), label(ns.gender), ns.accentpersistence ], delimiter)
     else
         c2urn = expand(ns.stemid, registry)
-        join([c2urn, label(ns)], delimiter)
+        join([c2urn, label(ns), stemstring(ns), lexeme(ns), inflectionClass(ns), label(ns.gender), ns.accentpersistence], delimiter)
     end
 end
 

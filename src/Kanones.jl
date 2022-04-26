@@ -15,7 +15,7 @@ using CitableCorpus
 using CitableObject
 using Orthography, PolytonicGreek, AtticGreek
 using Unicode, Glob, DelimitedFiles
-using CSV, HTTP
+using CSV
 using Documenter, DocStringExtensions
 
 using CitableBase: Citable
@@ -41,8 +41,10 @@ export GMPDegree, gmpDegree
 export GMPUninflectedType, gmpUninflectedType
 export code
 
-export GreekMorphologicalForm, KanonesStem, KanonesRule
+export GreekMorphologicalForm
 export greekForm
+export KanonesRule, inflectionClass, ending
+export KanonesStem, lexeme, stemstring
 export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
 export GMFInfinitive, gmfInfinitive, InfinitiveRule
 export GMFVerbalAdjective, gmfVerbalAdjective, VerbalAdjectiveRule
@@ -51,6 +53,7 @@ export GMFParticiple, gmfParticiple, ParticipleRule
 export GMFNoun, gmfNoun, NounStem, NounRule
 export GMFPronoun, gmfPronoun, PronounStem, PronounRule
 export GMFAdjective, gmfAdjective, AdjectiveStem, AdjectiveRule
+export GMFAdverb, gmfAdverb
 
 export GMFUninflected, gmfUninflected, UninflectedStem, UninflectedRule
 
@@ -61,29 +64,32 @@ export IrregularInfinitiveStem
 
 export GreekLexeme
 
-export generate
+export generate, analysis_string
 export decline, mddeclension
 
 export urn, formurn
 export ruleurn # ??
 
+export StringParser, stringParser
+
+#=
 include("parse.jl")
 include("listparsing.jl")
 include("utils.jl")
+=#
 
-include("dataset.jl")
+
 include("kanonesio.jl")
+include("dataset/dataset.jl")
 
-include("analyzer/analysis.jl")
+# include("analyzer/analysis.jl")
 
-include("generator/generate.jl")
-include("generator/uninflectedgen.jl")
-include("generator/nounsgen.jl")
-
+#=
 include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
+=#
 
-include("morphology/forms.jl")
+include("citable_forms/forms.jl")
 include("citable_stems/stems.jl")
 include("citable_rules/rules.jl")
 
@@ -98,90 +104,62 @@ include("morphologicalproperties/case.jl")
 include("morphologicalproperties/degree.jl")
 include("morphologicalproperties/uninflectedtype.jl")
 
-include("morphology/formvalues.jl")
-include("morphology/forapps.jl")
-include("morphology/kanonesformurns.jl")
-include("morphology/irregularmorphology.jl")
 
-include("citable_rules/irregulars.jl")
+include("citable_forms/formvalues.jl")
+#include("morphology/forapps.jl")
+#include("citable_forms/kanonesformurns.jl")
+#include("citable_forms/irregularmorphology.jl")
+
+#include("citable_rules/irregulars.jl")
 
 include("citable_forms/finiteverbs.jl")
-include("citable_stems/verbs.jl")
-include("citable_stems/irregularverbs.jl")
-include("citable_rules/finiteverbs.jl")
+#include("citable_stems/verbs.jl")
+#include("citable_stems/irregularverbs.jl")
+#include("citable_rules/finiteverbs.jl")
 
 # regular stems are drawn from finite verb stems
 include("citable_forms/infinitives.jl")
-include("citable_stems/irregularinfinitives.jl")
-include("citable_rules/infinitives.jl")
+#include("citable_stems/irregularinfinitives.jl")
+#include("citable_rules/infinitives.jl")
 
 include("citable_forms/participles.jl")
-include("citable_rules/participles.jl")
+#include("citable_rules/participles.jl")
 
 include("citable_forms/verbaladjectives.jl")
-include("citable_rules/verbaladjectives.jl")
+#include("citable_rules/verbaladjectives.jl")
 
 include("citable_forms/nouns.jl")
+include("citable_rules/nounrules.jl")
 include("citable_stems/regularnouns.jl")
-include("citable_stems/irregularnouns.jl")
-include("citable_rules/nouns.jl")
+#include("citable_stems/irregularnouns.jl")
+
 
 include("citable_forms/adjectives.jl")
-include("citable_rules/adjectives.jl")
-include("citable_stems/regularadjectives.jl")
-include("citable_stems/irregularadjectives.jl")
+include("citable_rules/adjectiverules.jl")
+#include("citable_stems/regularadjectives.jl")
+#include("citable_stems/irregularadjectives.jl")
+
+include("citable_forms/adverbs.jl")
+
 
 include("citable_forms/pronouns.jl")
-include("citable_stems/pronouns.jl")
-include("citable_rules/pronouns.jl")
+#include("citable_stems/pronouns.jl")
+#include("citable_rules/pronouns.jl")
 
 
 include("citable_forms/uninflected.jl")
-include("citable_stems/uninflected.jl")
-include("citable_rules/uninflected.jl")
-
-include("propertyaccessors/adjectives.jl")
-include("propertyaccessors/nouns.jl")
-include("propertyaccessors/pronouns.jl")
-include("propertyaccessors/verbs.jl")
-include("propertyaccessors/infinitives.jl")
-include("propertyaccessors/participles.jl")
-include("propertyaccessors/uninflecteds.jl")
-include("propertyaccessors/verbaladjectives.jl")
+#include("citable_stems/uninflected.jl")
+#include("citable_rules/uninflected.jl")
 
 
-"Submodule to read a Kanones Dataset and build SFST parser."
-module FstBuilder
-    import ..Kanones
-    using Glob, Unicode
-    using CitableObject
-    using CitableParserBuilder
-    using Documenter, DocStringExtensions
-    using Orthography, PolytonicGreek, AtticGreek
-    
-    export buildparser
+include("generate/generate.jl")
+#include("generator/uninflectedgen.jl")
+include("generate/generatenoun.jl")
 
-    include("builder/unicodefst.jl")
-    include("builder/config.jl")
-    include("builder/compiler.jl")
-    include("builder/fstcomposer.jl")
-    include("builder/acceptorsquashers.jl")
-    
-    # Specific analytical types ("parts of speech")
-    include("builder/uninflectedfst.jl")
-    include("builder/nounsfst.jl")
-    include("builder/pronounsfst.jl")
-    include("builder/adjectivesfst.jl")
-    include("builder/irregularadjsfst.jl")
-    include("builder/irregularnounsfst.jl")
-    include("builder/irregularverbsfst.jl")
-    include("builder/irregularinfinitivesfst.jl")
-    include("builder/irregularrulesfst.jl")
+include("forapps/mddeclension.jl")
 
-    include("builder/finiteverbsfst.jl")
-    include("builder/infinitivesfst.jl")
-    include("builder/participlesfst.jl")
-    include("builder/verbaladjectivesfst.jl")
-end
+include("parser/parser.jl")
+include("parser/stringparser.jl")
+
 
 end # module

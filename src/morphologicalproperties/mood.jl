@@ -1,12 +1,12 @@
 struct GMPMood <: GreekMorphologicalProperty
     code::Int64
     function GMPMood(code)
-        code in keys(moodlabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
+        code in keys(moodlabeldict) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 
 function gmpMood(s::AbstractString)
-    s in keys(moodcodes) ? GMPMood(moodcodes[s]) : DomainError(string(s, " is not a valid value for mood.")) 
+    s in keys(moodcodedict) ? GMPMood(moodcodedict[s]) : DomainError(string(s, " is not a valid value for mood.")) 
 end
 
 function gmpMood(code::Int64)
@@ -18,14 +18,14 @@ function code(mood::GMPMood)
 end
 
 function label(mood::GMPMood)
-   moodlabels[mood.code]
+   moodlabeldict[mood.code]
 end
 
 """Dict mapping codes to labels for mood.
 
 $(SIGNATURES)
 """
-const moodlabels = Dict(
+const moodlabeldict = Dict(
     1 => "indicative",
     2 => "subjunctive",
     3 => "optative",
@@ -36,7 +36,7 @@ const moodlabels = Dict(
 
 $(SIGNATURES)
 """
-const moodcodes = Dict(
+const moodcodedict = Dict(
     "indicative" => 1,
     "subjunctive" => 2,
     "optative" => 3,

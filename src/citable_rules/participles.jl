@@ -89,5 +89,5 @@ $(SIGNATURES)
 """
 function ruleurn(rule::ParticipleRule)
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", PARTICIPLE,"0",code(rule.pnumber), code(rule.ptense), "0", code(rule.pvoice), code(rule.pgender), code(rule.pcase),"00"))
+    RuleUrn(string("$(COLLECTION_ID).", PARTICIPLE,"0",code(rule.pnumber), code(rule.ptense), "0", code(rule.pvoice), code(rule.pgender), code(rule.pcase),"00"))
 end

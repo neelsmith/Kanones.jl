@@ -72,5 +72,5 @@ $(SIGNATURES)
 """
 function ruleurn(rule::PronounStem)
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", PRONOUN,"0",code(rule.pnumber),"000",code(rule.pgender),code(rule.pcase),"00"))
+    RuleUrn(string("$(COLLECTION_ID).", PRONOUN,"0",code(rule.pnumber),"000",code(rule.pgender),code(rule.pcase),"00"))
 end

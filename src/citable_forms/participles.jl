@@ -10,14 +10,62 @@ end
 """Participle forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFParticiple}) = CitableByCite2Urn()
 
+
+"""Extract tense property from `p`.
+$(SIGNATURES)
+"""
+function gmpTense(p::GMFParticiple)
+    p.tense
+end
+
+"""Extract voice property from `p`.
+$(SIGNATURES)
+"""
+function gmpVoice(p::GMFParticiple)
+    p.voice
+end
+
+
+"""Extract gender property from `p`.
+$(SIGNATURES)
+"""
+function gmpGender(p::GMFParticiple)
+    p.pgender
+end
+
+"""Extract case property from `p`.
+$(SIGNATURES)
+"""
+function gmpCase(p::GMFParticiple)
+    p.pcase
+end
+
+"""Extract tense property from `p`.
+$(SIGNATURES)
+"""
+function gmpNumber(p::GMFParticiple)
+    p.pnumber
+end
+
+
+
 """Compose a label for a `GMFVerbalAdjective`
 
 $(SIGNATURES)
 """
 function label(ptcpl::GMFParticiple)
-    join([label(ptcpl.tense), label(ptcpl.voice), label(ptcpl.pgender), label(ptcpl.pcase), label(ptcpl.pnumber)], " ")
+    join(["participle:", label(ptcpl.tense), label(ptcpl.voice), label(ptcpl.pgender), label(ptcpl.pcase), label(ptcpl.pnumber)], " ")
 end
 
+
+
+"""Compose digital code for `ptcpl`.
+$(SIGNATURES)
+"""
+function code(ptcpl::GMFParticiple)
+    #PosPNTMVGCDCat
+    string(PARTICIPLE,"0",code(ptcpl.pnumber), code(ptcpl.tense), "0", code(ptcpl.voice), code(ptcpl.pgender), code(ptcpl.pcase), "00")
+end
 
 """Compose a Cite2Urn for a `GMFParticiple`.
 
@@ -25,7 +73,7 @@ $(SIGNATURES)
 """
 function urn(ptcpl::GMFParticiple)
     # PosPNTMVGCDCat
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, PARTICIPLE,"0",code(ptcpl.pnumber), code(ptcpl.tense), "0", code(ptcpl.voice), code(ptcpl.pgender), code(ptcpl.pcase), "00"))
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(ptcpl))
 end
 
 
@@ -76,34 +124,13 @@ end
 
 
 
-"""Compose URN for infinitive verb form from FST representation of analytical data.
+
+
+"""Compose a `FormUrn` for an `GMFParticiple`.
 
 $(SIGNATURES)
 """
-function participlefromfst(fstdata)
-    # Extract TVGCN from a string:
-    ptcprulere = r"<([^<]+)><([^<]+)><([^<]+)><([^<]+)><([^<]+)>"
-    matchedup = collect(eachmatch(ptcprulere, fstdata))
-    if isempty(matchedup)
-        @warn("Unable to parse FST analysis \"" * fstdata * "\" as participle form.")
-        nothing
-    else
-        (t, v, g, c, n) = matchedup[1].captures
-        GMFParticiple(
-        gmpTense(t), gmpVoice(v),
-        gmpGender(g), gmpCase(c), gmpNumber(n)
-        )
-    end
-end
-
-"""Compose a `FormUrn` for an `GMFInfinitive`.
-
-$(SIGNATURES)
-"""
-function formurn(ptcpl::GMFParticiple)
-    #PosPNTMVGCDCat
-    FormUrn(string("morphforms.", PARTICIPLE, 
-    "0", code(ptcpl.pnumber), code(ptcpl.tense), "0", code(ptcpl.voice), 
-    code(ptcpl.pgender), code(ptcpl.pcase), "00"))
+function formurn(ptcpl::GMFParticiple)    
+    FormUrn("$(COLLECTION_ID)." * code(ptcpl))
 end
 

@@ -85,5 +85,5 @@ $(SIGNATURES)
 """
 function ruleurn(rule::VerbalAdjectiveRule)
     # PosPNTMVGCDCat
-    RuleUrn(string("morphforms.", VERBALADJECTIVE,"0",code(rule.vanumber),"000",code(rule.vagender),code(rule.vacase),"00"))
+    RuleUrn(string("$(COLLECTION_ID).", VERBALADJECTIVE,"0",code(rule.vanumber),"000",code(rule.vagender),code(rule.vacase),"00"))
 end
