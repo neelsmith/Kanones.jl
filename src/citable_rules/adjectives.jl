@@ -79,6 +79,7 @@ function cex(adj::AdjectiveRule; delimiter = "|", registry = nothing)
 end
 
 
+
 """Compose an abbreviated URN for a rule from a `AdjectiveRule`.
 
 $(SIGNATURES)
