@@ -13,37 +13,41 @@ Pkg.instantiate()
 using Documenter, DocStringExtensions
 #using PolytonicGreek
 using CitableObject
-using Kanones, Kanones.FstBuilder
+using Kanones
 
 
 makedocs(
     sitename="Kanones.jl",
     pages = [
         "Home" => "index.md",
-        #=
+       
         "Background" => "bg/index.md",
         "Manual" => Any[
-            "Prerequisites" => "prereqs.md",
-            "Managing Kanones datasets" => "datasets/index.md",
-            "Compiling and parsing" => "parsing/index.md",
-            "Working with analytical data" => "analyses/index.md",
-            "Programmer's notes on implementation" => "implementation/overview.md", 
-            "Unit tests" => "implementation/units.md"
+            "Identification with URNs" => "urns.md",
+           "Morphological properties" => "properties.md",
+           "Morphological forms" => "forms.md",
+           "Inflectional rules" => "rules.md",
+           "Vocabulary items" => "lexicon.md",
+           "Lexical stems" => "stems.md"
+           # "Managing Kanones datasets" => "datasets/index.md",
+            
+            #"Working with analytical data" => "analyses/index.md",
+            #"Programmer's notes on implementation" => "implementation/overview.md", 
+            #"Unit tests" => "implementation/units.md"
            
         ],
       
         "Reference: stem types" => Any[
             "Contents" => "stemtypes/index.md",
-           "Nouns" => "stemtypes/nouns/nounstems.md",
-           "Irregular nouns" => "stemtypes/nouns/irregulars.md",
-           "Uninflected types" => "stemtypes/uninflected.md",
+           #"Nouns" => "stemtypes/nouns/nounstems.md",
+           #"Irregular nouns" => "stemtypes/nouns/irregulars.md",
+           #"Uninflected types" => "stemtypes/uninflected.md",
         ],   
         "Reference: code" => Any[
-            "Julia API documentation" =>  "apis/apis.md",
-            "FST" =>  "fst/index.md",
+            "Julia API documentation" =>  "apis/apis.md"
             
         ]
-       =#
+    
      
     ],
     )
