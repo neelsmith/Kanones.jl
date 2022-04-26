@@ -34,7 +34,6 @@ function stemstring(ns::NounStem)
     ns.form
 end
 
-
 """Identify lexeme for `ns`.
 $(SIGNATURES)
 """
@@ -42,12 +41,18 @@ function lexeme(ns::NounStem)
     ns.lexid
 end
 
-
 """Identify inflection class for `ns`.
 $(SIGNATURES)
 """
 function inflectionClass(ns::NounStem)
     ns.inflectionclass
+end
+
+"""Identify gender of `ns`.
+$(SIGNATURES)
+"""
+function gmpGender(ns::NounStem)
+    ns.gender
 end
 
 """Human-readlable label for a `NounStem`.

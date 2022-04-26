@@ -154,5 +154,7 @@ include("generate/generate.jl")
 #include("generator/uninflectedgen.jl")
 include("generate/generatenoun.jl")
 
+include("forapps/mddeclension.jl")
+
 
 end # module

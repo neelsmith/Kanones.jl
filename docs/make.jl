@@ -28,7 +28,8 @@ makedocs(
            "Morphological forms" => "forms.md",
            "Inflectional rules" => "rules.md",
            "Vocabulary items" => "lexicon.md",
-           "Lexical stems" => "stems.md"
+           "Lexical stems" => "stems.md",
+           "Utilities" => "utilities.md"
            # "Managing Kanones datasets" => "datasets/index.md",
             
             #"Working with analytical data" => "analyses/index.md",

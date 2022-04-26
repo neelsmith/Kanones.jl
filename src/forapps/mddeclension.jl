@@ -1,52 +1,25 @@
-#=
-"""Decline all case-number combinations of a lexeme.
-
+"""Decline all case-number combinations of `lex`, a noun.
 $(SIGNATURES)
 """
-function decline(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = false)
-    stems = stemsarray(kd)
-    nounstems = filter(s -> typeof(s) == NounStem, stems)
-    stemmatches = filter(s -> s.lexid == lex, nounstems)
+function  decline(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = false)
+    stemmatches = filter(s -> lexeme(s) == lex, stemsarray(kd))
     
-    # Make sure stemmatches is not empty first:
-    if isempty(stemmatches)
-        @warn "No matches in dataset for lexeme $lex"
-        nothing
-
-    else
-        gender = stemmatches[1].gender
-        # Find gender and construct form ids:
-        genderint = Kanones.code(gender)
-
-
-        sg = [
-            FormUrn("$(COLLECTION_ID).201000$(genderint)100"),
-            FormUrn("$(COLLECTION_ID).201000$(genderint)200"),
-            FormUrn("$(COLLECTION_ID).201000$(genderint)300"),
-            FormUrn("$(COLLECTION_ID).201000$(genderint)400")
-        ]
-        # No duals by default
-        pl = [
-            FormUrn("$(COLLECTION_ID).203000$(genderint)100"),
-            FormUrn("$(COLLECTION_ID).203000$(genderint)200"),
-            FormUrn("$(COLLECTION_ID).203000$(genderint)300"),
-            FormUrn("$(COLLECTION_ID).203000$(genderint)400")
-        ]
-
-        rules = rulesarray(kd)
-        nounrules = filter(r -> typeof(r) == NounRule, rules)
-
-        forms = []
-        for srule in sg
-            push!(forms, generate(srule,lex,  kd))
+    declinedforms = []
+    for stem in stemmatches
+        forms = filter(f -> gmpGender(f) == gmpGender(stem), Kanones.nounforms())
+        rules = filter(r -> inflectionClass(r) == inflectionClass(stem), rulesarray(kd))    
+        for f in forms
+            rulematches = filter(r -> formurn(r) == formurn(f), rules) 
+            if !isempty(rulematches)
+                println(label(rulematches[1]))
+                push!(declinedforms, generate(stem, rulematches[1]))
+            end
         end
-        for plrule in pl
-            push!(forms, generate(plrule, lex, kd))
-        end
-        forms
     end
+    declinedforms
 end
 
+#=
 """Compose markdown table with a declension of a single noun.
 
 $(SIGNATURES)

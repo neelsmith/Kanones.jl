@@ -55,7 +55,7 @@ $(SIGNATURES)
 """
 function readrulerow(usp::NounIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
-    @info(parts)
+    @debug(parts)
     if length(parts) < 6
         msg = "Invalid syntax for noun rule: too few components in $(delimited)"
         throw(ArgumentError(msg))

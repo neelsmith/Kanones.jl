@@ -10,4 +10,5 @@ formurn
 
 ```@docs
 generate
+decline
 ```

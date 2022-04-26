@@ -26,3 +26,19 @@ $(SIGNATURES)
 function stripmetachars(s)
     replace(s, r"[#_^]" => "")
 end
+
+
+"""Compile list of all possible form codes.
+$(SIGNATURES)
+"""
+function allformcodes()
+    total = nounformcodes()
+
+    total
+end
+
+#=
+function allforms()
+    allformcodes .|> greekForm
+end
+=# 

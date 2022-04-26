@@ -32,3 +32,29 @@ function generate(stem::NounStem, rule::NounRule;           ortho::GreekOrthogra
         end
     end
 end
+
+
+"""Generate list of codes for all noun forms.
+$(SIGNATURES)
+"""
+function nounformcodes()
+    genderints = keys(genderlabeldict) |> collect |> sort
+    caseints = keys(caselabeldict) |> collect |> sort
+    numints = keys(numberlabeldict) |> collect |> sort
+    formlist = []
+    for n in numints
+        for g in genderints
+            for c in caseints
+                push!(formlist, "20$(n)000$(g)$(c)00")
+            end
+        end
+    end
+    formlist
+end
+
+"""Generate list of all possible noun forms.
+$(SIGNATURES)
+"""
+function nounforms()
+    nounformcodes() .|> gmfNoun
+end
