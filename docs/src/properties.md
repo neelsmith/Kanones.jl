@@ -77,9 +77,22 @@ gmpGender(2) == gmpGender("feminine")
 
 Case: five values labelled `nominative`, `genitive`, `dative`, `accusative`, `vocative`.
 
-
 ```@example props
 gmpCase(2) == gmpCase("genitive")
 ```
 
-PNTMVGCD + uninflected type
+
+Degree: three values labelled `positive`, `comparative`, `superlative`.
+
+```@example props
+gmpDegree(2) == gmpDegree("comparative")
+```
+
+Uninflected part of speech: six values labelled `conjunction`,
+    `preposition`, `particle`, `adverb`, `numeral`, `interjection`
+   
+
+```@example props
+gmpUninflectedType(2) == gmpUninflectedType("preposition")
+```
+
