@@ -87,10 +87,10 @@ include("lexemes/lexica.jl")
 =#
 include("citable_forms/forms.jl")
 
-#=
-include("citable_stems/stems.jl")
+
+#include("citable_stems/stems.jl")
 include("citable_rules/rules.jl")
-=#
+
 include("morphologicalproperties/properties.jl")
 
 include("morphologicalproperties/tense.jl")
@@ -130,7 +130,7 @@ include("citable_forms/verbaladjectives.jl")
 include("citable_forms/nouns.jl")
 #include("citable_stems/regularnouns.jl")
 #include("citable_stems/irregularnouns.jl")
-#include("citable_rules/nouns.jl")
+include("citable_rules/nouns.jl")
 
 include("citable_forms/adjectives.jl")
 #include("citable_rules/adjectives.jl")
