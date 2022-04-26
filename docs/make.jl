@@ -40,7 +40,10 @@ makedocs(
       
         "Reference: stem types and paradigms" => Any[
             "Contents" => "stemtypes/index.md",
-           #"Nouns" => "stemtypes/nouns/nounstems.md",
+            "Nouns" => "stemtypes/nouns/index.md",
+            "Regular nouns: first declension" => "stemtypes/nouns/decl1.md",
+            "Regular nouns: second declension" => "stemtypes/nouns/decl2.md",
+            "Regular nouns: third declension" => "stemtypes/nouns/decl3.md",
            #"Irregular nouns" => "stemtypes/nouns/irregulars.md",
            #"Uninflected types" => "stemtypes/uninflected.md",
         ],   
