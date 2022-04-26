@@ -1,1 +1,1 @@
-# Stem types
+# Reference: Stem types and paradigms

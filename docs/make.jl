@@ -22,7 +22,7 @@ makedocs(
         "Home" => "index.md",
        
         "Background" => "bg/index.md",
-        "Manual" => Any[
+        "User's guide" => Any[
             "Identification with URNs" => "urns.md",
            "Morphological properties" => "properties.md",
            "Morphological forms" => "forms.md",
@@ -37,13 +37,13 @@ makedocs(
            
         ],
       
-        "Reference: stem types" => Any[
+        "Reference: stem types and paradigms" => Any[
             "Contents" => "stemtypes/index.md",
            #"Nouns" => "stemtypes/nouns/nounstems.md",
            #"Irregular nouns" => "stemtypes/nouns/irregulars.md",
            #"Uninflected types" => "stemtypes/uninflected.md",
         ],   
-        "Reference: code" => Any[
+        "Reference: API documentation" => Any[
             "Julia API documentation" =>  "apis/apis.md"
             
         ]
