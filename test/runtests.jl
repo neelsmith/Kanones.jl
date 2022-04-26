@@ -14,6 +14,7 @@ include("forms/test_nouns.jl")
 include("forms/test_participles.jl")
 include("forms/test_pronouns.jl")
 include("forms/test_uninflected.jl")
+include("forms/test_verbaladjs.jl")
 
 #=
 include("test_morphologyids.jl")
