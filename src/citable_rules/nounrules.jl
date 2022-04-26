@@ -9,6 +9,23 @@ struct NounRule <: KanonesRule
     nnumber::GMPNumber
 end
 
+
+
+"""Identify inflection class for  `nr`
+$(SIGNATURES)
+"""
+function inflectionClass(nr::NounRule)
+    nr.inflectionclass
+end
+
+"""Identify inflectional ending for  `nr`
+$(SIGNATURES)
+"""
+function ending(nr::NounRule)
+    nr.ending
+end
+
+
 """Read one row of a rules table for noun tokens,
 and create a `NounRule`.
 
@@ -16,8 +33,8 @@ $(SIGNATURES)
 """
 function readrulerow(usp::NounIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
-    
-    if length(parts) < 7
+    @info(parts)
+    if length(parts) < 6
         msg = "Invalid syntax for noun rule: too few components in $(delimited)"
         throw(ArgumentError(msg))
     else
@@ -72,10 +89,10 @@ Required for `CitableTrait`.
 """
 function cex(nr::NounRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([nr.ruleid, label(nr)], delimiter)
+        join([nr.ruleid, label(nr), ending(nr), inflectionClass(nr), formurn(nr)], delimiter)
     else
         c2urn = expand(nr.ruleid, registry)
-        join([c2urn, label(nr)], delimiter)
+        join([c2urn, label(nr),  ending(nr), inflectionClass(nr), formurn(nr)], delimiter)
     end
 end
 
@@ -84,16 +101,25 @@ abbreviated URN.
 
 $(SIGNATURES)
 """
-function id(n::NounRule)
+function ruleurn(n::NounRule)
     n.ruleid
 end
+
+
+"""Compose a digital code string for the form identified in `rule`.
+$(SIGNATURES)
+"""
+function code(rule::NounRule)
+      # PosPNTMVGCDCat
+     string( NOUN,"0",code(rule.nnumber),"000",code(rule.ngender),code(rule.ncase),"00")
+end
+
 
 """Compose an abbreviated URN for a rule from a `NounRule`.
 
 $(SIGNATURES)
 """
 function formurn(rule::NounRule)
-    # PosPNTMVGCDCat
-    FormUrn(string("$(COLLECTION_ID).", NOUN,"0",code(rule.nnumber),"000",code(rule.ngender),code(rule.ncase),"00"))
+    FormUrn("$(COLLECTION_ID)." * code(rule))
 end
 

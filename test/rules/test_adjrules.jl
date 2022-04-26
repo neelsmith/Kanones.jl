@@ -5,7 +5,7 @@
     # must read from delimited
     @test rule isa AdjectiveRule
     # must write to delimited
-   @test_broken cex(rule) == "HAS URN FOR FORM"
+   @test cex(rule) == "adjinfl.osaon1|Adjective inflection rule: ending -ος in class os_a_on can be masculine nominative singular positive.|ος|os_a_on|forms.7010001110"
 end
 
 @testset "Test data accessors" begin

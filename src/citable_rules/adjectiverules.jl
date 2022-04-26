@@ -84,10 +84,10 @@ Required for `CitableTrait`.
 """
 function cex(adj::AdjectiveRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([adj.ruleid, label(adj)], delimiter)
+        join([adj.ruleid, label(adj), ending(adj), inflectionClass(adj), formurn(adj)], delimiter)
     else
         c2urn = expand(adj.ruleid, registry)
-        join([c2urn, label(adj)], delimiter)
+        join([c2urn, label(adj),ending(adj), inflectionClass(adj), formurn(adj)], delimiter)
     end
 end
 

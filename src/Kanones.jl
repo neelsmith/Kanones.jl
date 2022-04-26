@@ -131,12 +131,13 @@ include("citable_forms/verbaladjectives.jl")
 #include("citable_rules/verbaladjectives.jl")
 
 include("citable_forms/nouns.jl")
+include("citable_rules/nounrules.jl")
 #include("citable_stems/regularnouns.jl")
 #include("citable_stems/irregularnouns.jl")
-include("citable_rules/nouns.jl")
+
 
 include("citable_forms/adjectives.jl")
-include("citable_rules/adjectives.jl")
+include("citable_rules/adjectiverules.jl")
 #include("citable_stems/regularadjectives.jl")
 #include("citable_stems/irregularadjectives.jl")
 

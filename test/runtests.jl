@@ -20,6 +20,7 @@ include("forms/test_verbaladjs.jl")
 
 
 include("rules/test_adjrules.jl")
+include("rules/test_nounrules.jl")
 
 
 #=
