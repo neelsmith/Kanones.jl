@@ -1,12 +1,12 @@
 struct GMPVoice <: GreekMorphologicalProperty
     code::Int64
     function GMPVoice(code)
-        code in keys(voicelabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
+        code in keys(voicelabeldict) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 
 function gmpVoice(s::AbstractString)
-    s in keys(voicecodes) ? GMPVoice(voicecodes[s]) : DomainError(string(s, " is not a valid value for voice.")) 
+    s in keys(voicecodedict) ? GMPVoice(voicecodedict[s]) : DomainError(string(s, " is not a valid value for voice.")) 
 end
 
 function gmpVoice(code::Int64)
@@ -18,14 +18,14 @@ function code(voice::GMPVoice)
 end
 
 function label(voice::GMPVoice)
-    voicelabels[voice.code]
+    voicelabeldict[voice.code]
 end
 
 """Dict mapping codes to labels for voice.
 
 $(SIGNATURES)
 """
-const voicelabels = Dict(
+const voicelabeldict = Dict(
     1 => "active",
     2 => "middle",
     3 => "passive"
@@ -35,7 +35,7 @@ const voicelabels = Dict(
 
 $(SIGNATURES)
 """
-const voicecodes = Dict(
+const voicecodedict = Dict(
    "active" => 1,
     "middle" => 2,
     "passive" => 3

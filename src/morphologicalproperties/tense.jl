@@ -1,12 +1,12 @@
 struct GMPTense <: GreekMorphologicalProperty
     code::Int64
     function GMPTense(code)
-        code in keys(tenselabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
+        code in keys(tenselabeldict) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 
 function gmpTense(s::AbstractString)
-    s in keys(tensecodes) ? GMPTense(tensecodes[s]) : DomainError(string(s, " is not a valid value for tense.")) 
+    s in keys(tensecodedict) ? GMPTense(tensecodedict[s]) : DomainError(string(s, " is not a valid value for tense.")) 
 end
 
 function gmpTense(code::Int64)
@@ -18,14 +18,14 @@ function code(tense::GMPTense)
 end
 
 function label(tense::GMPTense)
-    tenselabels[tense.code]
+    tenselabeldict[tense.code]
 end
 
 """Dict mapping codes to labels for mood.
 
 $(SIGNATURES)
 """
-const tenselabels = Dict(
+const tenselabeldict = Dict(
     1 => "present",
     2 => "imperfect",
     3 => "aorist",
@@ -38,7 +38,7 @@ const tenselabels = Dict(
 
 $(SIGNATURES)
 """
-const tensecodes = Dict(
+const tensecodedict = Dict(
     "present" => 1,
     "imperfect" => 2,
     "aorist" => 3,

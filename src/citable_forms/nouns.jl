@@ -108,9 +108,9 @@ end
 $(SIGNATURES)
 """
 function nounscex()
-    genderkeys = keys(Kanones.genderlabels)  |> collect |> sort 
-    casekeys = keys(Kanones.caselabels)  |> collect |> sort 
-    numberkeys = keys(Kanones.numberlabels)  |> collect |> sort 
+    genderkeys = keys(Kanones.genderlabeldict)  |> collect |> sort 
+    casekeys = keys(Kanones.caselabeldict)  |> collect |> sort 
+    numberkeys = keys(Kanones.numberlabeldict)  |> collect |> sort 
     lines = []
     # PosPNTMVGCDCat
     for num in numberkeys

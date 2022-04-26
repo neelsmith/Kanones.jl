@@ -1,12 +1,12 @@
 struct GMPPerson <: GreekMorphologicalProperty
     code::Int64
     function GMPPerson(code)
-        code in keys(personlabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
+        code in keys(personlabeldict) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 
 function gmpPerson(s::AbstractString)
-    s in keys(personcodes) ? GMPPerson(personcodes[s]) : DomainError(string(s, " is not a valid value for person.")) 
+    s in keys(personcodedict) ? GMPPerson(personcodedict[s]) : DomainError(string(s, " is not a valid value for person.")) 
 end
 
 function gmpPerson(code::Int64)
@@ -18,7 +18,7 @@ function code(person::GMPPerson)
 end
 
 function label(person::GMPPerson)
-    personlabels[person.code]
+    personlabeldict[person.code]
 end
 
 
@@ -26,7 +26,7 @@ end
 
 $(SIGNATURES)
 """
-const personlabels = Dict(
+const personlabeldict = Dict(
     1 => "first",
     2 => "second",
     3 => "third"
@@ -38,7 +38,7 @@ const personlabels = Dict(
 
 $(SIGNATURES)
 """
-const personcodes = Dict(
+const personcodedict = Dict(
     "first" => 1,
     "second" => 2,
     "third" => 3

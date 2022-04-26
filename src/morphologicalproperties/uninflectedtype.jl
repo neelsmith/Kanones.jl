@@ -1,14 +1,14 @@
 struct GMPUninflectedType <: GreekMorphologicalProperty
     code::Int64
     function GMPUninflectedType(code)
-        code in keys(uninflectedlabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
+        code in keys(uninflectedlabeldict) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 
 
 
 function gmpUninflectedType(s::AbstractString)
-    s in keys(uninflectedcodes) ? GMPUninflectedType(uninflectedcodes[s]) : DomainError(string(s, " is not a valid value for uninflected type.")) 
+    s in keys(uninflectedcodedict) ? GMPUninflectedType(uninflectedcodedict[s]) : DomainError(string(s, " is not a valid value for uninflected type.")) 
 end
 
 function gmpUninflectedType(code::Int64)
@@ -20,7 +20,7 @@ function code(utype::GMPUninflectedType)
 end
 
 function label(utype::GMPUninflectedType)
-    uninflectedlabels[utype.code]
+    uninflectedlabeldict[utype.code]
 end
 
 
@@ -28,7 +28,7 @@ end
 
 $(SIGNATURES)
 """
-const uninflectedlabels = Dict(
+const uninflectedlabeldict = Dict(
     1 => "conjunction",
     2 => "preposition",
     3 => "particle",
@@ -41,7 +41,7 @@ const uninflectedlabels = Dict(
 
 $(SIGNATURES)
 """
-const uninflectedcodes = Dict(
+const uninflectedcodedict = Dict(
     "conjunction" => 1,
     "preposition" => 2,
     "particle" => 3,

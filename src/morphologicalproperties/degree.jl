@@ -1,12 +1,12 @@
 struct GMPDegree <: GreekMorphologicalProperty
     code::Int64
     function GMPDegree(code)
-        code in keys(degreelabels) ? new(code) : throw(DomainError(string(code, " is out of range.")))
+        code in keys(degreelabeldict) ? new(code) : throw(DomainError(string(code, " is out of range.")))
     end
 end
 
 function gmpDegree(s::AbstractString)
-    s in keys(degreecodes) ? GMPDegree(degreecodes[s]) : DomainError(string(s, " is not a valid value for degree.")) 
+    s in keys(degreecodedict) ? GMPDegree(degreecodedict[s]) : DomainError(string(s, " is not a valid value for degree.")) 
 end
 
 function gmpDegree(code::Int64)
@@ -18,7 +18,7 @@ function code(degree::GMPDegree)
 end
 
 function label(degree::GMPDegree)
-    degreelabels[degree.code]
+    degreelabeldict[degree.code]
 end
 
 
@@ -26,7 +26,7 @@ end
 
 $(SIGNATURES)
 """
-const degreelabels = Dict(
+const degreelabeldict = Dict(
     1 => "positive",
     2 => "comparative",
     3 => "superlative"
@@ -36,7 +36,7 @@ const degreelabels = Dict(
 
 $(SIGNATURES)
 """
-const degreecodes = Dict(
+const degreecodedict = Dict(
     "positive" => 1,
     "comparative" => 2,
     "superlative" => 3

@@ -147,11 +147,11 @@ $(SIGNATURES)
 """
 function finiteverbscex()
 
-    #tensekeys = keys(Kanones.tenselabels)   |> collect |> sort 
-    moodkeys = keys(Kanones.moodlabels)   |> collect |> sort 
-    voicekeys = keys(Kanones.voicelabels)   |> collect |> sort 
-    personkeys = keys(Kanones.personlabels)  |> collect |> sort 
-    numberkeys = keys(Kanones.numberlabels)  |> collect |> sort 
+    #tensekeys = keys(Kanones.tenselabeldict)   |> collect |> sort 
+    moodkeys = keys(Kanones.moodlabeldict)   |> collect |> sort 
+    voicekeys = keys(Kanones.voicelabeldict)   |> collect |> sort 
+    personkeys = keys(Kanones.personlabeldict)  |> collect |> sort 
+    numberkeys = keys(Kanones.numberlabeldict)  |> collect |> sort 
 
     lines = []
     PRESENT = 1

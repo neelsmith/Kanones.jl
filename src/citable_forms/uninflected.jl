@@ -118,7 +118,7 @@ $(SIGNATURES)
 """
 function uninflectedcex()
     lines = []
-    sortedkeys = keys(uninflectedlabels)  |> collect |> sort 
+    sortedkeys = keys(uninflectedlabeldict)  |> collect |> sort 
     for k in sortedkeys
         s = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", k, "|", "uninflected form: ", sortedkeys[k])
         push!(lines, s)
