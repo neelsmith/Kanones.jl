@@ -32,7 +32,7 @@ function stringParser(kd::Kanones.Dataset)
     for stem in stemsarray(kd)
         append!(analyses, buildparseable(stem, rules))
     end
-    analyses
+    analyses |> StringParser
 end
 
 #=

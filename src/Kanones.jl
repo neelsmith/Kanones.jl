@@ -70,6 +70,8 @@ export decline, mddeclension
 export urn, formurn
 export ruleurn # ??
 
+export StringParser, stringParser
+
 #=
 include("parse.jl")
 include("listparsing.jl")
