@@ -36,3 +36,8 @@ Verb stems combine with distinct rule types for:
 ## Uninflected forms
 
 `GMFUninflected` have `GMPUninflectedType`.  Distinct rule type and stem type.
+
+
+!!! note "TBA: CEX collection of all possible forms"
+
+    A future version of Kanones will include a delimited-text source for the full collection of possible morphological forms recognized by Kanones.
