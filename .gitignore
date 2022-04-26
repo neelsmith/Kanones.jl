@@ -1,16 +1,7 @@
 Manifest.toml
 docs/build/
-parsers/debug*/
-parsers/*/makefile
-parsers/*/*.fst
-parsers/*/*.a
-parsers/*/symbols/*.fst
 datasets/debug/
 *~
 notes*
 .vscode
-reports/*
-*dummy*
 scratch/
-fst-scratch/
-*.a
