@@ -25,6 +25,28 @@ function ending(nr::NounRule)
     nr.ending
 end
 
+"""Identify gender property for `nr`.
+$(SIGNATURES)
+"""
+function gmpGender(nr::NounRule)
+    nr.ngender
+end
+
+
+"""Identify case property for `nr`.
+$(SIGNATURES)
+"""
+function gmpCase(nr::NounRule)
+    nr.ncase
+end
+
+
+"""Identify number property for `nr`.
+$(SIGNATURES)
+"""
+function gmpNumber(nr::NounRule)
+    nr.nnumber
+end
 
 """Read one row of a rules table for noun tokens,
 and create a `NounRule`.

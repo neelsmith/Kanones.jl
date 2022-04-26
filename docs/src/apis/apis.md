@@ -38,3 +38,10 @@ gmfPronoun
 gmfUninflected
 gmfVerbalAdjective
 ```
+
+
+## Parsing
+
+```@docs
+generate
+```

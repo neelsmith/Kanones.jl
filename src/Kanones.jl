@@ -64,7 +64,7 @@ export IrregularInfinitiveStem
 
 export GreekLexeme
 
-export generate
+export generate, analysis_string
 export decline, mddeclension
 
 export urn, formurn
@@ -78,24 +78,22 @@ include("utils.jl")
 include("dataset.jl")
 =#
 include("kanonesio.jl")
+
+# include("analyzer/analysis.jl")
+
+include("generate/generate.jl")
+#include("generator/uninflectedgen.jl")
+include("generate/generatenoun.jl")
 #=
-include("analyzer/analysis.jl")
-
-include("generator/generate.jl")
-include("generator/uninflectedgen.jl")
-include("generator/nounsgen.jl")
-
 include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
 =#
+
 include("citable_forms/forms.jl")
-
-
 include("citable_stems/stems.jl")
 include("citable_rules/rules.jl")
 
 include("morphologicalproperties/properties.jl")
-
 include("morphologicalproperties/tense.jl")
 include("morphologicalproperties/mood.jl")
 include("morphologicalproperties/voice.jl")
