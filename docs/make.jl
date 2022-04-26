@@ -44,7 +44,8 @@ makedocs(
            #"Uninflected types" => "stemtypes/uninflected.md",
         ],   
         "Reference: API documentation" => Any[
-            "Julia API documentation" =>  "apis/apis.md"
+            "Julia API documentation" =>  "apis/apis.md",
+            "Morphological properties and forms" => "apis/morph.md"
             
         ]
     

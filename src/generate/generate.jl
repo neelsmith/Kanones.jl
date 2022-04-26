@@ -9,9 +9,6 @@ function generate(stem::S, rule::R; ortho::GreekOrthography = literaryGreek()) w
 end
 
 
-
-
-
 """Generate a delimited-text version of a full analysis for the combination of `stem` and `rule`.
 $(SIGNATURES)
 """
