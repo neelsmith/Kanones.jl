@@ -81,9 +81,6 @@ include("kanonesio.jl")
 
 # include("analyzer/analysis.jl")
 
-include("generate/generate.jl")
-#include("generator/uninflectedgen.jl")
-include("generate/generatenoun.jl")
 #=
 include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
@@ -151,51 +148,10 @@ include("citable_forms/uninflected.jl")
 #include("citable_stems/uninflected.jl")
 #include("citable_rules/uninflected.jl")
 
-#=
-include("propertyaccessors/adjectives.jl")
-include("propertyaccessors/nouns.jl")
-include("propertyaccessors/pronouns.jl")
-include("propertyaccessors/verbs.jl")
-include("propertyaccessors/infinitives.jl")
-include("propertyaccessors/participles.jl")
-include("propertyaccessors/uninflecteds.jl")
-include("propertyaccessors/verbaladjectives.jl")
-=#
+
+include("generate/generate.jl")
+#include("generator/uninflectedgen.jl")
+include("generate/generatenoun.jl")
 
 
-#=
-"Submodule to read a Kanones Dataset and build SFST parser."
-module FstBuilder
-    import ..Kanones
-    using Glob, Unicode
-    using CitableObject
-    using CitableParserBuilder
-    using Documenter, DocStringExtensions
-    using Orthography, PolytonicGreek, AtticGreek
-    
-    export buildparser
-
-    include("builder/unicodefst.jl")
-    include("builder/config.jl")
-    include("builder/compiler.jl")
-    include("builder/fstcomposer.jl")
-    include("builder/acceptorsquashers.jl")
-    
-    # Specific analytical types ("parts of speech")
-    include("builder/uninflectedfst.jl")
-    include("builder/nounsfst.jl")
-    include("builder/pronounsfst.jl")
-    include("builder/adjectivesfst.jl")
-    include("builder/irregularadjsfst.jl")
-    include("builder/irregularnounsfst.jl")
-    include("builder/irregularverbsfst.jl")
-    include("builder/irregularinfinitivesfst.jl")
-    include("builder/irregularrulesfst.jl")
-
-    include("builder/finiteverbsfst.jl")
-    include("builder/infinitivesfst.jl")
-    include("builder/participlesfst.jl")
-    include("builder/verbaladjectivesfst.jl")
-end
-=#
 end # module
