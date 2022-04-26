@@ -5,6 +5,8 @@ struct GMPUninflectedType <: GreekMorphologicalProperty
     end
 end
 
+
+
 function gmpUninflectedType(s::AbstractString)
     s in keys(uninflectedcodes) ? GMPUninflectedType(uninflectedcodes[s]) : DomainError(string(s, " is not a valid value for uninflected type.")) 
 end

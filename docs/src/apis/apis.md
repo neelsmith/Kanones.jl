@@ -5,20 +5,25 @@ code
 formurn
 ```
 
+
+## Properties
+
 Retrieve morphological properties:
 
 
 ```@docs
- gmpGender
- gmpCase
- gmpNumber
- gmpPerson
- gmpTense
- gmpMood
- gmpVoice
- gmpDegree
- gmpUninflected
- ```
+gmpGender
+gmpCase
+gmpNumber
+gmpPerson
+gmpTense
+gmpMood
+gmpVoice
+gmpDegree
+gmpUninflectedType
+```
+
+## Forms
 
 Construct morphological forms:
 

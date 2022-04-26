@@ -40,7 +40,6 @@ function label(uform::GMFUninflected)
 end
 
 """Create `GMFUninflected` from a Cite2Urn.
-
 $(SIGNATURES)
 """
 function gmfUninflected(urn::Cite2Urn)
@@ -83,8 +82,6 @@ $(SIGNATURES)
 """
 function gmfUninflected(code::Int64)
     GMFUninflected(code)
-
-
 end
 
 """Create `GMFUninflected` from an Analysis.
