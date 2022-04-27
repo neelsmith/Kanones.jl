@@ -11,7 +11,6 @@ function  decline(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = fals
         for f in forms
             rulematches = filter(r -> formurn(r) == formurn(f), rules) 
             if !isempty(rulematches)
-                println(label(rulematches[1]))
                 push!(declinedforms, generate(stem, rulematches[1]))
             end
         end

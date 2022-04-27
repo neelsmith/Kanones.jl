@@ -17,7 +17,9 @@ repo = pwd() |> dirname |> dirname
     - code library can be used from command line, in scripts, in web apps, directly in an editor like Visual Studio Code
 
 
-## Quick example: interactive building and parsing
+## Quick example
+
+## Building a parser
 
 Load a dataset, and build a parser from it.
 
@@ -29,18 +31,20 @@ p = stringParser(kds)
 p isa StringParser
 ```
 
-Parse a string: there's are two results in this case.
+
+## Interactive parsing
+
+Parse a string: in this case, there is only one result.
 
 ```@example intro
 s = "ἀνθρώπῳ"
 parses = parsetoken(s, p)
-length(parses)
 ```
 
-Label the results:
+Extract a `GreekMorphologicalForm` from each analysis, and apply the `label` function to each:
 
 ```@example intro
-parses .|> gmfNoun .|> label
+parses .|> greekForm .|> label
 ```
 
 
