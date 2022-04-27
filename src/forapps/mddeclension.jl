@@ -18,13 +18,6 @@ function  decline(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = fals
     declinedforms
 end
 
-"""Compose markdown table with a declension of a single noun.
-
-$(SIGNATURES)
-"""
-function mddeclension(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = false)
-end
-
 
 """Compose markdown table with a declension of a single noun.
 

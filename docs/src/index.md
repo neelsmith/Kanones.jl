@@ -24,7 +24,7 @@ repo = pwd() |> dirname |> dirname
 Load a dataset, and build a parser from it.
 
 ```@example intro
-using Kanones, CitableParserBuilder, Markdown
+using Kanones, CitableParserBuilder
 srcdir = joinpath(repo, "datasets", "lg-core") 
 kds = Kanones.dataset([srcdir])
 p = stringParser(kds)
