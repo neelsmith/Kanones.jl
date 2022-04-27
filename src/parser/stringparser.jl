@@ -16,7 +16,7 @@ end
 $(SIGNATURES)
 """
 function parsetoken(s::AbstractString, parser::StringParser; data = nothing)
-    ptrn = s * "|"
+    ptrn = PolytonicGreek.nfkc(s) * "|"
     matches = filter(ln -> startswith(ln, ptrn), parser.entries)
     map(ln -> fromline(ln), matches)
 end

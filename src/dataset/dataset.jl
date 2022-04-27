@@ -13,18 +13,18 @@ struct Dataset
     orthography::GreekOrthography
     function Dataset(dirlist; ortho::T = literaryGreek()) where {T <: GreekOrthography}
         if isempty(rulesarray(dirlist))
-            throw(ArgumentError("No inflectional rules found."))
+            #throw(ArgumentError("No inflectional rules found."))
+            @warn("No inflectional rules found for $(dirlist).")
 
         elseif isempty(stemsarray(dirlist))
-            throw(ArgumentError("No lexicon of stems found."))
-        
+            #throw(ArgumentError("No lexicon of stems found."))
+            @warn("No lexicon of stems found for $(dirlist).")
         # elseif ## if no urn registry ...
         # need to enforce referential integrity of data
         # with registry
-        
-        else
-            new(dirlist, ortho)
+            
         end   
+        new(dirlist, ortho)
     end
 end
 
@@ -151,6 +151,7 @@ function stemsarray(dirlist; delimiter = "|")
 
     stemsarr = Stem[]
     for datasrc in dirlist
+        @info("Source: $(datasrc)")
         for dirname in stemdirs 
             #@info("Read stems from dir ", dirname)
             dir = joinpath(datasrc, "stems-tables", dirname)
