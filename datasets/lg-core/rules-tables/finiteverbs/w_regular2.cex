@@ -4,11 +4,6 @@ Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 
 
-verbinfl.wregsecond7|w_regular|οις|second|singular|present|optative|active
-verbinfl.wregsecond8|w_regular|οιο|second|singular|present|optative|middle
-verbinfl.wregsecond9|w_regular|οιο|second|singular|present|optative|passive
-
-
 
 verbinfl.wregsecond13|w_regular|σεις|second|singular|future|indicative|active
 verbinfl.wregsecond14|w_regular|σει|second|singular|future|indicative|middle
