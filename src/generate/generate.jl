@@ -32,7 +32,11 @@ end
 $(SIGNATURES)
 """
 function allformcodes()
-    vcat(nounformcodes(), adjectiveformcodes())
+    vcat(
+        nounformcodes(), 
+        adjectiveformcodes(),
+        verbformcodes()
+    )
 end
 
 """Generate list of all possible form objects.

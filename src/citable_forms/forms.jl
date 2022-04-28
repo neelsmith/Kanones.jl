@@ -53,6 +53,8 @@ function greekForm(codestr::AbstractString)
         gmfAdjective(codestr)
     elseif poscode(codestr) == NOUN
         gmfNoun(codestr)
+    elseif poscode(codestr) == FINITEVERB
+        gmfFiniteVerb(codestr)
     end
 end
 
