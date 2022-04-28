@@ -40,11 +40,25 @@ makedocs(
       
         "Reference: stem types and paradigms" => Any[
             "Contents" => "stemtypes/index.md",
-            "Nouns" => "stemtypes/nouns/index.md",
-            "Regular nouns: first declension" => "stemtypes/nouns/decl1.md",
-            "Regular nouns: second declension" => "stemtypes/nouns/decl2.md",
-            "Regular nouns: third declension" => "stemtypes/nouns/decl3.md",
-           #"Irregular nouns" => "stemtypes/nouns/irregulars.md",
+            "Noun stems" => Any[ 
+                "stemtypes/nouns/index.md",
+                "Regular nouns: first declension" => "stemtypes/nouns/decl1.md",
+                "Regular nouns: second declension" => "stemtypes/nouns/decl2.md",
+                "Regular nouns: third declension" => "stemtypes/nouns/decl3.md",
+                "Irregular nouns" => "stemtypes/nouns/irreg.md"
+            ],
+            "Adjective stems" => Any[
+                "Adjectives of the first and second declensions" => "stemtypes/adjectives/first-second.md",
+                "Adjectives of the third declensions" => "stemtypes/adjectives/third.md"
+            ],
+            "Pronouns" => "stemtypes/pronouns/index.md",
+            "Verbal stems" => Any[
+                "Regular verbs: -ω conjugation"  => "stemtypes/verbs/omega.md",
+                "Regular verbs: -μι conjugation"  => "stemtypes/verbs/mi.md",
+                "Principal parts" => "stemtypes/verbs/princparts.md",
+                "Irregular verb forms" => "stemtypes/verbs/irregulars.md"
+            ]
+           
            #"Uninflected types" => "stemtypes/uninflected.md",
         ],   
         "Reference: API documentation" => Any[

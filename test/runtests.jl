@@ -24,6 +24,7 @@ include("rules/test_nounrules.jl")
 
 
 include("stems/test_nounstems.jl")
+include("stems/test_adjstems.jl")
 
 
 include("test_datasets.jl")
