@@ -57,9 +57,8 @@ makedocs(
                 "Regular verbs: -μι conjugation"  => "stemtypes/verbs/mi.md",
                 "Principal parts" => "stemtypes/verbs/princparts.md",
                 "Irregular verb forms" => "stemtypes/verbs/irregulars.md"
-            ]
-           
-           #"Uninflected types" => "stemtypes/uninflected.md",
+            ],
+            "Uninflected types" => "stemtypes/uninflected.md"
         ],   
         "Reference: API documentation" => Any[
             "Julia API documentation" =>  "apis/apis.md",

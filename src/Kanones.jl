@@ -136,7 +136,7 @@ include("citable_stems/regularnouns.jl")
 
 include("citable_forms/adjectives.jl")
 include("citable_rules/adjectiverules.jl")
-#include("citable_stems/regularadjectives.jl")
+include("citable_stems/regularadjectives.jl")
 #include("citable_stems/irregularadjectives.jl")
 
 include("citable_forms/adverbs.jl")
