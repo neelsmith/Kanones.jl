@@ -1,11 +1,28 @@
 
-
 """Generate a form for a given stem and rule.
 $(SIGNATURES)
 """
 function generate(stem::S, rule::R; ortho::GreekOrthography = literaryGreek()) where {S <: KanonesStem, R <: KanonesRule}
     @warn("generate function not implemented for type $(typeof(rule))")
     nothing
+end
+
+"""Generate a form for a given lexeme and form within a given dataset.
+$(SIGNATURES)
+"""
+function generate(lex::LexemeUrn, form::FormUrn, kds::Kanones.Dataset) 
+    # find stems:
+    stems = filter(s -> lexeme(s) == lex,  stemsarray(kds))
+    generated = []
+    for s in stems
+        # Find relevant rules:
+        rules = filter(r -> inflectionClass(r) == inflectionClass(s) && formurn(r) == form,  rulesarray(kds))
+        for r in rules
+            push!(generated, generate(s,r))
+        end
+    end
+
+    generated
 end
 
 

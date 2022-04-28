@@ -79,7 +79,7 @@ GreekLexeme
 ```@docs
 generate
 decline
-mddeclension
+md_declension
 formurn
 ```
 

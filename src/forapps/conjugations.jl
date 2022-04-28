@@ -10,79 +10,44 @@ function md_conjugation(t::GMPTense, lex::LexemeUrn, kd::Kanones.Dataset)
     "| | Indicative | Subjunctive | Optative |",   
     "| --- | --- | --- | --- |"]
     
-    # Indicative singular:
-    indic_s = filter(f -> gmpMood(f) == gmpMood("indicative") && gmpNumber(f) == gmpNumber("singular") && gmpVoice(f) == gmpVoice("active"), tenseforms)
+    # SINGULAR:
+    indic_forms = filter(f -> gmpMood(f) == gmpMood("indicative") && gmpNumber(f) == gmpNumber("singular") && gmpVoice(f) == gmpVoice("active"), tenseforms)
+    indic_tokens = map(f -> generate(lex, formurn(f), kd), indic_forms)
+    indic_labels = map(v -> join(v, ", "), indic_tokens)
 
-    #=
+    subj_forms = filter(f -> gmpMood(f) == gmpMood("subjunctive") && gmpNumber(f) == gmpNumber("singular") && gmpVoice(f) == gmpVoice("active"), tenseforms)
+    subj_tokens = map(f -> generate(lex, formurn(f), kd), subj_forms)
+    subj_labels = map(v -> join(v, ", "), subj_tokens)
+
+
+    opt_forms = filter(f -> gmpMood(f) == gmpMood("optative") && gmpNumber(f) == gmpNumber("singular") && gmpVoice(f) == gmpVoice("active"), tenseforms)
+    opt_tokens = map(f -> generate(lex, formurn(f), kd), opt_forms)
+    opt_labels = map(v -> join(v, ", "), opt_tokens)
     
     for i in 1:3
-        indic = tenseforms[i]
-        indicative = CitableParserBuilder.tokens( generate(indic,lex,td))
-        rowheader = join([label(lmpPerson(indic)), label(lmpNumber(indic)) ], " ")
+        push!(mdlines, "| **$(personlabeldict[i]) singular** | $(indic_labels[i]) | $(subj_labels[i]) | $(opt_labels[i]) |")
+    end
 
-        if hassubjunctive(t)
-            subj = tenseforms[i + 6]
-            subjunctive = CitableParserBuilder.tokens( generate(subj,lex,td))    
-            push!(mdlines, "| **$(rowheader)** | $(indicative) | $(subjunctive) | ")
-        else
-            push!(mdlines, "| **$(rowheader)** | $(indicative) | - | ")
-        end
+    # PASSIVE:
+    indicpl_forms = filter(f -> gmpMood(f) == gmpMood("indicative") && gmpNumber(f) == gmpNumber("plural") && gmpVoice(f) == gmpVoice("active"), tenseforms)
+    indicpl_tokens = map(f -> generate(lex, formurn(f), kd), indicpl_forms)
+    indicpl_labels = map(v -> join(v, ", "), indicpl_tokens)
+
+    subjpl_forms = filter(f -> gmpMood(f) == gmpMood("subjunctive") && gmpNumber(f) == gmpNumber("plural") && gmpVoice(f) == gmpVoice("active"), tenseforms)
+    subjpl_tokens = map(f -> generate(lex, formurn(f), kd), subjpl_forms)
+    subjpl_labels = map(v -> join(v, ", "), subjpl_tokens)
+
+
+    optpl_forms = filter(f -> gmpMood(f) == gmpMood("optative") && gmpNumber(f) == gmpNumber("plural") && gmpVoice(f) == gmpVoice("active"), tenseforms)
+    optpl_tokens = map(f -> generate(lex, formurn(f), kd), optpl_forms)
+    optpl_labels = map(v -> join(v, ", "), optpl_tokens)
+    
+    for i in 1:3
+        push!(mdlines, "| **$(personlabeldict[i]) plural** | $(indicpl_labels[i]) | $(subjpl_labels[i]) | $(optpl_labels[i]) |")
     end
 
 
     
-    for i in 4:6
-        indic = tenseforms[i]
-        indicative = CitableParserBuilder.tokens( generate(indic,lex,td))
-        rowheader = join([label(lmpPerson(indic)), label(lmpNumber(indic)) ], " ")
-
-        if hassubjunctive(t)
-            subj = tenseforms[i + 6]
-            subjunctive = CitableParserBuilder.tokens( generate(subj,lex,td))
-            push!(mdlines, "| **$(rowheader)** | $(indicative) | $(subjunctive) | ")
-        else
-            push!(mdlines, "| **$(rowheader)** | $(indicative) | - | ")
-        end
-    end
-
-    passive_origin = hassubjunctive(t) ?  13 : 7
-
-    
-    offset = perfectsystem(t) ? 3 : 6
-    if perfectsystem(t)
-        push!(mdlines, "Passive voice of $(label(t)): TBA")
-    else
-        push!(mdlines,"Passive voice")
-        push!(mdlines, "")
-        push!(mdlines, "| | Indicative | Subjunctive |")
-        push!(mdlines, "| --- | --- | --- |")
-        for i in passive_origin:passive_origin+2
-            ind = tenseforms[i]
-            indicative = CitableParserBuilder.tokens( generate(ind,lex,td))
-            rowheader = join([label(lmpPerson(ind)), label(lmpNumber(ind)) ], " ")
-
-            if hassubjunctive(t)
-                subj = tenseforms[i + offset]
-                subjunctive = CitableParserBuilder.tokens( generate(subj,lex,td))
-                push!(mdlines, "| **$(rowheader)** | $(indicative) |  $(subjunctive) | ")
-            else
-                push!(mdlines, "| **$(rowheader)** | $(indicative) |  - | ")
-            end
-        end
-        for i in passive_origin+3:passive_origin+5
-            ind = tenseforms[i]
-            indicative = CitableParserBuilder.tokens( generate(ind,lex,td))
-            rowheader = join([label(lmpPerson(ind)), label(lmpNumber(ind)) ], " ")
-
-            if hassubjunctive(t)
-                subj = tenseforms[i + offset]
-                subjunctive = CitableParserBuilder.tokens( generate(subj,lex,td))
-                push!(mdlines, "| **$(rowheader)** | $(indicative) | $(subjunctive) | ")
-            else
-                push!(mdlines, "| **$(rowheader)** | $(indicative) |  - | ")
-            end
-        end
-    end
     join(mdlines, "\n")
-    =#
+    
 end
