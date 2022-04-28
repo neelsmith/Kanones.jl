@@ -19,6 +19,11 @@ end
     expectedurn = RuleUrn("nouninfl.os_ou1")
     @test ruleu == expectedurn
 
+    dict = Dict("nouninfl" => "urn:cite2:kanones:nouninfl.v1:")
+    expectedcite2 = Cite2Urn("urn:cite2:kanones:nouninfl.v1:os_ou1")
+    @test urn(rule) == expectedurn
+    @test urn(rule, registry = dict) == expectedcite2
+
     # must get infltype and ending
     @test inflectionClass(rule) == "os_ou"
     @test ending(rule) == "ος"

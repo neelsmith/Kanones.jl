@@ -9,7 +9,7 @@ struct AdjectiveRule <: KanonesRule
     adegree::GMPDegree
 end
 
-"""Identifying URN for a `NounRule`.  If
+"""Identifying URN for an `AdjectiveRule`.  If
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
@@ -24,6 +24,13 @@ function urn(adj::AdjectiveRule; registry = nothing)
     end
 end
 
+
+"""Identify `adj` with a `RuleUrn`.
+$(SIGNATURES)
+"""
+function ruleurn(adj::AdjectiveRule)
+    adj.ruleid
+end
 
 """Identify gender for `adj`.
 $(SIGNATURES)

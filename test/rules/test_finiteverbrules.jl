@@ -20,6 +20,14 @@ end
     expectedurn = RuleUrn("verbinfl.numipres8")
     @test ruleu == expectedurn
 
+
+
+    dict = Dict("verbinfl" => "urn:cite2:kanones:verbinfl.v1:")
+    expectedcite2 = Cite2Urn("urn:cite2:kanones:verbinfl.v1:numipres8")
+    @test urn(rule) == expectedurn
+    @test urn(rule, registry = dict) == expectedcite2
+
+
     # must get infltype and ending
     @test inflectionClass(rule) == "numi"
     @test ending(rule) == "νυσαι"
