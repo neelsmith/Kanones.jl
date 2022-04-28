@@ -3,7 +3,6 @@
 repo = pwd() |> dirname |> dirname 
 ```
 
-
 # Kanones
 
 > ☛ Build customized morphological parsers for ancient Greek
