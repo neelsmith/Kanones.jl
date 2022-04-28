@@ -29,6 +29,11 @@ include("stems/test_adjstems.jl")
 
 include("test_datasets.jl")
 
+
+include("generate/test_generate.jl")
+
+include("parser/test_formsinventory.jl")
+
 #=
 include("test_morphologyids.jl")
 include("test_morphologycex.jl")

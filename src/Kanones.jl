@@ -42,7 +42,7 @@ export GMPUninflectedType, gmpUninflectedType
 export code
 
 export GreekMorphologicalForm
-export greekForm
+export greekForm, allforms
 export KanonesRule, inflectionClass, ending
 export KanonesStem, lexeme, stemstring
 export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
@@ -155,6 +155,7 @@ include("citable_forms/uninflected.jl")
 include("generate/generate.jl")
 #include("generator/uninflectedgen.jl")
 include("generate/generatenoun.jl")
+include("generate/generateadj.jl")
 
 include("forapps/mddeclension.jl")
 

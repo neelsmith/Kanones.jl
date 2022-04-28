@@ -32,13 +32,12 @@ end
 $(SIGNATURES)
 """
 function allformcodes()
-    total = nounformcodes()
-
-    total
+    vcat(nounformcodes(), adjectiveformcodes())
 end
 
-#=
+"""Generate list of all possible form objects.
+$(SIGNATURES)
+"""
 function allforms()
-    allformcodes .|> greekForm
+    allformcodes() .|> greekForm
 end
-=# 
