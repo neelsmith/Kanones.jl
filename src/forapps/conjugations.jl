@@ -17,12 +17,16 @@ function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.Da
     subj_forms = filter(f -> gmpMood(f) == gmpMood("subjunctive") && gmpNumber(f) == gmpNumber("singular"), tenseforms)
     subj_tokens = map(f -> generate(lex, formurn(f), kd), subj_forms)
     subj_labels = map(v -> join(v, ", "), subj_tokens)
-
+    if isempty(subj_labels)
+        subj_labels = ["-","-","-"]
+    end
 
     opt_forms = filter(f -> gmpMood(f) == gmpMood("optative") && gmpNumber(f) == gmpNumber("singular"), tenseforms)
     opt_tokens = map(f -> generate(lex, formurn(f), kd), opt_forms)
     opt_labels = map(v -> join(v, ", "), opt_tokens)
-    
+    if isempty(opt_labels)
+        opt_labels = ["-","-","-"]
+    end
     for i in 1:3
         push!(mdlines, "| **$(personlabeldict[i]) singular** | $(indic_labels[i]) | $(subj_labels[i]) | $(opt_labels[i]) |")
     end
@@ -35,18 +39,19 @@ function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.Da
     subjpl_forms = filter(f -> gmpMood(f) == gmpMood("subjunctive") && gmpNumber(f) == gmpNumber("plural"), tenseforms)
     subjpl_tokens = map(f -> generate(lex, formurn(f), kd), subjpl_forms)
     subjpl_labels = map(v -> join(v, ", "), subjpl_tokens)
-
+    if isempty(subjpl_labels)
+        subjpl_labels = ["-","-","-"]
+    end
 
     optpl_forms = filter(f -> gmpMood(f) == gmpMood("optative") && gmpNumber(f) == gmpNumber("plural"), tenseforms)
     optpl_tokens = map(f -> generate(lex, formurn(f), kd), optpl_forms)
     optpl_labels = map(v -> join(v, ", "), optpl_tokens)
-    
+    if isempty(optpl_labels)
+        optpl_labels = ["-","-","-"]
+    end
+
     for i in 1:3
         push!(mdlines, "| **$(personlabeldict[i]) plural** | $(indicpl_labels[i]) | $(subjpl_labels[i]) | $(optpl_labels[i]) |")
     end
-
-
-    
     join(mdlines, "\n")
-    
 end

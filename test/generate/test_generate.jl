@@ -19,6 +19,6 @@
     verbrule = Kanones.readrulerow(verbio, verbsrc)
     verbstemsrc = "verbstems.n23658|lsj.n23658|δεικ|numi"
     verbstem = Kanones.readstemrow(verbio, verbstemsrc)
-    @test  generate(verbstem,verbrule) == "δείκνυσαι"
+    @test  generate(    verbstem,verbrule) == "δείκνυσαι"
 
 end

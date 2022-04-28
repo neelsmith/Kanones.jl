@@ -1,15 +1,25 @@
+function augment(s::AbstractString; ortho = literaryGreek())
+    if s[1] in consonants(ortho)
+        PolytonicGreek.nfkc("ἐ" * s)
+    else
+        @warn("TEMPORAL AUGMENT NOT YET IMPLEMENTED")
+        stemstring(s)
+    end
+end
+
 """Compose stem for appropriate principal part of a completely
 regular verb.
 $(SIGNATURES)
 """
-function principalpart(stem::VerbStem, rule::FiniteVerbRule)
-    if takesaugment(greekForm(rule))
-       @warn("AUGMENT NOT YET IMPLEMENTED")
-    end
+function principalpart(stem::VerbStem, rule::FiniteVerbRule; ortho = literaryGreek())
     if takesreduplication(greekForm(rule))
         @warn("REDUPLICATION NOT YET IMPLEMENTED")
     end
-    stemstring(stem)
+    if takesaugment(greekForm(rule))
+       augment(stemstring(stem), ortho = ortho)
+    else
+        stemstring(stem)
+    end
 end
 
 """True if `f` takes augment.
@@ -47,7 +57,7 @@ $(SIGNATURES)
 function generate(stem::VerbStem, rule::FiniteVerbRule;           ortho::GreekOrthography = literaryGreek())
     adjustedstem = stemstring(stem)
     if regularverbclass(stem) 
-        adjustedstem = principalpart(stem, rule)
+        adjustedstem = principalpart(stem, rule, ortho = ortho)
     end
 
     raw = adjustedstem * ending(rule)
