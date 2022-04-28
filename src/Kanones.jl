@@ -163,6 +163,6 @@ include("forapps/mddeclension.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
-
+include("parser/principalparts.jl")
 
 end # module
