@@ -21,8 +21,28 @@ function generate(stem::VerbStem, rule::FiniteVerbRule;           ortho::GreekOr
     end
 end
 
+"""True if `verbcode` identifies a finite verb form with
+a valid combination of tense and mood.
+$(SIGNATURES)
+"""
+function validverbform(verbcode::AbstractString)
+    verb = gmfFiniteVerb(verbcode)
+    if gmpTense(verb) == gmpTense("imperfect")
+        # Only accept imperfect indicative:
+        gmpMood(verb) == gmpMood("indicative")
 
+    elseif gmpTense(verb) == gmpTense("pluperfect")
+        # Only accept pluperfect indicative:
+        gmpMood(verb) == gmpMood("indicative")
 
+    elseif gmpTense(verb) == gmpTense("future")
+        # No future subjunctive:
+        gmpMood(verb) != gmpMood("subjunctive")
+
+    else
+        true
+    end
+end
 
 """Generate list of codes for all noun forms.
 $(SIGNATURES)
@@ -31,7 +51,8 @@ function verbformcodes()
     personints = keys(personlabeldict) |> collect |> sort
     numints = keys(numberlabeldict) |> collect |> sort
     tenseints = keys(tenselabeldict) |> collect |> sort
-    moodints = keys(moodlabeldict) |> collect |> sort
+    moodints = [1,2,3] # Gather imperative separately!
+    keys(moodlabeldict) |> collect |> sort
     voiceints = keys(voicelabeldict) |> collect |> sort
     formlist = []
     for v in voiceints
@@ -39,12 +60,35 @@ function verbformcodes()
             for m in moodints
                 for n in numints
                     for p in personints
-                        push!(formlist, "$(FINITEVERB)$(p)$(n)$(t)$(m)$(v)0000")
+                        formcode = "$(FINITEVERB)$(p)$(n)$(t)$(m)$(v)0000"
+                        if validverbform(formcode)
+                            push!(formlist, formcode)
+                        end
                     end
                 end
             end
         end
     end
+    # Cycle through possible imperative forms, and add them here:
+    # 
+    imperativecode = moodcodedict["imperative"]
+    tensecodes = [ 
+        tensecodedict["present"], 
+        tensecodedict["aorist"], 
+        tensecodedict["perfect"] 
+    ] 
+    personcodes = [2,3]
+    for v in voiceints
+        for t in tensecodes
+            for n in numints
+                for p in personcodes
+                    formcode = "$(FINITEVERB)$(p)$(n)$(t)$(imperativecode)$(v)0000"
+                    push!(formlist, formcode)
+                end
+            end
+        end
+    end
+
     formlist
 end
 
