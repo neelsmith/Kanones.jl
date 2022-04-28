@@ -3,7 +3,6 @@
 repo = pwd() |> dirname |> dirname 
 ```
 
-
 # Kanones
 
 > ☛ Build customized morphological parsers for ancient Greek
@@ -21,10 +20,10 @@ repo = pwd() |> dirname |> dirname
 
 ## Building a parser
 
-Load a dataset, and build a parser from it.
+Load a dataset, and build a parser from it.  All the examples in this documentation use [the `lg-core` dataset](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/lg-core) found in the `datasets` directory of the Kanones github repository.
 
 ```@example intro
-using Kanones, CitableParserBuilder, Markdown
+using Kanones, CitableParserBuilder
 srcdir = joinpath(repo, "datasets", "lg-core") 
 kds = Kanones.dataset([srcdir])
 p = stringParser(kds)

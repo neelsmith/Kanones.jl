@@ -1,17 +1,18 @@
 
-"""Generate a form for a given noun stem and rule by combining
+"""Generate a form for a given adjective stem and rule by combining
 stem and ending, then adding appropriate accent for this lexical
 item in this form, and finally stripping off metadata characters
 marking vowel quantity and morpheme boundaries.
 $(SIGNATURES)
 """
-function generate(stem::NounStem, rule::NounRule;           ortho::GreekOrthography = literaryGreek())
+function generate(stem::AdjectiveStem, rule::AdjectiveRule;           ortho::GreekOrthography = literaryGreek())
     raw = stemstring(stem) * ending(rule)
     if countaccents(raw, ortho) == 1
         # Already has accent! 
         stripmetachars(raw)
 
     else
+        
         try
             if stem.accentpersistence == "recessive"
                 stripmetachars(accentword(raw, :RECESSIVE, ortho))
@@ -40,28 +41,33 @@ function generate(stem::NounStem, rule::NounRule;           ortho::GreekOrthogra
 end
 
 
-"""Generate list of codes for all noun forms.
+
+
+
+"""Generate list of codes for all adjective forms.
 $(SIGNATURES)
 """
-function nounformcodes()
+function adjectiveformcodes()
     genderints = keys(genderlabeldict) |> collect |> sort
     caseints = keys(caselabeldict) |> collect |> sort
     numints = keys(numberlabeldict) |> collect |> sort
+    degreeints = keys(degreelabeldict) |> collect |> sort
     formlist = []
-    for n in numints
-        for g in genderints
-            for c in caseints
-                push!(formlist, "20$(n)000$(g)$(c)00")
+    for d in degreeints
+        for n in numints
+            for g in genderints
+                for c in caseints
+                    push!(formlist, "$(ADJECTIVE)0$(n)000$(g)$(c)$(d)0")
+                end
             end
         end
     end
     formlist
 end
 
-"""Generate list of all possible noun forms.
+"""Generate list of all possible adjective forms.
 $(SIGNATURES)
 """
-function nounforms()
-    nounformcodes() .|> gmfNoun
+function adjectiveforms()
+    adjectiveformcodes() .|> gmfAdjective
 end
-

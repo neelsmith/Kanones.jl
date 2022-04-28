@@ -53,6 +53,8 @@ function greekForm(codestr::AbstractString)
         gmfAdjective(codestr)
     elseif poscode(codestr) == NOUN
         gmfNoun(codestr)
+    elseif poscode(codestr) == FINITEVERB
+        gmfFiniteVerb(codestr)
     end
 end
 
@@ -77,6 +79,10 @@ function greekForm(a::Analysis)
     greekForm(a.form)
 end
 
+
+function greekForm(r::T) where {T <: KanonesRule}
+    formurn(r) |> greekForm
+end
 #=
 
 

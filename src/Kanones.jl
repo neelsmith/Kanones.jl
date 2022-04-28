@@ -42,7 +42,7 @@ export GMPUninflectedType, gmpUninflectedType
 export code
 
 export GreekMorphologicalForm
-export greekForm
+export greekForm, allforms
 export KanonesRule, inflectionClass, ending
 export KanonesStem, lexeme, stemstring
 export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
@@ -65,7 +65,8 @@ export IrregularInfinitiveStem
 export GreekLexeme
 
 export generate, analysis_string
-export decline, mddeclension
+export decline, md_declension
+export synopsis, md_conjugation
 
 export urn, formurn
 export ruleurn # ??
@@ -89,9 +90,10 @@ include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
 =#
 
+include("citable_rules/rules.jl")
 include("citable_forms/forms.jl")
 include("citable_stems/stems.jl")
-include("citable_rules/rules.jl")
+
 
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/tense.jl")
@@ -113,9 +115,10 @@ include("citable_forms/formvalues.jl")
 #include("citable_rules/irregulars.jl")
 
 include("citable_forms/finiteverbs.jl")
-#include("citable_stems/verbs.jl")
+include("citable_rules/finiteverbrules.jl")
+include("citable_stems/regularverbs.jl")
 #include("citable_stems/irregularverbs.jl")
-#include("citable_rules/finiteverbs.jl")
+
 
 # regular stems are drawn from finite verb stems
 include("citable_forms/infinitives.jl")
@@ -136,7 +139,7 @@ include("citable_stems/regularnouns.jl")
 
 include("citable_forms/adjectives.jl")
 include("citable_rules/adjectiverules.jl")
-#include("citable_stems/regularadjectives.jl")
+include("citable_stems/regularadjectives.jl")
 #include("citable_stems/irregularadjectives.jl")
 
 include("citable_forms/adverbs.jl")
@@ -155,11 +158,15 @@ include("citable_forms/uninflected.jl")
 include("generate/generate.jl")
 #include("generator/uninflectedgen.jl")
 include("generate/generatenoun.jl")
+include("generate/generateadj.jl")
+include("generate/generatefiniteverb.jl")
 
-include("forapps/mddeclension.jl")
+include("forapps/declensions.jl")
+include("forapps/synopses.jl")
+include("forapps/conjugations.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
-
+include("parser/principalparts.jl")
 
 end # module

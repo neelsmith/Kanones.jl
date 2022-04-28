@@ -18,6 +18,12 @@ end
     expectedurn = RuleUrn("adjinfl.osaon1")
     @test ruleu == expectedurn
 
+
+    dict = Dict("adjinfl" => "urn:cite2:kanones:adjinfl.v1:")
+    expectedcite2 = Cite2Urn("urn:cite2:kanones:adjinfl.v1:osaon1")
+    @test urn(rule) == expectedurn
+    @test urn(rule, registry = dict) == expectedcite2
+
     # must get infltype and ending
     @test inflectionClass(rule) == "os_a_on"
     @test ending(rule) == "ος"

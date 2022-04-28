@@ -18,19 +18,12 @@ function  decline(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = fals
     declinedforms
 end
 
-"""Compose markdown table with a declension of a single noun.
-
-$(SIGNATURES)
-"""
-function mddeclension(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = false)
-end
-
 
 """Compose markdown table with a declension of a single noun.
 
 $(SIGNATURES)
 """
-function mddeclension(lex::LexemeUrn, kd::Kanones.Dataset)
+function md_declension(lex::LexemeUrn, kd::Kanones.Dataset)
     labels = ["nominative", "genitive", "dative", "accusative", "vocative"]
     lines = [
         "| | Singular | Plural |", 
@@ -49,7 +42,7 @@ end
 
 $(SIGNATURES)
 """
-function mddeclension(lexlist::Array, kd::Kanones.Dataset; withvocative::Bool = false)
+function md_declension(lexlist::Array, kd::Kanones.Dataset; withvocative::Bool = false)
     labels = ["nominative", "genitive", "dative", "accusative"]
     gendervalues = genders(lexlist, kd)
     inflclasses = stemtypes(lexlist, kd)

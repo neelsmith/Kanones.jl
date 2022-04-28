@@ -21,12 +21,20 @@ include("forms/test_verbaladjs.jl")
 
 include("rules/test_adjrules.jl")
 include("rules/test_nounrules.jl")
+include("rules/test_finiteverbrules.jl")
 
 
 include("stems/test_nounstems.jl")
+include("stems/test_adjstems.jl")
+include("stems/test_verbstems.jl")
 
 
 include("test_datasets.jl")
+
+
+include("generate/test_generate.jl")
+
+include("parser/test_formsinventory.jl")
 
 #=
 include("test_morphologyids.jl")

@@ -22,7 +22,7 @@ nouns = [γνωμη, βουλη,οικια,θεραπαινα]
 
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
 ds = dataset(repo * "/datasets/core-infl/")
-Markdown.parse(mddeclension(nouns, ds))
+Markdown.parse(md_declension(nouns, ds))
 ```
 
 Attic orthography:
@@ -33,7 +33,7 @@ using Kanones, CitableParserBuilder, Markdown, AtticGreek
 bole = LexemeUrn("lsj.n20600")
 repo = pwd() |> dirname |> dirname  |> dirname |> dirname
 attic = dataset([joinpath(repo, "datasets", "attic")]; ortho=atticGreek())
-Markdown.parse(mddeclension([bole], attic))
+Markdown.parse(md_declension([bole], attic))
 ```
 
 ## Second declension types
@@ -49,7 +49,7 @@ kd = dataset(repo * "/datasets/core-infl/")
 δωρον = LexemeUrn("lsj.n29828")
 
 nouns = [ανθρωπος,δωρον ]
-Markdown.parse(mddeclension(nouns, kd))
+Markdown.parse(md_declension(nouns, kd))
 ```
 
 
@@ -64,7 +64,7 @@ attic = dataset(repo * "/datasets/attic/"; ortho=atticGreek())
 ανθρωπος = LexemeUrn("lsj.n8909")
 
 nouns = [ανθρωπος]
-Markdown.parse(mddeclension(nouns, attic))
+Markdown.parse(md_declension(nouns, attic))
 ```
 
 
@@ -84,5 +84,5 @@ kd = dataset(repo * "/datasets/core-infl/")
 
 nouns = [πολις]
 
-Markdown.parse(mddeclension(nouns, kd))
+Markdown.parse(md_declension(nouns, kd))
 ```

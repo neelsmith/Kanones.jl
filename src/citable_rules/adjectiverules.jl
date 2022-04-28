@@ -9,6 +9,57 @@ struct AdjectiveRule <: KanonesRule
     adegree::GMPDegree
 end
 
+"""Identifying URN for an `AdjectiveRule`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(adj::AdjectiveRule; registry = nothing)
+    if isnothing(registry)
+        adj.ruleid
+    else
+        expand(adj.ruleid, registry)
+    end
+end
+
+
+"""Identify `adj` with a `RuleUrn`.
+$(SIGNATURES)
+"""
+function ruleurn(adj::AdjectiveRule)
+    adj.ruleid
+end
+
+"""Identify gender for `adj`.
+$(SIGNATURES)
+"""
+function gmpGender(adj::AdjectiveRule)
+    adj.agender
+end
+
+"""Identify case for `adj`.
+$(SIGNATURES)
+"""
+function gmpCase(adj::AdjectiveRule)
+    adj.acase
+end
+
+"""Identify number for `adj`.
+$(SIGNATURES)
+"""
+function gmpNumber(adj::AdjectiveRule)
+    adj.anumber
+end
+
+"""Identify degree for `adj`.
+$(SIGNATURES)
+"""
+function gmpDegree(adj::AdjectiveRule)
+    adj.adegree
+end
+
 
 """Identify inflection class for `rule`.
 $(SIGNATURES)
@@ -60,20 +111,6 @@ function label(adj::AdjectiveRule)
 end
 
 
-"""Identifying URN for an `AdjectiveRule`.  If
-no registry is included, use abbreviated URN;
-otherwise, expand to full `Cite2Urn`.
-
-@(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function ruleurn(adj::AdjectiveRule; registry = nothing)
-    if isnothing(registry)
-        adj.ruleid
-    else
-        expand(adj.ruleid, registry)
-    end
-end
 
 """Compose CEX text for an `AdjectiveRule`.
 If `registry` is nothing, use abbreivated URN;

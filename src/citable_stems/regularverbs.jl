@@ -2,11 +2,35 @@
 
 $(SIGNATURES)
 """
-struct VerbStem <: Stem
+struct VerbStem <: KanonesStem
     stemid::AbbreviatedUrn
     lexid::AbbreviatedUrn
-    stem::AbstractString
+    form::AbstractString
     stemclass::AbstractString  
+end
+
+"""Noun stems are citable by Cite2Urn"""
+CitableTrait(::Type{VerbStem}) = CitableByCite2Urn()
+
+"""Identify value of stem string for `vs`.
+$(SIGNATURES)
+"""
+function stemstring(vs::VerbStem)
+   vs.form
+end
+
+"""Identify lexeme for `vs`.
+$(SIGNATURES)
+"""
+function lexeme(vs::VerbStem)
+    vs.lexid
+end
+
+"""Identify inflection class for `vs`.
+$(SIGNATURES)
+"""
+function inflectionClass(vs::VerbStem)
+    vs.stemclass
 end
 
 
@@ -20,11 +44,11 @@ Required for `CitableTrait`.
 """
 function label(vs::VerbStem)
     string("Verb stem ", 
-        vs.stem, 
+        stemstring(vs),
         "- (", 
-        vs.lexid, 
+        lexeme(vs),     
         ", ", 
-        "stem class ", vs.stemclass, ")")
+        "stem class ", inflectionClass(vs), ")")
 end
 
 
@@ -53,10 +77,10 @@ Required for `CitableTrait`.
 """
 function cex(vs::VerbStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([vs.stemid, label(vs) ], delimiter)
+        join([vs.stemid, label(vs), stemstring(vs), lexeme(vs), inflectionClass(vs)], delimiter)
     else
         c2urn = expand(vs.stemid, registry)
-        join([c2urn, label(vs)], delimiter)
+        join([c2urn, label(vs), stemstring(vs), lexeme(vs), inflectionClass(vs)], delimiter)
     end
 end
 

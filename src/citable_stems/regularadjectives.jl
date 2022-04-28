@@ -11,6 +11,32 @@ end
 """Adjective stems are citable by Cite2Urn"""
 CitableTrait(::Type{AdjectiveStem}) = CitableByCite2Urn()
 
+
+
+"""Identify value of stem string for `adj`.
+$(SIGNATURES)
+"""
+function stemstring(adj::AdjectiveStem)
+    adj.form
+end
+
+
+
+"""Identify lexeme for `adj`.
+$(SIGNATURES)
+"""
+function lexeme(adj::AdjectiveStem)
+    adj.lexid
+end
+
+"""Identify inflection class for `adj`.
+$(SIGNATURES)
+"""
+function inflectionClass(adj::AdjectiveStem)
+    adj.inflectionclass
+end
+
+
 """Human-readlable label for an `AdjectiveStem`.
 
 @(SIGNATURES)
@@ -44,11 +70,13 @@ Required for `CitableTrait`.
 """
 function cex(adj::AdjectiveStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([adj.stemid, label(adj) ], delimiter)
+        join([adj.stemid, label(adj), stemstring(adj), lexeme(adj), inflectionClass(adj), adj.accentpersistence ], delimiter)
     else
         c2urn = expand(adj.stemid, registry)
-        join([c2urn, label(adj)], delimiter)
+        join([c2urn, label(adj), stemstring(adj), lexeme(adj), inflectionClass(adj), adj.accentpersistence ], delimiter)
     end
+
+    #"nounstems.n8909|Noun stem ἀνθρωπ- (masculine)|ἀνθρωπ|lsj.n8909|os_ou|masculine|recessive"
 end
 
 """

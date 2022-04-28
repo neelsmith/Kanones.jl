@@ -20,7 +20,7 @@ kds = Kanones.dataset([srcdir])
 ανθρωπος = LexemeUrn("lsj.n8909")
 
 
-Markdown.parse(mddeclension(ανθρωπος, kds))
+Markdown.parse(md_declension(ανθρωπος, kds))
 ```
 
 
@@ -32,5 +32,5 @@ kds = Kanones.dataset([srcdir])
 δωρον = LexemeUrn("lsj.n29828")
 
 
-Markdown.parse(mddeclension(δωρον, kds))
+Markdown.parse(md_declension(δωρον, kds))
 ```
