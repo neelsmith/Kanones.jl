@@ -1,3 +1,16 @@
+"""Compose stem for appropriate principal part of a completely
+regular verb.
+$(SIGNATURES)
+"""
+function principalpart(stem::VerbStem, rule::FiniteVerbRule)
+    if takesaugment(greekForm(rule))
+       @warn("AUGMENT NOT YET IMPLEMENTED")
+    end
+    if takesreduplication(greekForm(rule))
+        @warn("REDUPLICATION NOT YET IMPLEMENTED")
+    end
+    stemstring(stem)
+end
 
 """True if `f` takes augment.
 $(SIGNATURES)
@@ -21,8 +34,8 @@ end
 requires only a single principle part.
 $(SIGNATURES)
 """
-function regularverbclass(infclass::AbstractString)
-    infclass in REGULAR_VERB_CLASSES
+function regularverbclass(stem::VerbStem)
+    inflectionClass(stem) in REGULAR_VERB_CLASSES
 end
 
 """Generate a form for a given noun stem and rule by combining
@@ -32,7 +45,12 @@ marking vowel quantity and morpheme boundaries.
 $(SIGNATURES)
 """
 function generate(stem::VerbStem, rule::FiniteVerbRule;           ortho::GreekOrthography = literaryGreek())
-    raw = stemstring(stem) * ending(rule)
+    adjustedstem = stemstring(stem)
+    if regularverbclass(stem) 
+        adjustedstem = principalpart(stem, rule)
+    end
+
+    raw = adjustedstem * ending(rule)
     if countaccents(raw, ortho) == 1
         # Already has accent! 
         stripmetachars(raw)

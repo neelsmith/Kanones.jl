@@ -90,9 +90,10 @@ include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
 =#
 
+include("citable_rules/rules.jl")
 include("citable_forms/forms.jl")
 include("citable_stems/stems.jl")
-include("citable_rules/rules.jl")
+
 
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/tense.jl")
