@@ -53,6 +53,7 @@ makedocs(
             ],
             "Pronouns" => "stemtypes/pronouns/index.md",
             "Verbal stems" => Any[
+                "stemtypes/verbs/index.md",
                 "Regular verbs: -ω conjugation"  => "stemtypes/verbs/omega.md",
                 "Regular verbs: -μι conjugation"  => "stemtypes/verbs/mi.md",
                 "Regular verbs: -εω contracts"  => "stemtypes/verbs/ew_contracts.md",

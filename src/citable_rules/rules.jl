@@ -1,9 +1,9 @@
 const REGULAR_VERB_CLASSES = [
     "w_regular",
     "numi",
-    "aw_compound",
-    "ew_compound",
-    "ow_compound",
+    "aw_contract",
+    "ew_contract",
+    "ow_contract",
     "w_dep"
 ]
 
