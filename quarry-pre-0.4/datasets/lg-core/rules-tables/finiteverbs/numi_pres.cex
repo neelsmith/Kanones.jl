@@ -1,104 +1,104 @@
-Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-verbinfl.numipres1|numi_pres|μι|first|singular|present|indicative|active
-verbinfl.numipres2|numi_pres|ς|second|singular|present|indicative|active
-verbinfl.numipres3|numi_pres|σι|third|singular|present|indicative|active
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice|
+verbinfl.numipres1|numi_pres|μι|first|singular|present|indicative|active|
+verbinfl.numipres2|numi_pres|ς|second|singular|present|indicative|active|
+verbinfl.numipres3|numi_pres|σι|third|singular|present|indicative|active|
 
-verbinfl.numipres4|numi_pres|μεν|first|plural|present|indicative|active
-verbinfl.numipres5|numi_pres|τε|second|plural|present|indicative|active
-verbinfl.numipres6|numi_pres|α_σι|third|plural|present|indicative|active
-
-
-verbinfl.numipres7|numi_pres|μαι|first|singular|present|indicative|middle
-verbinfl.numipres8|numi_pres|σαι|second|singular|present|indicative|middle
-verbinfl.numipres9|numi_pres|ται|third|singular|present|indicative|middle
-
-verbinfl.numipres10|numi_pres|μεθα|first|plural|present|indicative|middle
-verbinfl.numipres11|numi_pres|σθε|second|plural|present|indicative|middle
-verbinfl.numipres12|numi_pres|νται|third|plural|present|indicative|middle
-
-verbinfl.numipres13|numi_pres|μαι|first|singular|present|indicative|passive
-verbinfl.numipres14|numi_pres|σαι|second|singular|present|indicative|passive
-verbinfl.numipres15|numi_pres|ται|third|singular|present|indicative|passive
-
-verbinfl.numipres16|numi_pres|μεθα|first|plural|present|indicative|passive
-verbinfl.numipres17|numi_pres|σθε|second|plural|present|indicative|passive
-verbinfl.numipres18|numi_pres|νται|third|plural|present|indicative|passive
+verbinfl.numipres4|numi_pres|μεν|first|plural|present|indicative|active|
+verbinfl.numipres5|numi_pres|τε|second|plural|present|indicative|active|
+verbinfl.numipres6|numi_pres|α_σι|third|plural|present|indicative|active|
 
 
+verbinfl.numipres7|numi_pres|μαι|first|singular|present|indicative|middle|
+verbinfl.numipres8|numi_pres|σαι|second|singular|present|indicative|middle|
+verbinfl.numipres9|numi_pres|ται|third|singular|present|indicative|middle|
 
-verbinfl.numipres19|numi_pres|ω|first|singular|present|subjunctive|active
-verbinfl.numipres20|numi_pres|ῃς|second|singular|present|subjunctive|active
-verbinfl.numipres21|numi_pres|ῃ|third|singular|present|subjunctive|active
+verbinfl.numipres10|numi_pres|μεθα|first|plural|present|indicative|middle|
+verbinfl.numipres11|numi_pres|σθε|second|plural|present|indicative|middle|
+verbinfl.numipres12|numi_pres|νται|third|plural|present|indicative|middle|
 
-verbinfl.numipres22|numi_pres|ωμεν|first|plural|present|subjunctive|active
-verbinfl.numipres23|numi_pres|ητε|second|plural|present|subjunctive|active
-verbinfl.numipres24|numi_pres|ωσι|third|plural|present|subjunctive|active
+verbinfl.numipres13|numi_pres|μαι|first|singular|present|indicative|passive|
+verbinfl.numipres14|numi_pres|σαι|second|singular|present|indicative|passive|
+verbinfl.numipres15|numi_pres|ται|third|singular|present|indicative|passive|
 
-
-verbinfl.numipres25|numi_pres|ωμαι|first|singular|present|subjunctive|middle
-verbinfl.numipres26|numi_pres|ῃ|second|singular|present|subjunctive|middle
-verbinfl.numipres27|numi_pres|ηται|third|singular|present|subjunctive|middle
-
-verbinfl.numipres28|numi_pres|ωμεθα|first|plural|present|subjunctive|middle
-verbinfl.numipres29|numi_pres|ησθε|second|plural|present|subjunctive|middle
-verbinfl.numipres30|numi_pres|ωνται|third|plural|present|subjunctive|middle
-
-
-verbinfl.numipres31|numi_pres|ωμαι|first|singular|present|subjunctive|passive
-verbinfl.numipres32|numi_pres|ῃ|second|singular|present|subjunctive|passive
-verbinfl.numipres33|numi_pres|ηται|third|singular|present|subjunctive|passive
-
-verbinfl.numipres34|numi_pres|ωμεθα|first|plural|present|subjunctive|passive
-verbinfl.numipres35|numi_pres|ησθε|second|plural|present|subjunctive|passive
-verbinfl.numipres36|numi_pres|ωνται|third|plural|present|subjunctive|passive
+verbinfl.numipres16|numi_pres|μεθα|first|plural|present|indicative|passive|
+verbinfl.numipres17|numi_pres|σθε|second|plural|present|indicative|passive|
+verbinfl.numipres18|numi_pres|νται|third|plural|present|indicative|passive|
 
 
 
-verbinfl.numipres37|numi_pres|οιμι|first|singular|present|optative|active
-verbinfl.numipres38|numi_pres|οις|second|singular|present|optative|active
-verbinfl.numipres39|numi_pres|οι|third|singular|present|optative|active
+verbinfl.numipres19|numi_pres|ω|first|singular|present|subjunctive|active|
+verbinfl.numipres20|numi_pres|ῃς|second|singular|present|subjunctive|active|
+verbinfl.numipres21|numi_pres|ῃ|third|singular|present|subjunctive|active|
 
-verbinfl.numipres40|numi_pres|οιμεν|first|plural|present|optative|active
-verbinfl.numipres41|numi_pres|οιτε|second|plural|present|optative|active
-verbinfl.numipres42|numi_pres|οιεν|third|plural|present|optative|active
-
-
-verbinfl.numipres43|numi_pres|οίμην|first|singular|present|optative|middle
-verbinfl.numipres44|numi_pres|οιο|second|singular|present|optative|middle
-verbinfl.numipres45|numi_pres|οιτο|third|singular|present|optative|middle
-
-verbinfl.numipres46|numi_pres|οίμεθα|first|plural|present|optative|middle
-verbinfl.numipres47|numi_pres|οισθε|second|plural|present|optative|middle
-verbinfl.numipres48|numi_pres|οιντο|third|plural|present|optative|middle
-
-verbinfl.numipres49|numi_pres|οίμην|first|singular|present|optative|passive
-verbinfl.numipres50|numi_pres|οιο|second|singular|present|optative|passive
-verbinfl.numipres51|numi_pres|οιτο|third|singular|present|optative|passive
-
-verbinfl.numipres52|numi_pres|οίμεθα|first|plural|present|optative|passive
-verbinfl.numipres53|numi_pres|οισθε|second|plural|present|optative|passive
-verbinfl.numipres54|numi_pres|οιντο|third|plural|present|optative|passive
+verbinfl.numipres22|numi_pres|ωμεν|first|plural|present|subjunctive|active|
+verbinfl.numipres23|numi_pres|ητε|second|plural|present|subjunctive|active|
+verbinfl.numipres24|numi_pres|ωσι|third|plural|present|subjunctive|active|
 
 
+verbinfl.numipres25|numi_pres|ωμαι|first|singular|present|subjunctive|middle|
+verbinfl.numipres26|numi_pres|ῃ|second|singular|present|subjunctive|middle|
+verbinfl.numipres27|numi_pres|ηται|third|singular|present|subjunctive|middle|
+
+verbinfl.numipres28|numi_pres|ωμεθα|first|plural|present|subjunctive|middle|
+verbinfl.numipres29|numi_pres|ησθε|second|plural|present|subjunctive|middle|
+verbinfl.numipres30|numi_pres|ωνται|third|plural|present|subjunctive|middle|
+
+
+verbinfl.numipres31|numi_pres|ωμαι|first|singular|present|subjunctive|passive|
+verbinfl.numipres32|numi_pres|ῃ|second|singular|present|subjunctive|passive|
+verbinfl.numipres33|numi_pres|ηται|third|singular|present|subjunctive|passive|
+
+verbinfl.numipres34|numi_pres|ωμεθα|first|plural|present|subjunctive|passive|
+verbinfl.numipres35|numi_pres|ησθε|second|plural|present|subjunctive|passive|
+verbinfl.numipres36|numi_pres|ωνται|third|plural|present|subjunctive|passive|
 
 
 
-verbinfl.numipres55|numi_pres||second|singular|present|imperative|active
-verbinfl.numipres56|numi_pres|τω|third|singular|present|imperative|active
+verbinfl.numipres37|numi_pres|οιμι|first|singular|present|optative|active|
+verbinfl.numipres38|numi_pres|οις|second|singular|present|optative|active|
+verbinfl.numipres39|numi_pres|οι|third|singular|present|optative|active|
 
-verbinfl.numipres57|numi_pres|τε|second|plural|present|imperative|active
-verbinfl.numipres58|numi_pres|ντων|third|plural|present|imperative|active
-
-
-verbinfl.numipres55|numi_pres|σο|second|singular|present|imperative|middle
-verbinfl.numipres56|numi_pres|σθω|third|singular|present|imperative|middle
-
-verbinfl.numipres57|numi_pres|σθε|second|plural|present|imperative|middle
-verbinfl.numipres58|numi_pres|σθων|third|plural|present|imperative|middle
+verbinfl.numipres40|numi_pres|οιμεν|first|plural|present|optative|active|
+verbinfl.numipres41|numi_pres|οιτε|second|plural|present|optative|active|
+verbinfl.numipres42|numi_pres|οιεν|third|plural|present|optative|active|
 
 
-verbinfl.numipres59|numi_pres|σο|second|singular|present|imperative|passive
-verbinfl.numipres60|numi_pres|σθω|third|singular|present|imperative|passive
+verbinfl.numipres43|numi_pres|οίμην|first|singular|present|optative|middle|
+verbinfl.numipres44|numi_pres|οιο|second|singular|present|optative|middle|
+verbinfl.numipres45|numi_pres|οιτο|third|singular|present|optative|middle|
 
-verbinfl.numipres61|numi_pres|σθε|second|plural|present|imperative|passive
-verbinfl.numipres62|numi_pres|σθων|third|plural|present|imperative|passive
+verbinfl.numipres46|numi_pres|οίμεθα|first|plural|present|optative|middle|
+verbinfl.numipres47|numi_pres|οισθε|second|plural|present|optative|middle|
+verbinfl.numipres48|numi_pres|οιντο|third|plural|present|optative|middle|
+
+verbinfl.numipres49|numi_pres|οίμην|first|singular|present|optative|passive|
+verbinfl.numipres50|numi_pres|οιο|second|singular|present|optative|passive|
+verbinfl.numipres51|numi_pres|οιτο|third|singular|present|optative|passive|
+
+verbinfl.numipres52|numi_pres|οίμεθα|first|plural|present|optative|passive|
+verbinfl.numipres53|numi_pres|οισθε|second|plural|present|optative|passive|
+verbinfl.numipres54|numi_pres|οιντο|third|plural|present|optative|passive|
+
+
+
+
+
+verbinfl.numipres55|numi_pres||second|singular|present|imperative|active|
+verbinfl.numipres56|numi_pres|τω|third|singular|present|imperative|active|
+
+verbinfl.numipres57|numi_pres|τε|second|plural|present|imperative|active|
+verbinfl.numipres58|numi_pres|ντων|third|plural|present|imperative|active|
+
+
+verbinfl.numipres55|numi_pres|σο|second|singular|present|imperative|middle|
+verbinfl.numipres56|numi_pres|σθω|third|singular|present|imperative|middle|
+
+verbinfl.numipres57|numi_pres|σθε|second|plural|present|imperative|middle|
+verbinfl.numipres58|numi_pres|σθων|third|plural|present|imperative|middle|
+
+
+verbinfl.numipres59|numi_pres|σο|second|singular|present|imperative|passive|
+verbinfl.numipres60|numi_pres|σθω|third|singular|present|imperative|passive|
+
+verbinfl.numipres61|numi_pres|σθε|second|plural|present|imperative|passive|
+verbinfl.numipres62|numi_pres|σθων|third|plural|present|imperative|passive|

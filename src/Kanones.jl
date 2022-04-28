@@ -113,9 +113,10 @@ include("citable_forms/formvalues.jl")
 #include("citable_rules/irregulars.jl")
 
 include("citable_forms/finiteverbs.jl")
-#include("citable_stems/verbs.jl")
+include("citable_rules/finiteverbrules.jl")
+include("citable_stems/regularverbs.jl")
 #include("citable_stems/irregularverbs.jl")
-#include("citable_rules/finiteverbs.jl")
+
 
 # regular stems are drawn from finite verb stems
 include("citable_forms/infinitives.jl")
