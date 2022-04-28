@@ -1,22 +1,9 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-verbinfl.wregsecond1|w_regular|εις|second|singular|present|indicative|active
-verbinfl.wregsecond2|w_regular|ει|second|singular|present|indicative|middle
-verbinfl.wregsecond2a|w_regular|ῃ|second|singular|present|indicative|middle
-verbinfl.wregsecond3|w_regular|ει|second|singular|present|indicative|passive
-verbinfl.wregsecond3a|w_regular|ῃ|second|singular|present|indicative|middle
 
 
-verbinfl.wregsecond4|w_regular|ῃς|second|singular|present|subjunctive|active
-verbinfl.wregsecond5|w_regular|ῃ|second|singular|present|subjunctive|middle
-verbinfl.wregsecond6|w_regular|ῃ|second|singular|present|subjunctive|passive
 
-verbinfl.wregsecond7|w_regular|οις|second|singular|present|optative|active
-verbinfl.wregsecond8|w_regular|οιο|second|singular|present|optative|middle
-verbinfl.wregsecond9|w_regular|οιο|second|singular|present|optative|passive
 
-verbinfl.wregsecond10|w_regular|ες|second|singular|imperfect|indicative|active
-verbinfl.wregsecond11|w_regular|ου|second|singular|imperfect|indicative|middle
-verbinfl.wregsecond12|w_regular|ου|second|singular|imperfect|indicative|passive
+
 
 verbinfl.wregsecond13|w_regular|σεις|second|singular|future|indicative|active
 verbinfl.wregsecond14|w_regular|σει|second|singular|future|indicative|middle

@@ -1,23 +1,10 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-verbinfl.wregthird1|w_regular|ει|third|singular|present|indicative|active
-verbinfl.wregthird2|w_regular|εται|third|singular|present|indicative|middle
-verbinfl.wregthird3|w_regular|εται|third|singular|present|indicative|passive
 
-verbinfl.wregthird4|w_regular|ῃ|third|singular|present|subjunctive|active
-verbinfl.wregthird5|w_regular|ηται|third|singular|present|subjunctive|middle
-verbinfl.wregthird6|w_regular|ηται|third|singular|present|subjunctive|passive
 
-verbinfl.wregthird7|w_regular|οι|third|singular|present|optative|active
-verbinfl.wregthird8|w_regular|οιτο|third|singular|present|optative|middle
-verbinfl.wregthird9|w_regular|οιτο|third|singular|present|optative|passive
 
-verbinfl.wregthird10|w_regular|ε|third|singular|imperfect|indicative|active
-verbinfl.wregthird11|w_regular|ετο|third|singular|imperfect|indicative|middle
-verbinfl.wregthird12|w_regular|ετο|third|singular|imperfect|indicative|passive
 
-verbinfl.wregthird13|w_regular|σει|third|singular|future|indicative|active
-verbinfl.wregthird14|w_regular|σεται|third|singular|future|indicative|middle
-verbinfl.wregthird15|w_regular|θήσεται|third|singular|future|indicative|passive
+
+
 
 verbinfl.wregthird16|w_regular|σοι|third|singular|future|optative|active
 verbinfl.wregthird17|w_regular|σοιτο|third|singular|future|optative|middle
@@ -43,4 +30,7 @@ verbinfl.wregthird24|w_regular|ται|third|singular|perfect|indicative|passive
 verbinfl.wregthird22|w_regular|κει|third|singular|pluperfect|indicative|active
 verbinfl.wregthird23|w_regular|το|third|singular|pluperfect|indicative|middle
 verbinfl.wregthird24|w_regular|το|third|singular|pluperfect|indicative|passive
+
+
+
 

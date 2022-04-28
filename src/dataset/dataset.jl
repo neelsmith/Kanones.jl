@@ -99,11 +99,12 @@ function rulesarray(dirlist; delimiter = "|")
     for datasrc in dirlist
         for dirname in rulesdirs 
             dir = joinpath(datasrc, "rules-tables", dirname)
-            @debug("PROCESSING DIR ", dir)
+           
             cexfiles = glob("*.cex", dir)
 
             delimitedreader = (iodict[dirname])
             for f in cexfiles
+                @info("Reading rules from ", f)
                 raw = readlines(f)
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
@@ -159,6 +160,7 @@ function stemsarray(dirlist; delimiter = "|")
             cexfiles = glob("*.cex", dir)
             delimitedreader = (iodict[dirname])
             for f in cexfiles
+                @info("Reading stems from ", f)
                 raw = readlines(f)
                 #@info("reading steam from raw ", raw)
                 # Trim lines first:
