@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-struct VerbStem <: Stem
+struct VerbStem <: KanonesStem
     stemid::AbbreviatedUrn
     lexid::AbbreviatedUrn
     form::AbstractString

@@ -96,7 +96,7 @@ end
 """Generate all forms possible for `stem`.
 $(SIGNATURES)
 """
-function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem}
+function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
     generated = []        
     classrules = filter(r -> inflectionClass(r) == inflectionClass(stem), rules)
     if stem isa NounStem 
