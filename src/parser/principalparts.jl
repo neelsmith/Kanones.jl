@@ -21,6 +21,7 @@ function principalpart(stemstring::AbstractString, tense::GMPTense, voice::GMPVo
     end
     =#
 end
+end
 
 function numipart(s::AbstractString, tense::GMPTense, voice::GMPVoice)
     

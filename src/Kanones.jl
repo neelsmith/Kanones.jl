@@ -65,7 +65,8 @@ export IrregularInfinitiveStem
 export GreekLexeme
 
 export generate, analysis_string
-export decline, mddeclension
+export decline, md_declension
+export synopsis, md_conjugation
 
 export urn, formurn
 export ruleurn # ??
@@ -159,7 +160,9 @@ include("generate/generatenoun.jl")
 include("generate/generateadj.jl")
 include("generate/generatefiniteverb.jl")
 
-include("forapps/mddeclension.jl")
+include("forapps/declensions.jl")
+include("forapps/synopses.jl")
+include("forapps/conjugations.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
