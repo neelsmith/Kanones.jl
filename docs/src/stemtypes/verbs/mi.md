@@ -1,6 +1,8 @@
 # Regular -μι verbs
 
+Inflectional class: `numi`
 
+Example verb:  δείκνυμι
 
 ```
 Rule|LexicalEntity|StemClass|Stem|
