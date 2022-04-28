@@ -1,17 +1,11 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 
-verbinfl.wregfirst4|w_regular|ω|first|singular|present|subjunctive|active
-verbinfl.wregfirst5|w_regular|ωμαι|first|singular|present|subjunctive|middle
-verbinfl.wregfirst6|w_regular|ωμαι|first|singular|present|subjunctive|passive
 
 verbinfl.wregfirst7|w_regular|οιμι|first|singular|present|optative|active
 verbinfl.wregfirst8|w_regular|οιμην|first|singular|present|optative|middle
 verbinfl.wregfirst9|w_regular|οιμην|first|singular|present|optative|passive
 
-verbinfl.wregfirst10|w_regular|ον|first|singular|imperfect|indicative|active
-verbinfl.wregfirst11|w_regular|ομην|first|singular|imperfect|indicative|middle
-verbinfl.wregfirst12|w_regular|ομην|first|singular|imperfect|indicative|passive
 
 verbinfl.wregfirst13|w_regular|σω|first|singular|future|indicative|active
 verbinfl.wregfirst14|w_regular|σομαι|first|singular|future|indicative|middle

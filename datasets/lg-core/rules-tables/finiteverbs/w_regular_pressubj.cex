@@ -1,0 +1,13 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+verbinfl.wregpressubj1|w_regular|ω|first|singular|present|subjunctive|active
+verbinfl.wregpressubj2|w_regular|ωμαι|first|singular|present|subjunctive|middle
+verbinfl.wregpressubj3|w_regular|ωμαι|first|singular|present|subjunctive|passive
+
+verbinfl.wregpressubj4|w_regular|ῃς|second|singular|present|subjunctive|active
+verbinfl.wregpressubj5|w_regular|ῃ|second|singular|present|subjunctive|middle
+verbinfl.wregpressubj6|w_regular|ῃ|second|singular|present|subjunctive|passive
+
+verbinfl.wregpressubj7|w_regular|ῃ|third|singular|present|subjunctive|active
+verbinfl.wregpressubj8|w_regular|ηται|third|singular|present|subjunctive|middle
+verbinfl.wregpressubj9|w_regular|ηται|third|singular|present|subjunctive|passive
