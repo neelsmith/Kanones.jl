@@ -9,6 +9,21 @@ struct AdjectiveRule <: KanonesRule
     adegree::GMPDegree
 end
 
+"""Identifying URN for a `NounRule`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+@(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(adj::AdjectiveRule; registry = nothing)
+    if isnothing(registry)
+        adj.ruleid
+    else
+        expand(adj.ruleid, registry)
+    end
+end
+
 
 """Identify gender for `adj`.
 $(SIGNATURES)
@@ -89,20 +104,6 @@ function label(adj::AdjectiveRule)
 end
 
 
-"""Identifying URN for an `AdjectiveRule`.  If
-no registry is included, use abbreviated URN;
-otherwise, expand to full `Cite2Urn`.
-
-@(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function ruleurn(adj::AdjectiveRule; registry = nothing)
-    if isnothing(registry)
-        adj.ruleid
-    else
-        expand(adj.ruleid, registry)
-    end
-end
 
 """Compose CEX text for an `AdjectiveRule`.
 If `registry` is nothing, use abbreivated URN;

@@ -93,17 +93,16 @@ function fromline(s::AbstractString; delimiter = "|")
     )
 end
 
-
-
 """Generate all forms possible for `stem`.
 $(SIGNATURES)
 """
 function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem}
     generated = []        
     classrules = filter(r -> inflectionClass(r) == inflectionClass(stem), rules)
-    if stem isa NounStem
+    if stem isa NounStem 
         filter!(r -> gmpGender(r) == gmpGender(stem), classrules)
     end
+    
     for rule in classrules
         token = generate(stem, rule)
         push!(generated, string(token, "|", lexeme(stem), "|", Kanones.formurn(rule), "|", urn(stem), "|", urn(rule)))
