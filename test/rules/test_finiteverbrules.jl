@@ -21,7 +21,6 @@ end
     @test ruleu == expectedurn
 
 
-
     dict = Dict("verbinfl" => "urn:cite2:kanones:verbinfl.v1:")
     expectedcite2 = Cite2Urn("urn:cite2:kanones:verbinfl.v1:numipres8")
     @test urn(rule) == expectedurn
