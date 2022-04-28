@@ -11,7 +11,15 @@ end
     nounio = Kanones.NounIO("IO for nouns")
     stem = Kanones.readstemrow(nounio, delimited)
 
-    @test urn(stem) == StemUrn("nounstems.n8909")
+    expectedurn = StemUrn("nounstems.n8909")
+    @test urn(stem) == expectedurn
+
+    dict = Dict("nounstems" => "urn:cite2:kanones:nounstems.v1:")
+    expectedcite2 = Cite2Urn("urn:cite2:kanones:nounstems.v1:n8909")
+    @test urn(stem) == expectedurn
+    @test urn(stem, registry = dict) == expectedcite2
+
+
     @test lexeme(stem) == LexemeUrn("lsj.n8909")
     @test stemstring(stem) == "ἀνθρωπ"
     
