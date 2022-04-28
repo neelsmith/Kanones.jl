@@ -55,6 +55,9 @@ makedocs(
             "Verbal stems" => Any[
                 "Regular verbs: -ω conjugation"  => "stemtypes/verbs/omega.md",
                 "Regular verbs: -μι conjugation"  => "stemtypes/verbs/mi.md",
+                "Regular verbs: -εω contracts"  => "stemtypes/verbs/ew_contracts.md",
+                "Regular verbs: -αω contracts"  => "stemtypes/verbs/aw_contracts.md",
+                "Regular verbs: -οω contracts"  => "stemtypes/verbs/ow_contracts.md",
                 "Principal parts" => "stemtypes/verbs/princparts.md",
                 "Irregular verb forms" => "stemtypes/verbs/irregulars.md"
             ],
