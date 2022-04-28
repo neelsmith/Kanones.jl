@@ -157,6 +157,7 @@ include("generate/generate.jl")
 #include("generator/uninflectedgen.jl")
 include("generate/generatenoun.jl")
 include("generate/generateadj.jl")
+include("generate/generatefiniteverb.jl")
 
 include("forapps/mddeclension.jl")
 
