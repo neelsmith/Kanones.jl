@@ -12,5 +12,5 @@
     adjstem = Kanones.readstemrow(adjio, adjstemsrc)
     adjrulesrc = "adjinfl.osaon1|os_a_on|ος|masculine|nominative|singular|positive|"
     adjrule = Kanones.readrulerow(adjio, adjrulesrc)
-    @test generate(adjstem, adjrule) == "κακός"
+    @test generate(adjstem, adjrule) == "κακός"
 end

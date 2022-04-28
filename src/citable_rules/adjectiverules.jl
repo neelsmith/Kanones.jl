@@ -10,6 +10,35 @@ struct AdjectiveRule <: KanonesRule
 end
 
 
+"""Identify gender for `adj`.
+$(SIGNATURES)
+"""
+function gmpGender(adj::AdjectiveRule)
+    adj.agender
+end
+
+"""Identify case for `adj`.
+$(SIGNATURES)
+"""
+function gmpCase(adj::AdjectiveRule)
+    adj.acase
+end
+
+"""Identify number for `adj`.
+$(SIGNATURES)
+"""
+function gmpNumber(adj::AdjectiveRule)
+    adj.anumber
+end
+
+"""Identify degree for `adj`.
+$(SIGNATURES)
+"""
+function gmpDegree(adj::AdjectiveRule)
+    adj.adegree
+end
+
+
 """Identify inflection class for `rule`.
 $(SIGNATURES)
 """
