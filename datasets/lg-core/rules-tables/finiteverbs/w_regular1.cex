@@ -1,7 +1,5 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-verbinfl.wregfirst1|w_regular|ω|first|singular|present|indicative|active
-verbinfl.wregfirst2|w_regular|ομαι|first|singular|present|indicative|middle
-verbinfl.wregfirst3|w_regular|ομαι|first|singular|present|indicative|passive
+
 
 verbinfl.wregfirst4|w_regular|ω|first|singular|present|subjunctive|active
 verbinfl.wregfirst5|w_regular|ωμαι|first|singular|present|subjunctive|middle
