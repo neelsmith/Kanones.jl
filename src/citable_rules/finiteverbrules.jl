@@ -17,7 +17,7 @@ end
 """Find person property for `rule`.
 $(SIGNATURES)
 """
-function gmfPerson(rule::FiniteVerbRule)
+function gmpPerson(rule::FiniteVerbRule)
     rule.vperson
 end
 
@@ -25,7 +25,7 @@ end
 """Find number property for `rule`.
 $(SIGNATURES)
 """
-function gmfNumber(rule::FiniteVerbRule)
+function gmpNumber(rule::FiniteVerbRule)
     rule.vnumber
 end
 
@@ -33,7 +33,7 @@ end
 """Find tense property for `rule`.
 $(SIGNATURES)
 """
-function gmfTense(rule::FiniteVerbRule)
+function gmpTense(rule::FiniteVerbRule)
     rule.vtense
 end
 
@@ -41,7 +41,7 @@ end
 """Find mood property for `rule`.
 $(SIGNATURES)
 """
-function gmfMood(rule::FiniteVerbRule)
+function gmpMood(rule::FiniteVerbRule)
     rule.vmood
 end
 
@@ -49,10 +49,9 @@ end
 """Find voice property for `rule`.
 $(SIGNATURES)
 """
-function gmfVoice(rule::FiniteVerbRule)
+function gmpVoice(rule::FiniteVerbRule)
     rule.vvoice
 end
-
 
 
 """Finite verb rules are citable by Cite2Urn"""

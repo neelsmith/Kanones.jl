@@ -1,3 +1,11 @@
+const REGULAR_VERB_CLASSES = [
+    "w_regular",
+    "numi",
+    "aw_compound",
+    "ew_compound",
+    "ow_compound",
+    "w_dep"
+]
 
 abstract type KanonesRule <: Rule end
 

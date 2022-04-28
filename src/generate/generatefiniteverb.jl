@@ -1,4 +1,30 @@
 
+"""True if `f` takes augment.
+$(SIGNATURES)
+"""
+function takesaugment(f::GMFFiniteVerb)
+    gmpMood(f) == gmpMood("indicative") &&
+    (gmpTense(f) == gmpTense("imperfect") || 
+    gmpTense(f) == gmpTense("aorist") ||
+    gmpTense(f) == gmpTense("pluperfect"))
+end
+
+"""True if `f` takes reduplication.
+$(SIGNATURES)
+"""
+function takesreduplication(f::GMFFiniteVerb)
+    gmpTense(f) == gmpTense("perfect")  ||
+    gmpTense(f) == gmpTense("pluperfect")  
+end
+
+"""True if `inflclass` is a regular verb type that
+requires only a single principle part.
+$(SIGNATURES)
+"""
+function regularverbclass(infclass::AbstractString)
+    infclass in REGULAR_VERB_CLASSES
+end
+
 """Generate a form for a given noun stem and rule by combining
 stem and ending, then adding appropriate accent for this lexical
 item in this form, and finally stripping off metadata characters
