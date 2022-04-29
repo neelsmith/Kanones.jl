@@ -16,35 +16,35 @@ end
 """Identify tense property of `rule`.
 $(SIGNATURES)
 """
-function gmpTense(rule::PartcipleRule)
+function gmpTense(rule::ParticipleRule)
     rule.ptense
 end
 
 """Identify voice property of `rule`.
 $(SIGNATURES)
 """
-function gmpVoice(rule::PartcipleRule)
+function gmpVoice(rule::ParticipleRule)
     rule.pvoice
 end
 
 """Identify gender property of `rule`.
 $(SIGNATURES)
 """
-function gmpGender(rule::PartcipleRule)
+function gmpGender(rule::ParticipleRule)
     rule.pgender
 end
 
 """Identify case property of `rule`.
 $(SIGNATURES)
 """
-function gmpCase(rule::PartcipleRule)
+function gmpCase(rule::ParticipleRule)
     rule.pcase
 end
 
 """Identify number property of `rule`.
 $(SIGNATURES)
 """
-function gmpNumber(rule::PartcipleRule)
+function gmpNumber(rule::ParticipleRule)
     rule.pnumber
 end
 
