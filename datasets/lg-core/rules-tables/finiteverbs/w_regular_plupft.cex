@@ -1,0 +1,6 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+
+verbinfl.wregplupft1|w_regular|κη|first|singular|pluperfect|indicative|active
+verbinfl.wregplupft2|w_regular|μην|first|singular|pluperfect|indicative|middle
+verbinfl.wregplupft3|w_regular|μην|first|singular|pluperfect|indicative|passive

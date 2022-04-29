@@ -5,17 +5,11 @@ Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 
 
-verbinfl.wregsecond13|w_regular|σεις|second|singular|future|indicative|active
-verbinfl.wregsecond14|w_regular|σει|second|singular|future|indicative|middle
-verbinfl.wregsecond15|w_regular|θήσεις|second|singular|future|indicative|passive
 
-verbinfl.wregsecond16|w_regular|σοις|second|singular|future|optative|active
-verbinfl.wregsecond17|w_regular|σοιοι|second|singular|future|optative|middle
-verbinfl.wregsecond18|w_regular|θήσοις|second|singular|future|optative|passive
 
-verbinfl.wregsecond19|w_regular|σας|second|singular|aorist|indicative|active
-verbinfl.wregsecond20|w_regular|σω|second|singular|aorist|indicative|middle
-verbinfl.wregsecond21|w_regular|θης|second|singular|aorist|indicative|passive
+
+
+
 
 verbinfl.wregsecond19|w_regular|σῃς|second|singular|aorist|subjunctive|active
 verbinfl.wregsecond20|w_regular|σῃ|second|singular|aorist|subjunctive|middle
@@ -30,7 +24,4 @@ verbinfl.wregsecond22|w_regular|κες|second|singular|perfect|indicative|active
 verbinfl.wregsecond23|w_regular|σαι|second|singular|perfect|indicative|middle
 verbinfl.wregsecond24|w_regular|σαι|second|singular|perfect|indicative|passive
 
-verbinfl.wregsecond22|w_regular|κης|second|singular|pluperfect|indicative|active
-verbinfl.wregsecond23|w_regular|σο|second|singular|pluperfect|indicative|middle
-verbinfl.wregsecond24|w_regular|σο|second|singular|pluperfect|indicative|passive
 

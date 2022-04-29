@@ -15,6 +15,17 @@ function pp3(rule::FiniteVerbRule)
     gmpTense(rule) == gmpTense("aorist")
 end
 
+"""True if rule requires fourth principal part.
+$(SIGNATURES)
+"""
+function pp4(rule::FiniteVerbRule)
+    gmpVoice(rule) == gmpVoice("active") &&
+    (gmpTense(rule) == gmpTense("perfect") ||
+    gmpTense(rule) == gmpTense("pluperfect") ||
+    gmpTense(rule) == gmpTense("futureperfect"))
+     
+end
+
 """True if rule requires second principal part.
 $(SIGNATURES)
 """
@@ -82,7 +93,7 @@ function ppbase(stem::VerbStem, rule::FiniteVerbRule; ortho = literaryGreek())
     elseif pp4(rule)
         kappabase(stem, ortho = ortho)
     
-    elsem
+    else
         stemstring(stem)
     end
 end

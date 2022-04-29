@@ -1,0 +1,17 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+verbinfl.wregaor1|w_regular|α|first|singular|aorist|indicative|active
+verbinfl.wregaor2|w_regular|άμην|first|singular|aorist|indicative|middle
+verbinfl.wregaor3|w_regular|θην|first|singular|aorist|indicative|passive
+
+
+verbinfl.wregaor4|w_regular|ας|second|singular|aorist|indicative|active
+verbinfl.wregaor5|w_regular|ω|second|singular|aorist|indicative|middle
+verbinfl.wregaor6|w_regular|θης|second|singular|aorist|indicative|passive
+
+verbinfl.wregaor6|w_regular|ε|third|singular|aorist|indicative|active
+verbinfl.wregaor7|w_regular|ατο|third|singular|aorist|indicative|middle
+verbinfl.wregaor8|w_regular|θη|third|singular|aorist|indicative|passive
+
+
+

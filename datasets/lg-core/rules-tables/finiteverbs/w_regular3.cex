@@ -6,13 +6,8 @@ Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 
 
-verbinfl.wregthird16|w_regular|σοι|third|singular|future|optative|active
-verbinfl.wregthird17|w_regular|σοιτο|third|singular|future|optative|middle
-verbinfl.wregthird18|w_regular|θήσοιτο|third|singular|future|optative|passive
 
-verbinfl.wregthird19|w_regular|σε|third|singular|aorist|indicative|active
-verbinfl.wregthird20|w_regular|σατο|third|singular|aorist|indicative|middle
-verbinfl.wregthird21|w_regular|θη|third|singular|aorist|indicative|passive
+
 
 verbinfl.wregthird19|w_regular|σῃ|third|singular|aorist|subjunctive|active
 verbinfl.wregthird20|w_regular|σηται|third|singular|aorist|subjunctive|middle
@@ -27,9 +22,6 @@ verbinfl.wregthird22|w_regular|κε|third|singular|perfect|indicative|active
 verbinfl.wregthird23|w_regular|ται|third|singular|perfect|indicative|middle
 verbinfl.wregthird24|w_regular|ται|third|singular|perfect|indicative|passive
 
-verbinfl.wregthird22|w_regular|κει|third|singular|pluperfect|indicative|active
-verbinfl.wregthird23|w_regular|το|third|singular|pluperfect|indicative|middle
-verbinfl.wregthird24|w_regular|το|third|singular|pluperfect|indicative|passive
 
 
 
