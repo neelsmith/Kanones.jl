@@ -71,6 +71,8 @@ function sigmabase(stem::Stem; ortho = literaryGreek())
     end
 end
 
+
+
 """Compose base stem of `stem` for principalpart required by `rule`.
 $(SIGNATURES)
 """
@@ -79,8 +81,7 @@ function ppbase(stem::VerbStem, rule::FiniteVerbRule; ortho = literaryGreek())
         sigmabase(stem, ortho = ortho)
     elseif pp4(rule)
         kappabase(stem, ortho = ortho)
-    elseif pp6(rule)
-        thetabase(stem)
+    
     elsem
         stemstring(stem)
     end

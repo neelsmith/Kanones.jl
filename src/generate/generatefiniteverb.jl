@@ -1,5 +1,3 @@
-
-
 """True if `inflclass` is a regular verb type that
 requires only a single principle part.
 $(SIGNATURES)
@@ -17,7 +15,7 @@ $(SIGNATURES)
 function generate(
     stem::VerbStem, 
     rule::FiniteVerbRule;
-     ortho::GreekOrthography = literaryGreek())
+    ortho::GreekOrthography = literaryGreek())
 
     stembase = stemstring(stem)
     if regularverbclass(stem) 
