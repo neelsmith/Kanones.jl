@@ -8,9 +8,11 @@ verbstems.n56496|lsj.n56496|κελευ|w_regular|
 
 Paradigms generated from these entries:
 
-## Present tense
+## Present system
 
-Active voice:
+### Present tense
+
+*Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -41,7 +43,7 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), κελε
 - **present imperative**: TBA
 - **verbal adjective**:  TBA
 
-## Imperfect tense
+### Imperfect tense
 
 Active voice:
 
@@ -166,7 +168,9 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("passive"), κελε�
 - **aorist imperative**: TBA
 
 
-## Perfect tense
+## Perfect system
+
+### Perfect tense
 
 Active voice:
 
@@ -186,7 +190,7 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("active"), κελε�
 - **perfect imperative**: TBA
 
 
-## Pluperfect tense
+### Pluperfect tense
 
 Active voice:
 

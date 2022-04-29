@@ -104,12 +104,17 @@ function rulesarray(dirlist; delimiter = "|")
 
             delimitedreader = (iodict[dirname])
             for f in cexfiles
-                @info("Reading rules from ", f)
+                @debug("Reading rules from ", f)
                 raw = readlines(f)
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
-                    rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
-                    push!(rulesarr,rule)
+                    try 
+                        rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
+                        push!(rulesarr,rule)
+                    catch e
+                        @warn("Failed to parse rule from line\n\"$(lines[i])\" \nin file ($(f)")
+                        @warn("Error: $(e)")
+                    end
                 end
             end
         end
@@ -154,20 +159,24 @@ function stemsarray(dirlist; delimiter = "|")
     for datasrc in dirlist
         @info("Source: $(datasrc)")
         for dirname in stemdirs 
-            #@info("Read stems from dir ", dirname)
             dir = joinpath(datasrc, "stems-tables", dirname)
-            #@info("dir = ", dir)
+            @debug("dir = ", dir)
             cexfiles = glob("*.cex", dir)
             delimitedreader = (iodict[dirname])
             for f in cexfiles
-                @info("Reading stems from ", f)
+                @debug("Reading stems from ", f)
                 raw = readlines(f)
-                #@info("reading steam from raw ", raw)
+                
                 # Trim lines first:
                 lines = filter(s -> ! isempty(s), raw)
                 for i in 2:length(lines)
-                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
-                    push!(stemsarr,stem)
+                    try
+                        stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
+                        push!(stemsarr,stem)
+                    catch e
+                        @warn("Failed to parse stem data from line $(lines[i]) in file $(f)")
+                        @warn("Error: $(e)")
+                    end
                 end
             end
         end
