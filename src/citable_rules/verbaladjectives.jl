@@ -15,6 +15,24 @@ end
 """Verbal adjective rules are citable by Cite2Urn"""
 CitableTrait(::Type{VerbalAdjectiveRule}) = CitableByCite2Urn()
 
+
+
+
+"""Identify inflection class for `rule`.
+$(SIGNATURES)
+"""
+function inflectionClass(rule::VerbalAdjectiveRule)
+    rule.inflectionclass
+end
+
+"""Identify ending for `rule`.
+$(SIGNATURES)
+"""
+function ending(rule::VerbalAdjectiveRule)
+    rule.ending
+end
+
+
 """Human-readlable label for a `VerbalAdjectiveRule`.
 
 @(SIGNATURES)
@@ -40,6 +58,13 @@ function urn(vadj::VerbalAdjectiveRule; registry = nothing)
 end
 
 
+"""Identifying `RuleUrn` for a `VerbalAdjectiveRule`. 
+$(SIGNATURES)
+"""
+function ruleurn(vadj::VerbalAdjectiveRule)
+    vadj.ruleid
+end
+
 """Compose CEX text for a `VerbalAdjectiveRule`.
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
@@ -49,10 +74,10 @@ Required for `CitableTrait`.
 """
 function cex(vadj::VerbalAdjectiveRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([vadj.ruleid, label(vadj)], delimiter)
+        join([vadj.ruleid, label(vadj), ending(vadj), inflectionClass(vadj), formurn(vadj)], delimiter)
     else
         c2urn = expand(vadj.ruleid, registry)
-        join([c2urn, label(vadj)], delimiter)
+        join([c2urn, label(vadj), ending(vadj), inflectionClass(vadj), formurn(vadj)], delimiter)
     end
 end
 
@@ -79,11 +104,16 @@ function readrulerow(usp::VerbalAdjectiveIO, delimited::AbstractString; delimite
 
 end
 
+
+function code(rule::VerbalAdjectiveRule)
+    string(VERBALADJECTIVE,"0",code(rule.vanumber),"000",code(rule.vagender),code(rule.vacase),"00")
+end
+
 """Compose an abbreviated URN for a rule from a `NounRule`.
 
 $(SIGNATURES)
 """
-function ruleurn(rule::VerbalAdjectiveRule)
+function formurn(rule::VerbalAdjectiveRule)
     # PosPNTMVGCDCat
-    RuleUrn(string("$(COLLECTION_ID).", VERBALADJECTIVE,"0",code(rule.vanumber),"000",code(rule.vagender),code(rule.vacase),"00"))
+    FormUrn("$(COLLECTION_ID)." * code(rule))
 end

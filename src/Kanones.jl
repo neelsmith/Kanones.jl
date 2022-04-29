@@ -129,7 +129,7 @@ include("citable_forms/participles.jl")
 #include("citable_rules/participles.jl")
 
 include("citable_forms/verbaladjectives.jl")
-#include("citable_rules/verbaladjectives.jl")
+include("citable_rules/verbaladjectives.jl")
 
 include("citable_forms/nouns.jl")
 include("citable_rules/nounrules.jl")
