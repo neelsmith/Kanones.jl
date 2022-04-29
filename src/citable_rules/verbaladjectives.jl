@@ -114,6 +114,5 @@ end
 $(SIGNATURES)
 """
 function formurn(rule::VerbalAdjectiveRule)
-    # PosPNTMVGCDCat
     FormUrn("$(COLLECTION_ID)." * code(rule))
 end

@@ -81,7 +81,6 @@ $(SIGNATURES)
 """
 function formurn(adj::GMFAdjective)
     FormUrn("$(COLLECTION_ID).$(code(adj))")
-    # ADJECTIVE, "0" , code(adj.adjnumber),"000", code(adj.adjgender), code(adj.adjcase), code(adj.adjdegree), "0"))
 end
 
 

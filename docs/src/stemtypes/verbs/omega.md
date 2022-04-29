@@ -41,7 +41,19 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), κελε
 - **present infinitives**: TBA
 - **present participles**: TBA
 - **present imperative**: TBA
-- **verbal adjective**:  TBA
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "lg-core") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+nom_sg = GMFVerbalAdjective(
+    gmpGender("neuter"), gmpCase("nominative"), gmpNumber(1)
+)
+result = generate(κελευω, formurn(nom_sg), kds)
+Markdown.parse("- **verbal adjective**: $(result[1])")
+```
 
 ### Imperfect tense
 
