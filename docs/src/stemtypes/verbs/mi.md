@@ -11,9 +11,11 @@ verbstems.n23658|lsj.n23658|δεικ|numi|
 
 Paradigms generated from these entries:
 
-## Present tense
+## Present system
 
-Active voice:
+### Present tense
+
+*Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -26,7 +28,7 @@ kds = Kanones.dataset([srcdir])
 Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("active"), δεικνυμι, kds))
 ```
 
-Middle and passive voices (identical forms):
+*Middle and passive voices* (identical forms):
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -43,9 +45,9 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), δεικ
 - **present participles**: TBA
 - **present imperative**: TBA
 
-## Imperfect tense
+### Imperfect tense
 
-Active voice:
+*Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -59,7 +61,7 @@ Markdown.parse(md_conjugation(gmpTense("imperfect"), gmpVoice("active"), δει�
 ```
 
 
-Middle and passive voice (identical forms):
+*Middle and passive voices* (identical forms):
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -158,9 +160,11 @@ kds = Kanones.dataset([srcdir])
 Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("passive"), δεικνυμι, kds))
 ```
 
-## Perfect tense
+## Perfect system
 
-Active voice:
+### Perfect tense
+
+*Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -174,9 +178,9 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("active"), δεικ�
 ```
 
 
-## Pluperfect tense
+### Pluperfect tense
 
-Active voice:
+*Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown

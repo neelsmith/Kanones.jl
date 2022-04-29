@@ -1,14 +1,31 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
-verbinfl.wregfutopt1|w_regular|σοιμι|first|singular|future|optative|active
-verbinfl.wregfutopt2|w_regular|σοίμην|first|singular|future|optative|middle
+verbinfl.wregfutopt1|w_regular|οιμι|first|singular|future|optative|active
+verbinfl.wregfutopt2|w_regular|οίμην|first|singular|future|optative|middle
 verbinfl.wregfutopt3|w_regular|θησοίμην|first|singular|future|optative|passive
 
-verbinfl.wregfutopt4|w_regular|σοις|second|singular|future|optative|active
-verbinfl.wregfutopt5|w_regular|σοιοι|second|singular|future|optative|middle
-verbinfl.wregfutopt6|w_regular|θήσοις|second|singular|future|optative|passive
+verbinfl.wregfutopt4|w_regular|οις|second|singular|future|optative|active
+verbinfl.wregfutopt5|w_regular|οιο|second|singular|future|optative|middle
+verbinfl.wregfutopt6|w_regular|θήσοιο|second|singular|future|optative|passive
 
-
-verbinfl.wregfutopt7|w_regular|σοι|third|singular|future|optative|active
-verbinfl.wregfutopt8|w_regular|σοιτο|third|singular|future|optative|middle
+verbinfl.wregfutopt7|w_regular|οι|third|singular|future|optative|active
+verbinfl.wregfutopt8|w_regular|οιτο|third|singular|future|optative|middle
 verbinfl.wregfutopt9|w_regular|θήσοιτο|third|singular|future|optative|passive
+
+
+
+verbinfl.wregfutopt10|w_regular|οιμεν|first|plural|future|optative|active
+verbinfl.wregfutopt11|w_regular|οίμεθα|first|plural|future|optative|middle
+verbinfl.wregfutopt12|w_regular|θησοίμην|first|plural|future|optative|passive
+
+
+
+verbinfl.wregfutopt13|w_regular|οιτε|second|plural|future|optative|active
+verbinfl.wregfutopt14|w_regular|οισθε|second|plural|future|optative|middle
+verbinfl.wregfutopt15|w_regular|θήσοισθε|second|plural|future|optative|passive
+
+
+
+verbinfl.wregfutopt16|w_regular|οιεν|third|plural|future|optative|active
+verbinfl.wregfutopt17|w_regular|οιντο|third|plural|future|optative|middle
+verbinfl.wregfutopt18|w_regular|θήσοιντ|third|plural|future|optative|passive
