@@ -6,7 +6,21 @@
     degreecount = keys(Kanones.degreelabeldict) |> length
 
     nounforms = Kanones.nounforms()
+    @test typeof(nounforms) == Vector{GMFNoun}
     @test length(nounforms) == gendercount * casecount * numbercount
+
     adjforms = Kanones.adjectiveforms()
+    @test typeof(adjforms) ==  Vector{GMFAdjective}
     @test length(adjforms) ==  gendercount * casecount * numbercount * degreecount
+
+    vadjforms = Kanones.verbaladjectiveforms()
+    @test typeof(vadjforms) == Vector{GMFVerbalAdjective}
+    @test length(vadjforms) ==  gendercount * casecount * numbercount
+
+    voicecount = keys(Kanones.voicelabeldict) |> length
+    infinitivetenses = 4
+    infforms = Kanones.infinitiveforms()
+    @test typeof(infforms) == Vector{GMFInfinitive}
+    @test length(infforms) == infinitivetenses * voicecount
+
 end

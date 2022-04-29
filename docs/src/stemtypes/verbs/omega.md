@@ -38,10 +38,36 @@ kds = Kanones.dataset([srcdir])
 Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), κελευω, kds))
 ```
 
-- **present infinitives**: TBA
-- **present participles**: TBA
 - **present imperative**: TBA
-- **verbal adjective**:  TBA
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "lg-core") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+vadj = GMFVerbalAdjective(
+    gmpGender("neuter"), gmpCase("nominative"), gmpNumber(1)
+)
+vadjforms = generate(κελευω, formurn(vadj), kds)
+
+inf_act = GMFInfinitive(
+    gmpTense("present"), gmpVoice("active")
+)
+inf_actforms = generate(κελευω, formurn(inf_act), kds)
+
+inf_pass = GMFInfinitive(
+    gmpTense("present"), gmpVoice("passive")
+)
+inf_passforms = generate(κελευω, formurn(inf_pass), kds)
+mdlines = [
+    "- **active infinitive**: $(inf_actforms[1])",
+    "- **middle & passive infinitive**: $(inf_passforms[1])",
+    "- **active participle**: TBA",
+    "- **middle & passive participle**: TBA",
+    "- **verbal adjective**: $(vadjforms[1])"]
+Markdown.parse(join(mdlines,"\n"))
+```
 
 ### Imperfect tense
 
@@ -71,6 +97,8 @@ kds = Kanones.dataset([srcdir])
 
 Markdown.parse(md_conjugation(gmpTense("imperfect"), gmpVoice("passive"), κελευω, kds))
 ```
+
+
 
 ## Future tense
 
@@ -116,8 +144,46 @@ Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("passive"),κελευ
 ```
 
 
-- **future infinitives**: TBA
-- **future participles**: TBA
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "lg-core") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+
+
+
+inf_act = GMFInfinitive(
+    gmpTense("future"), gmpVoice("active")
+)
+inf_actforms = generate(κελευω, formurn(inf_act), kds)
+
+
+inf_mdl = GMFInfinitive(
+    gmpTense("future"), gmpVoice("middle")
+)
+inf_mdlforms = generate(κελευω, formurn(inf_mdl), kds)
+
+
+inf_pass = GMFInfinitive(
+    gmpTense("future"), gmpVoice("passive")
+)
+inf_passforms = generate(κελευω, formurn(inf_pass), kds)
+
+mdlines = [
+    "- **active infinitive**: $(inf_actforms[1])",
+    "- **middle infinitive**: $(inf_mdlforms[1])",
+    "- **passive infinitive**: $(inf_passforms[1])",
+    "- **active participle**: TBA",
+    "- **middle participle**: TBA",
+    "- **passive participle**: TBA"
+]
+Markdown.parse(join(mdlines,"\n"))
+```
+
+
+
 
 ## Aorist tense
 
@@ -163,9 +229,46 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("passive"), κελε�
 ```
 
 
-- **aorist infinitives**: TBA
-- **aorist participles**: TBA
-- **aorist imperative**: TBA
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "lg-core") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+
+
+
+inf_act = GMFInfinitive(
+    gmpTense("aorist"), gmpVoice("active")
+)
+inf_actforms = generate(κελευω, formurn(inf_act), kds)
+
+
+inf_mdl = GMFInfinitive(
+    gmpTense("aorist"), gmpVoice("middle")
+)
+inf_mdlforms = generate(κελευω, formurn(inf_mdl), kds)
+
+
+inf_pass = GMFInfinitive(
+    gmpTense("aorist"), gmpVoice("passive")
+)
+inf_passforms = generate(κελευω, formurn(inf_pass), kds)
+
+mdlines = [
+    "- **active infinitive**: $(inf_actforms[1])",
+    "- **middle infinitive**: $(inf_mdlforms[1])",
+    "- **passive infinitive**: $(inf_passforms[1])",
+    "- **active participle**: TBA",
+    "- **middle participle**: TBA",
+    "- **passive participle**: TBA"
+]
+
+Markdown.parse(join(mdlines,"\n"))
+
+```
+
+
 
 
 ## Perfect system
@@ -201,10 +304,30 @@ kds = Kanones.dataset([srcdir])
 Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("passive"), κελευω, kds))
 ```
 
-- **perfect infinitives**: TBA
-- **perfect participles**: TBA
+
 - **perfect imperative**: TBA
 
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "lg-core") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+
+
+inf_act = GMFInfinitive(
+    gmpTense("perfect"), gmpVoice("active")
+)
+inf_actforms = generate(κελευω, formurn(inf_act), kds)
+
+mdlines = [
+    "- **active infinitive**: $(inf_actforms[1])",
+    "- **active participle**: TBA",
+    "- **middle & passive participle**: TBA"
+]
+Markdown.parse(join(mdlines,"\n"))
+```
 
 ### Pluperfect tense
 

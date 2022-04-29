@@ -2,7 +2,7 @@
 
 $(SIGNATURES)
 """
-struct InfinitiveRule <: KanonesRule
+struct InfinitiveRule <: KanonesVerbalRule
     ruleid::AbbreviatedUrn
     inflectionclass
     ending
@@ -10,8 +10,41 @@ struct InfinitiveRule <: KanonesRule
     voice::GMPVoice
 end
 
+
+"""Find tense property of `inf`.
+$(SIGNATURES)
+"""
+function gmpTense(inf::InfinitiveRule)
+    inf.tense
+end
+
+"""Find voice property of `inf`.
+$(SIGNATURES)
+"""
+function gmpVoice(inf::InfinitiveRule)
+    inf.voice
+end
+
 """Infinitive rules are citable by Cite2Urn"""
 CitableTrait(::Type{InfinitiveRule}) = CitableByCite2Urn()
+
+
+
+"""Identify inflection class for  `rule`
+$(SIGNATURES)
+"""
+function inflectionClass(rule::InfinitiveRule)
+    rule.inflectionclass
+end
+
+"""Identify inflectional ending for  `rule`
+$(SIGNATURES)
+"""
+function ending(rule::InfinitiveRule)
+    rule.ending
+end
+
+
 
 
 """Human-readlable label for an `InfinitiveRule`.
@@ -49,10 +82,10 @@ Required for `CitableTrait`.
 """
 function cex(inf::InfinitiveRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([inf.ruleid, label(inf)], delimiter)
+        join([inf.ruleid, label(inf), ending(inf), inflectionClass(inf), formurn(inf)], delimiter)
     else
         c2urn = expand(inf.ruleid, registry)
-        join([c2urn, label(inf)], delimiter)
+        join([c2urn, label(inf), ending(inf), inflectionClass(inf), formurn(inf)], delimiter)
     end
 end
 
@@ -80,11 +113,29 @@ function readrulerow(infio::InfinitiveIO, delimited::AbstractString; delimiter =
     # Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 end
 
+
+"""Compose digital code for morphological form identified in `rule`.
+$(SIGNATURES)
+"""
+function code(rule::InfinitiveRule)
+    #PosPNTMVGCDCat
+    string(INFINITIVE,"00",code(rule.tense),"0",code(rule.voice),"0000")
+end
+
 """Compose an abbreviated URN for a rule from an `InfinitiveRule`.
 
 $(SIGNATURES)
 """
-function ruleurn(rule::InfinitiveRule)
+function formurn(rule::InfinitiveRule)
     # PosPNTMVGCDCat
-    RuleUrn(string("$(COLLECTION_ID).", INFINITIVE,"00",code(rule.tense),"0",code(rule.voice),"0000"))
+    FormUrn("$(COLLECTION_ID)." * code(rule))
+end
+
+
+
+"""Identify `rule` with a `RuleUrn`.
+$(SIGNATURES)
+"""
+function ruleurn(rule::InfinitiveRule)
+    rule.ruleid
 end

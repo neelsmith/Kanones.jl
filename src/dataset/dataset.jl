@@ -157,7 +157,7 @@ function stemsarray(dirlist; delimiter = "|")
 
     stemsarr = Stem[]
     for datasrc in dirlist
-        @info("Source: $(datasrc)")
+        @info("Source directory for Kanones dataset: $(datasrc)")
         for dirname in stemdirs 
             dir = joinpath(datasrc, "stems-tables", dirname)
             @debug("dir = ", dir)

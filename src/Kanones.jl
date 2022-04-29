@@ -68,8 +68,7 @@ export generate, analysis_string
 export decline, md_declension
 export synopsis, md_conjugation
 
-export urn, formurn
-export ruleurn # ??
+export urn, formurn, ruleurn
 
 export StringParser, stringParser
 
@@ -122,14 +121,15 @@ include("citable_stems/regularverbs.jl")
 
 # regular stems are drawn from finite verb stems
 include("citable_forms/infinitives.jl")
+include("citable_rules/infinitives.jl")
 #include("citable_stems/irregularinfinitives.jl")
-#include("citable_rules/infinitives.jl")
+
 
 include("citable_forms/participles.jl")
 #include("citable_rules/participles.jl")
 
 include("citable_forms/verbaladjectives.jl")
-#include("citable_rules/verbaladjectives.jl")
+include("citable_rules/verbaladjectives.jl")
 
 include("citable_forms/nouns.jl")
 include("citable_rules/nounrules.jl")
@@ -160,7 +160,9 @@ include("generate/generate.jl")
 include("generate/generatenoun.jl")
 include("generate/generateadj.jl")
 include("generate/generatefiniteverb.jl")
+include("generate/generateverbaladj.jl")
 include("generate/verbparts.jl")
+include("generate/generateinfinitive.jl")
 
 include("forapps/declensions.jl")
 include("forapps/synopses.jl")

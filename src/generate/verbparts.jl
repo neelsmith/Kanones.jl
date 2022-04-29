@@ -1,8 +1,15 @@
+"""True if `inflclass` is a regular verb type that
+requires only a single principle part.
+$(SIGNATURES)
+"""
+function regularverbclass(stem::VerbStem)
+    inflectionClass(stem) in REGULAR_VERB_CLASSES
+end
 
 """True if rule requires second principal part.
 $(SIGNATURES)
 """
-function pp2(rule::FiniteVerbRule)
+function pp2(rule::R) where {R <: KanonesVerbalRule}
     gmpVoice(rule) != gmpVoice("passive") &&
     gmpTense(rule) == gmpTense("future")
 end
@@ -10,7 +17,7 @@ end
 """True if rule requires second principal part.
 $(SIGNATURES)
 """
-function pp3(rule::FiniteVerbRule)
+function pp3(rule::R) where {R <: KanonesVerbalRule}
     gmpVoice(rule) != gmpVoice("passive") &&
     gmpTense(rule) == gmpTense("aorist")
 end
@@ -18,7 +25,7 @@ end
 """True if rule requires fourth principal part.
 $(SIGNATURES)
 """
-function pp4(rule::FiniteVerbRule)
+function pp4(rule::R) where {R <: KanonesVerbalRule}
     gmpVoice(rule) == gmpVoice("active") &&
     (gmpTense(rule) == gmpTense("perfect") ||
     gmpTense(rule) == gmpTense("pluperfect") ||
@@ -29,7 +36,7 @@ end
 """True if rule requires second principal part.
 $(SIGNATURES)
 """
-function pp6(rule::FiniteVerbRule)
+function pp6(rule::R) where {R <: KanonesVerbalRule}
     gmpVoice(rule) == gmpVoice("passive") &&
     (gmpTense(rule) == gmpTense("aorist") ||
     gmpTense(rule) == gmpTense("future"))
@@ -87,7 +94,7 @@ end
 """Compose base stem of `stem` for principalpart required by `rule`.
 $(SIGNATURES)
 """
-function ppbase(stem::VerbStem, rule::FiniteVerbRule; ortho = literaryGreek())
+function ppbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
     if pp2(rule) || pp3(rule)
         sigmabase(stem, ortho = ortho)
     elseif pp4(rule)
@@ -102,11 +109,11 @@ end
 regular verb.
 $(SIGNATURES)
 """
-function principalpart(stem::VerbStem, rule::FiniteVerbRule; ortho = literaryGreek())
+function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
     extended = ppbase(stem, rule, ortho = ortho)
     @debug("principal part got extended base", extended)
 
-    if takesaugment(greekForm(rule))
+    if rule isa FiniteVerbRule && takesaugment(greekForm(rule))
        augment(extended, ortho = ortho)
     else
         extended
