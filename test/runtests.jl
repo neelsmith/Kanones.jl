@@ -17,8 +17,6 @@ include("forms/test_pronouns.jl")
 include("forms/test_uninflected.jl")
 include("forms/test_verbaladjs.jl")
 
-
-
 include("rules/test_adjrules.jl")
 include("rules/test_nounrules.jl")
 include("rules/test_finiteverbrules.jl")
@@ -33,6 +31,8 @@ include("test_datasets.jl")
 
 
 include("generate/test_generate.jl")
+include("principalparts/test_principalparts.jl")
+
 
 include("parser/test_formsinventory.jl")
 

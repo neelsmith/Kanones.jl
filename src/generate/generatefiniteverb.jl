@@ -1,44 +1,4 @@
-function augment(s::AbstractString; ortho = literaryGreek())
-    if s[1] in consonants(ortho)
-        PolytonicGreek.nfkc("ἐ" * s)
-    else
-        @warn("TEMPORAL AUGMENT NOT YET IMPLEMENTED")
-        stemstring(s)
-    end
-end
 
-"""Compose stem for appropriate principal part of a completely
-regular verb.
-$(SIGNATURES)
-"""
-function principalpart(stem::VerbStem, rule::FiniteVerbRule; ortho = literaryGreek())
-    if takesreduplication(greekForm(rule))
-        @warn("REDUPLICATION NOT YET IMPLEMENTED")
-    end
-    if takesaugment(greekForm(rule))
-       augment(stemstring(stem), ortho = ortho)
-    else
-        stemstring(stem)
-    end
-end
-
-"""True if `f` takes augment.
-$(SIGNATURES)
-"""
-function takesaugment(f::GMFFiniteVerb)
-    gmpMood(f) == gmpMood("indicative") &&
-    (gmpTense(f) == gmpTense("imperfect") || 
-    gmpTense(f) == gmpTense("aorist") ||
-    gmpTense(f) == gmpTense("pluperfect"))
-end
-
-"""True if `f` takes reduplication.
-$(SIGNATURES)
-"""
-function takesreduplication(f::GMFFiniteVerb)
-    gmpTense(f) == gmpTense("perfect")  ||
-    gmpTense(f) == gmpTense("pluperfect")  
-end
 
 """True if `inflclass` is a regular verb type that
 requires only a single principle part.
@@ -54,13 +14,17 @@ item in this form, and finally stripping off metadata characters
 marking vowel quantity and morpheme boundaries.
 $(SIGNATURES)
 """
-function generate(stem::VerbStem, rule::FiniteVerbRule;           ortho::GreekOrthography = literaryGreek())
-    adjustedstem = stemstring(stem)
+function generate(
+    stem::VerbStem, 
+    rule::FiniteVerbRule;
+     ortho::GreekOrthography = literaryGreek())
+
+    stembase = stemstring(stem)
     if regularverbclass(stem) 
-        adjustedstem = principalpart(stem, rule, ortho = ortho)
+        stembase = principalpart(stem, rule, ortho = ortho)
     end
 
-    raw = adjustedstem * ending(rule)
+    raw = stembase * ending(rule)
     if countaccents(raw, ortho) == 1
         # Already has accent! 
         stripmetachars(raw)

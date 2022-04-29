@@ -2,14 +2,8 @@ Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 
 
-verbinfl.wregfirst7|w_regular|οιμι|first|singular|present|optative|active
-verbinfl.wregfirst8|w_regular|οιμην|first|singular|present|optative|middle
-verbinfl.wregfirst9|w_regular|οιμην|first|singular|present|optative|passive
 
 
-verbinfl.wregfirst13|w_regular|σω|first|singular|future|indicative|active
-verbinfl.wregfirst14|w_regular|σομαι|first|singular|future|indicative|middle
-verbinfl.wregfirst15|w_regular|θήσομαι|first|singular|future|indicative|passive
 
 verbinfl.wregfirst16|w_regular|σοιμι|first|singular|future|optative|active
 verbinfl.wregfirst17|w_regular|σοίμην|first|singular|future|optative|middle
