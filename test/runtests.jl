@@ -21,6 +21,7 @@ include("rules/test_adjrules.jl")
 include("rules/test_nounrules.jl")
 include("rules/test_finiteverbrules.jl")
 include("rules/test_verbaladjrules.jl")
+include("rules/test_infinitiverules.jl")
 
 
 include("stems/test_nounstems.jl")
