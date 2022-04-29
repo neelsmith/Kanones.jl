@@ -21,4 +21,10 @@
     verbstem = Kanones.readstemrow(verbio, verbstemsrc)
     @test  generate(    verbstem,verbrule) == "δείκνυσαι"
 
+
+    vadjio = Kanones.VerbalAdjectiveIO("adjectives")
+    vadjrulesrc = "vadjinfl.wreg1|w_regular|τέον|neuter|nominative|singular|"
+    vadjrule = Kanones.readrulerow(vadjio, vadjrulesrc)
+    @test generate(verbstem, vadjrule) == "δεικτέον"
+
 end

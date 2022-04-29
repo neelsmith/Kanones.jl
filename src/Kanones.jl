@@ -68,8 +68,7 @@ export generate, analysis_string
 export decline, md_declension
 export synopsis, md_conjugation
 
-export urn, formurn
-export ruleurn # ??
+export urn, formurn, ruleurn
 
 export StringParser, stringParser
 
@@ -160,6 +159,7 @@ include("generate/generate.jl")
 include("generate/generatenoun.jl")
 include("generate/generateadj.jl")
 include("generate/generatefiniteverb.jl")
+include("generate/generateverbaladj.jl")
 include("generate/verbparts.jl")
 
 include("forapps/declensions.jl")
