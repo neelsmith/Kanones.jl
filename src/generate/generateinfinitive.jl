@@ -21,7 +21,7 @@ function generate(
         stripmetachars(raw)
 
         
-    elseif endswith(ending(rule), "αι")
+    elseif endswith(ending(rule), "αι") && gmpVoice(rule) == gmpVoice("active")
         # Smyth 425a
         
         try
@@ -39,4 +39,36 @@ function generate(
         end
     
     end
+end
+
+
+
+
+
+
+"""Generate list of codes for all noun forms.
+$(SIGNATURES)
+"""
+function infinitiveformcodes()
+    genderints = keys(genderlabeldict) |> collect |> sort
+    caseints = keys(caselabeldict) |> collect |> sort
+    numints = keys(numberlabeldict) |> collect |> sort
+    voiceints = keys(voicelabeldict) |> collect |> sort
+    tenseints = [tensecodedict["present"], tensecodedict["future"], tensecodedict["aorist"], tensecodedict["perfect"]]
+
+
+    formlist = []
+    for t in tenseints
+        for v in voiceints
+            push!(formlist, "$(INFINITIVE)00$(t)0$(v)0000")
+        end
+    end
+    formlist
+end
+
+"""Generate list of all possible noun forms.
+$(SIGNATURES)
+"""
+function infinitiveforms()
+    infinitiveformcodes() .|> gmfInfinitive
 end
