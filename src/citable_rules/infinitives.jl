@@ -2,12 +2,27 @@
 
 $(SIGNATURES)
 """
-struct InfinitiveRule <: KanonesRule
+struct InfinitiveRule <: KanonesVerbalRule
     ruleid::AbbreviatedUrn
     inflectionclass
     ending
     tense::GMPTense
     voice::GMPVoice
+end
+
+
+"""Find tense property of `inf`.
+$(SIGNATURES)
+"""
+function gmpTense(inf::InfinitiveRule)
+    inf.tense
+end
+
+"""Find voice property of `inf`.
+$(SIGNATURES)
+"""
+function gmpVoice(inf::InfinitiveRule)
+    inf.voice
 end
 
 """Infinitive rules are citable by Cite2Urn"""

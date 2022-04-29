@@ -1,10 +1,13 @@
+abstract type KanonesRule <: Rule end
+abstract type KanonesVerbalRule <: KanonesRule end
+
 const REGULAR_VERB_CLASSES = [
     "w_regular",
     "numi",
     "w_dep"
 ]
 
-abstract type KanonesRule <: Rule end
+
 
 
 """Extract gender property from a `KanonesRule`.

@@ -1,11 +1,3 @@
-"""True if `inflclass` is a regular verb type that
-requires only a single principle part.
-$(SIGNATURES)
-"""
-function regularverbclass(stem::VerbStem)
-    inflectionClass(stem) in REGULAR_VERB_CLASSES
-end
-
 """Generate a form for a given noun stem and rule by combining
 stem and ending, then adding appropriate accent for this lexical
 item in this form, and finally stripping off metadata characters
@@ -16,13 +8,14 @@ function generate(
     stem::VerbStem, 
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
-
+    
     stembase = stemstring(stem)
     if regularverbclass(stem) 
         stembase = principalpart(stem, rule, ortho = ortho)
     end
 
     raw = stembase * ending(rule)
+    @debug("Generate inf. from raw", raw)
     if countaccents(raw, ortho) == 1
         # Already has accent! 
         stripmetachars(raw)
@@ -35,6 +28,7 @@ function generate(
             @warn("Raw word: $(raw)")
         end
     end
+    
 end
 
 """True if `verbcode` identifies a finite verb form with
