@@ -25,7 +25,7 @@ kds = Kanones.dataset([srcdir])
 Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("active"), κελευω, kds))
 ```
 
-Middle and passive voices (identical forms):
+*Middle and passive voices* (identical forms):
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -45,7 +45,7 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), κελε
 
 ### Imperfect tense
 
-Active voice:
+*Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -59,7 +59,7 @@ Markdown.parse(md_conjugation(gmpTense("imperfect"), gmpVoice("active"), κελ�
 ```
 
 
-Middle and passive voice (identical forms):
+*Middle and passive voices* (identical forms):
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -74,7 +74,7 @@ Markdown.parse(md_conjugation(gmpTense("imperfect"), gmpVoice("passive"), κελ
 
 ## Future tense
 
-Active voice:
+*Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -87,7 +87,7 @@ kds = Kanones.dataset([srcdir])
 Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("active"), κελευω, kds))
 ```
 
-Middle voice:
+*Middle voice*:
 
 
 ```@eval
@@ -102,7 +102,7 @@ Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("middle"),κελευ�
 ```
 
 
-Passive voice:
+*Passive voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -121,7 +121,7 @@ Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("passive"),κελευ
 
 ## Aorist tense
 
-Active voice:
+*Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -135,7 +135,7 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("active"), κελευ
 ```
 
 
-Middle voice:
+*Middle voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -149,7 +149,7 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("middle"), κελευ
 ```
 
 
-Passive voice:
+*Passive voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -172,7 +172,7 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("passive"), κελε�
 
 ### Perfect tense
 
-Active voice:
+*Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -185,6 +185,22 @@ kds = Kanones.dataset([srcdir])
 Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("active"), κελευω, kds))
 ```
 
+
+
+
+*Middle and passive voices* (identical forms):
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "lg-core") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+
+
+Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("passive"), κελευω, kds))
+```
+
 - **perfect infinitives**: TBA
 - **perfect participles**: TBA
 - **perfect imperative**: TBA
@@ -192,7 +208,7 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("active"), κελε�
 
 ### Pluperfect tense
 
-Active voice:
+*Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -203,4 +219,19 @@ kds = Kanones.dataset([srcdir])
 
 
 Markdown.parse(md_conjugation(gmpTense("pluperfect"), gmpVoice("active"), κελευω, kds))
+```
+
+
+
+*Middle and passive voices* (identical forms):
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "lg-core") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+
+
+Markdown.parse(md_conjugation(gmpTense("pluperfect"), gmpVoice("passive"), κελευω, kds))
 ```

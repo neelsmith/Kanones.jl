@@ -1,6 +1,33 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 
-verbinfl.wregplupft1|w_regular|κη|first|singular|pluperfect|indicative|active
+verbinfl.wregplupft1|w_regular|η|first|singular|pluperfect|indicative|active
 verbinfl.wregplupft2|w_regular|μην|first|singular|pluperfect|indicative|middle
 verbinfl.wregplupft3|w_regular|μην|first|singular|pluperfect|indicative|passive
+
+
+
+verbinfl.wregplupft4|w_regular|ης|second|singular|pluperfect|indicative|active
+verbinfl.wregplupft5|w_regular|σο|second|singular|pluperfect|indicative|middle
+verbinfl.wregplupft6|w_regular|σο|second|singular|pluperfect|indicative|passive
+
+verbinfl.wregplupft7|w_regular|η|third|singular|pluperfect|indicative|active
+verbinfl.wregplupft8|w_regular|το|third|singular|pluperfect|indicative|middle
+verbinfl.wregplupft9|w_regular|το|third|singular|pluperfect|indicative|passive
+
+
+
+verbinfl.wregplupft10|w_regular|εμεν|first|plural|pluperfect|indicative|active
+verbinfl.wregplupft11|w_regular|μεθα|first|plural|pluperfect|indicative|middle
+verbinfl.wregplupft12|w_regular|μεθα|first|plural|pluperfect|indicative|passive
+
+
+verbinfl.wregplupft13|w_regular|ετε|second|plural|pluperfect|indicative|active
+verbinfl.wregplupft14|w_regular|σθε|second|plural|pluperfect|indicative|middle
+verbinfl.wregplupft15|w_regular|σθε|second|plural|pluperfect|indicative|passive
+
+
+
+verbinfl.wregplupft16|w_regular|εσαν|third|plural|pluperfect|indicative|active
+verbinfl.wregplupft17|w_regular|ντο|third|plural|pluperfect|indicative|middle
+verbinfl.wregplupft18|w_regular|ντο|third|plural|pluperfect|indicative|passive
