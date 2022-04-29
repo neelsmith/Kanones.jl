@@ -34,6 +34,6 @@ end
 """Generate list of all possible adjective forms.
 $(SIGNATURES)
 """
-function adjectiveforms()
-    adjectiveformcodes() .|> gmfVerbalAdjective
+function verbaladjectiveforms()
+    verbaladjectiveformcodes() .|> gmfVerbalAdjective
 end
