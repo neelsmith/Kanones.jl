@@ -39,6 +39,7 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), κελε
 - **present infinitives**: TBA
 - **present participles**: TBA
 - **present imperative**: TBA
+- **verbal adjective**:  TBA
 
 ## Imperfect tense
 
@@ -112,6 +113,10 @@ kds = Kanones.dataset([srcdir])
 Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("passive"),κελευω, kds))
 ```
 
+
+- **future infinitives**: TBA
+- **future participles**: TBA
+
 ## Aorist tense
 
 Active voice:
@@ -155,6 +160,12 @@ kds = Kanones.dataset([srcdir])
 Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("passive"), κελευω, kds))
 ```
 
+
+- **aorist infinitives**: TBA
+- **aorist participles**: TBA
+- **aorist imperative**: TBA
+
+
 ## Perfect tense
 
 Active voice:
@@ -169,6 +180,10 @@ kds = Kanones.dataset([srcdir])
 
 Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("active"), κελευω, kds))
 ```
+
+- **perfect infinitives**: TBA
+- **perfect participles**: TBA
+- **perfect imperative**: TBA
 
 
 ## Pluperfect tense
