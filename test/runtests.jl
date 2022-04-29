@@ -38,6 +38,7 @@ include("principalparts/test_principalparts.jl")
 
 
 include("parser/test_formsinventory.jl")
+include("parser/test_parse.jl")
 
 #=
 include("test_morphologyids.jl")

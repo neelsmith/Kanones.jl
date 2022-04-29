@@ -27,4 +27,10 @@
     vadjrule = Kanones.readrulerow(vadjio, vadjrulesrc)
     @test generate(verbstem, vadjrule) == "δεικτέον"
 
+    ptcplio = Kanones.ParticipleIO("ptcpls")
+    ptcplsrc = "ptcplinfl.wpres1|w_regular|όμενος|present|middle|masculine|nominative|singular|"
+    rule = Kanones.readrulerow(ptcplio, ptcplsrc)
+
+
+
 end

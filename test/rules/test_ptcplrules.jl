@@ -10,9 +10,9 @@ end
 
 
 @testset "Test data accessors" begin
-ptcplio = Kanones.ParticipleIO("ptcpls")
-delimited = "ptcplinfl.wpres1|w_regular|όμενος|present|middle|masculine|nominative|singular|"
-rule = Kanones.readrulerow(ptcplio, delimited)
+    ptcplio = Kanones.ParticipleIO("ptcpls")
+    delimited = "ptcplinfl.wpres1|w_regular|όμενος|present|middle|masculine|nominative|singular|"
+    rule = Kanones.readrulerow(ptcplio, delimited)
 
     # must get id
     ruleu = ruleurn(rule)

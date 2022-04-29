@@ -163,6 +163,7 @@ include("generate/generatefiniteverb.jl")
 include("generate/generateverbaladj.jl")
 include("generate/verbparts.jl")
 include("generate/generateinfinitive.jl")
+include("generate/generateptcpl.jl")
 
 include("forapps/declensions.jl")
 include("forapps/synopses.jl")

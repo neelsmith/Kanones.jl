@@ -52,7 +52,10 @@ function allformcodes()
     vcat(
         nounformcodes(), 
         adjectiveformcodes(),
-        verbformcodes()
+        verbformcodes(),
+        verbaladjectiveformcodes(),
+        infinitiveformcodes(),
+        participleformcodes()
     )
 end
 
