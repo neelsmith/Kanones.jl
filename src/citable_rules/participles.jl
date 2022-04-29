@@ -13,6 +13,41 @@ struct ParticipleRule <: KanonesVerbalRule
     pnumber::GMPNumber
 end
 
+"""Identify tense property of `rule`.
+$(SIGNATURES)
+"""
+function gmpTense(rule::PartcipleRule)
+    rule.ptense
+end
+
+"""Identify voice property of `rule`.
+$(SIGNATURES)
+"""
+function gmpVoice(rule::PartcipleRule)
+    rule.pvoice
+end
+
+"""Identify gender property of `rule`.
+$(SIGNATURES)
+"""
+function gmpGender(rule::PartcipleRule)
+    rule.pgender
+end
+
+"""Identify case property of `rule`.
+$(SIGNATURES)
+"""
+function gmpCase(rule::PartcipleRule)
+    rule.pcase
+end
+
+"""Identify number property of `rule`.
+$(SIGNATURES)
+"""
+function gmpNumber(rule::PartcipleRule)
+    rule.pnumber
+end
+
 """Participle rules are citable by Cite2Urn"""
 CitableTrait(::Type{ParticipleRule}) = CitableByCite2Urn()
 
@@ -41,6 +76,21 @@ function urn(ptcpl::ParticipleRule; registry = nothing)
 end
 
 
+"""Identify inflection class for  `rule`
+$(SIGNATURES)
+"""
+function inflectionClass(rule::ParticipleRule)
+    rule.inflectionclass
+end
+
+"""Identify inflectional ending for  `rule`
+$(SIGNATURES)
+"""
+function ending(rule::ParticipleRule)
+    rule.ending
+end
+
+
 """Compose CEX text for a `VerbalAdjectiveRule`.
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
@@ -50,12 +100,14 @@ Required for `CitableTrait`.
 """
 function cex(ptcpl::ParticipleRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([ptcpl.ruleid, label(ptcpl)], delimiter)
+        join([ptcpl.ruleid, label(ptcpl), ending(ptcpl), inflectionClass(ptcpl), formurn(ptcpl)], delimiter)
     else
         c2urn = expand(ptcpl.ruleid, registry)
         join([c2urn, label(ptcpl)], delimiter)
     end
 end
+
+
 
 
 """Read one row of a rules table for infinitives and create an`ParticipleRule`.
@@ -82,12 +134,27 @@ function readrulerow(usp::ParticipleIO, delimited::AbstractString; delimiter = "
     # Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 end
 
+"""Compose string of digits for form in `rule`.
+$(SIGNATURES)
+"""
+function code(rule::ParticipleRule)
+    # PosPNTMVGCDCat
+    string(PARTICIPLE,"0",code(rule.pnumber), code(rule.ptense), "0", code(rule.pvoice), code(rule.pgender), code(rule.pcase),"00")
+end
 
 """Compose an abbreviated URN for a rule from a `NounRule`.
 
 $(SIGNATURES)
 """
 function ruleurn(rule::ParticipleRule)
+    rule.ruleid
+end
+
+"""Compose an abbreviated URN for a rule from an `InfinitiveRule`.
+
+$(SIGNATURES)
+"""
+function formurn(rule::ParticipleRule)
     # PosPNTMVGCDCat
-    RuleUrn(string("$(COLLECTION_ID).", PARTICIPLE,"0",code(rule.pnumber), code(rule.ptense), "0", code(rule.pvoice), code(rule.pgender), code(rule.pcase),"00"))
+    FormUrn("$(COLLECTION_ID)." * code(rule))
 end
