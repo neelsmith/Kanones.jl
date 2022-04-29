@@ -160,6 +160,7 @@ include("generate/generate.jl")
 include("generate/generatenoun.jl")
 include("generate/generateadj.jl")
 include("generate/generatefiniteverb.jl")
+include("generate/verbparts.jl")
 
 include("forapps/declensions.jl")
 include("forapps/synopses.jl")
