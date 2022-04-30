@@ -14,6 +14,18 @@
     adjrule = Kanones.readrulerow(adjio, adjrulesrc)
     @test generate(adjstem, adjrule) == "κακός"
 
+    pronio = Kanones.PronounIO("prons")
+    pronrulesrc = "proninfl.pronouns1|article"
+    pronrule = Kanones.readrulerow(pronio, pronrulesrc)
+    pronstemsrc = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article" 
+    pronstem = Kanones.readstemrow(pronio, pronstemsrc)
+    @test generate(pronstem, pronrule) == "ὁ"
+    
+
+
+
+
+
     verbio = Kanones.VerbIO("IO for verbs")
     verbsrc = "verbinfl.numipres8|numi|νυσαι|second|singular|present|indicative|middle|"
     verbrule = Kanones.readrulerow(verbio, verbsrc)
@@ -23,25 +35,19 @@
 
 
     vadjio = Kanones.VerbalAdjectiveIO("adjectives")
-    vadjrulesrc = "vadjinfl.wreg1|w_regular|τέον|neuter|nominative|singular|"
+    vadjrulesrc = "vadjinfl.numi1|numi|τέον|neuter|nominative|singular|"
     vadjrule = Kanones.readrulerow(vadjio, vadjrulesrc)
     @test generate(verbstem, vadjrule) == "δεικτέον"
 
     ptcplio = Kanones.ParticipleIO("ptcpls")
-    ptcplsrc = "ptcplinfl.wpres1|w_regular|όμενος|present|middle|masculine|nominative|singular|"
+    ptcplsrc = "ptcplinfl.wpres1|numi|νυόμενος|present|middle|masculine|nominative|singular|"
     ptcplrule = Kanones.readrulerow(ptcplio, ptcplsrc)
-    @test_broken generate(verbstem, ptcplrule) == "δεικνυόμενος"
+    @test generate(verbstem, ptcplrule) == "δεικνυόμενος"
 
     infio = Kanones.InfinitiveIO("infs")
-    infsrc = "infinfl.wreg1|w_regular|ειν|present|active"
+    infsrc = "infinfl.wreg1|numi|νύειν|present|active"
     infrule = Kanones.readrulerow(infio, infsrc)
-    @test_broken generate(verbstem, infrule) == "δεικνύειν"
+    @test generate(verbstem, infrule) == "δεικνύειν"
 
-    pronio = Kanones.PronounIO("prons")
-    pronrulesrc = "proninfl.pronouns1|article"
-    pronrule = Kanones.readrulerow(pronio, pronrulesrc)
-    pronstemsrc = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article" 
-    pronstem = Kanones.readstemrow(pronio, pronstemsrc)
-    @test generate(pronstem, pronrule) == "ὁ"
-    
+  
 end
