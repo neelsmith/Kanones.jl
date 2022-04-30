@@ -116,3 +116,28 @@ function readstemrow(usp::UninflectedIO, delimited::AbstractString; delimiter = 
         UninflectedStem(stemid, lexid, form, stemclass)
     end
 end
+
+
+"""Compose a digital code string for the form identified in `uninfl`.
+$(SIGNATURES)
+"""
+function code(uninfl::UninflectedStem)
+      # PosPNTMVGCDCat
+     string( UNINFLECTED,"00000000", code(uninfl.stemcategory))
+end
+
+
+"""Compose an abbreviated URN for a rule from a `UninflectedStem`.
+
+$(SIGNATURES)
+"""
+function formurn(uninfl::UninflectedStem)
+    FormUrn("$(COLLECTION_ID)." * code(uninfl))
+end
+
+
+
+function greekForm(uninfl::UninflectedStem) 
+    formurn(uninfl) |> greekForm
+end
+
