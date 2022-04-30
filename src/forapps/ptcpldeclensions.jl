@@ -24,7 +24,7 @@ function md_ptcpldeclension(
     lines = [
         "| | Masculine | Feminine | Neuter |", 
         "| --- | --- | --- | --- |",
-        "| *singular* | --- | --- | --- |"
+        "| *singular* |  |  |  |"
     ]
     for i in 1:length(labels)
         mform = ""
@@ -51,7 +51,7 @@ function md_ptcpldeclension(
 
        push!(lines, string("| **", labels[i], "** | ", mform, " | ", fform , " | ", nform, " |"))
     end
-    push!(lines, "| *plural* | --- | --- | --- |")
+    push!(lines, "| *plural* |  |  |  |")
     for i in 1:length(labels)
         mform = ""
         mrules = filter(r -> gmpNumber(r) == gmpNumber("plural") && gmpCase(r) == caselist[i] && gmpGender(r) == gmpGender("masculine"), rules)
