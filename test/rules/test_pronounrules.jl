@@ -26,5 +26,5 @@ end
 
     # must get infltype and ending
     @test inflectionClass(rule) == "article"
-    
+    @test isempty(ending(rule))
 end

@@ -29,6 +29,7 @@ include("rules/test_pronounrules.jl")
 include("stems/test_nounstems.jl")
 include("stems/test_adjstems.jl")
 include("stems/test_verbstems.jl")
+include("stems/test_pronstems.jl")
 
 
 include("test_datasets.jl")

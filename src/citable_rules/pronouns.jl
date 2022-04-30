@@ -73,6 +73,9 @@ function cex(pnr::PronounRule; delimiter = "|", registry = nothing)
 end
 
 
+function ending(rule::PronounRule)
+    ""
+end
 
 """Compose an abbreviated URN for a rule from a `PronounStem`.
 
