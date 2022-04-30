@@ -10,8 +10,8 @@ end
 
 
 @testset "Test data accessors" begin
-    delimited = "uninfl.uninfl2|conjunction"
     uninflio = Kanones.UninflectedIO("IO for uninfls")
+    delimited = "uninfl.uninfl2|conjunction"
     rule = Kanones.readrulerow(uninflio, delimited)
 
     # must get id

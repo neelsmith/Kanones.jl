@@ -94,15 +94,6 @@ end
 
 
 
-
-"""Compose Abbreviated URN for uninflected form from value for part of speech.
-
-$(SIGNATURES)
-"""
-function uninflectedfromfst(uninflclass)
-    GMFUninflected(gmpUninflectedType(uninflclass)         )
-end
-
 """Compose a `FormUrn` for an `GMFUninflected`.
 
 $(SIGNATURES)
@@ -111,18 +102,4 @@ function formurn(uninflected::GMFUninflected)
     FormUrn(string("$(COLLECTION_ID).", UNINFLECTED, "00000000", code(uninflected.pos)))
 end
 
-
-"""Compose CEX representation of URNs and labels for uninflected forms.
-
-$(SIGNATURES)
-"""
-function uninflectedcex()
-    lines = []
-    sortedkeys = keys(uninflectedlabeldict)  |> collect |> sort 
-    for k in sortedkeys
-        s = string(BASE_MORPHOLOGY_URN, UNINFLECTED, "00000000", k, "|", "uninflected form: ", sortedkeys[k])
-        push!(lines, s)
-    end
-    join(lines, "\n")
-end
 

@@ -20,6 +20,11 @@
     @test Kanones.poscode(infinid) == Kanones.INFINITIVE
     @test Kanones.poscode(ptcplid) == Kanones.PARTICIPLE
     @test Kanones.poscode(vadjid) == Kanones.VERBALADJECTIVE
+
+
+    uninflid = "1000000001"
+
+    @test Kanones.poscode(uninflid) == Kanones.UNINFLECTED
 end
 
 @testset "Test generating Greek forms from codes" begin
@@ -45,7 +50,8 @@ end
     @test greekForm(ptcplid) isa GMFParticiple
     @test greekForm(vadjid) isa GMFVerbalAdjective
 
-    @test_broken greekForm(adjid) isa GMFUninflected
+    uninflid = "1000000001"
+    @test greekForm(uninflid) isa GMFUninflected
     
 
     @test greekForm(FormUrn("forms.$(nounid)")) isa GMFNoun
@@ -61,5 +67,5 @@ end
 
 
 
-    @test_broken greekForm(FormUrn("forms.$(finiteid)")) isa GMFUninflected
+    @test greekForm(FormUrn("forms.$(uninflid)")) isa GMFUninflected
 end

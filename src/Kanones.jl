@@ -113,7 +113,7 @@ include("citable_forms/formvalues.jl")
 #include("citable_forms/kanonesformurns.jl")
 #include("citable_forms/irregularmorphology.jl")
 
-include("citable_rules/irregulars.jl")
+#include("citable_rules/irregulars.jl")
 
 include("citable_forms/finiteverbs.jl")
 include("citable_rules/finiteverbrules.jl")
@@ -167,6 +167,7 @@ include("generate/verbparts.jl")
 include("generate/generateinfinitive.jl")
 include("generate/generateptcpl.jl")
 include("generate/generatepronoun.jl")
+include("generate/generateuninflected.jl")
 
 include("forapps/adjdeclensions.jl")
 include("forapps/noundeclensions.jl")
