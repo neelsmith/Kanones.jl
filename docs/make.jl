@@ -51,7 +51,7 @@ makedocs(
                 "Adjectives of the first and second declensions" => "stemtypes/adjectives/first-second.md",
                 "Adjectives of the third declensions" => "stemtypes/adjectives/third.md"
             ],
-            "Pronouns" => "stemtypes/pronouns/index.md",
+        
             "Verbal stems" => Any[
                 "stemtypes/verbs/index.md",
                 "Regular verbs: -ω conjugation"  => "stemtypes/verbs/omega.md",
@@ -65,6 +65,8 @@ makedocs(
                 "Irregular verb forms" => "stemtypes/verbs/irregulars.md",
                 
             ],
+            "Pronouns" => "stemtypes/pronouns/index.md",
+
             "Uninflected types" => "stemtypes/uninflected.md",
             "Participles" => Any[
                 "Participle paradigms" => "stemtypes/participles/index.md",
@@ -74,7 +76,6 @@ makedocs(
         "Reference: API documentation" => Any[
             "Julia API documentation" =>  "apis/apis.md",
             "Morphological properties and forms" => "apis/morph.md"
-            
         ]
     
      
