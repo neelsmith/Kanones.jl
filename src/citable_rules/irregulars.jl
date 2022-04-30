@@ -23,14 +23,3 @@ function readrulerow(ruleparser::Kanones.IrregularRuleParser, delimited::Abstrac
         IrregularRule(ruleid, inflectionaltype)
     end
 end
-
-
-#=
-"""Compose FST representation of a single `IrregularRule`.
-
-$(SIGNATURES)
-"""
-function fst(rule::Kanones.IrregularRuleParser, ortho::T) where {T <: GreekOrthography}
-
-    string("<", rule.infltype,"><irregular>", fstsafe(rule.ruleid))
-end\=#
