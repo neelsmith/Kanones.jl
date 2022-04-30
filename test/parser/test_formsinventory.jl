@@ -9,6 +9,10 @@
     @test typeof(nounforms) == Vector{GMFNoun}
     @test length(nounforms) == gendercount * casecount * numbercount
 
+    pronounforms = Kanones.pronounforms()
+    @test typeof(pronounforms) == Vector{GMFPronoun}
+    @test length(pronounforms) == gendercount * casecount * numbercount
+
     adjforms = Kanones.adjectiveforms()
     @test typeof(adjforms) ==  Vector{GMFAdjective}
     @test length(adjforms) ==  gendercount * casecount * numbercount * degreecount

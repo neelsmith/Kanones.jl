@@ -3,4 +3,18 @@
     p = dataset(srcdata) |> stringParser
     @test p isa StringParser
     
+    # Should get a single parse for each of these:
+    verb = parsetoken("δείκνυμεν",p)
+    noun = parsetoken("δώροις",p)
+    adj =  parsetoken("κακή",p)
+    infin = parsetoken("κελεύειν",p)
+    pronoun = parsetoken("ἡ",p)
+    
+    @test length(verb) == length(noun) == length(adj) == length(infin) == length(pronoun) == 1
+    # mid or pass:
+    ptcpl =  parsetoken("κελευόμενος",p)
+    @test length(ptcpl) == 2
+    
+    vadj =  parsetoken("κελευτέον",p)
+    @test length(vadj) > 1
 end

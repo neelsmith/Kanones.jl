@@ -10,6 +10,30 @@ struct PronounStem <: KanonesStem
 end
 #pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article
 
+
+"""Identify gender of `pr`.
+$(SIGNATURES)
+"""
+function gmpGender(pr::PronounStem)
+    pr.pgender
+end
+
+
+"""Identify case of `pr`.
+$(SIGNATURES)
+"""
+function gmpCase(pr::PronounStem)
+    pr.pcase
+end
+
+
+"""Identify number of `pr`.
+$(SIGNATURES)
+"""
+function gmpNumber(pr::PronounStem)
+    pr.pnumber
+end
+
 """
 Read one row of a stems table for noun tokens and create a `PronounStem`.
 
@@ -32,6 +56,30 @@ end
 
 """Noun stems are citable by Cite2Urn"""
 CitableTrait(::Type{PronounStem}) = CitableByCite2Urn()
+
+
+"""Identify value of stem string for `pr`.
+$(SIGNATURES)
+"""
+function stemstring(pr::PronounStem)
+    pr.form
+end
+
+"""Identify lexeme for `pr`.
+$(SIGNATURES)
+"""
+function lexeme(pr::PronounStem)
+    pr.lexid
+end
+
+"""Identify inflection class for `pr`.
+$(SIGNATURES)
+"""
+function inflectionClass(pr::PronounStem)
+    pr.pronountype
+end
+
+
 
 """Human-readlable label for a `PronounStem`.
 
@@ -71,9 +119,33 @@ Required for `CitableTrait`.
 """
 function cex(pns::PronounStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([pns.stemid, label(pns) ], delimiter)
+        join([pns.stemid, label(pns), stemstring(pns), lexeme(pns), inflectionClass(pns), label(pns.pgender), label(pns.pcase), label(pns.pnumber) ], delimiter)
     else
         c2urn = expand(pns.stemid, registry)
-        join([c2urn, label(pns)], delimiter)
+        join([c2urn, label(pns), stemstring(pns), lexeme(pns), inflectionClass(pns), label(pns.pgender), label(pns.pcase), label(pns.pnumber) ], delimiter)
     end
+end
+
+
+"""Compose a digital code string for the form identified in `pns`.
+$(SIGNATURES)
+"""
+function code(pns::PronounStem)
+      # PosPNTMVGCDCat
+     string( PRONOUN,"0",code(pns.pnumber),"000",code(pns.pgender),code(pns.pcase),"00")
+end
+
+
+"""Compose an abbreviated URN for a rule from a `PronounStem`.
+
+$(SIGNATURES)
+"""
+function formurn(pns::PronounStem)
+    FormUrn("$(COLLECTION_ID)." * code(pns))
+end
+
+
+
+function greekForm(pronoun::PronounStem) 
+    formurn(pronoun) |> greekForm
 end

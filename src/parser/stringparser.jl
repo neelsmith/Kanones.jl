@@ -17,7 +17,7 @@ $(SIGNATURES)
 """
 function parsetoken(s::AbstractString, parser::StringParser; data = nothing)
     ptrn = PolytonicGreek.nfkc(s) * "|"
-    @info("Match pattern", ptrn)
+    @debug("Match pattern", ptrn)
     matches = filter(ln -> startswith(ln, ptrn), parser.entries)
     map(ln -> fromline(ln), matches)
 end
@@ -94,6 +94,15 @@ function fromline(s::AbstractString; delimiter = "|")
     )
 end
 
+
+"""True if form IDs are build from the `Rule` of a
+stem-rule pair.
+$(SIGNATURES)
+"""
+function buildfromrule(r::T) where {T <: KanonesRule}
+    isa(r, PronounRule) == false
+end
+
 """Generate all forms possible for `stem`.
 $(SIGNATURES)
 """
@@ -106,8 +115,16 @@ function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
     
     for rule in classrules
         token = generate(stem, rule)
-        raw = string(token, "|", lexeme(stem), "|", Kanones.formurn(rule), "|", urn(stem), "|", urn(rule))
+        raw = ""
+        if buildfromrule(rule)
+            raw = string(token, "|", lexeme(stem), "|", Kanones.formurn(rule), "|", urn(stem), "|", urn(rule))
+        else
+            raw = string(token, "|", lexeme(stem), "|", Kanones.formurn(stem), "|", urn(stem), "|", urn(rule))
+        end
         push!(generated, PolytonicGreek.nfkc(raw))
     end
+
+
+
     generated
 end
