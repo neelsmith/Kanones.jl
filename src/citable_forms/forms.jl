@@ -61,6 +61,8 @@ function greekForm(codestr::AbstractString)
         gmfInfinitive(codestr)
     elseif poscode(codestr) == PARTICIPLE
         gmfParticiple(codestr)
+    elseif poscode(codestr) == PRONOUN
+        gmfPronoun(codestr)
     end
 end
 
@@ -88,6 +90,11 @@ end
 
 function greekForm(r::T) where {T <: KanonesRule}
     formurn(r) |> greekForm
+end
+
+
+function greekForm(pronoun::PronounStem) 
+    formurn(pronoun) |> greekForm
 end
 #=
 
