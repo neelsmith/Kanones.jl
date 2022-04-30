@@ -59,11 +59,17 @@ makedocs(
                 "Regular verbs: -εω contracts"  => "stemtypes/verbs/ew_contracts.md",
                 "Regular verbs: -αω contracts"  => "stemtypes/verbs/aw_contracts.md",
                 "Regular verbs: -οω contracts"  => "stemtypes/verbs/ow_contracts.md",
+                "Attic futures" => "stemtypes/verbs/atticfut.md",
+                "Second aorists" => "stemtypes/verbs/secondaor.md",
                 "Principal parts" => "stemtypes/verbs/princparts.md",
                 "Irregular verb forms" => "stemtypes/verbs/irregulars.md",
-                "Participles" => "stemtypes/verbs/participles.md"
+                
             ],
-            "Uninflected types" => "stemtypes/uninflected.md"
+            "Uninflected types" => "stemtypes/uninflected.md",
+            "Participles" => Any[
+                "Participle paradigms" => "stemtypes/participles/index.md",
+                "Participles of regular -ω verbs" => "stemtypes/participles/omega.md",
+            ]
         ],   
         "Reference: API documentation" => Any[
             "Julia API documentation" =>  "apis/apis.md",
