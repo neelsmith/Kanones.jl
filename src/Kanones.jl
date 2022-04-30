@@ -66,6 +66,7 @@ export GreekLexeme
 
 export generate, analysis_string
 export decline, md_declension
+export md_3endingadj
 export synopsis, md_conjugation
 
 export urn, formurn, ruleurn
@@ -165,7 +166,8 @@ include("generate/verbparts.jl")
 include("generate/generateinfinitive.jl")
 include("generate/generateptcpl.jl")
 
-include("forapps/declensions.jl")
+include("forapps/adjdeclensions.jl")
+include("forapps/noundeclensions.jl")
 include("forapps/synopses.jl")
 include("forapps/conjugations.jl")
 
