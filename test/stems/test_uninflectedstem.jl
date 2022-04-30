@@ -1,0 +1,1 @@
+#delimited = "uninflectedstems.n51951|lsj.n51951|καί|conjunction|"

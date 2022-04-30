@@ -1,11 +1,11 @@
 @testset "Test IO with delimited text" begin
-    delimited = ""
-    uninflio = Kanones.UninflectedIO("IO for pronouns")
+    delimited = "uninfl.uninfl2|conjunction"
+    uninflio = Kanones.UninflectedIO("IO for uninfls")
     rule = Kanones.readrulerow(uninflio, delimited)
     # must read from delimited
-    @test rule isa PronounRule
+    @test rule isa UninflectedRule
     # must write to delimited
-   @test cex(rule) == "irreginfl.irregular1|Pronoun inflection rule: type of stem irreginfl.irregular1 is article|article"
+   @test cex(rule) == "uninfl.uninfl2|Uninflected rule: uninfl.uninfl2 indicates a conjunction.|conjunction"
 end
 
 #=

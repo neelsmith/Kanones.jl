@@ -8,6 +8,17 @@ struct UninflectedRule <: KanonesRule
 end
 
 
+
+
+"""Identify inflectional class for `uninfl`.
+$(SIGNATURES)
+"""
+function inflectionClass(uninfl::UninflectedRule)
+    uninfl.infltype
+end
+
+
+
 """Uninflected rules are citable by Cite2Urn"""
 CitableTrait(::Type{UninflectedRule}) = CitableByCite2Urn()
 
@@ -47,10 +58,10 @@ Required for `CitableTrait`.
 """
 function cex(ur::UninflectedRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([ur.ruleid, label(ur)], delimiter)
+        join([ur.ruleid, label(ur), label(ur.infltype)], delimiter)
     else
         c2urn = expand(ur.ruleid, registry)
-        join([c2urn, label(ur)], delimiter)
+        join([c2urn, label(ur), label(ur.infltype)], delimiter)
     end
 end
 
@@ -80,8 +91,11 @@ function readrulerow(usp::UninflectedIO, delimited::AbstractString; delimiter = 
     end
 end
 
-function ruleurn(stem::UninflectedStem)
-    # PosPNTMVGCDCat
-    RuleUrn(string("$(COLLECTION_ID).", UNINFLECTED,"00000000",code(stem.stemcategory))) 
-
+function ruleurn(rule::UninflectedRule)
+    rule.ruleid
 end
+
+#=
+   # PosPNTMVGCDCat
+    RuleUrn(string("$(COLLECTION_ID).", UNINFLECTED,"00000000",code(stem.stemcategory))) 
+=#
