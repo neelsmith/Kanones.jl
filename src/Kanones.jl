@@ -153,12 +153,12 @@ include("citable_rules/pronouns.jl")
 
 
 include("citable_forms/uninflected.jl")
-#include("citable_stems/uninflected.jl")
-#include("citable_rules/uninflected.jl")
+include("citable_rules/uninflectedrules.jl")
+include("citable_stems/uninflectedstems.jl")
+
 
 
 include("generate/generate.jl")
-#include("generator/uninflectedgen.jl")
 include("generate/generatenoun.jl")
 include("generate/generateadj.jl")
 include("generate/generatefiniteverb.jl")
@@ -167,6 +167,7 @@ include("generate/verbparts.jl")
 include("generate/generateinfinitive.jl")
 include("generate/generateptcpl.jl")
 include("generate/generatepronoun.jl")
+include("generate/generateuninflected.jl")
 
 include("forapps/adjdeclensions.jl")
 include("forapps/noundeclensions.jl")

@@ -63,6 +63,8 @@ function greekForm(codestr::AbstractString)
         gmfParticiple(codestr)
     elseif poscode(codestr) == PRONOUN
         gmfPronoun(codestr)
+    elseif poscode(codestr) == UNINFLECTED
+        gmfUninflected(codestr)
     end
 end
 

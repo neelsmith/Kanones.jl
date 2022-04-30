@@ -100,7 +100,8 @@ stem-rule pair.
 $(SIGNATURES)
 """
 function buildfromrule(r::T) where {T <: KanonesRule}
-    isa(r, PronounRule) == false
+    isa(r, PronounRule) == false  &&
+    isa(r, UninflectedRule)  ==  false
 end
 
 """Generate all forms possible for `stem`.

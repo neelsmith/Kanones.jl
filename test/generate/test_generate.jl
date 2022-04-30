@@ -49,5 +49,15 @@
     infrule = Kanones.readrulerow(infio, infsrc)
     @test generate(verbstem, infrule) == "δεικνύειν"
 
+
+
+    uninflio = Kanones.UninflectedIO("IO for uninfls")
+    uninflstemsrc = "uninflectedstems.n51951|lsj.n51951|καί|conjunction|"
+    uninflstem = Kanones.readstemrow(uninflio, uninflstemsrc)
+    uninflrulesrc = "uninfl.uninfl2|conjunction"
+    uninflrule = Kanones.readrulerow(uninflio, uninflrulesrc)
+
+    @test generate(uninflstem, uninflrule) == "καί"
+
   
 end
