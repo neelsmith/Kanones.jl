@@ -60,7 +60,8 @@ makedocs(
                 "Regular verbs: -αω contracts"  => "stemtypes/verbs/aw_contracts.md",
                 "Regular verbs: -οω contracts"  => "stemtypes/verbs/ow_contracts.md",
                 "Principal parts" => "stemtypes/verbs/princparts.md",
-                "Irregular verb forms" => "stemtypes/verbs/irregulars.md"
+                "Irregular verb forms" => "stemtypes/verbs/irregulars.md",
+                "Participles" => "stemtypes/verbs/participles.md"
             ],
             "Uninflected types" => "stemtypes/uninflected.md"
         ],   

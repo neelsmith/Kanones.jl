@@ -66,6 +66,7 @@ export GreekLexeme
 
 export generate, analysis_string
 export decline, md_declension
+export md_ptcpldeclension
 export md_3endingadj
 export synopsis, md_conjugation
 
@@ -108,7 +109,6 @@ include("morphologicalproperties/uninflectedtype.jl")
 
 
 include("citable_forms/formvalues.jl")
-#include("morphology/forapps.jl")
 #include("citable_forms/kanonesformurns.jl")
 #include("citable_forms/irregularmorphology.jl")
 
@@ -168,6 +168,7 @@ include("generate/generateptcpl.jl")
 
 include("forapps/adjdeclensions.jl")
 include("forapps/noundeclensions.jl")
+include("forapps/ptcpldeclensions.jl")
 include("forapps/synopses.jl")
 include("forapps/conjugations.jl")
 
