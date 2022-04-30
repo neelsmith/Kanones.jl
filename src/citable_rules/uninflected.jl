@@ -17,7 +17,9 @@ function inflectionClass(uninfl::UninflectedRule)
     uninfl.infltype
 end
 
-
+function ending(uninfl::UninflectedRule)
+    ""
+end
 
 """Uninflected rules are citable by Cite2Urn"""
 CitableTrait(::Type{UninflectedRule}) = CitableByCite2Urn()
