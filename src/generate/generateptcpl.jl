@@ -12,7 +12,7 @@ function generate(
     stem::VerbStem, rule::ParticipleRule;           ortho::GreekOrthography = literaryGreek())
 
     stembase = stemstring(stem)
-    if regularverbclass(stem) s
+    if regularverbclass(stem)
         stembase = principalpart(stem, rule, ortho = ortho)
     end
     raw = stembase * ending(rule)

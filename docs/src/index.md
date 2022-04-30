@@ -25,7 +25,7 @@ Load a dataset, and build a parser from it.  All the examples in this documentat
 ```@example intro
 using Kanones, CitableParserBuilder
 srcdir = joinpath(repo, "datasets", "lg-core") 
-kds = Kanones.dataset([srcdir])
+kds = dataset([srcdir])
 p = stringParser(kds)
 p isa StringParser
 ```
