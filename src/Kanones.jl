@@ -147,8 +147,8 @@ include("citable_forms/adverbs.jl")
 
 
 include("citable_forms/pronouns.jl")
-#include("citable_stems/pronouns.jl")
-#include("citable_rules/pronouns.jl")
+include("citable_stems/pronouns.jl")
+include("citable_rules/pronouns.jl")
 
 
 include("citable_forms/uninflected.jl")

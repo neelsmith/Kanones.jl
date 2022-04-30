@@ -5,6 +5,13 @@ struct PronounRule <: KanonesRule
     pronountype
 end
 
+"""Identify inflectional class for `pron`.
+$(SIGNATURES)
+"""
+function inflectionClass(pron::PronounRule)
+    pron.pronountype
+end
+
 """
 Read one row of a stems table for pronoun tokens and create a `PronounRule`.
 
@@ -58,19 +65,19 @@ Required for `CitableTrait`.
 """
 function cex(pnr::PronounRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([pnr.ruleid, label(pnr)], delimiter)
+        join([pnr.ruleid, label(pnr), inflectionClass(pnr)], delimiter)
     else
         c2urn = expand(pnr.ruleid, registry)
-        join([c2urn, label(pnr)], delimiter)
+        join([c2urn, label(pnr), inflectionClass(pnr)], delimiter)
     end
 end
+
 
 
 """Compose an abbreviated URN for a rule from a `PronounStem`.
 
 $(SIGNATURES)
 """
-function ruleurn(rule::PronounStem)
-    # PosPNTMVGCDCat
-    RuleUrn(string("$(COLLECTION_ID).", PRONOUN,"0",code(rule.pnumber),"000",code(rule.pgender),code(rule.pcase),"00"))
+function ruleurn(rule::PronounRule)
+    rule.ruleid
 end
