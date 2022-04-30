@@ -11,6 +11,33 @@ end
 """Uninfleced stems are citable by Cite2Urn"""
 CitableTrait(::Type{UninflectedStem}) = CitableByCite2Urn()
 
+
+
+"""Identify value of stem string for `uninfl`.
+$(SIGNATURES)
+"""
+function stemstring(uninfl::UninflectedStem)
+    uninfl.form
+end
+
+"""Identify lexeme for `uninfl`.
+$(SIGNATURES)
+"""
+function lexeme(uninfl::UninflectedStem)
+    uninfl.lexid
+end
+
+"""Identify inflection class for `uninfl`.
+$(SIGNATURES)
+"""
+function inflectionClass(uninfl::UninflectedStem)
+    uninfl.stemcategory
+end
+
+
+
+
+
 """Human-readlable label for an `UninflectedStem`.
 
 @(SIGNATURES)
@@ -46,13 +73,14 @@ Required for `CitableTrait`.
 """
 function cex(us::UninflectedStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([us.stemid, label(us) ], delimiter)
+        join([us.stemid, label(us), stemstring(us), lexeme(us), label(inflectionClass(us)) ], delimiter)
     else
         c2urn = expand(us.stemid, registry)
-        join([c2urn, label(us)], delimiter)
+        join([c2urn, label(us), stemstring(us), lexeme(us), label(inflectionClass(us)) ], delimiter)
     end
 end
 
+#ὁ|lsj.n71882|article
 """Identifier string for an `UninflectedStem`.
 
 $(SIGNATURES)
