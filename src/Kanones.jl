@@ -92,8 +92,9 @@ include("lexemes/lexica.jl")
 =#
 
 include("citable_rules/rules.jl")
-include("citable_forms/forms.jl")
 include("citable_stems/stems.jl")
+include("citable_forms/forms.jl")
+
 
 
 include("morphologicalproperties/properties.jl")
@@ -165,6 +166,7 @@ include("generate/generateverbaladj.jl")
 include("generate/verbparts.jl")
 include("generate/generateinfinitive.jl")
 include("generate/generateptcpl.jl")
+include("generate/generatepronoun.jl")
 
 include("forapps/adjdeclensions.jl")
 include("forapps/noundeclensions.jl")

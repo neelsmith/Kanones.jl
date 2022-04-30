@@ -144,3 +144,8 @@ function formurn(pns::PronounStem)
     FormUrn("$(COLLECTION_ID)." * code(pns))
 end
 
+
+
+function greekForm(pronoun::PronounStem) 
+    formurn(pronoun) |> greekForm
+end

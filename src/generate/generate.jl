@@ -55,7 +55,8 @@ function allformcodes()
         verbformcodes(),
         verbaladjectiveformcodes(),
         infinitiveformcodes(),
-        participleformcodes()
+        participleformcodes(),
+        pronounformcodes()
     )
 end
 

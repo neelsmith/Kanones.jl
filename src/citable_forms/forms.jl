@@ -93,9 +93,6 @@ function greekForm(r::T) where {T <: KanonesRule}
 end
 
 
-function greekForm(pronoun::PronounStem) 
-    formurn(pronoun) |> greekForm
-end
 #=
 
 

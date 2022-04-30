@@ -19,7 +19,7 @@
     verbrule = Kanones.readrulerow(verbio, verbsrc)
     verbstemsrc = "verbstems.n23658|lsj.n23658|δεικ|numi"
     verbstem = Kanones.readstemrow(verbio, verbstemsrc)
-    @test  generate(    verbstem,verbrule) == "δείκνυσαι"
+    @test  generate(verbstem,verbrule) == "δείκνυσαι"
 
 
     vadjio = Kanones.VerbalAdjectiveIO("adjectives")
@@ -29,8 +29,19 @@
 
     ptcplio = Kanones.ParticipleIO("ptcpls")
     ptcplsrc = "ptcplinfl.wpres1|w_regular|όμενος|present|middle|masculine|nominative|singular|"
-    rule = Kanones.readrulerow(ptcplio, ptcplsrc)
+    ptcplrule = Kanones.readrulerow(ptcplio, ptcplsrc)
+    @test_broken generate(verbstem, ptcplrule) == "δεικνυόμενος"
 
+    infio = Kanones.InfinitiveIO("infs")
+    infsrc = "infinfl.wreg1|w_regular|ειν|present|active"
+    infrule = Kanones.readrulerow(infio, infsrc)
+    @test_broken generate(verbstem, infrule) == "δεικνύειν"
 
-
+    pronio = Kanones.PronounIO("prons")
+    pronrulesrc = "proninfl.pronouns1|article"
+    pronrule = Kanones.readrulerow(pronio, pronrulesrc)
+    pronstemsrc = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article" 
+    pronstem = Kanones.readstemrow(pronio, pronstemsrc)
+    @test generate(pronstem, pronrule) == "ὁ"
+    
 end
