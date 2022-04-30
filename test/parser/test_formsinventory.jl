@@ -23,4 +23,15 @@
     @test typeof(infforms) == Vector{GMFInfinitive}
     @test length(infforms) == infinitivetenses * voicecount
 
+    ptcpltenses = [
+        Kanones.tensecodedict["present"],
+        Kanones.tensecodedict["future"],
+        Kanones.tensecodedict["aorist"],
+        Kanones.tensecodedict["perfect"]
+    ]
+
+    ptcplforms = Kanones.participleforms()
+    @test typeof(ptcplforms) == Vector{GMFParticiple}
+    @test length(ptcplforms) == length(ptcpltenses) * voicecount * gendercount * casecount * numbercount
+
 end

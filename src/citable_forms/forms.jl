@@ -59,6 +59,8 @@ function greekForm(codestr::AbstractString)
         gmfVerbalAdjective(codestr)
     elseif poscode(codestr) == INFINITIVE
         gmfInfinitive(codestr)
+    elseif poscode(codestr) == PARTICIPLE
+        gmfParticiple(codestr)
     end
 end
 

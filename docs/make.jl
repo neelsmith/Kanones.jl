@@ -4,7 +4,7 @@
 #
 # Run this from repository root to serve:
 #
-#   julia -e 'using LiveServer; serve(dir="docs/build")'julia -e 'using LiveServer; serve(dir="docs/build")' 
+#   julia -e 'using LiveServer; serve(dir="docs/build")'
 #
 using Pkg
 Pkg.activate(".")
@@ -51,7 +51,7 @@ makedocs(
                 "Adjectives of the first and second declensions" => "stemtypes/adjectives/first-second.md",
                 "Adjectives of the third declensions" => "stemtypes/adjectives/third.md"
             ],
-            "Pronouns" => "stemtypes/pronouns/index.md",
+        
             "Verbal stems" => Any[
                 "stemtypes/verbs/index.md",
                 "Regular verbs: -ω conjugation"  => "stemtypes/verbs/omega.md",
@@ -59,15 +59,23 @@ makedocs(
                 "Regular verbs: -εω contracts"  => "stemtypes/verbs/ew_contracts.md",
                 "Regular verbs: -αω contracts"  => "stemtypes/verbs/aw_contracts.md",
                 "Regular verbs: -οω contracts"  => "stemtypes/verbs/ow_contracts.md",
+                "Attic futures" => "stemtypes/verbs/atticfut.md",
+                "Second aorists" => "stemtypes/verbs/secondaor.md",
                 "Principal parts" => "stemtypes/verbs/princparts.md",
-                "Irregular verb forms" => "stemtypes/verbs/irregulars.md"
+                "Irregular verb forms" => "stemtypes/verbs/irregulars.md",
+                
             ],
-            "Uninflected types" => "stemtypes/uninflected.md"
+            "Pronouns" => "stemtypes/pronouns/index.md",
+
+            "Uninflected types" => "stemtypes/uninflected.md",
+            "Participles" => Any[
+                "Participle paradigms" => "stemtypes/participles/index.md",
+                "Participles of regular -ω verbs" => "stemtypes/participles/omega.md",
+            ]
         ],   
         "Reference: API documentation" => Any[
             "Julia API documentation" =>  "apis/apis.md",
             "Morphological properties and forms" => "apis/morph.md"
-            
         ]
     
      

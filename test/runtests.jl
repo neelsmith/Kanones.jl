@@ -22,6 +22,7 @@ include("rules/test_nounrules.jl")
 include("rules/test_finiteverbrules.jl")
 include("rules/test_verbaladjrules.jl")
 include("rules/test_infinitiverules.jl")
+include("rules/test_ptcplrules.jl")
 
 
 include("stems/test_nounstems.jl")
@@ -37,6 +38,7 @@ include("principalparts/test_principalparts.jl")
 
 
 include("parser/test_formsinventory.jl")
+include("parser/test_parse.jl")
 
 #=
 include("test_morphologyids.jl")

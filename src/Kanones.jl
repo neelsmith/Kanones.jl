@@ -66,6 +66,8 @@ export GreekLexeme
 
 export generate, analysis_string
 export decline, md_declension
+export md_ptcpldeclension
+export md_3endingadj
 export synopsis, md_conjugation
 
 export urn, formurn, ruleurn
@@ -107,7 +109,6 @@ include("morphologicalproperties/uninflectedtype.jl")
 
 
 include("citable_forms/formvalues.jl")
-#include("morphology/forapps.jl")
 #include("citable_forms/kanonesformurns.jl")
 #include("citable_forms/irregularmorphology.jl")
 
@@ -126,7 +127,7 @@ include("citable_rules/infinitives.jl")
 
 
 include("citable_forms/participles.jl")
-#include("citable_rules/participles.jl")
+include("citable_rules/participles.jl")
 
 include("citable_forms/verbaladjectives.jl")
 include("citable_rules/verbaladjectives.jl")
@@ -163,8 +164,11 @@ include("generate/generatefiniteverb.jl")
 include("generate/generateverbaladj.jl")
 include("generate/verbparts.jl")
 include("generate/generateinfinitive.jl")
+include("generate/generateptcpl.jl")
 
-include("forapps/declensions.jl")
+include("forapps/adjdeclensions.jl")
+include("forapps/noundeclensions.jl")
+include("forapps/ptcpldeclensions.jl")
 include("forapps/synopses.jl")
 include("forapps/conjugations.jl")
 
