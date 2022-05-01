@@ -81,10 +81,10 @@ $(SIGNATURES)
 function sigmabase(stem::Stem; ortho = literaryGreek())
     s = stemstring(stem)
     if endswith(s, r"κ|γ|χ")    
-        replace(s,  r"κ|γ|χ$", "ξ")
+        replace(s,  r"κ|γ|χ$" => "ξ")
         
     elseif endswith(s, r"π|β|φ")
-        replace(s,   r"π|β|φ$", "ψ")
+        replace(s,   r"π|β|φ$" => "ψ")
 
     else
         s * "σ"
@@ -92,6 +92,22 @@ function sigmabase(stem::Stem; ortho = literaryGreek())
 end
 
 
+"""Compose regular verb base for sixth
+principal part.
+$(SIGNATURES)
+"""
+function thetabase(stem::Stem; ortho = literaryGreek())
+    s = stemstring(stem)
+    if endswith(s, r"κ|γ|χ")    
+        replace(s,  r"κ|γ|χ$" => "χ")
+        
+    elseif endswith(s, r"π|β|φ")
+        replace(s,   r"π|β|φ$" => "φ")
+
+    else
+        s
+    end
+end
 
 """Compose base stem of `stem` for principalpart required by `rule`.
 $(SIGNATURES)
@@ -101,7 +117,8 @@ function ppbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: Ka
         sigmabase(stem, ortho = ortho)
     elseif pp4(rule)
         kappabase(stem, ortho = ortho)
-    
+    elseif pp6(rule)
+        thetabase(stem, ortho = ortho)
     else
         stemstring(stem)
     end
