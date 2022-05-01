@@ -1,7 +1,5 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-verbinfl.ewcontractfirst1|ew_contract|ῶ|first|singular|present|indicative|active
-verbinfl.ewcontractfirst2|ew_contract|οῦμαι|first|singular|present|indicative|middle
-verbinfl.ewcontractfirst3|ew_contract|οῦμαι|first|singular|present|indicative|passive
+
 
 verbinfl.ewcontractfirst4|ew_contract|ῶ|first|singular|present|subjunctive|active
 verbinfl.ewcontractfirst5|ew_contract|ῶμαι|first|singular|present|subjunctive|middle
@@ -11,9 +9,6 @@ verbinfl.ewcontractfirst7|ew_contract|οῖμι|first|singular|present|optative|
 verbinfl.ewcontractfirst8|ew_contract|οίμην|first|singular|present|optative|middle
 verbinfl.ewcontractfirst9|ew_contract|οίμην|first|singular|present|optative|passive
 
-verbinfl.ewcontractfirst10|ew_contract|οῦν|first|singular|imperfect|indicative|active
-verbinfl.ewcontractfirst11|ew_contract|ούμην|first|singular|imperfect|indicative|middle
-verbinfl.ewcontractfirst12|ew_contract|ούμην|first|singular|imperfect|indicative|passive
 
 verbinfl.ewcontractfirst13|ew_contract|ήσω|first|singular|future|indicative|active
 verbinfl.ewcontractfirst14|ew_contract|ήσομαι|first|singular|future|indicative|middle
