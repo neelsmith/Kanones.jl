@@ -66,12 +66,25 @@ function md_imperativeconjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::
     imptvforms = filter(f -> f isa GMFFiniteVerb && gmpMood(f) == gmpMood("imperative"), allforms())
 
     singforms = filter(f -> gmpNumber(f) == gmpNumber(1) && gmpTense(f) == t && gmpVoice(f) == v,imptvforms)
-    singlabels = singforms .|> label
+    generatedsing = []
+    for f in singforms
+        frmstring = join(generate(lex, formurn(f), kd),", ")
+        push!(generatedsing, frmstring)
+    end
+    
     plforms = filter(f -> gmpNumber(f) == gmpNumber("plural") && gmpTense(f) == t && gmpVoice(f) == v,imptvforms)
-    pllabels = plforms .|> label
+    generatedpl = []
+    for f in plforms
+        frmstring = join(generate(lex, formurn(f), kd),", ")
+        push!(generatedpl,frmstring)
+    end
+    
+     
+
+    #pllabels = plforms .|> label
 
     for i in 1:2
-        push!(mdlines, "| **$(personlabeldict[i + 1])** | $(singlabels[i]) | $(pllabels[i])  |")
+        push!(mdlines, "| **$(personlabeldict[i + 1])** | $(generatedsing[i]) | $(generatedpl[i])  |")
     end
     join(mdlines,"\n")
 end
