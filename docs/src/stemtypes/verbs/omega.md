@@ -38,7 +38,35 @@ kds = Kanones.dataset([srcdir])
 Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), κελευω, kds))
 ```
 
-- **present imperative**: TBA
+### Imperative
+
+*Active voice*:
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+
+tbl = md_imperativeconjugation(gmpTense("present"), gmpVoice("active"), κελευω, kds)
+Markdown.parse(tbl)
+```
+
+
+*Middle and passive voices* (identical forms):
+
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+
+tbl = md_imperativeconjugation(gmpTense("present"), gmpVoice("passive"), κελευω, kds)
+Markdown.parse(tbl)
+```
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -60,11 +88,16 @@ inf_pass = GMFInfinitive(
     gmpTense("present"), gmpVoice("passive")
 )
 inf_passforms = generate(κελευω, formurn(inf_pass), kds)
+
+actptcpl = participleslashline(κελευω, gmpTense("present"), gmpVoice("active"), kds)
+
+mpptcpl = participleslashline(κελευω, gmpTense("present"), gmpVoice("middle"), kds)
+
 mdlines = [
     "- **active infinitive**: $(inf_actforms[1])",
     "- **middle & passive infinitive**: $(inf_passforms[1])",
-    "- **active participle**: TBA",
-    "- **middle & passive participle**: TBA",
+    "- **active participle**: $(actptcpl)",
+    "- **middle & passive participle**: $(mpptcpl)",
     "- **verbal adjective**: $(vadjforms[1])"]
 Markdown.parse(join(mdlines,"\n"))
 ```
@@ -171,13 +204,20 @@ inf_pass = GMFInfinitive(
 )
 inf_passforms = generate(κελευω, formurn(inf_pass), kds)
 
+
+actptcpl = participleslashline(κελευω, gmpTense("future"), gmpVoice("active"), kds)
+
+midptcpl = participleslashline(κελευω, gmpTense("future"), gmpVoice("middle"), kds)
+
+passptcpl = participleslashline(κελευω, gmpTense("future"), gmpVoice("passive"), kds)
+
 mdlines = [
     "- **active infinitive**: $(inf_actforms[1])",
     "- **middle infinitive**: $(inf_mdlforms[1])",
     "- **passive infinitive**: $(inf_passforms[1])",
-    "- **active participle**: TBA",
-    "- **middle participle**: TBA",
-    "- **passive participle**: TBA"
+    "- **active participle**: $(actptcpl)",
+    "- **middle participle**: $(midptcpl)",
+    "- **passive participle**: $(passptcpl)"
 ]
 Markdown.parse(join(mdlines,"\n"))
 ```
@@ -229,6 +269,56 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("passive"), κελε�
 ```
 
 
+
+
+### Imperative 
+
+*Active voice*:
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+
+tbl = md_imperativeconjugation(gmpTense("aorist"), gmpVoice("active"), κελευω, kds)
+Markdown.parse(tbl)
+```
+
+
+*Middle voice*:
+
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+
+tbl = md_imperativeconjugation(gmpTense("aorist"), gmpVoice("middle"), κελευω, kds)
+Markdown.parse(tbl)
+```
+
+
+
+*Passive voice*:
+
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.dataset([srcdir])
+κελευω = LexemeUrn("lsj.n56496")
+
+tbl = md_imperativeconjugation(gmpTense("aorist"), gmpVoice("passive"), κελευω, kds)
+Markdown.parse(tbl)
+```
+
+
+
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
@@ -255,13 +345,22 @@ inf_pass = GMFInfinitive(
 )
 inf_passforms = generate(κελευω, formurn(inf_pass), kds)
 
+
+
+actptcpl = participleslashline(κελευω, gmpTense("aorist"), gmpVoice("active"), kds)
+
+midptcpl = participleslashline(κελευω, gmpTense("aorist"), gmpVoice("middle"), kds)
+
+passptcpl = participleslashline(κελευω, gmpTense("aorist"), gmpVoice("passive"), kds)
+
+
 mdlines = [
     "- **active infinitive**: $(inf_actforms[1])",
     "- **middle infinitive**: $(inf_mdlforms[1])",
     "- **passive infinitive**: $(inf_passforms[1])",
-    "- **active participle**: TBA",
-    "- **middle participle**: TBA",
-    "- **passive participle**: TBA"
+    "- **active participle**: $(actptcpl)",
+    "- **middle participle**: $(midptcpl)",
+    "- **passive participle**: $(passptcpl)"
 ]
 
 Markdown.parse(join(mdlines,"\n"))
@@ -305,8 +404,6 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("passive"), κελε
 ```
 
 
-- **perfect imperative**: TBA
-
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
@@ -314,6 +411,10 @@ repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 κελευω = LexemeUrn("lsj.n56496")
+
+actptcpl = participleslashline(κελευω, gmpTense("perfect"), gmpVoice("active"), kds)
+
+mpptcpl = participleslashline(κελευω, gmpTense("perfect"), gmpVoice("middle"), kds)
 
 
 inf_act = GMFInfinitive(
@@ -323,8 +424,8 @@ inf_actforms = generate(κελευω, formurn(inf_act), kds)
 
 mdlines = [
     "- **active infinitive**: $(inf_actforms[1])",
-    "- **active participle**: TBA",
-    "- **middle & passive participle**: TBA"
+    "- **active participle**: $(actptcpl)",
+    "- **middle & passive participle**: $(mpptcpl)"
 ]
 Markdown.parse(join(mdlines,"\n"))
 ```

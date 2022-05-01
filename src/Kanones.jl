@@ -66,9 +66,9 @@ export GreekLexeme
 
 export generate, analysis_string
 export decline, md_declension
-export md_ptcpldeclension
+export md_ptcpldeclension, participleslashline
 export md_3endingadj
-export synopsis, md_conjugation
+export synopsis, md_conjugation, md_imperativeconjugation
 
 export urn, formurn, ruleurn
 
