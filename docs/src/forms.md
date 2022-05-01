@@ -40,4 +40,4 @@ Verb stems combine with distinct rule types for:
 
 !!! note "CEX collection of all possible forms"
 
-    The kanones github repository includes a delimited-text list of all  forms recognized by Kanones.
+    The kanones github repository includes a [delimited-text list of all  forms](https://github.com/neelsmith/Kanones.jl/blob/main/forms.cex) recognized by Kanones.
