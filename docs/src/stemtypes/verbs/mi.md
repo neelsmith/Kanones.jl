@@ -20,7 +20,7 @@ Paradigms generated from these entries:
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -33,7 +33,7 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("active"), δεικ�
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -52,7 +52,7 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), δεικ
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -66,7 +66,7 @@ Markdown.parse(md_conjugation(gmpTense("imperfect"), gmpVoice("active"), δει�
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -81,7 +81,7 @@ Active voice:
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -95,7 +95,7 @@ Middle voice:
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -109,7 +109,7 @@ Passive voice:
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -124,7 +124,7 @@ Active voice:
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -138,7 +138,7 @@ Middle voice:
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -152,7 +152,7 @@ Passive voice:
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -169,7 +169,7 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("passive"), δεικ�
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
@@ -185,7 +185,7 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("active"), δεικ�
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
-srcdir = joinpath(repo, "datasets", "lg-core") 
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 kds = Kanones.dataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 

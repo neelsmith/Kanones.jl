@@ -1,5 +1,5 @@
 @testset "Test parsing with a string parser" begin
-    srcdata = joinpath(dirname(pwd()),"datasets","lg-core")
+    srcdata = joinpath(dirname(pwd()),"datasets","literarygreek-rules")
     p = dataset(srcdata) |> stringParser
     @test p isa StringParser
     
