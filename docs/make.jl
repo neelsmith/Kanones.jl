@@ -59,6 +59,7 @@ makedocs(
                 "Regular verbs: -εω contracts"  => "stemtypes/verbs/ew_contracts.md",
                 "Regular verbs: -αω contracts"  => "stemtypes/verbs/aw_contracts.md",
                 "Regular verbs: -οω contracts"  => "stemtypes/verbs/ow_contracts.md",
+
                 "Attic futures" => "stemtypes/verbs/atticfut.md",
                 "Second aorists" => "stemtypes/verbs/secondaor.md",
                 "Principal parts" => "stemtypes/verbs/princparts.md",
@@ -71,10 +72,11 @@ makedocs(
             "Participles" => Any[
                 "Participle paradigms" => "stemtypes/participles/index.md",
                 "Participles of regular -ω verbs" => "stemtypes/participles/omega.md",
-                "Participles of -εω contracts"  => "stemtypes/verbs/ew_contracts.md",
-                "Participles of -αω contracts"  => "stemtypes/verbs/aw_contracts.md",
-                "Participles of -οω contracts"  => "stemtypes/verbs/ow_contracts.md",
-                "Second aorist participles" => "stemtypes/verbs/secondaor.md",
+                "Participles of -εω contracts"  => "stemtypes/participles/ew_contracts.md",
+                "Participles of -αω contracts"  => "stemtypes/participles/aw_contracts.md",
+                "Participles of -οω contracts"  => "stemtypes/participles/ow_contracts.md",
+                "Participles of -μι verbs" => "stemtypes/participles/mi.md",
+                "Second aorist participles" => "stemtypes/participles/secondaor.md",
             ]
         ],   
         "Reference: API documentation" => Any[
