@@ -22,7 +22,8 @@ function generate(
 
     else
         accentpattern = participleaccent(greekForm(rule))
-        @info("Figure out accent")
+        @debug("Figure out participle accent")
+        stripmetachars(accentword(raw, :RECESSIVE, ortho))
         #=
         try
             if stem.accentpersistence == "recessive"

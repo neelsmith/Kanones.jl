@@ -71,6 +71,10 @@ makedocs(
             "Participles" => Any[
                 "Participle paradigms" => "stemtypes/participles/index.md",
                 "Participles of regular -ω verbs" => "stemtypes/participles/omega.md",
+                "Participles of -εω contracts"  => "stemtypes/verbs/ew_contracts.md",
+                "Participles of -αω contracts"  => "stemtypes/verbs/aw_contracts.md",
+                "Participles of -οω contracts"  => "stemtypes/verbs/ow_contracts.md",
+                "Second aorist participles" => "stemtypes/verbs/secondaor.md",
             ]
         ],   
         "Reference: API documentation" => Any[

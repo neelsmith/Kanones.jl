@@ -1,0 +1,1234 @@
+urn|label
+urn:cite2:kanones:forms.v1:2010001100|noun: masculine nominative singular
+urn:cite2:kanones:forms.v1:2010001200|noun: masculine genitive singular
+urn:cite2:kanones:forms.v1:2010001300|noun: masculine dative singular
+urn:cite2:kanones:forms.v1:2010001400|noun: masculine accusative singular
+urn:cite2:kanones:forms.v1:2010001500|noun: masculine vocative singular
+urn:cite2:kanones:forms.v1:2010002100|noun: feminine nominative singular
+urn:cite2:kanones:forms.v1:2010002200|noun: feminine genitive singular
+urn:cite2:kanones:forms.v1:2010002300|noun: feminine dative singular
+urn:cite2:kanones:forms.v1:2010002400|noun: feminine accusative singular
+urn:cite2:kanones:forms.v1:2010002500|noun: feminine vocative singular
+urn:cite2:kanones:forms.v1:2010003100|noun: neuter nominative singular
+urn:cite2:kanones:forms.v1:2010003200|noun: neuter genitive singular
+urn:cite2:kanones:forms.v1:2010003300|noun: neuter dative singular
+urn:cite2:kanones:forms.v1:2010003400|noun: neuter accusative singular
+urn:cite2:kanones:forms.v1:2010003500|noun: neuter vocative singular
+urn:cite2:kanones:forms.v1:2020001100|noun: masculine nominative dual
+urn:cite2:kanones:forms.v1:2020001200|noun: masculine genitive dual
+urn:cite2:kanones:forms.v1:2020001300|noun: masculine dative dual
+urn:cite2:kanones:forms.v1:2020001400|noun: masculine accusative dual
+urn:cite2:kanones:forms.v1:2020001500|noun: masculine vocative dual
+urn:cite2:kanones:forms.v1:2020002100|noun: feminine nominative dual
+urn:cite2:kanones:forms.v1:2020002200|noun: feminine genitive dual
+urn:cite2:kanones:forms.v1:2020002300|noun: feminine dative dual
+urn:cite2:kanones:forms.v1:2020002400|noun: feminine accusative dual
+urn:cite2:kanones:forms.v1:2020002500|noun: feminine vocative dual
+urn:cite2:kanones:forms.v1:2020003100|noun: neuter nominative dual
+urn:cite2:kanones:forms.v1:2020003200|noun: neuter genitive dual
+urn:cite2:kanones:forms.v1:2020003300|noun: neuter dative dual
+urn:cite2:kanones:forms.v1:2020003400|noun: neuter accusative dual
+urn:cite2:kanones:forms.v1:2020003500|noun: neuter vocative dual
+urn:cite2:kanones:forms.v1:2030001100|noun: masculine nominative plural
+urn:cite2:kanones:forms.v1:2030001200|noun: masculine genitive plural
+urn:cite2:kanones:forms.v1:2030001300|noun: masculine dative plural
+urn:cite2:kanones:forms.v1:2030001400|noun: masculine accusative plural
+urn:cite2:kanones:forms.v1:2030001500|noun: masculine vocative plural
+urn:cite2:kanones:forms.v1:2030002100|noun: feminine nominative plural
+urn:cite2:kanones:forms.v1:2030002200|noun: feminine genitive plural
+urn:cite2:kanones:forms.v1:2030002300|noun: feminine dative plural
+urn:cite2:kanones:forms.v1:2030002400|noun: feminine accusative plural
+urn:cite2:kanones:forms.v1:2030002500|noun: feminine vocative plural
+urn:cite2:kanones:forms.v1:2030003100|noun: neuter nominative plural
+urn:cite2:kanones:forms.v1:2030003200|noun: neuter genitive plural
+urn:cite2:kanones:forms.v1:2030003300|noun: neuter dative plural
+urn:cite2:kanones:forms.v1:2030003400|noun: neuter accusative plural
+urn:cite2:kanones:forms.v1:2030003500|noun: neuter vocative plural
+urn:cite2:kanones:forms.v1:7010001110|adjective:  masculine nominative singular positive
+urn:cite2:kanones:forms.v1:7010001210|adjective:  masculine genitive singular positive
+urn:cite2:kanones:forms.v1:7010001310|adjective:  masculine dative singular positive
+urn:cite2:kanones:forms.v1:7010001410|adjective:  masculine accusative singular positive
+urn:cite2:kanones:forms.v1:7010001510|adjective:  masculine vocative singular positive
+urn:cite2:kanones:forms.v1:7010002110|adjective:  feminine nominative singular positive
+urn:cite2:kanones:forms.v1:7010002210|adjective:  feminine genitive singular positive
+urn:cite2:kanones:forms.v1:7010002310|adjective:  feminine dative singular positive
+urn:cite2:kanones:forms.v1:7010002410|adjective:  feminine accusative singular positive
+urn:cite2:kanones:forms.v1:7010002510|adjective:  feminine vocative singular positive
+urn:cite2:kanones:forms.v1:7010003110|adjective:  neuter nominative singular positive
+urn:cite2:kanones:forms.v1:7010003210|adjective:  neuter genitive singular positive
+urn:cite2:kanones:forms.v1:7010003310|adjective:  neuter dative singular positive
+urn:cite2:kanones:forms.v1:7010003410|adjective:  neuter accusative singular positive
+urn:cite2:kanones:forms.v1:7010003510|adjective:  neuter vocative singular positive
+urn:cite2:kanones:forms.v1:7020001110|adjective:  masculine nominative dual positive
+urn:cite2:kanones:forms.v1:7020001210|adjective:  masculine genitive dual positive
+urn:cite2:kanones:forms.v1:7020001310|adjective:  masculine dative dual positive
+urn:cite2:kanones:forms.v1:7020001410|adjective:  masculine accusative dual positive
+urn:cite2:kanones:forms.v1:7020001510|adjective:  masculine vocative dual positive
+urn:cite2:kanones:forms.v1:7020002110|adjective:  feminine nominative dual positive
+urn:cite2:kanones:forms.v1:7020002210|adjective:  feminine genitive dual positive
+urn:cite2:kanones:forms.v1:7020002310|adjective:  feminine dative dual positive
+urn:cite2:kanones:forms.v1:7020002410|adjective:  feminine accusative dual positive
+urn:cite2:kanones:forms.v1:7020002510|adjective:  feminine vocative dual positive
+urn:cite2:kanones:forms.v1:7020003110|adjective:  neuter nominative dual positive
+urn:cite2:kanones:forms.v1:7020003210|adjective:  neuter genitive dual positive
+urn:cite2:kanones:forms.v1:7020003310|adjective:  neuter dative dual positive
+urn:cite2:kanones:forms.v1:7020003410|adjective:  neuter accusative dual positive
+urn:cite2:kanones:forms.v1:7020003510|adjective:  neuter vocative dual positive
+urn:cite2:kanones:forms.v1:7030001110|adjective:  masculine nominative plural positive
+urn:cite2:kanones:forms.v1:7030001210|adjective:  masculine genitive plural positive
+urn:cite2:kanones:forms.v1:7030001310|adjective:  masculine dative plural positive
+urn:cite2:kanones:forms.v1:7030001410|adjective:  masculine accusative plural positive
+urn:cite2:kanones:forms.v1:7030001510|adjective:  masculine vocative plural positive
+urn:cite2:kanones:forms.v1:7030002110|adjective:  feminine nominative plural positive
+urn:cite2:kanones:forms.v1:7030002210|adjective:  feminine genitive plural positive
+urn:cite2:kanones:forms.v1:7030002310|adjective:  feminine dative plural positive
+urn:cite2:kanones:forms.v1:7030002410|adjective:  feminine accusative plural positive
+urn:cite2:kanones:forms.v1:7030002510|adjective:  feminine vocative plural positive
+urn:cite2:kanones:forms.v1:7030003110|adjective:  neuter nominative plural positive
+urn:cite2:kanones:forms.v1:7030003210|adjective:  neuter genitive plural positive
+urn:cite2:kanones:forms.v1:7030003310|adjective:  neuter dative plural positive
+urn:cite2:kanones:forms.v1:7030003410|adjective:  neuter accusative plural positive
+urn:cite2:kanones:forms.v1:7030003510|adjective:  neuter vocative plural positive
+urn:cite2:kanones:forms.v1:7010001120|adjective:  masculine nominative singular comparative
+urn:cite2:kanones:forms.v1:7010001220|adjective:  masculine genitive singular comparative
+urn:cite2:kanones:forms.v1:7010001320|adjective:  masculine dative singular comparative
+urn:cite2:kanones:forms.v1:7010001420|adjective:  masculine accusative singular comparative
+urn:cite2:kanones:forms.v1:7010001520|adjective:  masculine vocative singular comparative
+urn:cite2:kanones:forms.v1:7010002120|adjective:  feminine nominative singular comparative
+urn:cite2:kanones:forms.v1:7010002220|adjective:  feminine genitive singular comparative
+urn:cite2:kanones:forms.v1:7010002320|adjective:  feminine dative singular comparative
+urn:cite2:kanones:forms.v1:7010002420|adjective:  feminine accusative singular comparative
+urn:cite2:kanones:forms.v1:7010002520|adjective:  feminine vocative singular comparative
+urn:cite2:kanones:forms.v1:7010003120|adjective:  neuter nominative singular comparative
+urn:cite2:kanones:forms.v1:7010003220|adjective:  neuter genitive singular comparative
+urn:cite2:kanones:forms.v1:7010003320|adjective:  neuter dative singular comparative
+urn:cite2:kanones:forms.v1:7010003420|adjective:  neuter accusative singular comparative
+urn:cite2:kanones:forms.v1:7010003520|adjective:  neuter vocative singular comparative
+urn:cite2:kanones:forms.v1:7020001120|adjective:  masculine nominative dual comparative
+urn:cite2:kanones:forms.v1:7020001220|adjective:  masculine genitive dual comparative
+urn:cite2:kanones:forms.v1:7020001320|adjective:  masculine dative dual comparative
+urn:cite2:kanones:forms.v1:7020001420|adjective:  masculine accusative dual comparative
+urn:cite2:kanones:forms.v1:7020001520|adjective:  masculine vocative dual comparative
+urn:cite2:kanones:forms.v1:7020002120|adjective:  feminine nominative dual comparative
+urn:cite2:kanones:forms.v1:7020002220|adjective:  feminine genitive dual comparative
+urn:cite2:kanones:forms.v1:7020002320|adjective:  feminine dative dual comparative
+urn:cite2:kanones:forms.v1:7020002420|adjective:  feminine accusative dual comparative
+urn:cite2:kanones:forms.v1:7020002520|adjective:  feminine vocative dual comparative
+urn:cite2:kanones:forms.v1:7020003120|adjective:  neuter nominative dual comparative
+urn:cite2:kanones:forms.v1:7020003220|adjective:  neuter genitive dual comparative
+urn:cite2:kanones:forms.v1:7020003320|adjective:  neuter dative dual comparative
+urn:cite2:kanones:forms.v1:7020003420|adjective:  neuter accusative dual comparative
+urn:cite2:kanones:forms.v1:7020003520|adjective:  neuter vocative dual comparative
+urn:cite2:kanones:forms.v1:7030001120|adjective:  masculine nominative plural comparative
+urn:cite2:kanones:forms.v1:7030001220|adjective:  masculine genitive plural comparative
+urn:cite2:kanones:forms.v1:7030001320|adjective:  masculine dative plural comparative
+urn:cite2:kanones:forms.v1:7030001420|adjective:  masculine accusative plural comparative
+urn:cite2:kanones:forms.v1:7030001520|adjective:  masculine vocative plural comparative
+urn:cite2:kanones:forms.v1:7030002120|adjective:  feminine nominative plural comparative
+urn:cite2:kanones:forms.v1:7030002220|adjective:  feminine genitive plural comparative
+urn:cite2:kanones:forms.v1:7030002320|adjective:  feminine dative plural comparative
+urn:cite2:kanones:forms.v1:7030002420|adjective:  feminine accusative plural comparative
+urn:cite2:kanones:forms.v1:7030002520|adjective:  feminine vocative plural comparative
+urn:cite2:kanones:forms.v1:7030003120|adjective:  neuter nominative plural comparative
+urn:cite2:kanones:forms.v1:7030003220|adjective:  neuter genitive plural comparative
+urn:cite2:kanones:forms.v1:7030003320|adjective:  neuter dative plural comparative
+urn:cite2:kanones:forms.v1:7030003420|adjective:  neuter accusative plural comparative
+urn:cite2:kanones:forms.v1:7030003520|adjective:  neuter vocative plural comparative
+urn:cite2:kanones:forms.v1:7010001130|adjective:  masculine nominative singular superlative
+urn:cite2:kanones:forms.v1:7010001230|adjective:  masculine genitive singular superlative
+urn:cite2:kanones:forms.v1:7010001330|adjective:  masculine dative singular superlative
+urn:cite2:kanones:forms.v1:7010001430|adjective:  masculine accusative singular superlative
+urn:cite2:kanones:forms.v1:7010001530|adjective:  masculine vocative singular superlative
+urn:cite2:kanones:forms.v1:7010002130|adjective:  feminine nominative singular superlative
+urn:cite2:kanones:forms.v1:7010002230|adjective:  feminine genitive singular superlative
+urn:cite2:kanones:forms.v1:7010002330|adjective:  feminine dative singular superlative
+urn:cite2:kanones:forms.v1:7010002430|adjective:  feminine accusative singular superlative
+urn:cite2:kanones:forms.v1:7010002530|adjective:  feminine vocative singular superlative
+urn:cite2:kanones:forms.v1:7010003130|adjective:  neuter nominative singular superlative
+urn:cite2:kanones:forms.v1:7010003230|adjective:  neuter genitive singular superlative
+urn:cite2:kanones:forms.v1:7010003330|adjective:  neuter dative singular superlative
+urn:cite2:kanones:forms.v1:7010003430|adjective:  neuter accusative singular superlative
+urn:cite2:kanones:forms.v1:7010003530|adjective:  neuter vocative singular superlative
+urn:cite2:kanones:forms.v1:7020001130|adjective:  masculine nominative dual superlative
+urn:cite2:kanones:forms.v1:7020001230|adjective:  masculine genitive dual superlative
+urn:cite2:kanones:forms.v1:7020001330|adjective:  masculine dative dual superlative
+urn:cite2:kanones:forms.v1:7020001430|adjective:  masculine accusative dual superlative
+urn:cite2:kanones:forms.v1:7020001530|adjective:  masculine vocative dual superlative
+urn:cite2:kanones:forms.v1:7020002130|adjective:  feminine nominative dual superlative
+urn:cite2:kanones:forms.v1:7020002230|adjective:  feminine genitive dual superlative
+urn:cite2:kanones:forms.v1:7020002330|adjective:  feminine dative dual superlative
+urn:cite2:kanones:forms.v1:7020002430|adjective:  feminine accusative dual superlative
+urn:cite2:kanones:forms.v1:7020002530|adjective:  feminine vocative dual superlative
+urn:cite2:kanones:forms.v1:7020003130|adjective:  neuter nominative dual superlative
+urn:cite2:kanones:forms.v1:7020003230|adjective:  neuter genitive dual superlative
+urn:cite2:kanones:forms.v1:7020003330|adjective:  neuter dative dual superlative
+urn:cite2:kanones:forms.v1:7020003430|adjective:  neuter accusative dual superlative
+urn:cite2:kanones:forms.v1:7020003530|adjective:  neuter vocative dual superlative
+urn:cite2:kanones:forms.v1:7030001130|adjective:  masculine nominative plural superlative
+urn:cite2:kanones:forms.v1:7030001230|adjective:  masculine genitive plural superlative
+urn:cite2:kanones:forms.v1:7030001330|adjective:  masculine dative plural superlative
+urn:cite2:kanones:forms.v1:7030001430|adjective:  masculine accusative plural superlative
+urn:cite2:kanones:forms.v1:7030001530|adjective:  masculine vocative plural superlative
+urn:cite2:kanones:forms.v1:7030002130|adjective:  feminine nominative plural superlative
+urn:cite2:kanones:forms.v1:7030002230|adjective:  feminine genitive plural superlative
+urn:cite2:kanones:forms.v1:7030002330|adjective:  feminine dative plural superlative
+urn:cite2:kanones:forms.v1:7030002430|adjective:  feminine accusative plural superlative
+urn:cite2:kanones:forms.v1:7030002530|adjective:  feminine vocative plural superlative
+urn:cite2:kanones:forms.v1:7030003130|adjective:  neuter nominative plural superlative
+urn:cite2:kanones:forms.v1:7030003230|adjective:  neuter genitive plural superlative
+urn:cite2:kanones:forms.v1:7030003330|adjective:  neuter dative plural superlative
+urn:cite2:kanones:forms.v1:7030003430|adjective:  neuter accusative plural superlative
+urn:cite2:kanones:forms.v1:7030003530|adjective:  neuter vocative plural superlative
+urn:cite2:kanones:forms.v1:3111110000|finite verb:  present indicative active first singular
+urn:cite2:kanones:forms.v1:3211110000|finite verb:  present indicative active second singular
+urn:cite2:kanones:forms.v1:3311110000|finite verb:  present indicative active third singular
+urn:cite2:kanones:forms.v1:3121110000|finite verb:  present indicative active first dual
+urn:cite2:kanones:forms.v1:3221110000|finite verb:  present indicative active second dual
+urn:cite2:kanones:forms.v1:3321110000|finite verb:  present indicative active third dual
+urn:cite2:kanones:forms.v1:3131110000|finite verb:  present indicative active first plural
+urn:cite2:kanones:forms.v1:3231110000|finite verb:  present indicative active second plural
+urn:cite2:kanones:forms.v1:3331110000|finite verb:  present indicative active third plural
+urn:cite2:kanones:forms.v1:3111210000|finite verb:  present subjunctive active first singular
+urn:cite2:kanones:forms.v1:3211210000|finite verb:  present subjunctive active second singular
+urn:cite2:kanones:forms.v1:3311210000|finite verb:  present subjunctive active third singular
+urn:cite2:kanones:forms.v1:3121210000|finite verb:  present subjunctive active first dual
+urn:cite2:kanones:forms.v1:3221210000|finite verb:  present subjunctive active second dual
+urn:cite2:kanones:forms.v1:3321210000|finite verb:  present subjunctive active third dual
+urn:cite2:kanones:forms.v1:3131210000|finite verb:  present subjunctive active first plural
+urn:cite2:kanones:forms.v1:3231210000|finite verb:  present subjunctive active second plural
+urn:cite2:kanones:forms.v1:3331210000|finite verb:  present subjunctive active third plural
+urn:cite2:kanones:forms.v1:3111310000|finite verb:  present optative active first singular
+urn:cite2:kanones:forms.v1:3211310000|finite verb:  present optative active second singular
+urn:cite2:kanones:forms.v1:3311310000|finite verb:  present optative active third singular
+urn:cite2:kanones:forms.v1:3121310000|finite verb:  present optative active first dual
+urn:cite2:kanones:forms.v1:3221310000|finite verb:  present optative active second dual
+urn:cite2:kanones:forms.v1:3321310000|finite verb:  present optative active third dual
+urn:cite2:kanones:forms.v1:3131310000|finite verb:  present optative active first plural
+urn:cite2:kanones:forms.v1:3231310000|finite verb:  present optative active second plural
+urn:cite2:kanones:forms.v1:3331310000|finite verb:  present optative active third plural
+urn:cite2:kanones:forms.v1:3112110000|finite verb:  imperfect indicative active first singular
+urn:cite2:kanones:forms.v1:3212110000|finite verb:  imperfect indicative active second singular
+urn:cite2:kanones:forms.v1:3312110000|finite verb:  imperfect indicative active third singular
+urn:cite2:kanones:forms.v1:3122110000|finite verb:  imperfect indicative active first dual
+urn:cite2:kanones:forms.v1:3222110000|finite verb:  imperfect indicative active second dual
+urn:cite2:kanones:forms.v1:3322110000|finite verb:  imperfect indicative active third dual
+urn:cite2:kanones:forms.v1:3132110000|finite verb:  imperfect indicative active first plural
+urn:cite2:kanones:forms.v1:3232110000|finite verb:  imperfect indicative active second plural
+urn:cite2:kanones:forms.v1:3332110000|finite verb:  imperfect indicative active third plural
+urn:cite2:kanones:forms.v1:3113110000|finite verb:  aorist indicative active first singular
+urn:cite2:kanones:forms.v1:3213110000|finite verb:  aorist indicative active second singular
+urn:cite2:kanones:forms.v1:3313110000|finite verb:  aorist indicative active third singular
+urn:cite2:kanones:forms.v1:3123110000|finite verb:  aorist indicative active first dual
+urn:cite2:kanones:forms.v1:3223110000|finite verb:  aorist indicative active second dual
+urn:cite2:kanones:forms.v1:3323110000|finite verb:  aorist indicative active third dual
+urn:cite2:kanones:forms.v1:3133110000|finite verb:  aorist indicative active first plural
+urn:cite2:kanones:forms.v1:3233110000|finite verb:  aorist indicative active second plural
+urn:cite2:kanones:forms.v1:3333110000|finite verb:  aorist indicative active third plural
+urn:cite2:kanones:forms.v1:3113210000|finite verb:  aorist subjunctive active first singular
+urn:cite2:kanones:forms.v1:3213210000|finite verb:  aorist subjunctive active second singular
+urn:cite2:kanones:forms.v1:3313210000|finite verb:  aorist subjunctive active third singular
+urn:cite2:kanones:forms.v1:3123210000|finite verb:  aorist subjunctive active first dual
+urn:cite2:kanones:forms.v1:3223210000|finite verb:  aorist subjunctive active second dual
+urn:cite2:kanones:forms.v1:3323210000|finite verb:  aorist subjunctive active third dual
+urn:cite2:kanones:forms.v1:3133210000|finite verb:  aorist subjunctive active first plural
+urn:cite2:kanones:forms.v1:3233210000|finite verb:  aorist subjunctive active second plural
+urn:cite2:kanones:forms.v1:3333210000|finite verb:  aorist subjunctive active third plural
+urn:cite2:kanones:forms.v1:3113310000|finite verb:  aorist optative active first singular
+urn:cite2:kanones:forms.v1:3213310000|finite verb:  aorist optative active second singular
+urn:cite2:kanones:forms.v1:3313310000|finite verb:  aorist optative active third singular
+urn:cite2:kanones:forms.v1:3123310000|finite verb:  aorist optative active first dual
+urn:cite2:kanones:forms.v1:3223310000|finite verb:  aorist optative active second dual
+urn:cite2:kanones:forms.v1:3323310000|finite verb:  aorist optative active third dual
+urn:cite2:kanones:forms.v1:3133310000|finite verb:  aorist optative active first plural
+urn:cite2:kanones:forms.v1:3233310000|finite verb:  aorist optative active second plural
+urn:cite2:kanones:forms.v1:3333310000|finite verb:  aorist optative active third plural
+urn:cite2:kanones:forms.v1:3114110000|finite verb:  perfect indicative active first singular
+urn:cite2:kanones:forms.v1:3214110000|finite verb:  perfect indicative active second singular
+urn:cite2:kanones:forms.v1:3314110000|finite verb:  perfect indicative active third singular
+urn:cite2:kanones:forms.v1:3124110000|finite verb:  perfect indicative active first dual
+urn:cite2:kanones:forms.v1:3224110000|finite verb:  perfect indicative active second dual
+urn:cite2:kanones:forms.v1:3324110000|finite verb:  perfect indicative active third dual
+urn:cite2:kanones:forms.v1:3134110000|finite verb:  perfect indicative active first plural
+urn:cite2:kanones:forms.v1:3234110000|finite verb:  perfect indicative active second plural
+urn:cite2:kanones:forms.v1:3334110000|finite verb:  perfect indicative active third plural
+urn:cite2:kanones:forms.v1:3114210000|finite verb:  perfect subjunctive active first singular
+urn:cite2:kanones:forms.v1:3214210000|finite verb:  perfect subjunctive active second singular
+urn:cite2:kanones:forms.v1:3314210000|finite verb:  perfect subjunctive active third singular
+urn:cite2:kanones:forms.v1:3124210000|finite verb:  perfect subjunctive active first dual
+urn:cite2:kanones:forms.v1:3224210000|finite verb:  perfect subjunctive active second dual
+urn:cite2:kanones:forms.v1:3324210000|finite verb:  perfect subjunctive active third dual
+urn:cite2:kanones:forms.v1:3134210000|finite verb:  perfect subjunctive active first plural
+urn:cite2:kanones:forms.v1:3234210000|finite verb:  perfect subjunctive active second plural
+urn:cite2:kanones:forms.v1:3334210000|finite verb:  perfect subjunctive active third plural
+urn:cite2:kanones:forms.v1:3114310000|finite verb:  perfect optative active first singular
+urn:cite2:kanones:forms.v1:3214310000|finite verb:  perfect optative active second singular
+urn:cite2:kanones:forms.v1:3314310000|finite verb:  perfect optative active third singular
+urn:cite2:kanones:forms.v1:3124310000|finite verb:  perfect optative active first dual
+urn:cite2:kanones:forms.v1:3224310000|finite verb:  perfect optative active second dual
+urn:cite2:kanones:forms.v1:3324310000|finite verb:  perfect optative active third dual
+urn:cite2:kanones:forms.v1:3134310000|finite verb:  perfect optative active first plural
+urn:cite2:kanones:forms.v1:3234310000|finite verb:  perfect optative active second plural
+urn:cite2:kanones:forms.v1:3334310000|finite verb:  perfect optative active third plural
+urn:cite2:kanones:forms.v1:3115110000|finite verb:  pluperfect indicative active first singular
+urn:cite2:kanones:forms.v1:3215110000|finite verb:  pluperfect indicative active second singular
+urn:cite2:kanones:forms.v1:3315110000|finite verb:  pluperfect indicative active third singular
+urn:cite2:kanones:forms.v1:3125110000|finite verb:  pluperfect indicative active first dual
+urn:cite2:kanones:forms.v1:3225110000|finite verb:  pluperfect indicative active second dual
+urn:cite2:kanones:forms.v1:3325110000|finite verb:  pluperfect indicative active third dual
+urn:cite2:kanones:forms.v1:3135110000|finite verb:  pluperfect indicative active first plural
+urn:cite2:kanones:forms.v1:3235110000|finite verb:  pluperfect indicative active second plural
+urn:cite2:kanones:forms.v1:3335110000|finite verb:  pluperfect indicative active third plural
+urn:cite2:kanones:forms.v1:3116110000|finite verb:  future indicative active first singular
+urn:cite2:kanones:forms.v1:3216110000|finite verb:  future indicative active second singular
+urn:cite2:kanones:forms.v1:3316110000|finite verb:  future indicative active third singular
+urn:cite2:kanones:forms.v1:3126110000|finite verb:  future indicative active first dual
+urn:cite2:kanones:forms.v1:3226110000|finite verb:  future indicative active second dual
+urn:cite2:kanones:forms.v1:3326110000|finite verb:  future indicative active third dual
+urn:cite2:kanones:forms.v1:3136110000|finite verb:  future indicative active first plural
+urn:cite2:kanones:forms.v1:3236110000|finite verb:  future indicative active second plural
+urn:cite2:kanones:forms.v1:3336110000|finite verb:  future indicative active third plural
+urn:cite2:kanones:forms.v1:3116310000|finite verb:  future optative active first singular
+urn:cite2:kanones:forms.v1:3216310000|finite verb:  future optative active second singular
+urn:cite2:kanones:forms.v1:3316310000|finite verb:  future optative active third singular
+urn:cite2:kanones:forms.v1:3126310000|finite verb:  future optative active first dual
+urn:cite2:kanones:forms.v1:3226310000|finite verb:  future optative active second dual
+urn:cite2:kanones:forms.v1:3326310000|finite verb:  future optative active third dual
+urn:cite2:kanones:forms.v1:3136310000|finite verb:  future optative active first plural
+urn:cite2:kanones:forms.v1:3236310000|finite verb:  future optative active second plural
+urn:cite2:kanones:forms.v1:3336310000|finite verb:  future optative active third plural
+urn:cite2:kanones:forms.v1:3111120000|finite verb:  present indicative middle first singular
+urn:cite2:kanones:forms.v1:3211120000|finite verb:  present indicative middle second singular
+urn:cite2:kanones:forms.v1:3311120000|finite verb:  present indicative middle third singular
+urn:cite2:kanones:forms.v1:3121120000|finite verb:  present indicative middle first dual
+urn:cite2:kanones:forms.v1:3221120000|finite verb:  present indicative middle second dual
+urn:cite2:kanones:forms.v1:3321120000|finite verb:  present indicative middle third dual
+urn:cite2:kanones:forms.v1:3131120000|finite verb:  present indicative middle first plural
+urn:cite2:kanones:forms.v1:3231120000|finite verb:  present indicative middle second plural
+urn:cite2:kanones:forms.v1:3331120000|finite verb:  present indicative middle third plural
+urn:cite2:kanones:forms.v1:3111220000|finite verb:  present subjunctive middle first singular
+urn:cite2:kanones:forms.v1:3211220000|finite verb:  present subjunctive middle second singular
+urn:cite2:kanones:forms.v1:3311220000|finite verb:  present subjunctive middle third singular
+urn:cite2:kanones:forms.v1:3121220000|finite verb:  present subjunctive middle first dual
+urn:cite2:kanones:forms.v1:3221220000|finite verb:  present subjunctive middle second dual
+urn:cite2:kanones:forms.v1:3321220000|finite verb:  present subjunctive middle third dual
+urn:cite2:kanones:forms.v1:3131220000|finite verb:  present subjunctive middle first plural
+urn:cite2:kanones:forms.v1:3231220000|finite verb:  present subjunctive middle second plural
+urn:cite2:kanones:forms.v1:3331220000|finite verb:  present subjunctive middle third plural
+urn:cite2:kanones:forms.v1:3111320000|finite verb:  present optative middle first singular
+urn:cite2:kanones:forms.v1:3211320000|finite verb:  present optative middle second singular
+urn:cite2:kanones:forms.v1:3311320000|finite verb:  present optative middle third singular
+urn:cite2:kanones:forms.v1:3121320000|finite verb:  present optative middle first dual
+urn:cite2:kanones:forms.v1:3221320000|finite verb:  present optative middle second dual
+urn:cite2:kanones:forms.v1:3321320000|finite verb:  present optative middle third dual
+urn:cite2:kanones:forms.v1:3131320000|finite verb:  present optative middle first plural
+urn:cite2:kanones:forms.v1:3231320000|finite verb:  present optative middle second plural
+urn:cite2:kanones:forms.v1:3331320000|finite verb:  present optative middle third plural
+urn:cite2:kanones:forms.v1:3112120000|finite verb:  imperfect indicative middle first singular
+urn:cite2:kanones:forms.v1:3212120000|finite verb:  imperfect indicative middle second singular
+urn:cite2:kanones:forms.v1:3312120000|finite verb:  imperfect indicative middle third singular
+urn:cite2:kanones:forms.v1:3122120000|finite verb:  imperfect indicative middle first dual
+urn:cite2:kanones:forms.v1:3222120000|finite verb:  imperfect indicative middle second dual
+urn:cite2:kanones:forms.v1:3322120000|finite verb:  imperfect indicative middle third dual
+urn:cite2:kanones:forms.v1:3132120000|finite verb:  imperfect indicative middle first plural
+urn:cite2:kanones:forms.v1:3232120000|finite verb:  imperfect indicative middle second plural
+urn:cite2:kanones:forms.v1:3332120000|finite verb:  imperfect indicative middle third plural
+urn:cite2:kanones:forms.v1:3113120000|finite verb:  aorist indicative middle first singular
+urn:cite2:kanones:forms.v1:3213120000|finite verb:  aorist indicative middle second singular
+urn:cite2:kanones:forms.v1:3313120000|finite verb:  aorist indicative middle third singular
+urn:cite2:kanones:forms.v1:3123120000|finite verb:  aorist indicative middle first dual
+urn:cite2:kanones:forms.v1:3223120000|finite verb:  aorist indicative middle second dual
+urn:cite2:kanones:forms.v1:3323120000|finite verb:  aorist indicative middle third dual
+urn:cite2:kanones:forms.v1:3133120000|finite verb:  aorist indicative middle first plural
+urn:cite2:kanones:forms.v1:3233120000|finite verb:  aorist indicative middle second plural
+urn:cite2:kanones:forms.v1:3333120000|finite verb:  aorist indicative middle third plural
+urn:cite2:kanones:forms.v1:3113220000|finite verb:  aorist subjunctive middle first singular
+urn:cite2:kanones:forms.v1:3213220000|finite verb:  aorist subjunctive middle second singular
+urn:cite2:kanones:forms.v1:3313220000|finite verb:  aorist subjunctive middle third singular
+urn:cite2:kanones:forms.v1:3123220000|finite verb:  aorist subjunctive middle first dual
+urn:cite2:kanones:forms.v1:3223220000|finite verb:  aorist subjunctive middle second dual
+urn:cite2:kanones:forms.v1:3323220000|finite verb:  aorist subjunctive middle third dual
+urn:cite2:kanones:forms.v1:3133220000|finite verb:  aorist subjunctive middle first plural
+urn:cite2:kanones:forms.v1:3233220000|finite verb:  aorist subjunctive middle second plural
+urn:cite2:kanones:forms.v1:3333220000|finite verb:  aorist subjunctive middle third plural
+urn:cite2:kanones:forms.v1:3113320000|finite verb:  aorist optative middle first singular
+urn:cite2:kanones:forms.v1:3213320000|finite verb:  aorist optative middle second singular
+urn:cite2:kanones:forms.v1:3313320000|finite verb:  aorist optative middle third singular
+urn:cite2:kanones:forms.v1:3123320000|finite verb:  aorist optative middle first dual
+urn:cite2:kanones:forms.v1:3223320000|finite verb:  aorist optative middle second dual
+urn:cite2:kanones:forms.v1:3323320000|finite verb:  aorist optative middle third dual
+urn:cite2:kanones:forms.v1:3133320000|finite verb:  aorist optative middle first plural
+urn:cite2:kanones:forms.v1:3233320000|finite verb:  aorist optative middle second plural
+urn:cite2:kanones:forms.v1:3333320000|finite verb:  aorist optative middle third plural
+urn:cite2:kanones:forms.v1:3114120000|finite verb:  perfect indicative middle first singular
+urn:cite2:kanones:forms.v1:3214120000|finite verb:  perfect indicative middle second singular
+urn:cite2:kanones:forms.v1:3314120000|finite verb:  perfect indicative middle third singular
+urn:cite2:kanones:forms.v1:3124120000|finite verb:  perfect indicative middle first dual
+urn:cite2:kanones:forms.v1:3224120000|finite verb:  perfect indicative middle second dual
+urn:cite2:kanones:forms.v1:3324120000|finite verb:  perfect indicative middle third dual
+urn:cite2:kanones:forms.v1:3134120000|finite verb:  perfect indicative middle first plural
+urn:cite2:kanones:forms.v1:3234120000|finite verb:  perfect indicative middle second plural
+urn:cite2:kanones:forms.v1:3334120000|finite verb:  perfect indicative middle third plural
+urn:cite2:kanones:forms.v1:3114220000|finite verb:  perfect subjunctive middle first singular
+urn:cite2:kanones:forms.v1:3214220000|finite verb:  perfect subjunctive middle second singular
+urn:cite2:kanones:forms.v1:3314220000|finite verb:  perfect subjunctive middle third singular
+urn:cite2:kanones:forms.v1:3124220000|finite verb:  perfect subjunctive middle first dual
+urn:cite2:kanones:forms.v1:3224220000|finite verb:  perfect subjunctive middle second dual
+urn:cite2:kanones:forms.v1:3324220000|finite verb:  perfect subjunctive middle third dual
+urn:cite2:kanones:forms.v1:3134220000|finite verb:  perfect subjunctive middle first plural
+urn:cite2:kanones:forms.v1:3234220000|finite verb:  perfect subjunctive middle second plural
+urn:cite2:kanones:forms.v1:3334220000|finite verb:  perfect subjunctive middle third plural
+urn:cite2:kanones:forms.v1:3114320000|finite verb:  perfect optative middle first singular
+urn:cite2:kanones:forms.v1:3214320000|finite verb:  perfect optative middle second singular
+urn:cite2:kanones:forms.v1:3314320000|finite verb:  perfect optative middle third singular
+urn:cite2:kanones:forms.v1:3124320000|finite verb:  perfect optative middle first dual
+urn:cite2:kanones:forms.v1:3224320000|finite verb:  perfect optative middle second dual
+urn:cite2:kanones:forms.v1:3324320000|finite verb:  perfect optative middle third dual
+urn:cite2:kanones:forms.v1:3134320000|finite verb:  perfect optative middle first plural
+urn:cite2:kanones:forms.v1:3234320000|finite verb:  perfect optative middle second plural
+urn:cite2:kanones:forms.v1:3334320000|finite verb:  perfect optative middle third plural
+urn:cite2:kanones:forms.v1:3115120000|finite verb:  pluperfect indicative middle first singular
+urn:cite2:kanones:forms.v1:3215120000|finite verb:  pluperfect indicative middle second singular
+urn:cite2:kanones:forms.v1:3315120000|finite verb:  pluperfect indicative middle third singular
+urn:cite2:kanones:forms.v1:3125120000|finite verb:  pluperfect indicative middle first dual
+urn:cite2:kanones:forms.v1:3225120000|finite verb:  pluperfect indicative middle second dual
+urn:cite2:kanones:forms.v1:3325120000|finite verb:  pluperfect indicative middle third dual
+urn:cite2:kanones:forms.v1:3135120000|finite verb:  pluperfect indicative middle first plural
+urn:cite2:kanones:forms.v1:3235120000|finite verb:  pluperfect indicative middle second plural
+urn:cite2:kanones:forms.v1:3335120000|finite verb:  pluperfect indicative middle third plural
+urn:cite2:kanones:forms.v1:3116120000|finite verb:  future indicative middle first singular
+urn:cite2:kanones:forms.v1:3216120000|finite verb:  future indicative middle second singular
+urn:cite2:kanones:forms.v1:3316120000|finite verb:  future indicative middle third singular
+urn:cite2:kanones:forms.v1:3126120000|finite verb:  future indicative middle first dual
+urn:cite2:kanones:forms.v1:3226120000|finite verb:  future indicative middle second dual
+urn:cite2:kanones:forms.v1:3326120000|finite verb:  future indicative middle third dual
+urn:cite2:kanones:forms.v1:3136120000|finite verb:  future indicative middle first plural
+urn:cite2:kanones:forms.v1:3236120000|finite verb:  future indicative middle second plural
+urn:cite2:kanones:forms.v1:3336120000|finite verb:  future indicative middle third plural
+urn:cite2:kanones:forms.v1:3116320000|finite verb:  future optative middle first singular
+urn:cite2:kanones:forms.v1:3216320000|finite verb:  future optative middle second singular
+urn:cite2:kanones:forms.v1:3316320000|finite verb:  future optative middle third singular
+urn:cite2:kanones:forms.v1:3126320000|finite verb:  future optative middle first dual
+urn:cite2:kanones:forms.v1:3226320000|finite verb:  future optative middle second dual
+urn:cite2:kanones:forms.v1:3326320000|finite verb:  future optative middle third dual
+urn:cite2:kanones:forms.v1:3136320000|finite verb:  future optative middle first plural
+urn:cite2:kanones:forms.v1:3236320000|finite verb:  future optative middle second plural
+urn:cite2:kanones:forms.v1:3336320000|finite verb:  future optative middle third plural
+urn:cite2:kanones:forms.v1:3111130000|finite verb:  present indicative passive first singular
+urn:cite2:kanones:forms.v1:3211130000|finite verb:  present indicative passive second singular
+urn:cite2:kanones:forms.v1:3311130000|finite verb:  present indicative passive third singular
+urn:cite2:kanones:forms.v1:3121130000|finite verb:  present indicative passive first dual
+urn:cite2:kanones:forms.v1:3221130000|finite verb:  present indicative passive second dual
+urn:cite2:kanones:forms.v1:3321130000|finite verb:  present indicative passive third dual
+urn:cite2:kanones:forms.v1:3131130000|finite verb:  present indicative passive first plural
+urn:cite2:kanones:forms.v1:3231130000|finite verb:  present indicative passive second plural
+urn:cite2:kanones:forms.v1:3331130000|finite verb:  present indicative passive third plural
+urn:cite2:kanones:forms.v1:3111230000|finite verb:  present subjunctive passive first singular
+urn:cite2:kanones:forms.v1:3211230000|finite verb:  present subjunctive passive second singular
+urn:cite2:kanones:forms.v1:3311230000|finite verb:  present subjunctive passive third singular
+urn:cite2:kanones:forms.v1:3121230000|finite verb:  present subjunctive passive first dual
+urn:cite2:kanones:forms.v1:3221230000|finite verb:  present subjunctive passive second dual
+urn:cite2:kanones:forms.v1:3321230000|finite verb:  present subjunctive passive third dual
+urn:cite2:kanones:forms.v1:3131230000|finite verb:  present subjunctive passive first plural
+urn:cite2:kanones:forms.v1:3231230000|finite verb:  present subjunctive passive second plural
+urn:cite2:kanones:forms.v1:3331230000|finite verb:  present subjunctive passive third plural
+urn:cite2:kanones:forms.v1:3111330000|finite verb:  present optative passive first singular
+urn:cite2:kanones:forms.v1:3211330000|finite verb:  present optative passive second singular
+urn:cite2:kanones:forms.v1:3311330000|finite verb:  present optative passive third singular
+urn:cite2:kanones:forms.v1:3121330000|finite verb:  present optative passive first dual
+urn:cite2:kanones:forms.v1:3221330000|finite verb:  present optative passive second dual
+urn:cite2:kanones:forms.v1:3321330000|finite verb:  present optative passive third dual
+urn:cite2:kanones:forms.v1:3131330000|finite verb:  present optative passive first plural
+urn:cite2:kanones:forms.v1:3231330000|finite verb:  present optative passive second plural
+urn:cite2:kanones:forms.v1:3331330000|finite verb:  present optative passive third plural
+urn:cite2:kanones:forms.v1:3112130000|finite verb:  imperfect indicative passive first singular
+urn:cite2:kanones:forms.v1:3212130000|finite verb:  imperfect indicative passive second singular
+urn:cite2:kanones:forms.v1:3312130000|finite verb:  imperfect indicative passive third singular
+urn:cite2:kanones:forms.v1:3122130000|finite verb:  imperfect indicative passive first dual
+urn:cite2:kanones:forms.v1:3222130000|finite verb:  imperfect indicative passive second dual
+urn:cite2:kanones:forms.v1:3322130000|finite verb:  imperfect indicative passive third dual
+urn:cite2:kanones:forms.v1:3132130000|finite verb:  imperfect indicative passive first plural
+urn:cite2:kanones:forms.v1:3232130000|finite verb:  imperfect indicative passive second plural
+urn:cite2:kanones:forms.v1:3332130000|finite verb:  imperfect indicative passive third plural
+urn:cite2:kanones:forms.v1:3113130000|finite verb:  aorist indicative passive first singular
+urn:cite2:kanones:forms.v1:3213130000|finite verb:  aorist indicative passive second singular
+urn:cite2:kanones:forms.v1:3313130000|finite verb:  aorist indicative passive third singular
+urn:cite2:kanones:forms.v1:3123130000|finite verb:  aorist indicative passive first dual
+urn:cite2:kanones:forms.v1:3223130000|finite verb:  aorist indicative passive second dual
+urn:cite2:kanones:forms.v1:3323130000|finite verb:  aorist indicative passive third dual
+urn:cite2:kanones:forms.v1:3133130000|finite verb:  aorist indicative passive first plural
+urn:cite2:kanones:forms.v1:3233130000|finite verb:  aorist indicative passive second plural
+urn:cite2:kanones:forms.v1:3333130000|finite verb:  aorist indicative passive third plural
+urn:cite2:kanones:forms.v1:3113230000|finite verb:  aorist subjunctive passive first singular
+urn:cite2:kanones:forms.v1:3213230000|finite verb:  aorist subjunctive passive second singular
+urn:cite2:kanones:forms.v1:3313230000|finite verb:  aorist subjunctive passive third singular
+urn:cite2:kanones:forms.v1:3123230000|finite verb:  aorist subjunctive passive first dual
+urn:cite2:kanones:forms.v1:3223230000|finite verb:  aorist subjunctive passive second dual
+urn:cite2:kanones:forms.v1:3323230000|finite verb:  aorist subjunctive passive third dual
+urn:cite2:kanones:forms.v1:3133230000|finite verb:  aorist subjunctive passive first plural
+urn:cite2:kanones:forms.v1:3233230000|finite verb:  aorist subjunctive passive second plural
+urn:cite2:kanones:forms.v1:3333230000|finite verb:  aorist subjunctive passive third plural
+urn:cite2:kanones:forms.v1:3113330000|finite verb:  aorist optative passive first singular
+urn:cite2:kanones:forms.v1:3213330000|finite verb:  aorist optative passive second singular
+urn:cite2:kanones:forms.v1:3313330000|finite verb:  aorist optative passive third singular
+urn:cite2:kanones:forms.v1:3123330000|finite verb:  aorist optative passive first dual
+urn:cite2:kanones:forms.v1:3223330000|finite verb:  aorist optative passive second dual
+urn:cite2:kanones:forms.v1:3323330000|finite verb:  aorist optative passive third dual
+urn:cite2:kanones:forms.v1:3133330000|finite verb:  aorist optative passive first plural
+urn:cite2:kanones:forms.v1:3233330000|finite verb:  aorist optative passive second plural
+urn:cite2:kanones:forms.v1:3333330000|finite verb:  aorist optative passive third plural
+urn:cite2:kanones:forms.v1:3114130000|finite verb:  perfect indicative passive first singular
+urn:cite2:kanones:forms.v1:3214130000|finite verb:  perfect indicative passive second singular
+urn:cite2:kanones:forms.v1:3314130000|finite verb:  perfect indicative passive third singular
+urn:cite2:kanones:forms.v1:3124130000|finite verb:  perfect indicative passive first dual
+urn:cite2:kanones:forms.v1:3224130000|finite verb:  perfect indicative passive second dual
+urn:cite2:kanones:forms.v1:3324130000|finite verb:  perfect indicative passive third dual
+urn:cite2:kanones:forms.v1:3134130000|finite verb:  perfect indicative passive first plural
+urn:cite2:kanones:forms.v1:3234130000|finite verb:  perfect indicative passive second plural
+urn:cite2:kanones:forms.v1:3334130000|finite verb:  perfect indicative passive third plural
+urn:cite2:kanones:forms.v1:3114230000|finite verb:  perfect subjunctive passive first singular
+urn:cite2:kanones:forms.v1:3214230000|finite verb:  perfect subjunctive passive second singular
+urn:cite2:kanones:forms.v1:3314230000|finite verb:  perfect subjunctive passive third singular
+urn:cite2:kanones:forms.v1:3124230000|finite verb:  perfect subjunctive passive first dual
+urn:cite2:kanones:forms.v1:3224230000|finite verb:  perfect subjunctive passive second dual
+urn:cite2:kanones:forms.v1:3324230000|finite verb:  perfect subjunctive passive third dual
+urn:cite2:kanones:forms.v1:3134230000|finite verb:  perfect subjunctive passive first plural
+urn:cite2:kanones:forms.v1:3234230000|finite verb:  perfect subjunctive passive second plural
+urn:cite2:kanones:forms.v1:3334230000|finite verb:  perfect subjunctive passive third plural
+urn:cite2:kanones:forms.v1:3114330000|finite verb:  perfect optative passive first singular
+urn:cite2:kanones:forms.v1:3214330000|finite verb:  perfect optative passive second singular
+urn:cite2:kanones:forms.v1:3314330000|finite verb:  perfect optative passive third singular
+urn:cite2:kanones:forms.v1:3124330000|finite verb:  perfect optative passive first dual
+urn:cite2:kanones:forms.v1:3224330000|finite verb:  perfect optative passive second dual
+urn:cite2:kanones:forms.v1:3324330000|finite verb:  perfect optative passive third dual
+urn:cite2:kanones:forms.v1:3134330000|finite verb:  perfect optative passive first plural
+urn:cite2:kanones:forms.v1:3234330000|finite verb:  perfect optative passive second plural
+urn:cite2:kanones:forms.v1:3334330000|finite verb:  perfect optative passive third plural
+urn:cite2:kanones:forms.v1:3115130000|finite verb:  pluperfect indicative passive first singular
+urn:cite2:kanones:forms.v1:3215130000|finite verb:  pluperfect indicative passive second singular
+urn:cite2:kanones:forms.v1:3315130000|finite verb:  pluperfect indicative passive third singular
+urn:cite2:kanones:forms.v1:3125130000|finite verb:  pluperfect indicative passive first dual
+urn:cite2:kanones:forms.v1:3225130000|finite verb:  pluperfect indicative passive second dual
+urn:cite2:kanones:forms.v1:3325130000|finite verb:  pluperfect indicative passive third dual
+urn:cite2:kanones:forms.v1:3135130000|finite verb:  pluperfect indicative passive first plural
+urn:cite2:kanones:forms.v1:3235130000|finite verb:  pluperfect indicative passive second plural
+urn:cite2:kanones:forms.v1:3335130000|finite verb:  pluperfect indicative passive third plural
+urn:cite2:kanones:forms.v1:3116130000|finite verb:  future indicative passive first singular
+urn:cite2:kanones:forms.v1:3216130000|finite verb:  future indicative passive second singular
+urn:cite2:kanones:forms.v1:3316130000|finite verb:  future indicative passive third singular
+urn:cite2:kanones:forms.v1:3126130000|finite verb:  future indicative passive first dual
+urn:cite2:kanones:forms.v1:3226130000|finite verb:  future indicative passive second dual
+urn:cite2:kanones:forms.v1:3326130000|finite verb:  future indicative passive third dual
+urn:cite2:kanones:forms.v1:3136130000|finite verb:  future indicative passive first plural
+urn:cite2:kanones:forms.v1:3236130000|finite verb:  future indicative passive second plural
+urn:cite2:kanones:forms.v1:3336130000|finite verb:  future indicative passive third plural
+urn:cite2:kanones:forms.v1:3116330000|finite verb:  future optative passive first singular
+urn:cite2:kanones:forms.v1:3216330000|finite verb:  future optative passive second singular
+urn:cite2:kanones:forms.v1:3316330000|finite verb:  future optative passive third singular
+urn:cite2:kanones:forms.v1:3126330000|finite verb:  future optative passive first dual
+urn:cite2:kanones:forms.v1:3226330000|finite verb:  future optative passive second dual
+urn:cite2:kanones:forms.v1:3326330000|finite verb:  future optative passive third dual
+urn:cite2:kanones:forms.v1:3136330000|finite verb:  future optative passive first plural
+urn:cite2:kanones:forms.v1:3236330000|finite verb:  future optative passive second plural
+urn:cite2:kanones:forms.v1:3336330000|finite verb:  future optative passive third plural
+urn:cite2:kanones:forms.v1:3211410000|finite verb:  present imperative active second singular
+urn:cite2:kanones:forms.v1:3311410000|finite verb:  present imperative active third singular
+urn:cite2:kanones:forms.v1:3221410000|finite verb:  present imperative active second dual
+urn:cite2:kanones:forms.v1:3321410000|finite verb:  present imperative active third dual
+urn:cite2:kanones:forms.v1:3231410000|finite verb:  present imperative active second plural
+urn:cite2:kanones:forms.v1:3331410000|finite verb:  present imperative active third plural
+urn:cite2:kanones:forms.v1:3213410000|finite verb:  aorist imperative active second singular
+urn:cite2:kanones:forms.v1:3313410000|finite verb:  aorist imperative active third singular
+urn:cite2:kanones:forms.v1:3223410000|finite verb:  aorist imperative active second dual
+urn:cite2:kanones:forms.v1:3323410000|finite verb:  aorist imperative active third dual
+urn:cite2:kanones:forms.v1:3233410000|finite verb:  aorist imperative active second plural
+urn:cite2:kanones:forms.v1:3333410000|finite verb:  aorist imperative active third plural
+urn:cite2:kanones:forms.v1:3214410000|finite verb:  perfect imperative active second singular
+urn:cite2:kanones:forms.v1:3314410000|finite verb:  perfect imperative active third singular
+urn:cite2:kanones:forms.v1:3224410000|finite verb:  perfect imperative active second dual
+urn:cite2:kanones:forms.v1:3324410000|finite verb:  perfect imperative active third dual
+urn:cite2:kanones:forms.v1:3234410000|finite verb:  perfect imperative active second plural
+urn:cite2:kanones:forms.v1:3334410000|finite verb:  perfect imperative active third plural
+urn:cite2:kanones:forms.v1:3211420000|finite verb:  present imperative middle second singular
+urn:cite2:kanones:forms.v1:3311420000|finite verb:  present imperative middle third singular
+urn:cite2:kanones:forms.v1:3221420000|finite verb:  present imperative middle second dual
+urn:cite2:kanones:forms.v1:3321420000|finite verb:  present imperative middle third dual
+urn:cite2:kanones:forms.v1:3231420000|finite verb:  present imperative middle second plural
+urn:cite2:kanones:forms.v1:3331420000|finite verb:  present imperative middle third plural
+urn:cite2:kanones:forms.v1:3213420000|finite verb:  aorist imperative middle second singular
+urn:cite2:kanones:forms.v1:3313420000|finite verb:  aorist imperative middle third singular
+urn:cite2:kanones:forms.v1:3223420000|finite verb:  aorist imperative middle second dual
+urn:cite2:kanones:forms.v1:3323420000|finite verb:  aorist imperative middle third dual
+urn:cite2:kanones:forms.v1:3233420000|finite verb:  aorist imperative middle second plural
+urn:cite2:kanones:forms.v1:3333420000|finite verb:  aorist imperative middle third plural
+urn:cite2:kanones:forms.v1:3214420000|finite verb:  perfect imperative middle second singular
+urn:cite2:kanones:forms.v1:3314420000|finite verb:  perfect imperative middle third singular
+urn:cite2:kanones:forms.v1:3224420000|finite verb:  perfect imperative middle second dual
+urn:cite2:kanones:forms.v1:3324420000|finite verb:  perfect imperative middle third dual
+urn:cite2:kanones:forms.v1:3234420000|finite verb:  perfect imperative middle second plural
+urn:cite2:kanones:forms.v1:3334420000|finite verb:  perfect imperative middle third plural
+urn:cite2:kanones:forms.v1:3211430000|finite verb:  present imperative passive second singular
+urn:cite2:kanones:forms.v1:3311430000|finite verb:  present imperative passive third singular
+urn:cite2:kanones:forms.v1:3221430000|finite verb:  present imperative passive second dual
+urn:cite2:kanones:forms.v1:3321430000|finite verb:  present imperative passive third dual
+urn:cite2:kanones:forms.v1:3231430000|finite verb:  present imperative passive second plural
+urn:cite2:kanones:forms.v1:3331430000|finite verb:  present imperative passive third plural
+urn:cite2:kanones:forms.v1:3213430000|finite verb:  aorist imperative passive second singular
+urn:cite2:kanones:forms.v1:3313430000|finite verb:  aorist imperative passive third singular
+urn:cite2:kanones:forms.v1:3223430000|finite verb:  aorist imperative passive second dual
+urn:cite2:kanones:forms.v1:3323430000|finite verb:  aorist imperative passive third dual
+urn:cite2:kanones:forms.v1:3233430000|finite verb:  aorist imperative passive second plural
+urn:cite2:kanones:forms.v1:3333430000|finite verb:  aorist imperative passive third plural
+urn:cite2:kanones:forms.v1:3214430000|finite verb:  perfect imperative passive second singular
+urn:cite2:kanones:forms.v1:3314430000|finite verb:  perfect imperative passive third singular
+urn:cite2:kanones:forms.v1:3224430000|finite verb:  perfect imperative passive second dual
+urn:cite2:kanones:forms.v1:3324430000|finite verb:  perfect imperative passive third dual
+urn:cite2:kanones:forms.v1:3234430000|finite verb:  perfect imperative passive second plural
+urn:cite2:kanones:forms.v1:3334430000|finite verb:  perfect imperative passive third plural
+urn:cite2:kanones:forms.v1:6010001100|verbal adjective: masculine nominative singular
+urn:cite2:kanones:forms.v1:6010001200|verbal adjective: masculine genitive singular
+urn:cite2:kanones:forms.v1:6010001300|verbal adjective: masculine dative singular
+urn:cite2:kanones:forms.v1:6010001400|verbal adjective: masculine accusative singular
+urn:cite2:kanones:forms.v1:6010001500|verbal adjective: masculine vocative singular
+urn:cite2:kanones:forms.v1:6010002100|verbal adjective: feminine nominative singular
+urn:cite2:kanones:forms.v1:6010002200|verbal adjective: feminine genitive singular
+urn:cite2:kanones:forms.v1:6010002300|verbal adjective: feminine dative singular
+urn:cite2:kanones:forms.v1:6010002400|verbal adjective: feminine accusative singular
+urn:cite2:kanones:forms.v1:6010002500|verbal adjective: feminine vocative singular
+urn:cite2:kanones:forms.v1:6010003100|verbal adjective: neuter nominative singular
+urn:cite2:kanones:forms.v1:6010003200|verbal adjective: neuter genitive singular
+urn:cite2:kanones:forms.v1:6010003300|verbal adjective: neuter dative singular
+urn:cite2:kanones:forms.v1:6010003400|verbal adjective: neuter accusative singular
+urn:cite2:kanones:forms.v1:6010003500|verbal adjective: neuter vocative singular
+urn:cite2:kanones:forms.v1:6020001100|verbal adjective: masculine nominative dual
+urn:cite2:kanones:forms.v1:6020001200|verbal adjective: masculine genitive dual
+urn:cite2:kanones:forms.v1:6020001300|verbal adjective: masculine dative dual
+urn:cite2:kanones:forms.v1:6020001400|verbal adjective: masculine accusative dual
+urn:cite2:kanones:forms.v1:6020001500|verbal adjective: masculine vocative dual
+urn:cite2:kanones:forms.v1:6020002100|verbal adjective: feminine nominative dual
+urn:cite2:kanones:forms.v1:6020002200|verbal adjective: feminine genitive dual
+urn:cite2:kanones:forms.v1:6020002300|verbal adjective: feminine dative dual
+urn:cite2:kanones:forms.v1:6020002400|verbal adjective: feminine accusative dual
+urn:cite2:kanones:forms.v1:6020002500|verbal adjective: feminine vocative dual
+urn:cite2:kanones:forms.v1:6020003100|verbal adjective: neuter nominative dual
+urn:cite2:kanones:forms.v1:6020003200|verbal adjective: neuter genitive dual
+urn:cite2:kanones:forms.v1:6020003300|verbal adjective: neuter dative dual
+urn:cite2:kanones:forms.v1:6020003400|verbal adjective: neuter accusative dual
+urn:cite2:kanones:forms.v1:6020003500|verbal adjective: neuter vocative dual
+urn:cite2:kanones:forms.v1:6030001100|verbal adjective: masculine nominative plural
+urn:cite2:kanones:forms.v1:6030001200|verbal adjective: masculine genitive plural
+urn:cite2:kanones:forms.v1:6030001300|verbal adjective: masculine dative plural
+urn:cite2:kanones:forms.v1:6030001400|verbal adjective: masculine accusative plural
+urn:cite2:kanones:forms.v1:6030001500|verbal adjective: masculine vocative plural
+urn:cite2:kanones:forms.v1:6030002100|verbal adjective: feminine nominative plural
+urn:cite2:kanones:forms.v1:6030002200|verbal adjective: feminine genitive plural
+urn:cite2:kanones:forms.v1:6030002300|verbal adjective: feminine dative plural
+urn:cite2:kanones:forms.v1:6030002400|verbal adjective: feminine accusative plural
+urn:cite2:kanones:forms.v1:6030002500|verbal adjective: feminine vocative plural
+urn:cite2:kanones:forms.v1:6030003100|verbal adjective: neuter nominative plural
+urn:cite2:kanones:forms.v1:6030003200|verbal adjective: neuter genitive plural
+urn:cite2:kanones:forms.v1:6030003300|verbal adjective: neuter dative plural
+urn:cite2:kanones:forms.v1:6030003400|verbal adjective: neuter accusative plural
+urn:cite2:kanones:forms.v1:6030003500|verbal adjective: neuter vocative plural
+urn:cite2:kanones:forms.v1:4001010000|infinitive: present active
+urn:cite2:kanones:forms.v1:4001020000|infinitive: present middle
+urn:cite2:kanones:forms.v1:4001030000|infinitive: present passive
+urn:cite2:kanones:forms.v1:4006010000|infinitive: future active
+urn:cite2:kanones:forms.v1:4006020000|infinitive: future middle
+urn:cite2:kanones:forms.v1:4006030000|infinitive: future passive
+urn:cite2:kanones:forms.v1:4003010000|infinitive: aorist active
+urn:cite2:kanones:forms.v1:4003020000|infinitive: aorist middle
+urn:cite2:kanones:forms.v1:4003030000|infinitive: aorist passive
+urn:cite2:kanones:forms.v1:4004010000|infinitive: perfect active
+urn:cite2:kanones:forms.v1:4004020000|infinitive: perfect middle
+urn:cite2:kanones:forms.v1:4004030000|infinitive: perfect passive
+urn:cite2:kanones:forms.v1:5011011100|participle: present active masculine nominative singular
+urn:cite2:kanones:forms.v1:5011011200|participle: present active masculine genitive singular
+urn:cite2:kanones:forms.v1:5011011300|participle: present active masculine dative singular
+urn:cite2:kanones:forms.v1:5011011400|participle: present active masculine accusative singular
+urn:cite2:kanones:forms.v1:5011011500|participle: present active masculine vocative singular
+urn:cite2:kanones:forms.v1:5011012100|participle: present active feminine nominative singular
+urn:cite2:kanones:forms.v1:5011012200|participle: present active feminine genitive singular
+urn:cite2:kanones:forms.v1:5011012300|participle: present active feminine dative singular
+urn:cite2:kanones:forms.v1:5011012400|participle: present active feminine accusative singular
+urn:cite2:kanones:forms.v1:5011012500|participle: present active feminine vocative singular
+urn:cite2:kanones:forms.v1:5011013100|participle: present active neuter nominative singular
+urn:cite2:kanones:forms.v1:5011013200|participle: present active neuter genitive singular
+urn:cite2:kanones:forms.v1:5011013300|participle: present active neuter dative singular
+urn:cite2:kanones:forms.v1:5011013400|participle: present active neuter accusative singular
+urn:cite2:kanones:forms.v1:5011013500|participle: present active neuter vocative singular
+urn:cite2:kanones:forms.v1:5021011100|participle: present active masculine nominative dual
+urn:cite2:kanones:forms.v1:5021011200|participle: present active masculine genitive dual
+urn:cite2:kanones:forms.v1:5021011300|participle: present active masculine dative dual
+urn:cite2:kanones:forms.v1:5021011400|participle: present active masculine accusative dual
+urn:cite2:kanones:forms.v1:5021011500|participle: present active masculine vocative dual
+urn:cite2:kanones:forms.v1:5021012100|participle: present active feminine nominative dual
+urn:cite2:kanones:forms.v1:5021012200|participle: present active feminine genitive dual
+urn:cite2:kanones:forms.v1:5021012300|participle: present active feminine dative dual
+urn:cite2:kanones:forms.v1:5021012400|participle: present active feminine accusative dual
+urn:cite2:kanones:forms.v1:5021012500|participle: present active feminine vocative dual
+urn:cite2:kanones:forms.v1:5021013100|participle: present active neuter nominative dual
+urn:cite2:kanones:forms.v1:5021013200|participle: present active neuter genitive dual
+urn:cite2:kanones:forms.v1:5021013300|participle: present active neuter dative dual
+urn:cite2:kanones:forms.v1:5021013400|participle: present active neuter accusative dual
+urn:cite2:kanones:forms.v1:5021013500|participle: present active neuter vocative dual
+urn:cite2:kanones:forms.v1:5031011100|participle: present active masculine nominative plural
+urn:cite2:kanones:forms.v1:5031011200|participle: present active masculine genitive plural
+urn:cite2:kanones:forms.v1:5031011300|participle: present active masculine dative plural
+urn:cite2:kanones:forms.v1:5031011400|participle: present active masculine accusative plural
+urn:cite2:kanones:forms.v1:5031011500|participle: present active masculine vocative plural
+urn:cite2:kanones:forms.v1:5031012100|participle: present active feminine nominative plural
+urn:cite2:kanones:forms.v1:5031012200|participle: present active feminine genitive plural
+urn:cite2:kanones:forms.v1:5031012300|participle: present active feminine dative plural
+urn:cite2:kanones:forms.v1:5031012400|participle: present active feminine accusative plural
+urn:cite2:kanones:forms.v1:5031012500|participle: present active feminine vocative plural
+urn:cite2:kanones:forms.v1:5031013100|participle: present active neuter nominative plural
+urn:cite2:kanones:forms.v1:5031013200|participle: present active neuter genitive plural
+urn:cite2:kanones:forms.v1:5031013300|participle: present active neuter dative plural
+urn:cite2:kanones:forms.v1:5031013400|participle: present active neuter accusative plural
+urn:cite2:kanones:forms.v1:5031013500|participle: present active neuter vocative plural
+urn:cite2:kanones:forms.v1:5011021100|participle: present middle masculine nominative singular
+urn:cite2:kanones:forms.v1:5011021200|participle: present middle masculine genitive singular
+urn:cite2:kanones:forms.v1:5011021300|participle: present middle masculine dative singular
+urn:cite2:kanones:forms.v1:5011021400|participle: present middle masculine accusative singular
+urn:cite2:kanones:forms.v1:5011021500|participle: present middle masculine vocative singular
+urn:cite2:kanones:forms.v1:5011022100|participle: present middle feminine nominative singular
+urn:cite2:kanones:forms.v1:5011022200|participle: present middle feminine genitive singular
+urn:cite2:kanones:forms.v1:5011022300|participle: present middle feminine dative singular
+urn:cite2:kanones:forms.v1:5011022400|participle: present middle feminine accusative singular
+urn:cite2:kanones:forms.v1:5011022500|participle: present middle feminine vocative singular
+urn:cite2:kanones:forms.v1:5011023100|participle: present middle neuter nominative singular
+urn:cite2:kanones:forms.v1:5011023200|participle: present middle neuter genitive singular
+urn:cite2:kanones:forms.v1:5011023300|participle: present middle neuter dative singular
+urn:cite2:kanones:forms.v1:5011023400|participle: present middle neuter accusative singular
+urn:cite2:kanones:forms.v1:5011023500|participle: present middle neuter vocative singular
+urn:cite2:kanones:forms.v1:5021021100|participle: present middle masculine nominative dual
+urn:cite2:kanones:forms.v1:5021021200|participle: present middle masculine genitive dual
+urn:cite2:kanones:forms.v1:5021021300|participle: present middle masculine dative dual
+urn:cite2:kanones:forms.v1:5021021400|participle: present middle masculine accusative dual
+urn:cite2:kanones:forms.v1:5021021500|participle: present middle masculine vocative dual
+urn:cite2:kanones:forms.v1:5021022100|participle: present middle feminine nominative dual
+urn:cite2:kanones:forms.v1:5021022200|participle: present middle feminine genitive dual
+urn:cite2:kanones:forms.v1:5021022300|participle: present middle feminine dative dual
+urn:cite2:kanones:forms.v1:5021022400|participle: present middle feminine accusative dual
+urn:cite2:kanones:forms.v1:5021022500|participle: present middle feminine vocative dual
+urn:cite2:kanones:forms.v1:5021023100|participle: present middle neuter nominative dual
+urn:cite2:kanones:forms.v1:5021023200|participle: present middle neuter genitive dual
+urn:cite2:kanones:forms.v1:5021023300|participle: present middle neuter dative dual
+urn:cite2:kanones:forms.v1:5021023400|participle: present middle neuter accusative dual
+urn:cite2:kanones:forms.v1:5021023500|participle: present middle neuter vocative dual
+urn:cite2:kanones:forms.v1:5031021100|participle: present middle masculine nominative plural
+urn:cite2:kanones:forms.v1:5031021200|participle: present middle masculine genitive plural
+urn:cite2:kanones:forms.v1:5031021300|participle: present middle masculine dative plural
+urn:cite2:kanones:forms.v1:5031021400|participle: present middle masculine accusative plural
+urn:cite2:kanones:forms.v1:5031021500|participle: present middle masculine vocative plural
+urn:cite2:kanones:forms.v1:5031022100|participle: present middle feminine nominative plural
+urn:cite2:kanones:forms.v1:5031022200|participle: present middle feminine genitive plural
+urn:cite2:kanones:forms.v1:5031022300|participle: present middle feminine dative plural
+urn:cite2:kanones:forms.v1:5031022400|participle: present middle feminine accusative plural
+urn:cite2:kanones:forms.v1:5031022500|participle: present middle feminine vocative plural
+urn:cite2:kanones:forms.v1:5031023100|participle: present middle neuter nominative plural
+urn:cite2:kanones:forms.v1:5031023200|participle: present middle neuter genitive plural
+urn:cite2:kanones:forms.v1:5031023300|participle: present middle neuter dative plural
+urn:cite2:kanones:forms.v1:5031023400|participle: present middle neuter accusative plural
+urn:cite2:kanones:forms.v1:5031023500|participle: present middle neuter vocative plural
+urn:cite2:kanones:forms.v1:5011031100|participle: present passive masculine nominative singular
+urn:cite2:kanones:forms.v1:5011031200|participle: present passive masculine genitive singular
+urn:cite2:kanones:forms.v1:5011031300|participle: present passive masculine dative singular
+urn:cite2:kanones:forms.v1:5011031400|participle: present passive masculine accusative singular
+urn:cite2:kanones:forms.v1:5011031500|participle: present passive masculine vocative singular
+urn:cite2:kanones:forms.v1:5011032100|participle: present passive feminine nominative singular
+urn:cite2:kanones:forms.v1:5011032200|participle: present passive feminine genitive singular
+urn:cite2:kanones:forms.v1:5011032300|participle: present passive feminine dative singular
+urn:cite2:kanones:forms.v1:5011032400|participle: present passive feminine accusative singular
+urn:cite2:kanones:forms.v1:5011032500|participle: present passive feminine vocative singular
+urn:cite2:kanones:forms.v1:5011033100|participle: present passive neuter nominative singular
+urn:cite2:kanones:forms.v1:5011033200|participle: present passive neuter genitive singular
+urn:cite2:kanones:forms.v1:5011033300|participle: present passive neuter dative singular
+urn:cite2:kanones:forms.v1:5011033400|participle: present passive neuter accusative singular
+urn:cite2:kanones:forms.v1:5011033500|participle: present passive neuter vocative singular
+urn:cite2:kanones:forms.v1:5021031100|participle: present passive masculine nominative dual
+urn:cite2:kanones:forms.v1:5021031200|participle: present passive masculine genitive dual
+urn:cite2:kanones:forms.v1:5021031300|participle: present passive masculine dative dual
+urn:cite2:kanones:forms.v1:5021031400|participle: present passive masculine accusative dual
+urn:cite2:kanones:forms.v1:5021031500|participle: present passive masculine vocative dual
+urn:cite2:kanones:forms.v1:5021032100|participle: present passive feminine nominative dual
+urn:cite2:kanones:forms.v1:5021032200|participle: present passive feminine genitive dual
+urn:cite2:kanones:forms.v1:5021032300|participle: present passive feminine dative dual
+urn:cite2:kanones:forms.v1:5021032400|participle: present passive feminine accusative dual
+urn:cite2:kanones:forms.v1:5021032500|participle: present passive feminine vocative dual
+urn:cite2:kanones:forms.v1:5021033100|participle: present passive neuter nominative dual
+urn:cite2:kanones:forms.v1:5021033200|participle: present passive neuter genitive dual
+urn:cite2:kanones:forms.v1:5021033300|participle: present passive neuter dative dual
+urn:cite2:kanones:forms.v1:5021033400|participle: present passive neuter accusative dual
+urn:cite2:kanones:forms.v1:5021033500|participle: present passive neuter vocative dual
+urn:cite2:kanones:forms.v1:5031031100|participle: present passive masculine nominative plural
+urn:cite2:kanones:forms.v1:5031031200|participle: present passive masculine genitive plural
+urn:cite2:kanones:forms.v1:5031031300|participle: present passive masculine dative plural
+urn:cite2:kanones:forms.v1:5031031400|participle: present passive masculine accusative plural
+urn:cite2:kanones:forms.v1:5031031500|participle: present passive masculine vocative plural
+urn:cite2:kanones:forms.v1:5031032100|participle: present passive feminine nominative plural
+urn:cite2:kanones:forms.v1:5031032200|participle: present passive feminine genitive plural
+urn:cite2:kanones:forms.v1:5031032300|participle: present passive feminine dative plural
+urn:cite2:kanones:forms.v1:5031032400|participle: present passive feminine accusative plural
+urn:cite2:kanones:forms.v1:5031032500|participle: present passive feminine vocative plural
+urn:cite2:kanones:forms.v1:5031033100|participle: present passive neuter nominative plural
+urn:cite2:kanones:forms.v1:5031033200|participle: present passive neuter genitive plural
+urn:cite2:kanones:forms.v1:5031033300|participle: present passive neuter dative plural
+urn:cite2:kanones:forms.v1:5031033400|participle: present passive neuter accusative plural
+urn:cite2:kanones:forms.v1:5031033500|participle: present passive neuter vocative plural
+urn:cite2:kanones:forms.v1:5016011100|participle: future active masculine nominative singular
+urn:cite2:kanones:forms.v1:5016011200|participle: future active masculine genitive singular
+urn:cite2:kanones:forms.v1:5016011300|participle: future active masculine dative singular
+urn:cite2:kanones:forms.v1:5016011400|participle: future active masculine accusative singular
+urn:cite2:kanones:forms.v1:5016011500|participle: future active masculine vocative singular
+urn:cite2:kanones:forms.v1:5016012100|participle: future active feminine nominative singular
+urn:cite2:kanones:forms.v1:5016012200|participle: future active feminine genitive singular
+urn:cite2:kanones:forms.v1:5016012300|participle: future active feminine dative singular
+urn:cite2:kanones:forms.v1:5016012400|participle: future active feminine accusative singular
+urn:cite2:kanones:forms.v1:5016012500|participle: future active feminine vocative singular
+urn:cite2:kanones:forms.v1:5016013100|participle: future active neuter nominative singular
+urn:cite2:kanones:forms.v1:5016013200|participle: future active neuter genitive singular
+urn:cite2:kanones:forms.v1:5016013300|participle: future active neuter dative singular
+urn:cite2:kanones:forms.v1:5016013400|participle: future active neuter accusative singular
+urn:cite2:kanones:forms.v1:5016013500|participle: future active neuter vocative singular
+urn:cite2:kanones:forms.v1:5026011100|participle: future active masculine nominative dual
+urn:cite2:kanones:forms.v1:5026011200|participle: future active masculine genitive dual
+urn:cite2:kanones:forms.v1:5026011300|participle: future active masculine dative dual
+urn:cite2:kanones:forms.v1:5026011400|participle: future active masculine accusative dual
+urn:cite2:kanones:forms.v1:5026011500|participle: future active masculine vocative dual
+urn:cite2:kanones:forms.v1:5026012100|participle: future active feminine nominative dual
+urn:cite2:kanones:forms.v1:5026012200|participle: future active feminine genitive dual
+urn:cite2:kanones:forms.v1:5026012300|participle: future active feminine dative dual
+urn:cite2:kanones:forms.v1:5026012400|participle: future active feminine accusative dual
+urn:cite2:kanones:forms.v1:5026012500|participle: future active feminine vocative dual
+urn:cite2:kanones:forms.v1:5026013100|participle: future active neuter nominative dual
+urn:cite2:kanones:forms.v1:5026013200|participle: future active neuter genitive dual
+urn:cite2:kanones:forms.v1:5026013300|participle: future active neuter dative dual
+urn:cite2:kanones:forms.v1:5026013400|participle: future active neuter accusative dual
+urn:cite2:kanones:forms.v1:5026013500|participle: future active neuter vocative dual
+urn:cite2:kanones:forms.v1:5036011100|participle: future active masculine nominative plural
+urn:cite2:kanones:forms.v1:5036011200|participle: future active masculine genitive plural
+urn:cite2:kanones:forms.v1:5036011300|participle: future active masculine dative plural
+urn:cite2:kanones:forms.v1:5036011400|participle: future active masculine accusative plural
+urn:cite2:kanones:forms.v1:5036011500|participle: future active masculine vocative plural
+urn:cite2:kanones:forms.v1:5036012100|participle: future active feminine nominative plural
+urn:cite2:kanones:forms.v1:5036012200|participle: future active feminine genitive plural
+urn:cite2:kanones:forms.v1:5036012300|participle: future active feminine dative plural
+urn:cite2:kanones:forms.v1:5036012400|participle: future active feminine accusative plural
+urn:cite2:kanones:forms.v1:5036012500|participle: future active feminine vocative plural
+urn:cite2:kanones:forms.v1:5036013100|participle: future active neuter nominative plural
+urn:cite2:kanones:forms.v1:5036013200|participle: future active neuter genitive plural
+urn:cite2:kanones:forms.v1:5036013300|participle: future active neuter dative plural
+urn:cite2:kanones:forms.v1:5036013400|participle: future active neuter accusative plural
+urn:cite2:kanones:forms.v1:5036013500|participle: future active neuter vocative plural
+urn:cite2:kanones:forms.v1:5016021100|participle: future middle masculine nominative singular
+urn:cite2:kanones:forms.v1:5016021200|participle: future middle masculine genitive singular
+urn:cite2:kanones:forms.v1:5016021300|participle: future middle masculine dative singular
+urn:cite2:kanones:forms.v1:5016021400|participle: future middle masculine accusative singular
+urn:cite2:kanones:forms.v1:5016021500|participle: future middle masculine vocative singular
+urn:cite2:kanones:forms.v1:5016022100|participle: future middle feminine nominative singular
+urn:cite2:kanones:forms.v1:5016022200|participle: future middle feminine genitive singular
+urn:cite2:kanones:forms.v1:5016022300|participle: future middle feminine dative singular
+urn:cite2:kanones:forms.v1:5016022400|participle: future middle feminine accusative singular
+urn:cite2:kanones:forms.v1:5016022500|participle: future middle feminine vocative singular
+urn:cite2:kanones:forms.v1:5016023100|participle: future middle neuter nominative singular
+urn:cite2:kanones:forms.v1:5016023200|participle: future middle neuter genitive singular
+urn:cite2:kanones:forms.v1:5016023300|participle: future middle neuter dative singular
+urn:cite2:kanones:forms.v1:5016023400|participle: future middle neuter accusative singular
+urn:cite2:kanones:forms.v1:5016023500|participle: future middle neuter vocative singular
+urn:cite2:kanones:forms.v1:5026021100|participle: future middle masculine nominative dual
+urn:cite2:kanones:forms.v1:5026021200|participle: future middle masculine genitive dual
+urn:cite2:kanones:forms.v1:5026021300|participle: future middle masculine dative dual
+urn:cite2:kanones:forms.v1:5026021400|participle: future middle masculine accusative dual
+urn:cite2:kanones:forms.v1:5026021500|participle: future middle masculine vocative dual
+urn:cite2:kanones:forms.v1:5026022100|participle: future middle feminine nominative dual
+urn:cite2:kanones:forms.v1:5026022200|participle: future middle feminine genitive dual
+urn:cite2:kanones:forms.v1:5026022300|participle: future middle feminine dative dual
+urn:cite2:kanones:forms.v1:5026022400|participle: future middle feminine accusative dual
+urn:cite2:kanones:forms.v1:5026022500|participle: future middle feminine vocative dual
+urn:cite2:kanones:forms.v1:5026023100|participle: future middle neuter nominative dual
+urn:cite2:kanones:forms.v1:5026023200|participle: future middle neuter genitive dual
+urn:cite2:kanones:forms.v1:5026023300|participle: future middle neuter dative dual
+urn:cite2:kanones:forms.v1:5026023400|participle: future middle neuter accusative dual
+urn:cite2:kanones:forms.v1:5026023500|participle: future middle neuter vocative dual
+urn:cite2:kanones:forms.v1:5036021100|participle: future middle masculine nominative plural
+urn:cite2:kanones:forms.v1:5036021200|participle: future middle masculine genitive plural
+urn:cite2:kanones:forms.v1:5036021300|participle: future middle masculine dative plural
+urn:cite2:kanones:forms.v1:5036021400|participle: future middle masculine accusative plural
+urn:cite2:kanones:forms.v1:5036021500|participle: future middle masculine vocative plural
+urn:cite2:kanones:forms.v1:5036022100|participle: future middle feminine nominative plural
+urn:cite2:kanones:forms.v1:5036022200|participle: future middle feminine genitive plural
+urn:cite2:kanones:forms.v1:5036022300|participle: future middle feminine dative plural
+urn:cite2:kanones:forms.v1:5036022400|participle: future middle feminine accusative plural
+urn:cite2:kanones:forms.v1:5036022500|participle: future middle feminine vocative plural
+urn:cite2:kanones:forms.v1:5036023100|participle: future middle neuter nominative plural
+urn:cite2:kanones:forms.v1:5036023200|participle: future middle neuter genitive plural
+urn:cite2:kanones:forms.v1:5036023300|participle: future middle neuter dative plural
+urn:cite2:kanones:forms.v1:5036023400|participle: future middle neuter accusative plural
+urn:cite2:kanones:forms.v1:5036023500|participle: future middle neuter vocative plural
+urn:cite2:kanones:forms.v1:5016031100|participle: future passive masculine nominative singular
+urn:cite2:kanones:forms.v1:5016031200|participle: future passive masculine genitive singular
+urn:cite2:kanones:forms.v1:5016031300|participle: future passive masculine dative singular
+urn:cite2:kanones:forms.v1:5016031400|participle: future passive masculine accusative singular
+urn:cite2:kanones:forms.v1:5016031500|participle: future passive masculine vocative singular
+urn:cite2:kanones:forms.v1:5016032100|participle: future passive feminine nominative singular
+urn:cite2:kanones:forms.v1:5016032200|participle: future passive feminine genitive singular
+urn:cite2:kanones:forms.v1:5016032300|participle: future passive feminine dative singular
+urn:cite2:kanones:forms.v1:5016032400|participle: future passive feminine accusative singular
+urn:cite2:kanones:forms.v1:5016032500|participle: future passive feminine vocative singular
+urn:cite2:kanones:forms.v1:5016033100|participle: future passive neuter nominative singular
+urn:cite2:kanones:forms.v1:5016033200|participle: future passive neuter genitive singular
+urn:cite2:kanones:forms.v1:5016033300|participle: future passive neuter dative singular
+urn:cite2:kanones:forms.v1:5016033400|participle: future passive neuter accusative singular
+urn:cite2:kanones:forms.v1:5016033500|participle: future passive neuter vocative singular
+urn:cite2:kanones:forms.v1:5026031100|participle: future passive masculine nominative dual
+urn:cite2:kanones:forms.v1:5026031200|participle: future passive masculine genitive dual
+urn:cite2:kanones:forms.v1:5026031300|participle: future passive masculine dative dual
+urn:cite2:kanones:forms.v1:5026031400|participle: future passive masculine accusative dual
+urn:cite2:kanones:forms.v1:5026031500|participle: future passive masculine vocative dual
+urn:cite2:kanones:forms.v1:5026032100|participle: future passive feminine nominative dual
+urn:cite2:kanones:forms.v1:5026032200|participle: future passive feminine genitive dual
+urn:cite2:kanones:forms.v1:5026032300|participle: future passive feminine dative dual
+urn:cite2:kanones:forms.v1:5026032400|participle: future passive feminine accusative dual
+urn:cite2:kanones:forms.v1:5026032500|participle: future passive feminine vocative dual
+urn:cite2:kanones:forms.v1:5026033100|participle: future passive neuter nominative dual
+urn:cite2:kanones:forms.v1:5026033200|participle: future passive neuter genitive dual
+urn:cite2:kanones:forms.v1:5026033300|participle: future passive neuter dative dual
+urn:cite2:kanones:forms.v1:5026033400|participle: future passive neuter accusative dual
+urn:cite2:kanones:forms.v1:5026033500|participle: future passive neuter vocative dual
+urn:cite2:kanones:forms.v1:5036031100|participle: future passive masculine nominative plural
+urn:cite2:kanones:forms.v1:5036031200|participle: future passive masculine genitive plural
+urn:cite2:kanones:forms.v1:5036031300|participle: future passive masculine dative plural
+urn:cite2:kanones:forms.v1:5036031400|participle: future passive masculine accusative plural
+urn:cite2:kanones:forms.v1:5036031500|participle: future passive masculine vocative plural
+urn:cite2:kanones:forms.v1:5036032100|participle: future passive feminine nominative plural
+urn:cite2:kanones:forms.v1:5036032200|participle: future passive feminine genitive plural
+urn:cite2:kanones:forms.v1:5036032300|participle: future passive feminine dative plural
+urn:cite2:kanones:forms.v1:5036032400|participle: future passive feminine accusative plural
+urn:cite2:kanones:forms.v1:5036032500|participle: future passive feminine vocative plural
+urn:cite2:kanones:forms.v1:5036033100|participle: future passive neuter nominative plural
+urn:cite2:kanones:forms.v1:5036033200|participle: future passive neuter genitive plural
+urn:cite2:kanones:forms.v1:5036033300|participle: future passive neuter dative plural
+urn:cite2:kanones:forms.v1:5036033400|participle: future passive neuter accusative plural
+urn:cite2:kanones:forms.v1:5036033500|participle: future passive neuter vocative plural
+urn:cite2:kanones:forms.v1:5013011100|participle: aorist active masculine nominative singular
+urn:cite2:kanones:forms.v1:5013011200|participle: aorist active masculine genitive singular
+urn:cite2:kanones:forms.v1:5013011300|participle: aorist active masculine dative singular
+urn:cite2:kanones:forms.v1:5013011400|participle: aorist active masculine accusative singular
+urn:cite2:kanones:forms.v1:5013011500|participle: aorist active masculine vocative singular
+urn:cite2:kanones:forms.v1:5013012100|participle: aorist active feminine nominative singular
+urn:cite2:kanones:forms.v1:5013012200|participle: aorist active feminine genitive singular
+urn:cite2:kanones:forms.v1:5013012300|participle: aorist active feminine dative singular
+urn:cite2:kanones:forms.v1:5013012400|participle: aorist active feminine accusative singular
+urn:cite2:kanones:forms.v1:5013012500|participle: aorist active feminine vocative singular
+urn:cite2:kanones:forms.v1:5013013100|participle: aorist active neuter nominative singular
+urn:cite2:kanones:forms.v1:5013013200|participle: aorist active neuter genitive singular
+urn:cite2:kanones:forms.v1:5013013300|participle: aorist active neuter dative singular
+urn:cite2:kanones:forms.v1:5013013400|participle: aorist active neuter accusative singular
+urn:cite2:kanones:forms.v1:5013013500|participle: aorist active neuter vocative singular
+urn:cite2:kanones:forms.v1:5023011100|participle: aorist active masculine nominative dual
+urn:cite2:kanones:forms.v1:5023011200|participle: aorist active masculine genitive dual
+urn:cite2:kanones:forms.v1:5023011300|participle: aorist active masculine dative dual
+urn:cite2:kanones:forms.v1:5023011400|participle: aorist active masculine accusative dual
+urn:cite2:kanones:forms.v1:5023011500|participle: aorist active masculine vocative dual
+urn:cite2:kanones:forms.v1:5023012100|participle: aorist active feminine nominative dual
+urn:cite2:kanones:forms.v1:5023012200|participle: aorist active feminine genitive dual
+urn:cite2:kanones:forms.v1:5023012300|participle: aorist active feminine dative dual
+urn:cite2:kanones:forms.v1:5023012400|participle: aorist active feminine accusative dual
+urn:cite2:kanones:forms.v1:5023012500|participle: aorist active feminine vocative dual
+urn:cite2:kanones:forms.v1:5023013100|participle: aorist active neuter nominative dual
+urn:cite2:kanones:forms.v1:5023013200|participle: aorist active neuter genitive dual
+urn:cite2:kanones:forms.v1:5023013300|participle: aorist active neuter dative dual
+urn:cite2:kanones:forms.v1:5023013400|participle: aorist active neuter accusative dual
+urn:cite2:kanones:forms.v1:5023013500|participle: aorist active neuter vocative dual
+urn:cite2:kanones:forms.v1:5033011100|participle: aorist active masculine nominative plural
+urn:cite2:kanones:forms.v1:5033011200|participle: aorist active masculine genitive plural
+urn:cite2:kanones:forms.v1:5033011300|participle: aorist active masculine dative plural
+urn:cite2:kanones:forms.v1:5033011400|participle: aorist active masculine accusative plural
+urn:cite2:kanones:forms.v1:5033011500|participle: aorist active masculine vocative plural
+urn:cite2:kanones:forms.v1:5033012100|participle: aorist active feminine nominative plural
+urn:cite2:kanones:forms.v1:5033012200|participle: aorist active feminine genitive plural
+urn:cite2:kanones:forms.v1:5033012300|participle: aorist active feminine dative plural
+urn:cite2:kanones:forms.v1:5033012400|participle: aorist active feminine accusative plural
+urn:cite2:kanones:forms.v1:5033012500|participle: aorist active feminine vocative plural
+urn:cite2:kanones:forms.v1:5033013100|participle: aorist active neuter nominative plural
+urn:cite2:kanones:forms.v1:5033013200|participle: aorist active neuter genitive plural
+urn:cite2:kanones:forms.v1:5033013300|participle: aorist active neuter dative plural
+urn:cite2:kanones:forms.v1:5033013400|participle: aorist active neuter accusative plural
+urn:cite2:kanones:forms.v1:5033013500|participle: aorist active neuter vocative plural
+urn:cite2:kanones:forms.v1:5013021100|participle: aorist middle masculine nominative singular
+urn:cite2:kanones:forms.v1:5013021200|participle: aorist middle masculine genitive singular
+urn:cite2:kanones:forms.v1:5013021300|participle: aorist middle masculine dative singular
+urn:cite2:kanones:forms.v1:5013021400|participle: aorist middle masculine accusative singular
+urn:cite2:kanones:forms.v1:5013021500|participle: aorist middle masculine vocative singular
+urn:cite2:kanones:forms.v1:5013022100|participle: aorist middle feminine nominative singular
+urn:cite2:kanones:forms.v1:5013022200|participle: aorist middle feminine genitive singular
+urn:cite2:kanones:forms.v1:5013022300|participle: aorist middle feminine dative singular
+urn:cite2:kanones:forms.v1:5013022400|participle: aorist middle feminine accusative singular
+urn:cite2:kanones:forms.v1:5013022500|participle: aorist middle feminine vocative singular
+urn:cite2:kanones:forms.v1:5013023100|participle: aorist middle neuter nominative singular
+urn:cite2:kanones:forms.v1:5013023200|participle: aorist middle neuter genitive singular
+urn:cite2:kanones:forms.v1:5013023300|participle: aorist middle neuter dative singular
+urn:cite2:kanones:forms.v1:5013023400|participle: aorist middle neuter accusative singular
+urn:cite2:kanones:forms.v1:5013023500|participle: aorist middle neuter vocative singular
+urn:cite2:kanones:forms.v1:5023021100|participle: aorist middle masculine nominative dual
+urn:cite2:kanones:forms.v1:5023021200|participle: aorist middle masculine genitive dual
+urn:cite2:kanones:forms.v1:5023021300|participle: aorist middle masculine dative dual
+urn:cite2:kanones:forms.v1:5023021400|participle: aorist middle masculine accusative dual
+urn:cite2:kanones:forms.v1:5023021500|participle: aorist middle masculine vocative dual
+urn:cite2:kanones:forms.v1:5023022100|participle: aorist middle feminine nominative dual
+urn:cite2:kanones:forms.v1:5023022200|participle: aorist middle feminine genitive dual
+urn:cite2:kanones:forms.v1:5023022300|participle: aorist middle feminine dative dual
+urn:cite2:kanones:forms.v1:5023022400|participle: aorist middle feminine accusative dual
+urn:cite2:kanones:forms.v1:5023022500|participle: aorist middle feminine vocative dual
+urn:cite2:kanones:forms.v1:5023023100|participle: aorist middle neuter nominative dual
+urn:cite2:kanones:forms.v1:5023023200|participle: aorist middle neuter genitive dual
+urn:cite2:kanones:forms.v1:5023023300|participle: aorist middle neuter dative dual
+urn:cite2:kanones:forms.v1:5023023400|participle: aorist middle neuter accusative dual
+urn:cite2:kanones:forms.v1:5023023500|participle: aorist middle neuter vocative dual
+urn:cite2:kanones:forms.v1:5033021100|participle: aorist middle masculine nominative plural
+urn:cite2:kanones:forms.v1:5033021200|participle: aorist middle masculine genitive plural
+urn:cite2:kanones:forms.v1:5033021300|participle: aorist middle masculine dative plural
+urn:cite2:kanones:forms.v1:5033021400|participle: aorist middle masculine accusative plural
+urn:cite2:kanones:forms.v1:5033021500|participle: aorist middle masculine vocative plural
+urn:cite2:kanones:forms.v1:5033022100|participle: aorist middle feminine nominative plural
+urn:cite2:kanones:forms.v1:5033022200|participle: aorist middle feminine genitive plural
+urn:cite2:kanones:forms.v1:5033022300|participle: aorist middle feminine dative plural
+urn:cite2:kanones:forms.v1:5033022400|participle: aorist middle feminine accusative plural
+urn:cite2:kanones:forms.v1:5033022500|participle: aorist middle feminine vocative plural
+urn:cite2:kanones:forms.v1:5033023100|participle: aorist middle neuter nominative plural
+urn:cite2:kanones:forms.v1:5033023200|participle: aorist middle neuter genitive plural
+urn:cite2:kanones:forms.v1:5033023300|participle: aorist middle neuter dative plural
+urn:cite2:kanones:forms.v1:5033023400|participle: aorist middle neuter accusative plural
+urn:cite2:kanones:forms.v1:5033023500|participle: aorist middle neuter vocative plural
+urn:cite2:kanones:forms.v1:5013031100|participle: aorist passive masculine nominative singular
+urn:cite2:kanones:forms.v1:5013031200|participle: aorist passive masculine genitive singular
+urn:cite2:kanones:forms.v1:5013031300|participle: aorist passive masculine dative singular
+urn:cite2:kanones:forms.v1:5013031400|participle: aorist passive masculine accusative singular
+urn:cite2:kanones:forms.v1:5013031500|participle: aorist passive masculine vocative singular
+urn:cite2:kanones:forms.v1:5013032100|participle: aorist passive feminine nominative singular
+urn:cite2:kanones:forms.v1:5013032200|participle: aorist passive feminine genitive singular
+urn:cite2:kanones:forms.v1:5013032300|participle: aorist passive feminine dative singular
+urn:cite2:kanones:forms.v1:5013032400|participle: aorist passive feminine accusative singular
+urn:cite2:kanones:forms.v1:5013032500|participle: aorist passive feminine vocative singular
+urn:cite2:kanones:forms.v1:5013033100|participle: aorist passive neuter nominative singular
+urn:cite2:kanones:forms.v1:5013033200|participle: aorist passive neuter genitive singular
+urn:cite2:kanones:forms.v1:5013033300|participle: aorist passive neuter dative singular
+urn:cite2:kanones:forms.v1:5013033400|participle: aorist passive neuter accusative singular
+urn:cite2:kanones:forms.v1:5013033500|participle: aorist passive neuter vocative singular
+urn:cite2:kanones:forms.v1:5023031100|participle: aorist passive masculine nominative dual
+urn:cite2:kanones:forms.v1:5023031200|participle: aorist passive masculine genitive dual
+urn:cite2:kanones:forms.v1:5023031300|participle: aorist passive masculine dative dual
+urn:cite2:kanones:forms.v1:5023031400|participle: aorist passive masculine accusative dual
+urn:cite2:kanones:forms.v1:5023031500|participle: aorist passive masculine vocative dual
+urn:cite2:kanones:forms.v1:5023032100|participle: aorist passive feminine nominative dual
+urn:cite2:kanones:forms.v1:5023032200|participle: aorist passive feminine genitive dual
+urn:cite2:kanones:forms.v1:5023032300|participle: aorist passive feminine dative dual
+urn:cite2:kanones:forms.v1:5023032400|participle: aorist passive feminine accusative dual
+urn:cite2:kanones:forms.v1:5023032500|participle: aorist passive feminine vocative dual
+urn:cite2:kanones:forms.v1:5023033100|participle: aorist passive neuter nominative dual
+urn:cite2:kanones:forms.v1:5023033200|participle: aorist passive neuter genitive dual
+urn:cite2:kanones:forms.v1:5023033300|participle: aorist passive neuter dative dual
+urn:cite2:kanones:forms.v1:5023033400|participle: aorist passive neuter accusative dual
+urn:cite2:kanones:forms.v1:5023033500|participle: aorist passive neuter vocative dual
+urn:cite2:kanones:forms.v1:5033031100|participle: aorist passive masculine nominative plural
+urn:cite2:kanones:forms.v1:5033031200|participle: aorist passive masculine genitive plural
+urn:cite2:kanones:forms.v1:5033031300|participle: aorist passive masculine dative plural
+urn:cite2:kanones:forms.v1:5033031400|participle: aorist passive masculine accusative plural
+urn:cite2:kanones:forms.v1:5033031500|participle: aorist passive masculine vocative plural
+urn:cite2:kanones:forms.v1:5033032100|participle: aorist passive feminine nominative plural
+urn:cite2:kanones:forms.v1:5033032200|participle: aorist passive feminine genitive plural
+urn:cite2:kanones:forms.v1:5033032300|participle: aorist passive feminine dative plural
+urn:cite2:kanones:forms.v1:5033032400|participle: aorist passive feminine accusative plural
+urn:cite2:kanones:forms.v1:5033032500|participle: aorist passive feminine vocative plural
+urn:cite2:kanones:forms.v1:5033033100|participle: aorist passive neuter nominative plural
+urn:cite2:kanones:forms.v1:5033033200|participle: aorist passive neuter genitive plural
+urn:cite2:kanones:forms.v1:5033033300|participle: aorist passive neuter dative plural
+urn:cite2:kanones:forms.v1:5033033400|participle: aorist passive neuter accusative plural
+urn:cite2:kanones:forms.v1:5033033500|participle: aorist passive neuter vocative plural
+urn:cite2:kanones:forms.v1:5014011100|participle: perfect active masculine nominative singular
+urn:cite2:kanones:forms.v1:5014011200|participle: perfect active masculine genitive singular
+urn:cite2:kanones:forms.v1:5014011300|participle: perfect active masculine dative singular
+urn:cite2:kanones:forms.v1:5014011400|participle: perfect active masculine accusative singular
+urn:cite2:kanones:forms.v1:5014011500|participle: perfect active masculine vocative singular
+urn:cite2:kanones:forms.v1:5014012100|participle: perfect active feminine nominative singular
+urn:cite2:kanones:forms.v1:5014012200|participle: perfect active feminine genitive singular
+urn:cite2:kanones:forms.v1:5014012300|participle: perfect active feminine dative singular
+urn:cite2:kanones:forms.v1:5014012400|participle: perfect active feminine accusative singular
+urn:cite2:kanones:forms.v1:5014012500|participle: perfect active feminine vocative singular
+urn:cite2:kanones:forms.v1:5014013100|participle: perfect active neuter nominative singular
+urn:cite2:kanones:forms.v1:5014013200|participle: perfect active neuter genitive singular
+urn:cite2:kanones:forms.v1:5014013300|participle: perfect active neuter dative singular
+urn:cite2:kanones:forms.v1:5014013400|participle: perfect active neuter accusative singular
+urn:cite2:kanones:forms.v1:5014013500|participle: perfect active neuter vocative singular
+urn:cite2:kanones:forms.v1:5024011100|participle: perfect active masculine nominative dual
+urn:cite2:kanones:forms.v1:5024011200|participle: perfect active masculine genitive dual
+urn:cite2:kanones:forms.v1:5024011300|participle: perfect active masculine dative dual
+urn:cite2:kanones:forms.v1:5024011400|participle: perfect active masculine accusative dual
+urn:cite2:kanones:forms.v1:5024011500|participle: perfect active masculine vocative dual
+urn:cite2:kanones:forms.v1:5024012100|participle: perfect active feminine nominative dual
+urn:cite2:kanones:forms.v1:5024012200|participle: perfect active feminine genitive dual
+urn:cite2:kanones:forms.v1:5024012300|participle: perfect active feminine dative dual
+urn:cite2:kanones:forms.v1:5024012400|participle: perfect active feminine accusative dual
+urn:cite2:kanones:forms.v1:5024012500|participle: perfect active feminine vocative dual
+urn:cite2:kanones:forms.v1:5024013100|participle: perfect active neuter nominative dual
+urn:cite2:kanones:forms.v1:5024013200|participle: perfect active neuter genitive dual
+urn:cite2:kanones:forms.v1:5024013300|participle: perfect active neuter dative dual
+urn:cite2:kanones:forms.v1:5024013400|participle: perfect active neuter accusative dual
+urn:cite2:kanones:forms.v1:5024013500|participle: perfect active neuter vocative dual
+urn:cite2:kanones:forms.v1:5034011100|participle: perfect active masculine nominative plural
+urn:cite2:kanones:forms.v1:5034011200|participle: perfect active masculine genitive plural
+urn:cite2:kanones:forms.v1:5034011300|participle: perfect active masculine dative plural
+urn:cite2:kanones:forms.v1:5034011400|participle: perfect active masculine accusative plural
+urn:cite2:kanones:forms.v1:5034011500|participle: perfect active masculine vocative plural
+urn:cite2:kanones:forms.v1:5034012100|participle: perfect active feminine nominative plural
+urn:cite2:kanones:forms.v1:5034012200|participle: perfect active feminine genitive plural
+urn:cite2:kanones:forms.v1:5034012300|participle: perfect active feminine dative plural
+urn:cite2:kanones:forms.v1:5034012400|participle: perfect active feminine accusative plural
+urn:cite2:kanones:forms.v1:5034012500|participle: perfect active feminine vocative plural
+urn:cite2:kanones:forms.v1:5034013100|participle: perfect active neuter nominative plural
+urn:cite2:kanones:forms.v1:5034013200|participle: perfect active neuter genitive plural
+urn:cite2:kanones:forms.v1:5034013300|participle: perfect active neuter dative plural
+urn:cite2:kanones:forms.v1:5034013400|participle: perfect active neuter accusative plural
+urn:cite2:kanones:forms.v1:5034013500|participle: perfect active neuter vocative plural
+urn:cite2:kanones:forms.v1:5014021100|participle: perfect middle masculine nominative singular
+urn:cite2:kanones:forms.v1:5014021200|participle: perfect middle masculine genitive singular
+urn:cite2:kanones:forms.v1:5014021300|participle: perfect middle masculine dative singular
+urn:cite2:kanones:forms.v1:5014021400|participle: perfect middle masculine accusative singular
+urn:cite2:kanones:forms.v1:5014021500|participle: perfect middle masculine vocative singular
+urn:cite2:kanones:forms.v1:5014022100|participle: perfect middle feminine nominative singular
+urn:cite2:kanones:forms.v1:5014022200|participle: perfect middle feminine genitive singular
+urn:cite2:kanones:forms.v1:5014022300|participle: perfect middle feminine dative singular
+urn:cite2:kanones:forms.v1:5014022400|participle: perfect middle feminine accusative singular
+urn:cite2:kanones:forms.v1:5014022500|participle: perfect middle feminine vocative singular
+urn:cite2:kanones:forms.v1:5014023100|participle: perfect middle neuter nominative singular
+urn:cite2:kanones:forms.v1:5014023200|participle: perfect middle neuter genitive singular
+urn:cite2:kanones:forms.v1:5014023300|participle: perfect middle neuter dative singular
+urn:cite2:kanones:forms.v1:5014023400|participle: perfect middle neuter accusative singular
+urn:cite2:kanones:forms.v1:5014023500|participle: perfect middle neuter vocative singular
+urn:cite2:kanones:forms.v1:5024021100|participle: perfect middle masculine nominative dual
+urn:cite2:kanones:forms.v1:5024021200|participle: perfect middle masculine genitive dual
+urn:cite2:kanones:forms.v1:5024021300|participle: perfect middle masculine dative dual
+urn:cite2:kanones:forms.v1:5024021400|participle: perfect middle masculine accusative dual
+urn:cite2:kanones:forms.v1:5024021500|participle: perfect middle masculine vocative dual
+urn:cite2:kanones:forms.v1:5024022100|participle: perfect middle feminine nominative dual
+urn:cite2:kanones:forms.v1:5024022200|participle: perfect middle feminine genitive dual
+urn:cite2:kanones:forms.v1:5024022300|participle: perfect middle feminine dative dual
+urn:cite2:kanones:forms.v1:5024022400|participle: perfect middle feminine accusative dual
+urn:cite2:kanones:forms.v1:5024022500|participle: perfect middle feminine vocative dual
+urn:cite2:kanones:forms.v1:5024023100|participle: perfect middle neuter nominative dual
+urn:cite2:kanones:forms.v1:5024023200|participle: perfect middle neuter genitive dual
+urn:cite2:kanones:forms.v1:5024023300|participle: perfect middle neuter dative dual
+urn:cite2:kanones:forms.v1:5024023400|participle: perfect middle neuter accusative dual
+urn:cite2:kanones:forms.v1:5024023500|participle: perfect middle neuter vocative dual
+urn:cite2:kanones:forms.v1:5034021100|participle: perfect middle masculine nominative plural
+urn:cite2:kanones:forms.v1:5034021200|participle: perfect middle masculine genitive plural
+urn:cite2:kanones:forms.v1:5034021300|participle: perfect middle masculine dative plural
+urn:cite2:kanones:forms.v1:5034021400|participle: perfect middle masculine accusative plural
+urn:cite2:kanones:forms.v1:5034021500|participle: perfect middle masculine vocative plural
+urn:cite2:kanones:forms.v1:5034022100|participle: perfect middle feminine nominative plural
+urn:cite2:kanones:forms.v1:5034022200|participle: perfect middle feminine genitive plural
+urn:cite2:kanones:forms.v1:5034022300|participle: perfect middle feminine dative plural
+urn:cite2:kanones:forms.v1:5034022400|participle: perfect middle feminine accusative plural
+urn:cite2:kanones:forms.v1:5034022500|participle: perfect middle feminine vocative plural
+urn:cite2:kanones:forms.v1:5034023100|participle: perfect middle neuter nominative plural
+urn:cite2:kanones:forms.v1:5034023200|participle: perfect middle neuter genitive plural
+urn:cite2:kanones:forms.v1:5034023300|participle: perfect middle neuter dative plural
+urn:cite2:kanones:forms.v1:5034023400|participle: perfect middle neuter accusative plural
+urn:cite2:kanones:forms.v1:5034023500|participle: perfect middle neuter vocative plural
+urn:cite2:kanones:forms.v1:5014031100|participle: perfect passive masculine nominative singular
+urn:cite2:kanones:forms.v1:5014031200|participle: perfect passive masculine genitive singular
+urn:cite2:kanones:forms.v1:5014031300|participle: perfect passive masculine dative singular
+urn:cite2:kanones:forms.v1:5014031400|participle: perfect passive masculine accusative singular
+urn:cite2:kanones:forms.v1:5014031500|participle: perfect passive masculine vocative singular
+urn:cite2:kanones:forms.v1:5014032100|participle: perfect passive feminine nominative singular
+urn:cite2:kanones:forms.v1:5014032200|participle: perfect passive feminine genitive singular
+urn:cite2:kanones:forms.v1:5014032300|participle: perfect passive feminine dative singular
+urn:cite2:kanones:forms.v1:5014032400|participle: perfect passive feminine accusative singular
+urn:cite2:kanones:forms.v1:5014032500|participle: perfect passive feminine vocative singular
+urn:cite2:kanones:forms.v1:5014033100|participle: perfect passive neuter nominative singular
+urn:cite2:kanones:forms.v1:5014033200|participle: perfect passive neuter genitive singular
+urn:cite2:kanones:forms.v1:5014033300|participle: perfect passive neuter dative singular
+urn:cite2:kanones:forms.v1:5014033400|participle: perfect passive neuter accusative singular
+urn:cite2:kanones:forms.v1:5014033500|participle: perfect passive neuter vocative singular
+urn:cite2:kanones:forms.v1:5024031100|participle: perfect passive masculine nominative dual
+urn:cite2:kanones:forms.v1:5024031200|participle: perfect passive masculine genitive dual
+urn:cite2:kanones:forms.v1:5024031300|participle: perfect passive masculine dative dual
+urn:cite2:kanones:forms.v1:5024031400|participle: perfect passive masculine accusative dual
+urn:cite2:kanones:forms.v1:5024031500|participle: perfect passive masculine vocative dual
+urn:cite2:kanones:forms.v1:5024032100|participle: perfect passive feminine nominative dual
+urn:cite2:kanones:forms.v1:5024032200|participle: perfect passive feminine genitive dual
+urn:cite2:kanones:forms.v1:5024032300|participle: perfect passive feminine dative dual
+urn:cite2:kanones:forms.v1:5024032400|participle: perfect passive feminine accusative dual
+urn:cite2:kanones:forms.v1:5024032500|participle: perfect passive feminine vocative dual
+urn:cite2:kanones:forms.v1:5024033100|participle: perfect passive neuter nominative dual
+urn:cite2:kanones:forms.v1:5024033200|participle: perfect passive neuter genitive dual
+urn:cite2:kanones:forms.v1:5024033300|participle: perfect passive neuter dative dual
+urn:cite2:kanones:forms.v1:5024033400|participle: perfect passive neuter accusative dual
+urn:cite2:kanones:forms.v1:5024033500|participle: perfect passive neuter vocative dual
+urn:cite2:kanones:forms.v1:5034031100|participle: perfect passive masculine nominative plural
+urn:cite2:kanones:forms.v1:5034031200|participle: perfect passive masculine genitive plural
+urn:cite2:kanones:forms.v1:5034031300|participle: perfect passive masculine dative plural
+urn:cite2:kanones:forms.v1:5034031400|participle: perfect passive masculine accusative plural
+urn:cite2:kanones:forms.v1:5034031500|participle: perfect passive masculine vocative plural
+urn:cite2:kanones:forms.v1:5034032100|participle: perfect passive feminine nominative plural
+urn:cite2:kanones:forms.v1:5034032200|participle: perfect passive feminine genitive plural
+urn:cite2:kanones:forms.v1:5034032300|participle: perfect passive feminine dative plural
+urn:cite2:kanones:forms.v1:5034032400|participle: perfect passive feminine accusative plural
+urn:cite2:kanones:forms.v1:5034032500|participle: perfect passive feminine vocative plural
+urn:cite2:kanones:forms.v1:5034033100|participle: perfect passive neuter nominative plural
+urn:cite2:kanones:forms.v1:5034033200|participle: perfect passive neuter genitive plural
+urn:cite2:kanones:forms.v1:5034033300|participle: perfect passive neuter dative plural
+urn:cite2:kanones:forms.v1:5034033400|participle: perfect passive neuter accusative plural
+urn:cite2:kanones:forms.v1:5034033500|participle: perfect passive neuter vocative plural
+urn:cite2:kanones:forms.v1:9010001100|pronoun: masculine nominative singular
+urn:cite2:kanones:forms.v1:9010001200|pronoun: masculine genitive singular
+urn:cite2:kanones:forms.v1:9010001300|pronoun: masculine dative singular
+urn:cite2:kanones:forms.v1:9010001400|pronoun: masculine accusative singular
+urn:cite2:kanones:forms.v1:9010001500|pronoun: masculine vocative singular
+urn:cite2:kanones:forms.v1:9010002100|pronoun: feminine nominative singular
+urn:cite2:kanones:forms.v1:9010002200|pronoun: feminine genitive singular
+urn:cite2:kanones:forms.v1:9010002300|pronoun: feminine dative singular
+urn:cite2:kanones:forms.v1:9010002400|pronoun: feminine accusative singular
+urn:cite2:kanones:forms.v1:9010002500|pronoun: feminine vocative singular
+urn:cite2:kanones:forms.v1:9010003100|pronoun: neuter nominative singular
+urn:cite2:kanones:forms.v1:9010003200|pronoun: neuter genitive singular
+urn:cite2:kanones:forms.v1:9010003300|pronoun: neuter dative singular
+urn:cite2:kanones:forms.v1:9010003400|pronoun: neuter accusative singular
+urn:cite2:kanones:forms.v1:9010003500|pronoun: neuter vocative singular
+urn:cite2:kanones:forms.v1:9020001100|pronoun: masculine nominative dual
+urn:cite2:kanones:forms.v1:9020001200|pronoun: masculine genitive dual
+urn:cite2:kanones:forms.v1:9020001300|pronoun: masculine dative dual
+urn:cite2:kanones:forms.v1:9020001400|pronoun: masculine accusative dual
+urn:cite2:kanones:forms.v1:9020001500|pronoun: masculine vocative dual
+urn:cite2:kanones:forms.v1:9020002100|pronoun: feminine nominative dual
+urn:cite2:kanones:forms.v1:9020002200|pronoun: feminine genitive dual
+urn:cite2:kanones:forms.v1:9020002300|pronoun: feminine dative dual
+urn:cite2:kanones:forms.v1:9020002400|pronoun: feminine accusative dual
+urn:cite2:kanones:forms.v1:9020002500|pronoun: feminine vocative dual
+urn:cite2:kanones:forms.v1:9020003100|pronoun: neuter nominative dual
+urn:cite2:kanones:forms.v1:9020003200|pronoun: neuter genitive dual
+urn:cite2:kanones:forms.v1:9020003300|pronoun: neuter dative dual
+urn:cite2:kanones:forms.v1:9020003400|pronoun: neuter accusative dual
+urn:cite2:kanones:forms.v1:9020003500|pronoun: neuter vocative dual
+urn:cite2:kanones:forms.v1:9030001100|pronoun: masculine nominative plural
+urn:cite2:kanones:forms.v1:9030001200|pronoun: masculine genitive plural
+urn:cite2:kanones:forms.v1:9030001300|pronoun: masculine dative plural
+urn:cite2:kanones:forms.v1:9030001400|pronoun: masculine accusative plural
+urn:cite2:kanones:forms.v1:9030001500|pronoun: masculine vocative plural
+urn:cite2:kanones:forms.v1:9030002100|pronoun: feminine nominative plural
+urn:cite2:kanones:forms.v1:9030002200|pronoun: feminine genitive plural
+urn:cite2:kanones:forms.v1:9030002300|pronoun: feminine dative plural
+urn:cite2:kanones:forms.v1:9030002400|pronoun: feminine accusative plural
+urn:cite2:kanones:forms.v1:9030002500|pronoun: feminine vocative plural
+urn:cite2:kanones:forms.v1:9030003100|pronoun: neuter nominative plural
+urn:cite2:kanones:forms.v1:9030003200|pronoun: neuter genitive plural
+urn:cite2:kanones:forms.v1:9030003300|pronoun: neuter dative plural
+urn:cite2:kanones:forms.v1:9030003400|pronoun: neuter accusative plural
+urn:cite2:kanones:forms.v1:9030003500|pronoun: neuter vocative plural
+urn:cite2:kanones:forms.v1:1000000001|uninflected form: conjunction
+urn:cite2:kanones:forms.v1:1000000002|uninflected form: preposition
+urn:cite2:kanones:forms.v1:1000000003|uninflected form: particle
+urn:cite2:kanones:forms.v1:1000000004|uninflected form: adverb
+urn:cite2:kanones:forms.v1:1000000005|uninflected form: numeral
+urn:cite2:kanones:forms.v1:1000000006|uninflected form: interjection

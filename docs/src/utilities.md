@@ -7,11 +7,11 @@ repo = pwd() |> dirname |> dirname
 
 ## Set up
 
-Start by loading a Kanones dataset.  We'll use the `lg-core` data in the `datasets` subdirectory of the Kanones github repository.
+Start by loading a Kanones dataset.  We'll use the `literarygreek-rules` data in the `datasets` subdirectory of the Kanones github repository.
 
 ```@example utils
 using Kanones
-sourcedata = joinpath(repo, "datasets", "lg-core")
+sourcedata = joinpath(repo, "datasets", "literarygreek-rules")
 kdata = dataset([sourcedata])
 kdata isa Kanones.Dataset
 ```
