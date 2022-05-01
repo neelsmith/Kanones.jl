@@ -55,3 +55,23 @@ function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.Da
     end
     join(mdlines, "\n")
 end
+
+
+"""Compose markdown table with imperative conjugation of `lex`.
+$(SIGNATURES)
+"""
+function md_imperativeconjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.Dataset)
+    mdlines = ["| | Singular | Plural|",   
+    "| --- | --- | --- |"]
+    imptvforms = filter(f -> f isa GMFFiniteVerb && gmpMood(f) == gmpMood("imperative"), allforms())
+
+    singforms = filter(f -> gmpNumber(f) == gmpNumber(1) && gmpTense(f) == t && gmpVoice(f) == v,imptvforms)
+    singlabels = singforms .|> label
+    plforms = filter(f -> gmpNumber(f) == gmpNumber("plural") && gmpTense(f) == t && gmpVoice(f) == v,imptvforms)
+    pllabels = plforms .|> label
+
+    for i in 1:2
+        push!(mdlines, "| **$(personlabeldict[i + 1])** | $(singlabels[i]) | $(pllabels[i])  |")
+    end
+    join(mdlines,"\n")
+end
