@@ -60,11 +60,16 @@ inf_pass = GMFInfinitive(
     gmpTense("present"), gmpVoice("passive")
 )
 inf_passforms = generate(κελευω, formurn(inf_pass), kds)
+
+actptcpl = participleslashline(κελευω, gmpTense("present"), gmpVoice("active"), kds)
+
+mpptcpl = participleslashline(κελευω, gmpTense("present"), gmpVoice("middle"), kds)
+
 mdlines = [
     "- **active infinitive**: $(inf_actforms[1])",
     "- **middle & passive infinitive**: $(inf_passforms[1])",
-    "- **active participle**: TBA",
-    "- **middle & passive participle**: TBA",
+    "- **active participle**: $(actptcpl)",
+    "- **middle & passive participle**: $(mpptcpl)",
     "- **verbal adjective**: $(vadjforms[1])"]
 Markdown.parse(join(mdlines,"\n"))
 ```
@@ -171,13 +176,20 @@ inf_pass = GMFInfinitive(
 )
 inf_passforms = generate(κελευω, formurn(inf_pass), kds)
 
+
+actptcpl = participleslashline(κελευω, gmpTense("future"), gmpVoice("active"), kds)
+
+midptcpl = participleslashline(κελευω, gmpTense("future"), gmpVoice("middle"), kds)
+
+passptcpl = participleslashline(κελευω, gmpTense("future"), gmpVoice("passive"), kds)
+
 mdlines = [
     "- **active infinitive**: $(inf_actforms[1])",
     "- **middle infinitive**: $(inf_mdlforms[1])",
     "- **passive infinitive**: $(inf_passforms[1])",
-    "- **active participle**: TBA",
-    "- **middle participle**: TBA",
-    "- **passive participle**: TBA"
+    "- **active participle**: $(actptcpl)",
+    "- **middle participle**: $(midptcpl)",
+    "- **passive participle**: $(passptcpl)"
 ]
 Markdown.parse(join(mdlines,"\n"))
 ```
@@ -255,13 +267,22 @@ inf_pass = GMFInfinitive(
 )
 inf_passforms = generate(κελευω, formurn(inf_pass), kds)
 
+
+
+actptcpl = participleslashline(κελευω, gmpTense("aorist"), gmpVoice("active"), kds)
+
+midptcpl = participleslashline(κελευω, gmpTense("aorist"), gmpVoice("middle"), kds)
+
+passptcpl = participleslashline(κελευω, gmpTense("aorist"), gmpVoice("passive"), kds)
+
+
 mdlines = [
     "- **active infinitive**: $(inf_actforms[1])",
     "- **middle infinitive**: $(inf_mdlforms[1])",
     "- **passive infinitive**: $(inf_passforms[1])",
-    "- **active participle**: TBA",
-    "- **middle participle**: TBA",
-    "- **passive participle**: TBA"
+    "- **active participle**: $(actptcpl)",
+    "- **middle participle**: $(midptcpl)",
+    "- **passive participle**: $(passptcpl)"
 ]
 
 Markdown.parse(join(mdlines,"\n"))
@@ -315,6 +336,10 @@ srcdir = joinpath(repo, "datasets", "literarygreek-rules")
 kds = Kanones.dataset([srcdir])
 κελευω = LexemeUrn("lsj.n56496")
 
+actptcpl = participleslashline(κελευω, gmpTense("perfect"), gmpVoice("active"), kds)
+
+mpptcpl = participleslashline(κελευω, gmpTense("perfect"), gmpVoice("middle"), kds)
+
 
 inf_act = GMFInfinitive(
     gmpTense("perfect"), gmpVoice("active")
@@ -323,8 +348,8 @@ inf_actforms = generate(κελευω, formurn(inf_act), kds)
 
 mdlines = [
     "- **active infinitive**: $(inf_actforms[1])",
-    "- **active participle**: TBA",
-    "- **middle & passive participle**: TBA"
+    "- **active participle**: $(actptcpl)",
+    "- **middle & passive participle**: $(mpptcpl)"
 ]
 Markdown.parse(join(mdlines,"\n"))
 ```

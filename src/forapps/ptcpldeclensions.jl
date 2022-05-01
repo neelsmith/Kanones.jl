@@ -1,5 +1,18 @@
 
+"""Compose a string with masculine, feminine, neuter nominative singular of a given particple ofr `lexeme`.
+$(SIGNATURES)
+"""
+function participleslashline(
+    lex::LexemeUrn,  
+    tense::GMPTense, voice::GMPVoice, 
+    kd::Kanones.Dataset)
+    ptcplforms = filter(f -> f isa GMFParticiple && gmpTense(f) == tense && gmpVoice(f) == voice && gmpNumber(f) == gmpNumber(1) && gmpCase(f) == gmpCase(1), allforms())
 
+
+    generated = map(f -> generate(lex, formurn(f), kd),  ptcplforms)
+    join(map(v -> v[1], generated), ", ")
+
+end
 
 """Compose markdown table with a declension of a single noun.
 
