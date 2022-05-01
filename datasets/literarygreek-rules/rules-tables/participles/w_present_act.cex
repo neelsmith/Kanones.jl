@@ -22,3 +22,15 @@ ptcplinfl.wpresact6n|w_regular|οντα|present|active|neuter|nominative|plural|
 ptcplinfl.wpresact7n|w_regular|οντων|present|active|neuter|genitive|plural|
 ptcplinfl.wpresact8n|w_regular|οντοις|present|active|neuter|dative|plural|
 ptcplinfl.wpresact9n|w_regular|οντα|present|active|neuter|accusative|plural|
+
+
+
+ptcplinfl.wpresact1f|w_regular|υυσα|present|active|feminine|nominative|singular|
+ptcplinfl.wpresact2f|w_regular|ούσης|present|active|feminine|genitive|singular|
+ptcplinfl.wpresact3f|w_regular|ούσῃ|present|active|feminine|dative|singular|
+ptcplinfl.wpresact4f|w_regular|ουσαν|present|active|feminine|accusative|singular|
+
+ptcplinfl.wpresact6f|w_regular|ουσαι|present|active|feminine|nominative|plural|
+ptcplinfl.wpresact7f|w_regular|ούσων|present|active|feminine|genitive|plural|
+ptcplinfl.wpresact8f|w_regular|ούσαις|present|active|feminine|dative|plural|
+ptcplinfl.wpresact9f|w_regular|ούσας|present|active|feminine|accusative|plural|
