@@ -81,9 +81,11 @@ $(SIGNATURES)
 function sigmabase(stem::Stem; ortho = literaryGreek())
     s = stemstring(stem)
     if endswith(s, r"κ|γ|χ")    
-        s * "ξ"
+        replace(s,  r"κ|γ|χ$", "ξ")
+        
     elseif endswith(s, r"π|β|φ")
-        s * "ψ"
+        replace(s,   r"π|β|φ$", "ψ")
+
     else
         s * "σ"
     end
