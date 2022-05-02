@@ -13,7 +13,7 @@ Start by loading a Kanones dataset.  We'll use the `literarygreek-rules` data in
 using Kanones
 sourcedata = joinpath(repo, "datasets", "literarygreek-rules")
 kdata = dataset([sourcedata])
-kdata isa Kanones.Dataset
+kdata isa Kanones.FilesDataset
 ```
 
 ## Decline a noun

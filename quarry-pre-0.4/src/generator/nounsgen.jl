@@ -94,7 +94,7 @@ end
 
 $(SIGNATURES)
 """
-function generatenoun(form::FormUrn,lex::LexemeUrn,  kd::Kanones.Dataset)::Vector{AbstractString}
+function generatenoun(form::FormUrn,lex::LexemeUrn,  kd::Kanones.FilesDataset)::Vector{AbstractString}
     
     # See if inflectionclass == "irregularnoun"
     # then find one matching form
@@ -129,6 +129,6 @@ end
 
 $(SIGNATURES)
 """
-function generatenoun(analysis::Analysis, kd::Kanones.Dataset)::Vector{AbstractString}
+function generatenoun(analysis::Analysis, kd::Kanones.FilesDataset)::Vector{AbstractString}
     generatenoun(analysis.form, analysis.lexeme,  kd)
 end

@@ -27,7 +27,7 @@ import CitableBase: cex
 export urn, label, cex
 
 export dataset
-export rulesarray, stemsarray
+export rulesarray, stemsarray, registry
 
 export GreekMorphologicalProperty
 export GMPVoice, gmpVoice
@@ -77,6 +77,7 @@ export StringParser, stringParser
 
 include("kanonesio.jl")
 include("dataset/dataset.jl")
+include("dataset/filesdataset.jl")
 
 
 #=

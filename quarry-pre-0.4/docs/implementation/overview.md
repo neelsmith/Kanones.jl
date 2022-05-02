@@ -17,7 +17,7 @@ repo = pwd() |> dirname |> dirname  |> dirname
 Data sets, organized as stem files and rule files for each analytical type ("part of speech"), are managed in delimited text files.  When a parser is built, Kanones reads these files and writes source code for an SFST compiler.  
 
 
-Directories of delimited-text files are managed with a `Kanones.Dataset` using a specified `OrthographicSystem` (default: `LiteraryGreekOrthography`).  This example uses an absolutely minimal dataset in the `datasets/implementation-eg` diretory of this repository: a stem for a single noun, and a single rule. 
+Directories of delimited-text files are managed with a `Kanones.FilesDataset` using a specified `OrthographicSystem` (default: `LiteraryGreekOrthography`).  This example uses an absolutely minimal dataset in the `datasets/implementation-eg` diretory of this repository: a stem for a single noun, and a single rule. 
 (You can browse the two source files on github [here](https://github.com/neelsmith/Kanones.jl/tree/dev/datasets/implementation-eg).)  The noun is the masculine noun ἄνθρωπος (`lsj.n8909`) and the only rule defined is for the formation of its genitive singular form.
 
 
@@ -38,7 +38,7 @@ The `KanonesIO` abstraction defines two functions to read data from delimited te
 
 ### Parsing delimited text to objects with `KanonesIO`
 
-The `readstemrow` and `readrulerow` functions apply appropriate subtypes of the `KanonesIO` abstract type to read each subdirectory of a `Kanones.Dataset`:  `stemsarray` cycles through all the subdirectories of the dataset, and applies  the `readstemrow` function to the file contents of stem tables, while `rulesarray`  applies the `readrulerow` function to the contents of rules tables.  
+The `readstemrow` and `readrulerow` functions apply appropriate subtypes of the `KanonesIO` abstract type to read each subdirectory of a `Kanones.FilesDataset`:  `stemsarray` cycles through all the subdirectories of the dataset, and applies  the `readstemrow` function to the file contents of stem tables, while `rulesarray`  applies the `readrulerow` function to the contents of rules tables.  
 
 To read stems and rules data, we use subtypes of the `KanonesIO` abstraction.  In this example, the conventions for a dataset's layout dictate that the contents of the `stems-tables/nouns` directory should contain noun stems, so we'll read those files with a `NounIO`, which is a subtype of `KanonesIO`.
 

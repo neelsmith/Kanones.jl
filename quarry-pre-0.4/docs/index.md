@@ -40,7 +40,7 @@ target = reporoot * "/parsers/demo/"
 
 ### Orthography and morphological dataset
 
-Start by loading morphological data and the definition of the dataset's orthography into a `Kanones.Dataset` structure.  If the orthography is not explicitly given, it defaults to `LiteraryGreekOrthography` from the `PolytonicGreek` package (as here).
+Start by loading morphological data and the definition of the dataset's orthography into a `Kanones.FilesDataset` structure.  If the orthography is not explicitly given, it defaults to `LiteraryGreekOrthography` from the `PolytonicGreek` package (as here).
 
 ```@example eg
 core_inflection = joinpath(reporoot, "datasets", "core-infl")
@@ -56,7 +56,7 @@ typeof(kd.orthography)
 
 ### Compile a parser
 
-In addition to the `Kanones.Dataset` you have created, identify a directory with the core FST files (normally, this will be the `fst` directory in a copy the `Kanones.jl` github repository), and a target directory where you want to compile the transducer.  The file in that directory with the binary FST parser will be named `greek.a`.
+In addition to the `Kanones.FilesDataset` you have created, identify a directory with the core FST files (normally, this will be the `fst` directory in a copy the `Kanones.jl` github repository), and a target directory where you want to compile the transducer.  The file in that directory with the binary FST parser will be named `greek.a`.
 
 
 ```@example eg

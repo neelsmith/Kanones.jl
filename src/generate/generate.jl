@@ -13,7 +13,7 @@ $(SIGNATURES)
 function generate(
     lex::LexemeUrn, 
     form::FormUrn, 
-    kds::Kanones.Dataset) 
+    kds::Kanones.FilesDataset) 
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemsarray(kds))
     generated = []

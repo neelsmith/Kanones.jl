@@ -43,7 +43,7 @@ Kanones checks for `.cex` files in the following subdirectories of a data source
 
 ## Loading a dataset
 
-Use the `dataset` function to create a `Kanones.Dataset`.
+Use the `dataset` function to create a `Kanones.FilesDataset`.
 
 
 Pass in a list of full paths to one or more directories laid out according to Kanones conventions, and optionally an orthography.  The default orthogrpahy is `LiteraryGreekOthography`.

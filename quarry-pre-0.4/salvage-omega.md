@@ -9,7 +9,7 @@
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 κελευω = LexemeUrn("lsj.n56496")
 
 
@@ -25,7 +25,7 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("active"), κελε�
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 κελευω = LexemeUrn("lsj.n56496")
 
 
@@ -40,7 +40,7 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("passive"), κελε
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 κελευω = LexemeUrn("lsj.n56496")
 vadj = GMFVerbalAdjective(
     gmpGender("neuter"), gmpCase("nominative"), gmpNumber(1)
@@ -72,7 +72,7 @@ Markdown.parse(join(mdlines,"\n"))
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 κελευω = LexemeUrn("lsj.n56496")
 
 
@@ -87,7 +87,7 @@ Markdown.parse(md_conjugation(gmpTense("pluperfect"), gmpVoice("active"), κελ
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 κελευω = LexemeUrn("lsj.n56496")
 
 

@@ -5,7 +5,7 @@
 
 $(SIGNATURES)
 """
-function md_3endingadj(lex::LexemeUrn, degree::GMPDegree, kd::Kanones.Dataset)
+function md_3endingadj(lex::LexemeUrn, degree::GMPDegree, kd::Kanones.FilesDataset)
     stemmatches = filter(s -> lexeme(s) == lex, stemsarray(kd))
     if isempty(stemmatches)
         throw(DomainError("No stems found for lexeme $(lex)"))
