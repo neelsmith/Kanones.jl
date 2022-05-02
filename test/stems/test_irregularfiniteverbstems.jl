@@ -1,12 +1,12 @@
 
 @testset "Test IO for delimited text" begin
-    delimited = "irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularverb"
+    delimited = "irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb"
     irrverbio = Kanones.IrregularVerbIO("IO for irreg verbs")
     stem = Kanones.readstemrow(irrverbio, delimited)
     @test stem isa IrregularVerbStem
 
 
-    @test cex(stem) == "irregverb.irregverbn31130a1|Irregular verb form ἐστι (third singular present indicative active)|ἐστι|lsj.n31130|irregularverb|third|singular|present|indicative|active"
+    @test cex(stem) == "irregverb.irregverbn31130a1|Irregular verb form ἐστι (third singular present indicative active)|ἐστι|lsj.n31130|irregularfiniteverb|third|singular|present|indicative|active"
 
 
 end
@@ -14,7 +14,7 @@ end
 
 
 @testset "Test data accessors" begin
-    delimited = "irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularverb"
+    delimited = "irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb"
     irrverbio = Kanones.IrregularVerbIO("IO for irreg verbs")
     stem = Kanones.readstemrow(irrverbio, delimited)
     expectedurn = StemUrn("irregverb.irregverbn31130a1")

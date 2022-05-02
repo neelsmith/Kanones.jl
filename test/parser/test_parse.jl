@@ -14,8 +14,9 @@
     irregnoun = parsetoken("γυνή", p)
     irreginf = parsetoken("εἶναι",p)
     irregadj = parsetoken("πᾶς", p)
+    irregverb = parsetoken("ἐστι", p)
 
-    @test length(verb) == length(noun) == length(adj) == length(infin) == length(pronoun) == length(uninfl) == length(irreginf) == length(irregnoun) == length(irregadj) == 1
+    @test length(verb) == length(noun) == length(adj) == length(infin) == length(pronoun) == length(uninfl) == length(irreginf) == length(irregnoun) == length(irregadj) == length(irregverb) == 1
 
 
     # mid or pass:

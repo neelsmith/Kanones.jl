@@ -11,7 +11,7 @@ struct IrregularVerbStem <: KanonesIrregularStem
     inflectionclass
 end
 #irregverb.irregverbnn26447a|lsj.n26447|δίδωσι|
-#third|singular|present|indicative|active|irregularverb
+#third|singular|present|indicative|active|irregularfiniteverb
 
 
 
@@ -65,7 +65,7 @@ $(SIGNATURES)
 function readstemrow(usp::Kanones.IrregularVerbIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
     # Example:
-    #irregverb.irregverbnn26447b|lsj.n26447|διδόασι|third|plural|present|indicative|active|irregularverb
+    #irregverb.irregverbnn26447b|lsj.n26447|διδόασι|third|plural|present|indicative|active|irregularfiniteverb
     if length(parts) < 9
         msg = "Too few parts in $delimited."
         @warn msg
