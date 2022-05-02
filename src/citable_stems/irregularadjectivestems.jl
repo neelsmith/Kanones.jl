@@ -161,8 +161,6 @@ function formurn(adj::IrregularAdjectiveStem)
     FormUrn("$(COLLECTION_ID)." * code(adj))
 end
 
-
-
 function greekForm(adj::IrregularAdjectiveStem) 
     formurn(adj) |> greekForm
 end

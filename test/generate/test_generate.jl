@@ -80,4 +80,11 @@
     @test generate(irradjstem, irradjrule) == "πᾶς"
     
 
+    irrinfsrc = "irreginfl.irregular3|irregularinfinitive"
+    irrinfrule = Kanones.readrulerow(irregruleio, irrinfsrc)
+
+    irrinfstemio = Kanones.IrregularInfinitiveIO("IO for irreg infinivite stems")
+    irrinfstemsrc = "irreginf.irreginfln31130|lsj.n31130|εἶναι|present|active|irregularinfinitive"
+    irrinfstem = Kanones.readstemrow(irrinfstemio, irrinfstemsrc)
+    @test generate(irrinfstem, irrinfrule) == "εἶναι"
 end

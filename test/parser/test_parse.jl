@@ -10,8 +10,14 @@
     infin = parsetoken("κελεύειν",p)
     pronoun = parsetoken("ἡ",p)
     uninfl = parsetoken("καί", p)
-    
-    @test length(verb) == length(noun) == length(adj) == length(infin) == length(pronoun) == length(uninfl) == 1
+
+    irregnoun = parsetoken("γυνή", p)
+    irreginf = parsetoken("εἶναι",p)
+    irregadj = parsetoken("πᾶς", p)
+
+    @test length(verb) == length(noun) == length(adj) == length(infin) == length(pronoun) == length(uninfl) == length(irreginf) == length(irregnoun) == length(irregadj) == 1
+
+
     # mid or pass:
     ptcpl =  parsetoken("κελευόμενος",p)
     @test length(ptcpl) == 2
