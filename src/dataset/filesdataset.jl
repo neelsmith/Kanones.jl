@@ -52,7 +52,7 @@ $(SIGNATURES)
 - `srclist` List of full paths to a directory with Kanones data.
 - `ortho` An instance of a `GreekOrthography`; defaults to `LiteraryGreekOrthography`.
 """
-function dataset(srclist::Array; ortho::T = literaryGreek()) where {T <: GreekOrthography}
+function dataset(srclist::Vector; ortho::T = literaryGreek()) where {T <: GreekOrthography}
     Kanones.FilesDataset(srclist; ortho =  ortho)
 end
 
@@ -70,39 +70,12 @@ end
 $(SIGNATURES)
 """
 function rulesarray(dirlist; delimiter = "|")
-    iodict = Dict(
-        [
-        "uninflected" => UninflectedIO("uninflected"),
-        "irregulars" => IrregularRuleParser("irregulars"),
-        "nouns" => NounIO("noun"),
-        "pronouns" => PronounIO("noun"),
-        "adjectives" => AdjectiveIO("adjectives"),
-        "finiteverbs" => VerbIO("verb"),
-        "infinitives" => InfinitiveIO("infinitives"),
-        "participles" => ParticipleIO("participles"),
-        "verbaladjectives" => VerbalAdjectiveIO("verbal adjectives"),
-        ]
-    )
-    rulesdirs = [
-        "uninflected",
-        "irregulars",
-        "nouns",
-        "pronouns",
-        "finiteverbs",
-        "infinitives",
-        "participles",
-        "verbaladjectives",
-        "adjectives"
-    ]
     rulesarr = Rule[]
-
     for datasrc in dirlist
-        for dirname in rulesdirs 
+        for dirname in RULES_DIRECTORIES 
             dir = joinpath(datasrc, "rules-tables", dirname)
-           
             cexfiles = glob("*.cex", dir)
-
-            delimitedreader = (iodict[dirname])
+            delimitedreader = (RULES_IO_DICT[dirname])
             for f in cexfiles
                 @debug("Reading rules from ", f)
                 raw = readlines(f)
@@ -138,32 +111,14 @@ $(SIGNATURES)
 """
 function stemsarray(dirlist; delimiter = "|")
     #@info("Getting regular stems for $dirlist")
-    iodict = Dict(
-        [
-        "adjectives" => AdjectiveIO("adjective"),
-        "nouns" => NounIO("noun"),
-        "pronouns" => PronounIO("pronoun"),
-        "uninflected" => UninflectedIO("uninflected"),
-        "verbs-simplex" => VerbIO("verb")
-        ]
-    )
-    stemdirs = [
-        "adjectives",
-        "nouns",
-        "pronouns",
-        "uninflected",
-        "verbs-simplex",
-        
-    ]
-
     stemsarr = Stem[]
     for datasrc in dirlist
         @info("Source directory for Kanones dataset: $(datasrc)")
-        for dirname in stemdirs 
+        for dirname in STEMS_DIRECTORIES 
             dir = joinpath(datasrc, "stems-tables", dirname)
             @debug("dir = ", dir)
             cexfiles = glob("*.cex", dir)
-            delimitedreader = (iodict[dirname])
+            delimitedreader = (STEMS_IO_DICT[dirname])
             for f in cexfiles
                 @debug("Reading stems from ", f)
                 raw = readlines(f)
@@ -182,30 +137,13 @@ function stemsarray(dirlist; delimiter = "|")
             end
         end
     end
-
-
-    irregiodict = Dict(
-        [
-        "nouns" => IrregularNounIO("noun"),
-        "verbs" => IrregularVerbIO("finite verb"),
-        "infinitives" => IrregularInfinitiveIO("infinitive"),
-        "adjectives" => IrregularAdjectiveIO("adjectives")
-        ]
-    )
-    irregstemdirs = [
-        "nouns",
-        "verbs",
-        "infinitives",
-        "adjectives"
-    ]
-    
-    
+  
     @debug("Getting irregular stems for $dirlist")
     for datasrc in dirlist
-        for dirname in irregstemdirs 
+        for dirname in IRREGULAR_STEM_DIRECTORIES
             dir = joinpath(datasrc, "irregular-stems", dirname)
             cexfiles = glob("*.cex", dir)
-            delimitedreader = (irregiodict[dirname])
+            delimitedreader = (IRREGULAR_IO_DICT[dirname])
             for f in cexfiles
                 raw = readlines(f)
                 lines = filter(s -> ! isempty(s), raw)
@@ -233,24 +171,17 @@ end
 $(SIGNATURES)
 """
 function registry(dirlist; delimiter = "|")
-    @info("Getting regular stems for $dirlist")
-    registrydirs = [
-        "lexemes",
-        "rules",
-        "stems"
-    ]
-
-
+    @debug("Getting regular stems for $dirlist")
     registrydict = Dict{AbstractString, AbstractString}()
     for datasrc in dirlist
-        @info("Source directory for Kanones dataset: $(datasrc)")
-        for dirname in registrydirs 
+        @debug("Source directory for Kanones dataset: $(datasrc)")
+        for dirname in REGISTRY_DIRECTORIES 
             dir = joinpath(datasrc, "urnregistry", dirname)
             @debug("dir = ", dir)
             cexfiles = glob("*.cex", dir)
             
             for f in cexfiles
-                @info("Reading stems from ", f)
+                @debug("Reading stems from ", f)
                 raw = readlines(f)
                 # Trim lines first:
                 lines = filter(s -> ! isempty(s), raw)
@@ -272,7 +203,23 @@ function registry(dirlist; delimiter = "|")
     registrydict
 end
 
-
 function orthography(kd::Kanones.FilesDataset)
     kd.orthography
+end
+
+function sortregularstems!(kds::Kanones.FilesDataset)
+    for datasrc in kds.dirs
+        @info("Source directory for Kanones dataset: $(datasrc)")
+        for dirname in STEMS_DIRECTORIES 
+            if dirname != "pronouns"
+                dir = joinpath(datasrc, "stems-tables", dirname)
+                @debug("dir = ", dir)
+                cexfiles = glob("*.cex", dir)
+                for f in cexfiles
+                    @info("sorting $(f)")
+                    sortbylsj!(f)
+                end
+            end
+        end
+    end
 end

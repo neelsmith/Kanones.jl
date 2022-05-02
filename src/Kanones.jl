@@ -27,7 +27,7 @@ export urn, label, cex
 
 export dataset
 export rulesarray, stemsarray, registry
-export sortbylsj, sortbylsj!
+export sortbylsj, sortbylsj!, sortregularstems!
 
 export GreekMorphologicalProperty
 export GMPVoice, gmpVoice
@@ -77,6 +77,7 @@ export StringParser, stringParser
 
 include("kanonesio.jl")
 include("dataset/dataset.jl")
+include("dataset/fileslayout.jl")
 include("dataset/filesdataset.jl")
 include("utils.jl")
 
