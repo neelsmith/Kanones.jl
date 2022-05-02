@@ -2,7 +2,7 @@
 function conjugation()
 end
 
-function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.Dataset)
+function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.FilesDataset)
     tenseforms = filter(f -> gmpTense(f) == t && gmpVoice(f) == v, verbforms())
    
 
@@ -61,7 +61,7 @@ end
 """Compose markdown table with imperative conjugation of `lex`.
 $(SIGNATURES)
 """
-function md_imperativeconjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.Dataset)
+function md_imperativeconjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.FilesDataset)
     mdlines = ["| | Singular | Plural|",   
     "| --- | --- | --- |"]
     imptvforms = filter(f -> f isa GMFFiniteVerb && gmpMood(f) == gmpMood("imperative"), allforms())

@@ -5,7 +5,26 @@ struct IrregularInfinitiveStem <: KanonesIrregularStem
     form::AbstractString
     tense::GMPTense
     voice::GMPVoice
+    inflectionclass
 end
+
+
+"""Identify tense of `inf`.
+$(SIGNATURES)
+"""
+function gmpTense(inf::IrregularInfinitiveStem)
+    inf.tense
+end
+
+
+"""Identify voice of `inf`.
+$(SIGNATURES)
+"""
+function gmpVoice(inf::IrregularInfinitiveStem)
+    inf.voice
+end
+
+
 
 
 """Irregular noun stems are citable by Cite2Urn"""
@@ -44,10 +63,10 @@ Required for `CitableTrait`.
 """
 function cex(inf::IrregularInfinitiveStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([inf.stemid, label(inf) ], delimiter)
+        join([inf.stemid, label(inf), stemstring(inf), lexeme(inf), inflectionClass(inf), label(inf.tense), label(inf.voice) ], delimiter)
     else
         c2urn = expand(inf.stemid, registry)
-        join([c2urn, label(inf)], delimiter)
+        join([c2urn, label(inf), stemstring(inf), lexeme(inf), inflectionClass(inf), label(inf.tense), label(inf.voice)], delimiter)
     end
 end
 
@@ -73,7 +92,58 @@ function readstemrow(infinio::Kanones.IrregularInfinitiveIO, delimited::Abstract
     stem = nfkc(parts[3])
     t = gmpTense(parts[4])
     v = gmpVoice(parts[5])
+    inflclass = parts[6]
 
-    IrregularInfinitiveStem(stemid,lexid,stem,t,v)
+    IrregularInfinitiveStem(stemid,lexid,stem,t,v, inflclass)
 
+end
+
+
+
+
+
+
+"""Identify value of stem string for `inf`.
+$(SIGNATURES)
+"""
+function stemstring(inf::IrregularInfinitiveStem)
+    inf.form
+end
+
+"""Identify lexeme for `inf`.
+$(SIGNATURES)
+"""
+function lexeme(inf::IrregularInfinitiveStem)
+    inf.lexid
+end
+
+"""Identify inflection class for `inf`.
+$(SIGNATURES)
+"""
+function inflectionClass(inf::IrregularInfinitiveStem)
+    inf.inflectionclass
+end
+
+
+
+
+"""Compose a digital code string for the form identified in `inf`.
+$(SIGNATURES)
+"""
+function code(inf::IrregularInfinitiveStem)
+      # PosPNTMVGCDCat
+     string( INFINITIVE,"00$(code(inf.tense))0$(code(inf.voice))0000")
+end
+
+
+"""Compose an abbreviated URN for a rule from a `IrregularAdjectiveStem`.
+
+$(SIGNATURES)
+"""
+function formurn(inf::IrregularInfinitiveStem)
+    FormUrn("$(COLLECTION_ID)." * code(inf))
+end
+
+function greekForm(inf::IrregularInfinitiveStem) 
+    formurn(inf) |> greekForm
 end

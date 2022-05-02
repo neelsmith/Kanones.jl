@@ -1,7 +1,7 @@
 """Decline all case-number combinations of `lex`, a noun.
 $(SIGNATURES)
 """
-function  decline(lex::LexemeUrn, kd::Kanones.Dataset; withvocative::Bool = false)
+function  decline(lex::LexemeUrn, kd::Kanones.FilesDataset; withvocative::Bool = false)
     stemmatches = filter(s -> lexeme(s) == lex, stemsarray(kd))
     
     declinedforms = []
@@ -23,7 +23,7 @@ end
 
 $(SIGNATURES)
 """
-function md_declension(lex::LexemeUrn, kd::Kanones.Dataset)
+function md_declension(lex::LexemeUrn, kd::Kanones.FilesDataset)
     labels = ["nominative", "genitive", "dative", "accusative", "vocative"]
     lines = [
         "| | Singular | Plural |", 
@@ -42,7 +42,7 @@ end
 
 $(SIGNATURES)
 """
-function md_declension(lexlist::Array, kd::Kanones.Dataset; withvocative::Bool = false)
+function md_declension(lexlist::Array, kd::Kanones.FilesDataset; withvocative::Bool = false)
     labels = ["nominative", "genitive", "dative", "accusative"]
     gendervalues = genders(lexlist, kd)
     inflclasses = stemtypes(lexlist, kd)
@@ -97,7 +97,7 @@ end
 
 $(SIGNATURES)
 """
-function genders(lexlist, kd::Kanones.Dataset)
+function genders(lexlist, kd::Kanones.FilesDataset)
     stems = stemsarray(kd)
     nounstems = filter(s -> typeof(s) == NounStem, stems)
 
@@ -121,7 +121,7 @@ end
 
 $(SIGNATURES)
 """
-function stemtypes(lexlist::Array, kd::Kanones.Dataset)
+function stemtypes(lexlist::Array, kd::Kanones.FilesDataset)
     stems = stemsarray(kd)
     nounstems = filter(s -> typeof(s) == NounStem, stems)
 

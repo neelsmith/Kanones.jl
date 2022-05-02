@@ -25,7 +25,7 @@ end
 """Instantiate a `StringParser` for `td`.
 $(SIGNATURES)
 """
-function stringParser(kd::Kanones.Dataset)
+function stringParser(kd::Kanones.FilesDataset)
     #analysis_lines(td) |> StringParser
 
     analyses = []
@@ -75,7 +75,7 @@ end
 """Map all analyses in `td` to string values.
 $(SIGNATURES)
 """
-function analysis_lines(td::Kanones.Dataset)
+function analysis_lines(td::Kanones.FilesDataset)
     analyses(td) |> analysis_lines
 end
 
@@ -101,7 +101,8 @@ $(SIGNATURES)
 """
 function buildfromrule(r::T) where {T <: KanonesRule}
     isa(r, PronounRule) == false  &&
-    isa(r, UninflectedRule)  ==  false
+    isa(r, UninflectedRule)  ==  false &&    
+    (r isa IrregularRule) == false
 end
 
 """Generate all forms possible for `stem`.

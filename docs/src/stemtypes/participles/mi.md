@@ -17,7 +17,7 @@ Inflectional class: `numi`
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
 
@@ -31,7 +31,7 @@ Markdown.parse(md_ptcpldeclension(δεικνυμι, gmpTense("present"), gmpVoic
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 δεικνυμι = LexemeUrn("lsj.n23658")
 
 

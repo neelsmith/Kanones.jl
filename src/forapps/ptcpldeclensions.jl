@@ -5,7 +5,7 @@ $(SIGNATURES)
 function participleslashline(
     lex::LexemeUrn,  
     tense::GMPTense, voice::GMPVoice, 
-    kd::Kanones.Dataset)
+    kd::Kanones.FilesDataset)
     ptcplforms = filter(f -> f isa GMFParticiple && gmpTense(f) == tense && gmpVoice(f) == voice && gmpNumber(f) == gmpNumber(1) && gmpCase(f) == gmpCase(1), allforms())
 
 
@@ -21,7 +21,7 @@ $(SIGNATURES)
 function md_ptcpldeclension(
     lex::LexemeUrn, 
     tense::GMPTense, voice::GMPVoice, 
-    kd::Kanones.Dataset)
+    kd::Kanones.FilesDataset)
     stemmatches = filter(s -> lexeme(s) == lex, stemsarray(kd))
     if isempty(stemmatches)
         throw(DomainError("No stems found for lexeme $(lex)"))

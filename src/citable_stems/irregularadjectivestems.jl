@@ -7,7 +7,41 @@ struct IrregularAdjectiveStem <: KanonesIrregularStem
     adjcase::GMPCase
     adjnumber::GMPNumber
     adjdegree::GMPDegree
+    inflectionclass
 end
+
+
+"""Identify gender of `adj`.
+$(SIGNATURES)
+"""
+function gmpGender(adj::IrregularAdjectiveStem)
+    adj.adjgender
+end
+
+
+"""Identify case of `adj`.
+$(SIGNATURES)
+"""
+function gmpCase(adj::IrregularAdjectiveStem)
+    adj.adjcase
+end
+
+
+"""Identify number of `adj`.
+$(SIGNATURES)
+"""
+function gmpNumber(adj::IrregularAdjectiveStem)
+    adj.adjnumber
+end
+
+
+"""Identify degree of `adj`.
+$(SIGNATURES)
+"""
+function gmpDegree(adj::IrregularAdjectiveStem)
+    adj.adjdegree
+end
+
 
 """Irregular adjective stems are citable by Cite2Urn"""
 CitableTrait(::Type{IrregularAdjectiveStem}) = CitableByCite2Urn()
@@ -47,10 +81,10 @@ Required for `CitableTrait`.
 """
 function cex(adj::IrregularAdjectiveStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([adj.stemid, label(adj) ], delimiter)
+        join([adj.stemid, label(adj), stemstring(adj), lexeme(adj), inflectionClass(adj), label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree) ], delimiter)
     else
         c2urn = expand(adj.stemid, registry)
-        join([c2urn, label(adj)], delimiter)
+        join([c2urn, label(adj), stemstring(adj), lexeme(adj), inflectionClass(adj), label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree)], delimiter)
     end
 end
 
@@ -64,14 +98,7 @@ function readstemrow(usp::IrregularAdjectiveIO, delimited::AbstractString; delim
 
     # Example:
     # "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
-    # 1. irregadj.n79904a
-    # 2. lsj.n79904
-    # 3. πᾶς
-    # 4. masculine
-    # 5. nominative
-    # 6. singular
-    # 7. positive
-    # 8. irregularadjective
+
     if length(parts) < 8
         msg = "Too few parts in $delimited."
         @warn msg
@@ -87,5 +114,53 @@ function readstemrow(usp::IrregularAdjectiveIO, delimited::AbstractString; delim
     d = gmpDegree(parts[7])
     inflclass = parts[8]
 
-    IrregularAdjectiveStem(stemid,lexid,stem,g,c,n,d)
+    IrregularAdjectiveStem(stemid,lexid,stem,g,c,n,d,inflclass)
+end
+
+
+
+
+"""Identify value of stem string for `adj`.
+$(SIGNATURES)
+"""
+function stemstring(adj::IrregularAdjectiveStem)
+    adj.form
+end
+
+"""Identify lexeme for `adj`.
+$(SIGNATURES)
+"""
+function lexeme(adj::IrregularAdjectiveStem)
+    adj.lexid
+end
+
+"""Identify inflection class for `adj`.
+$(SIGNATURES)
+"""
+function inflectionClass(adj::IrregularAdjectiveStem)
+    adj.inflectionclass
+end
+
+
+
+
+"""Compose a digital code string for the form identified in `adj`.
+$(SIGNATURES)
+"""
+function code(adj::IrregularAdjectiveStem)
+      # PosPNTMVGCDCat
+     string( ADJECTIVE,"0",code(adj.adjnumber),"000",code(adj.adjgender),code(adj.adjcase), code(adj.adjdegree), "0")
+end
+
+
+"""Compose an abbreviated URN for a rule from a `IrregularAdjectiveStem`.
+
+$(SIGNATURES)
+"""
+function formurn(adj::IrregularAdjectiveStem)
+    FormUrn("$(COLLECTION_ID)." * code(adj))
+end
+
+function greekForm(adj::IrregularAdjectiveStem) 
+    formurn(adj) |> greekForm
 end
