@@ -6,29 +6,28 @@
     @test stem isa IrregularAdjectiveStem
 
 
-    @test cex(stem) == "irregnoun.irregn23069a|Irregular noun form γυνή (feminine nominative singular)|γυνή|lsj.n23069|irregularnoun|feminine|nominative|singular"
+    @test cex(stem) == "irregadj.n79904a|Irregular adjective form πᾶς (masculine nominative singular positive)|πᾶς|lsj.n79904|irregularadjective|masculine|nominative|singular|positive"
 
 end
 
-#=
+
 
 @testset "Test data accessors" begin
-    delimited = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
-    irrnounio = Kanones.IrregularNounIO("IO for irreg nouns")
-    stem = Kanones.readstemrow(irrnounio, delimited)
-    expectedurn = StemUrn("irregnoun.irregn23069a")
+    delimited = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
+    irradjio = Kanones.IrregularAdjectiveIO("IO for irreg adjs")
+    stem = Kanones.readstemrow(irradjio, delimited)
+    expectedurn = StemUrn("irregadj.n79904a")
     @test urn(stem) == expectedurn
 
-    dict = Dict("irregnoun" => "urn:cite2:kanones:irregnoun.v1:")
-    expectedcite2 = Cite2Urn("urn:cite2:kanones:irregnoun.v1:irregn23069a")
+    dict = Dict("irregadj" => "urn:cite2:kanones:irregadj.v1:")
+    expectedcite2 = Cite2Urn("urn:cite2:kanones:irregadj.v1:n79904a")
     @test urn(stem) == expectedurn
     @test urn(stem, registry = dict) == expectedcite2
 
 
-    @test lexeme(stem) == LexemeUrn("lsj.n23069")
-    @test stemstring(stem) == "γυνή"
-    @test code(stem) == "2010002100"
-    @test formurn(stem) == FormUrn("forms.2010002100")
+    @test lexeme(stem) == LexemeUrn("lsj.n79904")
+    @test stemstring(stem) == "πᾶς"
+    @test code(stem) == "7010001110"
+    @test formurn(stem) == FormUrn("forms.7010001110")
     
 end
-=#

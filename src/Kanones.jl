@@ -59,6 +59,7 @@ export GMFUninflected, gmfUninflected, UninflectedStem, UninflectedRule
 
 export IrregularRule
 export IrregularNounStem
+export IrregularAdjectiveStem
 export IrregularVerbStem
 export IrregularInfinitiveStem
 
@@ -109,13 +110,13 @@ include("citable_rules/irregularrules.jl")
 include("citable_forms/finiteverbs.jl")
 include("citable_rules/finiteverbrules.jl")
 include("citable_stems/regularverbstems.jl")
-#include("citable_stems/irregularverbs.jl")
+#include("citable_stems/irregularverbstems.jl")
 
 
 # regular stems are drawn from finite verb stems
 include("citable_forms/infinitives.jl")
 include("citable_rules/infinitiverules.jl")
-#include("citable_stems/irregularinfinitives.jl")
+#include("citable_stems/irregularinfinitivestems.jl")
 
 
 include("citable_forms/participles.jl")
@@ -133,7 +134,7 @@ include("citable_stems/irregularnounstems.jl")
 include("citable_forms/adjectives.jl")
 include("citable_rules/adjectiverules.jl")
 include("citable_stems/regularadjectivestems.jl")
-include("citable_stems/irregularadjectives.jl")
+include("citable_stems/irregularadjectivestems.jl")
 
 include("citable_forms/adverbs.jl")
 #include("citable_rules/adverbsrules.jl")
