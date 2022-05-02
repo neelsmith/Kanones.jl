@@ -131,6 +131,7 @@ function stemsarray(kd::Kanones.Dataset)
     stemsarray(kd.dirs)
 end
 
+
 """Read all stem data from a `Kanones.Dataset` into an array of `Stem`s.
 
 $(SIGNATURES)
@@ -185,7 +186,6 @@ function stemsarray(dirlist; delimiter = "|")
 
     irregiodict = Dict(
         [
-        "uninflected" => UninflectedIO("uninflected"),
         "nouns" => IrregularNounIO("noun"),
         "verbs" => IrregularVerbIO("finite verb"),
         "infinitives" => IrregularInfinitiveIO("infinitive"),
@@ -199,8 +199,8 @@ function stemsarray(dirlist; delimiter = "|")
         "adjectives"
     ]
     
-    #=
-    @info("Getting irregular stems for $dirlist")
+    
+    @debug("Getting irregular stems for $dirlist")
     for datasrc in dirlist
         for dirname in irregstemdirs 
             dir = joinpath(datasrc, "irregular-stems", dirname)
@@ -216,7 +216,7 @@ function stemsarray(dirlist; delimiter = "|")
             end
         end
     end
-=#
+
     unique(stemsarr)
 end
 

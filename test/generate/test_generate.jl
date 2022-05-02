@@ -59,5 +59,14 @@
 
     @test generate(uninflstem, uninflrule) == "καί"
 
-  
+
+
+    irregruleio = Kanones.IrregularRuleParser("IO for irregular noun stems")
+    irregnounrulesrc = "irreginfl.irregular1|irregularnoun"
+    irrnounrule = Kanones.readrulerow(irregruleio, irregnounrulesrc)
+
+    irrnounio = Kanones.IrregularNounIO("IO for irreg nouns")
+    irregnounstemsrc = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
+    irrnounstem = Kanones.readstemrow(irrnounio, irregnounstemsrc)
+    @test generate(irrnounstem, irrnounrule) == "γυνή"
 end

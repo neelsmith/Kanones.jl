@@ -6,6 +6,31 @@ struct IrregularNounStem <: KanonesIrregularStem
     noungender::GMPGender
     nouncase::GMPCase
     nounnumber::GMPNumber
+    inflectiontype
+end
+
+
+"""Identify gender of `noun`.
+$(SIGNATURES)
+"""
+function gmpGender(noun::IrregularNounStem)
+    noun.noungender
+end
+
+
+"""Identify case of `noun`.
+$(SIGNATURES)
+"""
+function gmpCase(noun::IrregularNounStem)
+    noun.nouncase
+end
+
+
+"""Identify number of `noun`.
+$(SIGNATURES)
+"""
+function gmpNumber(noun::IrregularNounStem)
+    noun.nounnumber
 end
 
 """Irregular noun stems are citable by Cite2Urn"""
@@ -46,28 +71,13 @@ Required for `CitableTrait`.
 """
 function cex(ns::IrregularNounStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([ns.stemid, label(ns) ], delimiter)
+        join([ns.stemid, label(ns), stemstring(ns), lexeme(ns), inflectionClass(ns), label(ns.noungender), label(ns.nouncase), label(ns.nounnumber) ], delimiter)
     else
         c2urn = expand(ns.stemid, registry)
-        join([c2urn, label(ns)], delimiter)
+        join([c2urn, label(ns), stemstring(ns), lexeme(ns), inflectionClass(ns), label(ns.noungender), label(ns.nouncase), label(ns.nounnumber)], delimiter)
     end
 end
 
-#=
-"""Compose FormUrn for an irregular noun stem.
-
-$(SIGNATURES)
-
-For irregulars, all form information is in the stem entry, so we need 
-a function to create form urns directory from this.
-"""
-function abbrformurn(irregstem::IrregularNounStem)
-
-    casedict = ...
-    # PosPNTMVGCDCat
-    FormUrn(string("$(COLLECTION_ID).", NOUN,"0", code(irregstem.gnumber),"000",code(irregstem.gender),code(irregstem.gcase),"00"))
-end
-=#
 
 """
 Read one row of a stems table for noun tokens and create a `NounStem`.
@@ -79,15 +89,8 @@ function readstemrow(usp::IrregularNounIO, delimited::AbstractString; delimiter 
 
     # Example:
     #irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun
-    # 1. irregnoun.irregn23069a|
-    # 2. ls.n23069|
-    # 3. γυνή|
-    # 4. feminine
-    # 5. nominative
-    # 6. singular
-    # 7. irregularnoun
     if length(parts) < 7
-        msg = "Too few parts in $delimited."
+        msg = "Too few parts in $(delimited)."
         @warn msg
         throw(new(ArgumentError(msg)))
     end
@@ -100,6 +103,55 @@ function readstemrow(usp::IrregularNounIO, delimited::AbstractString; delimiter 
     n = gmpNumber(parts[6])
     inflclass = parts[7]
 
-    IrregularNounStem(stemid,lexid,stem,g,c,n)
+    IrregularNounStem(stemid,lexid,stem,g,c,n,inflclass)
 end
 
+
+
+
+
+"""Identify value of stem string for `noun`.
+$(SIGNATURES)
+"""
+function stemstring(noun::IrregularNounStem)
+    noun.form
+end
+
+"""Identify lexeme for `noun`.
+$(SIGNATURES)
+"""
+function lexeme(noun::IrregularNounStem)
+    noun.lexid
+end
+
+"""Identify inflection class for `noun`.
+$(SIGNATURES)
+"""
+function inflectionClass(noun::IrregularNounStem)
+    noun.inflectiontype
+end
+
+
+
+"""Compose a digital code string for the form identified in `noun`.
+$(SIGNATURES)
+"""
+function code(noun::IrregularNounStem)
+      # PosPNTMVGCDCat
+     string( NOUN,"0",code(noun.nounnumber),"000",code(noun.noungender),code(noun.nouncase),"00")
+end
+
+
+"""Compose an abbreviated URN for a rule from a `IrregularNounStem`.
+
+$(SIGNATURES)
+"""
+function formurn(noun::IrregularNounStem)
+    FormUrn("$(COLLECTION_ID)." * code(noun))
+end
+
+
+
+function greekForm(noun::IrregularNounStem) 
+    formurn(noun) |> greekForm
+end

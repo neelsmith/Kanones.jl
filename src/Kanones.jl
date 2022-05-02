@@ -168,6 +168,7 @@ include("generate/generateinfinitive.jl")
 include("generate/generateptcpl.jl")
 include("generate/generatepronoun.jl")
 include("generate/generateuninflected.jl")
+include("generate/generateirregular.jl")
 
 include("forapps/adjdeclensions.jl")
 include("forapps/noundeclensions.jl")
