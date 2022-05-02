@@ -1,6 +1,5 @@
 module Kanones
 
-
 using CitableParserBuilder
 import CitableParserBuilder: parsetoken
 import CitableParserBuilder: parsewordlist
@@ -28,6 +27,7 @@ export urn, label, cex
 
 export dataset
 export rulesarray, stemsarray, registry
+export sortbylsj, sortbylsj!
 
 export GreekMorphologicalProperty
 export GMPVoice, gmpVoice
@@ -78,18 +78,14 @@ export StringParser, stringParser
 include("kanonesio.jl")
 include("dataset/dataset.jl")
 include("dataset/filesdataset.jl")
+include("utils.jl")
 
-
-#=
 include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
-=#
 
 include("citable_rules/rules.jl")
 include("citable_stems/stems.jl")
 include("citable_forms/forms.jl")
-
-
 
 include("morphologicalproperties/properties.jl")
 include("morphologicalproperties/tense.jl")
@@ -102,9 +98,7 @@ include("morphologicalproperties/case.jl")
 include("morphologicalproperties/degree.jl")
 include("morphologicalproperties/uninflectedtype.jl")
 
-
 include("citable_forms/formvalues.jl")
-
 
 include("citable_rules/irregularrules.jl")
 
@@ -119,7 +113,6 @@ include("citable_forms/infinitives.jl")
 include("citable_rules/infinitiverules.jl")
 include("citable_stems/irregularinfinitivestems.jl")
 
-
 include("citable_forms/participles.jl")
 include("citable_rules/participlerules.jl")
 
@@ -130,7 +123,6 @@ include("citable_forms/nouns.jl")
 include("citable_rules/nounrules.jl")
 include("citable_stems/regularnounstems.jl")
 include("citable_stems/irregularnounstems.jl")
-
 
 include("citable_forms/adjectives.jl")
 include("citable_rules/adjectiverules.jl")
@@ -144,12 +136,9 @@ include("citable_forms/pronouns.jl")
 include("citable_stems/pronounstems.jl")
 include("citable_rules/pronounrules.jl")
 
-
 include("citable_forms/uninflected.jl")
 include("citable_rules/uninflectedrules.jl")
 include("citable_stems/uninflectedstems.jl")
-
-
 
 include("generate/generate.jl")
 include("generate/generatenoun.jl")
