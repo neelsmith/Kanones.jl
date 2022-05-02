@@ -10,7 +10,6 @@
     @test Kanones.poscode(adjid) == Kanones.ADJECTIVE
     @test Kanones.poscode(advid) == Kanones.ADVERB
 
-
     finiteid = "3323110000"
     infinid = "4003030000"
     ptcplid = "5013022400"
@@ -21,9 +20,7 @@
     @test Kanones.poscode(ptcplid) == Kanones.PARTICIPLE
     @test Kanones.poscode(vadjid) == Kanones.VERBALADJECTIVE
 
-
     uninflid = "1000000001"
-
     @test Kanones.poscode(uninflid) == Kanones.UNINFLECTED
 end
 
