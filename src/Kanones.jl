@@ -74,17 +74,9 @@ export urn, formurn, ruleurn
 
 export StringParser, stringParser
 
-#=
-include("parse.jl")
-include("listparsing.jl")
-include("utils.jl")
-=#
-
-
 include("kanonesio.jl")
 include("dataset/dataset.jl")
 
-# include("analyzer/analysis.jl")
 
 #=
 include("lexemes/lexeme.jl")
@@ -110,8 +102,7 @@ include("morphologicalproperties/uninflectedtype.jl")
 
 
 include("citable_forms/formvalues.jl")
-#include("citable_forms/kanonesformurns.jl")
-#include("citable_forms/irregularmorphology.jl")
+
 
 include("citable_rules/irregularrules.jl")
 
@@ -142,7 +133,7 @@ include("citable_stems/irregularnounstems.jl")
 include("citable_forms/adjectives.jl")
 include("citable_rules/adjectiverules.jl")
 include("citable_stems/regularadjectivestems.jl")
-#include("citable_stems/irregularadjectives.jl")
+include("citable_stems/irregularadjectives.jl")
 
 include("citable_forms/adverbs.jl")
 #include("citable_rules/adverbsrules.jl")

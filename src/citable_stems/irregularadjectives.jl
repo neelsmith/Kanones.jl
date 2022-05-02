@@ -7,6 +7,7 @@ struct IrregularAdjectiveStem <: KanonesIrregularStem
     adjcase::GMPCase
     adjnumber::GMPNumber
     adjdegree::GMPDegree
+    inflectionclass
 end
 
 """Irregular adjective stems are citable by Cite2Urn"""
@@ -64,14 +65,7 @@ function readstemrow(usp::IrregularAdjectiveIO, delimited::AbstractString; delim
 
     # Example:
     # "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
-    # 1. irregadj.n79904a
-    # 2. lsj.n79904
-    # 3. πᾶς
-    # 4. masculine
-    # 5. nominative
-    # 6. singular
-    # 7. positive
-    # 8. irregularadjective
+
     if length(parts) < 8
         msg = "Too few parts in $delimited."
         @warn msg
@@ -87,5 +81,5 @@ function readstemrow(usp::IrregularAdjectiveIO, delimited::AbstractString; delim
     d = gmpDegree(parts[7])
     inflclass = parts[8]
 
-    IrregularAdjectiveStem(stemid,lexid,stem,g,c,n,d)
+    IrregularAdjectiveStem(stemid,lexid,stem,g,c,n,d,inflclass)
 end

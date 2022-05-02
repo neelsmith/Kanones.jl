@@ -32,6 +32,8 @@ include("stems/test_nounstems.jl")
 include("stems/test_adjstems.jl")
 include("stems/test_verbstems.jl")
 include("stems/test_pronstems.jl")
+include("stems/test_irregularnounstems.jl")
+include("stems/test_irregularadjstems.jl")
 
 
 include("test_datasets.jl")
