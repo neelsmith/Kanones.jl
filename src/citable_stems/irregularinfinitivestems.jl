@@ -27,7 +27,6 @@ end
 
 
 
-
 """Irregular noun stems are citable by Cite2Urn"""
 CitableTrait(::Type{IrregularInfinitiveStem}) = CitableByCite2Urn()
 """Human-readlable label for an `IrregularInfinitiveStem`.
