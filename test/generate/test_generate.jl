@@ -61,7 +61,7 @@
 
 
 
-    irregruleio = Kanones.IrregularRuleParser("IO for irregular noun stems")
+    irregruleio = Kanones.IrregularRuleParser("IO for irregular rules")
     irregnounrulesrc = "irreginfl.irregular1|irregularnoun"
     irrnounrule = Kanones.readrulerow(irregruleio, irregnounrulesrc)
 
@@ -69,4 +69,15 @@
     irregnounstemsrc = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
     irrnounstem = Kanones.readstemrow(irrnounio, irregnounstemsrc)
     @test generate(irrnounstem, irrnounrule) == "γυνή"
+
+    
+    irregadjrulesrc = "irreginfl.irregular4|irregularadjective"
+    irradjrule = Kanones.readrulerow(irregruleio, irregadjrulesrc)
+
+    irradjstemio = Kanones.IrregularAdjectiveIO("IO for irreg adj stems")
+    irradjstemsrc = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
+    irradjstem = Kanones.readstemrow(irradjstemio, irradjstemsrc)
+    @test generate(irradjstem, irradjrule) == "πᾶς"
+    
+
 end
