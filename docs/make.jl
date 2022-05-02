@@ -21,25 +21,30 @@ makedocs(
     pages = [
         "Home" => "index.md",
        
-        "Background" => "bg/index.md",
+        "Background" => Any[
+            "Analysis by synthesis" => "bg/index.md",
+            "Kanones' analyses" => "bg/analysis.md",
+            "Data sets" => "bg/datasets.md"
+        ],
         "User's guide" => Any[
             "Identification with URNs" => "urns.md",
+            "Vocabulary items (lexemes)" => "lexicon.md",
+            "Lexical stems" => "stems.md",
+            "Inflectional rules" => "rules.md",
+            "Working with morphological data" => "morph.md",
+            "Morphological forms" => "forms.md",
            "Morphological properties" => "properties.md",
-           "Morphological forms" => "forms.md",
-           "Inflectional rules" => "rules.md",
-           "Vocabulary items" => "lexicon.md",
-           "Lexical stems" => "stems.md",
+         
+           
+           
+     
            "Utilities" => "utilities.md"
-           # "Managing Kanones datasets" => "datasets/index.md",
-            
-            #"Working with analytical data" => "analyses/index.md",
-            #"Programmer's notes on implementation" => "implementation/overview.md", 
-            #"Unit tests" => "implementation/units.md"
+          
            
         ],
       
         "Reference: stem types and paradigms" => Any[
-            "Contents" => "stemtypes/index.md",
+            "Stem types and paradigms" => "stemtypes/index.md",
             "Noun stems" => Any[ 
                 "stemtypes/nouns/index.md",
                 "Regular nouns: first declension" => "stemtypes/nouns/decl1.md",
@@ -48,6 +53,7 @@ makedocs(
                 "Irregular nouns" => "stemtypes/nouns/irreg.md"
             ],
             "Adjective stems" => Any[
+                "Adjective stems and paradigms" => "stemtypes/adjectives/index.md   ",
                 "Adjectives of the first and second declensions" => "stemtypes/adjectives/first-second.md",
                 "Adjectives of the third declensions" => "stemtypes/adjectives/third.md"
             ],
