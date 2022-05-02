@@ -13,6 +13,7 @@ function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.Da
     indic_forms = filter(f -> gmpMood(f) == gmpMood("indicative") && gmpNumber(f) == gmpNumber("singular"), tenseforms)
     indic_tokens = map(f -> generate(lex, formurn(f), kd), indic_forms)
     indic_labels = map(v -> join(v, ", "), indic_tokens)
+   
 
     subj_forms = filter(f -> gmpMood(f) == gmpMood("subjunctive") && gmpNumber(f) == gmpNumber("singular"), tenseforms)
     subj_tokens = map(f -> generate(lex, formurn(f), kd), subj_forms)
@@ -71,6 +72,7 @@ function md_imperativeconjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::
         frmstring = join(generate(lex, formurn(f), kd),", ")
         push!(generatedsing, frmstring)
     end
+
     
     plforms = filter(f -> gmpNumber(f) == gmpNumber("plural") && gmpTense(f) == t && gmpVoice(f) == v,imptvforms)
     generatedpl = []

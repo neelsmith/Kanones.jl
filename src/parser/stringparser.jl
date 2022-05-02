@@ -101,7 +101,8 @@ $(SIGNATURES)
 """
 function buildfromrule(r::T) where {T <: KanonesRule}
     isa(r, PronounRule) == false  &&
-    isa(r, UninflectedRule)  ==  false
+    isa(r, UninflectedRule)  ==  false &&    
+    (r isa IrregularRule) == false
 end
 
 """Generate all forms possible for `stem`.

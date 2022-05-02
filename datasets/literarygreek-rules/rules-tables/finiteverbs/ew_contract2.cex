@@ -1,9 +1,6 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-verbinfl.ew_cοntractsecond1|ew_cοntract|εῖς|second|singular|present|indicative|active
-verbinfl.ew_cοntractsecond2|ew_cοntract|εῖ|second|singular|present|indicative|middle
-verbinfl.ew_cοntractsecond2a|ew_cοntract|ῇ|second|singular|present|indicative|middle
-verbinfl.ew_cοntractsecond3|ew_cοntract|εῖ|second|singular|present|indicative|passive
-verbinfl.ew_cοntractsecond3a|ew_cοntract|ῇ|second|singular|present|indicative|middle
+
+
 
 
 verbinfl.ew_cοntractsecond4|ew_cοntract|ῇς|second|singular|present|subjunctive|active

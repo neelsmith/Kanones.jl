@@ -59,6 +59,7 @@ export GMFUninflected, gmfUninflected, UninflectedStem, UninflectedRule
 
 export IrregularRule
 export IrregularNounStem
+export IrregularAdjectiveStem
 export IrregularVerbStem
 export IrregularInfinitiveStem
 
@@ -74,17 +75,9 @@ export urn, formurn, ruleurn
 
 export StringParser, stringParser
 
-#=
-include("parse.jl")
-include("listparsing.jl")
-include("utils.jl")
-=#
-
-
 include("kanonesio.jl")
 include("dataset/dataset.jl")
 
-# include("analyzer/analysis.jl")
 
 #=
 include("lexemes/lexeme.jl")
@@ -110,46 +103,45 @@ include("morphologicalproperties/uninflectedtype.jl")
 
 
 include("citable_forms/formvalues.jl")
-#include("citable_forms/kanonesformurns.jl")
-#include("citable_forms/irregularmorphology.jl")
 
-#include("citable_rules/irregulars.jl")
+
+include("citable_rules/irregularrules.jl")
 
 include("citable_forms/finiteverbs.jl")
 include("citable_rules/finiteverbrules.jl")
-include("citable_stems/regularverbs.jl")
-#include("citable_stems/irregularverbs.jl")
+include("citable_stems/regularverbstems.jl")
+include("citable_stems/irregularfiniteverbstems.jl")
 
 
 # regular stems are drawn from finite verb stems
 include("citable_forms/infinitives.jl")
-include("citable_rules/infinitives.jl")
-#include("citable_stems/irregularinfinitives.jl")
+include("citable_rules/infinitiverules.jl")
+include("citable_stems/irregularinfinitivestems.jl")
 
 
 include("citable_forms/participles.jl")
-include("citable_rules/participles.jl")
+include("citable_rules/participlerules.jl")
 
 include("citable_forms/verbaladjectives.jl")
-include("citable_rules/verbaladjectives.jl")
+include("citable_rules/verbaladjectiverules.jl")
 
 include("citable_forms/nouns.jl")
 include("citable_rules/nounrules.jl")
-include("citable_stems/regularnouns.jl")
-#include("citable_stems/irregularnouns.jl")
+include("citable_stems/regularnounstems.jl")
+include("citable_stems/irregularnounstems.jl")
 
 
 include("citable_forms/adjectives.jl")
 include("citable_rules/adjectiverules.jl")
-include("citable_stems/regularadjectives.jl")
-#include("citable_stems/irregularadjectives.jl")
+include("citable_stems/regularadjectivestems.jl")
+include("citable_stems/irregularadjectivestems.jl")
 
 include("citable_forms/adverbs.jl")
-
+#include("citable_rules/adverbsrules.jl")
 
 include("citable_forms/pronouns.jl")
-include("citable_stems/pronouns.jl")
-include("citable_rules/pronouns.jl")
+include("citable_stems/pronounstems.jl")
+include("citable_rules/pronounrules.jl")
 
 
 include("citable_forms/uninflected.jl")
@@ -168,6 +160,7 @@ include("generate/generateinfinitive.jl")
 include("generate/generateptcpl.jl")
 include("generate/generatepronoun.jl")
 include("generate/generateuninflected.jl")
+include("generate/generateirregular.jl")
 
 include("forapps/adjdeclensions.jl")
 include("forapps/noundeclensions.jl")

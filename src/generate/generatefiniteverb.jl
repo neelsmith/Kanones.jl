@@ -8,7 +8,7 @@ function generate(
     stem::VerbStem, 
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
-    
+   
     stembase = stemstring(stem)
     if regularverbclass(stem) 
         stembase = principalpart(stem, rule, ortho = ortho)

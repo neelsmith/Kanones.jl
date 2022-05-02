@@ -10,7 +10,10 @@ end
 """Generate a form for a given lexeme and form within a given dataset.
 $(SIGNATURES)
 """
-function generate(lex::LexemeUrn, form::FormUrn, kds::Kanones.Dataset) 
+function generate(
+    lex::LexemeUrn, 
+    form::FormUrn, 
+    kds::Kanones.Dataset) 
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemsarray(kds))
     generated = []

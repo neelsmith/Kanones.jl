@@ -19,13 +19,11 @@ In polytonic Greek, however, the surface token includes movable accents.  The co
 Kanones' solution could be summarized as:
 
 
-1. Generate all possible forms
-2. "Parsing" becomes a lookup operation
-3. A "parser" becomes the set of all possible tokens associated with all possible analyses for that token
+1. Combine stems and endings to generate all forms that can possibly be recognized from this dataset.
+2. "Parsing" becomes a lookup operation.
+3. A "parser" becomes the set of all possible tokens associated with all possible analyses for that token.
 
-
-
-Result in 2022: technologically minimal and fast for use; easily implemented from plain-text data sources that a classicist can modify or add to.
+In 2022, it is feasible to load the complete set of morphological analyses for all possible tokens in a natural language in memory.  This approach has the simultaneous advantages of minimal technical requirements combined with very high performance, and is easily implemented plain-text data sources that a classicist can modify or add to.
 
 ## Distinctive features of Kanones' analyses
 

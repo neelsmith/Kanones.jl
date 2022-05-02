@@ -10,7 +10,7 @@ function participleslashline(
 
 
     generated = map(f -> generate(lex, formurn(f), kd),  ptcplforms)
-    join(map(v -> v[1], generated), ", ")
+    join(map(v -> isempty(v) ? "" : v[1], generated), ", ")
 
 end
 

@@ -1,7 +1,6 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-verbinfl.ew_contract1|ew_contract|ει|third|singular|present|indicative|active
-verbinfl.ew_contract2|ew_contract|ειται|third|singular|present|indicative|middle
-verbinfl.ew_contract3|ew_contract|ειται|third|singular|present|indicative|passive
+
+
 
 verbinfl.ew_contract4|ew_contract|ῃ|third|singular|present|subjunctive|active
 verbinfl.ew_contract5|ew_contract|ηται|third|singular|present|subjunctive|middle

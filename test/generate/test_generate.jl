@@ -59,5 +59,46 @@
 
     @test generate(uninflstem, uninflrule) == "καί"
 
-  
+
+
+    irregruleio = Kanones.IrregularRuleParser("IO for irregular rules")
+    irregnounrulesrc = "irreginfl.irregular1|irregularnoun"
+    irrnounrule = Kanones.readrulerow(irregruleio, irregnounrulesrc)
+
+    irrnounio = Kanones.IrregularNounIO("IO for irreg nouns")
+    irregnounstemsrc = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
+    irrnounstem = Kanones.readstemrow(irrnounio, irregnounstemsrc)
+    @test generate(irrnounstem, irrnounrule) == "γυνή"
+
+    
+    irregadjrulesrc = "irreginfl.irregular4|irregularadjective"
+    irradjrule = Kanones.readrulerow(irregruleio, irregadjrulesrc)
+
+    irradjstemio = Kanones.IrregularAdjectiveIO("IO for irreg adj stems")
+    irradjstemsrc = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
+    irradjstem = Kanones.readstemrow(irradjstemio, irradjstemsrc)
+    @test generate(irradjstem, irradjrule) == "πᾶς"
+    
+
+    irrinfsrc = "irreginfl.irregular3|irregularinfinitive"
+    irrinfrule = Kanones.readrulerow(irregruleio, irrinfsrc)
+
+    irrinfstemio = Kanones.IrregularInfinitiveIO("IO for irreg infinivite stems")
+    irrinfstemsrc = "irreginf.irreginfln31130|lsj.n31130|εἶναι|present|active|irregularinfinitive"
+    irrinfstem = Kanones.readstemrow(irrinfstemio, irrinfstemsrc)
+    @test generate(irrinfstem, irrinfrule) == "εἶναι"
+
+
+
+
+
+    irrverbsrc = "irreginfl.irregular2|irregularfiniteverb"
+    irrverbrule = Kanones.readrulerow(irregruleio, irrverbsrc)
+
+
+    irrverbstemio = Kanones.IrregularVerbIO("IO for irreg verbs")
+    irrverbstemsrc = "irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb"
+    irrverbstem = Kanones.readstemrow(irrverbstemio, irrverbstemsrc)
+
+    @test generate(irrverbstem, irrverbrule) == "ἐστι"
 end

@@ -1,5 +1,5 @@
 """
-Implementations of this type can read delimited text and write SFST.
+Implementations of this type can read and write delimited text formatting of Kanones morphological data.
 
 $(SIGNATURES)
 """
