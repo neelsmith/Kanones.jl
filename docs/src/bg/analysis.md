@@ -27,6 +27,14 @@ atticparser = stringParser(attic)
 analysis = parsetoken("βουλῆς",lgparser)[1]
 ```
 
+```
+vocab = lexeme(analysis)
+form = formurn(analysis)
+generate(vocab,form,attic)
+```
+
+```
+
 ## Kanones' collections
 
 - four components:
