@@ -22,3 +22,9 @@ function orthography(ds::T) where {T <: Dataset}
     @warn("Function orthography not implemented for type $(typeof(ds))")
     nothing
 end
+
+
+
+function validate(ds::T) where {T <: Kanones.Dataset}
+    @warn("NOT YET IMPLEMENTED")
+end
