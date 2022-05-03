@@ -65,7 +65,7 @@ makedocs(
                 "Regular verbs: -εω contracts"  => "stemtypes/verbs/ew_contracts.md",
                 "Regular verbs: -αω contracts"  => "stemtypes/verbs/aw_contracts.md",
                 "Regular verbs: -οω contracts"  => "stemtypes/verbs/ow_contracts.md",
-
+                "Regular verbs in -ιζω"  => "stemtypes/verbs/izw.md",
                 "Attic futures" => "stemtypes/verbs/atticfut.md",
                 "Second aorists" => "stemtypes/verbs/secondaor.md",
                 "Principal parts" => "stemtypes/verbs/princparts.md",
@@ -82,6 +82,7 @@ makedocs(
                 "Participles of -αω contracts"  => "stemtypes/participles/aw_contracts.md",
                 "Participles of -οω contracts"  => "stemtypes/participles/ow_contracts.md",
                 "Participles of -μι verbs" => "stemtypes/participles/mi.md",
+                "Participles of verbs in -ιζω"  => "stemtypes/verbs/izw.md",
                 "Second aorist participles" => "stemtypes/participles/secondaor.md",
             ]
         ],   
