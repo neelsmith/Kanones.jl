@@ -43,7 +43,7 @@ makedocs(
            
         ],
       
-        "Reference: stem types and paradigms" => Any[
+        "Reference: stem types and paradigms in the `literarygreek-rules` dataset" => Any[
             "Stem types and paradigms" => "stemtypes/index.md",
             "Noun stems" => Any[ 
                 "stemtypes/nouns/index.md",
