@@ -53,7 +53,7 @@ makedocs(
                 "Irregular nouns" => "stemtypes/nouns/irreg.md"
             ],
             "Adjective stems" => Any[
-                "Adjective stems and paradigms" => "stemtypes/adjectives/index.md   ",
+                "Adjective stems and paradigms" => "stemtypes/adjectives/index.md",
                 "Adjectives of the first and second declensions" => "stemtypes/adjectives/first-second.md",
                 "Adjectives of the third declensions" => "stemtypes/adjectives/third.md"
             ],
@@ -86,6 +86,11 @@ makedocs(
                 "Second aorist participles" => "stemtypes/participles/secondaor.md",
             ]
         ],   
+
+        "Reference: vocabulary in the `lsj` dataset" => Any[
+            "vocab/index.md",
+            "δίδωμι" => "vocab/irregular/didomi.md"
+        ],
         "Reference: API documentation" => Any[
             "Julia API documentation" =>  "apis/apis.md",
             "Morphological properties and forms" => "apis/morph.md"

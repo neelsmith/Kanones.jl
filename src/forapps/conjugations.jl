@@ -5,15 +5,19 @@ end
 function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.FilesDataset)
     tenseforms = filter(f -> gmpTense(f) == t && gmpVoice(f) == v, verbforms())
    
-
+ 
     mdlines = ["| | Indicative | Subjunctive | Optative |",   
     "| --- | --- | --- | --- |"]
     
     # SINGULAR:
     indic_forms = filter(f -> gmpMood(f) == gmpMood("indicative") && gmpNumber(f) == gmpNumber("singular"), tenseforms)
+   
+
+    
     indic_tokens = map(f -> generate(lex, formurn(f), kd), indic_forms)
     indic_labels = map(v -> join(v, ", "), indic_tokens)
    
+    
 
     subj_forms = filter(f -> gmpMood(f) == gmpMood("subjunctive") && gmpNumber(f) == gmpNumber("singular"), tenseforms)
     subj_tokens = map(f -> generate(lex, formurn(f), kd), subj_forms)
