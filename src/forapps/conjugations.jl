@@ -102,7 +102,7 @@ $(SIGNATURES)
 function prooffuture(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
 
     futfinites = [
-        "# Future tense",
+        "## Future tense",
         "*Active*",
         md_conjugation(gmpTense("future"), gmpVoice("active"), lex, kds),
         "*Middle*",
@@ -146,12 +146,12 @@ $(SIGNATURES)
 function proofpresent(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
 
     presfinites = [
-        "# Present tense",
+        "## Present tense",
         "*Active*", 
         md_conjugation(gmpTense("present"), gmpVoice("active"), lex, kds),
         "*Middle/passive*",  
         md_conjugation(gmpTense("present"), gmpVoice("passive"), lex, kds),
-        "## Imperative",
+        "### Imperative",
         "*Active*",
         md_imperativeconjugation(gmpTense("present"), gmpVoice("active"), lex, kds),
         "*Middle/passive*", 
@@ -244,9 +244,9 @@ function proofaorist(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
 
 
     nominals = [
-        "- **active infinitive**: $(inf_actforms[1])",
-        "- **middle infinitive**: $(inf_mdlforms[1])",
-        "- **passive infinitive**: $(inf_passforms[1])",
+        "- **active infinitive**: $(infacttoken)",
+        "- **middle infinitive**: $(infmdltoken)",
+        "- **passive infinitive**: $(infpasstoken)",
         "- **active participle**: $(actptcpl)",
         "- **middle participle**: $(midptcpl)",
         "- **passive participle**: $(passptcpl)"
@@ -300,6 +300,14 @@ end
 $(SIGNATURES)
 """
 function proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconjugation.md") where {T <: Kanones.Dataset}
+    pia1s = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("present"), gmpMood("indicative"), gmpVoice("active"))
+    headerforms = generate(lex, formurn(pia1s), kds)
+    hdrlines = [
+        "# Complete conjugation of $(headerforms[1])",
+        "> In the conjugation tables, a dash `-` indicates that a form does not exist in that combination of tense, mood and voice.",
+        "> Empty cells indicate forms that are poorly attested or unattested."
+    ]
+    hdr = join(hdrlines,"\n\n")
 
     presentsystem = proofpresent(lex,kds)
     futuresystem = prooffuture(lex,kds)
@@ -307,6 +315,7 @@ function proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconjugation.
     perfectsystem = proofperfect(lex,kds)
 
     pieces = [
+        hdr,
         presentsystem,
         futuresystem, 
         aoristsystem,
