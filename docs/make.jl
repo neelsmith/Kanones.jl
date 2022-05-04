@@ -89,8 +89,9 @@ makedocs(
 
         "Reference: vocabulary in the `lsj` dataset" => Any[
             "vocab/index.md",
-            "Summary of regularly inflected vocabulary" => "regulars.md",
+            "Summary of regularly inflected vocabulary" => "vocab/regulars.md",
             "Irregular verbs" => Any[
+                "Overview of irregular nouns" => "vocab/irregularverbs/index.md",
                 "δίδωμι" => "vocab/irregularverbs/didomi.md",
                 "τίθημι" => "vocab/irregularverbs/tithemi.md",
                 "ἵστημι" => "vocab/irregularverbs/histemi.md",
@@ -100,10 +101,10 @@ makedocs(
                 "οἶδα" => "vocab/irregularverbs/oida.md",
             ],
             "Irregular nouns" => Any[
-                "Overview of irregular nouns" => "index.md"
+                "Overview of irregular nouns" => "vocab/irregularnouns/index.md"
             ],
             "Irregular adjectives" => Any[
-                "Overview of irregular adjectives" => "index.md"
+                "Overview of irregular adjectives" => "vocab/irregularadjs/index.md"
             ]
         ],
         "Reference: API documentation" => Any[
