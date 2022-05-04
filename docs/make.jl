@@ -89,7 +89,22 @@ makedocs(
 
         "Reference: vocabulary in the `lsj` dataset" => Any[
             "vocab/index.md",
-            "δίδωμι" => "vocab/irregular/didomi.md"
+            "Summary of regularly inflected vocabulary" => "regulars.md",
+            "Irregular verbs" => Any[
+                "δίδωμι" => "vocab/irregularverbs/didomi.md",
+                "τίθημι" => "vocab/irregularverbs/tithemi.md",
+                "ἵστημι" => "vocab/irregularverbs/histemi.md",
+                "ἵημι" => "vocab/irregularverbs/hiemi.md",
+                "εἰμί" => "vocab/irregularverbs/eimi-tobe.md",
+                "εἶμι" => "vocab/irregularverbs/eimi-togo.md",
+                "οἶδα" => "vocab/irregularverbs/oida.md",
+            ],
+            "Irregular nouns" => Any[
+                "Overview of irregular nouns" => "index.md"
+            ],
+            "Irregular adjectives" => Any[
+                "Overview of irregular adjectives" => "index.md"
+            ]
         ],
         "Reference: API documentation" => Any[
             "Julia API documentation" =>  "apis/apis.md",

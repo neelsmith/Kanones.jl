@@ -18,16 +18,14 @@ function generate(
     stems = filter(s -> lexeme(s) == lex,  stemsarray(kds))
     generated = []
     for s in stems
+        @debug("STEMS:", stems)
         rules = filter(rulesarray(kds)) do r
             if r isa IrregularRule
                 inflectionClass(r) == inflectionClass(s) && formurn(s) == form
             else
                 inflectionClass(r) == inflectionClass(s) && formurn(r) == form
             end
-            
         end
-
-        
         for r in rules
             push!(generated, generate(s,r))
         end
