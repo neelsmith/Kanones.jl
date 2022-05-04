@@ -94,3 +94,364 @@ function md_imperativeconjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::
     end
     join(mdlines,"\n")
 end
+
+
+
+
+
+"""Write conjugation table for `lex` to a file.
+$(SIGNATURES)
+"""
+function proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconjugation.md") where {T <: Kanones.Dataset}
+
+
+    presfinites = "# Present tense\n\n*Active*\n\n" * md_conjugation(gmpTense("present"), gmpVoice("active"), lex, kds) * "\n\n*Middle/passive*\n\n"  *  md_conjugation(gmpTense("present"), gmpVoice("passive"), lex, kds)
+
+    presimp = "## Imperative\n\n*Active*\n\n" * md_imperativeconjugation(gmpTense("present"), gmpVoice("active"), lex, kds) * "\n\n*Middle/passive*\n\n" * md_imperativeconjugation(gmpTense("present"), gmpVoice("passive"), lex, kds)
+    
+    vadj = GMFVerbalAdjective(
+    gmpGender("neuter"), gmpCase("nominative"), gmpNumber(1))
+    vadjforms = generate(lex, formurn(vadj), kds)
+    vadjtoken = isempty(vadjforms) ? ""  : vadjforms[1]
+
+    inf_act = GMFInfinitive(
+        gmpTense("present"), gmpVoice("active")
+    )
+    inf_actforms = generate(lex, formurn(inf_act), kds)
+    inf_acttoken = isempty(inf_actforms) ? ""  : inf_actforms[1]
+
+
+    inf_pass = GMFInfinitive(
+        gmpTense("present"), gmpVoice("passive")
+    )
+    inf_passforms = generate(lex, formurn(inf_pass), kds)
+    inf_passtoken = isempty(inf_passforms) ? ""  : inf_passforms[1]
+
+    actptcpl = participleslashline(lex, gmpTense("present"), gmpVoice("active"), kds)
+    
+
+    mpptcpl = participleslashline(lex, gmpTense("present"), gmpVoice("middle"), kds)
+
+
+    actptcitem = "- **Active participle**: $(actptcpl)"
+    mpptcplitem = "- **Middle/passive participle**: $(mpptcpl)"
+    infaitem = "- **Active infinitive**: $(inf_acttoken)"
+    infpitem = "- **Passive infinitive**: $(inf_passtoken)"
+    vadjitem = "- **Verbal adjective**: $(vadjtoken)"
+
+    presnominal = join([actptcitem, mpptcplitem,infaitem, infpitem, vadjitem], "\n")
+
+
+# ### Imperfect tense
+
+
+    impftact = "\n\n## Imperfect\n\n*Active*\n\n" * md_conjugation(gmpTense("imperfect"), gmpVoice("active"), lex, kds)
+    impftmp = "\n\n*Middle/passive*\n\n" * md_conjugation(gmpTense("imperfect"), gmpVoice("passive"), lex, kds)
+    
+    futfinites = "\n\n# Future tense\n\n*Active*\n\n" * md_conjugation(gmpTense("future"), gmpVoice("active"), lex, kds) * "\n\n*Middle*\n\n"  *  md_conjugation(gmpTense("future"), gmpVoice("middle"), lex, kds) * "\n\n*Passive*\n\n" * md_conjugation(gmpTense("future"), gmpVoice("passive"), lex, kds)
+
+
+
+    pieces = [
+        presfinites, presimp, presnominal, 
+        impftact, impftmp,
+        futfinites
+    ]
+
+    md = join(pieces, "\n\n")
+    open(f,"w") do io
+        write(io, md)
+    end
+
+#=
+
+
+
+
+
+
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+
+
+inf_act = GMFInfinitive(
+    gmpTense("future"), gmpVoice("active")
+)
+inf_actforms = generate(lex, formurn(inf_act), kds)
+
+
+inf_mdl = GMFInfinitive(
+    gmpTense("future"), gmpVoice("middle")
+)
+inf_mdlforms = generate(lex, formurn(inf_mdl), kds)
+
+
+inf_pass = GMFInfinitive(
+    gmpTense("future"), gmpVoice("passive")
+)
+inf_passforms = generate(lex, formurn(inf_pass), kds)
+
+
+actptcpl = participleslashline(lex, gmpTense("future"), gmpVoice("active"), kds)
+
+midptcpl = participleslashline(lex, gmpTense("future"), gmpVoice("middle"), kds)
+
+passptcpl = participleslashline(lex, gmpTense("future"), gmpVoice("passive"), kds)
+
+mdlines = [
+    "- **active infinitive**: $(inf_actforms[1])",
+    "- **middle infinitive**: $(inf_mdlforms[1])",
+    "- **passive infinitive**: $(inf_passforms[1])",
+    "- **active participle**: $(actptcpl)",
+    "- **middle participle**: $(midptcpl)",
+    "- **passive participle**: $(passptcpl)"
+]
+Markdown.parse(join(mdlines,"\n"))
+```
+
+
+
+
+## Aorist tense
+
+*Active voice*:
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+
+Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("active"), lex, kds))
+```
+
+
+*Middle voice*:
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+
+Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("middle"), lex, kds))
+```
+
+
+*Passive voice*:
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+
+Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("passive"), lex, kds))
+```
+
+
+
+
+### Imperative 
+
+*Active voice*:
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+tbl = md_imperativeconjugation(gmpTense("aorist"), gmpVoice("active"), lex, kds)
+Markdown.parse(tbl)
+```
+
+
+*Middle voice*:
+
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+tbl = md_imperativeconjugation(gmpTense("aorist"), gmpVoice("middle"), lex, kds)
+Markdown.parse(tbl)
+```
+
+
+
+*Passive voice*:
+
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+tbl = md_imperativeconjugation(gmpTense("aorist"), gmpVoice("passive"), lex, kds)
+Markdown.parse(tbl)
+```
+
+
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+
+
+inf_act = GMFInfinitive(
+    gmpTense("aorist"), gmpVoice("active")
+)
+inf_actforms = generate(lex, formurn(inf_act), kds)
+
+
+inf_mdl = GMFInfinitive(
+    gmpTense("aorist"), gmpVoice("middle")
+)
+inf_mdlforms = generate(lex, formurn(inf_mdl), kds)
+
+
+inf_pass = GMFInfinitive(
+    gmpTense("aorist"), gmpVoice("passive")
+)
+inf_passforms = generate(lex, formurn(inf_pass), kds)
+
+
+
+actptcpl = participleslashline(lex, gmpTense("aorist"), gmpVoice("active"), kds)
+
+midptcpl = participleslashline(lex, gmpTense("aorist"), gmpVoice("middle"), kds)
+
+passptcpl = participleslashline(lex, gmpTense("aorist"), gmpVoice("passive"), kds)
+
+
+mdlines = [
+    "- **active infinitive**: $(inf_actforms[1])",
+    "- **middle infinitive**: $(inf_mdlforms[1])",
+    "- **passive infinitive**: $(inf_passforms[1])",
+    "- **active participle**: $(actptcpl)",
+    "- **middle participle**: $(midptcpl)",
+    "- **passive participle**: $(passptcpl)"
+]
+
+Markdown.parse(join(mdlines,"\n"))
+
+```
+
+
+
+
+## Perfect system
+
+### Perfect tense
+
+*Active voice*:
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+
+Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("active"), lex, kds))
+```
+
+
+
+
+*Middle and passive voices* (identical forms):
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+
+Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("passive"), lex, kds))
+```
+
+
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+actptcpl = participleslashline(lex, gmpTense("perfect"), gmpVoice("active"), kds)
+
+mpptcpl = participleslashline(lex, gmpTense("perfect"), gmpVoice("middle"), kds)
+
+
+inf_act = GMFInfinitive(
+    gmpTense("perfect"), gmpVoice("active")
+)
+inf_actforms = generate(lex, formurn(inf_act), kds)
+
+mdlines = [
+    "- **active infinitive**: $(inf_actforms[1])",
+    "- **active participle**: $(actptcpl)",
+    "- **middle & passive participle**: $(mpptcpl)"
+]
+Markdown.parse(join(mdlines,"\n"))
+```
+
+### Pluperfect tense
+
+*Active voice*:
+
+```@eval
+using Kanones, CitableParserBuilder, Markdown
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+kds = Kanones.FilesDataset([srcdir])
+lex = LexemeUrn("lsj.n56496")
+
+
+Markdown.parse(md_conjugation(gmpTense("pluperfect"), gmpVoice("active"), lex, kds))
+```
+
+
+
+*Middle and passive voices* (identical forms):
+
+```@eval
+
+
+
+
+
+
+
+Markdown.parse(md_conjugation(gmpTense("pluperfect"), gmpVoice("passive"), lex, kds))
+```
+    =#
+  
+end
