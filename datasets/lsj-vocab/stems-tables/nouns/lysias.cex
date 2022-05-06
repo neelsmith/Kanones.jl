@@ -1,8 +1,9 @@
 StemUrn|LexicalEntity|Stem|Gender|InflClass|Accent|Notes
 
 nounstems.n761|lsj.n761|ἀγορ|feminine|a_as|inflectionaccented|
+
 nounstems.n941|lsj.n941|ἀγρ|masculine|os_ou|inflectionaccented|
-nounstems.n1379|lsj.n1379|ἀδικη|neuter|ma_matos|recessive|
+
 nounstems.n2739|lsj.n2739|αἰσχυν|feminine|h_hs|recessive|
 nounstems.n2764|lsj.n2764|αἰτι|feminine|a_as|stemaccented|
 nounstems.n6339|lsj.n6339|ἀναγκ|feminine|h_hs|stemaccented|
@@ -10,7 +11,7 @@ nounstems.n6339|lsj.n6339|ἀναγκ|feminine|h_hs|stemaccented|
 
 nounstems.n14967|lsj.n14967|ἀρετ|feminine|h_hs|inflectionaccented|
 nounstems.n15893|lsj.n15893|ἀρχ|feminine|h_hs|inflectionaccented|
-nounstems.n19870|lsj.n19870|βι|feminine|a_as|recessive|
+
 
 nounstems.n20020|lsj.n20020|βλαβ|feminine|h_hs|recessive|
 nounstems.n22502|lsj.n22502|γνωμ|feminine|h_hs|recessive|
@@ -41,21 +42,18 @@ nounstems.n85253|lsj.n85253|πολυπραγμοσυν|feminine|h_hs|recessive|
 nounstems.n85647|lsj.n85647|πονηρι|feminine|a_as|stemaccented|
 nounstems.n86112|lsj.n86112|πραγ|neuter|ma_matos|recessive|
 
-nounstems.n94474|lsj.n94474|σιωπ|feminine|h_hs|inflectionaccented|
-nounstems.n96702|lsj.n96702|στηλ|feminine|h_hs|recessive|
+
 nounstems.n97527|lsj.n97527|συγγνωμ|feminine|h_hs|stemaccented|
 nounstems.n98925|lsj.n98925|συμφορ|feminine|a_as|inflectionaccented|
 nounstems.n102096|lsj.n102096|σωτηρι|feminine|a_as|stemaccented|
 nounstems.n103701|lsj.n103701|τεχν|feminine|h_hs|recessive|
 nounstems.n104023|lsj.n104023|τιμωρι|feminine|a_as|stemaccented|
-nounstems.n114624|lsj.n114624|χρη|neuter|ma_matos|recessive|
+
 
 
 nounstems.n104087|lsj.n104087|τιτθ|masculine|os_ou|inflectionaccented|
 nounstems.n114753|lsj.n114753|χρον|masculine|os_ou|recessive|
 nounstems.n115675|lsj.n115675|ψηφ|masculine|os_ou|recessive|
-
-
 nounstems.n86917|lsj.n86917|προγον|masculine|os_ou|recessive|
 nounstems.n14835|lsj.n14835|ἀργυρι|neuter|os_ou|recessive|
 nounstems.n50824|lsj.n50824|ἱππ|masculine|os_ou|recessive|
