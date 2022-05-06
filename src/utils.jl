@@ -37,3 +37,15 @@ function sortbylsj!(f; col = 2)
     end
 end
 
+
+
+"""Overwrite `.cex` files in `dir` with contents sorted by LSJ number located in column `col`.
+$(SIGNATURES)
+"""
+function sortdirbylsj!(dir; col = 2)
+    cexfiles = glob("*.cex", dir)
+    for f in cexfiles
+        @info("sorting $(f)")
+        sortbylsj!(f, col = col)
+    end
+end
