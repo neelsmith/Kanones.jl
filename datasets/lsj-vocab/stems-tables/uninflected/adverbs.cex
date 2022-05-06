@@ -1,12 +1,22 @@
 StemID|LexicalEntity|Form|StemClass|
 
+uninflectedstems.n4845|lsj.n4845|ἅμα|adverb|
+uninflectedstems.n27438|lsj.n27438|δίς|adverb|
+uninflectedstems.n38547|lsj.n38547|ἔπειτα|adverb|
+uninflectedstems.n43266|lsj.n43266|ἔτι|adverb|
 uninflectedstems.n43309|lsj.n43309|εὖ|adverb|
+uninflectedstems.n46646|lsj.n46646|ἤδη|adverb|
 uninflectedstems.n63013|lsj.n63013|λίαν|adverb|
 uninflectedstems.n64866|lsj.n64866|μᾶλλον|adverb|
 uninflectedstems.n67283|lsj.n67283|μή|adverb|
 uninflectedstems.n71308|lsj.n71308|νῦν|adverb|
 uninflectedstems.n71308|lsj.n71312|νυνί|adverb|
 uninflectedstems.n72153|lsj.n72153|ὅθεν|adverb|
+uninflectedstems.n75688|lsj.n75688|ὅτε|adverb|
+uninflectedstems.n75730a|lsj.n75730|οὐ|adverb|
+uninflectedstems.n75730b|lsj.n75730|οὐκ|adverb|
+uninflectedstems.n75730c|lsj.n75730|οὐχ|adverb|
+uninflectedstems.n75907|lsj.n75907|οὔπω|adverb|
 uninflectedstems.n76063|lsj.n76063|οὕτω|adverb|
 uninflectedstems.n76063|lsj.n76063|οὕτως|adverb|
 uninflectedstems.n76068b|lsj.n76068|οὐχ'|adverb|
