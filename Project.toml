@@ -5,6 +5,7 @@ version = "0.10.0"
 
 [deps]
 AtticGreek = "330c8319-f7ed-461a-8c52-cee5da4c0892"
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 CitableBase = "d6f014bd-995c-41bd-9893-703339864534"
 CitableCorpus = "cf5ac11a-93ef-4a1a-97a3-f6af101603b5"
