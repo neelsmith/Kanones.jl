@@ -1,7 +1,7 @@
 Rule|LexicalEntity|StemClass|Stem|
 
 verbstems.n1377|lsj.n1377|ἀδικ|ew_contract|
-verbstems.n18980|lsj.n18980|βαδ|izw|
+
 verbstems.n22825a|lsj.n22825|γραφ|w_pp1|
 verbstems.n22825b|lsj.n22825|γραψ|w_pp2|
 verbstems.n22825c|lsj.n22825|γραψ|w_pp3|
@@ -13,8 +13,6 @@ verbstems.n27847c|lsj.n27847|δοξ|w_pp3|
 verbstems.n27847e|lsj.n27847|δεδογ|w_pp5|
 verbstems.n27847f|lsj.n27847|δοχ|w_pp6|
 verbstems.n31161a|lsj.n31161|εἰπ|w_aor2_aug|
-verbstems.n57456|lsj.n57456|κινδυνευ|w_regular|
+
 verbstems.n62205a|lsj.n62205|λεγ|w_pp1|
-verbstems.n70958|lsj.n70958|νομιζ|izw|
-verbstems.n105829a|lsj.n105829|τυγχαν|w_pp1|
-verbstems.n105829b|lsj.n105829|τυχ|w_aor2|
+
