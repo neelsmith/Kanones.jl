@@ -1,12 +1,7 @@
 StemID|LexicalEntity|Form|StemClass|
 
 uninflectedstems.n4845|lsj.n4845|ἅμα|adverb|
-uninflectedstems.n6207|lsj.n6207|ἄν|particle|
-uninflectedstems.n14639|lsj.n14639|ἄρα|particle|
-uninflectedstems.n21618|lsj.n21618|γάρ|particle|
-uninflectedstems.n21705|lsj.n21705|γε|particle|
-uninflectedstems.n23596|lsj.n23596|δέ|particle|
-uninflectedstems.n23596a|lsj.n23596|δ'|particle|
+
 uninflectedstems.n23799|lsj.n23799|δέκα|numeral|
 uninflectedstems.n24517|lsj.n24517|διά|preposition|
 uninflectedstems.n24517a|lsj.n24517|δι'|preposition|
@@ -67,6 +62,8 @@ uninflectedstems.n85971|lsj.n85971|πότε|adverb|
 uninflectedstems.n85971a|lsj.n85971a|ποτε|adverb|
 uninflectedstems.n86087|lsj.n86087|ποῦ|adverb|
 uninflectedstems.n86088|lsj.n86088|που|adverb|
+
 uninflectedstems.n86371|lsj.n86371|πρίν|conjunction|
 uninflectedstems.n102752|lsj.n102752|τε|conjunction|
+
 uninflectedstems.n104163|lsj.n104163|τοίνυν|particle|
