@@ -34,11 +34,14 @@ decline(ανθρωπος, kdata)
 Here is the output of `md_proofconjugation` using `LexemeUrn("lsj.n56496")` (κελεύω) as the lexeme, with the Kanones dataset in `literarygreek-rules`
 
 
-> *Content below here generated automatically from* 
+> *Content below here beginning with the heading **Complete conjugation of κελεύω** generated automatically from* 
 >
 > `srcdir = joinpath(repo, "datasets", "literarygreek-rules")`
+>
 > `kds = Kanones.FilesDataset([srcdir])`
+>
 > `κελευω = LexemeUrn("lsj.n56496")`
+>
 > `md_proofconjugation(κελευω,kds)`
 
 
