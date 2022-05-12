@@ -296,10 +296,10 @@ function proofperfect(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
 end
 
 
-"""Write complete conjugation of the verb `lex` to a file.
+"""Compose complete conjugation of the verb `lex` as a long string of markdown.
 $(SIGNATURES)
 """
-function proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconjugation.md") where {T <: Kanones.Dataset}
+function md_proofconjugation(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
     pia1s = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("present"), gmpMood("indicative"), gmpVoice("active"))
     headerforms = generate(lex, formurn(pia1s), kds)
     hdrlines = [
@@ -323,8 +323,15 @@ function proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconjugation.
     ]
 
     md = join(pieces, "\n\n")
-    open(f,"w") do io
-        write(io, md)
-    end
+end
 
+
+
+"""Write complete conjugation of the verb `lex` to a file.
+$(SIGNATURES)
+"""
+function mdfile_proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconjugation.md") where {T <: Kanones.Dataset} 
+    open(f,"w") do io
+        write(io, md_proofconjugation(lex, kds))
+    end
 end
