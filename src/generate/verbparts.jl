@@ -43,35 +43,13 @@ function pp6(rule::R) where {R <: KanonesVerbalRule}
 end
 
 
-"""Add augment to `s`.
-$(SIGNATURES)
-"""
-function augment(s::AbstractString; ortho = literaryGreek())
-    if s[1] in consonants(ortho)
-        PolytonicGreek.nfkc("ἐ" * s)
-    else
-        @warn("TEMPORAL AUGMENT NOT YET IMPLEMENTED")
-        stemstring(s)
-    end
-end
-
-
-function reduplicate(s::AbstractString; ortho = literaryGreek())
-    if occursin(s[1], vowels(ortho))
-        @warn("VOWEL AUGMENT NOT YET IMPLEMENTED")
-    else
-        replace(s, r"^(.)" => s"\1ε\1")
-    end
-
-end
-
 """Compose regular verb base for fourth
 principal part.
 $(SIGNATURES)
 """
 function kappabase(stem::Stem; ortho = literaryGreek())
     k = stemstring(stem) * "κ"
-    reduplicate(k, ortho = ortho)
+    reduplicate(k, ortho)
 end
 
 """Compose regular verb base for second or third
@@ -133,7 +111,7 @@ function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {
     @debug("principal part got extended base", extended)
 
     if rule isa FiniteVerbRule && takesaugment(greekForm(rule))
-       augment(extended, ortho = ortho)
+       augment(extended, ortho)
     else
         extended
     end

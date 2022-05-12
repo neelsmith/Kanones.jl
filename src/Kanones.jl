@@ -70,6 +70,8 @@ export decline, md_declension
 export md_ptcpldeclension, participleslashline
 export md_3endingadj
 export synopsis, md_conjugation, md_imperativeconjugation
+export md_proofconjugation, mdfile_proofconjugation
+
 
 export urn, formurn, ruleurn
 

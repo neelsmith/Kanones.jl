@@ -44,6 +44,8 @@ include("test_datasets.jl")
 include("generate/test_generate.jl")
 include("principalparts/test_principalparts.jl")
 
+include("test_verbspipeline.jl")
+
 
 include("parser/test_formsinventory.jl")
 include("parser/test_parse.jl")

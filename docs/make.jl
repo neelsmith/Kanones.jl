@@ -42,7 +42,7 @@ makedocs(
           
            
         ],
-      
+      #=
         "Reference: stem types and paradigms in the `literarygreek-rules` dataset" => Any[
             "Stem types and paradigms" => "stemtypes/index.md",
             "Noun stems" => Any[ 
@@ -107,6 +107,7 @@ makedocs(
                 "Overview of irregular adjectives" => "vocab/irregularadjs/index.md"
             ]
         ],
+        =#
         "Reference: API documentation" => Any[
             "Julia API documentation" =>  "apis/apis.md",
             "Morphological properties and forms" => "apis/morph.md"
