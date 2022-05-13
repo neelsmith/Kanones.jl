@@ -22,14 +22,50 @@
 
 
     pft = parsetoken("κεκέλευκε",p)[1]
-    @test "finite verb:  perfect indicative active third singular" == label(greekForm(aχ))
+    @test "finite verb:  perfect indicative active third singular" == label(greekForm(pft))
+
+    pp5mp = parsetoken("κεκέλευται",p)
+    @test length(pp5mp) == 2
+    pp5form = greekForm(pp5mp[1])
+    @test label(gmpTense(pp5form)) == "perfect"
+    @test label(gmpPerson(pp5form)) == "third"
+    @test label(gmpNumber(pp5form)) == "singular"
+    @test label(gmpMood(pp5form)) == "indicative"
+    @test (label(gmpVoice(pp5form)) == "middle") || (label(gmpVoice(pp5form)) == "passive")
+
+    plpft = parsetoken("ἐκεκελεύκει",p)[1]
+    @test "finite verb:  pluperfect indicative active third singular" == label(greekForm(plpft))
+
+
+    pp6 = parsetoken("ἐκελεύθη",p)#[1]
+    @test_broken "" == label(greekForm(pp6))
+
 
 
     # test augment of second aorist
+    aor2 = parsetoken("ἔτυχε",p)
+    @test_broken "" == label(greekForm(aor2))
+
     # test augment of pluperfect
-    # test reduplication in perfect
     # test compounding
     # test temporal augment
+    tempaugimpft = parsetoken("ἦρχε",p)[1]
+    @test "finite verb:  imperfect indicative active third singular" == label(greekForm(tempaugimpft))
+    
+    tempaugaor = parsetoken("ἦρξε",p)[1]
+    @test "finite verb:  aorist indicative active third singular" == label(greekForm(tempaugaor))
+
     # test phonetic changes in perfect stems
+    tempaugmp = parsetoken("ἦρκται",p)
+    tempaugform = greekForm(tempaugmp[1])
+    @test label(gmpTense(pp5form)) == "perfect"
+    @test label(gmpPerson(pp5form)) == "third"
+    @test label(gmpNumber(pp5form)) == "singular"
+    @test label(gmpMood(pp5form)) == "indicative"
+    @test (label(gmpVoice(pp5form)) == "middle") || (label(gmpVoice(pp5form)) == "passive")
+
+    
     # test irregular verbs
+    irreg = parsetoken("εἴη",p)[1]
+    @test "finite verb:  present optative active third singular" == label(greekForm(irreg))
 end

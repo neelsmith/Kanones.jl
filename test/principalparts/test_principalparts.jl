@@ -4,7 +4,7 @@
     stem = Kanones.readstemrow(verbio, stemsrc)
 
     @test Kanones.sigmabase(stem) == "κελευσ"
-    @test Kanones.kappabase(stem) == "κεκελευκ"
+    @test Kanones.kappabase(stem) == "κελευκ"
 
 end
 

@@ -68,7 +68,6 @@ principal part.
 $(SIGNATURES)
 """
 function sigmabase(stem::Stem; ortho = literaryGreek())
-    @info("Cat $(stemstring(stem)) and `σ`")
     s = stemstring(stem)
     strcat(s,"σ", ortho)
     #=
@@ -154,4 +153,22 @@ $(SIGNATURES)
 function takesreduplication(f::GMFFiniteVerb)
     gmpTense(f) == gmpTense("perfect")  ||
     gmpTense(f) == gmpTense("pluperfect")  
+end
+
+
+
+"""True if `f` takes reduplication.
+$(SIGNATURES)
+"""
+function takesreduplication(f::GMFInfinitive)
+    gmpTense(f) == gmpTense("perfect") 
+end
+
+
+
+"""True if `f` takes reduplication.
+$(SIGNATURES)
+"""
+function takesreduplication(f::GMFParticiple)
+    gmpTense(f) == gmpTense("perfect") 
 end
