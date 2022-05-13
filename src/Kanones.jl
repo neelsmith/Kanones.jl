@@ -50,6 +50,9 @@ export GMFInfinitive, gmfInfinitive, InfinitiveRule
 export GMFVerbalAdjective, gmfVerbalAdjective, VerbalAdjectiveRule
 export GMFParticiple, gmfParticiple, ParticipleRule
 
+export CompoundVerbStem, compoundstem
+export simplex, prefix
+
 export GMFNoun, gmfNoun, NounStem, NounRule
 export GMFPronoun, gmfPronoun, PronounStem, PronounRule
 export GMFAdjective, gmfAdjective, AdjectiveStem, AdjectiveRule
@@ -109,7 +112,7 @@ include("citable_forms/finiteverbs.jl")
 include("citable_rules/finiteverbrules.jl")
 include("citable_stems/regularverbstems.jl")
 include("citable_stems/irregularfiniteverbstems.jl")
-
+include("citable_stems/compoundverbs.jl")
 
 # regular stems are drawn from finite verb stems
 include("citable_forms/infinitives.jl")

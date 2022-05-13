@@ -9,6 +9,9 @@ struct VerbStem <: KanonesStem
     stemclass::AbstractString  
 end
 
+
+
+
 """Noun stems are citable by Cite2Urn"""
 CitableTrait(::Type{VerbStem}) = CitableByCite2Urn()
 
