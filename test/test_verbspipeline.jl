@@ -36,11 +36,8 @@
     plpft = parsetoken("ἐκεκελεύκει",p)[1]
     @test "finite verb:  pluperfect indicative active third singular" == label(greekForm(plpft))
 
-
     pp6 = parsetoken("ἐκελεύθη",p)#[1]
     @test_broken "" == label(greekForm(pp6))
-
-
 
     # test augment of second aorist
     aor2 = parsetoken("ἔτυχε",p)
@@ -64,8 +61,40 @@
     @test label(gmpMood(pp5form)) == "indicative"
     @test (label(gmpVoice(pp5form)) == "middle") || (label(gmpVoice(pp5form)) == "passive")
 
-    
     # test irregular verbs
     irreg = parsetoken("εἴη",p)[1]
     @test "finite verb:  present optative active third singular" == label(greekForm(irreg))
+end
+
+
+@testset "Test formation of inifinitive verb forms" begin
+    ortho = literaryGreek()
+    repo = pwd() |> dirname
+    kds = joinpath(repo, "datasets", "literarygreek-rules") |> dataset
+    p = stringParser(kds)
+
+
+    presact = parsetoken("κελεύειν",p)[1]
+    @test "infinitive: present active" == label(greekForm(presact))
+
+    futmid =  parsetoken("κελεύσεσθαι",p)[1]
+    @test "infinitive: future middle" == label(greekForm(futmid))
+
+    aormid = parsetoken("κεκελευκέναι",p)[1]
+    @test "infinitive: perfect active" == label(greekForm(aormid))
+
+    pftact = parsetoken("κεκελευκέναι",p)[1] 
+    @test "infinitive: perfect active" == label(greekForm(pftact))
+
+    aorpass = parsetoken("κελευθῆναι",p) #[1]
+    @test_broken  "" == label(greekForm(aorpass))
+
+
+    irreg = parsetoken("εἶναι",p)[1] 
+    @test "infinitive: present active" == label(greekForm(irreg))
+end
+
+
+@testset "Test formation of participles" begin
+
 end
