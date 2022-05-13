@@ -14,7 +14,7 @@ function pp2(rule::R) where {R <: KanonesVerbalRule}
     gmpTense(rule) == gmpTense("future")
 end
 
-"""True if rule requires second principal part.
+"""True if rule requires third principal part.
 $(SIGNATURES)
 """
 function pp3(rule::R) where {R <: KanonesVerbalRule}
@@ -33,7 +33,19 @@ function pp4(rule::R) where {R <: KanonesVerbalRule}
      
 end
 
-"""True if rule requires second principal part.
+
+"""True if rule requires fifth principal part.
+$(SIGNATURES)
+"""
+function pp5(rule::R) where {R <: KanonesVerbalRule}
+    (gmpVoice(rule) == gmpVoice("middle")  || gmpVoice(rule) == gmpVoice("passive") ) &&
+    (gmpTense(rule) == gmpTense("perfect") ||
+    gmpTense(rule) == gmpTense("pluperfect") ||
+    gmpTense(rule) == gmpTense("futureperfect"))
+end
+
+
+"""True if rule requires sixth principal part.
 $(SIGNATURES)
 """
 function pp6(rule::R) where {R <: KanonesVerbalRule}
@@ -48,8 +60,7 @@ principal part.
 $(SIGNATURES)
 """
 function kappabase(stem::Stem; ortho = literaryGreek())
-    k = stemstring(stem) * "κ"
-    reduplicate(k, ortho)
+    k = strcat(stemstring(stem), "κ", ortho)
 end
 
 """Compose regular verb base for second or third
@@ -57,7 +68,10 @@ principal part.
 $(SIGNATURES)
 """
 function sigmabase(stem::Stem; ortho = literaryGreek())
+    @info("Cat $(stemstring(stem)) and `σ`")
     s = stemstring(stem)
+    strcat(s,"σ", ortho)
+    #=
     if endswith(s, r"κ|γ|χ")    
         replace(s,  r"κ|γ|χ$" => "ξ")
         
@@ -67,6 +81,7 @@ function sigmabase(stem::Stem; ortho = literaryGreek())
     else
         s * "σ"
     end
+    =#
 end
 
 
@@ -76,6 +91,8 @@ $(SIGNATURES)
 """
 function thetabase(stem::Stem; ortho = literaryGreek())
     s = stemstring(stem)
+    strcat(s,"θ", ortho)
+    #=
     if endswith(s, r"κ|γ|χ")    
         replace(s,  r"κ|γ|χ$" => "χ")
         
@@ -85,6 +102,7 @@ function thetabase(stem::Stem; ortho = literaryGreek())
     else
         s
     end
+    =#
 end
 
 """Compose base stem of `stem` for principalpart required by `rule`.
@@ -110,11 +128,14 @@ function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {
     extended = ppbase(stem, rule, ortho = ortho)
     @debug("principal part got extended base", extended)
 
-    if rule isa FiniteVerbRule && takesaugment(greekForm(rule))
-       augment(extended, ortho)
-    else
-        extended
+    if takesreduplication(greekForm(rule))
+        extended = reduplicate(extended, ortho)
     end
+
+    if rule isa FiniteVerbRule && takesaugment(greekForm(rule))
+       extended = augment(extended, ortho)
+    end
+    extended
 end
 
 """True if `f` takes augment.

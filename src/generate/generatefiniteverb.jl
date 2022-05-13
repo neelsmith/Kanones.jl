@@ -14,7 +14,7 @@ function generate(
         stembase = principalpart(stem, rule, ortho = ortho)
     end
 
-    raw = stembase * ending(rule)
+    raw = strcat(stembase, ending(rule), ortho)
     @debug("Generate inf. from raw", raw)
     if countaccents(raw, ortho) == 1
         # Already has accent! 
