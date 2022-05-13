@@ -21,5 +21,5 @@ end
     compoundstems = Kanones.stems(compound, kds)
     @test length(compoundstems) == 1
     @test inflectionClass(compoundstems[1]) == "w_regular"
-    @test stemstring(compoundstems[1]) == nfkc("ἐγκελευ")
+    @test stemstring(compoundstems[1]) == nfkc("ἐν#κελευ")
 end

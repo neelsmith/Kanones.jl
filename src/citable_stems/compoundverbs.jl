@@ -52,7 +52,7 @@ function stems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = liter
     @info("Make compounds for $(compound)...")
     compounded = []
     for s in filter(s -> lexeme(s) == simplex(compound),  stemlist)
-        catted = strcat(prefix(compound), stemstring(s), ortho)
+        catted = string(prefix(compound), "#", stemstring(s))
         @info(catted)
         newstem = VerbStem(
             stemid(compound),
