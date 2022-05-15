@@ -192,6 +192,9 @@ function stemsarray(dirlist; delimiter = "|")
         end
     end
 
+    # Add compound verbs.
+    
+    #stems
     unique(stemsarr)
 end
 
