@@ -96,6 +96,43 @@ function rulesarray(dirlist; delimiter = "|")
     unique(rulesarr)
 end
 
+
+"""Read all records for composing compound verb stems from `kd`.
+$(SIGNATURES)
+"""
+function compoundsarray(kd::Kanones.FilesDataset; delimiter = "|")
+    compoundsarray(kd.dirs, delimiter = delimiter)
+end
+
+"""Read all records for composing compound verb stems from a list of directories.
+$(SIGNATURES)
+"""
+function compoundsarray(dirlist; delimiter = "|")
+    compoundarray = CompoundVerbStem[]
+    for datasrc in dirlist
+        dir = joinpath(datasrc, "stems-tables", "verbs-compound")
+       
+            
+        cexfiles = glob("*.cex", dir)
+          
+        for f in cexfiles
+            @debug("Reading compound verbs from ", f)
+            raw = readlines(f)
+            lines = filter(s -> ! isempty(s), raw)
+            for i in 2:length(lines)
+                try 
+                    record = compoundstem(lines[i])
+                    push!(compoundarray,record)
+                catch e
+                    @warn("Failed to parse compound verb entry from line\n\"$(lines[i])\" \nin file ($(f)")
+                    @warn("Error: $(e)")
+                end
+            end
+        end
+    end
+    unique(compoundarray)
+end
+
 """Read all stem data from a list of directories into an array of `Stem`s.
 
 $(SIGNATURES)
@@ -159,14 +196,17 @@ function stemsarray(dirlist; delimiter = "|")
 end
 
 
+"""Read all records of registered URNs from a `Kanones.FilesDataset` into a dictionary of abbreviations to full `Cite2Urn` values.
 
+$(SIGNATURES)
+"""
 function registry(kd::Kanones.FilesDataset)
     registry(kd.dirs)
 end
 
 
 
-"""Read all stem data from a `Kanones.FilesDataset` into an array of `Stem`s.
+"""Read all records of registered URNs from a `Kanones.FilesDataset` into a dictionary of abbreviations to full `Cite2Urn` values.
 
 $(SIGNATURES)
 """
@@ -203,10 +243,17 @@ function registry(dirlist; delimiter = "|")
     registrydict
 end
 
+"""The orthographic system of `kd`.
+$(SIGNATURES)
+"""
 function orthography(kd::Kanones.FilesDataset)
     kd.orthography
 end
 
+
+"""Sort in place all delimited files for stem records in `kds`.
+$(SIGNATURES)
+"""
 function sortregularstems!(kds::Kanones.FilesDataset)
     for datasrc in kds.dirs
         @info("Source directory for Kanones dataset: $(datasrc)")

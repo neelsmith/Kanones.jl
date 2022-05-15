@@ -1,4 +1,4 @@
-"""A record for a single uninflected stem.
+"""A record for generating stems for a single compound verb.
 
 $(SIGNATURES)
 """
@@ -15,7 +15,9 @@ Stem|LexicalEntity|Prefix|Simplex|Note
 compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω
 =#
 
-
+"""Construct a `CompoundVerbStem` from a delimited text string.
+$(SIGNATURES)
+"""
 function compoundstem(s::AbstractString)
     cols = split(s, "|")
     if length(cols) < 5
@@ -30,24 +32,40 @@ function compoundstem(s::AbstractString)
     )
 end
 
+
+"""Identify this `compound` stem record.
+$(SIGNATURES)
+"""
 function stemid(compound::CompoundVerbStem)
     compound.stemid
 end
 
+
+"""The prefix to apply to simplex verb to form compound forms.
+$(SIGNATURES)
+"""
 function prefix(compound::CompoundVerbStem)
     compound.prefix
 end
 
 
+"""Identify the lexeme of the compound verb.
+$(SIGNATURES)
+"""
 function lexeme(compound::CompoundVerbStem)
     compound.lexid
 end
 
-
+"""Identify the lexeme of the simplex verb.
+$(SIGNATURES)
+"""
 function simplex(compound::CompoundVerbStem)
     compound.simplex
 end
 
+"""Compose a vector of `VerbStem`s for `compound`.
+$(SIGNATURES)
+"""
 function stems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = literaryGreek())
     @info("Make compounds for $(compound)...")
     compounded = []
@@ -65,7 +83,9 @@ function stems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = liter
     compounded
 end
 
-
+"""Compose a vector of `VerbStem`s for `compound`.
+$(SIGNATURES)
+"""
 function stems(compound::CompoundVerbStem, ds::Kanones.Dataset)
     stems(compound, stemsarray(ds))
 end
