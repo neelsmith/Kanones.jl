@@ -26,7 +26,7 @@ import CitableBase: cex
 export urn, label, cex
 
 export dataset
-export rulesarray, stemsarray, registry
+export rulesarray, stemsarray, registry, compoundsarray
 export sortbylsj, sortbylsj!, sortregularstems!
 
 export GreekMorphologicalProperty

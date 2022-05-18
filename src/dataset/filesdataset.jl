@@ -146,7 +146,7 @@ end
 
 $(SIGNATURES)
 """
-function stemsarray(dirlist; delimiter = "|")
+function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
     #@info("Getting regular stems for $dirlist")
     stemsarr = Stem[]
     for datasrc in dirlist
@@ -192,10 +192,20 @@ function stemsarray(dirlist; delimiter = "|")
         end
     end
 
+
+    verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, stemsarr)
+    @debug("Select $(length(verbalstems)) simplex verbal stems")
+
+    compoundstemsarr = []
     # Add compound verbs.
-    
-    #stems
-    unique(stemsarr)
+    for s in compoundsarray(dirlist)
+        compounded = stems(s, verbalstems,ortho)
+        @debug("created $(length(compounded)) stems for ", s)
+        for c in compounded
+            push!(compoundstemsarr, c)
+        end
+    end
+    vcat(stemsarr, compoundstemsarr)
 end
 
 

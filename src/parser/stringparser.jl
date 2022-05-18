@@ -30,7 +30,8 @@ function stringParser(kd::Kanones.FilesDataset)
 
     analyses = []
     rules = rulesarray(kd)
-    for stem in stemsarray(kd)
+    stems = stemsarray(kd) 
+    for stem in stems
         append!(analyses, buildparseable(stem, rules))
     end
     analyses |> StringParser

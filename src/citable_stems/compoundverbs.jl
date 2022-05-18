@@ -67,11 +67,11 @@ end
 $(SIGNATURES)
 """
 function stems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = literaryGreek())
-    @info("Make compounds for $(compound)...")
+    @debug("Make compounds for $(compound)...")
     compounded = []
     for s in filter(s -> lexeme(s) == simplex(compound),  stemlist)
         catted = string(prefix(compound), "#", stemstring(s))
-        @info(catted)
+        @debug(catted)
         newstem = VerbStem(
             stemid(compound),
             lexeme(compound),
@@ -83,9 +83,11 @@ function stems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = liter
     compounded
 end
 
+#=
 """Compose a vector of `VerbStem`s for `compound`.
 $(SIGNATURES)
 """
 function stems(compound::CompoundVerbStem, ds::Kanones.Dataset)
     stems(compound, stemsarray(ds))
 end
+=#
