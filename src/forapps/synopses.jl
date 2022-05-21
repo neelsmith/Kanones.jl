@@ -1,5 +1,4 @@
 
-
 """Generate verb forms for a given person and number
 in the given tense.
 $(SIGNATURES)
@@ -17,9 +16,6 @@ function synopsis(lex::LexemeUrn, ds::Kanones.Dataset, p::GMPPerson, n::GMPNumbe
     end
     results
 end
-
-
-
 
 
 
@@ -90,31 +86,42 @@ end
 
 
 
+
+"""Format markdown display of synopsis of `lex` for a given person and number.
+$(SIGNATURES)
+"""
 function md_synopsis(lex::LexemeUrn, ds::Kanones.Dataset, p::GMPPerson, n::GMPNumber)
-    label = [
-        "present indicative",
-        "imperfect indicative",
-        "present subjunctive",
-        "present optative",
+    labellist = [
+        "present, indicative",
+        "imperfect, indicative",
+        "present, subjunctive",
+        "present, optative",
 
-        "future indicative",
-        "future optative",
+        "future, indicative",
+        "future, optative",
 
-        "aorist indicative",
-        "aorist subjunctive",
-        "aorist optative",
+        "aorist, indicative",
+        "aorist, subjunctive",
+        "aorist, optative",
 
 
-        "perfect indicative",
-        "pluperfect indicative"
+        "perfect, indicative",
+        "pluperfect, indicative"
     ]
-    lines = ["|  | active | middle | passive |",
-    "| ---  | --- | --- | --- |"
+    lemmaform = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense(1), gmpMood(1), gmpVoice(1)) |> formurn
+    
+    lemma = generate(lex,lemmaform,ds)[1]
+
+    lines = [
+        "# Synopsis of $(lemma): $(label(p)) person $(label(n))",
+        "",
+        "| tense, mood | active | middle | passive |",
+        "| ---  | --- | --- | --- |"
     ]
     formslist = synopsis(lex, ds, p, n)
 
     factor = 0
-    for (i,f) in enumerate(label)
+    for (i,f) in enumerate(labellist)
         triple = 3 * factor
         ln = "| $(f) | $(formslist[triple + 1]) | $(formslist[triple + 2]) | $(formslist[triple + 3]) |"
         push!(lines, ln)
