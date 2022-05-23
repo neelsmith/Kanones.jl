@@ -18,10 +18,10 @@ end
     s = "compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω"
     compound = compoundstem(s)
 
-    compoundstems = []#Kanones.stems(compound, kds)
-    @test_broken length(compoundstems) == 1
-    @test_broken inflectionClass(compoundstems[1]) == "w_regular"
-    @test_broken stemstring(compoundstems[1]) == nfkc("ἐν#κελευ")
+    compoundstems = Kanones.stems(compound, stemsarray(kds))
+    @test length(compoundstems) == 1
+    @test inflectionClass(compoundstems[1]) == "w_regular"
+    @test stemstring(compoundstems[1]) == nfkc("ἐν#κελευ")
 end
 
 @testset "Test composing compound forms" begin

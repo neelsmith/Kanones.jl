@@ -196,7 +196,7 @@ function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
     verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, stemsarr)
     @debug("Select $(length(verbalstems)) simplex verbal stems")
 
-    compoundstemsarr = []
+    compoundstemsarr = Stem[]
     # Add compound verbs.
     for s in compoundsarray(dirlist)
         compounded = stems(s, verbalstems,ortho)
