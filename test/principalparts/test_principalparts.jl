@@ -18,8 +18,8 @@ end
 
     pp1rulesrc = "verbinfl.wregrpindic1|w_regular|ω|first|singular|present|indicative|active"
     pp1rule = Kanones.readrulerow(verbio, pp1rulesrc)
-    @test Kanones.takesaugment(greekForm(pp2rule)) == false
-    @test Kanones.takesreduplication(greekForm(pp2rule)) == false
+    @test Kanones.takesaugment(greekForm(pp1rule)) == false
+    @test Kanones.takesreduplication(greekForm(pp1rule)) == false
     @test Kanones.ppbase(stem,pp1rule) == "κελευ"
     @test generate(stem, pp1rule) == "κελεύω"
 

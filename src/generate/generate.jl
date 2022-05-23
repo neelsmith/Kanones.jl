@@ -27,7 +27,7 @@ function generate(
             end
         end
         for r in rules
-            push!(generated, generate(s,r))
+            push!(generated, generate(s,r, ortho = orthography(kds)))
         end
     end
 
@@ -38,8 +38,8 @@ end
 """Generate a delimited-text version of a full analysis for the combination of `stem` and `rule`.
 $(SIGNATURES)
 """
-function analysis_string(stem::S, rule::R; delimiter = "|") where {S <: KanonesStem, R <: KanonesRule}
-    token = generate(stem, rule)
+function analysis_string(stem::S, rule::R; ortho = literaryGreek(), delimiter = "|") where {S <: KanonesStem, R <: KanonesRule}
+    token = generate(stem, rule, ortho = ortho)
     join([token, formurn(rule), lexeme(stem), urn(stem), urn(rule)], delimiter)
 end
 
