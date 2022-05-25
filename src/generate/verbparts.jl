@@ -126,15 +126,22 @@ $(SIGNATURES)
 function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
     extended = ppbase(stem, rule, ortho = ortho)
     @debug("principal part got extended base", extended)
+    morphemes = split(extended, "#")
 
+    morphbase = morphemes[end]
     if takesreduplication(greekForm(rule))
-        extended = reduplicate(extended, ortho)
+        morphbase = reduplicate(morphbase, ortho)
     end
 
     if rule isa FiniteVerbRule && takesaugment(greekForm(rule))
-       extended = augment(extended, ortho)
+        morphbase = augment(morphbase, ortho)
     end
-    extended
+    if length(morphemes) == 1
+        morphbase
+    else
+        prefix = strcat(ortho, morphemes[1:end-1]...)
+        strcat(prefix, rmbreathing(morphbase,ortho), ortho)
+    end
 end
 
 """True if `f` takes augment.

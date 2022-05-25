@@ -31,39 +31,39 @@ end
 
     pres = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense(1), gmpMood(1), gmpVoice(1)) |> formurn
     presform = generate(compound, pres, kds)[1]
-    @test_broken presform == nfkc("ἐγκελεύω")
+    @test presform == nfkc("ἐγκελεύω")
 
 
     impft = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("imperfect"), gmpMood(1), gmpVoice(1)) |> formurn
-    impftform = generate(compound, pres, kds)[1]
-    @test_broken impftform == nfkc("ἐνεκέλευον")
+    impftform = generate(compound, impft, kds)[1]
+    @test impftform == nfkc("ἐνεκέλευον")
 
 
     fut = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("future"), gmpMood(1), gmpVoice(1)) |> formurn
-    futform = generate(compound, pres, kds)[1]
-    @test_broken futform == nfkc("ἐγκελεύσω")
+    futform = generate(compound, fut, kds)[1]
+    @test futform == nfkc("ἐγκελεύσω")
 
 
     aorind = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood(1), gmpVoice(1)) |> formurn
-    aorindform = generate(compound, pres, kds)[1]
-    @test_broken aorindform == nfkc("ἐγκέλευσα")
+    aorindform = generate(compound, aorind, kds)[1]
+    @test aorindform == nfkc("ἐγκέλευσα")
 
 
     aorsubj = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood("subjunctive"), gmpVoice(1)) |> formurn
-    aorsubjform = generate(compound, pres, kds)[1]
-    @test_broken aorsubjform == nfkc("ἐγκελεύσω")
+    aorsubjform = generate(compound, aorsubj, kds)[1]
+    @test aorsubjform == nfkc("ἐγκελεύσω")
 
 
     pftact = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("perfect"), gmpMood(1), gmpVoice("active")) |> formurn
-    pftactform = generate(compound, pres, kds)[1]
-    @test_broken pftactform == nfkc("ἐγκεκέλευκα")
+    pftactform = generate(compound, pftact, kds)[1]
+    @test pftactform == nfkc("ἐγκεκέλευκα")
 
     plupft = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("pluperfect"), gmpMood(1), gmpVoice(1)) |> formurn
-    plupftform = generate(compound, pres, kds)[1]
-    @test_broken plupftform == nfkc("ἐνεκεκελεύκη")
+    plupftform = generate(compound, plupft, kds)[1]
+    @test plupftform == nfkc("ἐνεκεκελεύκη")
 
 
     pftmp = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("perfect"), gmpMood(1), gmpVoice("passive")) |> formurn
-    pftmpform = generate(compound, pres, kds)[1]
-    @test_broken pftmpform == nfkc("ἐγκεκέλευμαι")
+    pftmpform = generate(compound, pftmp, kds)[1]
+    @test pftmpform == nfkc("ἐγκεκέλευμαι")
 end

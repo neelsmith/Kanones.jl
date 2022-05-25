@@ -8,14 +8,27 @@ function generate(
     stem::VerbStem, 
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
-   
+    @debug("Generating ", stem, rule)
     stembase = stemstring(stem)
     if regularverbclass(stem) 
         stembase = principalpart(stem, rule, ortho = ortho)
     end
 
-    raw = strcat(stembase, ending(rule), ortho)
+    @debug("prin.part with morphemes:", stembase)
+    baseparts = split(stembase, "#")
+    basemorpheme = baseparts[end]
+    @debug("STEMBASE, morphemes", stembase, basemorpheme)
+    
+    raw = strcat(basemorpheme, ending(rule), ortho)
+    if length(baseparts) > 1
+        prefix = replace(join(baseparts[1:end-1],""), "#" => "")
+        raw = strcat(prefix, raw, ortho)
+
+    end
+
+
     @debug("Generate inf. from raw", raw)
+
     if countaccents(raw, ortho) == 1
         # Already has accent! 
         stripmetachars(raw)

@@ -16,9 +16,10 @@ function generate(
     kds::Kanones.FilesDataset) 
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemsarray(kds))
+    @debug("STEMS:", stems)
     generated = []
     for s in stems
-        @debug("STEMS:", stems)
+        
         rules = filter(rulesarray(kds)) do r
             if r isa IrregularRule
                 inflectionClass(r) == inflectionClass(s) && formurn(s) == form
