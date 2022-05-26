@@ -70,17 +70,6 @@ $(SIGNATURES)
 function sigmabase(stem::Stem; ortho = literaryGreek())
     s = stemstring(stem)
     strcat(s,"σ", ortho)
-    #=
-    if endswith(s, r"κ|γ|χ")    
-        replace(s,  r"κ|γ|χ$" => "ξ")
-        
-    elseif endswith(s, r"π|β|φ")
-        replace(s,   r"π|β|φ$" => "ψ")
-
-    else
-        s * "σ"
-    end
-    =#
 end
 
 
@@ -91,17 +80,6 @@ $(SIGNATURES)
 function thetabase(stem::Stem; ortho = literaryGreek())
     s = stemstring(stem)
     strcat(s,"θ", ortho)
-    #=
-    if endswith(s, r"κ|γ|χ")    
-        replace(s,  r"κ|γ|χ$" => "χ")
-        
-    elseif endswith(s, r"π|β|φ")
-        replace(s,   r"π|β|φ$" => "φ")
-
-    else
-        s
-    end
-    =#
 end
 
 """Compose base stem of `stem` for principalpart required by `rule`.

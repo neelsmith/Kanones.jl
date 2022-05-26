@@ -24,7 +24,7 @@ end
     @test stemstring(compoundstems[1]) == nfkc("ἐν#κελευ")
 end
 
-@testset "Test composing compound forms" begin
+@testset "Test composing finite forms of compound verbs" begin
     repo = pwd() |> dirname
     kds = joinpath(repo, "datasets", "literarygreek-rules") |> dataset
     compound = LexemeUrn("lsj.n30252")
@@ -66,4 +66,36 @@ end
     pftmp = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("perfect"), gmpMood(1), gmpVoice("passive")) |> formurn
     pftmpform = generate(compound, pftmp, kds)[1]
     @test pftmpform == nfkc("ἐγκεκέλευμαι")
+end
+
+@testset "Test composing infinitives of compound verbs" begin
+    repo = pwd() |> dirname
+    kds = joinpath(repo, "datasets", "literarygreek-rules") |> dataset
+    compound = LexemeUrn("lsj.n30252")
+    
+    presact = GMFInfinitive(gmpTense(1), gmpVoice(1)) |> formurn
+    presactform = generate(compound, presact, kds)[1]
+    @test presactform == nfkc("ἐγκελεύειν")
+
+
+    futact = GMFInfinitive(gmpTense("future"), gmpVoice(1)) |> formurn
+    futactform = generate(compound, futact, kds)[1]
+    @test futactform == nfkc("ἐγκελεύσειν")
+
+    futmid = GMFInfinitive(gmpTense("future"), gmpVoice("middle")) |> formurn
+    futmidform = generate(compound, futmid, kds)[1]
+    @test futmidform == nfkc("ἐγκελεύσεσθαι")
+
+    futpass = GMFInfinitive(gmpTense("future"), gmpVoice("passive")) |> formurn
+    futpassform = generate(compound, futpass, kds)[1]
+    @test futpassform == nfkc("ἐγκελευθήσεσθαι")
+end
+
+@testset "Test composing participles of compound verbs" begin
+    
+end
+
+
+@testset "Test composing verbal adjectives of compound verbs" begin
+  
 end
