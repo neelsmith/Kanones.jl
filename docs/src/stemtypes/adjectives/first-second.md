@@ -19,7 +19,7 @@ Paradigms generated from these entries:
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 κακος = LexemeUrn("lsj.n52332")
 
 

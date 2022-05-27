@@ -4,30 +4,30 @@ Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 verbinfl.wregfut1|w_regular|ω|first|singular|future|indicative|active
 verbinfl.wregfut2|w_regular|ομαι|first|singular|future|indicative|middle
-verbinfl.wregfut3|w_regular|θήσομαι|first|singular|future|indicative|passive
+verbinfl.wregfut3|w_regular|ήσομαι|first|singular|future|indicative|passive
 
 verbinfl.wregfut4|w_regular|εις|second|singular|future|indicative|active
 verbinfl.wregfut5|w_regular|ει|second|singular|future|indicative|middle
-verbinfl.wregfut6|w_regular|θήσεις|second|singular|future|indicative|passive
+verbinfl.wregfut6|w_regular|ήσεις|second|singular|future|indicative|passive
 
 verbinfl.wregfut7|w_regular|ει|third|singular|future|indicative|active
-verbinfl.wregfut8|w_regular|ειται|third|singular|future|indicative|middle
-verbinfl.wregfut9|w_regular|θησει|third|singular|future|indicative|passive
+verbinfl.wregfut8|w_regular|εται|third|singular|future|indicative|middle
+verbinfl.wregfut9|w_regular|ήσει|third|singular|future|indicative|passive
 
 
 
 
 verbinfl.wregfut10|w_regular|ομεν|first|plural|future|indicative|active
-verbinfl.wregfut11|w_regular|ομεθα|first|plural|future|indicative|middle
-verbinfl.wregfut12|w_regular|θησόμεθα|first|plural|future|indicative|passive
+verbinfl.wregfut11|w_regular|όμεθα|first|plural|future|indicative|middle
+verbinfl.wregfut12|w_regular|ησόμεθα|first|plural|future|indicative|passive
 
 
 verbinfl.wregfut13|w_regular|ετε|second|plural|future|indicative|active
 verbinfl.wregfut14|w_regular|εσθε|second|plural|future|indicative|middle
-verbinfl.wregfut15|w_regular|θήσεσθε|second|plural|future|indicative|passive
+verbinfl.wregfut15|w_regular|ήσεσθε|second|plural|future|indicative|passive
 
 
 verbinfl.wregfut16|w_regular|ουσι|third|plural|future|indicative|active
 verbinfl.wregfut16a|w_regular|ουσιν|third|plural|future|indicative|active
 verbinfl.wregfut17|w_regular|ονται|third|plural|future|indicative|middle
-verbinfl.wregfut18|w_regular|θήσονται|third|plural|future|indicative|passive
+verbinfl.wregfut18|w_regular|ήσονται|third|plural|future|indicative|passive

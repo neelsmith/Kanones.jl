@@ -1,0 +1,11 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+
+verbinfl.pp41|pp4|α|first|singular|perfect|indicative|active
+verbinfl.pp44|pp4|ας|second|singular|perfect|indicative|active
+verbinfl.pp47|pp4|ε|third|singular|perfect|indicative|active
+
+verbinfl.pp410|pp4|αμεν|first|plural|perfect|indicative|active
+verbinfl.pp413|pp4|ατε|second|plural|perfect|indicative|active
+verbinfl.pp416|pp4|α_σι|third|plural|perfect|indicative|active
+verbinfl.pp416a|pp4|α_σιν|third|plural|perfect|indicative|active

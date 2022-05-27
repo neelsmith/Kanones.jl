@@ -7,8 +7,17 @@ $(SIGNATURES)
 """
 function generate(
     stem::VerbStem, 
-    rule::VerbalAdjectiveRule;           ortho::GreekOrthography = literaryGreek())
-    raw = stemstring(stem) * ending(rule)
+    rule::VerbalAdjectiveRule;           
+    ortho::GreekOrthography = literaryGreek())
+
+
+    morphemes = split(stemstring(stem),"#")
+    stembase = morphemes[end]
+    if length(morphemes) > 1
+        stembase = strcat(ortho, morphemes...)
+    end
+    stembase * ending(rule) |> nfkc
+ 
 end
 
 """Generate list of codes for all adjective forms.

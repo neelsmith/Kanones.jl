@@ -13,7 +13,7 @@ Use morphological datasets in plain-text tables to
 
 ---
 
-# `Kanones.Dataset`
+# `Kanones.FilesDataset`
 
 - specific to a corpus
 - has a specific orthography

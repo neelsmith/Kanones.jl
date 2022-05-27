@@ -5,10 +5,12 @@ infinfl.wreg3|w_regular|εσθαι|present|passive
 
 infinfl.wreg4|w_regular|ειν|future|active
 infinfl.wreg5|w_regular|εσθαι|future|middle
-infinfl.wreg6|w_regular|θήσεσθαι|future|passive
+infinfl.wreg6|w_regular|ήσεσθαι|future|passive
 
 infinfl.wreg4|w_regular|αι|aorist|active
 infinfl.wreg5|w_regular|ασθαι|aorist|middle
-infinfl.wreg6|w_regular|θῆσαι|aorist|passive
+infinfl.wreg6|w_regular|ῆναι|aorist|passive
 
 infinfl.wreg7|w_regular|έναι|perfect|active
+infinfl.wreg8|w_regular|σθαι|perfect|middle
+infinfl.wreg8|w_regular|σθαι|perfect|passive

@@ -12,7 +12,7 @@ function generate(
     ortho::GreekOrthography = literaryGreek())
 
     raw = stemstring(stem) * ending(rule)
-    stripmetachars(raw)
+    stripmetachars(raw)  |> nfkc
 end
 
 

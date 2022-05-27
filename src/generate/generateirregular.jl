@@ -11,6 +11,6 @@ function generate(
     rule::IrregularRule;           
     ortho::GreekOrthography = literaryGreek()) where {T <: KanonesIrregularStem}
 
-    stemstring(stem)
+    stemstring(stem)  |> nfkc
 end
 

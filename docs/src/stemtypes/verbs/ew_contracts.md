@@ -22,7 +22,7 @@ Paradigms generated from these entries:
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -35,7 +35,7 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("active"), ποιε�
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -50,7 +50,7 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), ποιε
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 tbl = md_imperativeconjugation(gmpTense("present"), gmpVoice("active"), ποιεω, kds)
@@ -65,7 +65,7 @@ Markdown.parse(tbl)
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 tbl = md_imperativeconjugation(gmpTense("present"), gmpVoice("passive"), ποιεω, kds)
@@ -76,7 +76,7 @@ Markdown.parse(tbl)
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 vadj = GMFVerbalAdjective(
     gmpGender("neuter"), gmpCase("nominative"), gmpNumber(1)
@@ -114,7 +114,7 @@ Markdown.parse(join(mdlines,"\n"))
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -128,7 +128,7 @@ Markdown.parse(md_conjugation(gmpTense("imperfect"), gmpVoice("active"), ποι�
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -145,7 +145,7 @@ Markdown.parse(md_conjugation(gmpTense("imperfect"), gmpVoice("passive"), ποι
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -159,7 +159,7 @@ Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("active"), ποιεω
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -173,7 +173,7 @@ Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("middle"),ποιεω,
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -186,7 +186,7 @@ Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("passive"),ποιεω
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -237,7 +237,7 @@ Markdown.parse(join(mdlines,"\n"))
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -251,7 +251,7 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("active"), ποιεω
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -265,7 +265,7 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("middle"), ποιεω
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -283,7 +283,7 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("passive"), ποιε�
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 tbl = md_imperativeconjugation(gmpTense("aorist"), gmpVoice("active"), ποιεω, kds)
@@ -298,7 +298,7 @@ Markdown.parse(tbl)
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 tbl = md_imperativeconjugation(gmpTense("aorist"), gmpVoice("middle"), ποιεω, kds)
@@ -314,7 +314,7 @@ Markdown.parse(tbl)
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 tbl = md_imperativeconjugation(gmpTense("aorist"), gmpVoice("passive"), ποιεω, kds)
@@ -327,7 +327,7 @@ Markdown.parse(tbl)
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -384,7 +384,7 @@ Markdown.parse(join(mdlines,"\n"))
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -400,7 +400,7 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("active"), ποιε�
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -413,7 +413,7 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("passive"), ποιε
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 actptcpl = participleslashline(ποιεω, gmpTense("perfect"), gmpVoice("active"), kds)
@@ -442,7 +442,7 @@ Markdown.parse(join(mdlines,"\n"))
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 
@@ -457,7 +457,7 @@ Markdown.parse(md_conjugation(gmpTense("pluperfect"), gmpVoice("active"), ποι
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
-kds = Kanones.dataset([srcdir])
+kds = Kanones.FilesDataset([srcdir])
 ποιεω = LexemeUrn("lsj.n84234")
 
 

@@ -13,15 +13,24 @@ $(SIGNATURES)
 function generate(
     lex::LexemeUrn, 
     form::FormUrn, 
-    kds::Kanones.Dataset) 
+    kds::Kanones.FilesDataset) 
+    @debug("Generate form for lex", form, lex)
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemsarray(kds))
+    @debug("STEMS:", stems)
     generated = []
     for s in stems
-        # Find relevant rules:
-        rules = filter(r -> inflectionClass(r) == inflectionClass(s) && formurn(r) == form,  rulesarray(kds))
+        rules = filter(rulesarray(kds)) do r
+            if r isa IrregularRule
+                inflectionClass(r) == inflectionClass(s) && formurn(s) == form
+            else
+                inflectionClass(r) == inflectionClass(s) && formurn(r) == form
+            end
+        end
+        @debug("Rules for stem", rules)
+        @debug("Stem", s)
         for r in rules
-            push!(generated, generate(s,r))
+            push!(generated, generate(s,r, ortho = orthography(kds)))
         end
     end
 
@@ -32,8 +41,8 @@ end
 """Generate a delimited-text version of a full analysis for the combination of `stem` and `rule`.
 $(SIGNATURES)
 """
-function analysis_string(stem::S, rule::R; delimiter = "|") where {S <: KanonesStem, R <: KanonesRule}
-    token = generate(stem, rule)
+function analysis_string(stem::S, rule::R; ortho = literaryGreek(), delimiter = "|") where {S <: KanonesStem, R <: KanonesRule}
+    token = generate(stem, rule, ortho = ortho) |> nfkc
     join([token, formurn(rule), lexeme(stem), urn(stem), urn(rule)], delimiter)
 end
 

@@ -1,0 +1,14 @@
+Rule|StemClass|Ending|Tense|Voice
+infinfl.ew1|ew_contract|εῖν|present|active
+infinfl.ew2|ew_contract|εῖσθαι|present|middle
+infinfl.ew3|ew_contract|εῖσθαι|present|passive
+
+infinfl.ew4|ew_contract|ήσειν|future|active
+infinfl.ew5|ew_contract|ήσεσθαι|future|middle
+infinfl.ew6|ew_contract|ηθήσεσθαι|future|passive
+
+infinfl.ew4|ew_contract|ῆσαι|aorist|active
+infinfl.ew5|ew_contract|ήσασθαι|aorist|middle
+infinfl.ew6|ew_contract|ηθῆσαι|aorist|passive
+
+infinfl.ew7|ew_contract|ηκέναι|perfect|active

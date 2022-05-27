@@ -9,25 +9,25 @@ function generate(stem::NounStem, rule::NounRule;           ortho::GreekOrthogra
     raw = stemstring(stem) * ending(rule)
     if countaccents(raw, ortho) == 1
         # Already has accent! 
-        stripmetachars(raw)
+        stripmetachars(raw)  |> nfkc
 
     else
         try
             if stem.accentpersistence == "recessive"
-                stripmetachars(accentword(raw, :RECESSIVE, ortho))
+                stripmetachars(accentword(raw, :RECESSIVE, ortho))  |> nfkc
             
             elseif stem.accentpersistence == "stemaccented"
-                stripmetachars( accentword(raw, :PENULT, ortho))
+                stripmetachars( accentword(raw, :PENULT, ortho))  |> nfkc
             
             else 
                 # place correct accent on ultima:
                 @debug("ACC.ULTIMA:", raw)
                 caselabel = label(gmpCase(rule))   
                 if caselabel == "genitive" || caselabel == "dative"
-                    stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))
+                    stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> nfkc
                     
                 else
-                    stripmetachars(accentultima(raw, :ACUTE, ortho))
+                    stripmetachars(accentultima(raw, :ACUTE, ortho))  |> nfkc
                     
                 end
             end

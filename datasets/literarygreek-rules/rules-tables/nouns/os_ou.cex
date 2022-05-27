@@ -1,4 +1,5 @@
 Rule|StemClass|Ending|Gender|Case|Number|
+
 nouninfl.os_ou1|os_ou|ος|masculine|nominative|singular|
 nouninfl.os_ou2|os_ou|ου|masculine|genitive|singular|
 nouninfl.os_ou3|os_ou|ῳ|masculine|dative|singular|

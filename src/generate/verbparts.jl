@@ -14,7 +14,7 @@ function pp2(rule::R) where {R <: KanonesVerbalRule}
     gmpTense(rule) == gmpTense("future")
 end
 
-"""True if rule requires second principal part.
+"""True if rule requires third principal part.
 $(SIGNATURES)
 """
 function pp3(rule::R) where {R <: KanonesVerbalRule}
@@ -33,7 +33,19 @@ function pp4(rule::R) where {R <: KanonesVerbalRule}
      
 end
 
-"""True if rule requires second principal part.
+
+"""True if rule requires fifth principal part.
+$(SIGNATURES)
+"""
+function pp5(rule::R) where {R <: KanonesVerbalRule}
+    (gmpVoice(rule) == gmpVoice("middle")  || gmpVoice(rule) == gmpVoice("passive") ) &&
+    (gmpTense(rule) == gmpTense("perfect") ||
+    gmpTense(rule) == gmpTense("pluperfect") ||
+    gmpTense(rule) == gmpTense("futureperfect"))
+end
+
+
+"""True if rule requires sixth principal part.
 $(SIGNATURES)
 """
 function pp6(rule::R) where {R <: KanonesVerbalRule}
@@ -43,35 +55,12 @@ function pp6(rule::R) where {R <: KanonesVerbalRule}
 end
 
 
-"""Add augment to `s`.
-$(SIGNATURES)
-"""
-function augment(s::AbstractString; ortho = literaryGreek())
-    if s[1] in consonants(ortho)
-        PolytonicGreek.nfkc("ἐ" * s)
-    else
-        @warn("TEMPORAL AUGMENT NOT YET IMPLEMENTED")
-        stemstring(s)
-    end
-end
-
-
-function reduplicate(s::AbstractString; ortho = literaryGreek())
-    if occursin(s[1], vowels(ortho))
-        @warn("VOWEL AUGMENT NOT YET IMPLEMENTED")
-    else
-        replace(s, r"^(.)" => s"\1ε\1")
-    end
-
-end
-
 """Compose regular verb base for fourth
 principal part.
 $(SIGNATURES)
 """
 function kappabase(stem::Stem; ortho = literaryGreek())
-    k = stemstring(stem) * "κ"
-    reduplicate(k, ortho = ortho)
+    k = strcat(stemstring(stem), "κ", ortho)
 end
 
 """Compose regular verb base for second or third
@@ -80,15 +69,7 @@ $(SIGNATURES)
 """
 function sigmabase(stem::Stem; ortho = literaryGreek())
     s = stemstring(stem)
-    if endswith(s, r"κ|γ|χ")    
-        replace(s,  r"κ|γ|χ$" => "ξ")
-        
-    elseif endswith(s, r"π|β|φ")
-        replace(s,   r"π|β|φ$" => "ψ")
-
-    else
-        s * "σ"
-    end
+    strcat(s,"σ", ortho)
 end
 
 
@@ -98,15 +79,7 @@ $(SIGNATURES)
 """
 function thetabase(stem::Stem; ortho = literaryGreek())
     s = stemstring(stem)
-    if endswith(s, r"κ|γ|χ")    
-        replace(s,  r"κ|γ|χ$" => "χ")
-        
-    elseif endswith(s, r"π|β|φ")
-        replace(s,   r"π|β|φ$" => "φ")
-
-    else
-        s
-    end
+    strcat(s,"θ", ortho)
 end
 
 """Compose base stem of `stem` for principalpart required by `rule`.
@@ -131,11 +104,23 @@ $(SIGNATURES)
 function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
     extended = ppbase(stem, rule, ortho = ortho)
     @debug("principal part got extended base", extended)
+    morphemes = split(extended, "#")
+
+    morphbase = morphemes[end]
+    if takesreduplication(greekForm(rule))
+        morphbase = reduplicate(morphbase, ortho)
+    end
 
     if rule isa FiniteVerbRule && takesaugment(greekForm(rule))
-       augment(extended, ortho = ortho)
+        morphbase = augment(morphbase, ortho)
+        @debug("Augmented:", morphbase)
+        morphbase
+    end
+    if length(morphemes) == 1
+        morphbase
     else
-        extended
+        prefix = strcat(ortho, morphemes[1:end-1]...)
+        strcat(prefix, rmbreathing(morphbase,ortho), ortho)
     end
 end
 
@@ -155,4 +140,22 @@ $(SIGNATURES)
 function takesreduplication(f::GMFFiniteVerb)
     gmpTense(f) == gmpTense("perfect")  ||
     gmpTense(f) == gmpTense("pluperfect")  
+end
+
+
+
+"""True if `f` takes reduplication.
+$(SIGNATURES)
+"""
+function takesreduplication(f::GMFInfinitive)
+    gmpTense(f) == gmpTense("perfect") 
+end
+
+
+
+"""True if `f` takes reduplication.
+$(SIGNATURES)
+"""
+function takesreduplication(f::GMFParticiple)
+    gmpTense(f) == gmpTense("perfect") 
 end

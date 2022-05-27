@@ -1,5 +1,6 @@
 # Noun paradigms and inflectional classes
 
+Inflectional patterns for nouns are grouped together by traditional declensions:
 
 ```@contents
 Pages = [

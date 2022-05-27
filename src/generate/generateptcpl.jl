@@ -9,21 +9,24 @@ marking vowel quantity and morpheme boundaries.
 $(SIGNATURES)
 """
 function generate(
-    stem::VerbStem, rule::ParticipleRule;           ortho::GreekOrthography = literaryGreek())
+    stem::VerbStem, 
+    rule::ParticipleRule;           
+    ortho::GreekOrthography = literaryGreek())
 
     stembase = stemstring(stem)
     if regularverbclass(stem)
         stembase = principalpart(stem, rule, ortho = ortho)
+        @debug("Figured stembase from stem", stembase,stem)
     end
     raw = stembase * ending(rule)
     if countaccents(raw, ortho) == 1
         # Already has accent! 
-        stripmetachars(raw)
+        stripmetachars(raw)  |> nfkc
 
     else
         accentpattern = participleaccent(greekForm(rule))
         @debug("Figure out participle accent")
-        stripmetachars(accentword(raw, :RECESSIVE, ortho))
+        stripmetachars(accentword(raw, :RECESSIVE, ortho))  |> nfkc
         #=
         try
             if stem.accentpersistence == "recessive"

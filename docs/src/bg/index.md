@@ -24,14 +24,3 @@ Kanones' solution could be summarized as:
 3. A "parser" becomes the set of all possible tokens associated with all possible analyses for that token.
 
 In 2022, it is feasible to load the complete set of morphological analyses for all possible tokens in a natural language in memory.  This approach has the simultaneous advantages of minimal technical requirements combined with very high performance, and is easily implemented plain-text data sources that a classicist can modify or add to.
-
-## Distinctive features of Kanones' analyses
-
-Kanones uses model of `CitableParserBuilder` module
-
-- four components:
-    1. lexeme
-    2. form
-    3. stem
-    4. rule
-- all elements other than string tokens identified by URN

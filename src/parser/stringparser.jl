@@ -25,12 +25,13 @@ end
 """Instantiate a `StringParser` for `td`.
 $(SIGNATURES)
 """
-function stringParser(kd::Kanones.Dataset)
+function stringParser(kd::Kanones.FilesDataset)
     #analysis_lines(td) |> StringParser
 
     analyses = []
     rules = rulesarray(kd)
-    for stem in stemsarray(kd)
+    stems = stemsarray(kd) 
+    for stem in stems
         append!(analyses, buildparseable(stem, rules))
     end
     analyses |> StringParser
@@ -75,7 +76,7 @@ end
 """Map all analyses in `td` to string values.
 $(SIGNATURES)
 """
-function analysis_lines(td::Kanones.Dataset)
+function analysis_lines(td::Kanones.FilesDataset)
     analyses(td) |> analysis_lines
 end
 
