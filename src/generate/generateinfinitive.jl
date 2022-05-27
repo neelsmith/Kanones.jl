@@ -16,10 +16,21 @@ function generate(
 
     raw = stembase * ending(rule)
     @debug("Generate from raw", raw)
+    
     if countaccents(raw, ortho) == 1
         # Already has accent! 
         stripmetachars(raw) |> nfkc
 
+    elseif gmpTense(rule) == gmpTense("perfect") &&
+        (gmpVoice(rule) == gmpVoice("middle") || gmpVoice(rule) ==  gmpVoice("passive"))
+        @debug("CATCH PERFECT M/P accent")
+
+        sylls = syllabify(raw, literaryGreek())
+        pen = PolytonicGreek.penult(raw,ortho)
+        penaccented = PolytonicGreek.accentsyllable(pen, :ACUTE, ortho)
+
+        sylls[end - 1]  = penaccented
+        join(sylls)
         
     elseif endswith(ending(rule), "αι") && gmpVoice(rule) == gmpVoice("active")
         # Smyth 425a

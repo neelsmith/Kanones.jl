@@ -14,12 +14,12 @@ function generate(
     lex::LexemeUrn, 
     form::FormUrn, 
     kds::Kanones.FilesDataset) 
+    @debug("Generate form for lex", form, lex)
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemsarray(kds))
     @debug("STEMS:", stems)
     generated = []
     for s in stems
-        
         rules = filter(rulesarray(kds)) do r
             if r isa IrregularRule
                 inflectionClass(r) == inflectionClass(s) && formurn(s) == form
@@ -27,6 +27,8 @@ function generate(
                 inflectionClass(r) == inflectionClass(s) && formurn(r) == form
             end
         end
+        @debug("Rules for stem", rules)
+        @debug("Stem", s)
         for r in rules
             push!(generated, generate(s,r, ortho = orthography(kds)))
         end

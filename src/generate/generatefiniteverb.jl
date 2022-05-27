@@ -9,6 +9,7 @@ function generate(
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
     @debug("Generating ", stem, rule)
+
     stembase = stemstring(stem)
     if regularverbclass(stem) 
         stembase = principalpart(stem, rule, ortho = ortho)
