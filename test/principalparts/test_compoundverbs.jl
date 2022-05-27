@@ -135,7 +135,7 @@ end
 
     vadj = GMFVerbalAdjective(gmpGender("neuter"), gmpCase("accusative"), gmpNumber(1)) |> formurn
     vadjform = generate(compound, vadj, kds)[1]
-    @test vadjform = nfkc("ἐγκελευτέον")
+    @test vadjform == nfkc("ἐγκελευτέον")
     
 end
 
