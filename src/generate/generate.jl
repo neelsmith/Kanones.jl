@@ -40,7 +40,7 @@ end
 $(SIGNATURES)
 """
 function analysis_string(stem::S, rule::R; ortho = literaryGreek(), delimiter = "|") where {S <: KanonesStem, R <: KanonesRule}
-    token = generate(stem, rule, ortho = ortho)
+    token = generate(stem, rule, ortho = ortho) |> nfkc
     join([token, formurn(rule), lexeme(stem), urn(stem), urn(rule)], delimiter)
 end
 

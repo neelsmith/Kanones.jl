@@ -46,7 +46,7 @@ end
 
     aorind = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood(1), gmpVoice(1)) |> formurn
     aorindform = generate(compound, aorind, kds)[1]
-    @test aorindform == nfkc("ἐγκέλευσα")
+    @test aorindform == nfkc("ἐνεκέλευσα")
 
 
     aorsubj = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood("subjunctive"), gmpVoice(1)) |> formurn
@@ -66,6 +66,16 @@ end
     pftmp = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("perfect"), gmpMood(1), gmpVoice("passive")) |> formurn
     pftmpform = generate(compound, pftmp, kds)[1]
     @test pftmpform == nfkc("ἐγκεκέλευμαι")
+
+    aorpass = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood(1), gmpVoice("passive")) |> formurn
+    aorpassform = generate(compound, aorpass, kds)[1]
+    @test aorpassform == nfkc("ἐνεκελεύσθην")
+
+
+    futpass = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("future"), gmpMood(1), gmpVoice("passive")) |> formurn
+    futpassform = generate(compound, futpass, kds)[1]
+    @test futpassform == nfkc("ἐγκελευθήσομαι")
+
 end
 
 @testset "Test composing infinitives of compound verbs" begin
