@@ -36,8 +36,8 @@
     plpft = parsetoken("ἐκεκελεύκει",p)[1]
     @test "finite verb:  pluperfect indicative active third singular" == label(greekForm(plpft))
 
-    pp6 = parsetoken("ἐκελεύθη",p)#[1]
-    @test_broken "" == label(greekForm(pp6))
+    pp6 = parsetoken("ἐκελεύθη",p)[1]
+    @test "finite verb:  aorist indicative passive third singular" == label(greekForm(pp6))
 
     # test augment of second aorist
     aor2 = parsetoken("ἔτυχε",p)
@@ -80,14 +80,14 @@ end
     futmid =  parsetoken("κελεύσεσθαι",p)[1]
     @test "infinitive: future middle" == label(greekForm(futmid))
 
-    aormid = parsetoken("κεκελευκέναι",p)[1]
-    @test "infinitive: perfect active" == label(greekForm(aormid))
+    aormid = parsetoken("κελεύσασθαι",p)[1]
+    @test "infinitive: aorist middle" == label(greekForm(aormid))
 
     pftact = parsetoken("κεκελευκέναι",p)[1] 
     @test "infinitive: perfect active" == label(greekForm(pftact))
 
-    aorpass = parsetoken("κελευθῆναι",p) #[1]
-    @test_broken  "" == label(greekForm(aorpass))
+    aorpass = parsetoken("κελευθῆναι",p)[1]
+    @test  "infinitive: aorist passive" == label(greekForm(aorpass))
 
 
     irreg = parsetoken("εἶναι",p)[1] 

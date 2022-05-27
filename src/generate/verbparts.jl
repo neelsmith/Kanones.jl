@@ -113,6 +113,8 @@ function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {
 
     if rule isa FiniteVerbRule && takesaugment(greekForm(rule))
         morphbase = augment(morphbase, ortho)
+        @debug("Augmented:", morphbase)
+        morphbase
     end
     if length(morphemes) == 1
         morphbase

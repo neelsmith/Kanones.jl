@@ -69,7 +69,7 @@ end
 
     aorpass = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood(1), gmpVoice("passive")) |> formurn
     aorpassform = generate(compound, aorpass, kds)[1]
-    @test aorpassform == nfkc("ἐνεκελεύσθην")
+    @test aorpassform == nfkc("ἐνεκελεύθην")
 
 
     futpass = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("future"), gmpMood(1), gmpVoice("passive")) |> formurn
@@ -125,7 +125,7 @@ end
 
     aorpass = GMFInfinitive(gmpTense("aorist"), gmpVoice(3)) |> formurn
     aorpassform = generate(compound, aorpass, kds)[1]
-    @test aorpassform == nfkc("ἐγκελευθῆσαι")
+    @test aorpassform == nfkc("ἐγκελευθῆναι")
 end
 
 @testset "Test composing verbal adjectives  of compound verbs" begin
