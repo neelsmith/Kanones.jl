@@ -1,1 +1,0 @@
-# Third-declension nouns
