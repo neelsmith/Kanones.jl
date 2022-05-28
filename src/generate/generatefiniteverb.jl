@@ -8,12 +8,26 @@ function generate(
     stem::VerbStem, 
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
-    @debug("Generating ", stem, rule)
+    @debug("Generating verb ", stem, rule)
+
 
     stembase = stemstring(stem)
-    if regularverbclass(stem) 
+    if regularverbclass(stem)
+        # This needs to be changed.
+        # principal part is doing augment and redupe,
+        # but athat also needs to happen for non-regular?
         stembase = principalpart(stem, rule, ortho = ortho)
+    else
+        if  takesreduplication(greekForm(rule))
+            stembase = reduplicate(stembase, ortho)
+        end
+        if rule isa FiniteVerbRule && takesaugment(greekForm(rule))
+            stembase = augment(stembase, ortho)
+            @debug("Augmented:", stembase)
+            stembase
+        end
     end
+
 
     @debug("prin.part with morphemes:", stembase)
     baseparts = split(stembase, "#")

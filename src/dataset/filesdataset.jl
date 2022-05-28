@@ -57,6 +57,19 @@ function dataset(srclist::Vector; ortho::T = literaryGreek()) where {T <: GreekO
 end
 
 
+#=
+rootpath = ...
+pattern  = r".cex$"
+ 
+for (root, dirs, files) in walkdir(rootpath)
+    for file in files
+        if occursin(pattern, file) 
+            println(file) # process file...
+        end
+    end
+end
+=#
+
 """Read all rules data from a list of directories into an array of `Rule`s.
 
 $(SIGNATURES)

@@ -30,9 +30,10 @@ function generate(
                 inflectionClass(r) == inflectionClass(s) && formurn(r) == form
             end
         end
-        @info("Rules for stem", rules)
+        @debug("Rules for stem", rules)
         @debug("Stem", s)
         for r in rules
+            @info("Generating s/r", s,r)
             push!(generated, generate(s,r, ortho = orthography(kds)))
         end
     end
