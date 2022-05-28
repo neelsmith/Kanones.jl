@@ -22,9 +22,9 @@ function generate(
     for s in stems
         rules = filter(rulesarray(kds)) do r
             if r isa IrregularRule
-                @info("LOOK AT inflclass of irreg rule", inflectionClass(r) )
-                @info("Compare to inflcass of stem", inflectionClass(s))
-                @info("ANd look at formurn for this stem", s)
+                @debug("LOOK AT inflclass of irreg rule", inflectionClass(r) )
+                @debug("Compare to inflcass of stem", inflectionClass(s))
+                @debug("ANd look at formurn for this stem", s)
                 inflectionClass(r) == inflectionClass(s) && formurn(s) == form
             else
                 inflectionClass(r) == inflectionClass(s) && formurn(r) == form

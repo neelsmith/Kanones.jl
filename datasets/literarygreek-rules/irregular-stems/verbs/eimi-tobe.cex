@@ -1,8 +1,17 @@
 StemUrn|LexicalEntity|String|Person|Number|Tense|Mood|Voice|IrregularClass
 
-irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb
-irregverb.irregverbn31130a2|lsj.n31130|ἐστί|third|singular|present|indicative|active|irregularfiniteverb
-irregverb.irregverbn31130a3|lsj.n31130|ἐστίν|third|singular|present|indicative|active|irregularfiniteverb
+irregverb.irregverbn31130a1|lsj.n31130|εἰμί|first|singular|present|indicative|active|irregularfiniteverb
+irregverb.irregverbn31130b1|lsj.n31130|εἶ|second|singular|present|indicative|active|irregularfiniteverb
+irregverb.irregverbn31130c1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb
+irregverb.irregverbn31130c2|lsj.n31130|ἐστί|third|singular|present|indicative|active|irregularfiniteverb
+irregverb.irregverbn31130c3|lsj.n31130|ἐστίν|third|singular|present|indicative|active|irregularfiniteverb
+
+irregverb.irregverbn31130d1|lsj.n31130|ἐσμέν|first|plural|present|indicative|active|irregularfiniteverb
+irregverb.irregverbn31130e1|lsj.n31130|ἐστέ|second|plural|present|indicative|active|irregularfiniteverb
+irregverb.irregverbn31130f1|lsj.n31130|εἰσί|third|plural|present|indicative|active|irregularfiniteverb
+
+
+
 
 irregverb.irregverbn31130b|lsj.n31130|ἦν|third|singular|imperfect|indicative|active|irregularfiniteverb
 
