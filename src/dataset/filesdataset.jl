@@ -154,32 +154,39 @@ $(SIGNATURES)
 function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
     @debug("Getting regular stems for $dirlist")
     stemsarr = Stem[]
-    for datasrc in dirlist
-        @info("Source directory for Kanones dataset: $(datasrc)")
+    pattern  = r".cex$"
+    for datasrc in dirlist     
         for dirname in STEMS_DIRECTORIES 
-            dir = joinpath(datasrc, "stems-tables", dirname)
-            @debug("dir = ", dir)
-            cexfiles = glob("*.cex", dir)
             delimitedreader = (STEMS_IO_DICT[dirname])
-            for f in cexfiles
-                @debug("Reading stems from ", f)
-                raw = readlines(f)
-                
-                # Trim lines first:
-                lines = filter(s -> ! isempty(s), raw)
-                for i in 2:length(lines)
-                    try
-                        stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
-                        push!(stemsarr,stem)
-                    catch e
-                        @warn("Failed to parse stem data from line $(lines[i]) in file $(f)")
-                        @warn("Error: $(e)")
+            dir = joinpath(datasrc, "stems-tables", dirname)
+            @debug("Read from dirname/reader", dir, delimitedreader)
+            if isdir(dir)
+                for (root, dirs, files) in walkdir(dir)
+                    @debug("r/d/f", root, dirs, files)
+                    for f in files
+                        if occursin(pattern, f) 
+                            @debug("==>Reading file", joinpath(dir,f))
+                            raw = readlines(joinpath(dir, f))
+                            # Trim lines first:
+                            lines = filter(s -> ! isempty(s), raw)
+                            @debug("Read datalines", length(lines))
+                            for i in 2:length(lines)
+                                try
+                                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
+                                    #@debug("==>READ STEM", stem)
+                                    push!(stemsarr,stem)
+                                catch e
+                                    @warn("Failed to parse stem data from line $(lines[i]) in file $(f)")
+                                    @warn("Error: $(e)")
+                                end
+                                
+                            end
+                        end
                     end
                 end
             end
         end
     end
-  
     @debug("Getting irregular stems for $dirlist")
     for datasrc in dirlist
         for dirname in IRREGULAR_STEM_DIRECTORIES
