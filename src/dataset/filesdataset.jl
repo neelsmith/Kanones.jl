@@ -4,8 +4,7 @@ A Kanones dataset in a local file system.
 
 # Members
 
-- `dirs` is a list of full paths to the root directory of one or more datasets.  
-Their subdirectory organization must follow Kanones' specifications.
+- `dirs` is a list of full paths to the root directory of one or more datasets, that is, a root directory with a subdirectory organization must follow Kanones' specifications.
 - `orthography` is an implementation of the `GreekOrthography` interface
 """
 struct FilesDataset <: Kanones.Dataset
@@ -40,8 +39,6 @@ $(SIGNATURES)
 function dataset(dir::AbstractString; ortho::T = literaryGreek()) where {T <: GreekOrthography}
     Kanones.FilesDataset([dir]; ortho = ortho)
 end
-
-
 
 """Create a `Kanones.FilesDataset` from one or more data sources.
 
