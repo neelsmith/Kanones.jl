@@ -57,19 +57,6 @@ function dataset(srclist::Vector; ortho::T = literaryGreek()) where {T <: GreekO
 end
 
 
-#=
-rootpath = ...
-pattern  = r".cex$"
- 
-for (root, dirs, files) in walkdir(rootpath)
-    for file in files
-        if occursin(pattern, file) 
-            println(file) # process file...
-        end
-    end
-end
-=#
-
 """Read all rules data from a list of directories into an array of `Rule`s.
 
 $(SIGNATURES)
@@ -84,23 +71,31 @@ $(SIGNATURES)
 """
 function rulesarray(dirlist; delimiter = "|")
     rulesarr = Rule[]
+    pattern  = r".cex$"
     for datasrc in dirlist
         for dirname in RULES_DIRECTORIES 
-            dir = joinpath(datasrc, "rules-tables", dirname)
-            cexfiles = glob("*.cex", dir)
             delimitedreader = (RULES_IO_DICT[dirname])
-            for f in cexfiles
-                @debug("Reading rules from ", f)
-                raw = readlines(f)
-                lines = filter(s -> ! isempty(s), raw)
-                for i in 2:length(lines)
-                    try 
-                        rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
-                        push!(rulesarr,rule)
-                    catch e
-                        @warn("Failed to parse rule from line\n\"$(lines[i])\" \nin file ($(f)")
-                        @warn("Error: $(e)")
-                    end
+            dir = joinpath(datasrc, "rules-tables", dirname)
+            @debug("Read from dirname/reader", dir, delimitedreader)
+            if isdir(dir)
+                for (root, dirs, files) in walkdir(dir)
+                    @debug("r/d/f", root, dirs, files)
+                    for f in files
+                        if occursin(pattern, f) 
+                            @debug("READ f", joinpath(root,f))
+                            raw = readlines(joinpath(root,f))
+                            lines = filter(s -> ! isempty(s), raw)
+                            for i in 2:length(lines)
+                                try 
+                                    rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
+                                    push!(rulesarr,rule)
+                                catch e
+                                    @warn("Failed to parse rule from line\n\"$(lines[i])\" \nin file ($(f)")
+                                    @warn("Error: $(e)")
+                                end
+                            end
+                        end
+                    end    
                 end
             end
         end
@@ -160,7 +155,7 @@ end
 $(SIGNATURES)
 """
 function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
-    #@info("Getting regular stems for $dirlist")
+    @debug("Getting regular stems for $dirlist")
     stemsarr = Stem[]
     for datasrc in dirlist
         @info("Source directory for Kanones dataset: $(datasrc)")
