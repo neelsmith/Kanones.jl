@@ -147,12 +147,7 @@ function stemsarray(kd::Kanones.FilesDataset)
 end
 
 
-"""Read all stem data from a `Kanones.FilesDataset` into an array of `Stem`s.
-
-$(SIGNATURES)
-"""
-function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
-    @debug("Getting regular stems for $dirlist")
+function regularstems(dirlist; delimiter = "|")
     stemsarr = Stem[]
     pattern  = r".cex$"
     for datasrc in dirlist     
@@ -165,8 +160,8 @@ function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
                     @debug("r/d/f", root, dirs, files)
                     for f in files
                         if occursin(pattern, f) 
-                            @debug("==>Reading file", joinpath(dir,f))
-                            raw = readlines(joinpath(dir, f))
+                            @debug("==>Reading file", joinpath(root,f))
+                            raw = readlines(joinpath(root, f))
                             # Trim lines first:
                             lines = filter(s -> ! isempty(s), raw)
                             @debug("Read datalines", length(lines))
@@ -187,27 +182,55 @@ function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
             end
         end
     end
-    @debug("Getting irregular stems for $dirlist")
+    stemsarr
+end
+
+
+function irregularstems(dirlist; delimiter = "|")
+    stemsarr = Stem[]
+    pattern  = r".cex$"
+
     for datasrc in dirlist
         for dirname in IRREGULAR_STEM_DIRECTORIES
-            dir = joinpath(datasrc, "irregular-stems", dirname)
-            cexfiles = glob("*.cex", dir)
             delimitedreader = (IRREGULAR_IO_DICT[dirname])
-            for f in cexfiles
-                raw = readlines(f)
-                lines = filter(s -> ! isempty(s), raw)
-                for i in 2:length(lines)
-                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
-                    push!(stemsarr,stem)
+            dir = joinpath(datasrc, "irregular-stems", dirname)
+            @info("Read from dirname/reader", dir, delimitedreader)
+            if isdir(dir)
+                for (root, dirs, files) in walkdir(dir)
+                    @debug("r/d/f", root, dirs, files)
+                    for f in files
+                        if occursin(pattern, f) 
+                            raw = readlines(joinpath(root,f))
+                            lines = filter(s -> ! isempty(s), raw)
+                            for i in 2:length(lines)
+                                stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
+                                push!(stemsarr,stem)
+                            end
+                        end
+                    end
                 end
             end
         end
     end
+    stemsarr
+end
 
+"""Read all stem data from a `Kanones.FilesDataset` into an array of `Stem`s.
+
+$(SIGNATURES)
+"""
+function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
+    @debug("Getting regular stems for $dirlist")
+    regstemsarr = regularstems(dirlist)
+    @debug("Getting irregular stems for $dirlist")
+    irregstemsarr = irregularstems(dirlist)
+
+
+
+    stemsarr = vcat(regstemsarr, irregstemsarr)
 
     verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, stemsarr)
     @debug("Select $(length(verbalstems)) simplex verbal stems")
-
     compoundstemsarr = Stem[]
     # Add compound verbs.
     for s in compoundsarray(dirlist)
@@ -217,6 +240,7 @@ function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
             push!(compoundstemsarr, c)
         end
     end
+    # Add irregular compound verbs
     vcat(stemsarr, compoundstemsarr)
 end
 
