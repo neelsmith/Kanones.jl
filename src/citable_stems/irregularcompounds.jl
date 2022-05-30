@@ -19,13 +19,41 @@ function irregularstems(compound::CompoundVerbStem, stemlist::Vector{Stem}, orth
 end
 
 function irregularverbstems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = literaryGreek())
-    @info("Now make finite verb forms")
-    Stem[]
+    @debug("Now make finite verb forms")
+    compounds = IrregularVerbStem[]
+    for s in stemlist
+        catted = string(prefix(compound), "#", stemstring(s))
+        newstem = IrregularVerbStem(
+            stemid(compound),
+            lexeme(compound),
+            catted,
+            gmpPerson(s),
+            gmpNumber(s),
+            gmpTense(s),
+            gmpMood(s),
+            gmpVoice(s),
+            "irregularfiniteverb"
+        )
+        push!(compounds, newstem)
+    end
+    compounds
 end
 
 
 function irregularinfinitivestems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = literaryGreek())
-    @info("Now make infinitive verb forms")
-
-    Stem[]
+    @debug("Now make infinitive verb forms")
+    compounds = IrregularInfinitiveStem[]
+    for s in stemlist
+        catted = string(prefix(compound), "#", stemstring(s))
+        newstem = IrregularInfinitiveStem(
+            stemid(compound),
+            lexeme(compound),
+            catted,
+            gmpTense(s),
+            gmpVoice(s),
+            "irregularinfinitive"
+        )
+        push!(compounds, newstem)
+    end
+    compounds
 end
