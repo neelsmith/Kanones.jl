@@ -313,12 +313,11 @@ function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
 
     @debug("Getting irregular stems for $dirlist")
     irregstemsarr = irregularstems(dirlist)
-
-    
+    irregcompoundstemarr = irregularcompounds(dirlist, irregstemsarr, ortho = ortho)
 
 
     # Add irregular compound verbs to this:
-    vcat(regstemsarr, irregstemsarr,compoundstemsarr)
+    vcat(regstemsarr, irregstemsarr, compoundstemsarr, irregcompoundstemarr)
     
 end
 
