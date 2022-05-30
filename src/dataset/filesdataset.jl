@@ -141,14 +141,14 @@ end
 """Read all records for composing compound  stems of irregular verbs from `kd`.
 $(SIGNATURES)
 """
-function irregcompoundsarray(kd::Kanones.FilesDataset; delimiter = "|")
-    irregcompoundsarray(kd.dirs, delimiter = delimiter)
+function irregularcompoundsarray(kd::Kanones.FilesDataset; delimiter = "|")
+    irregularcompoundsarray(kd.dirs, delimiter = delimiter)
 end
 
 """Recursively read all records for composing compound  stems of irregular verbs from a list of directories.
 $(SIGNATURES)
 """
-function irregcompoundsarray(dirlist; delimiter = "|")
+function irregularcompoundsarray(dirlist; delimiter = "|")
     compoundarray = CompoundVerbStem[]
 
     pattern  = r".cex$"
@@ -262,12 +262,33 @@ function irregularstems(dirlist; delimiter = "|")
     stemsarr
 end
 
-
+"""For each compound verb entry found in `dirlist`, apply the prefix
+to appropriate entries in `verbstems`.
+$(SIGNATURES)
+"""
 function regularcompounds(dirlist, verbstems; ortho = literaryGreek())
     compoundstemsarr = Stem[]
     # Add compound verbs.
     for s in compoundsarray(dirlist)
-        compounded = stems(s, verbstems,ortho)
+        compounded = stems(s, verbstems, ortho)
+        @debug("created $(length(compounded)) stems for ", s)
+        for c in compounded
+            push!(compoundstemsarr, c)
+        end
+    end
+    compoundstemsarr
+end
+
+
+"""For each compound verb entry  for irregular verbs found in `dirlist`, apply the prefix
+to appropriate entries in `verbstems`.
+$(SIGNATURES)
+"""
+function irregularcompounds(dirlist, verbstems; ortho = literaryGreek())
+    compoundstemsarr = Stem[]
+    # Add compound verbs.
+    for s in irregularcompoundsarray(dirlist)
+        compounded = irregularstems(s, verbstems, ortho)
         @debug("created $(length(compounded)) stems for ", s)
         for c in compounded
             push!(compoundstemsarr, c)
@@ -292,6 +313,8 @@ function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
 
     @debug("Getting irregular stems for $dirlist")
     irregstemsarr = irregularstems(dirlist)
+
+    
 
 
     # Add irregular compound verbs to this:

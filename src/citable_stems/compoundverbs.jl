@@ -63,7 +63,8 @@ function simplex(compound::CompoundVerbStem)
     compound.simplex
 end
 
-"""Compose a vector of `VerbStem`s for `compound`.
+"""Compose a vector of `VerbStem`s for `compound` by adding `compound`'s prefix
+to each `Stem` in `stemlist` for `compound`'s simplex identifier.
 $(SIGNATURES)
 """
 function stems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = literaryGreek())
@@ -83,11 +84,3 @@ function stems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = liter
     compounded
 end
 
-#=
-"""Compose a vector of `VerbStem`s for `compound`.
-$(SIGNATURES)
-"""
-function stems(compound::CompoundVerbStem, ds::Kanones.Dataset)
-    stems(compound, stemsarray(ds))
-end
-=#
