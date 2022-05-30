@@ -146,7 +146,10 @@ function stemsarray(kd::Kanones.FilesDataset)
     stemsarray(kd.dirs)
 end
 
-
+"""Recursively read stem data from the `stems-tables` directory
+of each data set.
+$(SIGNATURES)
+"""
 function regularstems(dirlist; delimiter = "|")
     stemsarr = Stem[]
     pattern  = r".cex$"
@@ -186,6 +189,10 @@ function regularstems(dirlist; delimiter = "|")
 end
 
 
+"""Recursively read stem data from the `irregular-stems` directory
+of each data set.
+$(SIGNATURES)
+"""
 function irregularstems(dirlist; delimiter = "|")
     stemsarr = Stem[]
     pattern  = r".cex$"
@@ -215,6 +222,21 @@ function irregularstems(dirlist; delimiter = "|")
     stemsarr
 end
 
+
+function regularcompounds(dirlist, verbstems; ortho = literaryGreek())
+    compoundstemsarr = Stem[]
+    # Add compound verbs.
+    for s in compoundsarray(dirlist)
+        compounded = stems(s, verbstems,ortho)
+        @debug("created $(length(compounded)) stems for ", s)
+        for c in compounded
+            push!(compoundstemsarr, c)
+        end
+    end
+    compoundstemsarr
+end
+
+
 """Read all stem data from a `Kanones.FilesDataset` into an array of `Stem`s.
 
 $(SIGNATURES)
@@ -224,23 +246,16 @@ function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
     regstemsarr = regularstems(dirlist)
     @debug("Getting irregular stems for $dirlist")
     irregstemsarr = irregularstems(dirlist)
-
+    @debug("Getting regular compound stems for $dirlist")
 
 
     stemsarr = vcat(regstemsarr, irregstemsarr)
 
     verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, stemsarr)
     @debug("Select $(length(verbalstems)) simplex verbal stems")
-    compoundstemsarr = Stem[]
-    # Add compound verbs.
-    for s in compoundsarray(dirlist)
-        compounded = stems(s, verbalstems,ortho)
-        @debug("created $(length(compounded)) stems for ", s)
-        for c in compounded
-            push!(compoundstemsarr, c)
-        end
-    end
-    # Add irregular compound verbs
+    compoundstemsarr = regularcompounds(dirlist, verbalstems, ortho = ortho)
+
+    # Add irregular compound verbs to this:
     vcat(stemsarr, compoundstemsarr)
 end
 
