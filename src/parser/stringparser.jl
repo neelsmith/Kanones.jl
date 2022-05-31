@@ -117,7 +117,9 @@ function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
     end
     
     for rule in classrules
+        
         token = generate(stem, rule)
+        @debug("Generated/rule", token, rule)
         raw = ""
         if buildfromrule(rule)
             raw = string(token, "|", lexeme(stem), "|", Kanones.formurn(rule), "|", urn(stem), "|", urn(rule))

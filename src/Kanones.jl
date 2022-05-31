@@ -159,6 +159,7 @@ include("generate/generateptcpl.jl")
 include("generate/generatepronoun.jl")
 include("generate/generateuninflected.jl")
 include("generate/generateirregular.jl")
+include("generate/debug.jl")
 
 include("forapps/adjdeclensions.jl")
 include("forapps/noundeclensions.jl")

@@ -34,7 +34,9 @@ function generate(
         
     elseif endswith(ending(rule), "αι") && gmpVoice(rule) == gmpVoice("active")
         # Smyth 425a
-        
+        if isnothing(raw)
+            throw(DomainError("EMPTY STRING from stem/rule $(stem)/$(rule)"))
+        end
         try
             stripmetachars(accentword(raw, :PENULT, ortho)) |> nfkc
         catch e
@@ -42,6 +44,9 @@ function generate(
             @warn("Raw word: $(raw)")
         end
     else
+        if isnothing(raw)
+            throw(DomainError("EMPTY STRING from stem/rule $(stem)/$(rule)"))
+        end
         try
             stripmetachars(accentword(raw, :RECESSIVE, ortho)) |> nfkc
         catch e

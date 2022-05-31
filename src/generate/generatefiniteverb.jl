@@ -51,8 +51,11 @@ function generate(
         stripmetachars(raw)
 
     else
+        
         try
-            stripmetachars(accentword(raw, :RECESSIVE, ortho))
+           accented = debugaccent(raw, :RECESSIVE, ortho)
+            #stripmetachars(accentword(raw, :RECESSIVE, ortho))
+            stripmetachars(accented)
         catch e
             @warn("Failed to create accented form", e)
             @warn("Raw word: $(raw)")

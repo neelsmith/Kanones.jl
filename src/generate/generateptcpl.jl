@@ -26,6 +26,9 @@ function generate(
     else
         accentpattern = participleaccent(greekForm(rule))
         @debug("Figure out participle accent")
+        if isnothing(raw)
+            throw(DomainError("EMPTY STRING from stem/rule $(stem)/$(rule)"))
+        end
         stripmetachars(accentword(raw, :RECESSIVE, ortho))  |> nfkc
         #=
         try
