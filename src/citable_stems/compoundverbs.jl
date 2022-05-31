@@ -26,9 +26,9 @@ function compoundstem(s::AbstractString)
     CompoundVerbStem(
         StemUrn(cols[1]),
         LexemeUrn(cols[2]),
-        nfkc(cols[3]),
+        knormal(cols[3]),
         LexemeUrn(cols[4]),
-        nfkc(cols[5])
+        knormal(cols[5])
     )
 end
 

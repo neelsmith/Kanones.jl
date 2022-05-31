@@ -19,7 +19,7 @@ function generate(
     
     if countaccents(raw, ortho) == 1
         # Already has accent! 
-        stripmetachars(raw) |> nfkc
+        stripmetachars(raw) |> knormal
 
     elseif gmpTense(rule) == gmpTense("perfect") &&
         (gmpVoice(rule) == gmpVoice("middle") || gmpVoice(rule) ==  gmpVoice("passive"))
@@ -38,7 +38,7 @@ function generate(
             throw(DomainError("EMPTY STRING from stem/rule $(stem)/$(rule)"))
         end
         try
-            stripmetachars(accentword(raw, :PENULT, ortho)) |> nfkc
+            stripmetachars(accentword(raw, :PENULT, ortho)) |> knormal
         catch e
             @warn("Failed to create accented form", e)
             @warn("Raw word: $(raw)")
@@ -48,7 +48,7 @@ function generate(
             throw(DomainError("EMPTY STRING from stem/rule $(stem)/$(rule)"))
         end
         try
-            stripmetachars(accentword(raw, :RECESSIVE, ortho)) |> nfkc
+            stripmetachars(accentword(raw, :RECESSIVE, ortho)) |> knormal
         catch e
             @warn("Failed to create accented form", e)
             @warn("Raw word: $(raw)")

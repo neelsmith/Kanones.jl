@@ -97,7 +97,7 @@ function readstemrow(usp::IrregularNounIO, delimited::AbstractString; delimiter 
     
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
-    stem = nfkc(parts[3])
+    stem = knormal(parts[3])
     g = gmpGender(parts[4])
     c = gmpCase(parts[5])
     n = gmpNumber(parts[6])

@@ -16,7 +16,7 @@ function generate(
     if length(morphemes) > 1
         stembase = strcat(ortho, morphemes...)
     end
-    stembase * ending(rule) |> nfkc
+    stembase * ending(rule) |> knormal
  
 end
 

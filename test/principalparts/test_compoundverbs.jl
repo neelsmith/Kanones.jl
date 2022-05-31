@@ -8,7 +8,7 @@
 
     @test simplex(compound) == LexemeUrn("lsj.n56496")
 
-    @test prefix(compound) == nfkc("ἐν")
+    @test prefix(compound) == knormal("ἐν")
 end
 
 @testset "Test constructing stem objects for compound verb" begin
@@ -21,7 +21,7 @@ end
     compoundstems = Kanones.stems(compound, stemsarray(kds))
     @test length(compoundstems) == 1
     @test inflectionClass(compoundstems[1]) == "w_regular"
-    @test stemstring(compoundstems[1]) == nfkc("ἐν#κελευ")
+    @test stemstring(compoundstems[1]) == knormal("ἐν#κελευ")
 end
 
 @testset "Test composing finite forms of compound verbs" begin
@@ -31,50 +31,50 @@ end
 
     pres = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense(1), gmpMood(1), gmpVoice(1)) |> formurn
     presform = generate(compound, pres, kds)[1]
-    @test presform == nfkc("ἐγκελεύω")
+    @test presform == knormal("ἐγκελεύω")
 
 
     impft = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("imperfect"), gmpMood(1), gmpVoice(1)) |> formurn
     impftform = generate(compound, impft, kds)[1]
-    @test impftform == nfkc("ἐνεκέλευον")
+    @test impftform == knormal("ἐνεκέλευον")
 
 
     fut = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("future"), gmpMood(1), gmpVoice(1)) |> formurn
     futform = generate(compound, fut, kds)[1]
-    @test futform == nfkc("ἐγκελεύσω")
+    @test futform == knormal("ἐγκελεύσω")
 
 
     aorind = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood(1), gmpVoice(1)) |> formurn
     aorindform = generate(compound, aorind, kds)[1]
-    @test aorindform == nfkc("ἐνεκέλευσα")
+    @test aorindform == knormal("ἐνεκέλευσα")
 
 
     aorsubj = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood("subjunctive"), gmpVoice(1)) |> formurn
     aorsubjform = generate(compound, aorsubj, kds)[1]
-    @test aorsubjform == nfkc("ἐγκελεύσω")
+    @test aorsubjform == knormal("ἐγκελεύσω")
 
 
     pftact = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("perfect"), gmpMood(1), gmpVoice("active")) |> formurn
     pftactform = generate(compound, pftact, kds)[1]
-    @test pftactform == nfkc("ἐγκεκέλευκα")
+    @test pftactform == knormal("ἐγκεκέλευκα")
 
     plupft = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("pluperfect"), gmpMood(1), gmpVoice(1)) |> formurn
     plupftform = generate(compound, plupft, kds)[1]
-    @test plupftform == nfkc("ἐνεκεκελεύκη")
+    @test plupftform == knormal("ἐνεκεκελεύκη")
 
 
     pftmp = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("perfect"), gmpMood(1), gmpVoice("passive")) |> formurn
     pftmpform = generate(compound, pftmp, kds)[1]
-    @test pftmpform == nfkc("ἐγκεκέλευμαι")
+    @test pftmpform == knormal("ἐγκεκέλευμαι")
 
     aorpass = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood(1), gmpVoice("passive")) |> formurn
     aorpassform = generate(compound, aorpass, kds)[1]
-    @test aorpassform == nfkc("ἐνεκελεύθην")
+    @test aorpassform == knormal("ἐνεκελεύθην")
 
 
     futpass = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("future"), gmpMood(1), gmpVoice("passive")) |> formurn
     futpassform = generate(compound, futpass, kds)[1]
-    @test futpassform == nfkc("ἐγκελευθήσομαι")
+    @test futpassform == knormal("ἐγκελευθήσομαι")
 
 end
 
@@ -85,47 +85,47 @@ end
     
     presact = GMFInfinitive(gmpTense(1), gmpVoice(1)) |> formurn
     presactform = generate(compound, presact, kds)[1]
-    @test presactform == nfkc("ἐγκελεύειν")
+    @test presactform == knormal("ἐγκελεύειν")
 
 
     futact = GMFInfinitive(gmpTense("future"), gmpVoice(1)) |> formurn
     futactform = generate(compound, futact, kds)[1]
-    @test futactform == nfkc("ἐγκελεύσειν")
+    @test futactform == knormal("ἐγκελεύσειν")
 
     futmid = GMFInfinitive(gmpTense("future"), gmpVoice("middle")) |> formurn
     futmidform = generate(compound, futmid, kds)[1]
-    @test futmidform == nfkc("ἐγκελεύσεσθαι")
+    @test futmidform == knormal("ἐγκελεύσεσθαι")
 
 
     aoract = GMFInfinitive(gmpTense("aorist"), gmpVoice(1)) |> formurn
     aoractform = generate(compound, aoract, kds)[1]
-    @test aoractform == nfkc("ἐγκελεῦσαι")
+    @test aoractform == knormal("ἐγκελεῦσαι")
 
 
     aormid = GMFInfinitive(gmpTense("aorist"), gmpVoice(2)) |> formurn
     aormidform = generate(compound, aormid, kds)[1]
-    @test aormidform == nfkc("ἐγκελεύσασθαι")
+    @test aormidform == knormal("ἐγκελεύσασθαι")
 
 
 
     pftact = GMFInfinitive(gmpTense("perfect"), gmpVoice(1)) |> formurn
     pftactform = generate(compound, pftact, kds)[1]
-    @test pftactform == nfkc("ἐγκεκελευκέναι")
+    @test pftactform == knormal("ἐγκεκελευκέναι")
 
 
     pftmp = GMFInfinitive(gmpTense("perfect"), gmpVoice(2)) |> formurn
     pftmpform = generate(compound, pftmp, kds)[1]
-    @test pftmpform == nfkc("ἐγκεκελεύσθαι")
+    @test pftmpform == knormal("ἐγκεκελεύσθαι")
 
 
     futpass = GMFInfinitive(gmpTense("future"), gmpVoice("passive")) |> formurn
     futpassform = generate(compound, futpass, kds)[1]
-    @test futpassform == nfkc("ἐγκελευθήσεσθαι")
+    @test futpassform == knormal("ἐγκελευθήσεσθαι")
 
 
     aorpass = GMFInfinitive(gmpTense("aorist"), gmpVoice(3)) |> formurn
     aorpassform = generate(compound, aorpass, kds)[1]
-    @test aorpassform == nfkc("ἐγκελευθῆναι")
+    @test aorpassform == knormal("ἐγκελευθῆναι")
 end
 
 @testset "Test composing verbal adjectives  of compound verbs" begin
@@ -135,7 +135,7 @@ end
 
     vadj = GMFVerbalAdjective(gmpGender("neuter"), gmpCase("accusative"), gmpNumber(1)) |> formurn
     vadjform = generate(compound, vadj, kds)[1]
-    @test vadjform == nfkc("ἐγκελευτέον")
+    @test vadjform == knormal("ἐγκελευτέον")
     
 end
 
@@ -148,38 +148,38 @@ end
     
     presact = GMFParticiple(gmpTense(1), gmpVoice(1), gmpGender(1), gmpCase(1), gmpNumber(1)) |> formurn
     presactform = generate(compound, presact, kds)[1]
-    @test presactform == nfkc("ἐγκελεύων")
+    @test presactform == knormal("ἐγκελεύων")
 
     presmp = GMFParticiple(gmpTense(1), gmpVoice(2), gmpGender(1), gmpCase(1), gmpNumber(1)) |> formurn
     presmpform = generate(compound, presmp, kds)[1]
-    @test presmpform == nfkc("ἐγκελευόμενος")
+    @test presmpform == knormal("ἐγκελευόμενος")
 
 
     futact = GMFParticiple(gmpTense("future"), gmpVoice(1), gmpGender(1), gmpCase(1), gmpNumber(1)) |> formurn
     futactform = generate(compound, futact, kds)[1]
-    @test futactform == nfkc("ἐγκελεύσων")
+    @test futactform == knormal("ἐγκελεύσων")
 
     aoract = GMFParticiple(gmpTense("aorist"), gmpVoice(1), gmpGender(1), gmpCase(1), gmpNumber(1)) |> formurn
     aoractform = generate(compound, aoract, kds)[1]
-    @test aoractform == nfkc("ἐγκέλευσας")
+    @test aoractform == knormal("ἐγκέλευσας")
 
 
     pftact = GMFParticiple(gmpTense("perfect"), gmpVoice(1), gmpGender(1), gmpCase(1), gmpNumber(1)) |> formurn
     pftactform = generate(compound, pftact, kds)[1]
-    @test pftactform == nfkc("ἐγκεκελευκώς")
+    @test pftactform == knormal("ἐγκεκελευκώς")
 
     pftmp = GMFParticiple(gmpTense("perfect"), gmpVoice(2), gmpGender(1), gmpCase(1), gmpNumber(1)) |> formurn
     pftmpform = generate(compound, pftmp, kds)[1]
-    @test pftmpform == nfkc("ἐγκεκελευμένος")
+    @test pftmpform == knormal("ἐγκεκελευμένος")
 
 
 
     aorpass = GMFParticiple(gmpTense("aorist"), gmpVoice("passive"), gmpGender(1), gmpCase(1), gmpNumber(1)) |> formurn
     aorpassform = generate(compound, aorpass, kds)[1]
-    @test aorpassform == nfkc("ἐγκελευθεῖς")
+    @test aorpassform == knormal("ἐγκελευθεῖς")
 
 
     futpass = GMFParticiple(gmpTense("future"), gmpVoice("passive"), gmpGender(1), gmpCase(1), gmpNumber(1)) |> formurn
     futpassform = generate(compound, futpass, kds)[1]
-    @test futpassform == nfkc("ἐγκελευθησόμενος")
+    @test futpassform == knormal("ἐγκελευθησόμενος")
 end

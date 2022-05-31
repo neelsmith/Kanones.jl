@@ -74,7 +74,7 @@ function readstemrow(usp::Kanones.IrregularVerbIO, delimited::AbstractString; de
     
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
-    stem = nfkc(parts[3])
+    stem = knormal(parts[3])
     p = gmpPerson(parts[4])
     n = gmpNumber(parts[5])
     t = gmpTense(parts[6])

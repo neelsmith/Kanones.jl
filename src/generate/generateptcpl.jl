@@ -21,7 +21,7 @@ function generate(
     raw = stembase * ending(rule)
     if countaccents(raw, ortho) == 1
         # Already has accent! 
-        stripmetachars(raw)  |> nfkc
+        stripmetachars(raw)  |> knormal
 
     else
         accentpattern = participleaccent(greekForm(rule))
@@ -29,7 +29,7 @@ function generate(
         if isnothing(raw)
             throw(DomainError("EMPTY STRING from stem/rule $(stem)/$(rule)"))
         end
-        stripmetachars(accentword(raw, :RECESSIVE, ortho))  |> nfkc
+        stripmetachars(accentword(raw, :RECESSIVE, ortho))  |> knormal
         #=
         try
             if stem.accentpersistence == "recessive"

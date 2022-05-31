@@ -68,6 +68,7 @@ export IrregularInfinitiveStem
 
 export GreekLexeme
 
+export knormal
 export generate, analysis_string
 export decline, md_declension
 export md_ptcpldeclension, participleslashline
@@ -81,6 +82,7 @@ export urn, formurn, ruleurn
 
 export StringParser, stringParser
 
+include("normal.jl")
 include("kanonesio.jl")
 include("dataset/dataset.jl")
 include("dataset/fileslayout.jl")

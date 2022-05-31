@@ -16,7 +16,7 @@ end
 $(SIGNATURES)
 """
 function parsetoken(s::AbstractString, parser::StringParser; data = nothing)
-    ptrn = PolytonicGreek.nfkc(s) * "|"
+    ptrn = knormal(s) * "|"
     @debug("Match pattern", ptrn)
     matches = filter(ln -> startswith(ln, ptrn), parser.entries)
     map(ln -> fromline(ln), matches)
@@ -126,7 +126,7 @@ function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
         else
             raw = string(token, "|", lexeme(stem), "|", Kanones.formurn(stem), "|", urn(stem), "|", urn(rule))
         end
-        push!(generated, PolytonicGreek.nfkc(raw))
+        push!(generated, knormal(raw))
     end
 
 
