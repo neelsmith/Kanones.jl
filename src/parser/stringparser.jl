@@ -110,6 +110,7 @@ end
 $(SIGNATURES)
 """
 function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
+    @warn("BUILD PARSES FOR STEM", stem)
     generated = []        
     classrules = filter(r -> inflectionClass(r) == inflectionClass(stem), rules)
     if stem isa NounStem 
@@ -117,14 +118,15 @@ function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
     end
     
     for rule in classrules
-        
+        #@warn("Apply rule", rule)
         token = generate(stem, rule)
         @debug("Generated/rule", token, rule)
+        @debug(syllabify(token, literaryGreek()))
         raw = ""
         if buildfromrule(rule)
-            raw = string(token, "|", lexeme(stem), "|", Kanones.formurn(rule), "|", urn(stem), "|", urn(rule))
+            raw = string(knormal(token), "|", lexeme(stem), "|", Kanones.formurn(rule), "|", urn(stem), "|", urn(rule))
         else
-            raw = string(token, "|", lexeme(stem), "|", Kanones.formurn(stem), "|", urn(stem), "|", urn(rule))
+            raw = string(knormal(token), "|", lexeme(stem), "|", Kanones.formurn(stem), "|", urn(stem), "|", urn(rule))
         end
         push!(generated, knormal(raw))
     end

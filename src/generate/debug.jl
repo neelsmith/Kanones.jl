@@ -1,9 +1,9 @@
 
 function debugaccent(raw, pattrn, ortho)
     accented = accentword(raw, pattrn, ortho)
-    @debug("Before/after", raw, accented)
+    @info("Before/after accent", raw, accented)
     if occursin("nothing", accented)
-        throw(DomainError("Bad result from source $(raw)"))
+        throw(DomainError("Bad result trying to accent source $(raw)"))
     end
     accented
 end
