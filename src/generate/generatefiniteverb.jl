@@ -10,13 +10,14 @@ function generate(
     ortho::GreekOrthography = literaryGreek())
     @debug("Generating verb ", stem, rule)
 
-
-    stembase = stemstring(stem)
+    # stembase is just the normalized string value for this stem
+    stembase = stemstring(stem)  |> knormal
     if regularverbclass(stem)
         # This needs to be changed.
         # principal part is doing augment and redupe,
         # but athat also needs to happen for non-regular?
-        stembase = principalpart(stem, rule, ortho = ortho)
+        stembase = principalpart(stem, rule, ortho = ortho) |> knormal
+        @debug("Starting from stembase", stembase)
     else
         if  takesreduplication(greekForm(rule))
             stembase = reduplicate(stembase, ortho)
@@ -34,7 +35,7 @@ function generate(
     basemorpheme = baseparts[end]
     @debug("STEMBASE, morphemes", stembase, basemorpheme)
     
-    raw = strcat(basemorpheme, ending(rule), ortho)
+    raw = strcat(basemorpheme, ending(rule), ortho) |> knormal
     @debug("apply rule to get raw", ending(rule), raw)
     if length(baseparts) > 1
         prefix = replace(join(baseparts[1:end-1],""), "#" => "")
@@ -44,7 +45,7 @@ function generate(
     end
 
 
-    @debug("Generate inf. from raw", raw)
+    @debug("Generate finite verb from raw", raw)
 
     if countaccents(raw, ortho) == 1
         # Already has accent! 
@@ -59,6 +60,7 @@ function generate(
         catch e
             @warn("Failed to create accented form", e)
             @warn("Raw word: $(raw)")
+            @warn("Stem/rule:", stem, rule)
         end
     end
     

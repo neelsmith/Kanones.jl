@@ -28,10 +28,13 @@ $(SIGNATURES)
 function stringParser(kd::Kanones.FilesDataset)
     #analysis_lines(td) |> StringParser
 
-    analyses = []
+    analyses = AbstractString[]
     rules = rulesarray(kd)
     stems = stemsarray(kd) 
-    for stem in stems
+    for (i, stem) in enumerate(stems)
+        if i % 50 == 0
+            @info("stem $(i)… $(stem)")
+        end
         append!(analyses, buildparseable(stem, rules))
     end
     analyses |> StringParser
@@ -110,8 +113,8 @@ end
 $(SIGNATURES)
 """
 function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
-    @warn("BUILD PARSES FOR STEM", stem)
-    generated = []        
+    @debug("BUILD PARSES FOR STEM", stem)
+    generated = AbstractString[]        
     classrules = filter(r -> inflectionClass(r) == inflectionClass(stem), rules)
     if stem isa NounStem 
         filter!(r -> gmpGender(r) == gmpGender(stem), classrules)
@@ -121,7 +124,7 @@ function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
         #@warn("Apply rule", rule)
         token = generate(stem, rule)
         @debug("Generated/rule", token, rule)
-        @debug(syllabify(token, literaryGreek()))
+        @debug(syllabify(knormal(token), literaryGreek()))
         raw = ""
         if buildfromrule(rule)
             raw = string(knormal(token), "|", lexeme(stem), "|", Kanones.formurn(rule), "|", urn(stem), "|", urn(rule))
