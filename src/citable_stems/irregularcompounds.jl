@@ -6,7 +6,7 @@ function irregularstems(compound::CompoundVerbStem, stemlist::Vector{Stem}, orth
     
     results = Stem[]
     simplexstems = filter(s -> lexeme(s) == simplex(compound),  stemlist)
-    @info("Compounding/stem count", compound, length(simplexstems))
+    @debug("Compounding/stem count", compound, length(simplexstems))
     irrverbs = filter(s -> s isa IrregularVerbStem, simplexstems)
     finiteresults = irregularverbstems(compound, irrverbs, ortho)
 
