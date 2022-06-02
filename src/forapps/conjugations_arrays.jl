@@ -307,7 +307,7 @@ $(SIGNATURES)
 """
 function mdfile_proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconjugation.md") where {T <: Kanones.Dataset} 
     hdr = conjugationheader(lex, kds)
-    ruleset = rulesarray(kds)
+    ruleset = filter(r -> verbalrule(r), rulesarray(kds))
     stemset = stemsarray(kds)
 
     presentsystem = proofpresent(lex, ruleset, stemset, orthography(kds))

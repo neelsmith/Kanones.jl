@@ -17,7 +17,7 @@ function generate(
         # principal part is doing augment and redupe,
         # but athat also needs to happen for non-regular?
         stembase = principalpart(stem, rule, ortho = ortho) |> knormal
-        @debug("Starting from stembase", stembase)
+        @info("Starting from stembase", stembase)
     else
         if  takesreduplication(greekForm(rule))
             stembase = reduplicate(stembase, ortho)
