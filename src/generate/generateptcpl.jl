@@ -29,7 +29,7 @@ function generate(
         if isnothing(raw)
             throw(DomainError("EMPTY STRING from stem/rule $(stem)/$(rule)"))
         end
-        stripmetachars(accentword(raw, :RECESSIVE, ortho))  |> knormal
+        stripmetachars(debugaccent(raw, :RECESSIVE, ortho))  |> knormal
         #=
         try
             if stem.accentpersistence == "recessive"
