@@ -113,7 +113,7 @@ end
 $(SIGNATURES)
 """
 function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
-    @warn("BUILD PARSES FOR STEM", stem)
+    @debug("BUILD PARSES FOR STEM", stem)
     generated = AbstractString[]        
     classrules = filter(r -> inflectionClass(r) == inflectionClass(stem), rules)
     if stem isa NounStem 
