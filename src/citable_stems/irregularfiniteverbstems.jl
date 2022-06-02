@@ -69,12 +69,12 @@ function readstemrow(usp::Kanones.IrregularVerbIO, delimited::AbstractString; de
     if length(parts) < 9
         msg = "Too few parts in $delimited."
         @warn msg
-        throw(new(ArgumentError(msg)))
+        throw(ArgumentError(msg))
     end
     
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
-    stem = nfkc(parts[3])
+    stem = knormal(parts[3])
     p = gmpPerson(parts[4])
     n = gmpNumber(parts[5])
     t = gmpTense(parts[6])

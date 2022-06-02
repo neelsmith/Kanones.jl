@@ -62,7 +62,7 @@ function readrulerow(usp::NounIO, delimited::AbstractString; delimiter = "|")
     else
         ruleid = RuleUrn(parts[1])
         inflclass = parts[2]
-        ending = nfkc(parts[3])
+        ending = knormal(parts[3])
         g = gmpGender(parts[4])
         c = gmpCase(parts[5])
         n = gmpNumber(parts[6])

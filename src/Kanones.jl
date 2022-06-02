@@ -68,6 +68,7 @@ export IrregularInfinitiveStem
 
 export GreekLexeme
 
+export knormal
 export generate, analysis_string
 export decline, md_declension
 export md_ptcpldeclension, participleslashline
@@ -81,6 +82,7 @@ export urn, formurn, ruleurn
 
 export StringParser, stringParser
 
+include("normal.jl")
 include("kanonesio.jl")
 include("dataset/dataset.jl")
 include("dataset/fileslayout.jl")
@@ -114,6 +116,7 @@ include("citable_rules/finiteverbrules.jl")
 include("citable_stems/regularverbstems.jl")
 include("citable_stems/irregularfiniteverbstems.jl")
 include("citable_stems/compoundverbs.jl")
+include("citable_stems/irregularcompounds.jl")
 
 # regular stems are drawn from finite verb stems
 include("citable_forms/infinitives.jl")
@@ -158,12 +161,14 @@ include("generate/generateptcpl.jl")
 include("generate/generatepronoun.jl")
 include("generate/generateuninflected.jl")
 include("generate/generateirregular.jl")
+include("generate/debug.jl")
 
 include("forapps/adjdeclensions.jl")
 include("forapps/noundeclensions.jl")
 include("forapps/ptcpldeclensions.jl")
 include("forapps/synopses.jl")
 include("forapps/conjugations.jl")
+include("forapps/conjugations_arrays.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")

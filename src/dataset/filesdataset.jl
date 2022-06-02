@@ -4,25 +4,20 @@ A Kanones dataset in a local file system.
 
 # Members
 
-- `dirs` is a list of full paths to the root directory of one or more datasets.  
-Their subdirectory organization must follow Kanones' specifications.
+- `dirs` is a list of full paths to the root directory of one or more datasets, that is, a root directory with a subdirectory organization must follow Kanones' specifications.
 - `orthography` is an implementation of the `GreekOrthography` interface
 """
 struct FilesDataset <: Kanones.Dataset
     dirs
     orthography::GreekOrthography
     function FilesDataset(dirlist; ortho::T = literaryGreek()) where {T <: GreekOrthography}
+        # It is permitted for these to be empty, but worth warning about anyway.
         if isempty(rulesarray(dirlist))
-            #throw(ArgumentError("No inflectional rules found."))
             @warn("No inflectional rules found for $(dirlist).")
 
         elseif isempty(stemsarray(dirlist))
-            #throw(ArgumentError("No lexicon of stems found."))
             @warn("No lexicon of stems found for $(dirlist).")
-        # elseif ## if no urn registry ...
-        # need to enforce referential integrity of data
-        # with registry
-            
+        
         end   
         new(dirlist, ortho)
     end
@@ -41,8 +36,6 @@ function dataset(dir::AbstractString; ortho::T = literaryGreek()) where {T <: Gr
     Kanones.FilesDataset([dir]; ortho = ortho)
 end
 
-
-
 """Create a `Kanones.FilesDataset` from one or more data sources.
 
 $(SIGNATURES)
@@ -57,7 +50,7 @@ function dataset(srclist::Vector; ortho::T = literaryGreek()) where {T <: GreekO
 end
 
 
-"""Read all rules data from a list of directories into an array of `Rule`s.
+"""Recursively read all rules data from a list of directories into an array of `Rule`s.
 
 $(SIGNATURES)
 """
@@ -65,29 +58,37 @@ function rulesarray(kd::Kanones.FilesDataset; delimiter = "|")
     rulesarray(kd.dirs, delimiter = delimiter)
 end
 
-"""Read all rules data from a `Kanones.FilesDataset` into an array of `Rule`s.
+"""Recursively read all rules data from a `Kanones.FilesDataset` into an array of `Rule`s.
 
 $(SIGNATURES)
 """
 function rulesarray(dirlist; delimiter = "|")
     rulesarr = Rule[]
+    pattern  = r".cex$"
     for datasrc in dirlist
         for dirname in RULES_DIRECTORIES 
-            dir = joinpath(datasrc, "rules-tables", dirname)
-            cexfiles = glob("*.cex", dir)
             delimitedreader = (RULES_IO_DICT[dirname])
-            for f in cexfiles
-                @debug("Reading rules from ", f)
-                raw = readlines(f)
-                lines = filter(s -> ! isempty(s), raw)
-                for i in 2:length(lines)
-                    try 
-                        rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
-                        push!(rulesarr,rule)
-                    catch e
-                        @warn("Failed to parse rule from line\n\"$(lines[i])\" \nin file ($(f)")
-                        @warn("Error: $(e)")
-                    end
+            dir = joinpath(datasrc, "rules-tables", dirname)
+            @debug("Read from dirname/reader", dir, delimitedreader)
+            if isdir(dir)
+                for (root, dirs, files) in walkdir(dir)
+                    @debug("r/d/f", root, dirs, files)
+                    for f in files
+                        if occursin(pattern, f) 
+                            @debug("READ f", joinpath(root,f))
+                            raw = readlines(joinpath(root,f))
+                            lines = filter(s -> ! isempty(s), raw)
+                            for i in 2:length(lines)
+                                try 
+                                    rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
+                                    push!(rulesarr,rule)
+                                catch e
+                                    @warn("Failed to parse rule from line\n\"$(lines[i])\" \nin file ($(f)")
+                                    @warn("Error: $(e)")
+                                end
+                            end
+                        end
+                    end    
                 end
             end
         end
@@ -104,28 +105,72 @@ function compoundsarray(kd::Kanones.FilesDataset; delimiter = "|")
     compoundsarray(kd.dirs, delimiter = delimiter)
 end
 
-"""Read all records for composing compound verb stems from a list of directories.
+"""Recursively read all records for composing compound verb stems from a list of directories.
 $(SIGNATURES)
 """
 function compoundsarray(dirlist; delimiter = "|")
     compoundarray = CompoundVerbStem[]
+
+    pattern  = r".cex$"
     for datasrc in dirlist
         dir = joinpath(datasrc, "stems-tables", "verbs-compound")
-       
-            
-        cexfiles = glob("*.cex", dir)
-          
-        for f in cexfiles
-            @debug("Reading compound verbs from ", f)
-            raw = readlines(f)
-            lines = filter(s -> ! isempty(s), raw)
-            for i in 2:length(lines)
-                try 
-                    record = compoundstem(lines[i])
-                    push!(compoundarray,record)
-                catch e
-                    @warn("Failed to parse compound verb entry from line\n\"$(lines[i])\" \nin file ($(f)")
-                    @warn("Error: $(e)")
+        if isdir(dir)
+            for (root, dirs, files) in walkdir(dir)
+                for f in files
+                    if occursin(pattern, f) 
+                        @debug("READ f", joinpath(root,f))
+                        raw = readlines(joinpath(root,f))
+                        lines = filter(s -> ! isempty(s), raw)
+                        for i in 2:length(lines)
+                            try 
+                                record = compoundstem(lines[i])
+                                push!(compoundarray,record)
+                            catch e
+                                @warn("Failed to parse compound verb entry from line\n\"$(lines[i])\" \nin file ($(f)")
+                                @warn("Error: $(e)")
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    unique(compoundarray)
+end
+
+"""Read all records for composing compound  stems of irregular verbs from `kd`.
+$(SIGNATURES)
+"""
+function irregularcompoundsarray(kd::Kanones.FilesDataset; delimiter = "|")
+    irregularcompoundsarray(kd.dirs, delimiter = delimiter)
+end
+
+"""Recursively read all records for composing compound  stems of irregular verbs from a list of directories.
+$(SIGNATURES)
+"""
+function irregularcompoundsarray(dirlist; delimiter = "|")
+    compoundarray = CompoundVerbStem[]
+
+    pattern  = r".cex$"
+    for datasrc in dirlist
+        dir = joinpath(datasrc, "irregular-stems", "verbs-compound")
+        if isdir(dir)
+            for (root, dirs, files) in walkdir(dir)
+                for f in files
+                    if occursin(pattern, f) 
+                        @debug("READ f", joinpath(root,f))
+                        raw = readlines(joinpath(root,f))
+                        lines = filter(s -> ! isempty(s), raw)
+                        for i in 2:length(lines)
+                            try 
+                                record = compoundstem(lines[i])
+                                push!(compoundarray,record)
+                            catch e
+                                @warn("Failed to parse compound verb entry from line\n\"$(lines[i])\" \nin file ($(f)")
+                                @warn("Error: $(e)")
+                            end
+                        end
+                    end
                 end
             end
         end
@@ -141,71 +186,139 @@ function stemsarray(kd::Kanones.FilesDataset)
     stemsarray(kd.dirs)
 end
 
+"""Recursively read stem data from the `stems-tables` directory
+of each data set.
+$(SIGNATURES)
+"""
+function regularstems(dirlist; delimiter = "|")
+    stemsarr = Stem[]
+    pattern  = r".cex$"
+    for datasrc in dirlist     
+        for dirname in STEMS_DIRECTORIES 
+            delimitedreader = (STEMS_IO_DICT[dirname])
+            dir = joinpath(datasrc, "stems-tables", dirname)
+            @debug("Read from dirname/reader", dir, delimitedreader)
+            if isdir(dir)
+                for (root, dirs, files) in walkdir(dir)
+                    @debug("r/d/f", root, dirs, files)
+                    for f in files
+                        if occursin(pattern, f) 
+                            @debug("==>Reading file", joinpath(root,f))
+                            raw = readlines(joinpath(root, f))
+                            # Trim lines first:
+                            lines = filter(s -> ! isempty(s), raw)
+                            @debug("Read datalines", length(lines))
+                            for i in 2:length(lines)
+                                try
+                                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
+                                    #@debug("==>READ STEM", stem)
+                                    push!(stemsarr,stem)
+                                catch e
+                                    @warn("Failed to parse stem data from line $(lines[i]) in file $(f)")
+                                    @warn("Error: $(e)")
+                                end
+                                
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    stemsarr
+end
+
+
+"""Recursively read stem data from the `irregular-stems` directory
+of each data set.
+$(SIGNATURES)
+"""
+function irregularstems(dirlist; delimiter = "|")
+    stemsarr = Stem[]
+    pattern  = r".cex$"
+
+    for datasrc in dirlist
+        for dirname in IRREGULAR_STEM_DIRECTORIES
+            delimitedreader = (IRREGULAR_IO_DICT[dirname])
+            dir = joinpath(datasrc, "irregular-stems", dirname)
+            @debug("Read from dirname/reader", dir, delimitedreader)
+            if isdir(dir)
+                for (root, dirs, files) in walkdir(dir)
+                    @debug("r/d/f", root, dirs, files)
+                    for f in files
+                        if occursin(pattern, f) 
+                            raw = readlines(joinpath(root,f))
+                            lines = filter(s -> ! isempty(s), raw)
+                            for i in 2:length(lines)
+                                stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
+                                push!(stemsarr,stem)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    stemsarr
+end
+
+"""For each compound verb entry found in `dirlist`, apply the prefix
+to appropriate entries in `verbstems`.
+$(SIGNATURES)
+"""
+function regularcompounds(dirlist, verbstems; ortho = literaryGreek())
+    compoundstemsarr = Stem[]
+    # Add compound verbs.
+    for s in compoundsarray(dirlist)
+        compounded = stems(s, verbstems, ortho)
+        @debug("created $(length(compounded)) stems for ", s)
+        for c in compounded
+            push!(compoundstemsarr, c)
+        end
+    end
+    compoundstemsarr
+end
+
+
+"""For each compound verb entry  for irregular verbs found in `dirlist`, apply the prefix
+to appropriate entries in `verbstems`.
+$(SIGNATURES)
+"""
+function irregularcompounds(dirlist, verbstems; ortho = literaryGreek())
+    compoundstemsarr = Stem[]
+    # Add compound verbs.
+    for s in irregularcompoundsarray(dirlist)
+        compounded = irregularstems(s, verbstems, ortho)
+        @debug("created $(length(compounded)) stems for ", s)
+        for c in compounded
+            push!(compoundstemsarr, c)
+        end
+    end
+    compoundstemsarr
+end
+
 
 """Read all stem data from a `Kanones.FilesDataset` into an array of `Stem`s.
 
 $(SIGNATURES)
 """
 function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
-    #@info("Getting regular stems for $dirlist")
-    stemsarr = Stem[]
-    for datasrc in dirlist
-        @info("Source directory for Kanones dataset: $(datasrc)")
-        for dirname in STEMS_DIRECTORIES 
-            dir = joinpath(datasrc, "stems-tables", dirname)
-            @debug("dir = ", dir)
-            cexfiles = glob("*.cex", dir)
-            delimitedreader = (STEMS_IO_DICT[dirname])
-            for f in cexfiles
-                @debug("Reading stems from ", f)
-                raw = readlines(f)
-                
-                # Trim lines first:
-                lines = filter(s -> ! isempty(s), raw)
-                for i in 2:length(lines)
-                    try
-                        stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
-                        push!(stemsarr,stem)
-                    catch e
-                        @warn("Failed to parse stem data from line $(lines[i]) in file $(f)")
-                        @warn("Error: $(e)")
-                    end
-                end
-            end
-        end
-    end
-  
+    @debug("Getting regular stems for $dirlist")
+    regstemsarr = regularstems(dirlist)
+
+    @debug("Getting regular compound stems for $dirlist")
+    verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, regstemsarr)
+    @debug("Selected $(length(verbalstems)) simplex verbal stems")
+    compoundstemsarr = regularcompounds(dirlist, verbalstems, ortho = ortho)
+
     @debug("Getting irregular stems for $dirlist")
-    for datasrc in dirlist
-        for dirname in IRREGULAR_STEM_DIRECTORIES
-            dir = joinpath(datasrc, "irregular-stems", dirname)
-            cexfiles = glob("*.cex", dir)
-            delimitedreader = (IRREGULAR_IO_DICT[dirname])
-            for f in cexfiles
-                raw = readlines(f)
-                lines = filter(s -> ! isempty(s), raw)
-                for i in 2:length(lines)
-                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
-                    push!(stemsarr,stem)
-                end
-            end
-        end
-    end
+    irregstemsarr = irregularstems(dirlist)
+    irregcompoundstemarr = irregularcompounds(dirlist, irregstemsarr, ortho = ortho)
 
 
-    verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, stemsarr)
-    @debug("Select $(length(verbalstems)) simplex verbal stems")
-
-    compoundstemsarr = Stem[]
-    # Add compound verbs.
-    for s in compoundsarray(dirlist)
-        compounded = stems(s, verbalstems,ortho)
-        @debug("created $(length(compounded)) stems for ", s)
-        for c in compounded
-            push!(compoundstemsarr, c)
-        end
-    end
-    vcat(stemsarr, compoundstemsarr)
+    # Add irregular compound verbs to this:
+    vcat(regstemsarr, irregstemsarr, compoundstemsarr, irregcompoundstemarr)
+    
 end
 
 
@@ -216,8 +329,6 @@ $(SIGNATURES)
 function registry(kd::Kanones.FilesDataset)
     registry(kd.dirs)
 end
-
-
 
 """Read all records of registered URNs from a `Kanones.FilesDataset` into a dictionary of abbreviations to full `Cite2Urn` values.
 

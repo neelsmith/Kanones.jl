@@ -26,3 +26,9 @@ end
     @test stemstring(stem) == "δεικ"
     
 end
+
+@testset "Test accent errors" begin
+    delimited = "verbstems.n1782|lsjx.n1782|ἀεσκ|w_regular"
+    verbio = Kanones.VerbIO("IO for verbs")
+    stem = Kanones.readstemrow(verbio, delimited)
+end

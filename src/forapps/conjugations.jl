@@ -295,11 +295,7 @@ function proofperfect(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
     join(finites,"\n\n") * "\n\n" * join(nominals,"\n") * "\n\n" * join(plupft, "\n\n")
 end
 
-
-"""Compose complete conjugation of the verb `lex` as a long string of markdown.
-$(SIGNATURES)
-"""
-function md_proofconjugation(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
+function conjugationheader(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
     pia1s = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("present"), gmpMood("indicative"), gmpVoice("active"))
     headerforms = generate(lex, formurn(pia1s), kds)
     hdrlines = [
@@ -308,30 +304,5 @@ function md_proofconjugation(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset
         "> Empty cells indicate forms that are poorly attested or unattested."
     ]
     hdr = join(hdrlines,"\n\n")
-
-    presentsystem = proofpresent(lex,kds)
-    futuresystem = prooffuture(lex,kds)
-    aoristsystem = proofaorist(lex,kds)
-    perfectsystem = proofperfect(lex,kds)
-
-    pieces = [
-        hdr,
-        presentsystem,
-        futuresystem, 
-        aoristsystem,
-        perfectsystem
-    ]
-
-    md = join(pieces, "\n\n")
-end
-
-
-
-"""Write complete conjugation of the verb `lex` to a file.
-$(SIGNATURES)
-"""
-function mdfile_proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconjugation.md") where {T <: Kanones.Dataset} 
-    open(f,"w") do io
-        write(io, md_proofconjugation(lex, kds))
-    end
+    hdr
 end

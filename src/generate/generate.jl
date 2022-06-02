@@ -7,21 +7,24 @@ function generate(stem::S, rule::R; ortho::GreekOrthography = literaryGreek()) w
     nothing
 end
 
-"""Generate a form for a given lexeme and form within a given dataset.
-$(SIGNATURES)
-"""
 function generate(
     lex::LexemeUrn, 
     form::FormUrn, 
-    kds::Kanones.FilesDataset) 
+    ruleset::Vector{Rule}, 
+    stemset::Vector{Stem},
+    orthography::GreekOrthography) 
+
     @debug("Generate form for lex", form, lex)
     # find stems:
-    stems = filter(s -> lexeme(s) == lex,  stemsarray(kds))
+    stems = filter(s -> lexeme(s) == lex,  stemset)
     @debug("STEMS:", stems)
     generated = []
     for s in stems
-        rules = filter(rulesarray(kds)) do r
+        rules = filter(ruleset) do r
             if r isa IrregularRule
+                @debug("LOOK AT inflclass of irreg rule", inflectionClass(r) )
+                @debug("Compare to inflcass of stem", inflectionClass(s))
+                @debug("ANd look at formurn for this stem", s)
                 inflectionClass(r) == inflectionClass(s) && formurn(s) == form
             else
                 inflectionClass(r) == inflectionClass(s) && formurn(r) == form
@@ -30,11 +33,22 @@ function generate(
         @debug("Rules for stem", rules)
         @debug("Stem", s)
         for r in rules
-            push!(generated, generate(s,r, ortho = orthography(kds)))
+            @debug("Generating s/r", s,r)
+            push!(generated, generate(s,r, ortho = orthography))
         end
     end
 
     generated
+end
+
+"""Generate a form for a given lexeme and form within a given dataset.
+$(SIGNATURES)
+"""
+function generate(
+    lex::LexemeUrn, 
+    form::FormUrn, 
+    kds::Kanones.FilesDataset) 
+    generate(lex, form, rulesarray(kds), stemsarray(kds), orthography(kds))
 end
 
 
@@ -42,7 +56,7 @@ end
 $(SIGNATURES)
 """
 function analysis_string(stem::S, rule::R; ortho = literaryGreek(), delimiter = "|") where {S <: KanonesStem, R <: KanonesRule}
-    token = generate(stem, rule, ortho = ortho) |> nfkc
+    token = generate(stem, rule, ortho = ortho) |> knormal
     join([token, formurn(rule), lexeme(stem), urn(stem), urn(rule)], delimiter)
 end
 

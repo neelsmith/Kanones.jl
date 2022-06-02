@@ -1,1 +1,0 @@
-# Stems for irregular principal parts

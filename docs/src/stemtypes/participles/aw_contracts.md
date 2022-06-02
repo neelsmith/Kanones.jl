@@ -1,1 +1,0 @@
-# Participles: -α contracts

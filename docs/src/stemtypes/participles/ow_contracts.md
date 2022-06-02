@@ -1,1 +1,0 @@
-# Participles: -o contracts

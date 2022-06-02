@@ -1,2 +1,0 @@
-# Regular verbs:  -οω contracts
-

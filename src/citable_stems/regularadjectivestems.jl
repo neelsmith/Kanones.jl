@@ -88,7 +88,7 @@ function readstemrow(usp::AdjectiveIO, delimited::AbstractString; delimiter = "|
     parts = split(delimited, delimiter)
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
-    stem = nfkc(parts[3])
+    stem = knormal(parts[3])
     inflclass = parts[4]
     accent = parts[5]
     AdjectiveStem(stemid,lexid,stem,inflclass,accent)

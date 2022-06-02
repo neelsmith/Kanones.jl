@@ -8,19 +8,34 @@ function generate(
     stem::VerbStem, 
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
-    @debug("Generating ", stem, rule)
+    @debug("Generating verb ", stem, rule)
 
-    stembase = stemstring(stem)
-    if regularverbclass(stem) 
-        stembase = principalpart(stem, rule, ortho = ortho)
+    # stembase is just the normalized string value for this stem
+    stembase = stemstring(stem)  |> knormal
+    if regularverbclass(stem)
+        # This needs to be changed.
+        # principal part is doing augment and redupe,
+        # but athat also needs to happen for non-regular?
+        stembase = principalpart(stem, rule, ortho = ortho) |> knormal
+        @debug("Starting from stembase", stembase)
+    else
+        if  takesreduplication(greekForm(rule))
+            stembase = reduplicate(stembase, ortho)
+        end
+        if rule isa FiniteVerbRule && takesaugment(greekForm(rule))
+            stembase = augment(stembase, ortho)
+            @debug("Augmented:", stembase)
+            stembase
+        end
     end
+
 
     @debug("prin.part with morphemes:", stembase)
     baseparts = split(stembase, "#")
     basemorpheme = baseparts[end]
     @debug("STEMBASE, morphemes", stembase, basemorpheme)
     
-    raw = strcat(basemorpheme, ending(rule), ortho)
+    raw = strcat(basemorpheme, ending(rule), ortho) |> knormal
     @debug("apply rule to get raw", ending(rule), raw)
     if length(baseparts) > 1
         prefix = replace(join(baseparts[1:end-1],""), "#" => "")
@@ -30,18 +45,22 @@ function generate(
     end
 
 
-    @debug("Generate inf. from raw", raw)
+    @debug("Generate finite verb from raw", raw)
 
     if countaccents(raw, ortho) == 1
         # Already has accent! 
         stripmetachars(raw)
 
     else
+        
         try
-            stripmetachars(accentword(raw, :RECESSIVE, ortho))
+           accented = debugaccent(raw, :RECESSIVE, ortho)
+            #stripmetachars(accentword(raw, :RECESSIVE, ortho))
+            stripmetachars(accented)
         catch e
             @warn("Failed to create accented form", e)
             @warn("Raw word: $(raw)")
+            @warn("Stem/rule:", stem, rule)
         end
     end
     

@@ -89,7 +89,7 @@ function readstemrow(infinio::Kanones.IrregularInfinitiveIO, delimited::Abstract
     
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
-    stem = nfkc(parts[3])
+    stem = knormal(parts[3])
     t = gmpTense(parts[4])
     v = gmpVoice(parts[5])
     inflclass = parts[6]
