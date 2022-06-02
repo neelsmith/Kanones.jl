@@ -177,3 +177,8 @@ $(SIGNATURES)
 function formurn(rule::FiniteVerbRule)
     FormUrn("$(COLLECTION_ID)." * code(rule))
 end
+
+
+function verbalrule(r::Rule)
+    typeof(r) <: KanonesVerbalRule
+end

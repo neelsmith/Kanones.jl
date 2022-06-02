@@ -14,10 +14,10 @@ function generate(
     stemset::Vector{Stem},
     orthography::GreekOrthography) 
 
-    @debug("Generate form for lex", form, lex)
+    @debug("Use data arrays to generate form for lex", form, lex)
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemset)
-    @debug("STEMS:", stems)
+    ("STEMS:", stems)
     generated = []
     for s in stems
         rules = filter(ruleset) do r
@@ -27,6 +27,8 @@ function generate(
                 @debug("ANd look at formurn for this stem", s)
                 inflectionClass(r) == inflectionClass(s) && formurn(s) == form
             else
+                @debug("LOok at inflection classes",  inflectionClass(r), inflectionClass(s))
+                #@info("LOok at forms", formurn(r), form)
                 inflectionClass(r) == inflectionClass(s) && formurn(r) == form
             end
         end
@@ -48,7 +50,7 @@ function generate(
     lex::LexemeUrn, 
     form::FormUrn, 
     kds::Kanones.FilesDataset) 
-    generate(lex, form, rulesarray(kds), stemsarray(kds), orthography(kds))
+    generate(lex, form, rulesarray(kds), stemsarray(kds), kds.orthography)
 end
 
 

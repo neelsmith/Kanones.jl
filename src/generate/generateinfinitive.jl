@@ -38,7 +38,8 @@ function generate(
             throw(DomainError("EMPTY STRING from stem/rule $(stem)/$(rule)"))
         end
         try
-            stripmetachars(accentword(raw, :PENULT, ortho)) |> knormal
+            #stripmetachars(accentword(raw, :PENULT, ortho)) |> knormal
+            stripmetachars(debugaccent(raw, :PENULT, ortho)) |> knormal
         catch e
             @warn("Failed to create accented form", e)
             @warn("Raw word: $(raw)")
@@ -48,7 +49,7 @@ function generate(
             throw(DomainError("EMPTY STRING from stem/rule $(stem)/$(rule)"))
         end
         try
-            stripmetachars(accentword(raw, :RECESSIVE, ortho)) |> knormal
+            stripmetachars(debugaccent(raw, :RECESSIVE, ortho)) |> knormal
         catch e
             @warn("Failed to create accented form", e)
             @warn("Raw word: $(raw)")
