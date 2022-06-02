@@ -3,11 +3,34 @@ abstract type KanonesVerbalRule <: KanonesRule end
 
 const REGULAR_VERB_CLASSES = [
     "w_regular",
+    "w_dep",
     "numi",
-    "w_dep"
+
+    "izw",
+    "izw_dep",
+
+    "skw",
+    "skw_dep",
+
+    "ew_contract",
+    "aw_contract",
+    "ow_contract",
+
+    "ew_contract_dep",
+    "aw_contract_dep",
+    "ow_contract_dep"
 ]
 
+const COMPOUND_CLASSES = [
+   
+    "ew_contract",
+    "aw_contract",
+    "ow_contract",
 
+    "ew_contract_dep",
+    "aw_contract_dep",
+    "ow_contract_dep"
+]
 
 
 """Extract gender property from a `KanonesRule`.
