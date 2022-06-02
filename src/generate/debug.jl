@@ -5,5 +5,8 @@ function debugaccent(raw, pattrn, ortho)
     if occursin("nothing", accented)
         throw(DomainError("Bad result trying to accent source $(raw)"))
     end
+    if countaccents(accented, ortho) == 0
+        @warn("UNABLE TO ACCENT: ", accented)
+    end
     accented
 end

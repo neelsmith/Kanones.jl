@@ -168,6 +168,7 @@ include("forapps/noundeclensions.jl")
 include("forapps/ptcpldeclensions.jl")
 include("forapps/synopses.jl")
 include("forapps/conjugations.jl")
+include("forapps/conjugations_arrays.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
