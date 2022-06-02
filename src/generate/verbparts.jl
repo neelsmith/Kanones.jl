@@ -115,7 +115,7 @@ function thetabase(s::AbstractString; ortho = literaryGreek())
 end
 
 function extendcompound(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
-    @info("Extend compound verb type s/r", stem, rule)
+    @debug("Extend compound verb type s/r", stem, rule)
     if pp1(rule)
         stemstring(stem)
 
@@ -157,7 +157,7 @@ function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {
 
     morphbase = morphemes[end]
     if compoundtype(stem)
-        @info("COMPOUND ", morphbase, stem)
+        @debug("COMPOUND ", morphbase, stem)
     end
     if takesreduplication(greekForm(rule))
         morphbase = reduplicate(morphbase, ortho)

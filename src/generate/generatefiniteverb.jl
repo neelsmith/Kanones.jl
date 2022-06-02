@@ -8,7 +8,7 @@ function generate(
     stem::VerbStem, 
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
-    @info("Generating verb ", stem, rule)
+    @debug("Generating verb ", stem, rule)
 
     # stembase is just the normalized string value for this stem
     stembase = stemstring(stem)  |> knormal
