@@ -132,6 +132,8 @@ end
 function izwbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
     if pp3(rule) || pp5(rule)
         sigmabase(stemstring(stem), ortho = ortho)
+    elseif pp4(rule)
+        kappabase(stemstring(stem), ortho = ortho)
     elseif pp6(rule)
         extension1 = sigmabase(stemstring(stem), ortho = ortho)
         thetabase(extension1, ortho = ortho)
@@ -154,7 +156,6 @@ function ppbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: Ka
         sigmabase(stemstr, ortho = ortho)
     elseif pp4(rule)
         kappabase(stemstr, ortho = ortho)
-    elseif pp5(rule) 
     elseif pp6(rule)
         thetabase(stemstr, ortho = ortho)
     else
@@ -162,13 +163,12 @@ function ppbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: Ka
     end
 end
 
-
-
 """Compose stem for appropriate principal part of a completely
 regular verb.
 $(SIGNATURES)
 """
 function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
+    @debug("Principal part for stem/rule", stem ,rule)
     extended = ppbase(stem, rule, ortho = ortho)
     @debug("principal part got extended base", extended)
     morphemes = split(extended, "#")
