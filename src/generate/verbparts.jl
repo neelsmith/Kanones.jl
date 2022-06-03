@@ -136,6 +136,7 @@ function izwbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: K
         kappabase(stemstring(stem), ortho = ortho)
     elseif pp6(rule)
         extension1 = sigmabase(stemstring(stem), ortho = ortho)
+        @debug("Extend to 1/2 ", extension1, thetabase(extension1, ortho = ortho))
         thetabase(extension1, ortho = ortho)
     else
         stemstring(stem) 
