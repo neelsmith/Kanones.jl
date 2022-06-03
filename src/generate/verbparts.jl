@@ -129,21 +129,39 @@ function extendcompound(stem::VerbStem, rule::R; ortho = literaryGreek()) where 
 
 end
 
+function izwbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
+    if pp3(rule) || pp5(rule)
+        sigmabase(stemstring(stem), ortho = ortho)
+    elseif pp6(rule)
+        extension1 = sigmabase(stemstring(stem), ortho = ortho)
+        thetabase(extension1, ortho = ortho)
+    else
+        stemstring(stem) 
+    end
+end
+
 """Compose base stem of `stem` for principalpart required by `rule`.
 $(SIGNATURES)
 """
 function ppbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
     stemstr = compoundtype(stem) ? extendcompound(stem, rule, ortho = ortho) : stemstring(stem)
-    if pp2(rule) || pp3(rule)
+
+    if inflectionClass(stem) == "izw"
+        izwbase(stem, rule, ortho = ortho)
+
+
+    elseif pp2(rule) || pp3(rule)
         sigmabase(stemstr, ortho = ortho)
     elseif pp4(rule)
         kappabase(stemstr, ortho = ortho)
+    elseif pp5(rule) 
     elseif pp6(rule)
         thetabase(stemstr, ortho = ortho)
     else
         stemstr
     end
 end
+
 
 
 """Compose stem for appropriate principal part of a completely
