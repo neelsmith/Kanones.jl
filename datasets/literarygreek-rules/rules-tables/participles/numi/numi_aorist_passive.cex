@@ -1,41 +1,41 @@
 Rule|StemClass|Ending|Tense|Voice|Gender|Case|Number|
 
 
-ptcplinfl.numiaorpass1p|numi|θεῖς|aorist|passive|masculine|nominative|singular|
-ptcplinfl.numiaorpass2p|numi|θέντος|aorist|passive|masculine|genitive|singular|
-ptcplinfl.numiaorpass3p|numi|θέντι|aorist|passive|masculine|dative|singular|
-ptcplinfl.numiaorpass4p|numi|θέντα|aorist|passive|masculine|accusative|singular|
+ptcplinfl.numiaorpass1p|numi|εῖς|aorist|passive|masculine|nominative|singular|
+ptcplinfl.numiaorpass2p|numi|έντος|aorist|passive|masculine|genitive|singular|
+ptcplinfl.numiaorpass3p|numi|έντι|aorist|passive|masculine|dative|singular|
+ptcplinfl.numiaorpass4p|numi|έντα|aorist|passive|masculine|accusative|singular|
 
-ptcplinfl.numiaorpass6p|numi|θέντες|aorist|passive|masculine|nominative|plural|
-ptcplinfl.numiaorpass7p|numi|θέντων|aorist|passive|masculine|genitive|plural|
-ptcplinfl.numiaorpass8p|numi|θεῖσι|aorist|passive|masculine|dative|plural|
-ptcplinfl.numiaorpass8pa|numi|θεῖσιν|aorist|passive|masculine|dative|plural|
-ptcplinfl.numiaorpass9p|numi|θέντας|aorist|passive|masculine|accusative|plural|
-
-
-
-ptcplinfl.numiaorpass11|numi|θέν|aorist|passive|neuter|nominative|singular|
-ptcplinfl.numiaorpass12|numi|θέντος|aorist|passive|neuter|genitive|singular|
-ptcplinfl.numiaorpass13|numi|θέντι|aorist|passive|neuter|dative|singular|
-ptcplinfl.numiaorpass14|numi|θέν|aorist|passive|neuter|accusative|singular|
-
-ptcplinfl.numiaorpass16|numi|θέντα|aorist|passive|neuter|nominative|plural|
-ptcplinfl.numiaorpass17|numi|θέντων|aorist|passive|neuter|genitive|plural|
-ptcplinfl.numiaorpass18|numi|θεῖσι|aorist|passive|neuter|dative|plural|
-ptcplinfl.numiaorpass18a|numi|θεῖσιν|aorist|passive|neuter|dative|plural|
-ptcplinfl.numiaorpass19|numi|θέντα|aorist|passive|neuter|accusative|plural|
+ptcplinfl.numiaorpass6p|numi|έντες|aorist|passive|masculine|nominative|plural|
+ptcplinfl.numiaorpass7p|numi|έντων|aorist|passive|masculine|genitive|plural|
+ptcplinfl.numiaorpass8p|numi|εῖσι|aorist|passive|masculine|dative|plural|
+ptcplinfl.numiaorpass8pa|numi|εῖσιν|aorist|passive|masculine|dative|plural|
+ptcplinfl.numiaorpass9p|numi|έντας|aorist|passive|masculine|accusative|plural|
 
 
 
+ptcplinfl.numiaorpass11|numi|έν|aorist|passive|neuter|nominative|singular|
+ptcplinfl.numiaorpass12|numi|έντος|aorist|passive|neuter|genitive|singular|
+ptcplinfl.numiaorpass13|numi|έντι|aorist|passive|neuter|dative|singular|
+ptcplinfl.numiaorpass14|numi|έν|aorist|passive|neuter|accusative|singular|
+
+ptcplinfl.numiaorpass16|numi|έντα|aorist|passive|neuter|nominative|plural|
+ptcplinfl.numiaorpass17|numi|έντων|aorist|passive|neuter|genitive|plural|
+ptcplinfl.numiaorpass18|numi|εῖσι|aorist|passive|neuter|dative|plural|
+ptcplinfl.numiaorpass18a|numi|εῖσιν|aorist|passive|neuter|dative|plural|
+ptcplinfl.numiaorpass19|numi|έντα|aorist|passive|neuter|accusative|plural|
 
 
-ptcplinfl.numiaorpass21|numi|θεῖσα|aorist|passive|feminine|nominative|singular|
-ptcplinfl.numiaorpass22|numi|θείσης|aorist|passive|feminine|genitive|singular|
-ptcplinfl.numiaorpass23|numi|θείσῃ|aorist|passive|feminine|dative|singular|
-ptcplinfl.numiaorpass24|numi|θεῖσαν|aorist|passive|feminine|accusative|singular|
 
-ptcplinfl.numiaorpass26|numi|θεῖσαι|aorist|passive|feminine|nominative|plural|
-ptcplinfl.numiaorpass27|numi|θείσων|aorist|passive|feminine|genitive|plural|
-ptcplinfl.numiaorpass28|numi|θεῖσι|aorist|passive|feminine|dative|plural|
-ptcplinfl.numiaorpass28a|numi|θεῖσιν|aorist|passive|feminine|dative|plural|
-ptcplinfl.numiaorpass29|numi|θεισας|aorist|passive|feminine|accusative|plural|
+
+
+ptcplinfl.numiaorpass21|numi|εῖσα|aorist|passive|feminine|nominative|singular|
+ptcplinfl.numiaorpass22|numi|είσης|aorist|passive|feminine|genitive|singular|
+ptcplinfl.numiaorpass23|numi|είσῃ|aorist|passive|feminine|dative|singular|
+ptcplinfl.numiaorpass24|numi|εῖσαν|aorist|passive|feminine|accusative|singular|
+
+ptcplinfl.numiaorpass26|numi|εῖσαι|aorist|passive|feminine|nominative|plural|
+ptcplinfl.numiaorpass27|numi|είσων|aorist|passive|feminine|genitive|plural|
+ptcplinfl.numiaorpass28|numi|εῖσι|aorist|passive|feminine|dative|plural|
+ptcplinfl.numiaorpass28a|numi|εῖσιν|aorist|passive|feminine|dative|plural|
+ptcplinfl.numiaorpass29|numi|εισας|aorist|passive|feminine|accusative|plural|
