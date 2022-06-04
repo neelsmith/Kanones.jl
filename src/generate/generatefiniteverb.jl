@@ -58,7 +58,7 @@ function generate(
             #stripmetachars(accentword(raw, :RECESSIVE, ortho))
             stripmetachars(accented)
         catch e
-            @warn("Failed to create accented finite verb form", e)
+            @warn("Failed to create accented finite verb form from stem/rule/erro", stem, rule, e)
             @warn("Raw word: $(raw)")
             @warn("Stem/rule:", stem, rule)
         end

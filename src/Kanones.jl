@@ -86,6 +86,7 @@ include("normal.jl")
 include("kanonesio.jl")
 include("dataset/dataset.jl")
 include("dataset/fileslayout.jl")
+include("dataset/stemreaders.jl")
 include("dataset/filesdataset.jl")
 include("utils.jl")
 
@@ -172,6 +173,7 @@ include("forapps/conjugations_arrays.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
+include("parser/perfilebuilder.jl")
 
 
 end # module
