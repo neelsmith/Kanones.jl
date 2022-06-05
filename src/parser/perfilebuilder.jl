@@ -18,9 +18,9 @@ function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold
             end
             totalforms = totalforms + length(analyses)
             analyses = []
-            if i % msgchunk == 0
-                @info("Stem $(i) ($(stem)). Forms seen: $(totalforms)")
-            end
+        end
+        if i % msgchunk == 0
+            @info("Stem $(i) ($(stem)). $(totalforms) forms written to $(filecount) files so far.")
         end
     end
     f = joinpath(targetdir, "parses$(filecount).csv")
@@ -29,7 +29,7 @@ function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold
         write(f, join(analyses, "\n"))
     end
     totalforms = totalforms + length(analyses)
-    @info("Done: wrote $(totalforms) forms.")
+    @info("Done: wrote $(totalforms) forms in $(filecount) files.")
 end
 
 
