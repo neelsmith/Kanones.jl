@@ -113,13 +113,13 @@ end
 $(SIGNATURES)
 """
 function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T <: KanonesStem }
-    @warn("BUILD PARSES FOR STEM", stem)
+    @debug("BUILD PARSES FOR STEM", stem)
     generated = AbstractString[]        
     classrules = filter(r -> inflectionClass(r) == inflectionClass(stem), rules)
     if stem isa NounStem 
         filter!(r -> gmpGender(r) == gmpGender(stem), classrules)
     end
-    @info("$(length(classrules)) rules for $(inflectionClass(stem)))")
+    @debug("$(length(classrules)) rules for $(inflectionClass(stem)))")
     for rule in classrules
         #@warn("Apply rule", rule)
         token = generate(stem, rule)
