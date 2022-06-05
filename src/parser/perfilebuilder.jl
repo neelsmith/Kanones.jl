@@ -4,12 +4,10 @@ function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold
     @info("Parsing all possible forms in dataset", kd)
     analyses = []
     filecount = 0
+    totalforms = 0
     rules = rulesarray(kd)
     stems = stemsarray(kd) 
     for (i, stem) in enumerate(stems)
-        if i % msgchunk == 0
-            @info("Stem $(i) ($(stem)).")
-        end
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
 
         if length(analyses) >= threshhold
@@ -18,7 +16,11 @@ function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold
             open(f, "w") do io
                 write(f, join(analyses, "\n") * "\n")
             end
+            totalforms = totalforms + length(analyses)
             analyses = []
+            if i % msgchunk == 0
+                @info("Stem $(i) ($(stem)). Forms seen: $(totalforms)")
+            end
         end
     end
     f = joinpath(targetdir, "parses$(filecount).csv")
@@ -26,7 +28,8 @@ function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold
     open(f, "w") do io
         write(f, join(analyses, "\n"))
     end
-    @info("Done.")
+    totalforms = totalforms + length(analyses)
+    @info("Done: wrote $(totalforms) forms.")
 end
 
 
