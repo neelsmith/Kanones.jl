@@ -77,6 +77,7 @@ export synopsis, md_synopsis
 export md_conjugation, md_imperativeconjugation
 export md_proofconjugation, mdfile_proofconjugation
 
+export writecsv
 
 export urn, formurn, ruleurn
 
