@@ -2,8 +2,12 @@ Rule|LexicalEntity|Stem|StemClass|
 
 
 
-
-
+verbstems.n22209a|lsj.n22209|γιγν|w_pp1_dep|
+verbstems.n22209b|lsj.n22209|γενησ|pp2_dep|
+verbstems.n22209c|lsj.n22209|γεν|aor2_dep|
+verbstems.n22209d|lsj.n22209|γεγον|pp4|
+verbstems.n22209d|lsj.n22209|γεγενη|pp5|
+verbstems.n22209d|lsj.n22209|γενηθ|pp6|
 
 
 verbstems.n105829a|lsj.n105829|τυγχαν|w_pp1|
