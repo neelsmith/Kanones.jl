@@ -1,5 +1,5 @@
 
-function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold = 1000, delimiter = ",")
+function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold = 10000, delimiter = ",")
     #analysis_lines(td) |> StringParser
     @info("Parsing all possible forms in dataset", kd)
     analyses = []
@@ -7,7 +7,13 @@ function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold
     totalforms = 0
     rules = rulesarray(kd)
     stems = stemsarray(kd) 
+    @debug("Enumerated $(length(stems)) stems")
     for (i, stem) in enumerate(stems)
+        
+        @debug("$(i) Generating for stem", stem)
+        if isnothing(stem)
+            throw(DomainError("No stem at index $(i)"))
+        end
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
 
         if length(analyses) >= threshhold
@@ -24,7 +30,7 @@ function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold
         end
     end
     f = joinpath(targetdir, "parses$(filecount).csv")
-    @info("$(f) (through $(stem))")
+    @info("$(f) (complete)")
     open(f, "w") do io
         write(f, join(analyses, "\n"))
     end
