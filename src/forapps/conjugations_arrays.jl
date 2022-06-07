@@ -109,7 +109,9 @@ function participleslashline(
 
 
     generated = map(f -> generate(lex, formurn(f), ruleset, stemset, orthography),  ptcplforms)
-    join(map(v -> isempty(v) ? "" : v[1], generated), ", ")
+
+    nonempty = filter(s -> ! isempty(s), generated)
+    join(map(v -> isempty(v) ? "" : v[1], nonempty), ", ")
 
 end
 
