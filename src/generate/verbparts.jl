@@ -13,6 +13,22 @@ function regularverbclass(stem::VerbStem)
     inflectionClass(stem) in REGULAR_VERB_CLASSES
 end
 
+"""True if `inflclass` is a regular verb type that
+requires only a single principle part.
+$(SIGNATURES)
+"""
+function regularverbclass(r::Rule)
+    inflectionClass(r) in REGULAR_VERB_CLASSES
+end
+
+
+"""True if `inflclass` is a regular verb type that
+requires only a single principle part.
+$(SIGNATURES)
+"""
+function regularverbclass(s::AbstractString)
+   s in REGULAR_VERB_CLASSES
+end
 
 """True if rule requires first principal part.
 $(SIGNATURES)
@@ -178,7 +194,7 @@ function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {
     if compoundtype(stem)
         @debug("COMPOUND ", morphbase, stem)
     end
-    if takesreduplication(greekForm(rule))
+    if takesreduplication(greekForm(rule), inflectionClass(rule))
         morphbase = reduplicate(morphbase, ortho)
     end
     @debug("CHECK augment for rule ", greekForm(rule))
@@ -208,9 +224,14 @@ end
 """True if `f` takes reduplication.
 $(SIGNATURES)
 """
-function takesreduplication(f::GMFFiniteVerb)
-    gmpTense(f) == gmpTense("perfect")  ||
+function takesreduplication(f::GMFFiniteVerb, inflclass) 
+    
+    goodtense = gmpTense(f) == gmpTense("perfect")  ||
     gmpTense(f) == gmpTense("pluperfect")  
+
+
+    goodtense && regularverbclass(inflclass)
+
 end
 
 
@@ -218,8 +239,8 @@ end
 """True if `f` takes reduplication.
 $(SIGNATURES)
 """
-function takesreduplication(f::GMFInfinitive)
-    gmpTense(f) == gmpTense("perfect") 
+function takesreduplication(f::GMFInfinitive, inflClass)
+    regularverbclass(inflClass) && gmpTense(f) == gmpTense("perfect") 
 end
 
 
@@ -227,6 +248,6 @@ end
 """True if `f` takes reduplication.
 $(SIGNATURES)
 """
-function takesreduplication(f::GMFParticiple)
-    gmpTense(f) == gmpTense("perfect") 
+function takesreduplication(f::GMFParticiple, inflClass)
+    regularverbclass(inflClass) && gmpTense(f) == gmpTense("perfect") 
 end
