@@ -1,33 +1,21 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
-
-verbinfl.ewdepplupft1|ew_contract_dep|η|first|singular|pluperfect|indicative|active
 verbinfl.ewdepplupft2|ew_contract_dep|μην|first|singular|pluperfect|indicative|middle
 verbinfl.ewdepplupft3|ew_contract_dep|μην|first|singular|pluperfect|indicative|passive
 
-
-
-verbinfl.ewdepplupft4|ew_contract_dep|ης|second|singular|pluperfect|indicative|active
 verbinfl.ewdepplupft5|ew_contract_dep|σο|second|singular|pluperfect|indicative|middle
 verbinfl.ewdepplupft6|ew_contract_dep|σο|second|singular|pluperfect|indicative|passive
 
-verbinfl.ewdepplupft7|ew_contract_dep|ει|third|singular|pluperfect|indicative|active
 verbinfl.ewdepplupft8|ew_contract_dep|το|third|singular|pluperfect|indicative|middle
 verbinfl.ewdepplupft9|ew_contract_dep|το|third|singular|pluperfect|indicative|passive
 
 
-
-verbinfl.ewdepplupft10|ew_contract_dep|εμεν|first|plural|pluperfect|indicative|active
 verbinfl.ewdepplupft11|ew_contract_dep|μεθα|first|plural|pluperfect|indicative|middle
 verbinfl.ewdepplupft12|ew_contract_dep|μεθα|first|plural|pluperfect|indicative|passive
 
 
-verbinfl.ewdepplupft13|ew_contract_dep|ετε|second|plural|pluperfect|indicative|active
 verbinfl.ewdepplupft14|ew_contract_dep|σθε|second|plural|pluperfect|indicative|middle
 verbinfl.ewdepplupft15|ew_contract_dep|σθε|second|plural|pluperfect|indicative|passive
 
-
-
-verbinfl.ewdepplupft16|ew_contract_dep|εσαν|third|plural|pluperfect|indicative|active
 verbinfl.ewdepplupft17|ew_contract_dep|ντο|third|plural|pluperfect|indicative|middle
 verbinfl.ewdepplupft18|ew_contract_dep|ντο|third|plural|pluperfect|indicative|passive

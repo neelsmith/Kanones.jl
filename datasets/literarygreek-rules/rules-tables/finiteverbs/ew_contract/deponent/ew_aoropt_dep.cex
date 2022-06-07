@@ -1,19 +1,13 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 
-verbinfl.ewdepaoropt1|ew_contract_dep|αιμι|first|singular|aorist|optative|active
 verbinfl.ewdepaoropt2|ew_contract_dep|αίμην|first|singular|aorist|optative|middle
 verbinfl.ewdepaoropt3|ew_contract_dep|είην|first|singular|aorist|optative|passive
 
-verbinfl.ewdepaoropt4|ew_contract_dep|αις|second|singular|aorist|optative|active
-verbinfl.ewdepaoropt4a|ew_contract_dep|ειας|second|singular|aorist|optative|active
 verbinfl.ewdepaoropt5|ew_contract_dep|αιο|second|singular|aorist|optative|middle
 verbinfl.ewdepaoropt6|ew_contract_dep|είη|second|singular|aorist|optative|passive
 
 
-
-verbinfl.ewdepaoropt7|ew_contract_dep|αι|third|singular|aorist|optative|active
-verbinfl.ewdepaoropt7a|ew_contract_dep|ειε|third|singular|aorist|optative|active
 verbinfl.ewdepaoropt8|ew_contract_dep|αιτο|third|singular|aorist|optative|middle
 verbinfl.ewdepaoropt9|ew_contract_dep|είη|third|singular|aorist|optative|passive
 
@@ -24,15 +18,8 @@ verbinfl.ewdepaoropt10|ew_contract_dep|αιμεν|first|plural|aorist|optative|a
 verbinfl.ewdepaoropt11|ew_contract_dep|αίμεθα|first|plural|aorist|optative|middle
 verbinfl.ewdepaoropt12|ew_contract_dep|εῖμεν|first|plural|aorist|optative|passive
 
-
-
-verbinfl.ewdepaoropt13|ew_contract_dep|αιτε|second|plural|aorist|optative|active
 verbinfl.ewdepaoropt14|ew_contract_dep|αισθε|second|plural|aorist|optative|middle
 verbinfl.ewdepaoropt15|ew_contract_dep|εῖτε|second|plural|aorist|optative|passive
 
-
-
-
-verbinfl.ewdepaoropt16|ew_contract_dep|αιεν|third|plural|aorist|optative|active
 verbinfl.ewdepaoropt17|ew_contract_dep|αιντο|third|plural|aorist|optative|middle
 verbinfl.ewdepaoropt18|ew_contract_dep|εῖεν|third|plural|aorist|optative|passive

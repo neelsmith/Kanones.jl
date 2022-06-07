@@ -1,35 +1,23 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
-verbinfl.ewdeppresindic1|ew_contract_dep|ῶ|first|singular|present|indicative|active
 verbinfl.ewdeppresindic2|ew_contract_dep|οῦμαι|first|singular|present|indicative|middle
 verbinfl.ewdeppresindic3|ew_contract_dep|οῦμαι|first|singular|present|indicative|passive
 
-
-verbinfl.ewdeppresindic4|ew_contract_dep|εῖς|second|singular|present|indicative|active
 verbinfl.ewdeppresindic5|ew_contract_dep|εῖ|second|singular|present|indicative|middle
 verbinfl.ewdeppresindic5a|ew_contract_dep|ῇ|second|singular|present|indicative|middle
 verbinfl.ewdeppresindic5|ew_contract_dep|εῖ|second|singular|present|indicative|passive
 verbinfl.ewdeppresindic6a|ew_contract_dep|ῇ|second|singular|present|indicative|passive
 
-
-verbinfl.ewdeppresindic7|ew_contract_dep|εῖ|third|singular|present|indicative|active
 verbinfl.ewdeppresindic8|ew_contract_dep|εῖται|third|singular|present|indicative|middle
 verbinfl.ewdeppresindic9|ew_contract_dep|εῖται|third|singular|present|indicative|passive
 
-
-
-
-verbinfl.ewdeppresindic10|ew_contract_dep|οῦμεν|first|plural|present|indicative|active
 verbinfl.ewdeppresindic11|ew_contract_dep|οῦμεθα|first|plural|present|indicative|middle
 verbinfl.ewdeppresindic12|ew_contract_dep|οῦμεθα|first|plural|present|indicative|passive
 
 
-verbinfl.ewdeppresindic13|ew_contract_dep|εῖτε|second|plural|present|indicative|active
 verbinfl.ewdeppresindic14|ew_contract_dep|εῖσθε|second|plural|present|indicative|middle
 verbinfl.ewdeppresindic15|ew_contract_dep|εῖσθε|second|plural|present|indicative|passive
 
 
-verbinfl.ewdeppresindic16|ew_contract_dep|οῦσι|third|plural|present|indicative|active
-verbinfl.ewdeppresindic16a|ew_contract_dep|οῦσιν|third|plural|present|indicative|active
 verbinfl.ewdeppresindic17|ew_contract_dep|οῦνται|third|plural|present|indicative|middle
 verbinfl.ewdeppresindic18|ew_contract_dep|οῦνται|third|plural|present|indicative|passive

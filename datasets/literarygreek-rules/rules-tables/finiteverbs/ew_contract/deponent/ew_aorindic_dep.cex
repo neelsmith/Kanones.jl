@@ -1,28 +1,23 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
-verbinfl.ewdepaor1|ew_contract_dep|α|first|singular|aorist|indicative|active
+
 verbinfl.ewdepaor2|ew_contract_dep|άμην|first|singular|aorist|indicative|middle
 verbinfl.ewdepaor3|ew_contract_dep|ην|first|singular|aorist|indicative|passive
 
 
-verbinfl.ewdepaor4|ew_contract_dep|ας|second|singular|aorist|indicative|active
 verbinfl.ewdepaor5|ew_contract_dep|ω|second|singular|aorist|indicative|middle
 verbinfl.ewdepaor6|ew_contract_dep|ης|second|singular|aorist|indicative|passive
 
-verbinfl.ewdepaor7|ew_contract_dep|ε|third|singular|aorist|indicative|active
+
 verbinfl.ewdepaor8|ew_contract_dep|ατο|third|singular|aorist|indicative|middle
 verbinfl.ewdepaor9|ew_contract_dep|η|third|singular|aorist|indicative|passive
 
 
-
-verbinfl.ewdepaor10|ew_contract_dep|αμεν|first|plural|aorist|indicative|active
 verbinfl.ewdepaor11|ew_contract_dep|άμεθα|first|plural|aorist|indicative|middle
 verbinfl.ewdepaor12|ew_contract_dep|ημεν|first|plural|aorist|indicative|passive
 
-verbinfl.ewdepaor13|ew_contract_dep|ατε|second|plural|aorist|indicative|active
 verbinfl.ewdepaor14|ew_contract_dep|ασθε|second|plural|aorist|indicative|middle
 verbinfl.ewdepaor15|ew_contract_dep|ητε|second|plural|aorist|indicative|passive
 
-verbinfl.ewdepaor16|ew_contract_dep|αν|third|plural|aorist|indicative|active
 verbinfl.ewdepaor17|ew_contract_dep|αντο|third|plural|aorist|indicative|middle
 verbinfl.ewdepaor18|ew_contract_dep|ησαν|third|plural|aorist|indicative|passive
