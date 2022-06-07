@@ -1,6 +1,11 @@
 Rule|LexicalEntity|Stem|StemClass|
 
 
+verbstems.n19123a|lsj.n19123|βαιν|w_pp1|
+verbstems.n19123b|lsj.n19123|βησ|pp2|
+verbstems.n19123c|lsj.n19123|βησ|pp3|
+verbstems.n19123d|lsj.n19123|β|aor2_athematic|
+verbstems.n19123e|lsj.n19123|βεβηκ|pp4|
 
 verbstems.n22209a|lsj.n22209|γιγν|w_pp1_dep|
 verbstems.n22209b|lsj.n22209|γενησ|pp2_dep|
