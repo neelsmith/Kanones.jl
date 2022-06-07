@@ -160,7 +160,7 @@ function proofpresent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Ste
         "- **Middle/passive participle**: $(mpptcpl)",
 
         "- **Active infinitive**: $(inf_acttoken)",
-        "- **Passive infinitive**: $(inf_passtoken)",
+        "- **Middle/passive infinitive**: $(inf_passtoken)",
  
         "- **Verbal adjective**: $(vadjtoken)"
     ]

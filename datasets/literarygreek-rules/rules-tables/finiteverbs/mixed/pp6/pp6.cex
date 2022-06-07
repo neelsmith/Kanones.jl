@@ -1,9 +1,9 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
-verbinfl.wpp6aor3|w_pp6|θην|first|singular|aorist|indicative|passive
-verbinfl.wpp6aor6|w_pp6|θης|second|singular|aorist|indicative|passive
-verbinfl.wpp6aor9|w_pp6|θη|third|singular|aorist|indicative|passive
+verbinfl.wpp6aor3|pp6|ην|first|singular|aorist|indicative|passive
+verbinfl.wpp6aor6|pp6|ης|second|singular|aorist|indicative|passive
+verbinfl.wpp6aor9|pp6|η|third|singular|aorist|indicative|passive
 
-verbinfl.wpp6aor12|w_pp6|θημεν|first|plural|aorist|indicative|passive
-verbinfl.wpp6aor15|w_pp6|θητε|second|plural|aorist|indicative|passive
-verbinfl.wpp6aor18|w_pp6|θησαν|third|plural|aorist|indicative|passive
+verbinfl.wpp6aor12|pp6|ημεν|first|plural|aorist|indicative|passive
+verbinfl.wpp6aor15|pp6|ητε|second|plural|aorist|indicative|passive
+verbinfl.wpp6aor18|pp6|ησαν|third|plural|aorist|indicative|passive
