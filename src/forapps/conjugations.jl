@@ -296,12 +296,18 @@ function proofperfect(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
 end
 
 function conjugationheader(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
+
     pia1s = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("present"), gmpMood("indicative"), gmpVoice("active"))
     headerforms = generate(lex, formurn(pia1s), kds)
+    if isempty(headerforms) 
+        pim1s = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("present"), gmpMood("indicative"), gmpVoice("middle"))
+        headerforms = generate(lex, formurn(pim1s), kds)
+    end
+    
     hdrlines = [
         "# Complete conjugation of $(headerforms[1])",
         "> In the conjugation tables, a dash `-` indicates that a form does not exist in that combination of tense, mood and voice.",
-        "> Empty cells indicate forms that are poorly attested or unattested."
+        "> Empty cells indicate forms that are poorly attested, or unattested forms such as active voice forms of deponent verbs."
     ]
     hdr = join(hdrlines,"\n\n")
     hdr
