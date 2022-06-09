@@ -1,0 +1,17 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+
+
+
+
+verbinfl.wpp1presimp5|w_pp1_dep|ου|second|singular|present|imperative|middle
+verbinfl.wpp1presimp6|w_pp1_dep|έσθω|third|singular|present|imperative|middle
+
+verbinfl.wpp1presimp8|w_pp1_dep|έσθων|third|plural|present|imperative|middle
+
+
+verbinfl.wpp1presimp9|w_pp1_dep|ου|second|singular|present|imperative|passive
+verbinfl.wpp1presimp10|w_pp1_dep|έσθω|third|singular|present|imperative|passive
+
+verbinfl.wpp1presimp11|w_pp1_dep|εσθε|second|plural|present|imperative|passive
+verbinfl.wpp1presimp12|w_pp1_dep|έσθων|third|plural|present|imperative|passive

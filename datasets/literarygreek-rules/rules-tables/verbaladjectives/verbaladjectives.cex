@@ -1,17 +1,22 @@
 Rule|StemClass|Ending|Gender|Case|Number|
 
-vadjinfl.wreg1|w_regular|τέον|neuter|nominative|singular|
-vadjinfl.wreg2|w_regular|τέον|neuter|accusative|singular|
-
-
-vadjinfl.econtr1|ew_contract|ητέον|neuter|nominative|singular|
-vadjinfl.econtr2|ew_contract|ητέον|neuter|accusative|singular|
-
 
 vadjinfl.numi1|numi|τέον|neuter|nominative|singular|
 vadjinfl.numi2|numi|τέον|neuter|accusative|singular|
 
 
+vadjinfl.wreg1|w_regular|τέον|neuter|nominative|singular|
+vadjinfl.wreg2|w_regular|τέον|neuter|accusative|singular|
 
-vadjinfl.vadj1|vadj|τέον|neuter|nominative|singular|
-vadjinfl.vadj2|vadj|τέον|neuter|accusative|singular|
+vadjinfl.econtr1|ew_contract|ητέον|neuter|nominative|singular|
+vadjinfl.econtr2|ew_contract|ητέον|neuter|accusative|singular|
+
+vadjinfl.ocontr1|ow_contract|ωτέον|neuter|nominative|singular|
+vadjinfl.ocontr2|ow_contract|ωτέον|neuter|accusative|singular|
+
+vadjinfl.acontr1|aw_contract|ητέον|neuter|nominative|singular|
+vadjinfl.acontr2|aw_contract|ητέον|neuter|accusative|singular|
+
+
+vadjinfl.izw1|izw|στέον|neuter|nominative|singular|
+vadjinfl.izw2|izw|στέον|neuter|accusative|singular|

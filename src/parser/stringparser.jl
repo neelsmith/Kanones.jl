@@ -25,17 +25,17 @@ end
 """Instantiate a `StringParser` for `td`.
 $(SIGNATURES)
 """
-function stringParser(kd::Kanones.FilesDataset)
+function stringParser(kd::Kanones.FilesDataset; delimiter = "|")
     #analysis_lines(td) |> StringParser
 
-    analyses = AbstractString[]
+    analyses = []
     rules = rulesarray(kd)
     stems = stemsarray(kd) 
     for (i, stem) in enumerate(stems)
         if i % 50 == 0
             @info("stem $(i)… $(stem)")
         end
-        append!(analyses, buildparseable(stem, rules))
+        append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
     analyses |> StringParser
 end
@@ -112,14 +112,14 @@ end
 """Generate all forms possible for `stem`.
 $(SIGNATURES)
 """
-function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
+function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T <: KanonesStem }
     @debug("BUILD PARSES FOR STEM", stem)
     generated = AbstractString[]        
     classrules = filter(r -> inflectionClass(r) == inflectionClass(stem), rules)
     if stem isa NounStem 
         filter!(r -> gmpGender(r) == gmpGender(stem), classrules)
     end
-    
+    @debug("$(length(classrules)) rules for $(inflectionClass(stem)))")
     for rule in classrules
         #@warn("Apply rule", rule)
         token = generate(stem, rule)
@@ -127,14 +127,11 @@ function buildparseable(stem::T,  rules::Vector{Rule}) where {T <: KanonesStem }
         @debug(syllabify(knormal(token), literaryGreek()))
         raw = ""
         if buildfromrule(rule)
-            raw = string(knormal(token), "|", lexeme(stem), "|", Kanones.formurn(rule), "|", urn(stem), "|", urn(rule))
+            raw = join([knormal(token), lexeme(stem), Kanones.formurn(rule), urn(stem), urn(rule)], delimiter)
         else
-            raw = string(knormal(token), "|", lexeme(stem), "|", Kanones.formurn(stem), "|", urn(stem), "|", urn(rule))
+            raw = join([knormal(token), lexeme(stem), Kanones.formurn(stem), urn(stem), urn(rule)], delimiter)
         end
         push!(generated, knormal(raw))
     end
-
-
-
     generated
 end

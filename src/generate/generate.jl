@@ -17,7 +17,7 @@ function generate(
     @debug("Use data arrays to generate form for lex", form, lex)
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemset)
-    ("STEMS:", stems)
+    @debug("STEMS:", stems)
     generated = []
     for s in stems
         rules = filter(ruleset) do r

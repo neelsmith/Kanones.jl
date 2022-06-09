@@ -1,0 +1,15 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+
+verbinfl.ewdepaorimp5|ew_contract_dep|αι|second|singular|aorist|imperative|middle
+verbinfl.ewdepaorimp6|ew_contract_dep|άσθω|third|singular|aorist|imperative|middle
+
+verbinfl.ewdepaorimp7|ew_contract_dep|ασθε|second|plural|aorist|imperative|middle
+verbinfl.ewdepaorimp8|ew_contract_dep|άσθων|third|plural|aorist|imperative|middle
+
+
+verbinfl.ewdepaorimp9|ew_contract_dep|θητι|second|singular|aorist|imperative|passive
+verbinfl.ewdepaorimp10|ew_contract_dep|θήτω|third|singular|aorist|imperative|passive
+
+verbinfl.ewdepaorimp11|ew_contract_dep|θητε|second|plural|aorist|imperative|passive
+verbinfl.ewdepaorimp12|ew_contract_dep|θέντων|third|plural|aorist|imperative|passive

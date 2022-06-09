@@ -109,7 +109,9 @@ function participleslashline(
 
 
     generated = map(f -> generate(lex, formurn(f), ruleset, stemset, orthography),  ptcplforms)
-    join(map(v -> isempty(v) ? "" : v[1], generated), ", ")
+
+    nonempty = filter(s -> ! isempty(s), generated)
+    join(map(v -> isempty(v) ? "" : v[1], nonempty), ", ")
 
 end
 
@@ -158,7 +160,7 @@ function proofpresent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Ste
         "- **Middle/passive participle**: $(mpptcpl)",
 
         "- **Active infinitive**: $(inf_acttoken)",
-        "- **Passive infinitive**: $(inf_passtoken)",
+        "- **Middle/passive infinitive**: $(inf_passtoken)",
  
         "- **Verbal adjective**: $(vadjtoken)"
     ]

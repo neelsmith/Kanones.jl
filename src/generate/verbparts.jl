@@ -1,3 +1,10 @@
+"""True if `stem` is a contract verb.
+$(SIGNATURES)
+"""
+function compoundtype(stem::VerbStem)
+    inflectionClass(stem) in COMPOUND_CLASSES
+end
+
 """True if `inflclass` is a regular verb type that
 requires only a single principle part.
 $(SIGNATURES)
@@ -5,6 +12,31 @@ $(SIGNATURES)
 function regularverbclass(stem::VerbStem)
     inflectionClass(stem) in REGULAR_VERB_CLASSES
 end
+
+"""True if `inflclass` is a regular verb type that
+requires only a single principle part.
+$(SIGNATURES)
+"""
+function regularverbclass(r::Rule)
+    inflectionClass(r) in REGULAR_VERB_CLASSES
+end
+
+
+"""True if `inflclass` is a regular verb type that
+requires only a single principle part.
+$(SIGNATURES)
+"""
+function regularverbclass(s::AbstractString)
+   s in REGULAR_VERB_CLASSES
+end
+
+"""True if rule requires first principal part.
+$(SIGNATURES)
+"""
+function pp1(rule::R) where {R <: KanonesVerbalRule}
+    gmpTense(rule) == gmpTense("present") ||     gmpTense(rule) == gmpTense("imperfect") 
+end
+
 
 """True if rule requires second principal part.
 $(SIGNATURES)
@@ -63,6 +95,11 @@ function kappabase(stem::Stem; ortho = literaryGreek())
     k = strcat(stemstring(stem), "κ", ortho)
 end
 
+function kappabase(s::AbstractString; ortho = literaryGreek())
+    k = strcat(s, "κ", ortho)
+end
+
+
 """Compose regular verb base for second or third
 principal part.
 $(SIGNATURES)
@@ -72,6 +109,13 @@ function sigmabase(stem::Stem; ortho = literaryGreek())
     strcat(s,"σ", ortho)
 end
 
+"""Compose regular verb base for second or third
+principal part.
+$(SIGNATURES)
+"""
+function sigmabase(s::AbstractString; ortho = literaryGreek())
+    strcat(s,"σ", ortho)
+end
 
 """Compose regular verb base for sixth
 principal part.
@@ -82,18 +126,57 @@ function thetabase(stem::Stem; ortho = literaryGreek())
     strcat(s,"θ", ortho)
 end
 
+function thetabase(s::AbstractString; ortho = literaryGreek())
+    strcat(s,"θ", ortho)
+end
+
+function extendcompound(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
+    @debug("Extend compound verb type s/r", stem, rule)
+    if pp1(rule)
+        stemstring(stem)
+
+    elseif inflectionClass(stem) == "ew_contract" ||  inflectionClass(stem) == "ew_contract_dep" 
+        stemstring(stem) * "η"
+    elseif inflectionClass(stem) == "aw_contract" ||  inflectionClass(stem) == "aw_contract_dep" 
+        stemstring(stem) * "α"
+    elseif  inflectionClass(stem) == "ow_contract" ||  inflectionClass(stem) == "ow_contract_dep" 
+        stemstring(stem) * "ω"
+    end
+
+end
+
+function izwbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
+    if pp3(rule) || pp5(rule)
+        sigmabase(stemstring(stem), ortho = ortho)
+    elseif pp4(rule)
+        kappabase(stemstring(stem), ortho = ortho)
+    elseif pp6(rule)
+        extension1 = sigmabase(stemstring(stem), ortho = ortho)
+        @debug("Extend to 1/2 ", extension1, thetabase(extension1, ortho = ortho))
+        thetabase(extension1, ortho = ortho)
+    else
+        stemstring(stem) 
+    end
+end
+
 """Compose base stem of `stem` for principalpart required by `rule`.
 $(SIGNATURES)
 """
 function ppbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
-    if pp2(rule) || pp3(rule)
-        sigmabase(stem, ortho = ortho)
+    stemstr = compoundtype(stem) ? extendcompound(stem, rule, ortho = ortho) : stemstring(stem)
+
+    if inflectionClass(stem) == "izw"
+        izwbase(stem, rule, ortho = ortho)
+
+
+    elseif pp2(rule) || pp3(rule)
+        sigmabase(stemstr, ortho = ortho)
     elseif pp4(rule)
-        kappabase(stem, ortho = ortho)
+        kappabase(stemstr, ortho = ortho)
     elseif pp6(rule)
-        thetabase(stem, ortho = ortho)
+        thetabase(stemstr, ortho = ortho)
     else
-        stemstring(stem)
+        stemstr
     end
 end
 
@@ -102,13 +185,16 @@ regular verb.
 $(SIGNATURES)
 """
 function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
+    @debug("Principal part for stem/rule", stem ,rule)
     extended = ppbase(stem, rule, ortho = ortho)
     @debug("principal part got extended base", extended)
     morphemes = split(extended, "#")
 
     morphbase = morphemes[end]
-    
-    if takesreduplication(greekForm(rule))
+    if compoundtype(stem)
+        @debug("COMPOUND ", morphbase, stem)
+    end
+    if takesreduplication(greekForm(rule), inflectionClass(rule))
         morphbase = reduplicate(morphbase, ortho)
     end
     @debug("CHECK augment for rule ", greekForm(rule))
@@ -138,9 +224,14 @@ end
 """True if `f` takes reduplication.
 $(SIGNATURES)
 """
-function takesreduplication(f::GMFFiniteVerb)
-    gmpTense(f) == gmpTense("perfect")  ||
+function takesreduplication(f::GMFFiniteVerb, inflclass) 
+    
+    goodtense = gmpTense(f) == gmpTense("perfect")  ||
     gmpTense(f) == gmpTense("pluperfect")  
+
+
+    goodtense && regularverbclass(inflclass)
+
 end
 
 
@@ -148,8 +239,8 @@ end
 """True if `f` takes reduplication.
 $(SIGNATURES)
 """
-function takesreduplication(f::GMFInfinitive)
-    gmpTense(f) == gmpTense("perfect") 
+function takesreduplication(f::GMFInfinitive, inflClass)
+    regularverbclass(inflClass) && gmpTense(f) == gmpTense("perfect") 
 end
 
 
@@ -157,6 +248,6 @@ end
 """True if `f` takes reduplication.
 $(SIGNATURES)
 """
-function takesreduplication(f::GMFParticiple)
-    gmpTense(f) == gmpTense("perfect") 
+function takesreduplication(f::GMFParticiple, inflClass)
+    regularverbclass(inflClass) && gmpTense(f) == gmpTense("perfect") 
 end

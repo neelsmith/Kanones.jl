@@ -77,6 +77,7 @@ export synopsis, md_synopsis
 export md_conjugation, md_imperativeconjugation
 export md_proofconjugation, mdfile_proofconjugation
 
+export writecsv
 
 export urn, formurn, ruleurn
 
@@ -86,6 +87,7 @@ include("normal.jl")
 include("kanonesio.jl")
 include("dataset/dataset.jl")
 include("dataset/fileslayout.jl")
+include("dataset/stemreaders.jl")
 include("dataset/filesdataset.jl")
 include("utils.jl")
 
@@ -172,6 +174,7 @@ include("forapps/conjugations_arrays.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
-include("parser/principalparts.jl")
+include("parser/perfilebuilder.jl")
+
 
 end # module
