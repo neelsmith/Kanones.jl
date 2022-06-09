@@ -307,7 +307,7 @@ end
 """Write complete conjugation of the verb `lex` to a file.
 $(SIGNATURES)
 """
-function mdfile_proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconjugation.md") where {T <: Kanones.Dataset} 
+function md_proofconjugation(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset} 
     hdr = conjugationheader(lex, kds)
     ruleset = filter(r -> verbalrule(r), rulesarray(kds))
     stemset = stemsarray(kds)
@@ -327,8 +327,12 @@ function mdfile_proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconju
         perfectsystem
     ]
 
-    md = join(pieces, "\n\n")
-    open(f,"w") do io
+    join(pieces, "\n\n")
+end
+
+function mdfile_proofconjugation(lex::LexemeUrn, kds::T, f = "scratch/proofconjugation.md") where {T <: Kanones.Dataset} 
+    md = md_proofconjugation(lex,kds)
+    open(f, "w") do io
         write(io, md)
     end
 end
