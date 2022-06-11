@@ -295,7 +295,7 @@ function proofperfect(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
     join(finites,"\n\n") * "\n\n" * join(nominals,"\n") * "\n\n" * join(plupft, "\n\n")
 end
 
-function conjugationheader(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
+function conjugationheader(lex::LexemeUrn, kds::T; note = nothing) where {T <: Kanones.Dataset}
 
     pia1s = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("present"), gmpMood("indicative"), gmpVoice("active"))
     headerforms = generate(lex, formurn(pia1s), kds)
@@ -303,12 +303,15 @@ function conjugationheader(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
         pim1s = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("present"), gmpMood("indicative"), gmpVoice("middle"))
         headerforms = generate(lex, formurn(pim1s), kds)
     end
+    hdrlines =  ["# Complete conjugation of $(headerforms[1])"]
+   
     
-    hdrlines = [
-        "# Complete conjugation of $(headerforms[1])",
-        "> In the conjugation tables, a dash `-` indicates that a form does not exist in that combination of tense, mood and voice.",
-        "> Empty cells indicate forms that are poorly attested, or unattested forms such as active voice forms of deponent verbs."
-    ]
+    if note == :blockquote
+       push!(hdrlines, "> In the conjugation tables, a dash `-` indicates that a form does not exist in that combination of tense, mood and voice.\n\n> Empty cells indicate forms that are poorly attested, or unattested forms such as active voice forms of deponent verbs.")
+
+    elseif note == :note
+        push!(hdrlines, "!!! note \"Empty cells\"\n\n    In the conjugation tables, a dash `-` indicates that a form does not exist in that combination of tense, mood and voice. Empty cells indicate forms that are poorly attested, or unattested forms such as active voice forms of deponent verbs.")
+    end
     hdr = join(hdrlines,"\n\n")
     hdr
 end

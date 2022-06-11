@@ -1,34 +1,34 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
-verbinfl.awpresindic1|aw_pp1|ῶ|first|singular|present|indicative|active
-verbinfl.awpresindic2|aw_pp1|ῶμαι|first|singular|present|indicative|middle
-verbinfl.awpresindic3|aw_pp1|ῶμαι|first|singular|present|indicative|passive
+verbinfl.awpresindic1|aw_contract|ῶ|first|singular|present|indicative|active
+verbinfl.awpresindic2|aw_contract|ῶμαι|first|singular|present|indicative|middle
+verbinfl.awpresindic3|aw_contract|ῶμαι|first|singular|present|indicative|passive
 
 
-verbinfl.awpresindic4|aw_pp1|ᾷς|second|singular|present|indicative|active
-verbinfl.awpresindic5|aw_pp1|ᾷ|second|singular|present|indicative|middle
-verbinfl.awpresindic5|aw_pp1|ᾷ|second|singular|present|indicative|passive
-
-
-
-verbinfl.awpresindic7|aw_pp1|ᾷ|third|singular|present|indicative|active
-verbinfl.awpresindic8|aw_pp1|ᾶται|third|singular|present|indicative|middle
-verbinfl.awpresindic9|aw_pp1|ᾶται|third|singular|present|indicative|passive
+verbinfl.awpresindic4|aw_contract|ᾷς|second|singular|present|indicative|active
+verbinfl.awpresindic5|aw_contract|ᾷ|second|singular|present|indicative|middle
+verbinfl.awpresindic5|aw_contract|ᾷ|second|singular|present|indicative|passive
 
 
 
-
-verbinfl.awpresindic10|aw_pp1|ῶμεν|first|plural|present|indicative|active
-verbinfl.awpresindic11|aw_pp1|ῶμεθα|first|plural|present|indicative|middle
-verbinfl.awpresindic12|aw_pp1|ῶμεθα|first|plural|present|indicative|passive
-
-
-verbinfl.awpresindic13|aw_pp1|ᾶτε|second|plural|present|indicative|active
-verbinfl.awpresindic14|aw_pp1|ᾶσθε|second|plural|present|indicative|middle
-verbinfl.awpresindic15|aw_pp1|ᾶσθε|second|plural|present|indicative|passive
+verbinfl.awpresindic7|aw_contract|ᾷ|third|singular|present|indicative|active
+verbinfl.awpresindic8|aw_contract|ᾶται|third|singular|present|indicative|middle
+verbinfl.awpresindic9|aw_contract|ᾶται|third|singular|present|indicative|passive
 
 
-verbinfl.awpresindic16|aw_pp1|ῶσι|third|plural|present|indicative|active
-verbinfl.awpresindic16a|aw_pp1|ῶσιν|third|plural|present|indicative|active
-verbinfl.awpresindic17|aw_pp1|ῶνται|third|plural|present|indicative|middle
-verbinfl.awpresindic18|aw_pp1|ῶνται|third|plural|present|indicative|passive
+
+
+verbinfl.awpresindic10|aw_contract|ῶμεν|first|plural|present|indicative|active
+verbinfl.awpresindic11|aw_contract|ῶμεθα|first|plural|present|indicative|middle
+verbinfl.awpresindic12|aw_contract|ῶμεθα|first|plural|present|indicative|passive
+
+
+verbinfl.awpresindic13|aw_contract|ᾶτε|second|plural|present|indicative|active
+verbinfl.awpresindic14|aw_contract|ᾶσθε|second|plural|present|indicative|middle
+verbinfl.awpresindic15|aw_contract|ᾶσθε|second|plural|present|indicative|passive
+
+
+verbinfl.awpresindic16|aw_contract|ῶσι|third|plural|present|indicative|active
+verbinfl.awpresindic16a|aw_contract|ῶσιν|third|plural|present|indicative|active
+verbinfl.awpresindic17|aw_contract|ῶνται|third|plural|present|indicative|middle
+verbinfl.awpresindic18|aw_contract|ῶνται|third|plural|present|indicative|passive

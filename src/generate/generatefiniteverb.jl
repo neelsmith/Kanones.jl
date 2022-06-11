@@ -137,6 +137,57 @@ function verbformcodes()
     formlist
 end
 
+
+
+"""Generate list of codes for all noun forms.
+$(SIGNATURES)
+"""
+function deponentformcodes()
+    personints = keys(personlabeldict) |> collect |> sort
+    numints = keys(numberlabeldict) |> collect |> sort
+    tenseints = keys(tenselabeldict) |> collect |> sort
+    moodints = [1,2,3] # Gather imperative separately!
+    keys(moodlabeldict) |> collect |> sort
+    voiceints = [2,3] # omit active
+    formlist = []
+    for v in voiceints
+        for t in tenseints
+            for m in moodints
+                for n in numints
+                    for p in personints
+                        formcode = "$(FINITEVERB)$(p)$(n)$(t)$(m)$(v)0000"
+                        if validverbform(formcode)
+                            push!(formlist, formcode)
+                        end
+                    end
+                end
+            end
+        end
+    end
+    # Cycle through possible imperative forms, and add them here:
+    # 
+    imperativecode = moodcodedict["imperative"]
+    tensecodes = [ 
+        tensecodedict["present"], 
+        tensecodedict["aorist"], 
+        tensecodedict["perfect"] 
+    ] 
+    personcodes = [2,3]
+    for v in voiceints
+        for t in tensecodes
+            for n in numints
+                for p in personcodes
+                    formcode = "$(FINITEVERB)$(p)$(n)$(t)$(imperativecode)$(v)0000"
+                    push!(formlist, formcode)
+                end
+            end
+        end
+    end
+
+    formlist
+end
+
+
 """Generate list of all possible noun forms.
 $(SIGNATURES)
 """
@@ -144,3 +195,12 @@ function verbforms()
     verbformcodes() .|> gmfFiniteVerb
 end
 
+
+
+
+"""Generate list of all possible noun forms.
+$(SIGNATURES)
+"""
+function deponentverbforms()
+    deponentformcodes() .|> gmfFiniteVerb
+end

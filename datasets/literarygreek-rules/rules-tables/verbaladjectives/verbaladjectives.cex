@@ -11,6 +11,9 @@ vadjinfl.wreg2|w_regular|τέον|neuter|accusative|singular|
 vadjinfl.econtr1|ew_contract|ητέον|neuter|nominative|singular|
 vadjinfl.econtr2|ew_contract|ητέον|neuter|accusative|singular|
 
+vadjinfl.econtrdep1|ew_contract_dep|ητέον|neuter|nominative|singular|
+vadjinfl.econtrdep2|ew_contract_dep|ητέον|neuter|accusative|singular|
+
 vadjinfl.ocontr1|ow_contract|ωτέον|neuter|nominative|singular|
 vadjinfl.ocontr2|ow_contract|ωτέον|neuter|accusative|singular|
 
