@@ -75,7 +75,9 @@ export md_ptcpldeclension, participleslashline
 export md_3endingadj
 export synopsis, md_synopsis
 export md_conjugation, md_imperativeconjugation
+export md_proofconjugation_deponent, mdfile_proofconjugation_deponent
 export md_proofconjugation, mdfile_proofconjugation
+
 
 export writecsv
 
@@ -171,6 +173,7 @@ include("forapps/ptcpldeclensions.jl")
 include("forapps/synopses.jl")
 include("forapps/conjugations.jl")
 include("forapps/conjugations_arrays.jl")
+include("forapps/conjugation_deponents.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
