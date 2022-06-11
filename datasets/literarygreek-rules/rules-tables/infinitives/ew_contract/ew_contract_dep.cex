@@ -1,0 +1,11 @@
+Rule|StemClass|Ending|Tense|Voice
+
+infinfl.ewdep2|ew_contract_dep|εῖσθαι|present|middle
+infinfl.ewdep3|ew_contract_dep|εῖσθαι|present|passive
+
+infinfl.ewdep5|ew_contract_dep|εσθαι|future|middle
+infinfl.ewdep6|ew_contract_dep|εσθαι|future|passive
+
+infinfl.ewdep5|ew_contract_dep|ασθαι|aorist|middle
+infinfl.ewdep6|ew_contract_dep|αι|aorist|passive
+
