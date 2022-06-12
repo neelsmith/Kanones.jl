@@ -5,11 +5,21 @@ $(SIGNATURES)
 function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold = 10000, delimiter = ",")
     #analysis_lines(td) |> StringParser
     @info("Parsing all possible forms in dataset", kd)
+    rules = rulesarray(kd)
+    stems = stemsarray(kd) 
+
+    writecsv(rules, stems, targetdir, msgchunk = msgchunk, threshhold = threshhold, delimiter = delimiter)
+    
+end
+
+
+
+function writecsv(rules::Vector{Rule}, stems::Vector{Stem}, targetdir; msgchunk = 50, threshhold = 10000, delimiter = ",")
+
     analyses = []
     filecount = 0
     totalforms = 0
-    rules = rulesarray(kd)
-    stems = stemsarray(kd) 
+    
     @debug("Enumerated $(length(stems)) stems")
     for (i, stem) in enumerate(stems)
         
@@ -41,8 +51,34 @@ function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold
     @info("Done: wrote $(totalforms) forms in $(filecount) files.")
 end
 
+function writecsvbytype(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold = 10000, delimiter = ",")
+    @info("Breaking out all verbal data in kd by inflection class.")
+    verbrules = filter(rulesarray(kd)) do r
+        typeof(r) <: Kanones.KanonesVerbalRule
+    end
+    infclasses = map(r -> inflectionClass(r), verbrules) |> unique
+
+    for inflclass in infclasses
+        @info("Writing data for class ", inflclass)
+        outfile = joinpath(targetdir, string(inflclass))
+        @info("Putting stuff in " , outfile)
+        writecsv(kd, inflclass, targetdir, msgchunk = msgchunk, threshhold = threshhold, delimiter = delimiter)
+    end
+    @info("Done.")
+    
+end
 
 
+function writecsv(kd::Kanones.FilesDataset, infclass, targetdir; msgchunk = 50, threshhold = 10000, delimiter = ",")
+
+    rules = filter(rulesarray(kd)) do r
+       inflectionClass(r) == infclass
+    end
+    stems = filter(stemsarray(kd)) do s
+        inflectionClass(s) == infclass
+     end
+     writecsv(rules, stems, targetdir, msgchunk = msgchunk, threshhold = threshhold, delimiter = delimiter)
+end
 
 function buildparses(f, delimitedreader, rules::Vector{Rule}; delimiter = ",")
 
