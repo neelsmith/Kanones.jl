@@ -1,4 +1,7 @@
-
+"""Compute all possible forms for rules and stems in `kd`, and write
+results to delimited-text files in `targetdir`.
+$(SIGNATURES)
+"""
 function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold = 10000, delimiter = ",")
     #analysis_lines(td) |> StringParser
     @info("Parsing all possible forms in dataset", kd)
