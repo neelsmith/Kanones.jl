@@ -130,6 +130,17 @@ function thetabase(s::AbstractString; ortho = literaryGreek())
     strcat(s,"θ", ortho)
 end
 
+
+function alphastem(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
+    #if pp2(rule)  || pp3(rule) || pp4(rule) || pp5(rule) || pp6(rule)
+    if pp1(rule)
+        stemstring(stem)
+    else
+       stemstring(stem) * "η"
+    end
+end
+
+
 function extendcompound(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
     @debug("Extend compound verb type s/r", stem, rule)
     if pp1(rule)
@@ -138,7 +149,9 @@ function extendcompound(stem::VerbStem, rule::R; ortho = literaryGreek()) where 
     elseif inflectionClass(stem) == "ew_contract" ||  inflectionClass(stem) == "ew_contract_dep" 
         stemstring(stem) * "η"
     elseif inflectionClass(stem) == "aw_contract" ||  inflectionClass(stem) == "aw_contract_dep" 
-        stemstring(stem) * "α"
+       
+        alphastem(stem, rule, ortho = ortho)
+
     elseif  inflectionClass(stem) == "ow_contract" ||  inflectionClass(stem) == "ow_contract_dep" 
         stemstring(stem) * "ω"
     end
