@@ -1,5 +1,7 @@
 module Kanones
 
+using CSV, DataFrames
+
 using CitableParserBuilder
 import CitableParserBuilder: parsetoken
 import CitableParserBuilder: parsewordlist
