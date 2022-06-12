@@ -98,14 +98,6 @@ end
 #=
 
 
-"""Create a `GreekMorphologicalForm` from the string value of a `FormUrn`.
-$(SIGNATURES)
-"""
-function greekForm(s::AbstractString)
-    greekForm(CitableParserBuilder.FormUrn(s))
-end
-
-
 
 """Generic function to convert form information in a `GreekMorphologicalForm`
 to a `FormUrn`.
