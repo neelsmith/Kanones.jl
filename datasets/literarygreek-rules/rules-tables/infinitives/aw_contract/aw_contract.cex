@@ -1,0 +1,15 @@
+Rule|StemClass|Ending|Tense|Voice
+infinfl.aw1|aw_contract|ᾶν|present|active
+infinfl.aw2|aw_contract|ᾷσθαι|present|middle
+infinfl.aw3|aw_contract|ᾷσθαι|present|passive
+
+infinfl.aw4|aw_contract|ειν|future|active
+infinfl.aw5|aw_contract|εσθαι|future|middle
+infinfl.aw6|aw_contract|εσθαι|future|passive
+
+infinfl.aw4|aw_contract|αι|aorist|active
+infinfl.aw5|aw_contract|ασθαι|aorist|middle
+infinfl.aw6|aw_contract|αι|aorist|passive
+
+infinfl.aw7|aw_contract|έναι|perfect|active
+
