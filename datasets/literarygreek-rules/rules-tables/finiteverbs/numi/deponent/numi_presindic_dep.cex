@@ -1,11 +1,4 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice|
-|
-|
-|
-
-|
-|
-|
 
 
 verbinfl.numipresdep7|νυμαι|first|singular|present|indicative|middle|
@@ -26,15 +19,6 @@ verbinfl.numipresdep18|νυνται|third|plural|present|indicative|passive|
 
 
 
-|
-|
-|
-
-|
-|
-|
-
-
 verbinfl.numipresdep25|νυωμαι|first|singular|present|subjunctive|middle|
 verbinfl.numipresdep26|νυῃ|second|singular|present|subjunctive|middle|
 verbinfl.numipresdep27|νυηται|third|singular|present|subjunctive|middle|
@@ -52,17 +36,6 @@ verbinfl.numipresdep34|νυωμεθα|first|plural|present|subjunctive|passive|
 verbinfl.numipresdep35|νυησθε|second|plural|present|subjunctive|passive|
 verbinfl.numipresdep36|νυωνται|third|plural|present|subjunctive|passive|
 
-
-
-
-
-
-
-|
-|
-
-|
-|
 
 verbinfl.numipresdep55|νυσο|second|singular|present|imperative|middle|
 verbinfl.numipresdep56|νυσθω|third|singular|present|imperative|middle|
