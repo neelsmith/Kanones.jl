@@ -15,6 +15,9 @@ end
 
 
 function writecsv(rules::Vector{Rule}, stems::Vector{Stem}, targetdir; msgchunk = 50, threshhold = 10000, delimiter = ",")
+    @info("Write all analyses for rules/stems", length(rules), length(stems))
+
+
 
     analyses = []
     filecount = 0
@@ -70,7 +73,7 @@ end
 
 
 function writecsv(kd::Kanones.FilesDataset, infclass, targetdir; msgchunk = 50, threshhold = 10000, delimiter = ",")
-
+    
     rules = filter(rulesarray(kd)) do r
        inflectionClass(r) == infclass
     end
