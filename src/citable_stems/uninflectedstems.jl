@@ -17,7 +17,7 @@ CitableTrait(::Type{UninflectedStem}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function stemstring(uninfl::UninflectedStem)
-    uninfl.form
+    uninfl.form |> knormal
 end
 
 """Identify lexeme for `uninfl`.

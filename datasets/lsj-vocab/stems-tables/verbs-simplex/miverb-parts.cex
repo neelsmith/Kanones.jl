@@ -1,5 +1,9 @@
 Rule|LexicalEntity|Stem|StemClass|
 
-verbstems.n26447pp2|lsj.n26447|δωσ|w_pp2fut|
-verbstems.n26447pp5|lsj.n26447|δεδωκ|w_pp4|
-verbstems.n26447pp6|lsj.n26447|δο|w_pp6|
+verbstems.n26447pp2|lsj.n26447|δωσ|pp2|
+verbstems.n26447pp5|lsj.n26447|δεδωκ|pp4|
+verbstems.n26447pp6|lsj.n26447|δοθ|pp6|
+
+verbstems.n103922pp2|lsj.n103922|θησ|pp2|
+verbstems.n103922pp5|lsj.n103922|τεθηκ|pp4|
+verbstems.n103922pp6|lsj.n103922|τεθ|pp6|

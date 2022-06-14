@@ -62,7 +62,7 @@ CitableTrait(::Type{PronounStem}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function stemstring(pr::PronounStem)
-    pr.form
+    pr.form |> knormal
 end
 
 """Identify lexeme for `pr`.

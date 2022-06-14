@@ -303,7 +303,8 @@ function conjugationheader(lex::LexemeUrn, kds::T; note = nothing) where {T <: K
         pim1s = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("present"), gmpMood("indicative"), gmpVoice("middle"))
         headerforms = generate(lex, formurn(pim1s), kds)
     end
-    hdrlines =  ["# Complete conjugation of $(headerforms[1])"]
+    hdrlines =
+    isempty(headerforms) ? ["Conjugation of $(lex)"]  :     ["# Complete conjugation of $(headerforms[1])"]
    
     
     if note == :blockquote

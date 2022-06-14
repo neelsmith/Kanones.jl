@@ -19,7 +19,7 @@ CitableTrait(::Type{VerbStem}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function stemstring(vs::VerbStem)
-   vs.form
+   vs.form |> knormal
 end
 
 """Identify lexeme for `vs`.

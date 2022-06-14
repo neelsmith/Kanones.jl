@@ -124,7 +124,7 @@ end
 $(SIGNATURES)
 """
 function stemstring(adj::IrregularAdjectiveStem)
-    adj.form
+    adj.form |> knormal
 end
 
 """Identify lexeme for `adj`.

@@ -107,7 +107,7 @@ end
 $(SIGNATURES)
 """
 function stemstring(inf::IrregularInfinitiveStem)
-    inf.form
+    inf.form |> knormal
 end
 
 """Identify lexeme for `inf`.

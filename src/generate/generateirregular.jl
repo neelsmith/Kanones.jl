@@ -10,7 +10,7 @@ function generate(
     stem::T, 
     rule::IrregularRule;           
     ortho::GreekOrthography = literaryGreek()) where {T <: KanonesIrregularStem}
-
+    
     stemstring(stem)  |> knormal
 end
 
