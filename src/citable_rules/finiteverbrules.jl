@@ -178,7 +178,14 @@ function formurn(rule::FiniteVerbRule)
     FormUrn("$(COLLECTION_ID)." * code(rule))
 end
 
+function irregularverbalrule(r::Rule)
+    infclass =   inflectionClass(r)
+    infclass == "irregularfiniteverb" ||
+    infclass == "irregularinfinitive" ||
+    infclass == "irregularparticiple" ||
+    infclass == "irregularverbaladjective" 
+end
 
 function verbalrule(r::Rule)
-    typeof(r) <: KanonesVerbalRule
+    typeof(r) <: KanonesVerbalRule || irregularverbalrule(r) 
 end

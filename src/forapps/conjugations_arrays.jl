@@ -1,6 +1,6 @@
 
 function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
-
+    @debug("Conjugate", lex, label(t), label(v))
 
     tenseforms = filter(f -> gmpTense(f) == t && gmpVoice(f) == v, verbforms())
    
