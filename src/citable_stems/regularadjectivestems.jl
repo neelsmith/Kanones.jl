@@ -17,7 +17,7 @@ CitableTrait(::Type{AdjectiveStem}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function stemstring(adj::AdjectiveStem)
-    adj.form
+    adj.form |> knormal
 end
 
 

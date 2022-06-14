@@ -31,7 +31,7 @@ CitableTrait(::Type{NounStem}) = CitableByCite2Urn()
 $(SIGNATURES)
 """
 function stemstring(ns::NounStem)
-    ns.form
+    ns.form |> knormal
 end
 
 """Identify lexeme for `ns`.

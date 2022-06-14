@@ -140,7 +140,7 @@ end
 $(SIGNATURES)
 """
 function stemstring(verb::IrregularVerbStem)
-    verb.form
+    verb.form |> knormal
 end
 
 """Identify lexeme for `verb`.

@@ -114,7 +114,7 @@ end
 $(SIGNATURES)
 """
 function stemstring(noun::IrregularNounStem)
-    noun.form
+    noun.form |> knormal
 end
 
 """Identify lexeme for `noun`.
