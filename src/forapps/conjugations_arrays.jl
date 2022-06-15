@@ -107,7 +107,7 @@ function participleslashline(
     ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
     ptcplforms = filter(f -> f isa GMFParticiple && gmpTense(f) == tense && gmpVoice(f) == voice && gmpNumber(f) == gmpNumber(1) && gmpCase(f) == gmpCase(1), allforms())
 
-    @info("Generating particple slash for ")
+    
     generated = map(f -> generate(lex, formurn(f), ruleset, stemset, orthography),  ptcplforms)
 
     nonempty = filter(s -> ! isempty(s), generated)

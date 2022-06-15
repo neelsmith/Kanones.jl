@@ -36,7 +36,7 @@ function generate(
         @debug("Stem", s)
         for r in rules
             @debug("Generating s/r", s,r)
-            push!(generated, generate(stem,r, ortho = orthography))
+            push!(generated, generate(s,r, ortho = orthography))
         end
     end
 
