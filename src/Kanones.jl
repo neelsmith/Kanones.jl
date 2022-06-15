@@ -86,6 +86,7 @@ export writecsv
 export urn, formurn, ruleurn
 
 export StringParser, stringParser
+export DFParser, dfParser
 
 include("normal.jl")
 include("kanonesio.jl")
@@ -179,6 +180,7 @@ include("forapps/conjugation_deponents.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
+include("parser/dfparser.jl")
 include("parser/perfilebuilder.jl")
 
 
