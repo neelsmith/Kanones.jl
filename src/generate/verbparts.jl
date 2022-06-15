@@ -234,7 +234,7 @@ function takesaugment(f::GMFFiniteVerb)
     gmpTense(f) == gmpTense("pluperfect"))
 end
 
-"""True if `f` takes reduplication.
+"""True if finite verb form `f` takes reduplication.
 $(SIGNATURES)
 """
 function takesreduplication(f::GMFFiniteVerb, inflclass) 
@@ -249,7 +249,7 @@ end
 
 
 
-"""True if `f` takes reduplication.
+"""True if infinitive form `f` takes reduplication.
 $(SIGNATURES)
 """
 function takesreduplication(f::GMFInfinitive, inflClass)
@@ -258,7 +258,7 @@ end
 
 
 
-"""True if `f` takes reduplication.
+"""True if participle form `f` takes reduplication.
 $(SIGNATURES)
 """
 function takesreduplication(f::GMFParticiple, inflClass)
