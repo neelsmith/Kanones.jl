@@ -1,7 +1,7 @@
 # Parser backed by a DataFrame
 
 
-DFParser
+
 """A parser parsing tokens by looking them up in a precomputed dictionary of all recognized forms."""
 struct DFParser <: KanonesParser
     df::DataFrame
