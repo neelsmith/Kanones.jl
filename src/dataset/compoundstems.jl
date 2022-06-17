@@ -14,7 +14,7 @@ function irregularcompoundsarray(dirlist; delimiter = "|")
     
     pattern  = r".cex$"
     for datasrc in dirlist
-        @info("Reading irreg. compounds from ", datasrc)
+        @debug("Reading irreg. compounds from ", datasrc)
         dir = joinpath(datasrc, "irregular-stems", "verbs-compound")
         if isdir(dir)
             for (root, dirs, files) in walkdir(dir)
