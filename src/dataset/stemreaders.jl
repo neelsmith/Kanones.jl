@@ -1,4 +1,7 @@
-
+"""Use `delimitedreader` to read a Vector of 
+`Stem`s from `f`.
+$(SIGNATURES)
+"""
 function regularstemfile(f, delimitedreader)
     stemsarr = Stem[]
     raw = readlines(f)
