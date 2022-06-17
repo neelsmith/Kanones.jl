@@ -7,6 +7,9 @@ function generate(stem::S, rule::R; ortho::GreekOrthography = literaryGreek()) w
     nothing
 end
 
+"""Generate the correct string for `lex` in the form `form`.
+$(SIGNATURES)
+"""
 function generate(
     lex::LexemeUrn, 
     form::FormUrn, 
