@@ -1,5 +1,6 @@
 
 
 function knormal(s, ortho = literaryGreek())
-    nfkc(s) |> lowercase
+    lc = nfkc(s) |> lowercase  
+    PolytonicGreek.flipaccent(lc, ortho)
 end
