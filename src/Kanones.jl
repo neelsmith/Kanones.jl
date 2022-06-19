@@ -1,6 +1,6 @@
 module Kanones
 
-using CSV, DataFrames
+using CSV, DataFrames, Downloads
 
 using CitableParserBuilder
 import CitableParserBuilder: parsetoken
@@ -178,6 +178,7 @@ include("forapps/synopses.jl")
 include("forapps/conjugations.jl")
 include("forapps/conjugations_arrays.jl")
 include("forapps/conjugation_deponents.jl")
+include("forapps/analyses.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
