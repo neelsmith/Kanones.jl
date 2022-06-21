@@ -73,12 +73,20 @@ function md_analysis(txt::AbstractString, alist::Vector{Analysis}; registry = no
             a.lexeme.objectid
         end |> unique
         lex_links = map(lex_ids) do lex
-            lemma = string("**", dict[lex], "**")
-            string("[", lemma, "](", FOLIO_BASE_URL, lex, ")")
+
+            if lex in keys(dict)
+                lemma = string("**", dict[lex], "**")
+                string("[", lemma, "](", FOLIO_BASE_URL, lex, ")")
+            else
+                ""
+            end
         end
         lsj = join(lex_links," **or** ")
-
-        "- **$(txt)**. $(astring)  (*See LSJ: $(lsj)*)"
+        if isempty(lsj)
+            "- **$(txt)**. $(astring) (*Not in LSJ*)"
+        else
+            "- **$(txt)**. $(astring)  (*See LSJ: $(lsj)*)"
+        end
     end
 end
 #=
