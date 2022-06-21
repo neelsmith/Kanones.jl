@@ -17,7 +17,7 @@ function dfParser(delimited)
 end
 
 function parsetoken(s::AbstractString, parser::DFParser; data = nothing)
-    resultdf = subset(parser.df, :Token => t -> t .== nfkc(s))
+    resultdf = subset(parser.df, :Token => t -> t .== knormal(s))
 
     resultarray = Analysis[]
 
