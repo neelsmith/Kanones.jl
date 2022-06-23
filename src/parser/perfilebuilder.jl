@@ -71,10 +71,6 @@ function writecsvbytype(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, thre
             msgchunk = msgchunk, threshhold = threshhold, delimiter = delimiter)
     end
     @info("Done.")  
-    
-    
-
-    
 end
 
 
