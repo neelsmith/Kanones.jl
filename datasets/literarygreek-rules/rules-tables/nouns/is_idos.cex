@@ -1,0 +1,15 @@
+Rule|StemClass|Ending|Gender|Case|Number|
+
+
+nouninfl.is_idos11|is_idos|ις|feminine|nominative|singular|
+nouninfl.is_idos12|is_idos|ιδος|feminine|genitive|singular|
+nouninfl.is_idos13|is_idos|ιδι|feminine|dative|singular|
+nouninfl.is_idos14|is_idos|ιδα|feminine|accusative|singular|
+nouninfl.is_idos15|is_idos|ι|feminine|vocative|singular|
+
+nouninfl.is_idos16|is_idos|ιδες|feminine|nominative|plural|
+nouninfl.is_idos17|is_idos|ιδων|feminine|genitive|plural|
+nouninfl.is_idos18|is_idos|ισι|feminine|dative|plural|
+nouninfl.is_idos18a|is_idos|ισιν|feminine|dative|plural|
+nouninfl.is_idos19|is_idos|ιδες|feminine|accusative|plural|
+nouninfl.is_idos20|is_idos|ιδες|feminine|vocative|plural|

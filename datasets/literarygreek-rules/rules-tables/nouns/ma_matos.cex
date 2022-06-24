@@ -1,15 +1,15 @@
 Rule|StemClass|Ending|Gender|Case|Number|
 
 
-nouninfl.ma_matos11|ma_matos|μα|neuter|nominative|singular|
-nouninfl.ma_matos12|ma_matos|ματος|neuter|genitive|singular|
-nouninfl.ma_matos13|ma_matos|ματι|neuter|dative|singular|
-nouninfl.ma_matos14|ma_matos|μα|neuter|accusative|singular|
-nouninfl.ma_matos15|ma_matos|μα|neuter|vocative|singular|
+nouninfl.ma_matos11|ma_matos||neuter|nominative|singular|
+nouninfl.ma_matos12|ma_matos|τος|neuter|genitive|singular|
+nouninfl.ma_matos13|ma_matos|τι|neuter|dative|singular|
+nouninfl.ma_matos14|ma_matos||neuter|accusative|singular|
+nouninfl.ma_matos15|ma_matos||neuter|vocative|singular|
 
-nouninfl.ma_matos16|ma_matos|ματα|neuter|nominative|plural|
-nouninfl.ma_matos17|ma_matos|μάτων|neuter|genitive|plural|
-nouninfl.ma_matos18|ma_matos|μασι|neuter|dative|plural|
-nouninfl.ma_matos18a|ma_matos|μασιν|neuter|dative|plural|
-nouninfl.ma_matos19|ma_matos|ματα|neuter|accusative|plural|
-nouninfl.ma_matos20|ma_matos|ματα|neuter|vocative|plural|
+nouninfl.ma_matos16|ma_matos|τα|neuter|nominative|plural|
+nouninfl.ma_matos17|ma_matos|των|neuter|genitive|plural|
+nouninfl.ma_matos18|ma_matos|σι|neuter|dative|plural|
+nouninfl.ma_matos18a|ma_matos|σιν|neuter|dative|plural|
+nouninfl.ma_matos19|ma_matos|τα|neuter|accusative|plural|
+nouninfl.ma_matos20|ma_matos|τα|neuter|vocative|plural|
