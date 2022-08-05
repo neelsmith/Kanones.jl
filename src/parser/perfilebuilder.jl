@@ -67,6 +67,7 @@ function writecsvbytype(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, thre
     inflclasses = map(r -> inflectionClass(r), rulesarray(kd)) |> unique
 
     for inflclass in inflclasses
+        @info("Writing CSV for INF CLASS ", inflclass)
         writeinfltype(kd, inflclass, targetdir, 
             msgchunk = msgchunk, threshhold = threshhold, delimiter = delimiter)
     end

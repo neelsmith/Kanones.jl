@@ -5,7 +5,8 @@ item in this form, and finally stripping off metadata characters
 marking vowel quantity and morpheme boundaries.
 $(SIGNATURES)
 """
-function generate(stem::NounStem, rule::NounRule;           ortho::GreekOrthography = literaryGreek())
+function generate(stem::NounStem, rule::NounRule;
+    ortho::GreekOrthography = literaryGreek())
     raw = stemstring(stem) * ending(rule)
     if countaccents(raw, ortho) == 1
         # Already has accent! 
@@ -33,7 +34,7 @@ function generate(stem::NounStem, rule::NounRule;           ortho::GreekOrthogra
             end
         catch e
             @warn("Failed to create accented form", e)
-            @warn("Raw word: $(raw)")
+            @warn("Raw word: $(raw) (lexeme $(lexeme(stem)))")
 
         end
     end

@@ -29,7 +29,7 @@ export urn, label, cex
 
 export dataset
 export rulesarray, stemsarray, registry, compoundsarray
-export sortbylsj, sortbylsj!, sortregularstems!
+export sortbylsj, sortbylsj!, sortdirbylsj!, sortregularstems!
 
 export GreekMorphologicalProperty
 export GMPVoice, gmpVoice
