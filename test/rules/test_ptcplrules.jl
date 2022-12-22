@@ -15,7 +15,7 @@ end
     rule = Kanones.readrulerow(ptcplio, delimited)
 
     # must get id
-    ruleu = ruleurn(rule)
+    ruleu = Kanones.ruleurn(rule)
     expectedurn = RuleUrn("ptcplinfl.wpres1")
     @test ruleu == expectedurn
 

@@ -14,7 +14,7 @@ end
     rule = Kanones.readrulerow(vadjio, delimited)
 
     # must get id
-    ruleu = ruleurn(rule)
+    ruleu = Kanones.ruleurn(rule)
     expectedurn = RuleUrn("vadjinfl.wreg1")
     @test ruleu == expectedurn
 

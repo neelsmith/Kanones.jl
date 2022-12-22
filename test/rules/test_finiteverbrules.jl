@@ -16,7 +16,7 @@ end
     rule = Kanones.readrulerow(verbio, delimited)
 
     # must get id
-    ruleu = ruleurn(rule)
+    ruleu = Kanones.ruleurn(rule)
     expectedurn = RuleUrn("verbinfl.numipres8")
     @test ruleu == expectedurn
 

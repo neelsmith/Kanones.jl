@@ -16,7 +16,7 @@ end
     rule = Kanones.readrulerow(irregruleio, delimited)
 
     # must get id
-    ruleu = ruleurn(rule)
+    ruleu = Kanones.ruleurn(rule)
     expectedurn = RuleUrn("irreginfl.irregular1")
     @test ruleu == expectedurn
 

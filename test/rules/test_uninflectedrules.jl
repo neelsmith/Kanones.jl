@@ -15,7 +15,7 @@ end
     rule = Kanones.readrulerow(uninflio, delimited)
 
     # must get id
-    ruleu = ruleurn(rule)
+    ruleu = Kanones.ruleurn(rule)
     expectedurn = RuleUrn("uninfl.uninfl2")
     @test ruleu == expectedurn
 

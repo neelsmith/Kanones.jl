@@ -14,7 +14,7 @@ end
     rule = Kanones.readrulerow(adjectiveio, delimited)
 
     # must get id
-    ruleu = ruleurn(rule)
+    ruleu = Kanones.ruleurn(rule)
     expectedurn = RuleUrn("adjinfl.osaon1")
     @test ruleu == expectedurn
 
