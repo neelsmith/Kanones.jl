@@ -6,7 +6,7 @@ using Kanones
 using CitableObject, CitableParserBuilder
 using CitableCorpus, CitableText
 using PolytonicGreek, Orthography
-using Compat.Test
+using Test
 using TestSetExtensions
 
 @testset "All the tests" begin
