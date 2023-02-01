@@ -11,9 +11,9 @@ end
 """Create a `DFParser` from delimited text file.
 $(SIGNATURES)
 """
-function dfParser(delimited)
+function dfParser(delimitedfile)
     @info("Reading delimited-text file $(delimited)")
-    CSV.File(delimited) |> DataFrame |> DFParser
+    CSV.File(delimitedfile) |> DataFrame |> DFParser
 end
 
 function parsetoken(s::AbstractString, parser::DFParser; data = nothing)
