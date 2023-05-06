@@ -15,7 +15,7 @@ end
     rule = Kanones.readrulerow(nounio, delimited)
 
     # must get id
-    ruleu = ruleurn(rule)
+    ruleu = Kanones.ruleurn(rule)
     expectedurn = RuleUrn("nouninfl.os_ou1")
     @test ruleu == expectedurn
 

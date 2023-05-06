@@ -3,7 +3,7 @@
     adjio = Kanones.AdjectiveIO("IO for adjs")
     stem = Kanones.readstemrow(adjio, delimited)
     @test stem isa AdjectiveStem
-    @test cex(stem) == "adjstems.n52332|Adjective stem κακ- (type os_h_on_pos)|κακ|lsj.n52332|os_h_on_pos|inflectionaccented"
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("adjstems.n52332|Adjective stem κακ- (type os_h_on_pos)|κακ|lsj.n52332|os_h_on_pos|inflectionaccented")
 end
 
 
@@ -23,6 +23,6 @@ end
 
 
     @test lexeme(stem) == LexemeUrn("lsj.n52332")
-    @test stemstring(stem) == "κακ"
+    @test Unicode.normalize(stemstring(stem)) == Unicode.normalize("κακ")
     
 end

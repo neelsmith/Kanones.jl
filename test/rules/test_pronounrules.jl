@@ -15,7 +15,7 @@ end
     rule = Kanones.readrulerow(pronio, delimited)
 
     # must get id
-    ruleu = ruleurn(rule)
+    ruleu = Kanones.ruleurn(rule)
     expectedurn = RuleUrn("proninfl.pronouns1")
     @test ruleu == expectedurn
 

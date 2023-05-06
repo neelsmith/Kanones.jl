@@ -6,7 +6,7 @@
     # must read from delimited
     @test rule isa IrregularRule
     # must write to delimited
-   @test cex(rule) == "irreginfl.irregular1|Uninflected rule: irreginfl.irregular1 applies to type irregularnoun.|irregularnoun"
+   @test cex(rule) == Unicode.normalize("irreginfl.irregular1|Uninflected rule: irreginfl.irregular1 applies to type irregularnoun.|irregularnoun")
 end
 
 
@@ -16,7 +16,7 @@ end
     rule = Kanones.readrulerow(irregruleio, delimited)
 
     # must get id
-    ruleu = ruleurn(rule)
+    ruleu = Kanones.ruleurn(rule)
     expectedurn = RuleUrn("irreginfl.irregular1")
     @test ruleu == expectedurn
 

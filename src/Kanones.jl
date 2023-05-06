@@ -3,6 +3,7 @@ module Kanones
 using CSV, DataFrames, Downloads
 
 using CitableParserBuilder
+import CitableParserBuilder: formurn
 import CitableParserBuilder: parsetoken
 import CitableParserBuilder: parsewordlist
 import CitableParserBuilder: parsecorpus
