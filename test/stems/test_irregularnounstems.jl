@@ -28,6 +28,6 @@ end
     @test lexeme(stem) == LexemeUrn("lsj.n23069")
     @test stemstring(stem) == "γυνή"
     @test code(stem) == "2010002100"
-    @test formurn(stem) == FormUrn("forms.2010002100")
+    @test Kanones.formurn(stem) == FormUrn("forms.2010002100")
     
 end

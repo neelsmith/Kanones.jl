@@ -5,7 +5,7 @@
     @test nounurn == expectedurn
     @test noun == gmfNoun(nounurn)
 
-    abbrurn = formurn(noun)
+    abbrurn = Kanones.formurn(noun)
     expectedabbr = FormUrn("forms.2010002400")
     @test abbrurn == expectedabbr
     @test noun == gmfNoun(abbrurn)

@@ -5,7 +5,7 @@
     @test infurn == expectedurn
     @test inf == gmfInfinitive(infurn)
 
-    abbrurn = formurn(inf)
+    abbrurn = Kanones.formurn(inf)
     expectedabbr = FormUrn("forms.4003030000")
     @test abbrurn == expectedabbr
     @test inf == gmfInfinitive(abbrurn)

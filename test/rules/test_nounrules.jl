@@ -29,7 +29,7 @@ end
     @test ending(rule) == "ος"
 
     # morphological data
-    formabbr = formurn(rule)
+    formabbr = Kanones.formurn(rule)
     expectedabbr = FormUrn("forms.2010001100")
     @test formabbr == expectedabbr
 

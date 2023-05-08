@@ -6,7 +6,7 @@
     @test vadjurn == expectedurn
     @test vadj == gmfVerbalAdjective(vadjurn)
 
-    abbrurn = formurn(vadj)
+    abbrurn = Kanones.formurn(vadj)
     expectedabbr = FormUrn("forms.6010003400")
     @test abbrurn == expectedabbr
     @test vadj == gmfVerbalAdjective(vadjurn)
