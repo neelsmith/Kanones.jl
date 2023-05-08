@@ -1,5 +1,11 @@
 # δίδωμι
 
+Here's our value for `repo`:
+
+```@example debug
+repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo
+```
 
 ## Present system
 
