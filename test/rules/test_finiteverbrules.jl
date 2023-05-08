@@ -5,7 +5,7 @@
     # must read from delimited
     @test rule isa FiniteVerbRule
     # must write to delimited
-   @test cex(rule) == "verbinfl.numipres8|Verb inflection rule: ending -νυσαι in class numi can be present indicative middle second singular.|νυσαι|numi|forms.3211120000"
+   @test Unicode.normalize(cex(rule)) == Unicode.normalize("verbinfl.numipres8|Verb inflection rule: ending -νυσαι in class numi can be present indicative middle second singular.|νυσαι|numi|forms.3211120000")
 end
 
 

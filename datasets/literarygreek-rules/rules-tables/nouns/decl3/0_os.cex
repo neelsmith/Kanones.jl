@@ -1,0 +1,15 @@
+Rule|StemClass|Ending|Gender|Case|Number|
+
+
+nouninfl.0_os11|0_os||masculine|nominative|singular|
+nouninfl.0_os12|0_os|ος|masculine|genitive|singular|
+nouninfl.0_os13|0_os|ι|masculine|dative|singular|
+nouninfl.0_os14|0_os|α|masculine|accusative|singular|
+nouninfl.0_os15|0_os||masculine|vocative|singular|
+
+nouninfl.0_os16|0_os|ες|masculine|nominative|plural|
+nouninfl.0_os17|0_os|ων|masculine|genitive|plural|
+nouninfl.0_os18|0_os|σι|masculine|dative|plural|
+nouninfl.0_os18a|0_os|σιν|masculine|dative|plural|
+nouninfl.0_os19|0_os|ες|masculine|accusative|plural|
+nouninfl.0_os20|0_os|ες|masculine|vocative|plural|

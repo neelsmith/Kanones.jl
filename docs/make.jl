@@ -38,7 +38,7 @@ makedocs(
             "Utilities" => "utilities.md"
            
         ],
-
+        
        #=
         "Reference: vocabulary in the `lsj` dataset" => Any[
             "vocab/index.md",

@@ -5,7 +5,7 @@
     # must read from delimited
     @test rule isa InfinitiveRule
     # must write to delimited
-   @test cex(rule) == "infinfl.wreg1|Infinitive inflection rule: ending -ειν in class w_regular can be present active.|ειν|w_regular|forms.4001010000"
+   @test cex(rule) == Unicode.normalize("infinfl.wreg1|Infinitive inflection rule: ending -ειν in class w_regular can be present active.|ειν|w_regular|forms.4001010000")
 end
 
 

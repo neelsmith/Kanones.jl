@@ -6,12 +6,10 @@
     @test stem isa IrregularVerbStem
 
 
-    @test cex(stem) == "irregverb.irregverbn31130a1|Irregular verb form ἐστι (third singular present indicative active)|ἐστι|lsj.n31130|irregularfiniteverb|third|singular|present|indicative|active"
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("irregverb.irregverbn31130a1|Irregular verb form ἐστι (third singular present indicative active)|ἐστι|lsj.n31130|irregularfiniteverb|third|singular|present|indicative|active")
 
 
 end
-
-
 
 @testset "Test data accessors" begin
     delimited = "irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb"
@@ -27,7 +25,7 @@ end
 
 
     @test lexeme(stem) == LexemeUrn("lsj.n31130")
-    @test stemstring(stem) == "ἐστι"
+    @test Unicode.normalize(stemstring(stem)) == Unicode.normalize("ἐστι")
     @test code(stem) == "3311110000"
     @test Kanones.formurn(stem) == FormUrn("forms.3311110000")
     

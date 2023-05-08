@@ -6,7 +6,7 @@
     @test stem isa IrregularAdjectiveStem
 
 
-    @test cex(stem) == "irregadj.n79904a|Irregular adjective form πᾶς (masculine nominative singular positive)|πᾶς|lsj.n79904|irregularadjective|masculine|nominative|singular|positive"
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("irregadj.n79904a|Irregular adjective form πᾶς (masculine nominative singular positive)|πᾶς|lsj.n79904|irregularadjective|masculine|nominative|singular|positive")
 
 end
 

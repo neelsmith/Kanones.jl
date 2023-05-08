@@ -2,7 +2,7 @@
 results to delimited-text files in `targetdir`.
 $(SIGNATURES)
 """
-function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold = 10000, delimiter = ",")
+function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 200, threshhold = 10000, delimiter = ",")
     #analysis_lines(td) |> StringParser
     @info("Parsing all possible forms in dataset", kd)
     rules = rulesarray(kd)
@@ -51,24 +51,27 @@ function writecsv(rules::Vector{Rule}, stems::Vector{Stem}, targetdir; msgchunk 
     f = joinpath(targetdir, "parses$(filecount).csv")
     @info("$(f) (complete)")
     open(f, "w") do io
-        write(f, join(analyses, "\n"))
+        write(f, join(analyses, "\n") * "\n")
     end
     totalforms = totalforms + length(analyses)
     @info("Done: wrote $(totalforms) forms in $(filecount) files.")
 end
 
 function writecsvbytype(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, threshhold = 10000, delimiter = ",")
-    @info("Breaking out all verbal data in kd by inflection class.")
-    verbrules = filter(rulesarray(kd)) do r
-        typeof(r) <: Kanones.KanonesVerbalRule
-    end
-    inflclasses = map(r -> inflectionClass(r), verbrules) |> unique
+    @info("Breaking out data in kd by inflection class.")
+    #verbrules = filter(rulesarray(kd)) do r
+    #    typeof(r) <: Kanones.KanonesVerbalRule
+    #end
+    #inflclasses = map(r -> inflectionClass(r), verbrules) |> unique
+
+    inflclasses = map(r -> inflectionClass(r), rulesarray(kd)) |> unique
 
     for inflclass in inflclasses
+        @info("Writing CSV for INF CLASS ", inflclass)
         writeinfltype(kd, inflclass, targetdir, 
             msgchunk = msgchunk, threshhold = threshhold, delimiter = delimiter)
     end
-    @info("Done.")   
+    @info("Done.")  
 end
 
 

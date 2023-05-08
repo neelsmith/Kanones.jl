@@ -4,7 +4,7 @@
     verbio = Kanones.VerbIO("IO for verbs")
     stem = Kanones.readstemrow(verbio, delimited)
     @test stem isa VerbStem
-    @test cex(stem) == "verbstems.n23658|Verb stem δεικ- (lsj.n23658, stem class numi)|δεικ|lsj.n23658|numi"
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("verbstems.n23658|Verb stem δεικ- (lsj.n23658, stem class numi)|δεικ|lsj.n23658|numi")
 end
 
 @testset "Test data accessors" begin
@@ -23,7 +23,7 @@ end
 
 
     @test lexeme(stem) == LexemeUrn("lsj.n23658")
-    @test stemstring(stem) == "δεικ"
+    @test stemstring(stem) == Unicode.normalize("δεικ")
     
 end
 

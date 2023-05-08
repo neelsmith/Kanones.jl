@@ -2,6 +2,7 @@ using Kanones
 using CitableObject, CitableParserBuilder
 using CitableCorpus, CitableText
 using PolytonicGreek, Orthography
+using Unicode
 using Test
 
 include("properties/test_properties.jl")

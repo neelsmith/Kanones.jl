@@ -5,7 +5,7 @@
     # must read from delimited
     @test rule isa AdjectiveRule
     # must write to delimited
-   @test cex(rule) == "adjinfl.osaon1|Adjective inflection rule: ending -ος in class os_a_on can be masculine nominative singular positive.|ος|os_a_on|forms.7010001110"
+   @test Unicode.normalize(cex(rule)) == Unicode.normalize("adjinfl.osaon1|Adjective inflection rule: ending -ος in class os_a_on can be masculine nominative singular positive.|ος|os_a_on|forms.7010001110")
 end
 
 @testset "Test data accessors" begin
@@ -26,7 +26,7 @@ end
 
     # must get infltype and ending
     @test inflectionClass(rule) == "os_a_on"
-    @test ending(rule) == "ος"
+    @test ending(rule) == Unicode.normalize("ος")
 
     # morphological data
     formabbr = Kanones.formurn(rule)

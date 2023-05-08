@@ -4,7 +4,8 @@
     uninflio = Kanones.UninflectedIO("IO for uninfls")
     stem = Kanones.readstemrow(uninflio, delimited)
     @test stem isa UninflectedStem
-    @test cex(stem) == "uninflectedstems.n51951|Uninflected conjunction καί|καί|lsj.n51951|conjunction"
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("uninflectedstems.n51951|Uninflected conjunction καί|καί|lsj.n51951|conjunction")
+
 
 end
 
@@ -23,7 +24,8 @@ end
 
 
     @test lexeme(stem) == LexemeUrn("lsj.n51951")
-    @test stemstring(stem) == "καί"
+    @test Unicode.normalize(stemstring(stem)) == Unicode.normalize(s"καί")
+
     @test code(stem) == "1000000001"
     @test Kanones.formurn(stem) == FormUrn("forms.1000000001")
     

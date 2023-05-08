@@ -6,7 +6,7 @@
     # must read from delimited
     @test rule isa IrregularRule
     # must write to delimited
-   @test cex(rule) == "irreginfl.irregular1|Uninflected rule: irreginfl.irregular1 applies to type irregularnoun.|irregularnoun"
+   @test cex(rule) == Unicode.normalize("irreginfl.irregular1|Uninflected rule: irreginfl.irregular1 applies to type irregularnoun.|irregularnoun")
 end
 
 

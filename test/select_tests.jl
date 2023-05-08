@@ -1,11 +1,12 @@
 using Pkg
 Pkg.activate("..")
 
-
 using Kanones
 using CitableObject, CitableParserBuilder
 using CitableCorpus, CitableText
 using PolytonicGreek, Orthography
+using Unicode
+
 using Test
 using TestSetExtensions
 

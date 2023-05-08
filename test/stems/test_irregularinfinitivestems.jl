@@ -6,7 +6,7 @@
     @test stem isa IrregularInfinitiveStem
 
 
-    @test cex(stem) == "irreginf.irreginfln31130|Irregular infinitive form εἶναι (present active)|εἶναι|lsj.n31130|irregularinfinitive|present|active"
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("irreginf.irreginfln31130|Irregular infinitive form εἶναι (present active)|εἶναι|lsj.n31130|irregularinfinitive|present|active")
 
 
 end

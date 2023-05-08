@@ -3,7 +3,7 @@
     pronounio = Kanones.PronounIO("IO for pronouns")
     stem = Kanones.readstemrow(pronounio, delimited)
     @test stem isa PronounStem
-    @test cex(stem) == "pronoun.n71882a|Stem ὁ (article: masculine, nominative, singular)|ὁ|lsj.n71882|article|masculine|nominative|singular"
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("pronoun.n71882a|Stem ὁ (article: masculine, nominative, singular)|ὁ|lsj.n71882|article|masculine|nominative|singular")
 
 end
 
@@ -22,7 +22,7 @@ end
 
 
     @test lexeme(stem) == LexemeUrn("lsj.n71882")
-    @test stemstring(stem) == "ὁ"
+    @test stemstring(stem) == Unicode.normalize("ὁ")
     @test code(stem) == "9010001100"
     @test Kanones.formurn(stem) == FormUrn("forms.9010001100")
     

@@ -3,7 +3,7 @@
     nounio = Kanones.NounIO("IO for nouns")
     stem = Kanones.readstemrow(nounio, delimited)
     @test stem isa NounStem
-    @test cex(stem) == "nounstems.n8909|Noun stem ἀνθρωπ- (masculine)|ἀνθρωπ|lsj.n8909|os_ou|masculine|recessive"
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("nounstems.n8909|Noun stem ἀνθρωπ- (masculine)|ἀνθρωπ|lsj.n8909|os_ou|masculine|recessive")
 end
 
 @testset "Test data accessors" begin
@@ -21,6 +21,6 @@ end
 
 
     @test lexeme(stem) == LexemeUrn("lsj.n8909")
-    @test stemstring(stem) == "ἀνθρωπ"
+    @test stemstring(stem) == Unicode.normalize("ἀνθρωπ")
     
 end

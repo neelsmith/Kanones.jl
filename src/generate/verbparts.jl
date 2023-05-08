@@ -217,6 +217,7 @@ function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {
         morphbase
     end
     if length(morphemes) == 1
+        @debug("principal part returning ", morphbase)
         morphbase
     else
         prefix = strcat(ortho, morphemes[1:end-1]...)
