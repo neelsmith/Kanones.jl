@@ -8,7 +8,7 @@
     @test adv == gmfAdverb(advurn)
     
 
-    abbrurn = formurn(adv)
+    abbrurn = Kanones.formurn(adv)
     expectedabbr = FormUrn("forms.8000000020")
     @test abbrurn == expectedabbr
     @test adv == gmfAdverb(abbrurn)

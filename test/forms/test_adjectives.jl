@@ -10,7 +10,7 @@
     @test adj == gmfAdjective(adjurn)
 
     # round-trip a FormUrn
-    abbrurn = formurn(adj)
+    abbrurn = Kanones.formurn(adj)
     expectedabbr = FormUrn("forms.7030002410")
     @test abbrurn == expectedabbr
     @test adj == gmfAdjective(abbrurn)

@@ -7,7 +7,7 @@
     @test ptcplurn == expectedurn
     @test ptcpl == gmfParticiple(ptcplurn)
 
-    abbrurn = formurn(ptcpl)
+    abbrurn = Kanones.formurn(ptcpl)
     expectedabbr = FormUrn("forms.5013022400")
     @test abbrurn == expectedabbr
     @test ptcpl == gmfParticiple(abbrurn)

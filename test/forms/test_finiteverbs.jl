@@ -10,7 +10,7 @@
     @test verburn == expectedurn
     @test gmfFiniteVerb(verburn) == verb
 
-    abbrurn = formurn(verb)
+    abbrurn = Kanones.formurn(verb)
     expectedabbr = FormUrn("forms.3323110000")
     @test abbrurn == expectedabbr
     @test gmfFiniteVerb(abbrurn) == verb

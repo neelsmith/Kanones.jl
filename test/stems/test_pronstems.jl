@@ -24,6 +24,6 @@ end
     @test lexeme(stem) == LexemeUrn("lsj.n71882")
     @test stemstring(stem) == Unicode.normalize("ὁ")
     @test code(stem) == "9010001100"
-    @test formurn(stem) == FormUrn("forms.9010001100")
+    @test Kanones.formurn(stem) == FormUrn("forms.9010001100")
     
 end

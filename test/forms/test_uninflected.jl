@@ -8,7 +8,7 @@
     @test uninfl == gmfUninflected(uninflurn)
     
 
-    abbrurn = formurn(uninfl)
+    abbrurn = Kanones.formurn(uninfl)
     expectedabbr = FormUrn("forms.1000000002")
     @test abbrurn == expectedabbr
     @test uninfl == gmfUninflected(abbrurn)

@@ -5,7 +5,7 @@
     @test pronounurn == expectedurn
     @test pronoun == gmfPronoun(pronounurn)
 
-    abbrurn = formurn(pronoun)
+    abbrurn = Kanones.formurn(pronoun)
     expectedabbr = FormUrn("forms.9010002400")
     @test abbrurn == expectedabbr
     @test pronoun == gmfPronoun(abbrurn)
