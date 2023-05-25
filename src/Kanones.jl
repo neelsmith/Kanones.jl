@@ -5,7 +5,7 @@ using CSV, DataFrames, Downloads
 using CitableParserBuilder
 import CitableParserBuilder: formurn
 import CitableParserBuilder: parsetoken
-import CitableParserBuilder: parsewordlist
+import CitableParserBuilder: parselist
 import CitableParserBuilder: parsecorpus
 import CitableParserBuilder: parsedocument
 import CitableParserBuilder: CanParseCitable
