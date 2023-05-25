@@ -28,8 +28,9 @@ function writedataset(ds::Kanones.FilesDataset)
         lines = vcat(lines, readlines(joinpath(outputdir, csvfile)))
     end
     outfile = joinpath(pwd(), "parsers", basename * ".csv")
+    csv = join(lines, "\n") * "\n"
     open(outfile, "w") do io
-        write(io, join(lines, "\n") * "\n")
+        write(io, csv)
     end
 
     currentfile = joinpath(pwd(), "parsers", "current.csv")
