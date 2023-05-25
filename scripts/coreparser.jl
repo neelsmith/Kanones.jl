@@ -32,8 +32,9 @@ end
 
 
 # Compose a single CSV file instantiating a parser from a FilesDataset
-function writedataset(ds::Kanones.FilesDataset)
-    basename = string("literarygreek-core-", today())
+# use "core" or "all" for dslabel
+function writedataset(ds::Kanones.FilesDataset, dslabel)
+    basename = string("literarygreek-$(dslabel)-", today())
     outputdir = joinpath(pwd(), "scratch", basename)
     mkpath(outputdir)
     writecsv(ds, outputdir)outputdir
@@ -50,7 +51,7 @@ function writedataset(ds::Kanones.FilesDataset)
         write(io, csv)
     end
 
-    currentfile = joinpath(pwd(), "parsers", "current.csv")
+    currentfile = joinpath(pwd(), "parsers", "current-$(dslabel).csv")
     cp(outfile, currentfile)
 end
 
