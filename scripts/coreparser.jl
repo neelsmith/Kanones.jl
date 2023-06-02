@@ -55,3 +55,6 @@ function writedataset(ds::Kanones.FilesDataset, dslabel)
     cp(outfile, currentfile)
 end
 
+
+# For interactive testing:
+parser = stringParser(coredata)
