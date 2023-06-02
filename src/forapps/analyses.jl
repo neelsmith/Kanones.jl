@@ -3,7 +3,7 @@ FOLIO_BASE_URL = "http://folio2.furman.edu/lsj/?urn=urn:cite2:hmt:lsj.chicago_md
 
 function lsjdict()
     @info("Downloading dictionary of lemmata for `lsj` dataset...")
-    lsjurl = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/datasets/lsj-vocab/lexemes/lsj.cex"
+    lsjurl = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/dev/datasets/lsj-vocab/lexemes/lsj.cex"
     lsjstr = Downloads.download(lsjurl) |> read |> String
     lsjlines = split(lsjstr, "\n")
 
@@ -23,7 +23,7 @@ end
 
 function lsjxdict()
     @info("Downloading dictionary of lemmata for `lsjx` dataset...")
-    lsjxurl = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/datasets/lsj-vocab/lexemes/lsjx.cex"
+    lsjxurl = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/dev/datasets/lsj-vocab/lexemes/lsjx.cex"
     lsjxstr = Downloads.download(lsjxurl) |> read |> String
     lsjxlines = split(lsjxstr, "\n")
 

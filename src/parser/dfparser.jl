@@ -12,7 +12,7 @@ end
 $(SIGNATURES)
 """
 function dfParser(delimitedfile)
-    @info("Reading delimited-text file $(delimited)")
+    @info("Reading delimited-text file $(delimitedfile)...")
     CSV.File(delimitedfile) |> DataFrame |> DFParser
 end
 

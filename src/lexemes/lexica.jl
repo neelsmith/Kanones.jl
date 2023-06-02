@@ -1,12 +1,6 @@
-LSJ_URL = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/lsj/lsj-lemmata.cex"
+#LSJ_URL = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/lsj/lsj-lemmata.cex"
 
-"""Retreive LSJ lemmata online, and create a dictionary of abbreviated URN strings to lemmata.
 
-$(SIGNATURES)
-"""
-function lsjdict_fromurl()
-    CSV.File(HTTP.get(Kanones.LSJ_URL).body) |> Dict
-end
 
 """Retreive LSJ lemmata, and create a dictionary of abbreviated URN strings to lemmata.
 

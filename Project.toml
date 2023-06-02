@@ -1,8 +1,7 @@
 name = "Kanones"
 uuid = "107500f9-53d4-4696-8485-0747242ad8bc"
 authors = ["nsmith"]
-version = "0.16.4"
-
+version = "0.16.5"
 
 [deps]
 AtticGreek = "330c8319-f7ed-461a-8c52-cee5da4c0892"
@@ -15,6 +14,7 @@ CitableParserBuilder = "c834cb9d-35b9-419a-8ff8-ecaeea9e2a2a"
 CitableText = "41e66566-473b-49d4-85b7-da83b66615d8"
 Compat = "34da2185-b29b-5c13-b0c7-acf172513d20"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
@@ -46,8 +46,7 @@ Glob = "1"
 HTTP = "1"
 Orthography = "0.21"
 PolytonicGreek = "0.18"
-
 Query = "1"
 SplitApplyCombine = "1"
 TestSetExtensions = "2"
-julia = "1.8"
+julia = "1.8, 1.9"

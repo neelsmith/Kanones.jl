@@ -1,6 +1,7 @@
 module Kanones
 
-using CSV, DataFrames, Downloads
+using CSV, DataFrames
+using HTTP, Downloads
 
 using CitableParserBuilder
 import CitableParserBuilder: formurn
@@ -9,6 +10,9 @@ import CitableParserBuilder: parselist
 import CitableParserBuilder: parsecorpus
 import CitableParserBuilder: parsedocument
 import CitableParserBuilder: CanParseCitable
+import CitableParserBuilder: lexemes
+
+
 
 export KanonesParser
 export parsetoken, parsewordlist, parsecorpus, parsedocument
@@ -26,7 +30,9 @@ import CitableBase: urn
 import CitableBase: label
 import CitableBase: cex
 
-export urn, label, cex
+
+
+#export urn, label, cex
 
 export dataset
 export rulesarray, stemsarray, registry, compoundsarray
@@ -185,6 +191,9 @@ include("parser/parser.jl")
 include("parser/stringparser.jl")
 include("parser/dfparser.jl")
 include("parser/perfilebuilder.jl")
+
+include("dfparser/survey.jl")
+
 
 
 end # module
