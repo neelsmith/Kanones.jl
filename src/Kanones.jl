@@ -30,9 +30,7 @@ import CitableBase: urn
 import CitableBase: label
 import CitableBase: cex
 
-
-
-#export urn, label, cex
+export label
 
 export dataset
 export rulesarray, stemsarray, registry, compoundsarray
