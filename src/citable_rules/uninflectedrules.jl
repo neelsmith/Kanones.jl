@@ -51,7 +51,7 @@ end
 
 
 
-"""Compose CEX text for a `NounRule`.
+"""Compose CEX text for a `UninflectedRule`.
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 

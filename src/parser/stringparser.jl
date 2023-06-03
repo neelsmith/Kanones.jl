@@ -6,9 +6,11 @@ end
 """Write entries to file.
 $(SIGNATURES)
 """
-function tofile(p::StringParser, f)
+function tofile(p::StringParser, f; delimiter = nothing )
+    src = "Token,Lexeme,Form,Stem,Rule\n" * join(p.entries,"\n") * "\n"
+    txt = isnothing(delimiter) ? src : replace(src, "|" => delimiter)
     open(f, "w") do io
-        write(f, join(p.entries,"\n"))
+        write(f, txt)
     end
 end
 
@@ -25,16 +27,14 @@ end
 """Instantiate a `StringParser` for `td`.
 $(SIGNATURES)
 """
-function stringParser(kd::Kanones.FilesDataset; delimiter = "|")
-    #analysis_lines(td) |> StringParser
-
+function stringParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
     analyses = []
     rules = rulesarray(kd)
     stems = stemsarray(kd) 
     for (i, stem) in enumerate(stems)
-        if i % 50 == 0
+        if i % interval == 0
             @info("stem $(i)… $(stem)")
-        end
+            end
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
     analyses |> StringParser

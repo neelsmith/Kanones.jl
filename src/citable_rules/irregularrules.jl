@@ -69,8 +69,8 @@ end
 
 
 
-"""Compose CEX text for a `NounRule`.
-If `registry` is nothing, use abbreivated URN;
+"""Compose CEX text for an `IrregularRule`.
+If `registry` is nothing, use abbreviated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
 @(SIGNATURES)

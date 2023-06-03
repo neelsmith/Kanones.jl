@@ -109,7 +109,7 @@ function code(rule::VerbalAdjectiveRule)
     string(VERBALADJECTIVE,"0",code(rule.vanumber),"000",code(rule.vagender),code(rule.vacase),"00")
 end
 
-"""Compose an abbreviated URN for a rule from a `NounRule`.
+"""Compose an abbreviated URN for a rule from a `VerbalAdjectiveRule`.
 
 $(SIGNATURES)
 """
