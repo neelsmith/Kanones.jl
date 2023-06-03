@@ -1,0 +1,11 @@
+StemUrn|LexicalEntity|String|Person|Number|Tense|Mood|Voice|IrregularClass
+
+irregverb.irregverbn110639imp1|lsj.n110639|ἔφην|first|singular|imperfect|indicative|active|irregularfiniteverb
+irregverb.irregverbn110639imp2|lsj.n110639|ἔφης|second|singular|imperfect|indicative|active|irregularfiniteverb
+irregverb.irregverbn110639imp2b|lsj.n110639|ἔφησθα|second|singular|imperfect|indicative|active|irregularfiniteverb
+
+irregverb.irregverbn110639imp3|lsj.n110639|ἔφη|third|singular|imperfect|indicative|active|irregularfiniteverb
+
+irregverb.irregverbn110639imp4|lsj.n110639|ἔφαμεν|first|plural|imperfect|indicative|active|irregularfiniteverb
+irregverb.irregverbn110639imp5|lsj.n110639|ἔφατε|second|plural|imperfect|indicative|active|irregularfiniteverb
+irregverb.irregverbn110639imp6|lsj.n110639|ἔφασαν|third|plural|imperfect|indicative|active|irregularfiniteverb

@@ -142,7 +142,7 @@ function code(rule::ParticipleRule)
     string(PARTICIPLE,"0",code(rule.pnumber), code(rule.ptense), "0", code(rule.pvoice), code(rule.pgender), code(rule.pcase),"00")
 end
 
-"""Compose an abbreviated URN for a rule from a `NounRule`.
+"""Compose an abbreviated URN for a rule from a `ParticipleRule`.
 
 $(SIGNATURES)
 """

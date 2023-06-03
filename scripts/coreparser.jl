@@ -56,5 +56,9 @@ function writedataset(ds::Kanones.FilesDataset, dslabel)
 end
 
 
+ds = coredata()
+
 # For interactive testing:
-parser = stringParser(coredata)
+parser = stringParser(ds)
+
+parsetoken("πᾶς", parser) |> println
