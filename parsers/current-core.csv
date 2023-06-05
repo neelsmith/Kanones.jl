@@ -7825,6 +7825,7 @@ Token,Lexeme,Form,Stem,Rule
 τοιαῦτα,lsj.n104169,forms.9030003400,pronoun.n104169c,proninfl.pronouns2
 ἅμα,lsj.n4845,forms.1000000004,uninflectedstems.n4845,uninfl.uninfl4
 δίς,lsj.n27438,forms.1000000004,uninflectedstems.n27438,uninfl.uninfl4
+ἔνδον,lsj.n35267,forms.1000000004,uninflectedstems.n35267,uninfl.uninfl4
 ἑξῆς,lsj.n37343,forms.1000000004,uninflectedstems.n37343,uninfl.uninfl4
 ἔπειτα,lsj.n38547,forms.1000000004,uninflectedstems.n38547,uninfl.uninfl4
 ἔτι,lsj.n43266,forms.1000000004,uninflectedstems.n43266,uninfl.uninfl4
@@ -7920,6 +7921,7 @@ Token,Lexeme,Form,Stem,Rule
 μετά,lsj.n66572,forms.1000000002,uninflectedstems.n66572,uninfl.uninfl3
 παρά,lsj.n77763,forms.1000000002,uninflectedstems.n77763,uninfl.uninfl3
 παρ',lsj.n77763,forms.1000000002,uninflectedstems.n77763α,uninfl.uninfl3
+πλήν,lsj.n83818,forms.1000000002,uninflectedstems.n83818,uninfl.uninfl3
 περί,lsj.n81017,forms.1000000002,uninflectedstems.n81017,uninfl.uninfl3
 πρό,lsj.n86405,forms.1000000002,uninflectedstems.n86405,uninfl.uninfl3
 πρός,lsj.n88443,forms.1000000002,uninflectedstems.n88443,uninfl.uninfl3
