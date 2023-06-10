@@ -8,13 +8,6 @@ verbstems.n3398d|lsj.n3398|ἀκηκο|pp4|
 verbstems.n3398f|lsj.n3398|ἀκουσθ|pp6|
 
 
-verbstems.n192821a|lsj.n19282|βαλλ|w_pp1|
-verbstems.n192821b|lsj.n19282|βαλ|attic_fut|
-verbstems.n192821c|lsj.n19282|βαλ|aor2|
-verbstems.n192821d|lsj.n19282|βεβληκ|pp4|
-verbstems.n192821e|lsj.n19282|βεβλη|pp5|
-verbstems.n192821f|lsj.n19282|βληθ|pp6|
-
 
 verbstems.n27847a|lsj.n27847|δοκ|ew_contract_pp1|
 verbstems.n27847b|lsj.n27847|δοκη|pp2|
@@ -30,8 +23,6 @@ verbstems.n61791d|lsj.n61791|εἴληφ|pp4|
 verbstems.n61791e|lsj.n61791|εἴλημ|pp5|
 verbstems.n61791f|lsj.n61791|ληφθ|pp6
 
-
-
 verbstems.n62205a|lsj.n62205|λεγ|w_pp1|
 verbstems.n62205b|lsj.n62205|λεξ|pp2|
 verbstems.n62205c|lsj.n62205|λεξ|pp3|
@@ -40,3 +31,5 @@ verbstems.n62205d1|lsj.n62205|εἰλοχ|pp4|
 verbstems.n62205d|lsj.n62205|εἰλεγ|pp5|
 verbstems.n62205f|lsj.n62205|λεχθ|pp6|
 
+
+verbstems.n31161|lsj.n31161|εἰπ|aor2|
