@@ -62,9 +62,9 @@ function writecsvbytype(kd::Kanones.FilesDataset, targetdir; msgchunk = 50, thre
     #verbrules = filter(rulesarray(kd)) do r
     #    typeof(r) <: Kanones.KanonesVerbalRule
     #end
-    #inflclasses = map(r -> inflectionClass(r), verbrules) |> unique
+    #inflclasses = map(r -> inflectionclass(r), verbrules) |> unique
 
-    inflclasses = map(r -> inflectionClass(r), rulesarray(kd)) |> unique
+    inflclasses = map(r -> inflectionclass(r), rulesarray(kd)) |> unique
 
     for inflclass in inflclasses
         @info("Writing CSV for INF CLASS ", inflclass)
@@ -84,10 +84,10 @@ function writeinfltype(kd::Kanones.FilesDataset, inflclass, targetdir;
     end
     @info("Putting stuff in " , outdir)
     rules = filter(rulesarray(kd)) do r
-       inflectionClass(r) == inflclass
+       inflectionclass(r) == inflclass
     end   
     stems = filter(stemsarray(kd)) do s
-        inflectionClass(s) == inflclass
+        inflectionclass(s) == inflclass
     end
 
     writecsv(rules, stems, outdir, 
@@ -102,8 +102,8 @@ function buildparses(f, delimitedreader, rules::Vector{Rule}; delimiter = ",")
 
     generated = []
     for stem in stemlist
-        rulematches = filter(r -> inflectionClass(r) == inflectionClass(stem), rules)
-        @info("Generating $(length(rulematches)) forms for $(stemstring(stem)) (class: $(inflectionClass(stem)))")
+        rulematches = filter(r -> inflectionclass(r) == inflectionclass(stem), rules)
+        @info("Generating $(length(rulematches)) forms for $(stemstring(stem)) (class: $(inflectionclass(stem)))")
         for (i, rule) in enumerate(rulematches)
             if i % 1000 == 0
                 @info("rule $(i) for $(stemstring(stem))...")

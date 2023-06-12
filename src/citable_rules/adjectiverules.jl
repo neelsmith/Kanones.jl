@@ -9,6 +9,7 @@ struct AdjectiveRule <: KanonesRule
     adegree::GMPDegree
 end
 
+
 """Identifying URN for an `AdjectiveRule`.  If
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
@@ -64,7 +65,7 @@ end
 """Identify inflection class for `rule`.
 $(SIGNATURES)
 """
-function inflectionClass(rule::AdjectiveRule)
+function inflectionclass(rule::AdjectiveRule)
     rule.inflectionclass
 end
 
@@ -121,10 +122,10 @@ Required for `CitableTrait`.
 """
 function cex(adj::AdjectiveRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([adj.ruleid, label(adj), ending(adj), inflectionClass(adj), formurn(adj)], delimiter)
+        join([adj.ruleid, label(adj), ending(adj), inflectionclass(adj), formurn(adj)], delimiter)
     else
         c2urn = expand(adj.ruleid, registry)
-        join([c2urn, label(adj),ending(adj), inflectionClass(adj), formurn(adj)], delimiter)
+        join([c2urn, label(adj),ending(adj), inflectionclass(adj), formurn(adj)], delimiter)
     end
 end
 

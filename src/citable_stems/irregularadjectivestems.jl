@@ -81,10 +81,10 @@ Required for `CitableTrait`.
 """
 function cex(adj::IrregularAdjectiveStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([adj.stemid, label(adj), stemstring(adj), lexeme(adj), inflectionClass(adj), label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree) ], delimiter)
+        join([adj.stemid, label(adj), stemstring(adj), lexeme(adj), inflectionclass(adj), label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree) ], delimiter)
     else
         c2urn = expand(adj.stemid, registry)
-        join([c2urn, label(adj), stemstring(adj), lexeme(adj), inflectionClass(adj), label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree)], delimiter)
+        join([c2urn, label(adj), stemstring(adj), lexeme(adj), inflectionclass(adj), label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree)], delimiter)
     end
 end
 
@@ -137,7 +137,7 @@ end
 """Identify inflection class for `adj`.
 $(SIGNATURES)
 """
-function inflectionClass(adj::IrregularAdjectiveStem)
+function inflectionclass(adj::IrregularAdjectiveStem)
     adj.inflectionclass
 end
 

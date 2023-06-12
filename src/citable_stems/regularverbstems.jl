@@ -10,10 +10,9 @@ struct VerbStem <: KanonesStem
 end
 
 
-
-
-"""Noun stems are citable by Cite2Urn"""
+"""Verb stems are citable by Cite2Urn"""
 CitableTrait(::Type{VerbStem}) = CitableByCite2Urn()
+
 
 """Identify value of stem string for `vs`.
 $(SIGNATURES)
@@ -32,13 +31,11 @@ end
 """Identify inflection class for `vs`.
 $(SIGNATURES)
 """
-function inflectionClass(vs::VerbStem)
+function inflectionclass(vs::VerbStem)
     vs.stemclass
 end
 
 
-"""Verb stems are citable by Cite2Urn"""
-CitableTrait(::Type{VerbStem}) = CitableByCite2Urn()
 
 """Human-readlable label for a `VerbStem`.
 
@@ -51,7 +48,7 @@ function label(vs::VerbStem)
         "- (", 
         lexeme(vs),     
         ", ", 
-        "stem class ", inflectionClass(vs), ")")
+        "stem class ", inflectionclass(vs), ")")
 end
 
 
@@ -80,10 +77,10 @@ Required for `CitableTrait`.
 """
 function cex(vs::VerbStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([vs.stemid, label(vs), stemstring(vs), lexeme(vs), inflectionClass(vs)], delimiter)
+        join([vs.stemid, label(vs), stemstring(vs), lexeme(vs), inflectionclass(vs)], delimiter)
     else
         c2urn = expand(vs.stemid, registry)
-        join([c2urn, label(vs), stemstring(vs), lexeme(vs), inflectionClass(vs)], delimiter)
+        join([c2urn, label(vs), stemstring(vs), lexeme(vs), inflectionclass(vs)], delimiter)
     end
 end
 

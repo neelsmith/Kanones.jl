@@ -75,7 +75,7 @@ end
 """Identify inflection class for `pr`.
 $(SIGNATURES)
 """
-function inflectionClass(pr::PronounStem)
+function inflectionclass(pr::PronounStem)
     pr.pronountype
 end
 
@@ -119,10 +119,10 @@ Required for `CitableTrait`.
 """
 function cex(pns::PronounStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([pns.stemid, label(pns), stemstring(pns), lexeme(pns), inflectionClass(pns), label(pns.pgender), label(pns.pcase), label(pns.pnumber) ], delimiter)
+        join([pns.stemid, label(pns), stemstring(pns), lexeme(pns), inflectionclass(pns), label(pns.pgender), label(pns.pcase), label(pns.pnumber) ], delimiter)
     else
         c2urn = expand(pns.stemid, registry)
-        join([c2urn, label(pns), stemstring(pns), lexeme(pns), inflectionClass(pns), label(pns.pgender), label(pns.pcase), label(pns.pnumber) ], delimiter)
+        join([c2urn, label(pns), stemstring(pns), lexeme(pns), inflectionclass(pns), label(pns.pgender), label(pns.pcase), label(pns.pnumber) ], delimiter)
     end
 end
 

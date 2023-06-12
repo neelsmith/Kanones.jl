@@ -13,7 +13,7 @@ function md_3endingadj(lex::LexemeUrn, degree::GMPDegree, kd::Kanones.FilesDatas
         @warn("More than one stem found for $(lex): using first stem.")
     end
     stem = stemmatches[1]
-    rules = filter(r ->  inflectionClass(r) == inflectionClass(stem) && gmpDegree(r) == degree, rulesarray(kd))
+    rules = filter(r ->  inflectionclass(r) == inflectionclass(stem) && gmpDegree(r) == degree, rulesarray(kd))
 
     labels = ["nominative", "genitive", "dative", "accusative"]
     caselist = map(l -> gmpCase(l), labels)

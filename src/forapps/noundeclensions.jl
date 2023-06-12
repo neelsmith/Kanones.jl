@@ -7,7 +7,7 @@ function  decline(lex::LexemeUrn, kd::Kanones.FilesDataset; withvocative::Bool =
     declinedforms = []
     for stem in stemmatches
         forms = filter(f -> gmpGender(f) == gmpGender(stem), Kanones.nounforms())
-        rules = filter(r -> inflectionClass(r) == inflectionClass(stem), rulesarray(kd))    
+        rules = filter(r -> inflectionclass(r) == inflectionclass(stem), rulesarray(kd))    
         for f in forms
             rulematches = filter(r -> formurn(r) == formurn(f), rules) 
             if !isempty(rulematches)

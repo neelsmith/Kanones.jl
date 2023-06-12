@@ -20,7 +20,7 @@ end
 
     compoundstems = Kanones.stems(compound, stemsarray(kds))
     @test length(compoundstems) == 1
-    @test inflectionClass(compoundstems[1]) == "w_regular"
+    @test inflectionclass(compoundstems[1]) == "w_regular"
     @test stemstring(compoundstems[1]) == knormal("ἐν#κελευ")
 end
 

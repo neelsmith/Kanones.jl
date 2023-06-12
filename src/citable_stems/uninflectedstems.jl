@@ -20,23 +20,21 @@ function stemstring(uninfl::UninflectedStem)
     uninfl.form |> knormal
 end
 
-"""Identify lexeme for `uninfl`.
+"""Identify lexeme URN for an `UninflectedStem`.
+
 $(SIGNATURES)
 """
 function lexeme(uninfl::UninflectedStem)
     uninfl.lexid
 end
 
+
 """Identify inflection class for `uninfl`.
 $(SIGNATURES)
 """
-function inflectionClass(uninfl::UninflectedStem)
-    uninfl.stemcategory
+function inflectionclass(uninfl::UninflectedStem)
+    uninfl.stemcategory |> label
 end
-
-
-
-
 
 """Human-readlable label for an `UninflectedStem`.
 
@@ -73,10 +71,10 @@ Required for `CitableTrait`.
 """
 function cex(us::UninflectedStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([us.stemid, label(us), stemstring(us), lexeme(us), label(inflectionClass(us)) ], delimiter)
+        join([us.stemid, label(us), stemstring(us), lexeme(us), label(inflectionclass(us)) ], delimiter)
     else
         c2urn = expand(us.stemid, registry)
-        join([c2urn, label(us), stemstring(us), lexeme(us), label(inflectionClass(us)) ], delimiter)
+        join([c2urn, label(us), stemstring(us), lexeme(us), label(inflectionclass(us)) ], delimiter)
     end
 end
 
@@ -89,13 +87,7 @@ function id(uninfl::UninflectedStem)
     uninfl.stemid
 end
 
-"""Identify lexeme URN for an `UninflectedStem`.
 
-$(SIGNATURES)
-"""
-function lexeme(uninfl::UninflectedStem)
-    uninfl.lexid
-end
 
 
 """Implementation of reading one row of a stems table for uninflected tokens.

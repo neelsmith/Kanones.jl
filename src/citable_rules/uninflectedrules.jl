@@ -13,8 +13,8 @@ end
 """Identify inflectional class for `uninfl`.
 $(SIGNATURES)
 """
-function inflectionClass(uninfl::UninflectedRule)
-    uninfl.infltype
+function inflectionclass(uninfl::UninflectedRule)
+    uninfl.infltype |> label
 end
 
 function ending(uninfl::UninflectedRule)

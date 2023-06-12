@@ -25,7 +25,7 @@ end
     @test urn(rule, registry = dict) == expectedcite2
 
     # must get infltype and ending
-    @test inflectionClass(rule) == "os_a_on"
+    @test inflectionclass(rule) == "os_a_on"
     @test ending(rule) == Unicode.normalize("ος")
 
     # morphological data

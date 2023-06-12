@@ -8,7 +8,7 @@ import CitableParserBuilder: formurn
 import CitableParserBuilder: parsetoken
 import CitableParserBuilder: parselist
 import CitableParserBuilder: parsecorpus
-import CitableParserBuilder: parsedocument
+#import CitableParserBuilder: parsedocument
 import CitableParserBuilder: CanParseCitable
 import CitableParserBuilder: lexemes
 
@@ -34,6 +34,7 @@ export label
 
 export dataset
 export rulesarray, stemsarray, registry, compoundsarray
+export inflectionclass, inflclassindex
 export sortbylsj, sortbylsj!, sortdirbylsj!, sortregularstems!
 
 export GreekMorphologicalProperty
@@ -50,7 +51,7 @@ export code
 
 export GreekMorphologicalForm
 export greekForm, allforms
-export KanonesRule, inflectionClass, ending
+export KanonesRule, inflectionclass, ending
 export KanonesStem, lexeme, stemstring
 export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
 export GMFInfinitive, gmfInfinitive, InfinitiveRule
@@ -74,6 +75,7 @@ export IrregularVerbStem
 export IrregularInfinitiveStem
 
 export GreekLexeme
+export lemmatadict, lemmalabel
 
 export knormal
 export generate, analysis_string
@@ -100,6 +102,8 @@ include("dataset/fileslayout.jl")
 include("dataset/filesdataset.jl")
 include("dataset/compoundstems.jl")
 include("dataset/stemreaders.jl")
+include("dataset/infltypes.jl")
+include("dataset/lexlabels.jl")
 include("utils.jl")
 
 include("lexemes/lexeme.jl")

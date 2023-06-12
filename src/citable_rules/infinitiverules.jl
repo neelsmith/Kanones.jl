@@ -11,6 +11,7 @@ struct InfinitiveRule <: KanonesVerbalRule
 end
 
 
+
 """Find tense property of `inf`.
 $(SIGNATURES)
 """
@@ -33,7 +34,7 @@ CitableTrait(::Type{InfinitiveRule}) = CitableByCite2Urn()
 """Identify inflection class for  `rule`
 $(SIGNATURES)
 """
-function inflectionClass(rule::InfinitiveRule)
+function inflectionclass(rule::InfinitiveRule)
     rule.inflectionclass
 end
 
@@ -82,10 +83,10 @@ Required for `CitableTrait`.
 """
 function cex(inf::InfinitiveRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([inf.ruleid, label(inf), ending(inf), inflectionClass(inf), formurn(inf)], delimiter)
+        join([inf.ruleid, label(inf), ending(inf), inflectionclass(inf), formurn(inf)], delimiter)
     else
         c2urn = expand(inf.ruleid, registry)
-        join([c2urn, label(inf), ending(inf), inflectionClass(inf), formurn(inf)], delimiter)
+        join([c2urn, label(inf), ending(inf), inflectionclass(inf), formurn(inf)], delimiter)
     end
 end
 

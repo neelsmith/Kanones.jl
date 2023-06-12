@@ -29,7 +29,7 @@ function md_ptcpldeclension(
         @warn("More than one stem found for $(lex): using first stem.")
     end
     stem = stemmatches[1]
-    rules = filter(r ->  r isa ParticipleRule && inflectionClass(r) == inflectionClass(stem) &&gmpTense(r) == tense && gmpVoice(r) == voice, rulesarray(kd))
+    rules = filter(r ->  r isa ParticipleRule && inflectionclass(r) == inflectionclass(stem) &&gmpTense(r) == tense && gmpVoice(r) == voice, rulesarray(kd))
 
     labels = ["nominative", "genitive", "dative", "accusative"]
     caselist = map(l -> gmpCase(l), labels)

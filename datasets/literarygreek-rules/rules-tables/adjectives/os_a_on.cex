@@ -1,7 +1,7 @@
 Rule|StemClass|Ending|Gender|Case|Number|Degree|
 
 adjinfl.osaon1|os_a_on|ος|masculine|nominative|singular|positive|
-adjinfl.osaon2|os_a_on|α|feminine|nominative|singular|positive|
+adjinfl.osaon2|os_a_on|α_|feminine|nominative|singular|positive|
 adjinfl.osaon3|os_a_on|ον|neuter|nominative|singular|positive|
 
 adjinfl.osaon4|os_a_on|ου|masculine|genitive|singular|positive|

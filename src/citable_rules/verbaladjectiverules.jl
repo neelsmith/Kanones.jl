@@ -21,7 +21,7 @@ CitableTrait(::Type{VerbalAdjectiveRule}) = CitableByCite2Urn()
 """Identify inflection class for `rule`.
 $(SIGNATURES)
 """
-function inflectionClass(rule::VerbalAdjectiveRule)
+function inflectionclass(rule::VerbalAdjectiveRule)
     rule.inflectionclass
 end
 
@@ -74,10 +74,10 @@ Required for `CitableTrait`.
 """
 function cex(vadj::VerbalAdjectiveRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([vadj.ruleid, label(vadj), ending(vadj), inflectionClass(vadj), formurn(vadj)], delimiter)
+        join([vadj.ruleid, label(vadj), ending(vadj), inflectionclass(vadj), formurn(vadj)], delimiter)
     else
         c2urn = expand(vadj.ruleid, registry)
-        join([c2urn, label(vadj), ending(vadj), inflectionClass(vadj), formurn(vadj)], delimiter)
+        join([c2urn, label(vadj), ending(vadj), inflectionclass(vadj), formurn(vadj)], delimiter)
     end
 end
 

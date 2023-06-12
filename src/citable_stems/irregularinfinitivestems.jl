@@ -63,10 +63,10 @@ Required for `CitableTrait`.
 """
 function cex(inf::IrregularInfinitiveStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([inf.stemid, label(inf), stemstring(inf), lexeme(inf), inflectionClass(inf), label(inf.tense), label(inf.voice) ], delimiter)
+        join([inf.stemid, label(inf), stemstring(inf), lexeme(inf), inflectionclass(inf), label(inf.tense), label(inf.voice) ], delimiter)
     else
         c2urn = expand(inf.stemid, registry)
-        join([c2urn, label(inf), stemstring(inf), lexeme(inf), inflectionClass(inf), label(inf.tense), label(inf.voice)], delimiter)
+        join([c2urn, label(inf), stemstring(inf), lexeme(inf), inflectionclass(inf), label(inf.tense), label(inf.voice)], delimiter)
     end
 end
 
@@ -120,7 +120,7 @@ end
 """Identify inflection class for `inf`.
 $(SIGNATURES)
 """
-function inflectionClass(inf::IrregularInfinitiveStem)
+function inflectionclass(inf::IrregularInfinitiveStem)
     inf.inflectionclass
 end
 

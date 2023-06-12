@@ -17,6 +17,7 @@ function dfParser(delimitedfile)
 end
 
 function parsetoken(s::AbstractString, parser::DFParser; data = nothing)
+    @info("SEARCH FOR $(knormal(s))...")
     resultdf = subset(parser.df, :Token => t -> t .== knormal(s))
 
     resultarray = Analysis[]
@@ -32,4 +33,11 @@ function parsetoken(s::AbstractString, parser::DFParser; data = nothing)
         push!(resultarray, a)
     end
     resultarray
+end
+
+"""Find unique lexemes recognized by a parser.
+$(SIGNATURES)
+"""
+function lexemes(dfp::DFParser)
+    Array{String}(DataFrames.select(dfp.df, :Lexeme)) |> unique
 end

@@ -8,7 +8,7 @@ end
 """Identify inflectional class for `pron`.
 $(SIGNATURES)
 """
-function inflectionClass(pron::PronounRule)
+function inflectionclass(pron::PronounRule)
     pron.pronountype
 end
 
@@ -65,10 +65,10 @@ Required for `CitableTrait`.
 """
 function cex(pnr::PronounRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([pnr.ruleid, label(pnr), inflectionClass(pnr)], delimiter)
+        join([pnr.ruleid, label(pnr), inflectionclass(pnr)], delimiter)
     else
         c2urn = expand(pnr.ruleid, registry)
-        join([c2urn, label(pnr), inflectionClass(pnr)], delimiter)
+        join([c2urn, label(pnr), inflectionclass(pnr)], delimiter)
     end
 end
 

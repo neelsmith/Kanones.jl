@@ -71,10 +71,10 @@ Required for `CitableTrait`.
 """
 function cex(ns::IrregularNounStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([ns.stemid, label(ns), stemstring(ns), lexeme(ns), inflectionClass(ns), label(ns.noungender), label(ns.nouncase), label(ns.nounnumber) ], delimiter)
+        join([ns.stemid, label(ns), stemstring(ns), lexeme(ns), inflectionclass(ns), label(ns.noungender), label(ns.nouncase), label(ns.nounnumber) ], delimiter)
     else
         c2urn = expand(ns.stemid, registry)
-        join([c2urn, label(ns), stemstring(ns), lexeme(ns), inflectionClass(ns), label(ns.noungender), label(ns.nouncase), label(ns.nounnumber)], delimiter)
+        join([c2urn, label(ns), stemstring(ns), lexeme(ns), inflectionclass(ns), label(ns.noungender), label(ns.nouncase), label(ns.nounnumber)], delimiter)
     end
 end
 
@@ -127,7 +127,7 @@ end
 """Identify inflection class for `noun`.
 $(SIGNATURES)
 """
-function inflectionClass(noun::IrregularNounStem)
+function inflectionclass(noun::IrregularNounStem)
     noun.inflectiontype
 end
 

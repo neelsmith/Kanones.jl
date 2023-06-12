@@ -77,7 +77,7 @@ function stems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = liter
             stemid(compound),
             lexeme(compound),
             catted,
-            inflectionClass(s)
+            inflectionclass(s)
         )
         push!(compounded, newstem)
     end

@@ -124,10 +124,10 @@ Required for `CitableTrait`.
 """
 function cex(verb::IrregularVerbStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([verb.stemid, label(verb), stemstring(verb), lexeme(verb), inflectionClass(verb), label(verb.vperson), label(verb.vnumber), label(verb.vtense), label(verb.vmood), label(verb.vvoice) ], delimiter)
+        join([verb.stemid, label(verb), stemstring(verb), lexeme(verb), inflectionclass(verb), label(verb.vperson), label(verb.vnumber), label(verb.vtense), label(verb.vmood), label(verb.vvoice) ], delimiter)
     else
         c2urn = expand(verb.stemid, registry)
-        join([c2urn, label(verb), stemstring(verb), lexeme(verb), inflectionClass(verb), label(verb.vperson), label(verb.vnumber), label(verb.vtense), label(verb.vmood), label(verb.vvoice) ], delimiter)
+        join([c2urn, label(verb), stemstring(verb), lexeme(verb), inflectionclass(verb), label(verb.vperson), label(verb.vnumber), label(verb.vtense), label(verb.vmood), label(verb.vvoice) ], delimiter)
     end
 end
 
@@ -153,7 +153,7 @@ end
 """Identify inflection class for `verb`.
 $(SIGNATURES)
 """
-function inflectionClass(verb::IrregularVerbStem)
+function inflectionclass(verb::IrregularVerbStem)
     verb.inflectionclass
 end
 
