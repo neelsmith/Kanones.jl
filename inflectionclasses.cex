@@ -1,0 +1,69 @@
+pos|inflectionclass|description|paradigmword
+uninflected|particle|Particle|
+uninflected|conjunction|Conjunction|καί
+uninflected|preposition
+uninflected|adverb
+uninflected|numeral
+uninflected|interjection
+uninflected|irregularnoun
+uninflected|irregularfiniteverb
+uninflected|irregularinfinitive
+uninflected|irregularadjective
+noun|a_as|First-declension noun in -α|οἰκία
+noun|a_as_short|First-declension noun in short -α|θεράπαινα
+noun|h_hs|First-declension noun in -η|βουλή
+noun|hs_ou|First-declension mascuine|πολίτης
+noun|os_ou|Second-declension masculine or neuter noun|ἄνθρωπος
+noun|0_os|Third-declension noun with "empty" nominative ending|εὐθυντῆρ
+noun|hs_htos|Third-declension in pattern -ης/-ητος|ἐσθής
+noun|is_ews|Third-declension noun in pattern -ις/-εως |πόλις
+noun|is_idos
+noun|ma_matos
+noun|os_ous
+noun|s_dos
+noun|eus_ews
+noun|eus_ews_oxytone
+pronoun|article
+pronoun|demonstrative
+pronoun|interrogative
+pronoun|personal
+pronoun|indefinite
+pronoun|reflexive
+pronoun|relative
+pronoun|other
+verb|aw_contract
+verb|aw_pp1
+verb|aw_contract_dep
+verb|azw
+verb|ew_contract
+verb|ew_contract_dep
+verb|izw
+verb|izw_dep
+verb|aor2_athematic
+verb|aor2
+verb|aor2_dep
+verb|w_regular
+verb|atticfut
+verb|w_impft_aug
+verb|w_pp1
+verb|w_pp1_dep
+verb|w_pres
+verb|pp2
+verb|pp2_dep
+verb|pp3
+verb|pp3_dep
+verb|pp4
+verb|pp5
+verb|pp6
+verb|numi
+verb|numi_dep
+verb|ow_contract
+verb|ow_contract_dep
+verb|ttw
+verb|w_regular_dep
+adjective|os_a_on
+adjective|os_h_on_comp
+adjective|os_h_on_pos
+adjective|os_h_on_sup
+adjective|os_on
+adjective|us_eia_u

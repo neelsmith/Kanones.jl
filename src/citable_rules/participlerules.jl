@@ -13,6 +13,14 @@ struct ParticipleRule <: KanonesVerbalRule
     pnumber::GMPNumber
 end
 
+
+"""Identify inflectional class for `irreg`.
+$(SIGNATURES)
+"""
+function inflectionclass(r::ParticipleRule)
+    r.inflectionclass
+end
+
 """Identify tense property of `rule`.
 $(SIGNATURES)
 """
@@ -79,7 +87,7 @@ end
 """Identify inflection class for  `rule`
 $(SIGNATURES)
 """
-function inflectionClass(rule::ParticipleRule)
+function inflectionclass(rule::ParticipleRule)
     rule.inflectionclass
 end
 
@@ -100,7 +108,7 @@ Required for `CitableTrait`.
 """
 function cex(ptcpl::ParticipleRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([ptcpl.ruleid, label(ptcpl), ending(ptcpl), inflectionClass(ptcpl), formurn(ptcpl)], delimiter)
+        join([ptcpl.ruleid, label(ptcpl), ending(ptcpl), inflectionclass(ptcpl), formurn(ptcpl)], delimiter)
     else
         c2urn = expand(ptcpl.ruleid, registry)
         join([c2urn, label(ptcpl)], delimiter)

@@ -46,7 +46,7 @@ end
 """Identify inflection class for `ns`.
 $(SIGNATURES)
 """
-function inflectionClass(ns::NounStem)
+function inflectionclass(ns::NounStem)
     ns.inflectionclass
 end
 
@@ -92,10 +92,10 @@ Required for `CitableTrait`.
 """
 function cex(ns::NounStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([ns.stemid, label(ns), stemstring(ns), lexeme(ns), inflectionClass(ns), label(ns.gender), ns.accentpersistence ], delimiter)
+        join([ns.stemid, label(ns), stemstring(ns), lexeme(ns), inflectionclass(ns), label(ns.gender), ns.accentpersistence ], delimiter)
     else
         c2urn = expand(ns.stemid, registry)
-        join([c2urn, label(ns), stemstring(ns), lexeme(ns), inflectionClass(ns), label(ns.gender), ns.accentpersistence], delimiter)
+        join([c2urn, label(ns), stemstring(ns), lexeme(ns), inflectionclass(ns), label(ns.gender), ns.accentpersistence], delimiter)
     end
 end
 

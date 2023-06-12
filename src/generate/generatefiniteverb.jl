@@ -19,7 +19,7 @@ function generate(
         stembase = principalpart(stem, rule, ortho = ortho) |> knormal
         @debug("Starting from stembase", stembase)
     else
-        if  takesreduplication(greekForm(rule), inflectionClass(rule))
+        if  takesreduplication(greekForm(rule), inflectionclass(rule))
             stembase = reduplicate(stembase, ortho)
         end
         if rule isa FiniteVerbRule && takesaugment(greekForm(rule))

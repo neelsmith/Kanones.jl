@@ -26,7 +26,7 @@ ruleurn(rule)
 Find its inflectional type and inflectional ending:
 
 ```@example rules
-inflectionClass(rule)
+inflectionclass(rule)
 ```
 ```@example rules
 ending(rule)

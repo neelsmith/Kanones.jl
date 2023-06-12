@@ -32,6 +32,14 @@ const COMPOUND_CLASSES = [
     "ow_contract_dep"
 ]
 
+"""Extract gender property from a `KanonesRule`.
+$(SIGNATURES)
+"""
+function inflectionclass(rule::T) where {T <: KanonesRule}
+    @warn "Function inflectionclass not implemented for rules of type $(typeof(rule))."
+    nothing
+end
+
 
 """Extract gender property from a `KanonesRule`.
 $(SIGNATURES)

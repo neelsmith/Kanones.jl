@@ -19,7 +19,7 @@ end
     pp1rulesrc = "verbinfl.wregrpindic1|w_regular|ω|first|singular|present|indicative|active"
     pp1rule = Kanones.readrulerow(verbio, pp1rulesrc)
     @test Kanones.takesaugment(greekForm(pp1rule)) == false
-    @test Kanones.takesreduplication(greekForm(pp1rule), inflectionClass(pp1rule)) == false
+    @test Kanones.takesreduplication(greekForm(pp1rule), inflectionclass(pp1rule)) == false
     @test Kanones.ppbase(stem,pp1rule) == "κελευ"
     @test generate(stem, pp1rule) == "κελεύω"
 
@@ -28,7 +28,7 @@ end
     
     @test Kanones.pp2(pp2rule)
     @test Kanones.takesaugment(greekForm(pp2rule)) == false
-    @test Kanones.takesreduplication(greekForm(pp2rule), inflectionClass(pp2rule)) == false
+    @test Kanones.takesreduplication(greekForm(pp2rule), inflectionclass(pp2rule)) == false
     @test Kanones.ppbase(stem,pp2rule) == "κελευσ"
 
     @test generate(stem, pp2rule) == "κελεύσω"

@@ -28,7 +28,7 @@ end
 
 
     # must get infltype and ending
-    @test inflectionClass(rule) == "numi"
+    @test inflectionclass(rule) == "numi"
     @test ending(rule) == "νυσαι"
 
     # morphological data

@@ -25,6 +25,6 @@ end
     @test urn(rule, registry = dict) == expectedcite2
 
     # must get infltype and ending
-    @test inflectionClass(rule) == "article"
+    @test inflectionclass(rule) == "article"
     @test isempty(ending(rule))
 end

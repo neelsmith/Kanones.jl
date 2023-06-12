@@ -14,7 +14,7 @@ end
 """Identify inflection class for  `nr`
 $(SIGNATURES)
 """
-function inflectionClass(nr::NounRule)
+function inflectionclass(nr::NounRule)
     nr.inflectionclass
 end
 
@@ -111,10 +111,10 @@ Required for `CitableTrait`.
 """
 function cex(nr::NounRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([nr.ruleid, label(nr), ending(nr), inflectionClass(nr), formurn(nr)], delimiter)
+        join([nr.ruleid, label(nr), ending(nr), inflectionclass(nr), formurn(nr)], delimiter)
     else
         c2urn = expand(nr.ruleid, registry)
-        join([c2urn, label(nr),  ending(nr), inflectionClass(nr), formurn(nr)], delimiter)
+        join([c2urn, label(nr),  ending(nr), inflectionclass(nr), formurn(nr)], delimiter)
     end
 end
 

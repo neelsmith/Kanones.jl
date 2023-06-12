@@ -2,7 +2,7 @@
 $(SIGNATURES)
 """
 function compoundtype(stem::VerbStem)
-    inflectionClass(stem) in COMPOUND_CLASSES
+    inflectionclass(stem) in COMPOUND_CLASSES
 end
 
 """True if `inflclass` is a regular verb type that
@@ -10,7 +10,7 @@ requires only a single principle part.
 $(SIGNATURES)
 """
 function regularverbclass(stem::VerbStem)
-    inflectionClass(stem) in REGULAR_VERB_CLASSES
+    inflectionclass(stem) in REGULAR_VERB_CLASSES
 end
 
 """True if `inflclass` is a regular verb type that
@@ -18,7 +18,7 @@ requires only a single principle part.
 $(SIGNATURES)
 """
 function regularverbclass(r::Rule)
-    inflectionClass(r) in REGULAR_VERB_CLASSES
+    inflectionclass(r) in REGULAR_VERB_CLASSES
 end
 
 
@@ -146,13 +146,13 @@ function extendcompound(stem::VerbStem, rule::R; ortho = literaryGreek()) where 
     if pp1(rule)
         stemstring(stem)
 
-    elseif inflectionClass(stem) == "ew_contract" ||  inflectionClass(stem) == "ew_contract_dep" 
+    elseif inflectionclass(stem) == "ew_contract" ||  inflectionclass(stem) == "ew_contract_dep" 
         stemstring(stem) * "η"
-    elseif inflectionClass(stem) == "aw_contract" ||  inflectionClass(stem) == "aw_contract_dep" 
+    elseif inflectionclass(stem) == "aw_contract" ||  inflectionclass(stem) == "aw_contract_dep" 
        
         alphastem(stem, rule, ortho = ortho)
 
-    elseif  inflectionClass(stem) == "ow_contract" ||  inflectionClass(stem) == "ow_contract_dep" 
+    elseif  inflectionclass(stem) == "ow_contract" ||  inflectionclass(stem) == "ow_contract_dep" 
         stemstring(stem) * "ω"
     end
 
@@ -178,7 +178,7 @@ $(SIGNATURES)
 function ppbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
     stemstr = compoundtype(stem) ? extendcompound(stem, rule, ortho = ortho) : stemstring(stem)
 
-    if inflectionClass(stem) == "izw"
+    if inflectionclass(stem) == "izw"
         izwbase(stem, rule, ortho = ortho)
 
 
@@ -207,7 +207,7 @@ function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {
     if compoundtype(stem)
         @debug("COMPOUND ", morphbase, stem)
     end
-    if takesreduplication(greekForm(rule), inflectionClass(rule))
+    if takesreduplication(greekForm(rule), inflectionclass(rule))
         morphbase = reduplicate(morphbase, ortho)
     end
     @debug("CHECK augment for rule ", greekForm(rule))

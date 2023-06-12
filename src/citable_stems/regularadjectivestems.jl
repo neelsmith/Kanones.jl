@@ -32,7 +32,7 @@ end
 """Identify inflection class for `adj`.
 $(SIGNATURES)
 """
-function inflectionClass(adj::AdjectiveStem)
+function inflectionclass(adj::AdjectiveStem)
     adj.inflectionclass
 end
 
@@ -70,10 +70,10 @@ Required for `CitableTrait`.
 """
 function cex(adj::AdjectiveStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([adj.stemid, label(adj), stemstring(adj), lexeme(adj), inflectionClass(adj), adj.accentpersistence ], delimiter)
+        join([adj.stemid, label(adj), stemstring(adj), lexeme(adj), inflectionclass(adj), adj.accentpersistence ], delimiter)
     else
         c2urn = expand(adj.stemid, registry)
-        join([c2urn, label(adj), stemstring(adj), lexeme(adj), inflectionClass(adj), adj.accentpersistence ], delimiter)
+        join([c2urn, label(adj), stemstring(adj), lexeme(adj), inflectionclass(adj), adj.accentpersistence ], delimiter)
     end
 
     #"nounstems.n8909|Noun stem ἀνθρωπ- (masculine)|ἀνθρωπ|lsj.n8909|os_ou|masculine|recessive"

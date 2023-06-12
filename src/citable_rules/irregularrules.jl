@@ -12,7 +12,7 @@ end
 """Identify inflectional class for `irreg`.
 $(SIGNATURES)
 """
-function inflectionClass(irreg::IrregularRule)
+function inflectionclass(irreg::IrregularRule)
     irreg.inflectionclass
 end
 
@@ -31,7 +31,7 @@ CitableTrait(::Type{IrregularRule}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(irreg::IrregularRule)
-    string("Uninflected rule: ", irreg.ruleid, " applies to type ", inflectionClass(irreg), ".")
+    string("Uninflected rule: ", irreg.ruleid, " applies to type ", inflectionclass(irreg), ".")
 end
 
 """Identifying URN for a `UninflectedRule`.  If
@@ -78,10 +78,10 @@ Required for `CitableTrait`.
 """
 function cex(irreg::IrregularRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([irreg.ruleid, label(irreg), inflectionClass(irreg)], delimiter)
+        join([irreg.ruleid, label(irreg), inflectionclass(irreg)], delimiter)
     else
         c2urn = expand(ur.ruleid, registry)
-        join([c2urn, label(irreg), inflectionClass(irreg)], delimiter)
+        join([c2urn, label(irreg), inflectionclass(irreg)], delimiter)
     end
 end
 

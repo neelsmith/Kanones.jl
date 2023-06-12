@@ -34,6 +34,7 @@ export label
 
 export dataset
 export rulesarray, stemsarray, registry, compoundsarray
+export inflectionclass
 export sortbylsj, sortbylsj!, sortdirbylsj!, sortregularstems!
 
 export GreekMorphologicalProperty
@@ -50,7 +51,7 @@ export code
 
 export GreekMorphologicalForm
 export greekForm, allforms
-export KanonesRule, inflectionClass, ending
+export KanonesRule, inflectionclass, ending
 export KanonesStem, lexeme, stemstring
 export GMFFiniteVerb, gmfFiniteVerb, VerbStem, FiniteVerbRule
 export GMFInfinitive, gmfInfinitive, InfinitiveRule

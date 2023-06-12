@@ -25,14 +25,14 @@ function generate(
     for s in stems
         rules = filter(ruleset) do r
             if r isa IrregularRule
-                @debug("LOOK AT inflclass of irreg rule", inflectionClass(r) )
-                @debug("Compare to inflcass of stem", inflectionClass(s))
+                @debug("LOOK AT inflclass of irreg rule", inflectionclass(r) )
+                @debug("Compare to inflcass of stem", inflectionclass(s))
                 @debug("ANd look at formurn for this stem", s)
-                inflectionClass(r) == inflectionClass(s) && formurn(s) == form
+                inflectionclass(r) == inflectionclass(s) && formurn(s) == form
             else
-                @debug("LOok at inflection classes",  inflectionClass(r), inflectionClass(s))
+                @debug("LOok at inflection classes",  inflectionclass(r), inflectionclass(s))
                 #@info("LOok at forms", formurn(r), form)
-                inflectionClass(r) == inflectionClass(s) && formurn(r) == form
+                inflectionclass(r) == inflectionclass(s) && formurn(r) == form
             end
         end
         @debug("Rules for stem", rules)

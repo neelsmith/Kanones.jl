@@ -14,6 +14,10 @@ struct FiniteVerbRule <: KanonesVerbalRule
 end
 
 
+function inflectionclass(r::FiniteVerbRule)
+    r.inflectionclass
+end
+
 """Find person property for `rule`.
 $(SIGNATURES)
 """
@@ -63,7 +67,7 @@ CitableTrait(::Type{FiniteVerbRule}) = CitableByCite2Urn()
 Required for `CitableTrait`.
 """
 function label(verb::FiniteVerbRule)
-    string("Verb inflection rule: ending -", ending(verb), " in class ", inflectionClass(verb), " can be ", label(verb.vtense), " ", label(verb.vmood), " ", label(verb.vvoice), " ", label(verb.vperson)," ", label(verb.vnumber), ".")
+    string("Verb inflection rule: ending -", ending(verb), " in class ", inflectionclass(verb), " can be ", label(verb.vtense), " ", label(verb.vmood), " ", label(verb.vvoice), " ", label(verb.vperson)," ", label(verb.vnumber), ".")
 end
 
 """Identifying URN for a `FiniteVerbRule`.  If
@@ -87,7 +91,7 @@ end
 """Identify inflection class for  `vr`
 $(SIGNATURES)
 """
-function inflectionClass(vr::FiniteVerbRule)
+function inflectionclass(vr::FiniteVerbRule)
     vr.inflectionclass
 end
 
@@ -109,10 +113,10 @@ Required for `CitableTrait`.
 """
 function cex(verb::FiniteVerbRule; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([verb.ruleid, label(verb), ending(verb), inflectionClass(verb), formurn(verb)], delimiter)
+        join([verb.ruleid, label(verb), ending(verb), inflectionclass(verb), formurn(verb)], delimiter)
     else
         c2urn = expand(verb.ruleid, registry)
-        join([c2urn, label(verb), ending(verb), inflectionClass(verb), formurn(verb)], delimiter)
+        join([c2urn, label(verb), ending(verb), inflectionclass(verb), formurn(verb)], delimiter)
     end
 end
 
@@ -179,7 +183,7 @@ function formurn(rule::FiniteVerbRule)
 end
 
 function irregularverbalrule(r::Rule)
-    infclass =   inflectionClass(r)
+    infclass =   inflectionclass(r)
     infclass == "irregularfiniteverb" ||
     infclass == "irregularinfinitive" ||
     infclass == "irregularparticiple" ||
