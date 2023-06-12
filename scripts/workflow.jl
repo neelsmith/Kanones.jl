@@ -41,13 +41,33 @@ corpus = fromcex(lysiasf, CitableTextCorpus, FileReader)
 
 lg = literaryGreek()
 histo =  corpus_histo(corpus, lg, filterby = LexicalToken())
+allsingletons = filter(pr -> pr[2] == 1, histo |> collect) 
+
+function slashline(hgram)
+    countsvect = hgram |> collect
+    hsingletons = filter(pr -> pr[2] == 1, countsvect) 
+    tkncount = map(pr -> pr[2], countsvect) |> sum
+    
+    "$(tkncount) lexical tokens, $(length(keys(hgram))) distinct forms, $(length(hsingletons)) forms appear only once"
+end
+
+slashline(histo)
+
 lexcorpus = tokenizedcorpus(corpus,lg, filterby = LexicalToken())
 analyzedlexical = parsecorpus(lexcorpus, sp)
+
+# FIGURE OUT HOW TO COUNT WITH VECTORS OF ANALYSES.
+# MEASURE LEXICAL AMBIGUTIY
+   
+
+
 
 failed = filter(at -> isempty(at.analyses), analyzedlexical.analyses)
 failedstrs = map(psg -> psg.ctoken.passage.text, failed)
 failedfreqs = filter(pr -> pr[1] in failedstrs, collect(histo))
 
+
+# Look at failures
 cutoff  = 1
 topfails = filter(failedfreqs) do pr
     pr[2] >= cutoff
