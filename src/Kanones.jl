@@ -8,7 +8,7 @@ import CitableParserBuilder: formurn
 import CitableParserBuilder: parsetoken
 import CitableParserBuilder: parselist
 import CitableParserBuilder: parsecorpus
-import CitableParserBuilder: parsedocument
+#import CitableParserBuilder: parsedocument
 import CitableParserBuilder: CanParseCitable
 import CitableParserBuilder: lexemes
 

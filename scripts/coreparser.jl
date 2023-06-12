@@ -39,7 +39,7 @@ function writedataset(ds::Kanones.FilesDataset, dslabel)
     basename = string("literarygreek-$(dslabel)-", today())
     outputdir = joinpath(pwd(), "scratch", basename)
     mkpath(outputdir)
-    writecsv(ds, outputdir)outputdir
+    writecsv(ds, outputdir)
 
     lines = ["Token,Lexeme,Form,Stem,Rule"]
     outfiles = readdir(outputdir)
@@ -64,3 +64,5 @@ ds = coredata()
 parser = stringParser(ds)
 
 parsetoken("πᾶς", parser) |> println
+
+# Write string parsr

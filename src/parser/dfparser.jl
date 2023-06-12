@@ -17,6 +17,7 @@ function dfParser(delimitedfile)
 end
 
 function parsetoken(s::AbstractString, parser::DFParser; data = nothing)
+    @info("SEARCH FOR $(knormal(s))...")
     resultdf = subset(parser.df, :Token => t -> t .== knormal(s))
 
     resultarray = Analysis[]
