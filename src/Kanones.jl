@@ -101,6 +101,7 @@ include("dataset/fileslayout.jl")
 include("dataset/filesdataset.jl")
 include("dataset/compoundstems.jl")
 include("dataset/stemreaders.jl")
+include("dataset/infltypes.jl")
 include("utils.jl")
 
 include("lexemes/lexeme.jl")

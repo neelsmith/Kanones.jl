@@ -14,12 +14,7 @@ struct ParticipleRule <: KanonesVerbalRule
 end
 
 
-"""Identify inflectional class for `irreg`.
-$(SIGNATURES)
-"""
-function inflectionclass(r::ParticipleRule)
-    r.inflectionclass
-end
+
 
 """Identify tense property of `rule`.
 $(SIGNATURES)

@@ -14,9 +14,7 @@ struct FiniteVerbRule <: KanonesVerbalRule
 end
 
 
-function inflectionclass(r::FiniteVerbRule)
-    r.inflectionclass
-end
+
 
 """Find person property for `rule`.
 $(SIGNATURES)

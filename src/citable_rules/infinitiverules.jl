@@ -10,9 +10,7 @@ struct InfinitiveRule <: KanonesVerbalRule
     voice::GMPVoice
 end
 
-function inflectionclass(r::InfinitiveRule)
-    r.inflectionclass
-end
+
 
 """Find tense property of `inf`.
 $(SIGNATURES)

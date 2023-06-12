@@ -10,10 +10,6 @@ struct AdjectiveRule <: KanonesRule
 end
 
 
-function inflectionclass(r::AdjectiveRule)
-    r.inflectionclass
-end
-
 """Identifying URN for an `AdjectiveRule`.  If
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
