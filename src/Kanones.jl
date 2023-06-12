@@ -34,7 +34,7 @@ export label
 
 export dataset
 export rulesarray, stemsarray, registry, compoundsarray
-export inflectionclass
+export inflectionclass, inflclassindex
 export sortbylsj, sortbylsj!, sortdirbylsj!, sortregularstems!
 
 export GreekMorphologicalProperty

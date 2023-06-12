@@ -33,7 +33,7 @@ end
 $(SIGNATURES)
 """
 function inflectionclass(uninfl::UninflectedStem)
-    uninfl.stemcategory
+    uninfl.stemcategory |> label
 end
 
 """Human-readlable label for an `UninflectedStem`.

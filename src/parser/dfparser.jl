@@ -34,3 +34,10 @@ function parsetoken(s::AbstractString, parser::DFParser; data = nothing)
     end
     resultarray
 end
+
+"""Find unique lexemes recognized by a parser.
+$(SIGNATURES)
+"""
+function lexemes(dfp::DFParser)
+    Array{String}(DataFrames.select(dfp.df, :Lexeme)) |> unique
+end

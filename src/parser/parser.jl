@@ -8,3 +8,10 @@ function parsetoken(s::AbstractString, p::T) where {T <: KanonesParser}
     @warn("Function parsetoken is not implemented for type $(typeof(p))")::Vector{Analysis}
     []
 end
+
+
+
+function lexemes(p::T) where {T <: KanonesParser}
+    @warn("Function lexemes is not implemented for type $(typeof(p))")
+    []
+end

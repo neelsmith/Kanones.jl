@@ -135,3 +135,14 @@ function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T
     end
     generated
 end
+
+
+"""Find unique lexemes recognized by a `StringParser`.
+$(SIGNATURES)
+"""
+function lexemes(sp::StringParser)
+    map(sp.entries) do ln
+        split(ln, "|")[2]
+    end |> unique
+end
+
