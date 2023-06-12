@@ -34,13 +34,15 @@ function stemstring(ns::NounStem)
     ns.form |> knormal
 end
 
-"""Identify lexeme for `ns`.
+"""Lexeme for a `NounStem`, as an 
+abbreviated URN.
+
 $(SIGNATURES)
 """
-function lexeme(ns::NounStem)
-    ns.lexid
-end
 
+function lexeme(n::NounStem)
+    n.lexid
+end
 """Identify inflection class for `ns`.
 $(SIGNATURES)
 """
@@ -106,11 +108,3 @@ function id(n::NounStem)
     n.stemid
 end
 
-"""Lexeme for a `NounStem`, as an 
-abbreviated URN.
-
-$(SIGNATURES)
-"""
-function lexeme(n::NounStem)
-    n.lexid
-end

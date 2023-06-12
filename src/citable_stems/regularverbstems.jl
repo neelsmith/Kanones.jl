@@ -10,10 +10,9 @@ struct VerbStem <: KanonesStem
 end
 
 
-
-
-"""Noun stems are citable by Cite2Urn"""
+"""Verb stems are citable by Cite2Urn"""
 CitableTrait(::Type{VerbStem}) = CitableByCite2Urn()
+
 
 """Identify value of stem string for `vs`.
 $(SIGNATURES)
@@ -37,8 +36,6 @@ function inflectionClass(vs::VerbStem)
 end
 
 
-"""Verb stems are citable by Cite2Urn"""
-CitableTrait(::Type{VerbStem}) = CitableByCite2Urn()
 
 """Human-readlable label for a `VerbStem`.
 

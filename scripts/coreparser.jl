@@ -65,4 +65,6 @@ parser = stringParser(ds)
 
 parsetoken("πᾶς", parser) |> println
 
-# Write string parsr
+# Write string parsr 
+pfile = joinpath(pwd(), "parsers", "current-core.csv")
+Kanones.tofile(parser, pfile, delimiter = ",")
