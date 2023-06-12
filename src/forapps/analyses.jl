@@ -1,48 +1,57 @@
 FOLIO_BASE_URL = "http://folio2.furman.edu/lsj/?urn=urn:cite2:hmt:lsj.chicago_md:"
 
 
-function lsjdict()
+"""Download dictionary of labelling lemmata for manually validated LSJ data set.
+$(SIGNATURES)
+"""
+function lsjdict()::Dict{String,String}
     @info("Downloading dictionary of lemmata for `lsj` dataset...")
     lsjurl = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/dev/datasets/lsj-vocab/lexemes/lsj.cex"
     lsjstr = Downloads.download(lsjurl) |> read |> String
     lsjlines = split(lsjstr, "\n")
 
-    dict = Dict()
+    dict = Dict{String, String}()
 
     #p(readlines(f)) do ln
     for ln in lsjlines[2:end]
 		cols = split(ln, "|")
 		if length(cols) == 2
-            id = LexemeUrn(cols[1]).objectid
-			dict[id] = cols[2]
+            id = LexemeUrn(cols[1]).objectid |> string
+			dict[id] = cols[2] |> string
 		end
 	end
 	dict
 end
 
 
-function lsjxdict()
+"""Download dictionary of labelling lemmata for lexemes in `lsjx` dataset.
+$(SIGNATURES)
+"""
+function lsjxdict()::Dict{String,String}
     @info("Downloading dictionary of lemmata for `lsjx` dataset...")
     lsjxurl = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/dev/datasets/lsj-vocab/lexemes/lsjx.cex"
     lsjxstr = Downloads.download(lsjxurl) |> read |> String
     lsjxlines = split(lsjxstr, "\n")
 
-    dict = Dict()
+    dict = Dict{String, String}()
 
     #p(readlines(f)) do ln
     for ln in lsjxlines[2:end]
 		cols = split(ln, "|")
 		if length(cols) == 2
-            id = LexemeUrn(cols[1]).objectid
-			dict[id] = cols[2]
+            id = LexemeUrn(cols[1]).objectid |> string
+			dict[id] = cols[2] |> string
 		end
 	end
 	dict
 end
 
+
+
+
 """
 """
-function lemmatadict()
+function lemmatadict()::Dict{String, String}
     merge(lsjdict(), lsjxdict())
 end
 

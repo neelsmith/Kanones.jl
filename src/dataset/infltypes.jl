@@ -6,5 +6,5 @@ function inflclassindex(ds::T) where  {T <: Dataset}
     stems = stemsarray(ds)
     map(stems) do s
         (string(lexeme(s)), string(inflectionclass(s))) 
-    end
+    end |> unique
 end

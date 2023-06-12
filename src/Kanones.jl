@@ -75,6 +75,7 @@ export IrregularVerbStem
 export IrregularInfinitiveStem
 
 export GreekLexeme
+export lemmatadict, lemmalabel
 
 export knormal
 export generate, analysis_string
@@ -102,6 +103,7 @@ include("dataset/filesdataset.jl")
 include("dataset/compoundstems.jl")
 include("dataset/stemreaders.jl")
 include("dataset/infltypes.jl")
+include("dataset/lexlabels.jl")
 include("utils.jl")
 
 include("lexemes/lexeme.jl")
