@@ -12,20 +12,28 @@ end
 """Instantiate an index of lexemes to their inflection class from a delimited-text source read from a file.
 $(SIGNATURES)
 """
-function inflclassindex(src::AbstractString, freader::Type{FileReader}; delimter = "|")
-    read(src) |> String |> inflclassindex
+function inflclassindex(src::AbstractString, freader::Type{FileReader}; delimiter = "|")
+    data = read(src) |> String 
+    inflclassindex(data, delimiter = delimiter)
 end
-
 
 """Instantiate an index of lexemes to their inflection class from a delimited-text source read from a file.
 $(SIGNATURES)
 """
-function inflclassindex(src::AbstractString, freader::Type{UrlReader}; delimter = "|")
-    f = Download(src)
+function inflclassindex(src::AbstractString, freader::Type{UrlReader}; delimiter = "|")
+    f = Downloads.download(src)
     data = read(f) |> String
     rm(f)
-    inflclassindex(data)
+    inflclassindex(data, delimiter = delimiter)
 end
+
+"""Instantiate an index of lexemes to their inflection class from a delimited-text source read from a file.
+$(SIGNATURES)
+"""
+function inflclassindex(src::AbstractString, freader::Type{StringReader}; delimiter = "|")
+    inflclassindex(src, delimiter = delimiter)
+end
+
 
 """Instantiate an index of lexemes to their inflection class from a delimited-text source.
 $(SIGNATURES)
@@ -46,7 +54,9 @@ end
 
 
 
-
+"""Format index of lexemes to inflection classes as delimited text.
+$(SIGNATURES)
+"""
 function inflclassindex_delimited(ds::T; delimiter = "|") where {T <: Dataset}
     idx = inflclassindex(ds)
     map(idx) do pr
