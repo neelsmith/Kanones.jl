@@ -17,44 +17,44 @@ noun|os_ou|Second-declension masculine or neuter noun|ἄνθρωπος|second d
 noun|0_os|Third-declension noun with "empty" nominative ending|εὐθυντῆρ|third declension noun
 noun|hs_htos|Third-declension in pattern -ης/-ητος|ἐσθής|third declension noun
 noun|is_ews|Third-declension noun in pattern -ις/-εως |πόλις|third declension noun
-noun|is_idos|||third declension noun
-noun|ma_matos|||third declension noun
-noun|os_ous|||third declension noun
-noun|s_dos|||third declension noun
+noun|is_idos|Third-declension nouns in pattern -ις/-ιδος|ἐλπίς|third declension noun
+noun|ma_matos|Third-declenion nouns in pattern -μα/-ματος|νόημα|third declension noun
+noun|os_ous|Third-declension nouns in pattern -ος/-ους|ἔπος|third declension noun
+noun|s_dos|Third-declension nouns in pattern -ς/-δος|παῖς|third declension noun
 noun|eus_ews|||third declension noun
-noun|eus_ews_oxytone|||third declension noun
-pronoun|article|||pronoun
-pronoun|demonstrative|||pronoun
+noun|eus_ews_oxytone|Third-declension nouns in pattern -εύς/-έως |ἀχιλλεύς|third declension noun
+pronoun|article|The article|ὁ|pronoun
+pronoun|demonstrative|Demonstrative pronouns|ἐκεῖνος|pronoun
 pronoun|interrogative|||pronoun
 pronoun|personal|||pronoun
 pronoun|indefinite|||pronoun
 pronoun|reflexive|||pronoun
 pronoun|relative|||pronoun
 pronoun|other|||pronoun
-verb|aw_contract|||contract verb
+verb|aw_contract|Stem for all principle parts of regular -α contract verbs|τιμάω|contract verb
 verb|aw_pp1|||contract verb
-verb|aw_contract_dep|||contract verb
-verb|azw|||consonant-stem verb
-verb|ew_contract|||contract verb
-verb|ew_contract_dep|||contract verb
-verb|izw|||consonant-stem verb
+verb|aw_contract_dep|Stem for all principle parts of regular -α contract verbs with no active forms|ἀκροάομαι|contract verb
+verb|azw|Stem for all principle parts of regular denominative verbs in -αζω|ἀγοράζω|consonant-stem verb
+verb|ew_contract|Stem for all principle parts of regular -ε contract verbs|ποιέω|contract verb
+verb|ew_contract_dep|Stem for all principle parts of regular -ε contract verbs with no active forms|ἡγέομαι|contract verb
+verb|izw|Stem for all principle parts of regular denominative verbs in -ιζω|νομίζω|consonant-stem verb
 verb|izw_dep|||consonant-stem verb
-verb|aor2_athematic|||consonant-stem verb
-verb|aor2|||vowel-stem verb
-verb|aor2_dep|||vowel-stem verb
+verb|aor2_athematic|Stem for athematic second aorists|ἔβην|consonant-stem verb
+verb|aor2|Stem for second aorist|ἔβαλον|vowel-stem verb
+verb|aor2_dep|Stem for second aorist middle |ἐγενόμην|vowel-stem verb
 verb|w_regular|||vowel-stem verb
-verb|atticfut|||contract verb
-verb|w_impft_aug|||vowel-stem verb
+verb|atticfut|Stem for Attic future|βαλῶ|contract verb
+verb|w_impft_aug|Irregularly augmented imperfect stem|εἶχον|vowel-stem verb
 verb|w_pp1|||vowel-stem verb
-verb|w_pp1_dep|||vowel-stem verb
+verb|w_pp1_dep||γίγνομαι|vowel-stem verb
 verb|w_pres|||vowel-stem verb
-verb|pp2|||vowel-stem verb
-verb|pp2_dep|||vowel-stem verb
-verb|pp3|||vowel-stem verb
+verb|pp2|Stem for second principle part|σχήσω|vowel-stem verb
+verb|pp2_dep|Stem for future middle|γενήσομαι|vowel-stem verb
+verb|pp3|Stem for third principle part|ἤκουσα|vowel-stem verb
 verb|pp3_dep|||vowel-stem verb
-verb|pp4|||vowel-stem verb
-verb|pp5|||vowel-stem verb
-verb|pp6|||vowel-stem verb
+verb|pp4|Stem for fourth principal part|ἀκήκοα|vowel-stem verb
+verb|pp5|Stem for fifth principal part|ἑώραμαι|vowel-stem verb
+verb|pp6|Stem for sixth principal part|ὤφθην|vowel-stem verb
 verb|numi|||-μι verb
 verb|numi_dep|||-μι verb
 verb|ow_contract|||contract verb
@@ -63,7 +63,7 @@ verb|ttw|||consonant-stem verb
 verb|w_regular_dep|||vowel-stem verb
 adjective|os_a_on|||2-1-2 adjective
 adjective|os_h_on_comp|||2-1-2 adjective
-adjective|os_h_on_pos|||2-1-2 adjective
+adjective|os_h_on_pos|2-1-2 adjectives regular in the positive degree|κακός|2-1-2 adjective
 adjective|os_h_on_sup|||2-1-2 adjective
 adjective|os_on|||2-ending adjective
 adjective|us_eia_u|||3-1-3 adjective
