@@ -29,6 +29,7 @@ import CitableBase: CitableTrait
 import CitableBase: urn
 import CitableBase: label
 import CitableBase: cex
+using CitableBase
 
 export label
 
