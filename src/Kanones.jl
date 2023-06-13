@@ -3,6 +3,8 @@ module Kanones
 using CSV, DataFrames
 using HTTP, Downloads
 
+using OrderedCollections, StatsBase
+
 using CitableParserBuilder
 import CitableParserBuilder: formurn
 import CitableParserBuilder: parsetoken
@@ -10,6 +12,7 @@ import CitableParserBuilder: parselist
 import CitableParserBuilder: parsecorpus
 #import CitableParserBuilder: parsedocument
 import CitableParserBuilder: CanParseCitable
+import CitableParserBuilder: lexeme
 import CitableParserBuilder: lexemes
 
 
@@ -29,6 +32,7 @@ import CitableBase: CitableTrait
 import CitableBase: urn
 import CitableBase: label
 import CitableBase: cex
+using CitableBase
 
 export label
 
