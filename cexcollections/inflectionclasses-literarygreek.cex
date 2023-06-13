@@ -1,14 +1,14 @@
 pos|inflectionclass|description|paradigmword|superclass
-uninflected|particle|Uninflected particle||uninflected
+uninflected|particle|Uninflected particle|γάρ|uninflected
 uninflected|conjunction|Uninflected conjunction|καί|uninflected
-uninflected|preposition|Uninflected preposition||uninflected
-uninflected|adverb|||uninflected
-uninflected|numeral|||uninflected
-uninflected|interjection|||uninflected
-uninflected|irregularnoun|||uninflected
-uninflected|irregularfiniteverb|||uninflected
-uninflected|irregularinfinitive|||uninflected
-uninflected|irregularadjective|||uninflected
+uninflected|preposition|Uninflected preposition|ἐν|uninflected
+uninflected|adverb|Uninflected adverb|νῦν|uninflected
+uninflected|numeral|Uninflected numeral|δέκα|uninflected
+uninflected|interjection|Uninflected interjection|ὦ|uninflected
+uninflected|irregularnoun|Irregular noun|γυνή|noun
+uninflected|irregularfiniteverb|Irregular finite verb form|εἰμί|verb
+uninflected|irregularinfinitive|Irregular infinitive form|εἶναι|verb
+uninflected|irregularadjective|Irregular adjective form|πολύς|adjective
 noun|a_as|First-declension noun in -α|οἰκία|first declension noun
 noun|a_as_short|First-declension noun in short -α|θεράπαινα|first declension noun
 noun|h_hs|First-declension noun in -η|βουλή|first declension noun
