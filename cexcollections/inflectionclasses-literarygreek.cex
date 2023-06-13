@@ -1,3 +1,4 @@
+#!citedata
 pos|inflectionclass|description|paradigmword|superclass
 uninflected|particle|Uninflected particle|γάρ|uninflected
 uninflected|conjunction|Uninflected conjunction|καί|uninflected
@@ -39,22 +40,22 @@ verb|ew_contract|Stem for all principle parts of regular -ε contract verbs|πο
 verb|ew_contract_dep|Stem for all principle parts of regular -ε contract verbs with no active forms|ἡγέομαι|contract verb
 verb|izw|Stem for all principle parts of regular denominative verbs in -ιζω|νομίζω|consonant-stem verb
 verb|izw_dep|||consonant-stem verb
-verb|aor2_athematic|Stem for athematic second aorists|ἔβην|consonant-stem verb
-verb|aor2|Stem for second aorist|ἔβαλον|vowel-stem verb
+verb|aor2_athematic|Stem for athematic scond aorists|ἔβην|consonant-stem verb
+verb|aor2|Stem for second aorist|ἔβαλον|evowel-stem verb
 verb|aor2_dep|Stem for second aorist middle |ἐγενόμην|vowel-stem verb
-verb|w_regular|||vowel-stem verb
+verb|w_regular|Stem for all principal parts of regular thematic verb|ἄρχω|vowel-stem verb
 verb|atticfut|Stem for Attic future|βαλῶ|contract verb
 verb|w_impft_aug|Irregularly augmented imperfect stem|εἶχον|vowel-stem verb
-verb|w_pp1|||vowel-stem verb
-verb|w_pp1_dep||γίγνομαι|vowel-stem verb
+verb|w_pp1|Stem for first principal part of thematic verb|κελεύω|vowel-stem verb
+verb|w_pp1_dep|Stem for first principal of thematic verb with no active forms|γίγνομαι|vowel-stem verb
 verb|w_pres|||vowel-stem verb
-verb|pp2|Stem for second principle part|σχήσω|vowel-stem verb
+verb|pp2|Stem for second principle part|κελεύσω|vowel-stem verb
 verb|pp2_dep|Stem for future middle|γενήσομαι|vowel-stem verb
-verb|pp3|Stem for third principle part|ἤκουσα|vowel-stem verb
+verb|pp3|Stem for third principle part|ἐκέλευσα|vowel-stem verb
 verb|pp3_dep|||vowel-stem verb
-verb|pp4|Stem for fourth principal part|ἀκήκοα|vowel-stem verb
-verb|pp5|Stem for fifth principal part|ἑώραμαι|vowel-stem verb
-verb|pp6|Stem for sixth principal part|ὤφθην|vowel-stem verb
+verb|pp4|Stem for fourth principal part|κεκέλευκα|vowel-stem verb
+verb|pp5|Stem for fifth principal part|κεκέλευμαι|vowel-stem verb
+verb|pp6|Stem for sixth principal part|ἐκελεύσθην|vowel-stem verb
 verb|numi|||-μι verb
 verb|numi_dep|||-μι verb
 verb|ow_contract|||contract verb
