@@ -11,7 +11,7 @@ nouninfl.s_dos16|s_dos|δες|masculine|nominative|plural|
 nouninfl.s_dos17|s_dos|δων|masculine|genitive|plural|
 nouninfl.s_dos18|s_dos|σι|masculine|dative|plural|
 nouninfl.s_dos18a|s_dos|σιν|masculine|dative|plural|
-nouninfl.s_dos19|s_dos|δες|masculine|accusative|plural|
+nouninfl.s_dos19|s_dos|δας|masculine|accusative|plural|
 nouninfl.s_dos20|s_dos|δες|masculine|vocative|plural|
 
 
@@ -28,5 +28,5 @@ nouninfl.s_dos16|s_dos|δες|feminine|nominative|plural|
 nouninfl.s_dos17|s_dos|δων|feminine|genitive|plural|
 nouninfl.s_dos18|s_dos|σι|feminine|dative|plural|
 nouninfl.s_dos18a|s_dos|σιν|feminine|dative|plural|
-nouninfl.s_dos19|s_dos|δες|feminine|accusative|plural|
+nouninfl.s_dos19|s_dos|δας|feminine|accusative|plural|
 nouninfl.s_dos20|s_dos|δες|feminine|vocative|plural|

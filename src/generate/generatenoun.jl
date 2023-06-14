@@ -23,11 +23,11 @@ function generate(stem::NounStem, rule::NounRule;
                 stripmetachars( accentword(raw, :PENULT, ortho))  |> knormal
 
             elseif stem.accentpersistence == "obliqueaccented"
-                @info("HANDLING CASE OF obliqueaccented for $(raw)")
+                @debug("HANDLING CASE OF obliqueaccented for $(raw)")
                 caselabel = label(gmpCase(rule))   
-                @info("LOOK AT CASE LABEL $(caselabel)")
+                @debug("LOOK AT CASE LABEL $(caselabel)")
                 sylls = syllabify(raw)
-                @info("SYLLABLES: $(sylls)")
+                @debug("SYLLABLES: $(sylls)")
 
                 if caselabel == "genitive" || caselabel == "dative"    
                     if PolytonicGreek.longsyllable(sylls[end], ortho)
