@@ -1,3 +1,5 @@
+function accentultima(s,ortho)
+end
 
 """Generate a form for a given noun stem and rule by combining
 stem and ending, then adding appropriate accent for this lexical
@@ -19,7 +21,24 @@ function generate(stem::NounStem, rule::NounRule;
             
             elseif stem.accentpersistence == "stemaccented"
                 stripmetachars( accentword(raw, :PENULT, ortho))  |> knormal
-            
+
+            elseif stem.accentpersistence == "obliqueaccented"
+                @info("HANDLING CASE OF obliqueaccented")
+                caselabel = label(gmpCase(rule))   
+                @info("LOOK AT CASE LABEL $(caselabel)")
+                
+                if caselabel == "genitive" || caselabel == "dative"
+                    
+                    sylls = syllabify(raw)
+                    if PolytonicGreek.longsyllable(sylls[end], ortho)
+                        stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
+                    else
+                        stripmetachars(accentultima(raw, :ACUTE, ortho))  |> knormal
+                    end
+                else
+                    stripmetachars( accentword(raw, :PENULT, ortho))  |> knormal
+                    
+                end
             else 
                 # place correct accent on ultima:
                 @debug("ACC.ULTIMA:", raw)
