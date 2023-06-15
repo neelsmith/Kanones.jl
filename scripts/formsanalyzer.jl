@@ -18,8 +18,6 @@ end
 
 
 ds = coredata(atticonly = true)
-
-ds = coredata(atticonly = true)
 sp = stringParser(ds)
 inflindex = inflclassindex(ds)
 
@@ -51,3 +49,26 @@ inflclasslist = map(pr -> pr[2], infclasspairs)
 
 counts = countmap(inflclasslist)
 histodata = sort!(OrderedDict(counts); byvalue=true, rev=true)
+
+f = joinpath(pwd(), "cexcollections", "inflectionclasses-literarygreek.cex")
+isfile(f)
+data = readlines(f)[3:end]
+# get all verb classes:
+
+verblines = filter(ln -> startswith(ln, "verb|"), data)
+verbclasses = map(verblines) do ln
+    split(ln, "|")[2]
+end
+
+
+histotuples = []
+for (s,c) in histodata
+    push!(histotuples, (class = s, count = c))
+end
+
+verbcounts = filter(t -> t.class in verbclasses, histotuples)
+map(tup -> tup.count, verbcounts) |> sum
+
+
+
+inflcasses = Kanones.icfromfile(f)

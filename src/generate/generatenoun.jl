@@ -1,6 +1,3 @@
-function accentultima(s,ortho)
-end
-
 """Generate a form for a given noun stem and rule by combining
 stem and ending, then adding appropriate accent for this lexical
 item in this form, and finally stripping off metadata characters
@@ -66,6 +63,7 @@ function generate(stem::NounStem, rule::NounRule;
         catch e
             @warn("Failed to create accented form", e)
             @warn("Raw word: $(raw) (lexeme $(lexeme(stem)))")
+           
 
         end
     end

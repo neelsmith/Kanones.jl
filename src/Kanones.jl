@@ -99,6 +99,8 @@ export urn, formurn, ruleurn
 export StringParser, stringParser
 export DFParser, dfParser
 
+export InflectionClass
+
 include("normal.jl")
 include("kanonesio.jl")
 include("dataset/dataset.jl")
@@ -200,6 +202,8 @@ include("parser/perfilebuilder.jl")
 
 include("dfparser/survey.jl")
 
+
+include("inflectionclasses/inflclasses.jl")
 
 
 end # module
