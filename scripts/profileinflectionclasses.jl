@@ -71,4 +71,44 @@ map(tup -> tup.count, verbcounts) |> sum
 
 
 
-inflcasses = Kanones.icfromfile(f)
+inflclasses = Kanones.icfromfile(f)
+
+
+nounclasses = filter(ic -> ic.pos == "noun", inflclasses)
+nounclasslist = map(ic -> ic.inflectionclass, nounclasses) .|> string
+nounclasscounts = filter(histodata) do (k,v)
+    k in nounclasslist
+end
+
+for (k,v) in nounclasscounts
+    nounclass = filter(ic -> ic.inflectionclass == k, inflclasses)[1]
+    println(string(v, ". ", label(nounclass)))
+end
+
+
+
+verbclasses = filter(ic -> ic.pos == "verb", inflclasses)
+verbclasslist = map(ic -> ic.inflectionclass, verbclasses) .|> string
+verbclasscounts = filter(histodata) do (k,v)
+    k in verbclasslist
+end
+
+for (k,v) in verbclasscounts
+    nounclass = filter(ic -> ic.inflectionclass == k, inflclasses)[1]
+    println(string(v, ". ", label(nounclass)))
+end
+
+
+
+
+
+adjectiveclasses = filter(ic -> ic.pos == "adjective", inflclasses)
+adjclasslist = map(ic -> ic.inflectionclass, adjectiveclasses) .|> string
+adjclasscounts = filter(histodata) do (k,v)
+    k in adjclasslist
+end
+
+for (k,v) in adjclasscounts
+    nounclass = filter(ic -> ic.inflectionclass == k, inflclasses)[1]
+    println(string(v, ". ", label(nounclass)))
+end

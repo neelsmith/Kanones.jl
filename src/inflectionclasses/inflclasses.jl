@@ -25,3 +25,7 @@ function icfromfile(f)
     map(ln  -> icfromdelimited(ln), readlines(f)[3:end])
 end
 
+
+function label(ic::InflectionCategory)
+    string(ic.description, ", like ", ic.paradigmword)
+end
