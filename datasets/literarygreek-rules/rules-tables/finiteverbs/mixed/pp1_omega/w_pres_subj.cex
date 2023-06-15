@@ -1,28 +1,28 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
-verbinfl.wprespressubj1|w_pres|ω|first|singular|present|subjunctive|active
-verbinfl.wprespressubj2|w_pres|ωμαι|first|singular|present|subjunctive|middle
-verbinfl.wprespressubj3|w_pres|ωμαι|first|singular|present|subjunctive|passive
+verbinfl.wprespressubj1|w_pp1|ω|first|singular|present|subjunctive|active
+verbinfl.wprespressubj2|w_pp1|ωμαι|first|singular|present|subjunctive|middle
+verbinfl.wprespressubj3|w_pp1|ωμαι|first|singular|present|subjunctive|passive
 
-verbinfl.wprespressubj4|w_pres|ῃς|second|singular|present|subjunctive|active
-verbinfl.wprespressubj5|w_pres|ῃ|second|singular|present|subjunctive|middle
-verbinfl.wprespressubj6|w_pres|ῃ|second|singular|present|subjunctive|passive
+verbinfl.wprespressubj4|w_pp1|ῃς|second|singular|present|subjunctive|active
+verbinfl.wprespressubj5|w_pp1|ῃ|second|singular|present|subjunctive|middle
+verbinfl.wprespressubj6|w_pp1|ῃ|second|singular|present|subjunctive|passive
 
-verbinfl.wprespressubj7|w_pres|ῃ|third|singular|present|subjunctive|active
-verbinfl.wprespressubj8|w_pres|ηται|third|singular|present|subjunctive|middle
-verbinfl.wprespressubj9|w_pres|ηται|third|singular|present|subjunctive|passive
-
-
-verbinfl.wprespressubj10|w_pres|ωμεν|first|plural|present|subjunctive|active
-verbinfl.wprespressubj11|w_pres|ώμεθα|first|plural|present|subjunctive|middle
-verbinfl.wprespressubj12|w_pres|ώμεθα|first|plural|present|subjunctive|passive
-
-verbinfl.wprespressubj13|w_pres|ητε|second|plural|present|subjunctive|active
-verbinfl.wprespressubj14|w_pres|ησθε|second|plural|present|subjunctive|middle
-verbinfl.wprespressubj15|w_pres|ησθε|second|plural|present|subjunctive|passive
+verbinfl.wprespressubj7|w_pp1|ῃ|third|singular|present|subjunctive|active
+verbinfl.wprespressubj8|w_pp1|ηται|third|singular|present|subjunctive|middle
+verbinfl.wprespressubj9|w_pp1|ηται|third|singular|present|subjunctive|passive
 
 
-verbinfl.wprespressubj16|w_pres|ωσι|third|plural|present|subjunctive|active
-verbinfl.wprespressubj16α|w_pres|ωσιν|third|plural|present|subjunctive|active
-verbinfl.wprespressubj17|w_pres|ωνται|third|plural|present|subjunctive|middle
-verbinfl.wprespressubj18|w_pres|ωνται|third|plural|present|subjunctive|passive
+verbinfl.wprespressubj10|w_pp1|ωμεν|first|plural|present|subjunctive|active
+verbinfl.wprespressubj11|w_pp1|ώμεθα|first|plural|present|subjunctive|middle
+verbinfl.wprespressubj12|w_pp1|ώμεθα|first|plural|present|subjunctive|passive
+
+verbinfl.wprespressubj13|w_pp1|ητε|second|plural|present|subjunctive|active
+verbinfl.wprespressubj14|w_pp1|ησθε|second|plural|present|subjunctive|middle
+verbinfl.wprespressubj15|w_pp1|ησθε|second|plural|present|subjunctive|passive
+
+
+verbinfl.wprespressubj16|w_pp1|ωσι|third|plural|present|subjunctive|active
+verbinfl.wprespressubj16α|w_pp1|ωσιν|third|plural|present|subjunctive|active
+verbinfl.wprespressubj17|w_pp1|ωνται|third|plural|present|subjunctive|middle
+verbinfl.wprespressubj18|w_pp1|ωνται|third|plural|present|subjunctive|passive

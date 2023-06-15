@@ -99,7 +99,7 @@ export urn, formurn, ruleurn
 export StringParser, stringParser
 export DFParser, dfParser
 
-export InflectionClass
+export InflectionCategory
 
 include("normal.jl")
 include("kanonesio.jl")

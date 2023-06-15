@@ -1,86 +1,86 @@
 Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 
-verbinfl.prespresindic1|w_pres|ω|first|singular|present|indicative|active
-verbinfl.prespresindic2|w_pres|ομαι|first|singular|present|indicative|middle
-verbinfl.prespresindic3|w_pres|ομαι|first|singular|present|indicative|passive
+verbinfl.prespresindic1|w_pp1|ω|first|singular|present|indicative|active
+verbinfl.prespresindic2|w_pp1|ομαι|first|singular|present|indicative|middle
+verbinfl.prespresindic3|w_pp1|ομαι|first|singular|present|indicative|passive
 
-verbinfl.prespresindic4|w_pres|εις|second|singular|present|indicative|active
-verbinfl.prespresindic5|w_pres|ει|second|singular|present|indicative|middle
-verbinfl.prespresindic5a|w_pres|ῃ|second|singular|present|indicative|middle
-verbinfl.prespresindic6|w_pres|ει|second|singular|present|indicative|passive
-verbinfl.prespresindic6a|w_pres|ῃ|second|singular|present|indicative|passive
+verbinfl.prespresindic4|w_pp1|εις|second|singular|present|indicative|active
+verbinfl.prespresindic5|w_pp1|ει|second|singular|present|indicative|middle
+verbinfl.prespresindic5a|w_pp1|ῃ|second|singular|present|indicative|middle
+verbinfl.prespresindic6|w_pp1|ει|second|singular|present|indicative|passive
+verbinfl.prespresindic6a|w_pp1|ῃ|second|singular|present|indicative|passive
 
-verbinfl.prespresindic7|w_pres|ει|third|singular|present|indicative|active
-verbinfl.prespresindic8|w_pres|εται|third|singular|present|indicative|middle
-verbinfl.prespresindic9|w_pres|εται|third|singular|present|indicative|passive
-
-
-verbinfl.prespresindic10|w_pres|ομεν|first|plural|present|indicative|active
-verbinfl.prespresindic11|w_pres|ομεθα|first|plural|present|indicative|middle
-verbinfl.prespresindic12|w_pres|ομεθα|first|plural|present|indicative|passive
+verbinfl.prespresindic7|w_pp1|ει|third|singular|present|indicative|active
+verbinfl.prespresindic8|w_pp1|εται|third|singular|present|indicative|middle
+verbinfl.prespresindic9|w_pp1|εται|third|singular|present|indicative|passive
 
 
-verbinfl.prespresindic13|w_pres|ετε|second|plural|present|indicative|active
-verbinfl.prespresindic14|w_pres|εσθε|second|plural|present|indicative|middle
-verbinfl.prespresindic15|w_pres|εσθε|second|plural|present|indicative|passive
+verbinfl.prespresindic10|w_pp1|ομεν|first|plural|present|indicative|active
+verbinfl.prespresindic11|w_pp1|ομεθα|first|plural|present|indicative|middle
+verbinfl.prespresindic12|w_pp1|ομεθα|first|plural|present|indicative|passive
 
 
-verbinfl.prespresindic16|w_pres|ουσι|third|plural|present|indicative|active
-verbinfl.prespresindic16a|w_pres|ουσιν|third|plural|present|indicative|active
-verbinfl.prespresindic17|w_pres|ονται|third|plural|present|indicative|middle
-verbinfl.prespresindic18|w_pres|ονται|third|plural|present|indicative|passive
+verbinfl.prespresindic13|w_pp1|ετε|second|plural|present|indicative|active
+verbinfl.prespresindic14|w_pp1|εσθε|second|plural|present|indicative|middle
+verbinfl.prespresindic15|w_pp1|εσθε|second|plural|present|indicative|passive
 
 
-
-
-verbinfl.presimpft1|w_pres|ον|first|singular|imperfect|indicative|active
-verbinfl.presimpft2|w_pres|ομην|first|singular|imperfect|indicative|middle
-verbinfl.presimpft3|w_pres|ομην|first|singular|imperfect|indicative|passive
-
-verbinfl.presimpft4|w_pres|ες|second|singular|imperfect|indicative|active
-verbinfl.presimpft5|w_pres|ου|second|singular|imperfect|indicative|middle
-verbinfl.presimpft6|w_pres|ου|second|singular|imperfect|indicative|passive
-
-verbinfl.presimpft7|w_pres|ε|third|singular|imperfect|indicative|active
-verbinfl.presimpft8|w_pres|ετο|third|singular|imperfect|indicative|middle
-verbinfl.wregthird9|w_pres|ετο|third|singular|imperfect|indicative|passive
-
-
-verbinfl.presimpft10|w_pres|ομεν|first|plural|imperfect|indicative|active
-verbinfl.presimpft11|w_pres|όμεθα|first|plural|imperfect|indicative|middle
-verbinfl.presimpft12|w_pres|όμεθα|first|plural|imperfect|indicative|passive
-
-
-verbinfl.presimpft13|w_pres|ετε|second|plural|imperfect|indicative|active
-verbinfl.presimpft14|w_pres|εσθε|second|plural|imperfect|indicative|middle
-verbinfl.presimpft15|w_pres|εσθε|second|plural|imperfect|indicative|passive
-
-
-verbinfl.presimpft16|w_pres|ον|third|plural|imperfect|indicative|active
-verbinfl.presimpft17|w_pres|οντο|third|plural|imperfect|indicative|middle
-verbinfl.presimpft18|w_pres|οντο|third|plural|imperfect|indicative|passive
+verbinfl.prespresindic16|w_pp1|ουσι|third|plural|present|indicative|active
+verbinfl.prespresindic16a|w_pp1|ουσιν|third|plural|present|indicative|active
+verbinfl.prespresindic17|w_pp1|ονται|third|plural|present|indicative|middle
+verbinfl.prespresindic18|w_pp1|ονται|third|plural|present|indicative|passive
 
 
 
 
+verbinfl.presimpft1|w_pp1|ον|first|singular|imperfect|indicative|active
+verbinfl.presimpft2|w_pp1|ομην|first|singular|imperfect|indicative|middle
+verbinfl.presimpft3|w_pp1|ομην|first|singular|imperfect|indicative|passive
 
-verbinfl.wprespresimp1|w_pres|ε|second|singular|present|imperative|active
-verbinfl.wprespresimp2|w_pres|έτω|third|singular|present|imperative|active
+verbinfl.presimpft4|w_pp1|ες|second|singular|imperfect|indicative|active
+verbinfl.presimpft5|w_pp1|ου|second|singular|imperfect|indicative|middle
+verbinfl.presimpft6|w_pp1|ου|second|singular|imperfect|indicative|passive
 
-verbinfl.wprespresimp3|w_pres|ετε|second|plural|present|imperative|active
-verbinfl.wprespresimp4|w_pres|όντων|third|plural|present|imperative|active
-
-
-verbinfl.wprespresimp5|w_pres|ου|second|singular|present|imperative|middle
-verbinfl.wprespresimp6|w_pres|έσθω|third|singular|present|imperative|middle
-
-verbinfl.wprespresimp7|w_pres|εσθε|second|plural|present|imperative|active
-verbinfl.wprespresimp8|w_pres|έσθων|third|plural|present|imperative|middle
+verbinfl.presimpft7|w_pp1|ε|third|singular|imperfect|indicative|active
+verbinfl.presimpft8|w_pp1|ετο|third|singular|imperfect|indicative|middle
+verbinfl.wregthird9|w_pp1|ετο|third|singular|imperfect|indicative|passive
 
 
-verbinfl.wprespresimp9|w_pres|ου|second|singular|present|imperative|passive
-verbinfl.wprespresimp10|w_pres|έσθω|third|singular|present|imperative|passive
+verbinfl.presimpft10|w_pp1|ομεν|first|plural|imperfect|indicative|active
+verbinfl.presimpft11|w_pp1|όμεθα|first|plural|imperfect|indicative|middle
+verbinfl.presimpft12|w_pp1|όμεθα|first|plural|imperfect|indicative|passive
 
-verbinfl.wprespresimp11|w_pres|εσθε|second|plural|present|imperative|passive
-verbinfl.wprespresimp12|w_pres|έσθων|third|plural|present|imperative|passive
+
+verbinfl.presimpft13|w_pp1|ετε|second|plural|imperfect|indicative|active
+verbinfl.presimpft14|w_pp1|εσθε|second|plural|imperfect|indicative|middle
+verbinfl.presimpft15|w_pp1|εσθε|second|plural|imperfect|indicative|passive
+
+
+verbinfl.presimpft16|w_pp1|ον|third|plural|imperfect|indicative|active
+verbinfl.presimpft17|w_pp1|οντο|third|plural|imperfect|indicative|middle
+verbinfl.presimpft18|w_pp1|οντο|third|plural|imperfect|indicative|passive
+
+
+
+
+
+verbinfl.wprespresimp1|w_pp1|ε|second|singular|present|imperative|active
+verbinfl.wprespresimp2|w_pp1|έτω|third|singular|present|imperative|active
+
+verbinfl.wprespresimp3|w_pp1|ετε|second|plural|present|imperative|active
+verbinfl.wprespresimp4|w_pp1|όντων|third|plural|present|imperative|active
+
+
+verbinfl.wprespresimp5|w_pp1|ου|second|singular|present|imperative|middle
+verbinfl.wprespresimp6|w_pp1|έσθω|third|singular|present|imperative|middle
+
+verbinfl.wprespresimp7|w_pp1|εσθε|second|plural|present|imperative|active
+verbinfl.wprespresimp8|w_pp1|έσθων|third|plural|present|imperative|middle
+
+
+verbinfl.wprespresimp9|w_pp1|ου|second|singular|present|imperative|passive
+verbinfl.wprespresimp10|w_pp1|έσθω|third|singular|present|imperative|passive
+
+verbinfl.wprespresimp11|w_pp1|εσθε|second|plural|present|imperative|passive
+verbinfl.wprespresimp12|w_pp1|έσθων|third|plural|present|imperative|passive

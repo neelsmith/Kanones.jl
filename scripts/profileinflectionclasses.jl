@@ -36,55 +36,20 @@ lulist = map(analyzedlexical) do lex
 end |> Iterators.flatten |> collect .|> string
 
 
-infclasspairs = map(lulist) do lex
+inflclasspairs = map(lulist) do lex
    filter(inflindex) do pr
         pr[1] == lex
-    end |> Iterators.flatten |> collect
-end
+    end 
+end |> Iterators.flatten |> collect
 
-inflclasslist = map(pr -> pr[2], infclasspairs)
-
-
-
-
+inflclasslist = map(pr -> pr[2], inflclasspairs)
 counts = countmap(inflclasslist)
 histodata = sort!(OrderedDict(counts); byvalue=true, rev=true)
 
+
+
 f = joinpath(pwd(), "cexcollections", "inflectionclasses-literarygreek.cex")
-isfile(f)
-data = readlines(f)[3:end]
-# get all verb classes:
-
-verblines = filter(ln -> startswith(ln, "verb|"), data)
-verbclasses = map(verblines) do ln
-    split(ln, "|")[2]
-end
-
-
-histotuples = []
-for (s,c) in histodata
-    push!(histotuples, (class = s, count = c))
-end
-
-verbcounts = filter(t -> t.class in verbclasses, histotuples)
-map(tup -> tup.count, verbcounts) |> sum
-
-
-
 inflclasses = Kanones.icfromfile(f)
-
-
-nounclasses = filter(ic -> ic.pos == "noun", inflclasses)
-nounclasslist = map(ic -> ic.inflectionclass, nounclasses) .|> string
-nounclasscounts = filter(histodata) do (k,v)
-    k in nounclasslist
-end
-
-for (k,v) in nounclasscounts
-    nounclass = filter(ic -> ic.inflectionclass == k, inflclasses)[1]
-    println(string(v, ". ", label(nounclass)))
-end
-
 
 
 verbclasses = filter(ic -> ic.pos == "verb", inflclasses)
@@ -98,10 +63,6 @@ for (k,v) in verbclasscounts
     println(string(v, ". ", label(nounclass)))
 end
 
-
-
-
-
 adjectiveclasses = filter(ic -> ic.pos == "adjective", inflclasses)
 adjclasslist = map(ic -> ic.inflectionclass, adjectiveclasses) .|> string
 adjclasscounts = filter(histodata) do (k,v)
@@ -112,3 +73,32 @@ for (k,v) in adjclasscounts
     nounclass = filter(ic -> ic.inflectionclass == k, inflclasses)[1]
     println(string(v, ". ", label(nounclass)))
 end
+
+
+function superclasscounts(v::Vector{InflectionCategory}, ichisto)
+    
+    d = Dict{String,Int}()
+    for ic in v
+        if haskey(ichisto, ic.inflectionclass)
+            msg = string(ic.inflectionclass, " has ", ichisto[ic.inflectionclass], " appearnaces.")
+            if haskey(d, ic.superclass)
+                d[ic.superclass] = d[ic.superclass] + ichisto[ic.inflectionclass]
+            else
+                d[ic.superclass] =  ichisto[ic.inflectionclass]
+            end
+            #println(msg)
+        else
+            @warn("Key $(ic.inflectionclass) not found in histogram")
+        end
+    end
+    d
+end
+
+supercounts = superclasscounts(inflclasses, histodata)
+
+prs = []
+for (k,v) in supercounts
+    push!(prs, (k,v))
+end
+
+sort(prs, by=pr -> pr[2], rev=true)

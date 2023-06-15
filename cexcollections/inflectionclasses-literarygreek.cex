@@ -32,6 +32,7 @@ pronoun|indefinite|||pronoun
 pronoun|reflexive|||pronoun
 pronoun|relative|||pronoun
 pronoun|other|||pronoun
+verb|atticfut|||verb
 verb|aw_contract|Stem for all principle parts of regular -α contract verbs|τιμάω|contract verb
 verb|aw_pp1|||contract verb
 verb|aw_contract_dep|Stem for all principle parts of regular -α contract verbs with no active forms|ἀκροάομαι|contract verb
@@ -48,7 +49,7 @@ verb|atticfut|Stem for Attic future|βαλῶ|contract verb
 verb|w_impft_aug|Irregularly augmented imperfect stem|εἶχον|vowel-stem verb
 verb|w_pp1|Stem for first principal part of thematic verb|κελεύω|vowel-stem verb
 verb|w_pp1_dep|Stem for first principal of thematic verb with no active forms|γίγνομαι|vowel-stem verb
-verb|w_pres|||vowel-stem verb
+verb|w_pp1|||vowel-stem verb
 verb|pp2|Stem for second principle part|κελεύσω|vowel-stem verb
 verb|pp2_dep|Stem for future middle|γενήσομαι|vowel-stem verb
 verb|pp3|Stem for third principle part|ἐκέλευσα|vowel-stem verb
@@ -57,7 +58,7 @@ verb|pp4|Stem for fourth principal part|κεκέλευκα|vowel-stem verb
 verb|pp5|Stem for fifth principal part|κεκέλευμαι|vowel-stem verb
 verb|pp6|Stem for sixth principal part|ἐκελεύσθην|vowel-stem verb
 verb|numi|||-μι verb
-verb|numi_dep|||-μι verb
+verb|numi_dep|||verb
 verb|ow_contract|||contract verb
 verb|ow_contract_dep|||contract verb
 verb|ttw|||consonant-stem verb
