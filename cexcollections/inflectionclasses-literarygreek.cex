@@ -1,15 +1,18 @@
 #!citedata
 pos|inflectionclass|description|paradigmword|superclass
-uninflected|particle|Uninflected particle|γάρ|uninflected
-uninflected|conjunction|Uninflected conjunction|καί|uninflected
-uninflected|preposition|Uninflected preposition|ἐν|uninflected
-uninflected|adverb|Uninflected adverb|νῦν|uninflected
-uninflected|numeral|Uninflected numeral|δέκα|uninflected
-uninflected|interjection|Uninflected interjection|ὦ|uninflected
-uninflected|irregularnoun|Irregular noun|γυνή|noun
-uninflected|irregularfiniteverb|Irregular finite verb form|εἰμί|verb
-uninflected|irregularinfinitive|Irregular infinitive form|εἶναι|verb
-uninflected|irregularadjective|Irregular adjective form|πολύς|adjective
+
+uninflected|particle|Uninflected particle|γάρ|uninflected form
+uninflected|conjunction|Uninflected conjunction|καί|uninflected form
+uninflected|preposition|Uninflected preposition|ἐν|uninflected form
+uninflected|adverb|Uninflected adverb|νῦν|uninflected form
+uninflected|numeral|Uninflected numeral|δέκα|uninflected form
+uninflected|interjection|Uninflected interjection|ὦ|uninflected form
+uninflected|irregularnoun|Irregular noun|γυνή|irregular noun
+uninflected|irregularfiniteverb|Irregular finite verb form|εἰμί|irregular verb
+uninflected|irregularinfinitive|Irregular infinitive form|εἶναι|irregular verb
+uninflected|irregularadjective|Irregular adjective form|πολύς|irregular adjective
+
+
 noun|a_as|First-declension noun in -α|οἰκία|first declension noun
 noun|a_as_short|First-declension noun in short -α|θεράπαινα|first declension noun
 noun|h_hs|First-declension noun in -η|βουλή|first declension noun
@@ -24,6 +27,7 @@ noun|os_ous|Third-declension nouns in pattern -ος/-ους|ἔπος|third decl
 noun|s_dos|Third-declension nouns in pattern -ς/-δος|παῖς|third declension noun
 noun|eus_ews|||third declension noun
 noun|eus_ews_oxytone|Third-declension nouns in pattern -εύς/-έως |ἀχιλλεύς|third declension noun
+
 pronoun|article|The article|ὁ|pronoun
 pronoun|demonstrative|Demonstrative pronouns|ἐκεῖνος|pronoun
 pronoun|interrogative|||pronoun
@@ -32,37 +36,45 @@ pronoun|indefinite|||pronoun
 pronoun|reflexive|||pronoun
 pronoun|relative|||pronoun
 pronoun|other|||pronoun
-verb|atticfut|||verb
+
+
+
+verb|numi|||-μι verb
+verb|numi_dep|||-μι verb
+
+verb|w_regular|Stem for all principal parts of regular thematic verb|ἄρχω|vowel-stem verb
+verb|w_regular_dep|||vowel-stem verb
+
+verb|azw|Stem for all principle parts of regular denominative verbs in -αζω|ἀγοράζω|consonant-stem verb
+verb|izw|Stem for all principle parts of regular denominative verbs in -ιζω|νομίζω|consonant-stem verb
+verb|izw_dep|||consonant-stem verb
+verb|ttw|||consonant-stem verb
+
+verb|w_impft_aug|Irregularly augmented imperfect stem|εἶχον|irregular verb
+verb|atticfut|Stem for Attic future|βαλῶ|contract verb
+verb|w_pp1|Stem for first principal part of thematic verb|κελεύω|mixed principal parts
+verb|w_pp1_dep|Stem for first principal of thematic verb with no active forms|γίγνομαι|mixed principal parts
+verb|pp2|Stem for second principle part|κελεύσω|mixed principal parts
+verb|pp2_dep|Stem for future middle|γενήσομαι|mixed principal parts
+verb|pp3|Stem for third principle part|ἐκέλευσα|mixed principal parts
+verb|pp3_dep|||mixed principal parts
+verb|aor2|Stem for second aorist|ἔβαλον|mixed principal parts
+verb|aor2_dep|Stem for second aorist middle |ἐγενόμην|mixed principal parts
+verb|aor2_aug|Irregularly augmented second aorist stem|εἶδον|mixed principal parts
+verb|aor2_athematic|Stem for athematic scond aorists|ἔβην|consonant-stem verb
+verb|pp4|Stem for fourth principal part|κεκέλευκα|mixed principal parts
+verb|pp5|Stem for fifth principal part|κεκέλευμαι|mixed principal parts
+verb|pp6|Stem for sixth principal part|ἐκελεύσθην|mixed principal parts
+
 verb|aw_contract|Stem for all principle parts of regular -α contract verbs|τιμάω|contract verb
 verb|aw_pp1|||contract verb
 verb|aw_contract_dep|Stem for all principle parts of regular -α contract verbs with no active forms|ἀκροάομαι|contract verb
-verb|azw|Stem for all principle parts of regular denominative verbs in -αζω|ἀγοράζω|consonant-stem verb
 verb|ew_contract|Stem for all principle parts of regular -ε contract verbs|ποιέω|contract verb
 verb|ew_contract_dep|Stem for all principle parts of regular -ε contract verbs with no active forms|ἡγέομαι|contract verb
-verb|izw|Stem for all principle parts of regular denominative verbs in -ιζω|νομίζω|consonant-stem verb
-verb|izw_dep|||consonant-stem verb
-verb|aor2_athematic|Stem for athematic scond aorists|ἔβην|consonant-stem verb
-verb|aor2|Stem for second aorist|ἔβαλον|evowel-stem verb
-verb|aor2_dep|Stem for second aorist middle |ἐγενόμην|vowel-stem verb
-verb|w_regular|Stem for all principal parts of regular thematic verb|ἄρχω|vowel-stem verb
-verb|atticfut|Stem for Attic future|βαλῶ|contract verb
-verb|w_impft_aug|Irregularly augmented imperfect stem|εἶχον|vowel-stem verb
-verb|w_pp1|Stem for first principal part of thematic verb|κελεύω|vowel-stem verb
-verb|w_pp1_dep|Stem for first principal of thematic verb with no active forms|γίγνομαι|vowel-stem verb
-verb|w_pp1|||vowel-stem verb
-verb|pp2|Stem for second principle part|κελεύσω|vowel-stem verb
-verb|pp2_dep|Stem for future middle|γενήσομαι|vowel-stem verb
-verb|pp3|Stem for third principle part|ἐκέλευσα|vowel-stem verb
-verb|pp3_dep|||vowel-stem verb
-verb|pp4|Stem for fourth principal part|κεκέλευκα|vowel-stem verb
-verb|pp5|Stem for fifth principal part|κεκέλευμαι|vowel-stem verb
-verb|pp6|Stem for sixth principal part|ἐκελεύσθην|vowel-stem verb
-verb|numi|||-μι verb
-verb|numi_dep|||verb
 verb|ow_contract|||contract verb
 verb|ow_contract_dep|||contract verb
-verb|ttw|||consonant-stem verb
-verb|w_regular_dep|||vowel-stem verb
+
+
 adjective|os_a_on|||2-1-2 adjective
 adjective|os_h_on_comp|||2-1-2 adjective
 adjective|os_h_on_pos|2-1-2 adjectives regular in the positive degree|κακός|2-1-2 adjective

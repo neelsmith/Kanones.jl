@@ -16,7 +16,6 @@ function coredata(; atticonly = false)
     atticonly ? dataset([lgr, lsj, extra]) :  dataset([lgr, ionic, lsj, extra]) 
 end
 
-
 ds = coredata(atticonly = true)
 sp = stringParser(ds)
 inflindex = inflclassindex(ds)
@@ -46,11 +45,11 @@ inflclasslist = map(pr -> pr[2], inflclasspairs)
 counts = countmap(inflclasslist)
 histodata = sort!(OrderedDict(counts); byvalue=true, rev=true)
 
-
-
 f = joinpath(pwd(), "cexcollections", "inflectionclasses-literarygreek.cex")
 inflclasses = Kanones.icfromfile(f)
 
+supercounts = Kanones.superclasshistogram(inflclasses, histodata)
+#
 
 verbclasses = filter(ic -> ic.pos == "verb", inflclasses)
 verbclasslist = map(ic -> ic.inflectionclass, verbclasses) .|> string
@@ -74,31 +73,3 @@ for (k,v) in adjclasscounts
     println(string(v, ". ", label(nounclass)))
 end
 
-
-function superclasscounts(v::Vector{InflectionCategory}, ichisto)
-    
-    d = Dict{String,Int}()
-    for ic in v
-        if haskey(ichisto, ic.inflectionclass)
-            msg = string(ic.inflectionclass, " has ", ichisto[ic.inflectionclass], " appearnaces.")
-            if haskey(d, ic.superclass)
-                d[ic.superclass] = d[ic.superclass] + ichisto[ic.inflectionclass]
-            else
-                d[ic.superclass] =  ichisto[ic.inflectionclass]
-            end
-            #println(msg)
-        else
-            @warn("Key $(ic.inflectionclass) not found in histogram")
-        end
-    end
-    d
-end
-
-supercounts = superclasscounts(inflclasses, histodata)
-
-prs = []
-for (k,v) in supercounts
-    push!(prs, (k,v))
-end
-
-sort(prs, by=pr -> pr[2], rev=true)
