@@ -23,6 +23,10 @@ function generate(
     @debug("STEMS:", stems)
     generated = []
     for s in stems
+        
+        if (s.augmented)
+            @info("AUGMENTED! Using stem $(s): augmented? $(s.augmented)")
+        end
         rules = filter(ruleset) do r
             if r isa IrregularRule
                 @debug("LOOK AT inflclass of irreg rule", inflectionclass(r) )

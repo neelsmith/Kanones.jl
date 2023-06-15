@@ -1,4 +1,3 @@
-
 """Generate a form for a given noun stem and rule by combining
 stem and ending, then adding appropriate accent for this lexical
 item in this form, and finally stripping off metadata characters
@@ -19,7 +18,36 @@ function generate(stem::NounStem, rule::NounRule;
             
             elseif stem.accentpersistence == "stemaccented"
                 stripmetachars( accentword(raw, :PENULT, ortho))  |> knormal
-            
+
+            elseif stem.accentpersistence == "obliqueaccented"
+                @debug("HANDLING CASE OF obliqueaccented for $(raw)")
+                caselabel = label(gmpCase(rule))   
+                @debug("LOOK AT CASE LABEL $(caselabel)")
+                sylls = syllabify(raw)
+                @debug("SYLLABLES: $(sylls)")
+
+                if caselabel == "genitive" || caselabel == "dative"    
+                    if PolytonicGreek.longsyllable(sylls[end], ortho)
+                        stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
+                    else
+                        stripmetachars(accentultima(raw, :ACUTE, ortho))  |> knormal
+                    end
+                    
+                else
+                    if length(sylls) == 1
+                        if PolytonicGreek.longsyllable(sylls[end], ortho)
+                            stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
+                        else
+                            stripmetachars(accentultima(raw, :ACUTE, ortho))  |> knormal
+                        end
+                        
+                    else
+                        stripmetachars( accentword(raw, :PENULT, ortho))  |> knormal
+                    end
+                end
+                
+
+
             else 
                 # place correct accent on ultima:
                 @debug("ACC.ULTIMA:", raw)
@@ -35,6 +63,7 @@ function generate(stem::NounStem, rule::NounRule;
         catch e
             @warn("Failed to create accented form", e)
             @warn("Raw word: $(raw) (lexeme $(lexeme(stem)))")
+           
 
         end
     end

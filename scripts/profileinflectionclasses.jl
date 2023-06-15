@@ -16,9 +16,6 @@ function coredata(; atticonly = false)
     atticonly ? dataset([lgr, lsj, extra]) :  dataset([lgr, ionic, lsj, extra]) 
 end
 
-
-ds = coredata(atticonly = true)
-
 ds = coredata(atticonly = true)
 sp = stringParser(ds)
 inflindex = inflclassindex(ds)
@@ -38,16 +35,41 @@ lulist = map(analyzedlexical) do lex
 end |> Iterators.flatten |> collect .|> string
 
 
-infclasspairs = map(lulist) do lex
+inflclasspairs = map(lulist) do lex
    filter(inflindex) do pr
         pr[1] == lex
-    end |> Iterators.flatten |> collect
-end
+    end 
+end |> Iterators.flatten |> collect
 
-inflclasslist = map(pr -> pr[2], infclasspairs)
-
-
-
-
+inflclasslist = map(pr -> pr[2], inflclasspairs)
 counts = countmap(inflclasslist)
 histodata = sort!(OrderedDict(counts); byvalue=true, rev=true)
+
+f = joinpath(pwd(), "cexcollections", "inflectionclasses-literarygreek.cex")
+inflclasses = Kanones.icfromfile(f)
+
+supercounts = Kanones.superclasshistogram(inflclasses, histodata)
+#
+
+verbclasses = filter(ic -> ic.pos == "verb", inflclasses)
+verbclasslist = map(ic -> ic.inflectionclass, verbclasses) .|> string
+verbclasscounts = filter(histodata) do (k,v)
+    k in verbclasslist
+end
+
+for (k,v) in verbclasscounts
+    nounclass = filter(ic -> ic.inflectionclass == k, inflclasses)[1]
+    println(string(v, ". ", label(nounclass)))
+end
+
+adjectiveclasses = filter(ic -> ic.pos == "adjective", inflclasses)
+adjclasslist = map(ic -> ic.inflectionclass, adjectiveclasses) .|> string
+adjclasscounts = filter(histodata) do (k,v)
+    k in adjclasslist
+end
+
+for (k,v) in adjclasscounts
+    nounclass = filter(ic -> ic.inflectionclass == k, inflclasses)[1]
+    println(string(v, ". ", label(nounclass)))
+end
+

@@ -22,8 +22,10 @@ function generate(stem::AdjectiveStem, rule::AdjectiveRule;           ortho::Gre
             
             else 
                 # place correct accent on ultima:
-                @debug("ACC.ULTIMA:", raw)
+                
                 caselabel = label(gmpCase(rule))   
+                @debug("ACC.ULTIMA:", raw)
+                @debug("Case: $(caselabel)")
                 if caselabel == "genitive" || caselabel == "dative"
                     stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
                     
@@ -33,7 +35,7 @@ function generate(stem::AdjectiveStem, rule::AdjectiveRule;           ortho::Gre
                 end
             end
         catch e
-            @warn("Failed to create accented form", e)
+            @warn("Failed to create accented adjective", e)
             @warn("Raw word: $(raw)")
 
         end

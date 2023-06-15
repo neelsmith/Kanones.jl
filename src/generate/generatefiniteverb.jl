@@ -8,8 +8,10 @@ function generate(
     stem::VerbStem, 
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
-    @debug("Generating verb ", stem, rule)
-
+    if stem.augmented
+        @info("AUGMENTED! Generating verb ", stem, rule)
+    end
+    
     # stembase is just the normalized string value for this stem
     stembase = stemstring(stem)  |> knormal
     if regularverbclass(stem)
@@ -22,7 +24,7 @@ function generate(
         if  takesreduplication(greekForm(rule), inflectionclass(rule))
             stembase = reduplicate(stembase, ortho)
         end
-        if rule isa FiniteVerbRule && takesaugment(greekForm(rule))
+        if rule isa FiniteVerbRule && takesaugment(greekForm(rule)) && stem.augmented == false
             stembase = augment(stembase, ortho)
             @debug("Augmented:", stembase)
             stembase
