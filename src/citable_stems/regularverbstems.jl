@@ -6,7 +6,8 @@ struct VerbStem <: KanonesStem
     stemid::AbbreviatedUrn
     lexid::AbbreviatedUrn
     form::AbstractString
-    stemclass::AbstractString  
+    stemclass::AbstractString 
+    augmented::Bool 
 end
 
 
@@ -97,6 +98,7 @@ function readstemrow(usp::VerbIO, delimited::AbstractString; delimiter = "|")
     lexid = LexemeUrn(parts[2])
     stem = parts[3]
     stemclass = parts[4]
-    VerbStem(stemid,lexid,stem,stemclass)
+    augmented = lowercase(parts[5]) == "true" || lowercase(parts[5]) == "t"
+    VerbStem(stemid,lexid,stem,stemclass, augmented)
     # Rule|LexicalEntity|StemClass|Stem|
 end

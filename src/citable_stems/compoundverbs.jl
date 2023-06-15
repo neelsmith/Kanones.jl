@@ -8,6 +8,7 @@ struct CompoundVerbStem <: KanonesStem
     prefix::AbstractString
     simplex::LexemeUrn
     notes::AbstractString
+    augmented::Bool
 end
 
 #=
@@ -20,7 +21,7 @@ $(SIGNATURES)
 """
 function compoundstem(s::AbstractString)
     cols = split(s, "|")
-    if length(cols) < 5
+    if length(cols) < 6
         throw(DomainException("Cannot form compound verb stem: too few columns in $(s)"))
     end
     CompoundVerbStem(
@@ -28,7 +29,8 @@ function compoundstem(s::AbstractString)
         LexemeUrn(cols[2]),
         knormal(cols[3]),
         LexemeUrn(cols[4]),
-        knormal(cols[5])
+        knormal(cols[5]),
+        lowercase(cols[6]) == "true" || lowercase(cols[6]) == "t"
     )
 end
 
@@ -77,7 +79,8 @@ function stems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = liter
             stemid(compound),
             lexeme(compound),
             catted,
-            inflectionclass(s)
+            inflectionclass(s),
+            compound.augmented
         )
         push!(compounded, newstem)
     end

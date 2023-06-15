@@ -1,4 +1,4 @@
-Rule|LexicalEntity|Stem|StemClass|
+Rule|LexicalEntity|Stem|StemClass|Augmented
 
-verbstems.n16051|lsj.n16051|ἀρχ|w_regular
-verbstems.n86117|lsj.n86117|πραγματευ|w_regular_dep
+verbstems.n16051|lsj.n16051|ἀρχ|w_regular|
+verbstems.n86117|lsj.n86117|πραγματευ|w_regular_dep|
