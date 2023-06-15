@@ -9,7 +9,7 @@ function generate(
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
     if stem.augmented
-        @info("AUGMENTED! Generating verb ", stem, rule)
+        @debug("AUGMENTED! Generating verb ", stem, rule)
     end
     
     # stembase is just the normalized string value for this stem

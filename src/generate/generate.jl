@@ -25,7 +25,7 @@ function generate(
     for s in stems
         
         if (s.augmented)
-            @info("AUGMENTED! Using stem $(s): augmented? $(s.augmented)")
+            @debug("AUGMENTED! Using stem $(s): augmented? $(s.augmented)")
         end
         rules = filter(ruleset) do r
             if r isa IrregularRule

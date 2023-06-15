@@ -1,10 +1,10 @@
-Rule|LexicalEntity|Prefix|Simplex|
+Rule|LexicalEntity|Prefix|Simplex|Notes|Augmented
 
-compounds.n54357|lsj.n25120|δια|lsj.n62205|διαλέγω
-compounds.n54357|lsj.n54357|κατα|lsj.n62205|καταλέγω
-compounds.n79526|lsj.n79526|παρ|lsj.n45996|παρέχω
-compounds.n87790|lsj.n87790|προ|lsj.n56496|προκινδυνεύω
-compounds.n109013|lsj.n109013|ὑπο|lsj.n74658|ὑποπτεύω
+compounds.n54357|lsj.n25120|δια|lsj.n62205|διαλέγω|
+compounds.n54357|lsj.n54357|κατα|lsj.n62205|καταλέγω|
+compounds.n79526|lsj.n79526|παρ|lsj.n45996|παρέχω|
+compounds.n87790|lsj.n87790|προ|lsj.n56496|προκινδυνεύω|
+compounds.n109013|lsj.n109013|ὑπο|lsj.n74658|ὑποπτεύω|
 
 
 
