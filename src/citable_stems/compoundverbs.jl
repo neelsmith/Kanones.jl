@@ -22,7 +22,7 @@ $(SIGNATURES)
 function compoundstem(s::AbstractString)
     cols = split(s, "|")
     if length(cols) < 6
-        throw(DomainException("Cannot form compound verb stem: too few columns in $(s)"))
+        throw(ArgumentError("Cannot form compound verb stem: too few columns in $(s)"))
     end
     CompoundVerbStem(
         StemUrn(cols[1]),

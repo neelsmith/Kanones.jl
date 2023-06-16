@@ -10,7 +10,7 @@ verbstems.n3398f|lsj.n3398|ἀκουσθ|pp6|
 verbstems.n19123a|lsj.n19123|βαιν|w_pp1|
 verbstems.n19123b|lsj.n19123|βησ|pp2|
 verbstems.n19123c|lsj.n19123|βησ|pp3|
-verbstems.n19123d|lsj.n19123|β|aor2_athematic|
+verbstems.n19123d|lsj.n19123|βη|aor2_athematic|
 verbstems.n19123e|lsj.n19123|βεβηκ|pp4|
 
 
@@ -29,6 +29,14 @@ verbstems.n22209c|lsj.n22209|γεν|aor2_dep|
 verbstems.n22209d|lsj.n22209|γεγον|pp4|
 verbstems.n22209e|lsj.n22209|γεγενη|pp5|
 verbstems.n22209f|lsj.n22209|γενηθ|pp6|
+
+verbstems.n22210a|lsj.n22210|γιγνωσκ|w_pp1|
+verbstems.n22210b|lsj.n22210|γνωσ|pp2_dep|
+verbstems.n22210c|lsj.n22210|γνω|aor2_athematic|
+verbstems.n22210d|lsj.n22210|ἐγνωκ|pp4|
+verbstems.n22210e|lsj.n22210|ἐγνωσ|pp5|
+verbstems.n22210f|lsj.n22210|γνωσθ|pp6|
+
 
 
 verbstems.n105829a|lsj.n45996|ἐχ|w_pp1_unaug|
