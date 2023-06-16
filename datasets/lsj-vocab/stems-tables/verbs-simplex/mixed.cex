@@ -13,6 +13,12 @@ verbstems.n27847e|lsj.n27847|δεδογ|pp5|
 verbstems.n27847f|lsj.n27847|δοχ|pp6|
 
 
+verbstems.n42827a|lsj.n42827|ἐρχ|w_pp1_dep|
+verbstems.n42827b|lsj.n42827|ἐλευσ|w_pp2_dep|
+verbstems.n42827c|lsj.n42827|ἐλθ|aor2|
+verbstems.n42827d|lsj.n42827|ἐληλυθ|pp4|
+
+
 verbstems.n61791a|lsj.n61791|λαμβαν|w_pp1|
 verbstems.n61791b|lsj.n61791|ληψ|pp2_dep|
 verbstems.n61791c|lsj.n61791|λαβ|aor2|
@@ -47,8 +53,3 @@ verbstems.n86238d|lsj.n86238|πεπραγ|w_pp4|
 verbstems.n86238e|lsj.n86238|πεπραγ|w_pp5|
 verbstems.n86238f|lsj.n86238|πραχθ|w_pp6|
 
-
-verbstems.n42827a|lsj.n42827|ἐρχ|w_pp1_dep|
-verbstems.n42827b|lsj.n42827|ἐλευσ|w_pp2_dep|
-verbstems.n42827c|lsj.n42827|ἐλθ|aor2|
-verbstems.n42827d|lsj.n42827|ἐληλυθ|pp4|
