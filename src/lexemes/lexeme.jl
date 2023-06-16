@@ -5,7 +5,7 @@ end
 
 """Human-readlable label for a `GreekLexeme`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(lex::GreekLexeme; registry = nothing, lexicon = nothing)
@@ -18,7 +18,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(lex::GreekLexeme; registry = nothing, lexicon = nothing)
@@ -32,7 +32,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(lex::GreekLexeme; delimiter = "|", registry = nothing, lexicon = nothing)

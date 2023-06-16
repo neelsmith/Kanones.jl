@@ -39,7 +39,7 @@ end
 
 """Human-readlable label for an `AdjectiveStem`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(astem::AdjectiveStem)
@@ -50,7 +50,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(adj::AdjectiveStem; registry = nothing)
@@ -65,7 +65,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(adj::AdjectiveStem; delimiter = "|", registry = nothing)

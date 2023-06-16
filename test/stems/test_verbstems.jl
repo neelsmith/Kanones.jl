@@ -1,6 +1,6 @@
 
 @testset "Test IO for delimited text" begin
-    delimited = "verbstems.n23658|lsj.n23658|δεικ|numi"
+    delimited = "verbstems.n23658|lsj.n23658|δεικ|numi|"
     verbio = Kanones.VerbIO("IO for verbs")
     stem = Kanones.readstemrow(verbio, delimited)
     @test stem isa VerbStem
@@ -8,7 +8,7 @@
 end
 
 @testset "Test data accessors" begin
-    delimited = "verbstems.n23658|lsj.n23658|δεικ|numi"
+    delimited = "verbstems.n23658|lsj.n23658|δεικ|numi|"
     verbio = Kanones.VerbIO("IO for verbs")
     stem = Kanones.readstemrow(verbio, delimited)
 
@@ -28,7 +28,7 @@ end
 end
 
 @testset "Test accent errors" begin
-    delimited = "verbstems.n1782|lsjx.n1782|ἀεσκ|w_regular"
+    delimited = "verbstems.n1782|lsjx.n1782|ἀεσκ|w_regular|"
     verbio = Kanones.VerbIO("IO for verbs")
     stem = Kanones.readstemrow(verbio, delimited)
 end

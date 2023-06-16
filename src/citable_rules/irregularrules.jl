@@ -27,7 +27,7 @@ CitableTrait(::Type{IrregularRule}) = CitableByCite2Urn()
 
 """Human-readlable label for an `IrregularRule`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(irreg::IrregularRule)
@@ -38,7 +38,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(irreg::IrregularRule; registry = nothing)
@@ -73,7 +73,7 @@ end
 If `registry` is nothing, use abbreviated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(irreg::IrregularRule; delimiter = "|", registry = nothing)

@@ -14,7 +14,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(adj::AdjectiveRule; registry = nothing)
@@ -104,7 +104,7 @@ CitableTrait(::Type{AdjectiveRule}) = CitableByCite2Urn()
 
 """Human-readlable label for an `AdjectiveRule`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(adj::AdjectiveRule)
@@ -117,7 +117,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(adj::AdjectiveRule; delimiter = "|", registry = nothing)

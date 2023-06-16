@@ -138,6 +138,7 @@ include("citable_forms/finiteverbs.jl")
 include("citable_rules/finiteverbrules.jl")
 include("citable_stems/regularverbstems.jl")
 include("citable_stems/irregularfiniteverbstems.jl")
+include("citable_stems/irregularparticiplestems.jl")
 include("citable_stems/compoundverbs.jl")
 include("citable_stems/irregularcompounds.jl")
 

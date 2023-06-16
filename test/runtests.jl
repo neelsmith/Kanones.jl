@@ -1,5 +1,5 @@
 using Kanones
-using CitableObject, CitableParserBuilder
+using CitableBase, CitableObject, CitableParserBuilder
 using CitableCorpus, CitableText
 using PolytonicGreek, Orthography
 using Unicode
