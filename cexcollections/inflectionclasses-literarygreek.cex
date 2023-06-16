@@ -79,6 +79,8 @@ verb|aw_pp1|||contract verb
 verb|aw_contract_dep|Stem for all principle parts of regular -α contract verbs with no active forms|ἀκροάομαι|contract verb
 verb|ew_contract|Stem for all principle parts of regular -ε contract verbs|ποιέω|contract verb
 verb|ew_contract_dep|Stem for all principle parts of regular -ε contract verbs with no active forms|ἡγέομαι|contract verb
+verb|ew_contract_pp1|Stem for first principal part of epsilon contract verb|δέω|contract verb
+
 verb|ow_contract|||contract verb
 verb|ow_contract_dep|||contract verb
 
