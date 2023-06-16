@@ -13,3 +13,10 @@ function coredata(; atticonly = false)
     extra = joinpath(pwd(), "datasets", "extra")
     atticonly ? dataset([lgr, lsj, extra]) :  dataset([lgr, ionic, lsj, extra]) 
 end
+
+"""Build a parser for the core dataset for literary Greek orthography.
+$(SIGNATURES)
+"""
+function coreparser(; atticonly = false)
+    coredata(atticonly = atticonly) |> stringParser
+end

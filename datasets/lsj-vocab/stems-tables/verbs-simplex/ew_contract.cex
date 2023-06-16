@@ -4,6 +4,7 @@ verbstems.n1377|lsj.n1377|ἀδικ|ew_contract|
 verbstems.n1739|lsj.n1739|ἀερομετρ|ew_contract|
 verbstems.n1965|lsj.n1965|ἀθετ|ew_contract|
 verbstems.n22079|lsj.n22079|γεωργ|ew_contract|
+verbstems.dhmew|unattested.dhmew|δημ|ew_contract|
 verbstems.n27847|lsj.n27847|δοκ|ew_contract|
 
 verbstems.n52571|lsj.n52571|καλ|ew_contract|
@@ -17,5 +18,5 @@ verbstems.n73742|lsj.n73742|ὁμολογ|ew_contract|
 verbstems.n85643|lsj.n85643|πον|ew_contract|
 
 
-verbstems.dhmew|unattested.dhmew|δημ|ew_contract|
-verbstems.thumew|unattested.thumew|θυμ|ew_contract_dep|
+
+verbstems.thumew|unattested.thumew|θυμ|ew_contract|
