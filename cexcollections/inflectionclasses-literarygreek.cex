@@ -50,19 +50,26 @@ verb|izw|Stem for all principle parts of regular denominative verbs in -ιζω|�
 verb|izw_dep|||consonant-stem verb
 verb|ttw|||consonant-stem verb
 
-verb|w_impft_aug|Irregularly augmented imperfect stem|εἶχον|irregular verb
-verb|w_pp1_unaug|Stem for unaugmented forms of first principal part (present)|ἔχω|irregular verb
-verb|atticfut|Stem for Attic future|βαλῶ|contract verb
+
+
 verb|w_pp1|Stem for first principal part of thematic verb|κελεύω|mixed principal parts
 verb|w_pp1_dep|Stem for first principal of thematic verb with no active forms|γίγνομαι|mixed principal parts
+verb|w_impft_aug|Irregularly augmented imperfect stem|εἶχον|irregular verb
+verb|w_pp1_unaug|Stem for unaugmented forms of first principal part (present)|ἔχω|irregular verb
+
 verb|pp2|Stem for second principle part|κελεύσω|mixed principal parts
 verb|pp2_dep|Stem for future middle|γενήσομαι|mixed principal parts
+verb|atticfut|Stem for Attic future|βαλῶ|contract verb
+
 verb|pp3|Stem for third principle part|ἐκέλευσα|mixed principal parts
 verb|pp3_dep|||mixed principal parts
 verb|aor2|Stem for second aorist|ἔβαλον|mixed principal parts
 verb|aor2_dep|Stem for second aorist middle |ἐγενόμην|mixed principal parts
-verb|aor2_aug|Irregularly augmented second aorist stem|εἶδον|mixed principal parts
 verb|aor2_athematic|Stem for athematic scond aorists|ἔβην|consonant-stem verb
+verb|aor2_aug|Irregularly augmented second aorist stem|εἶδον|mixed principal parts
+verb|aor2_unaug|Irregularly augmented second aorist stem|ἰδ-|mixed principal parts
+
+
 verb|pp4|Stem for fourth principal part|κεκέλευκα|mixed principal parts
 verb|pp5|Stem for fifth principal part|κεκέλευμαι|mixed principal parts
 verb|pp6|Stem for sixth principal part|ἐκελεύσθην|mixed principal parts

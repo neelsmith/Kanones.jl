@@ -1,7 +1,6 @@
 Rule|LexicalEntity|Stem|StemClass|Augmented
 
 
-
 verbstems.n3398a|lsj.n3398|ἀκου|w_pp1|
 verbstems.n3398b|lsj.n3398|ἀκουσ|pp2_dep|
 verbstems.n3398c|lsj.n3398|ἀκουσ|pp3|
@@ -54,8 +53,8 @@ verbstems.n56496f|lsj.n56496|κελευσθ|w_pp|
 
 verbstems.n74735a|lsj.n74735|ὁρ|aw_pp1|
 verbstems.n74735b|lsj.n74735|ὀψ|pp2_dep|
-verbstems.n74735c|lsj.n74735|ἰδ|aor2_stem|
-verbstems.n74735c|lsj.n74735|εἰδ|aor2_aug|
+verbstems.n74735c|lsj.n74735|εἰδ|aor2_aug|true
+verbstems.n74735c|lsj.n74735|ἰδ|aor2_unaug|
 verbstems.n74735d|lsj.n74735|ἑωρακ|pp4|
 verbstems.n74735e|lsj.n74735|ἑωρα|pp5|
 verbstems.n74735f|lsj.n74735|ὀφθ|pp6|
