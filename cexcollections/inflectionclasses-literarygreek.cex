@@ -51,6 +51,7 @@ verb|izw_dep|||consonant-stem verb
 verb|ttw|||consonant-stem verb
 
 verb|w_impft_aug|Irregularly augmented imperfect stem|εἶχον|irregular verb
+verb|w_pp1_unaug|Stem for unaugmented forms of first principal part (present)|ἔχω|irregular verb
 verb|atticfut|Stem for Attic future|βαλῶ|contract verb
 verb|w_pp1|Stem for first principal part of thematic verb|κελεύω|mixed principal parts
 verb|w_pp1_dep|Stem for first principal of thematic verb with no active forms|γίγνομαι|mixed principal parts
