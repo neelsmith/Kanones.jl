@@ -77,6 +77,7 @@ export IrregularNounStem
 export IrregularAdjectiveStem
 export IrregularVerbStem
 export IrregularInfinitiveStem
+export IrregularParticipleStem
 
 export GreekLexeme
 export lemmatadict, lemmalabel

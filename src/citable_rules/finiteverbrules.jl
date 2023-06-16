@@ -180,14 +180,22 @@ function formurn(rule::FiniteVerbRule)
     FormUrn("$(COLLECTION_ID)." * code(rule))
 end
 
+"""True if rule `r` is an irregular form from a verbal stem.
+$(SIGNATURES)
+"""
 function irregularverbalrule(r::Rule)
     infclass =   inflectionclass(r)
     infclass == "irregularfiniteverb" ||
     infclass == "irregularinfinitive" ||
     infclass == "irregularparticiple" ||
-    infclass == "irregularverbaladjective" 
+    infclass == "irregularverbaladjective"
+    
 end
 
+
+"""True if rule `r` is a form from a verbal stem.
+$(SIGNATURES)
+"""
 function verbalrule(r::Rule)
     typeof(r) <: KanonesVerbalRule || irregularverbalrule(r) 
 end
