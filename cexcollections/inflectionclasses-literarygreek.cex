@@ -46,6 +46,7 @@ verb|w_regular|Stem for all principal parts of regular thematic verb|ἄρχω|v
 verb|w_regular_dep|||vowel-stem verb
 
 verb|azw|Stem for all principle parts of regular denominative verbs in -αζω|ἀγοράζω|consonant-stem verb
+verb|azw_dep|Stem for all principle parts of regular denominative verbs in -αζω with no active forms|ἐργάζω|consonant-stem verb
 verb|izw|Stem for all principle parts of regular denominative verbs in -ιζω|νομίζω|consonant-stem verb
 verb|izw_dep|||consonant-stem verb
 verb|ttw|||consonant-stem verb
