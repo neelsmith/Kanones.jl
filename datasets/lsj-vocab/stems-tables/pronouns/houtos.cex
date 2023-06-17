@@ -2,7 +2,7 @@ StemUrn|LexicalEntity|String|Gender|Case|Number|PronounClass
 
 pronoun.n76062a|lsj.n76062|οὗτος|masculine|nominative|singular|demonstrative
 pronoun.n76062b|lsj.n76062|αὕτη|feminine|nominative|singular|demonstrative
-pronoun.n76062c|lsj.n76062|τούτου|neuter|nominative|singular|demonstrative
+pronoun.n76062c|lsj.n76062|τοῦτο|neuter|nominative|singular|demonstrative
 
 pronoun.n76062a|lsj.n76062|τούτου|masculine|genitive|singular|demonstrative
 pronoun.n76062b|lsj.n76062|ταύτης|feminine|genitive|singular|demonstrative
@@ -14,7 +14,7 @@ pronoun.n76062c|lsj.n76062|τούτῳ|neuter|dative|singular|demonstrative
 
 pronoun.n76062a|lsj.n76062|τοῦτον|masculine|accusative|singular|demonstrative
 pronoun.n76062b|lsj.n76062|ταύτην|feminine|accusative|singular|demonstrative
-pronoun.n76062c|lsj.n76062|τούτο|neuter|accusative|singular|demonstrative
+pronoun.n76062c|lsj.n76062|τοῦτο|neuter|accusative|singular|demonstrative
 
 
 pronoun.n76062a|lsj.n76062|οὗτοι|masculine|nominative|plural|demonstrative
