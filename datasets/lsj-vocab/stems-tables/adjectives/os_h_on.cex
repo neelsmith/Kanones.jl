@@ -1,8 +1,9 @@
 StemUrn|LexicalEntity|Stem|InflClass|Accent|
 
-adjstems.n50236|lsj.n50236|ἱκαν|os_h_on|inflectionaccented
+
+adjstems.n23726|lsj.n23726|δειν|os_h_on|inflectionaccented|
+adjstems.n50236|lsj.n50236|ἱκαν|os_h_on|inflectionaccented|
 adjstems.n67017|lsj.n67017|μεταφορικ|os_h_on|inflectionaccented|
-adjstems.n84421|lsj.n84421|πολεμικ|os_h_on|inflectionaccented
+adjstems.n84421|lsj.n84421|πολεμικ|os_h_on|inflectionaccented|
 adjstems.n97117|lsj.n97117|στρατηγικ|os_h_on|inflectionaccented|
-adjstems.n112771|lsj.n112771|φυτ|os_h_on|inflectionaccented
-adjstems.n112989|lsj.n112989|χαλεπ|os_h_on|inflectionaccented
+adjstems.n112771|lsj.n112771|φυτ|os_h_on|inflectionaccented|

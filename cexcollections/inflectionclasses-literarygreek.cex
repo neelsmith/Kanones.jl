@@ -86,9 +86,17 @@ verb|ow_contract|||contract verb
 verb|ow_contract_dep|||contract verb
 
 
-adjective|os_a_on|||2-1-2 adjective
+adjective|os_h_on|Regular 2-1-2 adjectives|χαλεπός|2-1-2 adjective
+adjective|os_h_on_pos|2-1-2 adjectives regular in the positive degree|ἀγαθ|2-1-2 adjective
 adjective|os_h_on_comp|||2-1-2 adjective
-adjective|os_h_on_pos|2-1-2 adjectives regular in the positive degree|κακός|2-1-2 adjective
-adjective|os_h_on_sup|||2-1-2 adjective
-adjective|os_on|||2-ending adjective
-adjective|us_eia_u|||3-1-3 adjective
+adjective|os_h_on_sup|2-1-2 adjectives regular in the superlative degree|ἄριστος|2-1-2 adjective
+
+adjective|os_a_on|Regular 2-1-2 adjectives|δίκαιος|2-1-2 adjective
+adjective|os_a_on_comp|||2-1-2 adjective
+adjective|os_a_on_sup|||2-1-2 adjective
+
+adjective|os_on|2-ending adjective in second declension||
+adjective|hs_es|2-ending adjectives in third declension|ἀκριβής|
+
+adjective|us_eia_u|Regular 3-1-3 adjectives|βραχύς|3-1-3 adjective
+
