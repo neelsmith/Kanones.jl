@@ -208,5 +208,7 @@ include("dfparser/survey.jl")
 
 include("inflectionclasses/inflclasses.jl")
 
+include("orthography/literarygreek.jl")
+
 
 end # module

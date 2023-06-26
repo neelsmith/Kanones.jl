@@ -3,6 +3,9 @@ infinfl.wmixed1|w_pp1|ειν|present|active
 infinfl.wmixed2|w_pp1|εσθαι|present|middle
 infinfl.wmixed3|w_pp1|εσθαι|present|passive
 
+
+
+
 infinfl.wmixed4|pp2|ειν|future|active
 infinfl.wmixed5|pp2|εσθαι|future|middle
 infinfl.wmixed6|pp6|ήσεσθαι|future|passive
@@ -23,3 +26,9 @@ infinfl.wmixed11|w_pp1_dep|εσθαι|present|passive
 
 infinfl.wmixed12|pp2_dep|εσθαι|future|middle
 infinfl.wmixed13|pp3_dep|ασθαι|aorist|middle
+
+
+
+infinfl.wmixed14|w_pp1_unaug|ειν|present|active
+infinfl.wmixed15|w_pw_pp1_unaugp1|εσθαι|present|middle
+infinfl.wmixed16|w_pp1_unaug|εσθαι|present|passive
