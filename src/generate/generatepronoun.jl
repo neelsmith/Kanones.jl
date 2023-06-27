@@ -1,6 +1,6 @@
 
 
-"""Generate a form for a given noun stem and rule by combining
+"""Generate a form for a given pronoun stem and rule by combining
 stem and ending, then adding appropriate accent for this lexical
 item in this form, and finally stripping off metadata characters
 marking vowel quantity and morpheme boundaries.
@@ -19,7 +19,7 @@ end
 
 
 
-"""Generate list of codes for all noun forms.
+"""Generate list of codes for all pronoun forms.
 $(SIGNATURES)
 """
 function pronounformcodes()
