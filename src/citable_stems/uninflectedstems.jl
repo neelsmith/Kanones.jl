@@ -38,7 +38,7 @@ end
 
 """Human-readlable label for an `UninflectedStem`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(us::UninflectedStem)
@@ -50,7 +50,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(us::UninflectedStem; registry = nothing)
@@ -66,7 +66,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(us::UninflectedStem; delimiter = "|", registry = nothing)

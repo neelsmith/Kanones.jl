@@ -27,7 +27,7 @@ CitableTrait(::Type{UninflectedRule}) = CitableByCite2Urn()
 
 """Human-readlable label for a `UninflectedRule`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(ur::UninflectedRule)
@@ -38,7 +38,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(ur::UninflectedRule; registry = nothing)
@@ -55,7 +55,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(ur::UninflectedRule; delimiter = "|", registry = nothing)

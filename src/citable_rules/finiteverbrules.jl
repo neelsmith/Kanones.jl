@@ -61,7 +61,7 @@ CitableTrait(::Type{FiniteVerbRule}) = CitableByCite2Urn()
 
 """Human-readlable label for a `FiniteVerbRule`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(verb::FiniteVerbRule)
@@ -72,7 +72,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(verb::FiniteVerbRule; registry = nothing)
@@ -106,7 +106,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(verb::FiniteVerbRule; delimiter = "|", registry = nothing)
@@ -180,14 +180,22 @@ function formurn(rule::FiniteVerbRule)
     FormUrn("$(COLLECTION_ID)." * code(rule))
 end
 
+"""True if rule `r` is an irregular form from a verbal stem.
+$(SIGNATURES)
+"""
 function irregularverbalrule(r::Rule)
     infclass =   inflectionclass(r)
     infclass == "irregularfiniteverb" ||
     infclass == "irregularinfinitive" ||
     infclass == "irregularparticiple" ||
-    infclass == "irregularverbaladjective" 
+    infclass == "irregularverbaladjective"
+    
 end
 
+
+"""True if rule `r` is a form from a verbal stem.
+$(SIGNATURES)
+"""
 function verbalrule(r::Rule)
     typeof(r) <: KanonesVerbalRule || irregularverbalrule(r) 
 end

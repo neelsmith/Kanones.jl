@@ -50,7 +50,7 @@ end
 
 """Human-readlable label for an `InfinitiveRule`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(inf::InfinitiveRule)
@@ -62,7 +62,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(inf::InfinitiveRule; registry = nothing)
@@ -78,7 +78,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(inf::InfinitiveRule; delimiter = "|", registry = nothing)

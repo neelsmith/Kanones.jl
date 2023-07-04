@@ -83,7 +83,7 @@ end
 
 """Human-readlable label for a `PronounStem`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(pns::PronounStem)
@@ -98,7 +98,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(pns::PronounStem; registry = nothing)
@@ -114,7 +114,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(pns::PronounStem; delimiter = "|", registry = nothing)

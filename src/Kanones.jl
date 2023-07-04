@@ -77,6 +77,7 @@ export IrregularNounStem
 export IrregularAdjectiveStem
 export IrregularVerbStem
 export IrregularInfinitiveStem
+export IrregularParticipleStem
 
 export GreekLexeme
 export lemmatadict, lemmalabel
@@ -110,7 +111,8 @@ include("dataset/compoundstems.jl")
 include("dataset/stemreaders.jl")
 include("dataset/infltypes.jl")
 include("dataset/lexlabels.jl")
-include("utils.jl")
+include("utils/utils.jl")
+include("utils/workflow.jl")
 
 include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
@@ -138,6 +140,7 @@ include("citable_forms/finiteverbs.jl")
 include("citable_rules/finiteverbrules.jl")
 include("citable_stems/regularverbstems.jl")
 include("citable_stems/irregularfiniteverbstems.jl")
+include("citable_stems/irregularparticiplestems.jl")
 include("citable_stems/compoundverbs.jl")
 include("citable_stems/irregularcompounds.jl")
 
@@ -204,6 +207,8 @@ include("dfparser/survey.jl")
 
 
 include("inflectionclasses/inflclasses.jl")
+
+include("orthography/literarygreek.jl")
 
 
 end # module

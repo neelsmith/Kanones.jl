@@ -49,7 +49,7 @@ CitableTrait(::Type{IrregularAdjectiveStem}) = CitableByCite2Urn()
 
 """Human-readlable label for an `IrregularAdjectiveStem`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(astem::IrregularAdjectiveStem)
@@ -60,7 +60,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(adj::IrregularAdjectiveStem; registry = nothing)
@@ -76,7 +76,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(adj::IrregularAdjectiveStem; delimiter = "|", registry = nothing)

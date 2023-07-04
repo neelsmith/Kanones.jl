@@ -1,6 +1,33 @@
-Rule|LexicalEntity|StemClass|Stem|
+Rule|LexicalEntity|Stem|StemClass|Augmented
 
 
+verbstems.n1083a|lsj.n1083|ἀγ|w_pp1|
+verbstems.n1083b|lsj.n1083|ἀξ|w_pp2|
+verbstems.n1083c|lsj.n1083|ἀγαγ|aor2|
+verbstems.n1083d|lsj.n1083|ἠχ|pp4|
+verbstems.n1083e|lsj.n1083|ἠγ|pp5|
+verbstems.n1083f|lsj.n1083|ἀχθ|pp6|
+
+
+
+verbstems.n20621a|lsj.n20621|βουλ|w_pp1_dep|
+verbstems.n20621b|lsj.n20621|βουλησ|pp2_dep|
+verbstems.n20621f|lsj.n20621|βουληθ|pp6|
+
+
+
+verbstems.n22825a|lsj.n22825|γραφ|w_pp1|
+verbstems.n22825b|lsj.n22825|γραψ|pp2|
+verbstems.n22825c|lsj.n22825|γραψ|pp3|
+verbstems.n22825d|lsj.n22825|γεγραφ|pp4|
+verbstems.n22825e|lsj.n22825|γεγραμ|pp5|
+verbstems.n22825f|lsj.n22825|γραφθ|pp6|
+
+
+
+verbstems.n24292a|lsj.n24292|δ|ew_contract_pp1|
+
+verbstems.n24293a|lsj.n24293|δ|ew_contract_pp1|
 
 
 
@@ -11,12 +38,18 @@ verbstems.n27847e|lsj.n27847|δεδογ|pp5|
 verbstems.n27847f|lsj.n27847|δοχ|pp6|
 
 
+verbstems.n42827a|lsj.n42827|ἐρχ|w_pp1_dep|
+verbstems.n42827b|lsj.n42827|ἐλευσ|pp2_dep|
+verbstems.n42827c|lsj.n42827|ἐλθ|aor2|
+verbstems.n42827d|lsj.n42827|ἐληλυθ|pp4|
+
+
 verbstems.n61791a|lsj.n61791|λαμβαν|w_pp1|
 verbstems.n61791b|lsj.n61791|ληψ|pp2_dep|
 verbstems.n61791c|lsj.n61791|λαβ|aor2|
 verbstems.n61791d|lsj.n61791|εἴληφ|pp4|
 verbstems.n61791e|lsj.n61791|εἴλημ|pp5|
-verbstems.n61791f|lsj.n61791|ληφθ|pp6
+verbstems.n61791f|lsj.n61791|ληφθ|pp6|
 
 verbstems.n62205a|lsj.n62205|λεγ|w_pp1|
 verbstems.n62205b|lsj.n62205|λεξ|pp2|
@@ -27,25 +60,32 @@ verbstems.n62205d|lsj.n62205|εἰλεγ|pp5|
 verbstems.n62205f|lsj.n62205|λεχθ|pp6|
 
 
-verbstems.n31161|lsj.n31161|εἰπ|aor2|
+verbstems.n31161a|lsj.n31161|εἰπ|aor2_unaug|
+verbstems.n31161b|lsj.n31161|εἰπ|aor2_aug|true
+
+verbstems.n66199a|lsj.n66199|μελ|w_pp1|
+verbstems.n66199b|lsj.n66199|μελησ|pp2|
+verbstems.n66199c|lsj.n66199|μελησ|pp3|
+verbstems.n66199d|lsj.n66199|μεμεληκ|pp4|
 
 
-
-verbstems.n94711a|lsj.n94711|σκεπτ|w_pp1_dep
-verbstems.n94711b|lsj.n94711|σκεψ|pp2_dep
-verbstems.n94711c|lsj.n94711|σκεψ|pp3_dep
-verbstems.n94711e|lsj.n94711|ἐσκεπ|pp5
-
-
-verbstems.n86238a|lsj.n86238|πραττ|w_pp1
-verbstems.n86238b|lsj.n86238|πραξ|w_pp2
-verbstems.n86238c|lsj.n86238|πραξ|w_pp3
-verbstems.n86238d|lsj.n86238|πεπραγ|w_pp4
-verbstems.n86238e|lsj.n86238|πεπραγ|w_pp5
-verbstems.n86238f|lsj.n86238|πραχθ|w_pp6
+verbstems.n80557a|lsj.n80557|πεμπ|w_pp1|
+verbstems.n80557b|lsj.n80557|πεμψ|pp2|
+verbstems.n80557c|lsj.n80557|πεμψ|pp3|
+verbstems.n80557d|lsj.n80557|πεπομφ|pp4|
+verbstems.n80557e|lsj.n80557|πεπεμ|pp5|
+verbstems.n80557f|lsj.n80557|πεμφθ|pp6|
 
 
-verbstems.n42827a|lsj.n42827|ἐρχ|w_pp1_dep
-verbstems.n42827b|lsj.n42827|ἐλευσ|w_pp2_dep
-verbstems.n42827c|lsj.n42827|ἐλθ|aor2
-verbstems.n42827d|lsj.n42827|ἐληλυθ|pp4
+verbstems.n86238a|lsj.n86238|πραττ|w_pp1|
+verbstems.n86238b|lsj.n86238|πραξ|pp2|
+verbstems.n86238c|lsj.n86238|πραξ|pp3|
+verbstems.n86238d|lsj.n86238|πεπραγ|pp4|
+verbstems.n86238e|lsj.n86238|πεπραγ|pp5|
+verbstems.n86238f|lsj.n86238|πραχθ|pp6|
+
+
+verbstems.n94711a|lsj.n94711|σκεπτ|w_pp1_dep|
+verbstems.n94711b|lsj.n94711|σκεψ|pp2_dep|
+verbstems.n94711c|lsj.n94711|σκεψ|pp3_dep|
+verbstems.n94711e|lsj.n94711|ἐσκεπ|pp5|

@@ -1,6 +1,6 @@
 
 function lemmalabel(lexurn::LexemeUrn; dict = lemmatadict())
-	string(lexurn, dict = dict) |> hacklabel
+	lemmalabel(string(lexurn), dict = dict)
 end
 
 function lemmalabel(s::AbstractString;  dict = lemmatadict())

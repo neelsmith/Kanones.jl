@@ -31,7 +31,7 @@ end
 CitableTrait(::Type{IrregularInfinitiveStem}) = CitableByCite2Urn()
 """Human-readlable label for an `IrregularInfinitiveStem`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(inf::IrregularInfinitiveStem)
@@ -42,7 +42,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(inf::IrregularInfinitiveStem; registry = nothing)
@@ -58,7 +58,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(inf::IrregularInfinitiveStem; delimiter = "|", registry = nothing)

@@ -38,7 +38,7 @@ CitableTrait(::Type{IrregularNounStem}) = CitableByCite2Urn()
 
 """Human-readlable label for an `IrregularNounStem`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(ns::IrregularNounStem)
@@ -50,7 +50,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(ns::IrregularNounStem; registry = nothing)
@@ -66,7 +66,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(ns::IrregularNounStem; delimiter = "|", registry = nothing)

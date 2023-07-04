@@ -1,5 +1,5 @@
 using Kanones
-using CitableObject, CitableParserBuilder
+using CitableBase, CitableObject, CitableParserBuilder
 using CitableCorpus, CitableText
 using PolytonicGreek, Orthography
 using Unicode
@@ -50,3 +50,5 @@ include("test_verbspipeline.jl")
 
 include("parser/test_formsinventory.jl")
 include("parser/test_parse.jl")
+
+include("lsj/test_labels.jl")

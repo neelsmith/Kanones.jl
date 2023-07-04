@@ -1,3 +1,17 @@
 StemUrn|LexicalEntity|Stem|InflClass|Accent|
 
+
+adjstems.n260|lsj.n260|ἀγαθ|os_h_on_pos|inflectionaccented|
+adjstems.n4509|lsj.n4509|ἀλλοτρι|os_a_on|recessive
+adjstems.n26886|lsj.n26886|δικαι|os_a_on|recessive|
+
+adjstems.n15133|lsj.n15133|ἀριστ|os_h_on_sup|recessive
+adjstems.n19788|lsj.n19788|βελτιστ|os_h_on_sup|recessive|
+
+
 adjstems.n52332|lsj.n52332|κακ|os_h_on_pos|inflectionaccented|
+
+adjstems.n109757|lsj.n109757|ὕστερ|os_a_on_comp|recessive
+
+adjstems.n111463|lsj.n111463|φιλ|os_h_on|recessive|
+adjstems.n112989|lsj.n112989|χαλεπ|os_h_on|inflectionaccented

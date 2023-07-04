@@ -2,33 +2,35 @@ StemUrn|LexicalEntity|String|Gender|Case|Number|PronounClass
 
 pronoun.n76062a|lsj.n76062|οὗτος|masculine|nominative|singular|demonstrative
 pronoun.n76062b|lsj.n76062|αὕτη|feminine|nominative|singular|demonstrative
-pronoun.n76062c|lsj.n76062|τούτου|neuter|nominative|singular|demonstrative
+pronoun.n76062c|lsj.n76062|τοῦτο|neuter|nominative|singular|demonstrative
 
-pronoun.n76062a|lsj.n76062|τούτου|masculine|genitive|singular|demonstrative
-pronoun.n76062b|lsj.n76062|ταύτης|feminine|genitive|singular|demonstrative
-pronoun.n76062c|lsj.n76062|τούτου|neuter|genitive|singular|demonstrative
+pronoun.n76062d|lsj.n76062|τούτου|masculine|genitive|singular|demonstrative
+pronoun.n76062e|lsj.n76062|ταύτης|feminine|genitive|singular|demonstrative
+pronoun.n76062f|lsj.n76062|τούτου|neuter|genitive|singular|demonstrative
 
-pronoun.n76062a|lsj.n76062|τούτῳ|masculine|dative|singular|demonstrative
-pronoun.n76062b|lsj.n76062|ταύτῃ|feminine|dative|singular|demonstrative
-pronoun.n76062c|lsj.n76062|τούτῳ|neuter|dative|singular|demonstrative
+pronoun.n76062g|lsj.n76062|τούτῳ|masculine|dative|singular|demonstrative
+pronoun.n76062h|lsj.n76062|ταύτῃ|feminine|dative|singular|demonstrative
+pronoun.n76062i|lsj.n76062|τούτῳ|neuter|dative|singular|demonstrative
 
-pronoun.n76062a|lsj.n76062|τοῦτον|masculine|accusative|singular|demonstrative
-pronoun.n76062b|lsj.n76062|ταύτην|feminine|accusative|singular|demonstrative
-pronoun.n76062c|lsj.n76062|τούτο|neuter|accusative|singular|demonstrative
+pronoun.n76062j|lsj.n76062|τοῦτον|masculine|accusative|singular|demonstrative
+pronoun.n76062k|lsj.n76062|ταύτην|feminine|accusative|singular|demonstrative
+pronoun.n76062l|lsj.n76062|τοῦτο|neuter|accusative|singular|demonstrative
 
 
-pronoun.n76062a|lsj.n76062|οὗτοι|masculine|nominative|plural|demonstrative
-pronoun.n76062b|lsj.n76062|αὗται|feminine|nominative|plural|demonstrative
-pronoun.n76062c|lsj.n76062|ταῦτα|neuter|nominative|plural|demonstrative
+pronoun.n76062m|lsj.n76062|οὗτοι|masculine|nominative|plural|demonstrative
+pronoun.n76062n|lsj.n76062|αὗται|feminine|nominative|plural|demonstrative
+pronoun.n76062o|lsj.n76062|ταῦτα|neuter|nominative|plural|demonstrative
+pronoun.n76062o2|lsj.n76062|ταῦθ'|neuter|nominative|plural|demonstrative
 
-pronoun.n76062a|lsj.n76062|τούτων|masculine|genitive|plural|demonstrative
-pronoun.n76062b|lsj.n76062|τούτων|feminine|genitive|plural|demonstrative
-pronoun.n76062c|lsj.n76062|τούτων|neuter|genitive|plural|demonstrative
+pronoun.n76062p|lsj.n76062|τούτων|masculine|genitive|plural|demonstrative
+pronoun.n76062q|lsj.n76062|τούτων|feminine|genitive|plural|demonstrative
+pronoun.n76062r|lsj.n76062|τούτων|neuter|genitive|plural|demonstrative
 
-pronoun.n76062a|lsj.n76062|τούτοις|masculine|dative|plural|demonstrative
-pronoun.n76062b|lsj.n76062|ταύταις|feminine|dative|plural|demonstrative
-pronoun.n76062c|lsj.n76062|τούτοις|neuter|dative|plural|demonstrative
+pronoun.n76062s|lsj.n76062|τούτοις|masculine|dative|plural|demonstrative
+pronoun.n76062t|lsj.n76062|ταύταις|feminine|dative|plural|demonstrative
+pronoun.n76062u|lsj.n76062|τούτοις|neuter|dative|plural|demonstrative
 
-pronoun.n76062a|lsj.n76062|τούτους|masculine|accusative|plural|demonstrative
-pronoun.n76062b|lsj.n76062|ταύτας|feminine|accusative|plural|demonstrative
-pronoun.n76062c|lsj.n76062|ταῦτα|neuter|accusative|plural|demonstrative
+pronoun.n76062v|lsj.n76062|τούτους|masculine|accusative|plural|demonstrative
+pronoun.n76062w|lsj.n76062|ταύτας|feminine|accusative|plural|demonstrative
+pronoun.n76062x|lsj.n76062|ταῦτα|neuter|accusative|plural|demonstrative
+pronoun.n76062x2|lsj.n76062|ταῦθ|neuter|accusative|plural|demonstrative

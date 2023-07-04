@@ -40,7 +40,7 @@ end
 
 """Human-readlable label for a `VerbStem`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(vs::VerbStem)
@@ -57,7 +57,7 @@ end
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function urn(vs::VerbStem; registry = nothing)
@@ -73,7 +73,7 @@ end
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
 
-@(SIGNATURES)
+$(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(vs::VerbStem; delimiter = "|", registry = nothing)
@@ -94,6 +94,9 @@ $(SIGNATURES)
 """
 function readstemrow(usp::VerbIO, delimited::AbstractString; delimiter = "|")
     parts = split(delimited, delimiter)
+    if length(parts) < 5
+        throw(ArgumentError("readstemrow for verb: too few parts in $(delimited)"))
+    end
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])
     stem = parts[3]
