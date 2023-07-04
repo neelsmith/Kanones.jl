@@ -50,3 +50,5 @@ include("test_verbspipeline.jl")
 
 include("parser/test_formsinventory.jl")
 include("parser/test_parse.jl")
+
+include("lsj/test_labels.jl")
