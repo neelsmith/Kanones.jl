@@ -1,5 +1,9 @@
 StemUrn|LexicalEntity|Stem|Gender|InflClass|Accent|
 
+
+
+nounstems.n317|lsj.n317|ἀγαμεμν|masculine|wn_onos|recessive|
+
 nounstems.n41858|lsj.n41858|ἐπ|neuter|os_ous|recessive|
 nounstems.n70911|lsj.n70911|νοημα|neuter|ma_matos|recessive|
 
@@ -14,6 +18,11 @@ nounstems.n84494|lsj.n84494|πολ|feminine|is_ews|recessive|
 nounstems.n76703m|lsj.n76703|παι|masculine|s_dos|obliqueaccented
 nounstems.n76703f|lsj.n76703|παι|feminine|s_dos|obliqueaccented
 
+
+
 nounstems.n71314|lsj.n71314|νυ|feminine|cs_ktos|obliqueaccented
 
 nounstems.n18714|lsj.n18714|ἀχιλλ|masculine|eus_ews_oxytone|inflectionaccented|
+
+
+nounstems.n85893|lsj.n85893|ποσειδ|masculine|wn_wnos|inflectionaccented|
