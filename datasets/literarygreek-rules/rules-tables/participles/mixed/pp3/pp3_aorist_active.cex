@@ -1,7 +1,7 @@
 Rule|StemClass|Ending|Tense|Voice|Gender|Case|Number|
 
 
-ptcplinfl.pp3aoract1|pp3|ας|aorist|active|masculine|nominative|singular|
+ptcplinfl.pp3aoract1|pp3|α_ς|aorist|active|masculine|nominative|singular|
 ptcplinfl.pp3aoract2|pp3|αντος|aorist|active|masculine|genitive|singular|
 ptcplinfl.pp3aoract3|pp3|αντι|aorist|active|masculine|dative|singular|
 ptcplinfl.pp3aoract4|pp3|αντα|aorist|active|masculine|accusative|singular|
