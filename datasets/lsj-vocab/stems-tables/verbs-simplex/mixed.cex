@@ -70,6 +70,13 @@ verbstems.n62205f|lsj.n62205|λεχθ|pp6|
 verbstems.n31161a|lsj.n31161|εἰπ|aor2_unaug|
 verbstems.n31161b|lsj.n31161|εἰπ|aor2_aug|true
 
+
+verbstems.n64914a|lsj.n64914|μανθαν|w_pp1|
+verbstems.n64914a|lsj.n64914|μαθησ|pp2_dep|
+verbstems.n64914a|lsj.n64914|μαθ|aor2|
+verbstems.n64914a|lsj.n64914|μεμαθηκ|pp4|
+
+
 verbstems.n66199a|lsj.n66199|μελ|w_pp1|
 verbstems.n66199b|lsj.n66199|μελησ|pp2|
 verbstems.n66199c|lsj.n66199|μελησ|pp3|
