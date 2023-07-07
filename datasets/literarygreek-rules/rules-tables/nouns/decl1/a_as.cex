@@ -1,10 +1,10 @@
 Rule|StemClass|Ending|Gender|Case|Number|
 
-nouninfl.a_as1|a_as|α|feminine|nominative|singular|
-nouninfl.a_as2|a_as|ας|feminine|genitive|singular|
+nouninfl.a_as1|a_as|α_|feminine|nominative|singular|
+nouninfl.a_as2|a_as|α_ς|feminine|genitive|singular|
 nouninfl.a_as3|a_as|ᾳ|feminine|dative|singular|
-nouninfl.a_as4|a_as|αν|feminine|accusative|singular|
-nouninfl.a_as5|a_as|α|feminine|vocative|singular|
+nouninfl.a_as4|a_as|α_ν|feminine|accusative|singular|
+nouninfl.a_as5|a_as|α_|feminine|vocative|singular|
 
 nouninfl.a_as6|a_as|αι|feminine|nominative|plural|
 nouninfl.a_as7|a_as|ῶν|feminine|genitive|plural|
