@@ -1,0 +1,13 @@
+Rule|StemClass|Ending|Gender|Case|Number|
+
+nouninfl.h_hs1|h_hs_contract|ῆ|feminine|nominative|singular|
+nouninfl.h_hs2|h_hs_contract|ῆς|feminine|genitive|singular|
+nouninfl.h_hs3|h_hs_contract|ῇ|feminine|dative|singular|
+nouninfl.h_hs4|h_hs_contract|ῆν|feminine|accusative|singular|
+nouninfl.h_hs5|h_hs_contract|ῆ|feminine|vocative|singular|
+
+nouninfl.h_hs6|h_hs_contract|αῖ|feminine|nominative|plural|
+nouninfl.h_hs7|h_hs_contract|ῶν|feminine|genitive|plural|
+nouninfl.h_hs8|h_hs_contract|αῖς|feminine|dative|plural|
+nouninfl.h_hs9|h_hs_contract|ᾶς|feminine|accusative|plural|
+nouninfl.h_hs10|h_hs_contract|αῖ|feminine|vocative|plural|
