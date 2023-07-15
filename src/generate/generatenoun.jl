@@ -48,16 +48,26 @@ function generate(stem::NounStem, rule::NounRule;
                 
 
 
-            else 
-                # place correct accent on ultima:
-                @debug("ACC.ULTIMA:", raw)
-                caselabel = label(gmpCase(rule))   
-                if caselabel == "genitive" || caselabel == "dative"
-                    stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
-                    
+            else
+                
+                endingsylls = syllabify(ending(rule))
+                @debug("CHECK SYLLABLE COUNT:", length(endingsyll))
+                if length(endingsylls) > 1
+                    accentedending =  accentword(ending(rule), :RECESSIVE, ortho)
+
+                    stemstring(stem) * accentedending |> knormal
+
                 else
-                    stripmetachars(accentultima(raw, :ACUTE, ortho))  |> knormal
-                    
+                    # place correct accent on ultima:
+                    @debug("ACC.ULTIMA:", raw)
+                    caselabel = label(gmpCase(rule))   
+                    if caselabel == "genitive" || caselabel == "dative"
+                        stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
+                        
+                    else
+                        stripmetachars(accentultima(raw, :ACUTE, ortho))  |> knormal
+                        
+                    end
                 end
             end
             

@@ -1,9 +1,12 @@
 StemID|LexicalEntity|Form|StemClass|
 
 uninflectedstems.n4845|lsj.n4845|ἅμα|adverb|
+uninflectedstems.n17381|lsj.n17381|αὖθις|adverb|
 uninflectedstems.n27438|lsj.n27438|δίς|adverb|
 uninflectedstems.n31562|lsj.n31562|εἶτα|adverb|
-uninflectedstems.n35267|lsj.n35267|ἔνδον|adverb
+uninflectedstems.n31945|lsj.n31945|ἐκεῖ|adverb|
+uninflectedstems.n35267|lsj.n35267|ἔνδον|adverb|
+uninflectedstems.n35541|lsj.n35541|ἔνθα|adverb|
 uninflectedstems.n37343|lsj.n37343|ἑξῆς|adverb|
 uninflectedstems.n38547|lsj.n38547|ἔπειτα|adverb|
 uninflectedstems.n43266|lsj.n43266|ἔτι|adverb|
@@ -26,7 +29,7 @@ uninflectedstems.n76063|lsj.n76063|οὕτως|adverb|
 uninflectedstems.n76068b|lsj.n76068|οὐχ'|adverb|
 uninflectedstems.n76068α|lsj.n76068|οὐχί|adverb|
 uninflectedstems.n76742|lsj.n76742|πάλαι|adverb|
-uninflectedstems.n76910|lsj.n76910|παλιν|adverb|
+uninflectedstems.n76910|lsj.n76910|πάλιν|adverb|
 uninflectedstems.n85971|lsj.n85971|πότε|adverb|
 uninflectedstems.n85971a|lsj.n85971a|ποτε|adverb|
 uninflectedstems.n86087|lsj.n86087|ποῦ|adverb|

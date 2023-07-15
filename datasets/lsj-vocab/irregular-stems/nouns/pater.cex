@@ -1,0 +1,15 @@
+StemUrn|LexicalEntity|String|Gender|Case|Number|IrregularClass
+
+irregnoun.irregn80011a|lsj.n80011|πατήρ|masculine|nominative|singular|irregularnoun
+irregnoun.irregn80011b|lsj.n80011|πατρός|masculine|genitive|singular|irregularnoun
+irregnoun.irregn80011c|lsj.n80011|πατρί|masculine|dative|singular|irregularnoun
+irregnoun.irregn80011d|lsj.n80011|πατέρα|masculine|accusative|singular|irregularnoun
+irregnoun.irregn80011f|lsj.n80011|πάτερ|masculine|vocative|singular|irregularnoun
+
+
+irregnoun.irregn80011g|lsj.n80011|πατέρες|masculine|nominative|plural|irregularnoun
+irregnoun.irregn80011h|lsj.n80011|πατέρων|masculine|genitive|plural|irregularnoun
+irregnoun.irregn80011i|lsj.n80011|πατράσι|masculine|dative|plural|irregularnoun
+irregnoun.irregn80011i2|lsj.n80011|πατράσιν|masculine|dative|plural|irregularnoun
+irregnoun.irregn80011j|lsj.n80011|πατέρας|masculine|accusative|plural|irregularnoun
+irregnoun.irregn80011l|lsj.n80011|πατέρες|masculine|vocative|plural|irregularnoun

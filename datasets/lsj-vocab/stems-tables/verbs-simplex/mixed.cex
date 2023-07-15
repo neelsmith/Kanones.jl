@@ -1,8 +1,8 @@
-Rule|LexicalEntity|Stem|StemClass|Augmented
+Stem|LexicalEntity|Stem|StemClass|Augmented
 
 
 verbstems.n1083a|lsj.n1083|ἀγ|w_pp1|
-verbstems.n1083b|lsj.n1083|ἀξ|w_pp2|
+verbstems.n1083b|lsj.n1083|ἀξ|pp2|
 verbstems.n1083c|lsj.n1083|ἀγαγ|aor2|
 verbstems.n1083d|lsj.n1083|ἠχ|pp4|
 verbstems.n1083e|lsj.n1083|ἠγ|pp5|
@@ -23,13 +23,9 @@ verbstems.n22825d|lsj.n22825|γεγραφ|pp4|
 verbstems.n22825e|lsj.n22825|γεγραμ|pp5|
 verbstems.n22825f|lsj.n22825|γραφθ|pp6|
 
-
-
 verbstems.n24292a|lsj.n24292|δ|ew_contract_pp1|
 
 verbstems.n24293a|lsj.n24293|δ|ew_contract_pp1|
-
-
 
 verbstems.n27847a|lsj.n27847|δοκ|ew_contract_pp1|
 verbstems.n27847b|lsj.n27847|δοκη|pp2|
@@ -38,11 +34,30 @@ verbstems.n27847e|lsj.n27847|δεδογ|pp5|
 verbstems.n27847f|lsj.n27847|δοχ|pp6|
 
 
+verbstems.n31161a|lsj.n31161|εἰπ|aor2_unaug|
+verbstems.n31161b|lsj.n31161|εἰπ|aor2_aug|true
+
+
 verbstems.n42827a|lsj.n42827|ἐρχ|w_pp1_dep|
 verbstems.n42827b|lsj.n42827|ἐλευσ|pp2_dep|
 verbstems.n42827c|lsj.n42827|ἐλθ|aor2|
 verbstems.n42827d|lsj.n42827|ἐληλυθ|pp4|
 
+verbstems.n46804a|lsj.n46804|ἡκ|w_pp1|
+verbstems.n46804b|lsj.n46804|ἡξ|pp2|
+
+
+verbstems.n52571a|lsj.n52571|καλ|ew_contract_pp1|
+verbstems.n52571b|lsj.n52571|καλ|atticfut|
+verbstems.n52571c|lsj.n52571|καλεσ|pp3|
+verbstems.n52571d|lsj.n52571|κεκληκ|pp4|
+verbstems.n52571e|lsj.n52571|κεκλη|pp5|
+verbstems.n52571f|lsj.n52571|κληθ|pp6|
+
+verbstems.n60316a|lsj.n60316|κτειν|w_pp1|
+verbstems.n60316b|lsj.n60316|κτεν|atticfut|
+verbstems.n60316c|lsj.n60316|κτειν|pp3|
+verbstems.n60316d|lsj.n60316|κτον|pp4|
 
 verbstems.n61791a|lsj.n61791|λαμβαν|w_pp1|
 verbstems.n61791b|lsj.n61791|ληψ|pp2_dep|
@@ -60,8 +75,13 @@ verbstems.n62205d|lsj.n62205|εἰλεγ|pp5|
 verbstems.n62205f|lsj.n62205|λεχθ|pp6|
 
 
-verbstems.n31161a|lsj.n31161|εἰπ|aor2_unaug|
-verbstems.n31161b|lsj.n31161|εἰπ|aor2_aug|true
+
+
+verbstems.n64914a|lsj.n64914|μανθαν|w_pp1|
+verbstems.n64914a|lsj.n64914|μαθησ|pp2_dep|
+verbstems.n64914a|lsj.n64914|μαθ|aor2|
+verbstems.n64914a|lsj.n64914|μεμαθηκ|pp4|
+
 
 verbstems.n66199a|lsj.n66199|μελ|w_pp1|
 verbstems.n66199b|lsj.n66199|μελησ|pp2|

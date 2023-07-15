@@ -1,0 +1,12 @@
+StemUrn|LexicalEntity|String|Person|Number|Tense|Mood|Voice|IrregularClass
+
+irregverb.irregverbn31130opt1|lsj.n31130|εἴην|first|singular|present|optative|active|irregularfiniteverb
+irregverb.irregverbn31130opt2|lsj.n31130|εἴης|second|singular|present|optative|active|irregularfiniteverb
+irregverb.irregverbn31130opt3|lsj.n31130|εἴη|third|singular|present|optative|active|irregularfiniteverb
+
+
+
+irregverb.irregverbn31130opt4|lsj.n31130|εἴημεν|first|plural|present|optative|active|irregularfiniteverb
+irregverb.irregverbn31130opt5|lsj.n31130|εἴητε|second|plural|present|optative|active|irregularfiniteverb
+irregverb.irregverbn31130opt6a|lsj.n31130|εἴησαν|third|plural|present|optative|active|irregularfiniteverb
+irregverb.irregverbn31130opt6b|lsj.n31130|εἴεν|third|plural|present|optative|active|irregularfiniteverb

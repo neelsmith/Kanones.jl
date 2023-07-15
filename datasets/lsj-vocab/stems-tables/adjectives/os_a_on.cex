@@ -1,9 +1,16 @@
 StemUrn|LexicalEntity|Stem|InflClass|Accent|
 
+
+adjstems.n1987a|lsj.n1987a|ἀθηναι|os_a_on|stemaccented
 adjstems.n2777|lsj.n2777|αἰτι|os_a_on|recessive
 adjstems.n11058|lsj.n11058|ἀξι|os_a_on|recessive
 adjstems.n14935|lsj.n14935|ἀρει|os_a_on|recessive
 
-adjstems.n1987a|lsj.n1987a|ἀθηναι|os_a_on|stemaccented
+adjstems.n18626|lsj.n18626|ἀχαι|os_a_on|inflectionaccented
+
+
+
+
+adjstems.n64703|lsj.n64703|μακρ|os_a_on|stemaccented
 
 adjstems.n72627|lsj.n72627|οἱ|os_a_on|recessive|

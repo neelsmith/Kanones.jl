@@ -17,7 +17,9 @@ noun|a_as|First-declension noun in -α|οἰκία|first declension noun
 noun|a_as_short|First-declension noun in short -α|θεράπαινα|first declension noun
 noun|h_hs|First-declension noun in -η|βουλή|first declension noun
 noun|hs_ou|First-declension mascuine|πολίτης|first declension noun
+
 noun|os_ou|Second-declension masculine or neuter noun|ἄνθρωπος|second declension noun
+
 noun|0_os|Third-declension noun with "empty" nominative ending|εὐθυντῆρ|third declension noun
 noun|hs_htos|Third-declension in pattern -ης/-ητος|ἐσθής|third declension noun
 noun|is_ews|Third-declension noun in pattern -ις/-εως |πόλις|third declension noun
@@ -27,6 +29,8 @@ noun|os_ous|Third-declension nouns in pattern -ος/-ους|ἔπος|third decl
 noun|s_dos|Third-declension nouns in pattern -ς/-δος|παῖς|third declension noun
 noun|eus_ews|||third declension noun
 noun|eus_ews_oxytone|Third-declension nouns in pattern -εύς/-έως |ἀχιλλεύς|third declension noun
+
+
 
 pronoun|article|The article|ὁ|pronoun
 pronoun|demonstrative|Demonstrative pronouns|ἐκεῖνος|pronoun

@@ -43,6 +43,7 @@ verbinfl.pp1impft5|w_pp1|ου|second|singular|imperfect|indicative|middle
 verbinfl.pp1impft6|w_pp1|ου|second|singular|imperfect|indicative|passive
 
 verbinfl.pp1impft7|w_pp1|ε|third|singular|imperfect|indicative|active
+verbinfl.pp1impft7b|w_pp1|εν|third|singular|imperfect|indicative|active
 verbinfl.pp1impft8|w_pp1|ετο|third|singular|imperfect|indicative|middle
 verbinfl.wregthird9|w_pp1|ετο|third|singular|imperfect|indicative|passive
 

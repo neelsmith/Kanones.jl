@@ -213,8 +213,14 @@ function irregularstems(dirlist; delimiter = "|")
                             raw = readlines(joinpath(root,f))
                             lines = filter(s -> ! isempty(s), raw)
                             for i in 2:length(lines)
-                                stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
-                                push!(stemsarr,stem)
+                                try
+                                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
+                                    push!(stemsarr,stem)
+                                catch
+                                    @warn("Irregular stems data: error reading line $(i), $(lines[1]) in file $(joinpath(dir,f))")
+                                end
+
+                                
                             end
                         end
                     end
