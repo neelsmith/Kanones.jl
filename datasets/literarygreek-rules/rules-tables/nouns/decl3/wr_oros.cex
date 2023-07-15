@@ -1,0 +1,13 @@
+Rule|StemClass|Ending|Gender|Case|Number|
+
+
+nouninfl.wr_oros1|wr_oros|ων|masculine|nominative|singular|
+nouninfl.wr_oros2|wr_oros|ορος|masculine|genitive|singular|
+nouninfl.wr_oros3|wr_oros|ορι|masculine|dative|singular|
+nouninfl.wr_oros4|wr_oros|ορα|masculine|accusative|singular|
+
+nouninfl.wr_oros5|wr_oros|ορες|masculine|nominative|plural|
+nouninfl.wr_oros6|wr_oros|ορων|masculine|genitive|plural|
+nouninfl.wr_oros7|wr_oros|ορσι|masculine|dative|plural|
+nouninfl.wr_oros8|wr_oros|ορας|masculine|accusative|plural|
+
