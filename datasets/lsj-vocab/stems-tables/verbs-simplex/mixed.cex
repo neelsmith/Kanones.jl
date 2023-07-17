@@ -1,4 +1,4 @@
-Stem|LexicalEntity|Stem|StemClass|Augmented
+Stem|LexicalEntity|Stem|StemClass|Pre-augmented
 
 
 verbstems.n1083a|lsj.n1083|ἀγ|w_pp1|
@@ -56,8 +56,8 @@ verbstems.n52571f|lsj.n52571|κληθ|pp6|
 
 
 
-verstems.n56393a|lsj.n56393|κει|mi_pp1_dep
-verstems.n56393b|lsj.n56393|κεισ|pp2_dep
+verstems.n56393a|lsj.n56393|κει|mi_pp1_dep|
+verstems.n56393b|lsj.n56393|κεισ|pp2_dep|
 
 verbstems.n60316a|lsj.n60316|κτειν|w_pp1|
 verbstems.n60316b|lsj.n60316|κτεν|atticfut|
