@@ -17,15 +17,16 @@ function generate(
     stemset::Vector{Stem},
     orthography::GreekOrthography) 
 
+    @debug("Generating $(form) for $(lex)...")
     @debug("Use data arrays to generate form for lex", form, lex)
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemset)
     @debug("STEMS:", stems)
     generated = []
     for s in stems
-        
+        @debug("Inflection class of stem is $(inflectionclass(s))")
         if (s.augmented)
-            @debug("AUGMENTED! Using stem $(s): augmented? $(s.augmented)")
+            @warn("AUGMENTED! Using stem $(s): augmented? $(s.augmented)")
         end
         rules = filter(ruleset) do r
             if r isa IrregularRule
@@ -57,6 +58,7 @@ function generate(
     lex::LexemeUrn, 
     form::FormUrn, 
     kds::Kanones.FilesDataset) 
+    @debug("Generating $(form) for $(lex)...")
     generate(lex, form, rulesarray(kds), stemsarray(kds), kds.orthography)
 end
 
