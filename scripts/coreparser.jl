@@ -10,11 +10,12 @@ function alllitgreek(; atticonly = false)
     ionic = joinpath(pwd(), "datasets", "ionic")
     # 2. manually validated LSJ vocab:
     lsj = joinpath(pwd(), "datasets", "lsj-vocab")
+    homeric = joinpath(pwd(), "datasets", "homeric")
     # 3. manually validated NOT in LSJ:
     extra = joinpath(pwd(), "datasets", "extra")
-    # 4. hypothesized data from LSJMining
+    # 5. hypothesized data from LSJMining
     lsjx = joinpath("..", "LSJMining.jl", "kanonesdata","lsjx")
-    atticonly ?  dataset([lgr, lsj, extra, lsjx]) :  dataset([lgr, ionic, lsj, extra, lsjx]) 
+    atticonly ?  dataset([lgr, lsj, extra, lsjx]) :  dataset([lgr, ionic, homeric, lsj, extra, lsjx]) 
 end
 
 
@@ -25,11 +26,12 @@ function coredata(; atticonly = false)
     # 1. rules with demo vocab:
     lgr = joinpath(pwd(), "datasets", "literarygreek-rules")
     ionic = joinpath(pwd(), "datasets", "ionic")
+    homeric = joinpath(pwd(), "datasets", "homeric")
     # 2. manually validated LSJ vocab:
     lsj = joinpath(pwd(), "datasets", "lsj-vocab")
     # 3. manually validated NOT in LSJ:
     extra = joinpath(pwd(), "datasets", "extra")
-    atticonly ? dataset([lgr, lsj, extra]) :  dataset([lgr, ionic, lsj, extra]) 
+    atticonly ? dataset([lgr, lsj, extra]) :  dataset([lgr, ionic, homeric, lsj, extra]) 
 end
 
 
