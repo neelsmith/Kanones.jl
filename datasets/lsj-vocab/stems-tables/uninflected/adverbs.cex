@@ -1,5 +1,8 @@
 StemID|LexicalEntity|Form|StemClass|
 
+
+uninflectedstems.n2273a|lsj.n2273|αἰεί|adverb|
+uninflectedstems.n2273b|lsj.n2273|ἀεί|adverb|
 uninflectedstems.n4845|lsj.n4845|ἅμα|adverb|
 uninflectedstems.n17306|lsj.n17306|αὖ|adverb|
 uninflectedstems.n17381|lsj.n17381|αὖθις|adverb|
@@ -11,6 +14,8 @@ uninflectedstems.n31945|lsj.n31945|ἐκεῖ|adverb|
 uninflectedstems.n35267|lsj.n35267|ἔνδον|adverb|
 uninflectedstems.n35541|lsj.n35541|ἔνθα|adverb|
 uninflectedstems.n37343|lsj.n37343|ἑξῆς|adverb|
+
+uninflectedstems.n37720|lsj.n37720|ἔξω|adverb|
 uninflectedstems.n38547|lsj.n38547|ἔπειτα|adverb|
 uninflectedstems.n43266|lsj.n43266|ἔτι|adverb|
 uninflectedstems.n43309|lsj.n43309|εὖ|adverb|

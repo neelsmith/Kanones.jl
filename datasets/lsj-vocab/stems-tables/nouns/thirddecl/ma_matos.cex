@@ -1,7 +1,9 @@
 StemUrn|LexicalEntity|Stem|Gender|InflClass|Accent|Notes
 
 nounstems.n1379|lsj.n1379|ἀδικημα|neuter|ma_matos|recessive|
-nounstems.n4962|lsj.n4962|ἁμαρτημα|neuter|ma_matos|
+nounstems.n4962|lsj.n4962|ἁμαρτημα|neuter|ma_matos|recessive|
+
+nounstems.n41017|lsj.n41017|ἐπιστημα|neuter|ma_matos|recessive|
 
 nounstems.n74126|lsj.n74126|ὀνομα|neuter|ma_matos|recessive|
 nounstems.n86112|lsj.n86112|πρα_γμα|neuter|ma_matos|recessive|
