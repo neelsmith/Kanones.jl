@@ -1,8 +1,11 @@
 StemID|LexicalEntity|Form|StemClass|
 
 uninflectedstems.n4845|lsj.n4845|ἅμα|adverb|
+uninflectedstems.n17306|lsj.n17306|αὖ|adverb|
 uninflectedstems.n17381|lsj.n17381|αὖθις|adverb|
+
 uninflectedstems.n27438|lsj.n27438|δίς|adverb|
+
 uninflectedstems.n31562|lsj.n31562|εἶτα|adverb|
 uninflectedstems.n31945|lsj.n31945|ἐκεῖ|adverb|
 uninflectedstems.n35267|lsj.n35267|ἔνδον|adverb|
@@ -11,13 +14,23 @@ uninflectedstems.n37343|lsj.n37343|ἑξῆς|adverb|
 uninflectedstems.n38547|lsj.n38547|ἔπειτα|adverb|
 uninflectedstems.n43266|lsj.n43266|ἔτι|adverb|
 uninflectedstems.n43309|lsj.n43309|εὖ|adverb|
+
 uninflectedstems.n46571|lsj.n46571|ἦ|adverb|
 uninflectedstems.n46646|lsj.n46646|ἤδη|adverb|
-uninflectedstems.n56149|lsj.n56149|κάτω|adverb
+
+uninflectedstems.n56149|lsj.n56149|κάτω|adverb|
+
 uninflectedstems.n63013|lsj.n63013|λίαν|adverb|
-uninflectedstems.n64866|lsj.n64866|μᾶλλον|adverb|
+
+uninflectedstems.n64757a|lsj.n64757|μάλα|adverb|
+uninflectedstems.n64757b|lsj.n64757|μᾶλλον|adverb_comp|
+uninflectedstems.n64757c|lsj.n64757|μάλιστα|adverb_superl|
 uninflectedstems.n67283|lsj.n67283|μή|adverb|
+
+
+uninflectedstems.n69649|lsj.n69649|ναί|adverb|
 uninflectedstems.n71308|lsj.n71312|νυνί|adverb|
+
 uninflectedstems.n72153|lsj.n72153|ὅθεν|adverb|
 uninflectedstems.n75688|lsj.n75688|ὅτε|adverb|
 uninflectedstems.n75730a|lsj.n75730|οὐ|adverb|
@@ -28,8 +41,10 @@ uninflectedstems.n76063|lsj.n76063|οὕτω|adverb|
 uninflectedstems.n76063|lsj.n76063|οὕτως|adverb|
 uninflectedstems.n76068b|lsj.n76068|οὐχ'|adverb|
 uninflectedstems.n76068α|lsj.n76068|οὐχί|adverb|
+
 uninflectedstems.n76742|lsj.n76742|πάλαι|adverb|
 uninflectedstems.n76910|lsj.n76910|πάλιν|adverb|
+uninflectedstems.n77699|lsj.n77699|πάνυ|adverb|
 uninflectedstems.n85971|lsj.n85971|πότε|adverb|
 uninflectedstems.n85971a|lsj.n85971a|ποτε|adverb|
 uninflectedstems.n86087|lsj.n86087|ποῦ|adverb|
@@ -37,5 +52,7 @@ uninflectedstems.n86088|lsj.n86088|που|adverb|
 uninflectedstems.n91991|lsj.n91991|πώποτε|adverb|
 uninflectedstems.n92010|lsj.n92010|πῶς|adverb|
 uninflectedstems.n92011|lsj.n92011|πως|adverb|
+
+uninflectedstems.n104155|lsj.n104155|τοι|adverb|
 uninflectedstems.n104429|lsj.n104429|τότε|adverb|
 uninflectedstems.n104430|lsj.n104430|τοτέ|adverb|
