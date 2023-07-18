@@ -80,8 +80,6 @@ verbstems.n62205d|lsj.n62205|εἰλεγ|pp5|
 verbstems.n62205f|lsj.n62205|λεχθ|pp6|
 
 
-
-
 verbstems.n64914a|lsj.n64914|μανθαν|w_pp1|
 verbstems.n64914a|lsj.n64914|μαθησ|pp2_dep|
 verbstems.n64914a|lsj.n64914|μαθ|aor2|
@@ -114,8 +112,21 @@ verbstems.n86238d|lsj.n86238|πεπραγ|pp4|
 verbstems.n86238e|lsj.n86238|πεπραγ|pp5|
 verbstems.n86238f|lsj.n86238|πραχθ|pp6|
 
-
 verbstems.n94711a|lsj.n94711|σκεπτ|w_pp1_dep|
 verbstems.n94711b|lsj.n94711|σκεψ|pp2_dep|
 verbstems.n94711c|lsj.n94711|σκεψ|pp3_dep|
 verbstems.n94711e|lsj.n94711|ἐσκεπ|pp5|
+
+
+
+verbstems.n102515a|lsj.n102515|τασσ|w_pp1|
+verbstems.n102515b|lsj.n102515|ταττ|w_pp1|
+
+
+
+
+
+verbstems.n114548a|lsj.n114548|χρα|aw_contract_pp1|
+verbstems.n114548b|lsj.n114548|χρησ|pp2_dep|
+verbstems.n114548c|lsj.n114548|χρησ|pp3_dep|
+verbstems.n114548d|lsj.n114548|κεχρη|pp5|
