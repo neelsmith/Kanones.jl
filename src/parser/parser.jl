@@ -21,7 +21,7 @@ function parsewordlist(vocablist, parser::KanonesParser; data = nothing, countin
     for (i,s) in enumerate(vocablist)
         push!(parses, parsetoken(s, parser))
         if i % countinterval == 0
-            @info("$(i)...")
+            @info("$(i) ($(s))...")
         end
     end
     parses
