@@ -1,0 +1,14 @@
+StemUrn|LexicalEntity|String|Person|Number|Tense|Mood|Voice|IrregularClass
+
+
+irregverb.n72202a|lsj.n72202|οἶδα|first|singular|perfect|indicative|active|irregularverb
+irregverb.n72202b|lsj.n72202|οἶσθα|second|singular|perfect|indicative|active|irregularverb
+irregverb.n72202c|lsj.n72202|οἶδε|third|singular|perfect|indicative|active|irregularverb
+irregverb.n72202c1|lsj.n72202|οἶδεν|third|singular|perfect|indicative|active|irregularverb
+
+
+
+irregverb.n72202d|lsj.n72202|ἴσμεν|first|plural|perfect|indicative|active|irregularverb
+irregverb.n72202e|lsj.n72202|ἴστε|second|plural|perfect|indicative|active|irregularverb
+irregverb.n72202f|lsj.n72202|ἴσα_σι|third|plural|perfect|indicative|active|irregularverb
+irregverb.n72202f2|lsj.n72202|ἴσα_σιν|third|plural|perfect|indicative|active|irregularverb

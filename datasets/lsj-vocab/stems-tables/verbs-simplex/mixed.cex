@@ -1,4 +1,4 @@
-Stem|LexicalEntity|Stem|StemClass|Pre-augmented
+Stem|LexicalEntity|Stem|StemClass|Pre-augmented or reduplicated
 
 
 verbstems.n1083a|lsj.n1083|ἀγ|w_pp1|
@@ -96,6 +96,7 @@ verbstems.n72425a|lsj.n72425|οἰ|mi_pp1_dep|
 verbstems.n72425b|lsj.n72425|οἰησ|pp2_dep|
 verbstems.n72425c|lsj.n72425|οἰηθ|pp6|
 
+verbstems.n72202ptcpl|lsj.n72202|εἰδ|pp5|true
 
 verbstems.n80557a|lsj.n80557|πεμπ|w_pp1|
 verbstems.n80557b|lsj.n80557|πεμψ|pp2|
