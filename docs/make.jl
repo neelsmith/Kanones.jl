@@ -38,6 +38,12 @@ makedocs(
             "Utilities" => "utilities.md"
            
         ],
+
+        "Details of implementation" => Any[
+            "Generating a form" => "implementation/generating.md",
+            "Combining stem and inflection" => "implementation/wordformation.md",
+            "Accenting the final string" => "implementation/accent.md",
+        ],
         
        #=
         "Reference: vocabulary in the `lsj` dataset" => Any[
