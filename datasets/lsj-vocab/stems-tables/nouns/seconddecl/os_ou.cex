@@ -53,7 +53,9 @@ nounstems.n80504|lsj.n80504|πελοποννησ|feminine|os_ou|recessive|
 nounstems.n84434|lsj.n84434|πολεμ|masculine|os_ou|recessive|
 nounstems.n86917|lsj.n86917|προγον|masculine|os_ou|recessive|
 
-nounstems.n94426|lsj.n94426|σιτ|masculine|os_ou|stemaccented
+nounstems.n94426a|lsj.n94426|σι_τ|masculine|os_ou_sg|stemaccented
+nounstems.n94426b|lsj.n94426|σι_τ|neuter|os_ou_pl|stemaccented
+
 nounstems.n96884|lsj.n96884|στιχ|masculine|os_ou|recessive|
 nounstems.n95908|lsj.n95908|σπηλαι|neuter|os_ou|recessive|
 nounstems.n99638|lsj.n99638|συνδεσμ|masculine|os_ou|recessive|

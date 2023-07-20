@@ -1,0 +1,17 @@
+StemUrn|LexicalEntity|String|Person|Number|Tense|Mood|Voice|IrregularClass
+
+
+irregverb.irregverbn31131impf1|lsj.n31131|ᾔα|first|singular|imperfect|indicative|active|irregularfiniteverb
+irregverb.irregverbn31131impf1b|lsj.n31131|ᾔειν|first|singular|imperfect|indicative|active|irregularfiniteverb
+
+irregverb.irregverbn31131impf2|lsj.n31131|ἤεισθα|second|singular|imperfect|indicative|active|irregularfiniteverb
+irregverb.irregverbn31131impf2b|lsj.n31131|ᾔεις|second|singular|imperfect|indicative|active|irregularfiniteverb
+
+irregverb.n31131impf3|lsj.n31131|ᾔει|third|singular|imperfect|indicative|active|irregularverb
+irregverb.n31131impf3b|lsj.n31131|ᾔειν|third|singular|imperfect|indicative|active|irregularverb
+
+
+irregverb.irregverbn31131impf4|lsj.n31131|ᾖμεν|first|plural|imperfect|indicative|active|irregularfiniteverb
+irregverb.irregverbn31131impf5|lsj.n31131|ᾖτε|second|plural|imperfect|indicative|active|irregularfiniteverb
+irregverb.irregverbn31131impf6|lsj.n31131|ᾖσαν|third|plural|imperfect|indicative|active|irregularfiniteverb
+irregverb.irregverbn31131impf6b|lsj.n31131|ᾖεσαν|third|plural|imperfect|indicative|active|irregularfiniteverb

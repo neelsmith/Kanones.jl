@@ -1,0 +1,16 @@
+StemUrn|LexicalEntity|String|Person|Number|Tense|Mood|Voice|IrregularClass
+
+
+irregverb.n72202opta|lsj.n72202|εἰδείην|first|singular|perfect|optative|active|irregularverb
+irregverb.n72202optb|lsj.n72202|εἰδείης|second|singular|perfect|optative|active|irregularverb
+irregverb.n72202optc|lsj.n72202|εἰδείη|third|singular|perfect|optative|active|irregularverb
+
+
+irregverb.n72202optd|lsj.n72202|εἰδείημεν|first|plural|perfect|optative|active|irregularverb
+irregverb.n72202optd2|lsj.n72202|εἰδεῖμεν|first|plural|perfect|optative|active|irregularverb
+
+irregverb.n72202opte|lsj.n72202|εἰδείητε|second|plural|perfect|optative|active|irregularverb
+irregverb.n72202opte2|lsj.n72202|εἰδεῖτε|second|plural|perfect|optative|active|irregularverb
+
+irregverb.n72202optf|lsj.n72202|εἰδείησαν|third|plural|perfect|optative|active|irregularverb
+irregverb.n72202optf2|lsj.n72202|εἰδεῖεν|third|plural|perfect|optative|active|irregularverb
