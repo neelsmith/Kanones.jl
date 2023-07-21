@@ -33,21 +33,23 @@ function generate(
         end
     end
 
-
     @debug("prin.part with morphemes:", stembase)
+    #=
     baseparts = split(stembase, "#")
     basemorpheme = baseparts[end]
     @debug("STEMBASE, morphemes", stembase, basemorpheme)
-    
-    raw = strcat(basemorpheme, ending(rule), ortho) |> knormal
+    =#
+    #raw = strcat(basemorpheme, ending(rule), ortho) |> knormal
+    raw = strcat(stembase, ending(rule), ortho) |> knormal
     @debug("apply rule to get raw", ending(rule), raw)
+    #=
     if length(baseparts) > 1
         prefix = replace(join(baseparts[1:end-1],""), "#" => "")
         @debug("Prefix is ", prefix)
         raw = strcat(prefix, raw, ortho)
 
     end
-
+=#
 
     @debug("Generate finite verb from raw", raw)
 
@@ -66,9 +68,9 @@ function generate(
             @warn("Raw word: $(raw)")
             @warn("Stem/rule:", stem, rule)
         end
-    end
-    
+    end    
 end
+
 
 """True if `verbcode` identifies a finite verb form with
 a valid combination of tense and mood.
@@ -198,9 +200,6 @@ $(SIGNATURES)
 function verbforms()
     verbformcodes() .|> gmfFiniteVerb
 end
-
-
-
 
 """Generate list of all possible noun forms.
 $(SIGNATURES)

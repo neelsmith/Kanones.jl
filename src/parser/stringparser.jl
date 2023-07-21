@@ -18,6 +18,7 @@ end
 $(SIGNATURES)
 """
 function parsetoken(s::AbstractString, parser::StringParser; data = nothing)
+    #strlist = resolvestring(s)
     ptrn = knormal(s) * "|"
     @debug("Match pattern", ptrn)
     matches = filter(ln -> startswith(ln, ptrn), parser.entries)
