@@ -82,7 +82,7 @@ export IrregularParticipleStem
 export GreekLexeme
 export lemmatadict, lemmalabel
 
-export knormal
+export resolvestring, knormal 
 export generate, analysis_string
 export decline, md_declension
 export md_ptcpldeclension, participleslashline
@@ -110,7 +110,7 @@ include("dataset/filesdataset.jl")
 include("dataset/compoundstems.jl")
 include("dataset/stemreaders.jl")
 include("dataset/infltypes.jl")
-include("dataset/lexlabels.jl")
+
 include("utils/utils.jl")
 include("utils/workflow.jl")
 

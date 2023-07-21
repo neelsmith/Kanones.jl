@@ -1,4 +1,4 @@
-# Combining stem and inflection
+# Combining stem and inflection for regular formations
 
 Invidual analytical requirements have specific rquirements for combining stems and inflectional patterns.
 
@@ -14,4 +14,5 @@ For nouns, pronouns and adjectives, just  `stemstring(stem) * ending(rule)`
 
 ## Verbs
 
-TBA
+The function `regularverbclass` is true if it is possible to form all principal parts from a single stem.
+For these classes, the function `principalpart` then composes a principal part for a stem + rule combination.

@@ -19,6 +19,10 @@ function parsewordlist(vocablist, parser::KanonesParser; data = nothing, countin
     @info("Parsing list of $(length(vocablist)) tokens.")
     parses = []
     for (i,s) in enumerate(vocablist)
+
+
+
+
         push!(parses, parsetoken(s, parser))
         if i % countinterval == 0
             @info("$(i) ($(s))...")
@@ -31,4 +35,16 @@ end
 function lexemes(p::T) where {T <: KanonesParser}
     @warn("Function lexemes is not implemented for type $(typeof(p))")
     []
+end
+
+
+"""For a surface string `s`, compose one or more strings normalized
+for anlaysis by a Kanones parsers using the given orthography.
+$(SIGNATURES)    
+"""
+function resolvestring(s, ortho = literaryGreek())
+    v = crasis(s, ortho)
+    
+    map(str -> knormal(str, ortho), v)
+    
 end

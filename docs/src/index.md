@@ -18,7 +18,7 @@ repo = pwd() |> dirname |> dirname
 
 ## Quick example
 
-## Building a parser
+### Building a parser
 
 Load a dataset, and build a parser from it.  All the examples in this documentation use [the `literarygreek-rules` dataset](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/literarygreek-rules) found in the `datasets` directory of the Kanones github repository.
 
@@ -31,7 +31,7 @@ p isa StringParser
 ```
 
 
-## Interactive parsing
+### Interactive parsing
 
 Parse a string: in this case, there is only one result.
 
@@ -45,4 +45,33 @@ Extract a `GreekMorphologicalForm` from each analysis, and apply the `label` fun
 ```@example intro
 parses .|> greekForm .|> label
 ```
+
+Extract URNs for the lexeme from each analysis:
+
+```@example intro
+lexemelist = parses .|> lexemeurn
+```
+
+After downloading LSJ labels for lexemes in the `lsj` collection, label lexemes with LSJ labels included.
+```@example intro
+lsj = lemmatadict()
+lemmalabel(lexemelist[1], dict = lsj)
+```
+
+## What sections of these pages to read
+
+Practical information:
+
+- *build a parser from an existing dataset and parse forms interactively*: this page
+- *understand what Kanones is about*: Background
+- *manage or modify a Kanones dataset, and build a new parser*: User's guide to Kanones data
+- *use Kanones analyses in Julia code*: Using morphological objects in Julia
+
+Details of implementation:
+
+- *see how Kanones builds a dataset from files*: Implementation: building a dataset
+- *see how Kanones generates form*: Implementation: generating forms
+
+Reference documentation: API docs
+
 

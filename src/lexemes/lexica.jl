@@ -10,6 +10,24 @@ function lsjdict(f)
     CSV.File(f) |> Dict
 end
 
+function lemmalabel(lexurn::LexemeUrn; dict = lemmatadict())
+	lemmalabel(string(lexurn), dict = dict)
+end
+
+function lemmalabel(s::AbstractString;  dict = lemmatadict())
+    if startswith(s, "lsjx.")
+		stripped = replace(s, "lsjx." => "")
+		haskey(dict, stripped) ? string(s, "@", dict[stripped]) : string(s, "@labelmissing")
+	elseif startswith(s, "lsj.")
+		stripped = replace(s, "lsj." => "")
+		haskey(dict, stripped) ? string(s, "@", dict[stripped]) : 
+		string(s, "@labelmissing")
+	else
+		string(s, "@nolabel")
+	end
+end
+
+#=
 """Add LSJ lemma as subref to abbreviated URN string.
 
 $(SIGNATURES)
@@ -32,3 +50,4 @@ function attach_lemma(cite2urn::Cite2Urn, dict)
     lemmatized = haskey(dict, str) ? string(str,"@", dict[str]) : string(str, "@nolabel")
     addobject(cite2urn, lemmatized)
 end
+=#
