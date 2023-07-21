@@ -12,7 +12,7 @@ repo = pwd() |> dirname |> dirname
 - rigorously defined orthography.  Example parsers include standard orthography of printed editions of literary Greek, and a parser for epigraphic Greek in the alphabet used by Athens before 403 BCE.
 - implemented entirely in the Julia language (no other technical prerequisites): 
     - platform independent
-    - *fast*
+    - fast:  a parser built with Kanones on consumer-grade hardware can typically parse a token in 1-9 milliseconds.
     - code library can be used from command line, in scripts, in web apps, directly in an editor like Visual Studio Code
 
 
