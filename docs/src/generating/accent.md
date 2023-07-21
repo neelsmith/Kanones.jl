@@ -20,5 +20,12 @@ Recognized values are:
 - inflectionaccented (the default)
 
 
-!!! note "TBA: `obliqueaccented` vs. `inflectionaccented`
-   Explain difference with examples
+!!! note "TBA: `obliqueaccented` vs. `inflectionaccented`"
+    
+    Explain difference with examples
+
+## Participles and infinitives
+
+> Work like other substantives, just using the appropriate stem for the tense/voice.
+
+ ## Finite verbs

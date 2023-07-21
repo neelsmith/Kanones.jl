@@ -19,32 +19,40 @@ using Kanones
 makedocs(
     sitename="Kanones.jl",
     authors="Neel Smith",
+
     pages = [
-        "Home" => "index.md",
+        "The Kanones system for building morphological parsers" => "index.md",
        
         "Background" => Any[
             "Analysis by synthesis" => "bg/index.md",
             "Kanones' analyses" => "bg/analysis.md",
             
         ],
-        "User's guide" => Any[
+
+        "User's guide to Kanones data" => Any[
             "Data sets" => "bg/datasets.md",
             "Identification with URNs" => "urns.md",
+            "Files dataset" => "filesds.md",
             "Vocabulary items (lexemes)" => "lexicon.md",
             "Lexical stems" => "stems.md",
             "Inflectional rules" => "rules.md",
-            "Working with morphological data" => "morph.md",
+        ],
+
+        "Using morphological objects in Julia" => Any[
             "Morphological forms" => "forms.md",
             "Morphological properties" => "properties.md",     
             "Utilities" => "utilities.md"
-           
         ],
-
         
+        "Implementation: building a dataset" => Any[
+            "Reading delimited files" => "building/buildingds.md",
+
+        ], 
+
         "Implementation: generating forms" => Any[
-            "Generating a form" => "implementation/generating.md",
-            "Combining stem and inflection" => "implementation/wordformation.md",
-            "Accenting the final string" => "implementation/accent.md",
+            "Generating a form" => "generating/generating.md",
+            "Combining stem and inflection" => "generating/wordformation.md",
+            "Accenting the final string" => "generating/accent.md",
         ],
         
        #=

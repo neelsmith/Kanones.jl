@@ -1,6 +1,6 @@
 # Morphological forms
 
-Form types are subtypes of `GreekMorphologicalForm`, and are defined by a group of morphological properties.
+Kanones has nine types of morphological forms, that are relate to traditional ideas of "parts of speech."  Each type is a subtype of the `GreekMorphologicalForm` abstraction, and is characterized by a unique set of morphological properties (e.g., nouns are identified by gender, case and number). These properties in turn are subtypes of the `GreekMorphologicalProperty` abstraction (described in the following section).
 
 ## Substantives
 
