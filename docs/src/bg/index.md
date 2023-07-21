@@ -7,11 +7,15 @@ One possible functional definition of *morphological analysis*, or parsing, is:
     Given a token (a string value), generate pairings of a vocabulary item (*lexeme*) and a *morphological form*.
 
 
-*Morphological synthesis* is the inverse operation:  given a lexeme and a form, generate a surface token.
+*Morphological synthesis* is the inverse operation:  
 
-It is usually assumed that these two operations are directly reversible: analysis is thought of as "undoing" the process of synthesis.  This is literally true when, as is frequently the case, natural language parsers are implemented with finite state transducers.
+!!! note "Morphological synthesis (generation)"
+    
+    Given a lexeme and a form, generate a surface token.
 
-In polytonic Greek, however, the surface token includes movable accents.  The correct orthography of the token results from a complex ineraction of the morphological system, phonological systems, and the accent system.  While this process can be implemented computationally to *generate* surface tokens, it is not stateless, and consequently cannot be simply reversed to analyze a token.  Kanones therefore takes a different approach to morphological analysis: *analysis by synthesis*.
+It is usually assumed that these two operations are directly reversible: analysis is thought of as "undoing" the process of synthesis.  This is literally true when (as is frequently the case) natural language parsers are implemented with finite state transducers.
+
+In polytonic Greek, however, the surface token includes movable accents.  The correct orthography of the token results from a complex ineraction of the morphological system, phonological systems, and the accent system.  While this process can be computationally implemented to *generate* surface tokens, it is not stateless; for this reason, a generating algorithm cannot be simply reversed to analyze a token.  Kanones therefore takes a different approach to morphological analysis: *analysis by synthesis*.
 
 
 ## Kanones' solution
@@ -19,8 +23,8 @@ In polytonic Greek, however, the surface token includes movable accents.  The co
 Kanones' solution could be summarized as:
 
 
-1. Combine stems and endings to generate all forms that can possibly be recognized from this dataset.
-2. "Parsing" becomes a lookup operation.
-3. A "parser" becomes the set of all possible tokens associated with all possible analyses for that token.
+1. Combine stems and endings to generate *all* forms that can possibly be recognized from a given dataset.
+3. The result is a "parser:" the set of all possible tokens associated with all possible analyses for that token.
+2. "Parsing" is reduced to looking up a token in the parser's data.
 
-In 2022, it is feasible to load the complete set of morphological analyses for all possible tokens in a natural language in memory.  This approach has the simultaneous advantages of minimal technical requirements combined with very high performance, and is easily implemented plain-text data sources that a classicist can modify or add to.
+In 2022, it is feasible to load the complete set of morphological analyses for all possible tokens in a natural language in memory.  This approach has the simultaneous advantages of minimal technical requirements combined with very high performance, and is easily implemented from plain-text data sources that a classicist can modify or add to.

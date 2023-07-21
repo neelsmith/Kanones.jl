@@ -5,4 +5,4 @@ datasets/debug/
 notes*
 .vscode
 scratch*
-
+*.swp

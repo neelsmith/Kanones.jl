@@ -46,10 +46,3 @@ Extract a `GreekMorphologicalForm` from each analysis, and apply the `label` fun
 parses .|> greekForm .|> label
 ```
 
-
-## Contents
-
-1. Background: a synthesis-first approach to parsing NL morphology
-2. User's guide:  the four datasets Kanones uses
-3. Reference: stem classes and paradigms
-4. Reference: API documentation

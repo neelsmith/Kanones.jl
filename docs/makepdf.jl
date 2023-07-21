@@ -1,26 +1,22 @@
 # Run this from repository root, e.g. with
 # 
-#    julia --project=docs/ docs/make.jl
-#
-# Run this from repository root to serve:
-#
-#   julia -e 'using LiveServer; serve(dir="docs/build")'
+#    julia --project=docs/ docs/makepdf.jl
 #
 using Pkg
 Pkg.activate(".")
 Pkg.instantiate()
 
 using Documenter, DocStringExtensions
-#using PolytonicGreek
 using CitableObject
 using Kanones
 
 
 makedocs(
+    format = Documenter.LaTeX(platform="tectonic"),
     sitename="Kanones.jl",
     authors="Neel Smith",
     pages = [
-        "Home" => "index.md",
+        "The Kanones system for building morphological parsers" => "index.md",
        
         "Background" => Any[
             "Analysis by synthesis" => "bg/index.md",
@@ -75,7 +71,3 @@ makedocs(
         ]
     ]
     )
-
-deploydocs(
-        repo = "github.com/neelsmith/Kanones.jl.git",
-)
