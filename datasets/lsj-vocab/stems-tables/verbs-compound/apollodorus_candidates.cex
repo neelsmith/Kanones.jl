@@ -27,7 +27,7 @@ compounds.n18334|lsjx.n18334|ἀφ|lsjx.n50284|ἀφικνέομαι|
 
 compounds.n24522|lsjx.n24522|δια|lsj.n19123|διαβαίνω|
 compounds.n24697|lsjx.n24697|δια|lsjx.n24289|διαδέχομαι|
-compounds.n24847|lsjx.n24847|δι|lsjx.n2654|διαιρέω|
+compounds.n24847|lsjx.n24847|δια|lsjx.n2654|διαιρέω|
 compounds.n25194|lsjx.n25194|δια|lsjx.n64316|διαλύω|
 compounds.n25447|lsjx.n25447|δια|lsjx.n76801|διαπαλαίω|
 compounds.n26008|lsjx.n26008|δια|lsjx.n101970|διασῴζω|
@@ -67,7 +67,7 @@ compounds.n41416|lsjx.n41416|ἐπι|lsjx.n104685|ἐπιτρέπω|
 
 compounds.n55734|lsjx.n55734|καθ|lsjx.n31172|καθείργω|
 compounds.n51781|lsjx.n51781|καθ|lsjx.n46025|καθέψω|
-compounds.n51849|lsjx.n51849|καθ|lsj.n51241|καθίστημι|
+compounds.n51849|lsjx.n51849|κατα|lsj.n51241|καθίστημι|
 compounds.n54036|lsjx.n54036|κατα|lsjx.n49589|καταθύω|
 compounds.n54165|lsjx.n54165|κατα|lsjx.n57788|κατακλείω|
 compounds.n54345|lsj.n54345|κατα|lsj.n61791|καταλαμβάνω|
@@ -122,10 +122,10 @@ compounds.n100451|lsjx.n100451|συν|lsjx.n44521|συνευνάζω|
 compounds.n101089|lsjx.n101089|συν|lsj.n105829|συντυγχάνω|
 
 
-compounds.n106974|lsjx.n106974|ὑπ|lsj.n16051|ὑπάρχω|
+compounds.n106974|lsjx.n106974|ὑπo|lsj.n16051|ὑπάρχω|
 compounds.n107315|lsjx.n107315|ὑπερ|lsj.n19282|ὑπερβάλλω|
 compounds.n108796|lsjx.n108796|ὑπο|lsjx.n67868|ὑπομιμνήσκω|
 compounds.n109246|lsjx.n109246|ὑπο|lsjx.n97186|ὑποστρέφω|
 compounds.n109358|lsj.n109358|ὑπο|lsj.n103922|ὑποτίθημι|
 compounds.n108279|lsjx.n108279|ὑπο|lsjx.n24289|ὑποδέχομαι|
-compounds.n109865|lsjx.n109865|ὑφ|lsj.n51241|ὑφίστημι|
+compounds.n109865|lsjx.n109865|ὑπο|lsj.n51241|ὑφίστημι|
