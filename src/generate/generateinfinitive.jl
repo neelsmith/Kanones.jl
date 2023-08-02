@@ -42,7 +42,7 @@ function generate(
             stripmetachars(debugaccent(raw, :PENULT, ortho)) |> knormal
         catch e
             @warn("Failed to create accented form", e)
-            @warn("Raw word: $(raw)")
+            @warn("Geneate infinitive: raw word: $(raw)")
         end
     else
         if isnothing(raw)
@@ -52,7 +52,7 @@ function generate(
             stripmetachars(debugaccent(raw, :RECESSIVE, ortho)) |> knormal
         catch e
             @warn("Failed to create accented form", e)
-            @warn("Raw word: $(raw)")
+            @warn("Generate infinitive: raw word: $(raw)")
         end
     
     end

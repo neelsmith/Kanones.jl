@@ -36,7 +36,7 @@ function generate(stem::AdjectiveStem, rule::AdjectiveRule;           ortho::Gre
             end
         catch e
             @warn("Failed to create accented adjective", e)
-            @warn("Raw word: $(raw)")
+            @warn("Generate adjective: raw word: $(raw)")
 
         end
     end

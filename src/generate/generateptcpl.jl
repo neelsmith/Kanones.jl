@@ -59,7 +59,7 @@ function generate(
          
         catch e
             @warn("Failed to create accented form", e)
-            @warn("Raw word: $(raw)")
+            @warn("General participle: raw word:  $(raw)")
 
         end   =#
     end

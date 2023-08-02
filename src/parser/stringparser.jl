@@ -35,7 +35,7 @@ function stringParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
     for (i, stem) in enumerate(stems)
         if i % interval == 0
             @info("stem $(i)… $(stem)")
-            end
+        end
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
     analyses |> StringParser
@@ -122,7 +122,7 @@ function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T
     end
     @debug("$(length(classrules)) rules for $(inflectionclass(stem)))")
     for rule in classrules
-        #@warn("Apply rule", rule)
+        @debug("Apply rule to stem", rule, stem)
         token = generate(stem, rule)
         @debug("Generated/rule", token, rule)
         @debug(syllabify(knormal(token), literaryGreek()))

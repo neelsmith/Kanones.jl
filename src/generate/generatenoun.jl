@@ -73,7 +73,7 @@ function generate(stem::NounStem, rule::NounRule;
             
         catch e
             @warn("Failed to create accented form", e)
-            @warn("Raw word: $(raw) (lexeme $(lexeme(stem)))")
+            @warn("Generate noun: raw word: $(raw) (lexeme $(lexeme(stem)))")
            
 
         end

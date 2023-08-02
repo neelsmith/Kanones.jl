@@ -40,6 +40,7 @@ function generate(
     @debug("STEMBASE, morphemes", stembase, basemorpheme)
     =#
     #raw = strcat(basemorpheme, ending(rule), ortho) |> knormal
+    @debug("generating finite verb: stembase/ending $(stembase) / $(ending(rule))")
     raw = strcat(stembase, ending(rule), ortho) |> knormal
     @debug("apply rule to get raw", ending(rule), raw)
     #=
