@@ -41,7 +41,7 @@ function generate(
     =#
     #raw = strcat(basemorpheme, ending(rule), ortho) |> knormal
     @debug("generating finite verb: stembase/ending $(stembase) / $(ending(rule))")
-    raw = strcat(stembase, ending(rule), ortho) |> knormal
+    raw = strcat(ortho, stembase, ending(rule)) |> knormal
     @debug("apply rule to get raw", ending(rule), raw)
     #=
     if length(baseparts) > 1

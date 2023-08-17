@@ -32,7 +32,7 @@ function generate(
         ptcp = raw
         parts = split(raw,"#")
         if length(parts) == 2
-            ptcp = strcat(parts[1], parts[2], ortho)
+            ptcp = strcat(ortho, parts[1], parts[2])
         end
         
         stripmetachars(debugaccent(ptcp, :RECESSIVE, ortho))  |> knormal

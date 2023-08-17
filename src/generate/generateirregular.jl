@@ -18,7 +18,7 @@ function generate(
             basemorpheme = baseparts[end]
             prefix = replace(join(baseparts[1:end-1],""), "#" => "")
             @debug("Prefix is ", prefix)
-            raw = strcat(prefix, basemorpheme, ortho)
+            raw = strcat(ortho, prefix, basemorpheme)
             knormal(raw)
         end
 
