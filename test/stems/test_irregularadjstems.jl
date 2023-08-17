@@ -1,5 +1,5 @@
 
-@testset "Test IO for delimited text" begin
+@testset "Test IO for delimited text of irregular adjectives" begin
     delimited = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
     irradjio = Kanones.IrregularAdjectiveIO("IO for irreg adjs")
     stem = Kanones.readstemrow(irradjio, delimited)
@@ -12,7 +12,7 @@ end
 
 
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for irregular adjectives" begin
     delimited = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
     irradjio = Kanones.IrregularAdjectiveIO("IO for irreg adjs")
     stem = Kanones.readstemrow(irradjio, delimited)

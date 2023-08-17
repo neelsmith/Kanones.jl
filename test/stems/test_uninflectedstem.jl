@@ -1,5 +1,5 @@
 
-@testset "Test IO for delimited text" begin
+@testset "Test IO for delimited text of uninflected stems" begin
     delimited = "uninflectedstems.n51951|lsj.n51951|καί|conjunction|"
     uninflio = Kanones.UninflectedIO("IO for uninfls")
     stem = Kanones.readstemrow(uninflio, delimited)
@@ -10,7 +10,7 @@
 end
 
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for uninflected stems" begin
     delimited = "uninflectedstems.n51951|lsj.n51951|καί|conjunction|"
     uninflio = Kanones.UninflectedIO("IO for uninfls")
     stem = Kanones.readstemrow(uninflio, delimited)

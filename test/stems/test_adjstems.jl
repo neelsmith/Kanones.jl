@@ -1,4 +1,4 @@
-@testset "Test IO for delimited text" begin
+@testset "Test IO for delimited text of adjectives" begin
     delimited = "adjstems.n52332|lsj.n52332|κακ|os_h_on_pos|inflectionaccented|"
     adjio = Kanones.AdjectiveIO("IO for adjs")
     stem = Kanones.readstemrow(adjio, delimited)
@@ -7,7 +7,7 @@
 end
 
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for adjectives" begin
      delimited = "adjstems.n52332|lsj.n52332|κακ|os_h_on_pos|inflectionaccented|"
     adjio = Kanones.AdjectiveIO("IO for adjs")
     stem = Kanones.readstemrow(adjio, delimited)
