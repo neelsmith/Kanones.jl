@@ -62,6 +62,7 @@ function generate(
         
         try
            accented = debugaccent(raw, :RECESSIVE, ortho)
+           @debug("Accented to create $(accented)")
             #stripmetachars(accentword(raw, :RECESSIVE, ortho))
             stripmetachars(accented)
         catch e

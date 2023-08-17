@@ -1,6 +1,6 @@
 
 @testset "Test parsing delimited text for a compound verb stem" begin
-    s = "compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω"
+    s = "compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω|"
     compound = compoundstem(s)
     @test compound isa CompoundVerbStem
 
@@ -15,12 +15,12 @@ end
     repo = pwd() |> dirname
     kds = joinpath(repo, "datasets", "literarygreek-rules") |> dataset
 
-    s = "compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω"
+    s = "compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω|"
     compound = compoundstem(s)
 
     compoundstems = Kanones.stems(compound, stemsarray(kds))
-    @test length(compoundstems) == 1
-    @test inflectionclass(compoundstems[1]) == "w_regular"
+    @test length(compoundstems) == 6
+    @test inflectionclass(compoundstems[1]) == "w_pp1"
     @test stemstring(compoundstems[1]) == knormal("ἐν#κελευ")
 end
 
