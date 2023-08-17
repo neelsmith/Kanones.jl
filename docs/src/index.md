@@ -12,13 +12,13 @@ repo = pwd() |> dirname |> dirname
 - rigorously defined orthography.  Example parsers include standard orthography of printed editions of literary Greek, and a parser for epigraphic Greek in the alphabet used by Athens before 403 BCE.
 - implemented entirely in the Julia language (no other technical prerequisites): 
     - platform independent
-    - *fast*
+    - fast:  a parser built with Kanones on consumer-grade hardware can typically parse a token in 1-9 milliseconds.
     - code library can be used from command line, in scripts, in web apps, directly in an editor like Visual Studio Code
 
 
 ## Quick example
 
-## Building a parser
+### Building a parser
 
 Load a dataset, and build a parser from it.  All the examples in this documentation use [the `literarygreek-rules` dataset](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/literarygreek-rules) found in the `datasets` directory of the Kanones github repository.
 
@@ -31,7 +31,7 @@ p isa StringParser
 ```
 
 
-## Interactive parsing
+### Interactive parsing
 
 Parse a string: in this case, there is only one result.
 
@@ -46,10 +46,32 @@ Extract a `GreekMorphologicalForm` from each analysis, and apply the `label` fun
 parses .|> greekForm .|> label
 ```
 
+Extract URNs for the lexeme from each analysis:
 
-## Contents
+```@example intro
+lexemelist = parses .|> lexemeurn
+```
 
-1. Background: a synthesis-first approach to parsing NL morphology
-2. User's guide:  the four datasets Kanones uses
-3. Reference: stem classes and paradigms
-4. Reference: API documentation
+After downloading LSJ labels for lexemes in the `lsj` collection, label lexemes with LSJ labels included.
+```@example intro
+lsj = lemmatadict()
+lemmalabel(lexemelist[1], dict = lsj)
+```
+
+## What sections of these pages to read
+
+Practical information:
+
+- *build a parser from an existing dataset and parse forms interactively*: this page
+- *understand what Kanones is about*: Background
+- *manage or modify a Kanones dataset, and build a new parser*: User's guide to Kanones data
+- *use Kanones analyses in Julia code*: Using morphological objects in Julia
+
+Details of implementation:
+
+- *see how Kanones builds a dataset from files*: Implementation: building a dataset
+- *see how Kanones generates form*: Implementation: generating forms
+
+Reference documentation: API docs
+
+

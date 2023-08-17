@@ -7,26 +7,54 @@ $(SIGNATURES)
 function generate(stem::NounStem, rule::NounRule;
     ortho::GreekOrthography = literaryGreek())
     raw = stemstring(stem) * ending(rule)
+    @debug("Generate noun raw $(raw) with accent $(stem.accentpersistence)")
     if countaccents(raw, ortho) == 1
         # Already has accent! 
         stripmetachars(raw)  |> knormal
 
-    else
+    elseif stem.accentpersistence == "recessive"
         try
-            if stem.accentpersistence == "recessive"
-                stripmetachars(accentword(raw, :RECESSIVE, ortho))  |> knormal
+            stripmetachars(accentword(raw, :RECESSIVE, ortho))  |> knormal
+        catch e
+            @warn("Failed to create accented form")
+            @warn("Generate noun: raw word: $(raw) (lexeme $(lexeme(stem)))")
+            throw(e)
+        end
+    
+    elseif stem.accentpersistence == "stemaccented"
+        try
+            stripmetachars( accentword(raw, :PENULT, ortho))  |> knormal
+        catch e
+            @warn("Failed to create accented form")
+            @warn("Generate noun: raw word: $(raw) (lexeme $(lexeme(stem)))")
+            throw(e)
+        end
             
-            elseif stem.accentpersistence == "stemaccented"
-                stripmetachars( accentword(raw, :PENULT, ortho))  |> knormal
+    elseif stem.accentpersistence == "obliqueaccented"
+        @debug("HANDLING CASE OF obliqueaccented for $(raw)")
+        caselabel = label(gmpCase(rule))   
+        @debug("LOOK AT CASE LABEL $(caselabel)")
+        sylls = syllabify(raw)
+        @debug("SYLLABLES: $(sylls)")
 
-            elseif stem.accentpersistence == "obliqueaccented"
-                @debug("HANDLING CASE OF obliqueaccented for $(raw)")
-                caselabel = label(gmpCase(rule))   
-                @debug("LOOK AT CASE LABEL $(caselabel)")
-                sylls = syllabify(raw)
-                @debug("SYLLABLES: $(sylls)")
-
-                if caselabel == "genitive" || caselabel == "dative"    
+        
+        if caselabel == "genitive" || caselabel == "dative"    
+            try
+                if PolytonicGreek.longsyllable(sylls[end], ortho)
+                    stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
+                else
+                    stripmetachars(accentultima(raw, :ACUTE, ortho))  |> knormal
+                end
+            catch e
+                @warn("Failed to create accented form for accented gentive")
+                @warn("Generate noun: raw word: $(raw) (lexeme $(lexeme(stem)))")
+                throw(e)
+            end
+                
+        else # not oblique case
+           
+            try
+                if length(sylls) == 1
                     if PolytonicGreek.longsyllable(sylls[end], ortho)
                         stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
                     else
@@ -34,51 +62,44 @@ function generate(stem::NounStem, rule::NounRule;
                     end
                     
                 else
-                    if length(sylls) == 1
-                        if PolytonicGreek.longsyllable(sylls[end], ortho)
-                            stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
-                        else
-                            stripmetachars(accentultima(raw, :ACUTE, ortho))  |> knormal
-                        end
-                        
-                    else
-                        stripmetachars( accentword(raw, :PENULT, ortho))  |> knormal
-                    end
+                    stripmetachars( accentword(raw, :PENULT, ortho))  |> knormal
                 end
-                
-
-
-            else
-                
-                endingsylls = syllabify(ending(rule))
-                @debug("CHECK SYLLABLE COUNT:", length(endingsyll))
-                if length(endingsylls) > 1
-                    accentedending =  accentword(ending(rule), :RECESSIVE, ortho)
-
-                    stemstring(stem) * accentedending |> knormal
-
-                else
-                    # place correct accent on ultima:
-                    @debug("ACC.ULTIMA:", raw)
-                    caselabel = label(gmpCase(rule))   
-                    if caselabel == "genitive" || caselabel == "dative"
-                        stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
-                        
-                    else
-                        stripmetachars(accentultima(raw, :ACUTE, ortho))  |> knormal
-                        
-                    end
-                end
+            catch e
+                @warn("Failed to create accented form")
+                @warn("Generate noun: raw word: $(raw) (lexeme $(lexeme(stem)))")
+                throw(e)
             end
-            
-        catch e
-            @warn("Failed to create accented form", e)
-            @warn("Raw word: $(raw) (lexeme $(lexeme(stem)))")
-           
+        end
+   
 
+
+    else # inflection accented
+                  
+        endingsylls = syllabify(ending(rule))
+        @debug("Trying accented inflection for ending sylls $(endingsylls)") 
+        @debug("CHECK SYLLABLE COUNT:", length(endingsyll))
+        if length(endingsylls) > 1
+            accentedending =  accentword(ending(rule), :RECESSIVE, ortho)
+
+            stemstring(stem) * accentedending |> knormal
+
+        else
+            # place correct accent on ultima:
+            @debug("ACC.ULTIMA:", raw)
+            caselabel = label(gmpCase(rule))   
+            if caselabel == "genitive" || caselabel == "dative"
+                @debug("Accent with circumflex")
+                stripmetachars(accentultima(raw, :CIRCUMFLEX, ortho))  |> knormal
+                
+            else
+                @debug("Accent with acute")
+                stripmetachars(accentultima(raw, :ACUTE, ortho))  |> knormal
+                
+            end
         end
     end
 end
+
 
 
 """Generate list of codes for all noun forms.

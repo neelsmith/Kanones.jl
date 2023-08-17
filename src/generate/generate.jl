@@ -25,9 +25,9 @@ function generate(
     generated = []
     for s in stems
         @debug("Inflection class of stem is $(inflectionclass(s))")
-        if (s.augmented)
-            @warn("AUGMENTED! Using stem $(s): augmented? $(s.augmented)")
-        end
+        #if (s.augmented)
+        #    @warn("AUGMENTED! Using stem $(s): augmented? $(s.augmented)")
+        #end
         rules = filter(ruleset) do r
             if r isa IrregularRule
                 @debug("LOOK AT inflclass of irreg rule", inflectionclass(r) )
@@ -36,8 +36,12 @@ function generate(
                 inflectionclass(r) == inflectionclass(s) && formurn(s) == form
             else
                 @debug("LOok at inflection classes",  inflectionclass(r), inflectionclass(s))
-                #@info("LOok at forms", formurn(r), form)
-                inflectionclass(r) == inflectionclass(s) && formurn(r) == form
+                #=if  inflectionclass(r) ==  inflectionclass(s)
+                    @debug("Found rule with matching infl class: $(r)")
+                    @debug("LOok at forms", formurn(r), form)
+                    @debug("with types ", typeof(formurn(r)), typeof(form)) 
+                end =#
+               inflectionclass(r) == inflectionclass(s) && formurn(r) == form
             end
         end
         @debug("Rules for stem", rules)

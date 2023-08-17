@@ -11,18 +11,28 @@ function generate(stem::AdjectiveStem, rule::AdjectiveRule;           ortho::Gre
         # Already has accent! 
         stripmetachars(raw) |> knormal
 
-    else
-        
+    elseif stem.accentpersistence == "recessive"
         try
-            if stem.accentpersistence == "recessive"
-                stripmetachars(accentword(raw, :RECESSIVE, ortho))  |> knormal
-            
-            elseif stem.accentpersistence == "stemaccented"
+            stripmetachars(accentword(raw, :RECESSIVE, ortho))  |> knormal
+        catch e
+            @warn("Failed to create accented adjective")
+            @warn("Generate adjective: raw word: $(raw)")
+            throw(e)
+        end
+        
+        elseif stem.accentpersistence == "stemaccented"
+            try
                 stripmetachars( accentword(raw, :PENULT, ortho))  |> knormal
+            catch e
+                @warn("Failed to create accented adjective")
+                @warn("Generate adjective: raw word: $(raw)")
+                throw(e)
+            end
             
-            else 
-                # place correct accent on ultima:
-                
+        
+        else 
+            # place correct accent on ultima:
+            try
                 caselabel = label(gmpCase(rule))   
                 @debug("ACC.ULTIMA:", raw)
                 @debug("Case: $(caselabel)")
@@ -33,13 +43,14 @@ function generate(stem::AdjectiveStem, rule::AdjectiveRule;           ortho::Gre
                     stripmetachars(accentultima(raw, :ACUTE, ortho))  |> knormal
                     
                 end
+            catch e
+                @warn("Failed to create accented adjective")
+                @warn("Generate adjective: raw word: $(raw)")
+                throw(e)
             end
-        catch e
-            @warn("Failed to create accented adjective", e)
-            @warn("Raw word: $(raw)")
-
         end
-    end
+
+    
 end
 
 

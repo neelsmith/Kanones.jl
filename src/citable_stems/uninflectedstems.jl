@@ -70,11 +70,12 @@ $(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(us::UninflectedStem; delimiter = "|", registry = nothing)
+
     if isnothing(registry)
-        join([us.stemid, label(us), stemstring(us), lexeme(us), label(inflectionclass(us)) ], delimiter)
+        join([us.stemid, label(us), stemstring(us), lexeme(us), inflectionclass(us) ], delimiter)
     else
         c2urn = expand(us.stemid, registry)
-        join([c2urn, label(us), stemstring(us), lexeme(us), label(inflectionclass(us)) ], delimiter)
+        join([c2urn, label(us), stemstring(us), lexeme(us), inflectionclass(us) ], delimiter)
     end
 end
 

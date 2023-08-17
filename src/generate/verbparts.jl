@@ -92,11 +92,11 @@ principal part.
 $(SIGNATURES)
 """
 function kappabase(stem::Stem; ortho = literaryGreek())
-    k = strcat(stemstring(stem), "κ", ortho)
+    k = strcat(ortho, stemstring(stem), "κ")
 end
 
 function kappabase(s::AbstractString; ortho = literaryGreek())
-    k = strcat(s, "κ", ortho)
+    k = strcat(ortho, s, "κ")
 end
 
 
@@ -106,7 +106,7 @@ $(SIGNATURES)
 """
 function sigmabase(stem::Stem; ortho = literaryGreek())
     s = stemstring(stem)
-    strcat(s,"σ", ortho)
+    strcat(ortho, s,"σ")
 end
 
 """Compose regular verb base for second or third
@@ -114,7 +114,7 @@ principal part.
 $(SIGNATURES)
 """
 function sigmabase(s::AbstractString; ortho = literaryGreek())
-    strcat(s,"σ", ortho)
+    strcat(ortho, s,"σ")
 end
 
 """Compose regular verb base for sixth
@@ -123,11 +123,11 @@ $(SIGNATURES)
 """
 function thetabase(stem::Stem; ortho = literaryGreek())
     s = stemstring(stem)
-    strcat(s,"θ", ortho)
+    strcat(ortho, s,"θ")
 end
 
 function thetabase(s::AbstractString; ortho = literaryGreek())
-    strcat(s,"θ", ortho)
+    strcat(ortho, s,"θ")
 end
 
 
@@ -221,7 +221,7 @@ function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {
         morphbase
     else
         prefix = strcat(ortho, morphemes[1:end-1]...)
-        strcat(prefix, rmbreathing(morphbase,ortho), ortho)
+        strcat(ortho, prefix, rmbreathing(morphbase,ortho))
     end
 end
 

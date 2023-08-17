@@ -9,6 +9,7 @@ repo
 
 ## Present system
 
+#=
 ### Present tense
 
 *Active voice*:
@@ -482,3 +483,5 @@ kds = Kanones.FilesDataset([src1, src2])
 
 Markdown.parse(md_conjugation(gmpTense("pluperfect"), gmpVoice("passive"), διδωμι, kds))
 ```
+
+=#

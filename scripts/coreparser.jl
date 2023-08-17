@@ -14,7 +14,7 @@ function alllitgreek(; atticonly = false)
     # 3. manually validated NOT in LSJ:
     extra = joinpath(pwd(), "datasets", "extra")
     # 5. hypothesized data from LSJMining
-    lsjx = joinpath("..", "LSJMining.jl", "kanonesdata","lsjx")
+    lsjx = joinpath(dirname(pwd()), "LSJMining.jl", "kanonesdata","lsjx")
     atticonly ?  dataset([lgr, lsj, extra, lsjx]) :  dataset([lgr, ionic, homeric, lsj, extra, lsjx]) 
 end
 

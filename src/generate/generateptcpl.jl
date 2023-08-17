@@ -32,7 +32,7 @@ function generate(
         ptcp = raw
         parts = split(raw,"#")
         if length(parts) == 2
-            ptcp = strcat(parts[1], parts[2], ortho)
+            ptcp = strcat(ortho, parts[1], parts[2])
         end
         
         stripmetachars(debugaccent(ptcp, :RECESSIVE, ortho))  |> knormal
@@ -59,7 +59,7 @@ function generate(
          
         catch e
             @warn("Failed to create accented form", e)
-            @warn("Raw word: $(raw)")
+            @warn("General participle: raw word:  $(raw)")
 
         end   =#
     end

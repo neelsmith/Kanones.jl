@@ -1,5 +1,9 @@
 
+"""Wrapper around `PolytonicGreek`'s `accentword` function
+for debugging.
+"""
 function debugaccent(raw, pattrn, ortho)
+    @debug("DEbugging accent $(raw) / $(pattrn)")
     accented = accentword(raw, pattrn, ortho)
     @debug("Before/after accent", raw, accented)
     if occursin("nothing", accented)
