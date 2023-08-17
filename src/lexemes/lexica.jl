@@ -10,10 +10,31 @@ function lsjdict(f)
     CSV.File(f) |> Dict
 end
 
+
+"""Compose a label string with LSJ lemma added as a subref to
+a LexemeUrn string for the given Cite2Urn.
+
+$(SIGNATURES)
+"""
+function lemmalabel(u::Cite2Urn; dict = lemmatadict())
+    lexstr = collectionid(u) * "."  * objectcomponent(u)
+	lemmalabel(lexstr, dict = dict)
+end
+
+
+"""Compose a label string with LSJ lemma added as subref to a LexemeUrn.
+
+$(SIGNATURES)
+"""
 function lemmalabel(lexurn::LexemeUrn; dict = lemmatadict())
 	lemmalabel(string(lexurn), dict = dict)
 end
 
+
+"""Add LSJ lemma as subref to abbreviated URN string.
+
+$(SIGNATURES)
+"""
 function lemmalabel(s::AbstractString;  dict = lemmatadict())
     if startswith(s, "lsjx.")
 		stripped = replace(s, "lsjx." => "")
