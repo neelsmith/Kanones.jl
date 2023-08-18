@@ -27,7 +27,9 @@ makedocs(
             "Summary of regularly inflected vocabulary" => "regulars.md",
          
             "Regular verb classes" => Any[
-                "The `w_regular` class" => "regularverbs/w_regular.md",
+                "A pure vowel verb of `w_regular` class:  κινδυνεύω" => "regularverbs/kinduneuw.md",
+                "A consonant verb of the `w_regular` class" => "regularverbs/arxw.md",
+                #"The `w_regular_dep` class" => "regularverbs/pragmateuw.md",
             ],
            #= "Irregular verbs" => Any[
                 #"Overview of irregular nouns" => "vocab/irregularverbs/index.md",

@@ -1,10 +1,11 @@
-# The `w_regular` class
+# A pure vowel verb of `w_regular` class:  κινδυνεύω
+
 
 ## Stem record
 
 ```
 Rule|LexicalEntity|Stem|StemClass|Augmented
-verbstems.n16051|lsj.n16051|ἀρχ|w_regular|
+verbstems.n57456|lsj.n57456|κινδυνευ|w_regular|
 ```
 
 ```@eval
@@ -15,6 +16,6 @@ src1 = joinpath(repo, "datasets", "literarygreek-rules")
 src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 
-αρχω = LexemeUrn("lsj.n16051")
-verb_conjugation_md(αρχω, kds) |> Markdown.parse
+κινδυνευω = LexemeUrn("lsj.n57456")
+verb_conjugation_md(κινδυνευω, kds) |> Markdown.parse
 ```
