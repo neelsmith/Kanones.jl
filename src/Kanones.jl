@@ -97,7 +97,7 @@ export writecsv
 
 export urn, formurn, ruleurn
 
-export StringParser, stringParser
+export StringParser, stringParser, tofile
 export DFParser, dfParser
 
 export InflectionCategory
