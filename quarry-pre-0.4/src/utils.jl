@@ -13,7 +13,7 @@ function sortstemfile(f; lsjcolumn = 2)
         if startswith(ln[lsjcolumn], "lsj.n")
             trimtrailingalpha = replace(ln[lsjcolumn], r"[a-z]$" => "")
             intkey = parse(Int64, replace(trimtrailingalpha, "lsj.n" => ""))
-            @info("Key/ln",intkey,ln)
+            @debug("Key/ln",intkey,ln)
             push!(sortable, (intkey, ln))
         else
             push!(sortable, (40000,ln))

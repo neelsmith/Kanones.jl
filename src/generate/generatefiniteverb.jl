@@ -32,26 +32,17 @@ function generate(
             stembase
         end
     end
-
+   
+    
     @debug("prin.part with morphemes:", stembase)
-    #=
-    baseparts = split(stembase, "#")
-    basemorpheme = baseparts[end]
-    @debug("STEMBASE, morphemes", stembase, basemorpheme)
-    =#
-    #raw = strcat(basemorpheme, ending(rule), ortho) |> knormal
+    morphemelist = PolytonicGreek.splitmorphemes(stembase)
+    if length(morphemelist) > 1
+        stembase = strcat(ortho, morphemelist...; elision = true)
+    end
     @debug("generating finite verb: stembase/ending $(stembase) / $(ending(rule))")
+    
     raw = strcat(ortho, stembase, ending(rule)) |> knormal
     @debug("apply rule to get raw", ending(rule), raw)
-    #=
-    if length(baseparts) > 1
-        prefix = replace(join(baseparts[1:end-1],""), "#" => "")
-        @debug("Prefix is ", prefix)
-        raw = strcat(prefix, raw, ortho)
-
-    end
-=#
-
     @debug("Generate finite verb from raw", raw)
 
     if countaccents(raw, ortho) == 1
@@ -59,11 +50,9 @@ function generate(
         stripmetachars(raw)
 
     else
-        
         try
-           accented = debugaccent(raw, :RECESSIVE, ortho)
-           @debug("Accented to create $(accented)")
-            #stripmetachars(accentword(raw, :RECESSIVE, ortho))
+            accented = debugaccent(raw, :RECESSIVE, ortho)
+            @debug("Accented to create $(accented)")
             stripmetachars(accented)
         catch e
             @warn("Failed to create accented finite verb form from stem/rule/erro", stem, rule, e)

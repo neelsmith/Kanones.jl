@@ -50,6 +50,8 @@ end
 
 
     aorsubj = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood("subjunctive"), gmpVoice(1)) |> Kanones.formurn
+
+    # THIS IS CRASHING:
     aorsubjform = generate(compound, aorsubj, kds)[1]
     @test aorsubjform == knormal("ἐγκελεύσω")
 
