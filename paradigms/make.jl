@@ -30,6 +30,9 @@ makedocs(
                 "A pure vowel verb of `w_regular` class:  κινδυνεύω" => "regularverbs/kinduneuw.md",
                 "A consonant verb of the `w_regular` class" => "regularverbs/arxw.md",
                 #"The `w_regular_dep` class" => "regularverbs/pragmateuw.md",
+
+                "An epsilon contract verb of the `ew_contract` class:  ποιέω" => "regularverbs/poiew.md",
+
             ],
            #= "Irregular verbs" => Any[
                 #"Overview of irregular nouns" => "vocab/irregularverbs/index.md",
