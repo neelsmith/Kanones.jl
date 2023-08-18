@@ -1,6 +1,5 @@
 
-function conjugation()
-end
+
 
 function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.FilesDataset)
     tenseforms = filter(f -> gmpTense(f) == t && gmpVoice(f) == v, verbforms())

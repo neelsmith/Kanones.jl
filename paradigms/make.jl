@@ -26,16 +26,20 @@ makedocs(
             "index.md",
             "Summary of regularly inflected vocabulary" => "regulars.md",
          
-            "Irregular verbs" => Any[
+            "Regular verb classes" => Any[
+                "The `w_regular` class" => "regularverbs/w_regular.md",
+            ],
+           #= "Irregular verbs" => Any[
                 #"Overview of irregular nouns" => "vocab/irregularverbs/index.md",
-                "δίδωμι" => "irregularverbs/didomi.md",
+                #"δίδωμι" => "irregularverbs/didomi.md",
                 #"τίθημι" => "irregularverbs/tithemi.md",
                 #"ἵστημι" => "irregularverbs/histemi.md",
                 #"ἵημι" => "irregularverbs/hiemi.md",
                 #"εἰμί" => "irregularverbs/eimi-tobe.md",
                 #"εἶμι" => "irregularverbs/eimi-togo.md",
                 #"οἶδα" => "irregularverbs/oida.md",
-            ],#=
+            ],
+            
             "Irregular nouns" => Any[
                 "Overview of irregular nouns" => "irregularnouns/index.md"
             ],

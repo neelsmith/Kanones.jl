@@ -91,6 +91,7 @@ export synopsis, md_synopsis
 export md_conjugation, md_imperativeconjugation
 export md_proofconjugation_deponent, mdfile_proofconjugation_deponent
 export md_proofconjugation, mdfile_proofconjugation
+export verb_conjugation_md
 
 
 export writecsv
@@ -196,6 +197,7 @@ include("forapps/synopses.jl")
 include("forapps/conjugations.jl")
 include("forapps/conjugations_arrays.jl")
 include("forapps/conjugation_deponents.jl")
+include("forapps/fullverb_md.jl")
 include("forapps/analyses.jl")
 
 include("parser/parser.jl")

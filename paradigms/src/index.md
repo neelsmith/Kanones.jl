@@ -1,2 +1,2 @@
-# Vocabulary in the `lsj` dataset
+# Paradigms illustrating Kanones inflectional types
 
