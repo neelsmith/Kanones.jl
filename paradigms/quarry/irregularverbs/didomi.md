@@ -50,6 +50,7 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), διδω
 
 *Active voice*:
 
+
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname 
