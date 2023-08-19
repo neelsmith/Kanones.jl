@@ -13,6 +13,35 @@ function generate(
     rule::ParticipleRule;           
     ortho::GreekOrthography = literaryGreek())
 
+
+############ CONSULT THIS: ################################
+#=
+    stembase = stemstring(stem)  |> knormal
+    if regularverbclass(stem)
+        # This needs to be changed.
+        # principal part is doing augment and redupe,
+        # but athat also needs to happen for non-regular?
+        stembase = principalpart(stem, rule, ortho = ortho) |> knormal
+        @info("Starting from stembase", stembase)
+    else
+        if  takesreduplication(greekForm(rule), inflectionclass(rule))
+            stembase = reduplicate(stembase, ortho)
+        end
+        if rule isa FiniteVerbRule && takesaugment(greekForm(rule)) && stem.augmented == false
+            stembase = augment(stembase, ortho)
+            @info("Augmented:", stembase)
+            stembase
+        end
+    end
+   
+    
+    @info("prin.part with morphemes:", stembase)
+    morphemelist = PolytonicGreek.splitmorphemes(stembase)
+    if length(morphemelist) > 1
+        stembase = strcat(ortho, morphemelist...; elision = true)
+    end
+    =#
+############ END MODEL TO CONSULT ################################
     stembase = stemstring(stem)
     if regularverbclass(stem)
         stembase = principalpart(stem, rule, ortho = ortho)
