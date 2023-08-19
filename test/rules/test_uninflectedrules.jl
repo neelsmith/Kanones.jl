@@ -1,4 +1,4 @@
-@testset "Test IO with delimited text" begin
+@testset "Test IO with delimited text for uninflected forms" begin
     delimited = "uninfl.uninfl2|conjunction"
     uninflio = Kanones.UninflectedIO("IO for uninfls")
     rule = Kanones.readrulerow(uninflio, delimited)
@@ -9,7 +9,7 @@
 end
 
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for uninflected form" begin
     uninflio = Kanones.UninflectedIO("IO for uninfls")
     delimited = "uninfl.uninfl2|conjunction"
     rule = Kanones.readrulerow(uninflio, delimited)

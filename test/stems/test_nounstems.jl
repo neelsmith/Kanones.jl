@@ -1,4 +1,4 @@
-@testset "Test IO for delimited text" begin
+@testset "Test IO for delimited text for noun stems" begin
     delimited = "nounstems.n8909|lsj.n8909|ἀνθρωπ|masculine|os_ou|recessive|"
     nounio = Kanones.NounIO("IO for nouns")
     stem = Kanones.readstemrow(nounio, delimited)
@@ -6,7 +6,7 @@
     @test Unicode.normalize(cex(stem)) == Unicode.normalize("nounstems.n8909|Noun stem ἀνθρωπ- (masculine)|ἀνθρωπ|lsj.n8909|os_ou|masculine|recessive")
 end
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for nouns" begin
     delimited = "nounstems.n8909|lsj.n8909|ἀνθρωπ|masculine|os_ou|recessive|"
     nounio = Kanones.NounIO("IO for nouns")
     stem = Kanones.readstemrow(nounio, delimited)

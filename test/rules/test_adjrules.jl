@@ -1,4 +1,4 @@
-@testset "Test IO with delimited text" begin
+@testset "Test IO with delimited text for adjectives" begin
     delimited = "adjinfl.osaon1|os_a_on|ος|masculine|nominative|singular|positive|"
     adjectiveio = Kanones.AdjectiveIO("adjectives")
     rule = Kanones.readrulerow(adjectiveio, delimited)
@@ -8,7 +8,7 @@
    @test Unicode.normalize(cex(rule)) == Unicode.normalize("adjinfl.osaon1|Adjective inflection rule: ending -ος in class os_a_on can be masculine nominative singular positive.|ος|os_a_on|forms.7010001110")
 end
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for adjectives" begin
     delimited = "adjinfl.osaon1|os_a_on|ος|masculine|nominative|singular|positive|"
     adjectiveio = Kanones.AdjectiveIO("adjectives")
     rule = Kanones.readrulerow(adjectiveio, delimited)

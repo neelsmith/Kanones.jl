@@ -1,5 +1,5 @@
 
-@testset "Test IO for delimited text" begin
+@testset "Test IO for delimited text for verb stems" begin
     delimited = "verbstems.n23658|lsj.n23658|δεικ|numi|"
     verbio = Kanones.VerbIO("IO for verbs")
     stem = Kanones.readstemrow(verbio, delimited)
@@ -7,7 +7,7 @@
     @test Unicode.normalize(cex(stem)) == Unicode.normalize("verbstems.n23658|Verb stem δεικ- (lsj.n23658, stem class numi)|δεικ|lsj.n23658|numi")
 end
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for verb stems" begin
     delimited = "verbstems.n23658|lsj.n23658|δεικ|numi|"
     verbio = Kanones.VerbIO("IO for verbs")
     stem = Kanones.readstemrow(verbio, delimited)

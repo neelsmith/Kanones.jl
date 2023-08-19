@@ -1,4 +1,4 @@
-@testset "Test IO with delimited text" begin
+@testset "Test IO with delimited text for finite verbs" begin
     delimited = "verbinfl.numipres8|numi|νυσαι|second|singular|present|indicative|middle|"
     verbio = Kanones.VerbIO("IO for verbs")
     rule = Kanones.readrulerow(verbio, delimited)
@@ -10,7 +10,7 @@ end
 
 
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for finite verbs" begin
     delimited = "verbinfl.numipres8|numi|νυσαι|second|singular|present|indicative|middle|"
     verbio = Kanones.VerbIO("IO for verbs")
     rule = Kanones.readrulerow(verbio, delimited)
