@@ -19,5 +19,5 @@ end
 $(SIGNATURES)
 """
 function coreparser(repo = pwd(); atticonly = false)
-    coredata(repo = repo; atticonly = atticonly) |> stringParser
+    coredata(repo; atticonly = atticonly) |> stringParser
 end
