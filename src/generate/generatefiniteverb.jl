@@ -21,20 +21,20 @@ function generate(
         # principal part is doing augment and redupe,
         # but athat also needs to happen for non-regular?
         stembase = principalpart(stem, rule, ortho = ortho) |> knormal
-        @debug("Starting from stembase", stembase)
+        @info("Starting from stembase", stembase)
     else
         if  takesreduplication(greekForm(rule), inflectionclass(rule))
             stembase = reduplicate(stembase, ortho)
         end
         if rule isa FiniteVerbRule && takesaugment(greekForm(rule)) && stem.augmented == false
             stembase = augment(stembase, ortho)
-            @debug("Augmented:", stembase)
+            @info("Augmented:", stembase)
             stembase
         end
     end
    
     
-    @debug("prin.part with morphemes:", stembase)
+    @info("prin.part with morphemes:", stembase)
     morphemelist = PolytonicGreek.splitmorphemes(stembase)
     if length(morphemelist) > 1
         stembase = strcat(ortho, morphemelist...; elision = true)
