@@ -12,7 +12,7 @@ function generate(
         @debug("AUGMENTED! Generating verb ", stem, rule)
     end
 
-    @debug("Generating a finite verb form for class $(stem |> inflectionclass)")
+    @info("Generating a finite verb form for class $(stem |> inflectionclass)")
     
     # stembase is just the normalized string value for this stem
     stembase = stemstring(stem)  |> knormal
