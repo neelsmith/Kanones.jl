@@ -125,7 +125,7 @@ function md_synopsis(lex::LexemeUrn, ds::Kanones.Dataset, p::GMPPerson, n::GMPNu
         triple = 3 * factor
         ln = "| $(f) | $(formslist[triple + 1]) | $(formslist[triple + 2]) | $(formslist[triple + 3]) |"
         push!(lines, ln)
-        println(triple)
+        @debug(triple)
         factor = factor + 1
     end
 

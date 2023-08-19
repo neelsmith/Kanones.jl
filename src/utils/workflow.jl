@@ -18,6 +18,6 @@ end
 """Build a parser for the core dataset for literary Greek orthography.
 $(SIGNATURES)
 """
-function coreparser(; atticonly = false)
-    coredata(atticonly = atticonly) |> stringParser
+function coreparser(repo = pwd(); atticonly = false)
+    coredata(repo = repo; atticonly = atticonly) |> stringParser
 end
