@@ -44,11 +44,11 @@
 
     aorpass = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("aorist"), gmpMood(1), gmpVoice("passive")) |> Kanones.formurn
     aorpassform = generate(compound, aorpass, kds)[1]
-    @test aorpassform == knormal("ἐνεκελεύθην")
+    @test aorpassform == knormal("ἐνεκελεύσθην")
 
 
     futpass = GMFFiniteVerb(gmpPerson(1), gmpNumber(1), gmpTense("future"), gmpMood(1), gmpVoice("passive")) |> Kanones.formurn
     futpassform = generate(compound, futpass, kds)[1]
-    @test futpassform == knormal("ἐγκελευθήσομαι")
+    @test futpassform == knormal("ἐγκελευσθήσομαι")
 
 end
