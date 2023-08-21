@@ -15,8 +15,6 @@ import CitableParserBuilder: CanParseCitable
 import CitableParserBuilder: lexeme
 import CitableParserBuilder: lexemes
 
-
-
 export KanonesParser
 export parsetoken, parsewordlist, parsecorpus, parsedocument
 
@@ -92,10 +90,6 @@ export three_ending_adj_md
 export synopsis, synopsis_md
 export conjugation_md, imperativeconjugation_md
 export verb_conjugation_md
-
-
-#export md_proofconjugation_deponent, mdfile_proofconjugation_deponent
-#export md_proofconjugation, mdfile_proofconjugation
 
 export writecsv
 
@@ -210,9 +204,7 @@ include("parser/stringparser.jl")
 include("parser/dfparser.jl")
 include("parser/perfilebuilder.jl")
 
-
 include("dfparser/survey.jl")
-
 
 include("inflectionclasses/inflclasses.jl")
 
