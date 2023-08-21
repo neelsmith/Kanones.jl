@@ -23,7 +23,7 @@ end
 
 $(SIGNATURES)
 """
-function md_declension(lex::LexemeUrn, kd::Kanones.FilesDataset)
+function declension_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
     labels = ["nominative", "genitive", "dative", "accusative", "vocative"]
     lines = [
         "| | Singular | Plural |", 
@@ -42,7 +42,7 @@ end
 
 $(SIGNATURES)
 """
-function md_declension(lexlist::Array, kd::Kanones.FilesDataset; withvocative::Bool = false)
+function declension_md(lexlist::Array, kd::Kanones.FilesDataset; withvocative::Bool = false)
     labels = ["nominative", "genitive", "dative", "accusative"]
     gendervalues = genders(lexlist, kd)
     inflclasses = stemtypes(lexlist, kd)

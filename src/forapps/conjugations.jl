@@ -1,11 +1,9 @@
-
-
 """Compose a table in markdown format
 with the conjugation of verb `lex` in a given
 tense and voice.
 $(SIGNATURES)
 """
-function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.FilesDataset)
+function conjugation_md(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.FilesDataset)
     tenseforms = filter(f -> gmpTense(f) == t && gmpVoice(f) == v, verbforms())
    
  
@@ -68,7 +66,7 @@ end
 """Compose markdown table with imperative conjugation of `lex`.
 $(SIGNATURES)
 """
-function md_imperativeconjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.FilesDataset)
+function imperativeconjugation_md(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.FilesDataset)
     mdlines = ["| | Singular | Plural|",   
     "| --- | --- | --- |"]
     imptvforms = filter(f -> f isa GMFFiniteVerb && gmpMood(f) == gmpMood("imperative"), allforms())
@@ -98,7 +96,7 @@ function md_imperativeconjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::
     join(mdlines,"\n")
 end
 
-
+#=
 """Compose markdown display for proof reading future sytem of verb `lex`.
 $(SIGNATURES)
 """
@@ -107,10 +105,10 @@ function prooffuture(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
     futfinites = [
         "## Future tense",
         "*Active*",
-        md_conjugation(gmpTense("future"), gmpVoice("active"), lex, kds),
+        conjugation_md(gmpTense("future"), gmpVoice("active"), lex, kds),
         "*Middle*",
-        md_conjugation(gmpTense("future"), gmpVoice("middle"), lex, kds),"*Passive*", 
-        md_conjugation(gmpTense("future"), gmpVoice("passive"), lex, kds),
+        conjugation_md(gmpTense("future"), gmpVoice("middle"), lex, kds),"*Passive*", 
+        conjugation_md(gmpTense("future"), gmpVoice("passive"), lex, kds),
     ]
 
     futinf_act = GMFInfinitive(gmpTense("future"), gmpVoice("active"))
@@ -143,6 +141,7 @@ function prooffuture(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
 end
 
 
+
 """Compose markdown display for proof reading present sytem of verb `lex`.
 $(SIGNATURES)
 """
@@ -151,14 +150,14 @@ function proofpresent(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
     presfinites = [
         "## Present tense",
         "*Active*", 
-        md_conjugation(gmpTense("present"), gmpVoice("active"), lex, kds),
+        conjugation_md(gmpTense("present"), gmpVoice("active"), lex, kds),
         "*Middle/passive*",  
-        md_conjugation(gmpTense("present"), gmpVoice("passive"), lex, kds),
+        conjugation_md(gmpTense("present"), gmpVoice("passive"), lex, kds),
         "### Imperative",
         "*Active*",
-        md_imperativeconjugation(gmpTense("present"), gmpVoice("active"), lex, kds),
+        imperativeconjugation_md(gmpTense("present"), gmpVoice("active"), lex, kds),
         "*Middle/passive*", 
-        md_imperativeconjugation(gmpTense("present"), gmpVoice("passive"), lex, kds)
+        imperativeconjugation_md(gmpTense("present"), gmpVoice("passive"), lex, kds)
     ]
     
     vadj = GMFVerbalAdjective(
@@ -196,9 +195,9 @@ function proofpresent(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
     imperfect = [
         "## Imperfect",
         "*Active*", 
-        md_conjugation(gmpTense("imperfect"), gmpVoice("active"), lex, kds),
+        conjugation_md(gmpTense("imperfect"), gmpVoice("active"), lex, kds),
         "*Middle/passive*",
-        md_conjugation(gmpTense("imperfect"), gmpVoice("passive"), lex, kds)
+        conjugation_md(gmpTense("imperfect"), gmpVoice("passive"), lex, kds)
     ]
     
 
@@ -215,18 +214,18 @@ function proofaorist(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
     finites = [
         "## Aorist tense",
         "*Active voice*",
-        md_conjugation(gmpTense("aorist"), gmpVoice("active"), lex, kds),
+        conjugation_md(gmpTense("aorist"), gmpVoice("active"), lex, kds),
         "*Middle voice*",
-        md_conjugation(gmpTense("aorist"), gmpVoice("middle"), lex, kds),
+        conjugation_md(gmpTense("aorist"), gmpVoice("middle"), lex, kds),
         "*Passive voice*",
-        md_conjugation(gmpTense("aorist"), gmpVoice("passive"), lex, kds),
+        conjugation_md(gmpTense("aorist"), gmpVoice("passive"), lex, kds),
         "### Imperative",
         "*Active voice*",
-        md_imperativeconjugation(gmpTense("aorist"), gmpVoice("active"), lex, kds),
+        imperativeconjugation_md(gmpTense("aorist"), gmpVoice("active"), lex, kds),
         "*Middle voice*",
-        md_imperativeconjugation(gmpTense("aorist"), gmpVoice("middle"), lex, kds),
+        imperativeconjugation_md(gmpTense("aorist"), gmpVoice("middle"), lex, kds),
         "*Passive voice*",
-        md_imperativeconjugation(gmpTense("aorist"), gmpVoice("passive"), lex, kds),
+        imperativeconjugation_md(gmpTense("aorist"), gmpVoice("passive"), lex, kds),
     ]
 
     inf_act = GMFInfinitive(gmpTense("aorist"), gmpVoice("active"))
@@ -268,9 +267,9 @@ function proofperfect(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
         "## Perfect system",
         "### Perfect tense",
         "*Active voice*",
-        md_conjugation(gmpTense("perfect"), gmpVoice("active"), lex, kds),
+        conjugation_md(gmpTense("perfect"), gmpVoice("active"), lex, kds),
         "*Middle and passive voices*",
-        md_conjugation(gmpTense("perfect"), gmpVoice("passive"), lex, kds)
+        conjugation_md(gmpTense("perfect"), gmpVoice("passive"), lex, kds)
     ]
 
     actptcpl = participleslashline(lex, gmpTense("perfect"), gmpVoice("active"), kds)
@@ -290,13 +289,15 @@ function proofperfect(lex::LexemeUrn, kds::T) where {T <: Kanones.Dataset}
     plupft = [
         "### Pluperfect tense",
         "*Active voice*",
-        md_conjugation(gmpTense("pluperfect"), gmpVoice("active"), lex, kds),
+        conjugation_md(gmpTense("pluperfect"), gmpVoice("active"), lex, kds),
         "*Middle and passive voices*",
-        md_conjugation(gmpTense("pluperfect"), gmpVoice("passive"), lex, kds)
+        conjugation_md(gmpTense("pluperfect"), gmpVoice("passive"), lex, kds)
     ]
         
     join(finites,"\n\n") * "\n\n" * join(nominals,"\n") * "\n\n" * join(plupft, "\n\n")
 end
+=#
+
 
 function conjugationheader(lex::LexemeUrn, kds::T; note = nothing) where {T <: Kanones.Dataset}
 

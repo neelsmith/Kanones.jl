@@ -18,7 +18,7 @@ end
 
 $(SIGNATURES)
 """
-function md_ptcpldeclension(
+function ptcpldeclension_md(
     lex::LexemeUrn, 
     tense::GMPTense, voice::GMPVoice, 
     kd::Kanones.FilesDataset)

@@ -22,19 +22,19 @@ function perfectsystem_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
         "## Perfect system","",
         "### Perfect tense","",
         "*Active voice*:","",
-        md_conjugation(gmpTense("perfect"), gmpVoice("active"),lexu,kd),
+        conjugation_md(gmpTense("perfect"), gmpVoice("active"),lexu,kd),
         "",
         "*Middle and passive voices* (identical forms):","",
-        md_conjugation(gmpTense("perfect"), gmpVoice("passive"),lexu,kd),
+        conjugation_md(gmpTense("perfect"), gmpVoice("passive"),lexu,kd),
         "",
         nonfinite_perfect_md(lexu, kd),
 
         "### Pluperfect tense","",
         "*Active voice*:","",
-        md_conjugation(gmpTense("pluperfect"), gmpVoice("active"),lexu,kd),
+        conjugation_md(gmpTense("pluperfect"), gmpVoice("active"),lexu,kd),
         "",
         "*Middle and passive voices* (identical forms):","",
-        md_conjugation(gmpTense("pluperfect"), gmpVoice("passive"), lexu,kd)
+        conjugation_md(gmpTense("pluperfect"), gmpVoice("passive"), lexu,kd)
 
     ]
 
@@ -48,25 +48,27 @@ function aoristtense_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     mdoutput = [
     "## Aorist tense","",
     "*Active voice*:","",
-    md_conjugation(gmpTense("aorist"), gmpVoice("active"), lexu, kd),
+    conjugation_md(gmpTense("aorist"), gmpVoice("active"), lexu, kd),
     "",
     "*Middle voice*:","",
-    md_conjugation(gmpTense("aorist"), gmpVoice("middle"), lexu, kd),
+    conjugation_md(gmpTense("aorist"), gmpVoice("middle"), lexu, kd),
     "",
     "*Passive voice*:","",
-    md_conjugation(gmpTense("aorist"), gmpVoice("passive"), lexu, kd),
+    conjugation_md(gmpTense("aorist"), gmpVoice("passive"), lexu, kd),
     "",
 
     "### Imperative","",
     "*Active voice*:","",
-    md_imperativeconjugation(gmpTense("aorist"), gmpVoice("active"), lexu, kd),
+    imperativeconjugation_md(gmpTense("aorist"), gmpVoice("active"), lexu, kd),
     "",
     "*Middle voice*:","",
-    md_imperativeconjugation(gmpTense("aorist"), gmpVoice("middle"), lexu, kd),
+    imperativeconjugation_md(gmpTense("aorist"), gmpVoice("middle"), lexu, kd),
+    "",
     "*Passive voice*:","",
-    md_imperativeconjugation(gmpTense("aorist"), gmpVoice("passive"), lexu, kd),
+    imperativeconjugation_md(gmpTense("aorist"), gmpVoice("passive"), lexu, kd),
     "",
     nonfinite_aorist_md(lexu, kd),
+    ""
     ]
 
     join(mdoutput, "\n")
@@ -80,15 +82,18 @@ function futuretense_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     mdoutput = [
     "## Future tense","",
     "*Active voice*:","",
-    md_conjugation(gmpTense("future"), gmpVoice("active"), lexu, kd),
+    conjugation_md(gmpTense("future"), gmpVoice("active"), lexu, kd),
+    "",
 
     "*Middle voice*:","",
-    md_conjugation(gmpTense("future"), gmpVoice("middle"), lexu, kd),
+    conjugation_md(gmpTense("future"), gmpVoice("middle"), lexu, kd),
+    "",
 
     "*Passive voice*:","",
-    md_conjugation(gmpTense("future"), gmpVoice("passive"), lexu, kd),
+    conjugation_md(gmpTense("future"), gmpVoice("passive"), lexu, kd),
     "",
     nonfinite_future_md(lexu, kd),
+    "",
 
     ]
 
@@ -120,20 +125,20 @@ function presentsystem_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     "### Present tense","",
 
     "*Active voice*:","",
-    md_conjugation(gmpTense("present"), gmpVoice("active"), lexu, kd),
+    conjugation_md(gmpTense("present"), gmpVoice("active"), lexu, kd),
     "",
 
     "*Middle and passive voices* (identical forms):","",
-    md_conjugation(gmpTense("present"), gmpVoice("passive"), lexu, kd),
+    conjugation_md(gmpTense("present"), gmpVoice("passive"), lexu, kd),
     "",
 
     "### Imperative","",
     "*Active voice*:","",
-    md_imperativeconjugation(gmpTense("present"), gmpVoice("active"), lexu, kd),
+    imperativeconjugation_md(gmpTense("present"), gmpVoice("active"), lexu, kd),
     "",
 
     "*Middle and passive voices* (identical forms):","",
-    md_imperativeconjugation(gmpTense("present"), gmpVoice("passive"), lexu, kd),
+    imperativeconjugation_md(gmpTense("present"), gmpVoice("passive"), lexu, kd),
     "",
 
     nonfinite_present_md(lexu, kd),
@@ -141,11 +146,11 @@ function presentsystem_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
 
     "### Imperfect tense","",
     "*Active voice*:","",
-    md_conjugation(gmpTense("imperfect"), gmpVoice("active"), lexu, kd),
+    conjugation_md(gmpTense("imperfect"), gmpVoice("active"), lexu, kd),
     "",
 
     "*Middle and passive voices* (identical forms):","",
-    md_conjugation(gmpTense("imperfect"), gmpVoice("passive"), lexu, kd),
+    conjugation_md(gmpTense("imperfect"), gmpVoice("passive"), lexu, kd),
     ]
 
     join(mdoutput, "\n")

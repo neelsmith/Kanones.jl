@@ -42,7 +42,7 @@ repo = pwd() |> dirname
 ds = Kanones.coredata(repo; atticonly = true)
 
 # ╔═╡ adc67d81-a8ce-4453-94ba-1f95eebcff06
-md_synopsis(verbu, ds, gmpPerson("third"), gmpNumber("singular")) |> Markdown.parse
+synopsis_md(verbu, ds, gmpPerson("third"), gmpNumber("singular")) |> Markdown.parse
 
 # ╔═╡ Cell order:
 # ╠═bbd87e01-007e-4adc-82ab-4d8face91fbc

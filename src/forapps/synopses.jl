@@ -90,7 +90,7 @@ end
 """Format markdown display of synopsis of `lex` for a given person and number.
 $(SIGNATURES)
 """
-function md_synopsis(lex::LexemeUrn, ds::Kanones.Dataset, p::GMPPerson, n::GMPNumber)
+function synopsis_md(lex::LexemeUrn, ds::Kanones.Dataset, p::GMPPerson, n::GMPNumber)
     labellist = [
         "present, indicative",
         "imperfect, indicative",
