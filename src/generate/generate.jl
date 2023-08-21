@@ -18,10 +18,10 @@ function generate(
     orthography::GreekOrthography) 
 
     
-    @debug("Use data arrays to generate form for lex", form, lex)
+    @info("Use data arrays to generate form for lex", form, lex)
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemset)
-    @debug("STEMS:", stems)
+    @info("STEMS:", stems)
     generated = []
     for s in stems
         @debug("Inflection class of stem is $(inflectionclass(s))")
@@ -37,7 +37,7 @@ function generate(
             end
         end
         if ! isempty(rules)
-            @debug("For stem $(s), found rules", rules)
+            @info("For stem $(s), found rules", rules)
         end
         for r in rules
             @debug("Generating s/r", s,r)
