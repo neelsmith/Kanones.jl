@@ -1,5 +1,5 @@
 
-function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
+function conjugation_md(t::GMPTense, v::GMPVoice, lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
     @debug("Conjugate", lex, label(t), label(v))
 
     tenseforms = filter(f -> gmpTense(f) == t && gmpVoice(f) == v, verbforms())
@@ -67,7 +67,7 @@ end
 """Compose markdown table with imperative conjugation of `lex`.
 $(SIGNATURES)
 """
-function md_imperativeconjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
+function imperativeconjugation_md(t::GMPTense, v::GMPVoice, lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
     mdlines = ["| | Singular | Plural|",   
     "| --- | --- | --- |"]
     imptvforms = filter(f -> f isa GMFFiniteVerb && gmpMood(f) == gmpMood("imperative"), allforms())
@@ -123,14 +123,14 @@ function proofpresent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Ste
     presfinites = [
         "## Present tense",
         "*Active*", 
-        md_conjugation(gmpTense("present"), gmpVoice("active"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("present"), gmpVoice("active"), lex, ruleset, stemset, orthography),
         "*Middle/passive*",  
-        md_conjugation(gmpTense("present"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("present"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
         "### Imperative",
         "*Active*",
-        md_imperativeconjugation(gmpTense("present"), gmpVoice("active"), lex, ruleset, stemset, orthography),
+        imperativeconjugation_md(gmpTense("present"), gmpVoice("active"), lex, ruleset, stemset, orthography),
         "*Middle/passive*", 
-        md_imperativeconjugation(gmpTense("present"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
+        imperativeconjugation_md(gmpTense("present"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
     ]
     
     vadj = GMFVerbalAdjective(
@@ -168,9 +168,9 @@ function proofpresent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Ste
     imperfect = [
         "## Imperfect",
         "*Active*", 
-        md_conjugation(gmpTense("imperfect"), gmpVoice("active"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("imperfect"), gmpVoice("active"), lex, ruleset, stemset, orthography),
         "*Middle/passive*",
-        md_conjugation(gmpTense("imperfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
+        conjugation_md(gmpTense("imperfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
     ]
 
     
@@ -184,10 +184,10 @@ function prooffuture(lex::LexemeUrn,ruleset::Vector{Rule}, stemset::Vector{Stem}
     futfinites = [
         "## Future tense",
         "*Active*",
-        md_conjugation(gmpTense("future"), gmpVoice("active"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("future"), gmpVoice("active"), lex, ruleset, stemset, orthography),
         "*Middle*",
-        md_conjugation(gmpTense("future"), gmpVoice("middle"), lex, ruleset, stemset, orthography),"*Passive*", 
-        md_conjugation(gmpTense("future"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("future"), gmpVoice("middle"), lex, ruleset, stemset, orthography),"*Passive*", 
+        conjugation_md(gmpTense("future"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
     ]
 
     futinf_act = GMFInfinitive(gmpTense("future"), gmpVoice("active"))
@@ -225,18 +225,18 @@ function proofaorist(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem
     finites = [
         "## Aorist tense",
         "*Active voice*",
-        md_conjugation(gmpTense("aorist"), gmpVoice("active"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("aorist"), gmpVoice("active"), lex, ruleset, stemset, orthography),
         "*Middle voice*",
-        md_conjugation(gmpTense("aorist"), gmpVoice("middle"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("aorist"), gmpVoice("middle"), lex, ruleset, stemset, orthography),
         "*Passive voice*",
-        md_conjugation(gmpTense("aorist"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("aorist"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
         "### Imperative",
         "*Active voice*",
-        md_imperativeconjugation(gmpTense("aorist"), gmpVoice("active"), lex, ruleset, stemset, orthography),
+        imperativeconjugation_md(gmpTense("aorist"), gmpVoice("active"), lex, ruleset, stemset, orthography),
         "*Middle voice*",
-        md_imperativeconjugation(gmpTense("aorist"), gmpVoice("middle"), lex, ruleset, stemset, orthography),
+        imperativeconjugation_md(gmpTense("aorist"), gmpVoice("middle"), lex, ruleset, stemset, orthography),
         "*Passive voice*",
-        md_imperativeconjugation(gmpTense("aorist"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
+        imperativeconjugation_md(gmpTense("aorist"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
     ]
 
     inf_act = GMFInfinitive(gmpTense("aorist"), gmpVoice("active"))
@@ -274,9 +274,9 @@ function proofperfect(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Ste
         "## Perfect system",
         "### Perfect tense",
         "*Active voice*",
-        md_conjugation(gmpTense("perfect"), gmpVoice("active"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("perfect"), gmpVoice("active"), lex, ruleset, stemset, orthography),
         "*Middle and passive voices*",
-        md_conjugation(gmpTense("perfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
+        conjugation_md(gmpTense("perfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
     ]
 
     actptcpl = participleslashline(lex, gmpTense("perfect"), gmpVoice("active"), ruleset, stemset, orthography)
@@ -296,9 +296,9 @@ function proofperfect(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Ste
     plupft = [
         "### Pluperfect tense",
         "*Active voice*",
-        md_conjugation(gmpTense("pluperfect"), gmpVoice("active"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("pluperfect"), gmpVoice("active"), lex, ruleset, stemset, orthography),
         "*Middle and passive voices*",
-        md_conjugation(gmpTense("pluperfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
+        conjugation_md(gmpTense("pluperfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
     ]
         
     join(finites,"\n\n") * "\n\n" * join(nominals,"\n") * "\n\n" * join(plupft, "\n\n")

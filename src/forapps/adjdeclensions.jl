@@ -1,11 +1,8 @@
-
-
-
 """Compose markdown table with a declension of a single noun.
 
 $(SIGNATURES)
 """
-function md_3endingadj(lex::LexemeUrn, degree::GMPDegree, kd::Kanones.FilesDataset)
+function three_ending_adj_md(lex::LexemeUrn, degree::GMPDegree, kd::Kanones.FilesDataset)
     stemmatches = filter(s -> lexeme(s) == lex, stemsarray(kd))
     if isempty(stemmatches)
         throw(DomainError("No stems found for lexeme $(lex)"))

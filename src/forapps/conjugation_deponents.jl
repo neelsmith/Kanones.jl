@@ -1,9 +1,8 @@
 
-function md_conjugation_deponent(t::GMPTense, v::GMPVoice, lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
-
+function conjugation_md_deponent(t::GMPTense, v::GMPVoice, lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
 
     tenseforms = filter(f -> gmpTense(f) == t && gmpVoice(f) == v, deponentverbforms())
-   
+ 
  
     mdlines = ["| | Indicative | Subjunctive | Optative |",   
     "| --- | --- | --- | --- |"]
@@ -67,7 +66,7 @@ end
 """Compose markdown table with imperative conjugation of `lex`.
 $(SIGNATURES)
 """
-function md_imperativeconjugation_deponent(t::GMPTense, v::GMPVoice, lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
+function imperativeconjugation_md_deponent(t::GMPTense, v::GMPVoice, lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
     mdlines = ["| | Singular | Plural|",   
     "| --- | --- | --- |"]
     imptvforms = filter(f -> f isa GMFFiniteVerb && gmpMood(f) == gmpMood("imperative") && gmpVoice(f) != gmpVoice("active"), allforms())
@@ -116,7 +115,7 @@ function participleslashline_deponent(
 end
 
 
-
+#=
 function proofpresent_deponent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
    
 
@@ -124,10 +123,10 @@ function proofpresent_deponent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::V
         "## Present tense",
  
         "*Middle/passive*",  
-        md_conjugation(gmpTense("present"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("present"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
         "### Imperative",
         "*Middle/passive*", 
-        md_imperativeconjugation(gmpTense("present"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
+        imperativeconjugation_md(gmpTense("present"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
     ]
     
     vadj = GMFVerbalAdjective(
@@ -159,7 +158,7 @@ function proofpresent_deponent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::V
         "## Imperfect",
 
         "*Middle/passive*",
-        md_conjugation(gmpTense("imperfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
+        conjugation_md(gmpTense("imperfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
     ]
 
     
@@ -174,8 +173,8 @@ function prooffuture_deponent(lex::LexemeUrn,ruleset::Vector{Rule}, stemset::Vec
         "## Future tense",
 
         "*Middle*",
-        md_conjugation(gmpTense("future"), gmpVoice("middle"), lex, ruleset, stemset, orthography),"*Passive*", 
-        md_conjugation(gmpTense("future"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("future"), gmpVoice("middle"), lex, ruleset, stemset, orthography),"*Passive*", 
+        conjugation_md(gmpTense("future"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
     ]
 
     
@@ -211,15 +210,15 @@ function proofaorist_deponent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Ve
         "## Aorist tense",
 
         "*Middle voice*",
-        md_conjugation(gmpTense("aorist"), gmpVoice("middle"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("aorist"), gmpVoice("middle"), lex, ruleset, stemset, orthography),
         "*Passive voice*",
-        md_conjugation(gmpTense("aorist"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
+        conjugation_md(gmpTense("aorist"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
         "### Imperative",
     
         "*Middle voice*",
-        md_imperativeconjugation(gmpTense("aorist"), gmpVoice("middle"), lex, ruleset, stemset, orthography),
+        imperativeconjugation_md(gmpTense("aorist"), gmpVoice("middle"), lex, ruleset, stemset, orthography),
         "*Passive voice*",
-        md_imperativeconjugation(gmpTense("aorist"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
+        imperativeconjugation_md(gmpTense("aorist"), gmpVoice("passive"), lex, ruleset, stemset, orthography),
     ]
 
   
@@ -254,7 +253,7 @@ function proofperfect_deponent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::V
         "### Perfect tense",
 
         "*Middle and passive voices*",
-        md_conjugation(gmpTense("perfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
+        conjugation_md(gmpTense("perfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
     ]
 
     mpptcpl = participleslashline(lex, gmpTense("perfect"), gmpVoice("middle"), ruleset, stemset, orthography)
@@ -268,7 +267,7 @@ function proofperfect_deponent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::V
         "### Pluperfect tense",
  
         "*Middle and passive voices*",
-        md_conjugation(gmpTense("pluperfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
+        conjugation_md(gmpTense("pluperfect"), gmpVoice("passive"), lex, ruleset, stemset, orthography)
     ]
         
     join(finites,"\n\n") * "\n\n" * join(nominals,"\n") * "\n\n" * join(plupft, "\n\n")
@@ -306,3 +305,4 @@ function mdfile_proofconjugation_deponent(lex::LexemeUrn, kds::T, f = "scratch/p
         write(io, md)
     end
 end
+=#

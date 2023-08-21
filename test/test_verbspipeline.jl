@@ -9,7 +9,7 @@
     pp1 = parsetoken("κελεύομεν",p)[1]
     @test "finite verb:  present indicative active first plural" == label(greekForm(pp1))
     mp = parsetoken("κελευόμεθα",p)
-    @test_broken length(mp) == 2
+    @test length(mp) == 2
 
     aug = parsetoken("ἐκέλευες", p)[1]
     @test "finite verb:  imperfect indicative active second singular" == label(greekForm(aug))
@@ -34,15 +34,14 @@
     @test (label(gmpVoice(pp5form)) == "middle") || (label(gmpVoice(pp5form)) == "passive")
 
     plpft = parsetoken("ἐκεκελεύκει",p)[1]
-    @test "finite verb:  pluperfect indicative active third singular" == label(greekForm(plpft))
+    @test "finite verb:  pluperfect indicative active third singular" == plpft |> greekForm |> label
 
-    pp6 = parsetoken("ἐκελεύσθη", p)
-    @test_broken isempty(pp6) == false
-    #@test "finite verb:  aorist indicative passive third singular" == label(greekForm(pp6))
+    pp6 = parsetoken("ἐκελεύσθη", p)[1]
+    @test "finite verb:  aorist indicative passive third singular" == label(greekForm(pp6))
 
     # test augment of second aorist
-    aor2 = parsetoken("ἔτυχε",p)
-    @test_broken "" == label(greekForm(aor2))
+    aor2 = parsetoken("ἔτυχε",p)[1]
+    @test "finite verb:  aorist indicative active third singular" == label(greekForm(aor2))
 
     # test augment of pluperfect
     # test compounding
@@ -74,7 +73,6 @@ end
     kds = joinpath(repo, "datasets", "literarygreek-rules") |> dataset
     p = stringParser(kds)
 
-
     presact = parsetoken("κελεύειν",p)[1]
     @test "infinitive: present active" == label(greekForm(presact))
 
@@ -87,10 +85,8 @@ end
     pftact = parsetoken("κεκελευκέναι",p)[1] 
     @test "infinitive: perfect active" == label(greekForm(pftact))
 
-    aorpass = parsetoken("κελευθῆναι",p)
-    @test_broken isempty(aorpass) == false
-    #@test  "infinitive: aorist passive" == label(greekForm(aorpass))
-
+    aorpass = parsetoken("κελευσθῆναι",p)[1]
+    @test  "infinitive: aorist passive" == label(greekForm(aorpass))
 
     irreg = parsetoken("εἶναι",p)[1] 
     @test "infinitive: present active" == label(greekForm(irreg))
