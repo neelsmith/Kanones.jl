@@ -45,6 +45,7 @@ include("test_datasets.jl")
 include("generate/test_generate.jl")
 include("principalparts/test_principalparts.jl")
 include("principalparts/test_finitecompounds.jl")
+include("principalparts/test_infinitivecompounds.jl")
 include("principalparts/test_compoundverbs.jl")
 
 include("test_verbspipeline.jl")

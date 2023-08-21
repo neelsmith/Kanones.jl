@@ -9,43 +9,29 @@ function generate(
     rule::InfinitiveRule;
     ortho::GreekOrthography = literaryGreek())
 
-
-############ CONSULT THIS: ################################
-#=
-    stembase = stemstring(stem)  |> knormal
+    @debug("Generating a finite verb form for class $(stem |> inflectionclass)")
+    stembase = ""
     if regularverbclass(stem)
-        # This needs to be changed.
-        # principal part is doing augment and redupe,
-        # but athat also needs to happen for non-regular?
         stembase = principalpart(stem, rule, ortho = ortho) |> knormal
-        @debug("Starting from stembase", stembase)
+    
     else
+        stembase = stemstring(stem)  |> knormal
         if  takesreduplication(greekForm(rule), inflectionclass(rule))
             stembase = reduplicate(stembase, ortho)
         end
-        if rule isa FiniteVerbRule && takesaugment(greekForm(rule)) && stem.augmented == false
-            stembase = augment(stembase, ortho)
-            @debug("Augmented:", stembase)
-            stembase
-        end
     end
-   
-    
-    @debug("prin.part with morphemes:", stembase)
+
+    @debug("Stem base including morphemes:", stembase)
     morphemelist = PolytonicGreek.splitmorphemes(stembase)
     if length(morphemelist) > 1
         stembase = strcat(ortho, morphemelist...; elision = true)
     end
-    =#
-############ END MODEL TO CONSULT ################################
-    @debug("Generating infinitive for $(stem)")
-    stembase = stemstring(stem)
-    if regularverbclass(stem) 
-        stembase = principalpart(stem, rule, ortho = ortho)
-    end
+    @debug("generating infinitive verb: stembase/ending $(stembase) / $(ending(rule))")
+    
 
     raw = stembase * ending(rule)
     @debug("Generate from raw", raw)
+
     
     if countaccents(raw, ortho) == 1
         # Already has accent! 

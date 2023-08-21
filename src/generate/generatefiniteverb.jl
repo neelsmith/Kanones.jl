@@ -8,33 +8,24 @@ function generate(
     stem::VerbStem, 
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
-    if stem.augmented
-        @debug("AUGMENTED! Generating verb ", stem, rule)
-    end
 
-    @info("Generating a finite verb form for class $(stem |> inflectionclass)")
-    
-    # stembase is just the normalized string value for this stem
-    stembase = stemstring(stem)  |> knormal
+    @debug("Generating a finite verb form for class $(stem |> inflectionclass)")
+    stembase = ""
     if regularverbclass(stem)
-        # This needs to be changed.
-        # principal part is doing augment and redupe,
-        # but athat also needs to happen for non-regular?
+        # For classes that form regular principal parts
         stembase = principalpart(stem, rule, ortho = ortho) |> knormal
-        @debug("Starting from stembase", stembase)
+    
     else
+        stembase = stemstring(stem)  |> knormal
         if  takesreduplication(greekForm(rule), inflectionclass(rule))
             stembase = reduplicate(stembase, ortho)
         end
         if rule isa FiniteVerbRule && takesaugment(greekForm(rule)) && stem.augmented == false
             stembase = augment(stembase, ortho)
-            @debug("Augmented:", stembase)
-            stembase
         end
     end
-   
-    
-    @debug("prin.part with morphemes:", stembase)
+
+    @debug("Stem base including morphemes:", stembase)
     morphemelist = PolytonicGreek.splitmorphemes(stembase)
     if length(morphemelist) > 1
         stembase = strcat(ortho, morphemelist...; elision = true)
