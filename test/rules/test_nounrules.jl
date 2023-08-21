@@ -1,4 +1,4 @@
-@testset "Test IO with delimited text" begin
+@testset "Test IO with delimited text for nouns" begin
     delimited = "nouninfl.os_ou1|os_ou|ος|masculine|nominative|singular|"
     nounio = Kanones.NounIO("IO for nouns")
     rule = Kanones.readrulerow(nounio, delimited)
@@ -9,7 +9,7 @@
 end
 
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for nouns" begin
     delimited = "nouninfl.os_ou1|os_ou|ος|masculine|nominative|singular|"
     nounio = Kanones.NounIO("IO for nouns")
     rule = Kanones.readrulerow(nounio, delimited)

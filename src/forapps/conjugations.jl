@@ -1,7 +1,10 @@
 
-function conjugation()
-end
 
+"""Compose a table in markdown format
+with the conjugation of verb `lex` in a given
+tense and voice.
+$(SIGNATURES)
+"""
 function md_conjugation(t::GMPTense, v::GMPVoice, lex::LexemeUrn, kd::Kanones.FilesDataset)
     tenseforms = filter(f -> gmpTense(f) == t && gmpVoice(f) == v, verbforms())
    

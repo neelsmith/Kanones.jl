@@ -3,21 +3,21 @@ each rule, plus manually validated vocabulary from LSJ.  To include rules and st
 other than Attic, leave `atticonly` set to false.
 $(SIGNATURES)
 """
-function coredata(; atticonly = false)
+function coredata(repo = pwd(); atticonly = false)
     # 1. rules with demo vocab:
-    lgr = joinpath(pwd(), "datasets", "literarygreek-rules")
-    ionic = joinpath(pwd(), "datasets", "ionic")
-    homeric = joinpath(pwd(), "datasets", "homeric")
+    lgr = joinpath(repo, "datasets", "literarygreek-rules")
+    ionic = joinpath(repo, "datasets", "ionic")
+    homeric = joinpath(repo, "datasets", "homeric")
     # 2. manually validated LSJ vocab:
-    lsj = joinpath(pwd(), "datasets", "lsj-vocab")
+    lsj = joinpath(repo, "datasets", "lsj-vocab")
     # 3. manually validated NOT in LSJ:
-    extra = joinpath(pwd(), "datasets", "extra")
+    extra = joinpath(repo, "datasets", "extra")
     atticonly ? dataset([lgr, lsj, extra]) :  dataset([lgr, ionic, homeric, lsj, extra]) 
 end
 
 """Build a parser for the core dataset for literary Greek orthography.
 $(SIGNATURES)
 """
-function coreparser(; atticonly = false)
-    coredata(atticonly = atticonly) |> stringParser
+function coreparser(repo = pwd(); atticonly = false)
+    coredata(repo; atticonly = atticonly) |> stringParser
 end

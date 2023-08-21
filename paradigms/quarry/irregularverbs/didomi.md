@@ -3,22 +3,27 @@
 Here's our value for `repo`:
 
 ```@example debug
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 repo
 ```
 
+Here's our dataset:
+
+```@example debug
+repo = pwd() |> dirname |> dirname |> dirname 
+```
 ## Present system
 
-#=
+
 ### Present tense
 
 *Active voice*:
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -31,9 +36,9 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("active"), διδω�
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab")  
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -45,11 +50,12 @@ Markdown.parse(md_conjugation(gmpTense("present"), gmpVoice("passive"), διδω
 
 *Active voice*:
 
+
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab")  
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -63,9 +69,9 @@ Markdown.parse(tbl)
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -75,9 +81,9 @@ Markdown.parse(tbl)
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 vadj = GMFVerbalAdjective(
@@ -116,7 +122,7 @@ Markdown.parse(join(mdlines,"\n"))
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab")  
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -129,9 +135,9 @@ Markdown.parse(md_conjugation(gmpTense("imperfect"), gmpVoice("active"), διδ�
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -149,7 +155,7 @@ Markdown.parse(md_conjugation(gmpTense("imperfect"), gmpVoice("passive"), διδ
 using Kanones, CitableParserBuilder, Markdown
 repo = pwd() |> dirname |> dirname |> dirname |> dirname
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -162,9 +168,9 @@ Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("active"), διδωμ
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -177,9 +183,9 @@ Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("middle"),διδωμ�
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -191,9 +197,9 @@ Markdown.parse(md_conjugation(gmpTense("future"), gmpVoice("passive"),διδωμ
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab")  
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -243,9 +249,9 @@ Markdown.parse(join(mdlines,"\n"))
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -258,9 +264,9 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("active"), διδωμ
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -273,9 +279,9 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("middle"), διδωμ
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -292,9 +298,9 @@ Markdown.parse(md_conjugation(gmpTense("aorist"), gmpVoice("passive"), διδω�
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -308,9 +314,9 @@ Markdown.parse(tbl)
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -325,9 +331,9 @@ Markdown.parse(tbl)
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -339,9 +345,9 @@ Markdown.parse(tbl)
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -397,9 +403,9 @@ Markdown.parse(join(mdlines,"\n"))
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -414,9 +420,9 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("active"), διδω�
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -428,9 +434,9 @@ Markdown.parse(md_conjugation(gmpTense("perfect"), gmpVoice("passive"), διδω
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -458,9 +464,9 @@ Markdown.parse(join(mdlines,"\n"))
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname 
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
@@ -474,14 +480,12 @@ Markdown.parse(md_conjugation(gmpTense("pluperfect"), gmpVoice("active"), διδ
 
 ```@eval
 using Kanones, CitableParserBuilder, Markdown
-repo = pwd() |> dirname |> dirname |> dirname |> dirname
+repo = pwd() |> dirname |> dirname |> dirname
 src1 = joinpath(repo, "datasets", "literarygreek-rules") 
-src2 = joinpath(repo, "datasets", "lsj") 
+src2 = joinpath(repo, "datasets", "lsj-vocab") 
 kds = Kanones.FilesDataset([src1, src2])
 διδωμι = LexemeUrn("lsj.n26447")
 
 
 Markdown.parse(md_conjugation(gmpTense("pluperfect"), gmpVoice("passive"), διδωμι, kds))
 ```
-
-=#

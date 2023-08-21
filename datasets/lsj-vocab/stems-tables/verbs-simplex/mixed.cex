@@ -1,5 +1,12 @@
 Stem|LexicalEntity|Stem|StemClass|Pre-augmented or reduplicated
 
+verbstems.n395a|lsj.n395|ἀγγελλ|w_pp1|
+verbstems.n395b|lsj.n395|ἀγγελλ|atticfut|
+verbstems.n395c|lsj.n395|ἀγγειλ|pp3|
+verbstems.n395d|lsj.n395|ἀγγηλκ|pp4|
+verbstems.n395e|lsj.n395|ἀγγηλ|pp5|
+verbstems.n395φ|lsj.n395|ἀγγηλθ|pp6|
+
 
 verbstems.n1083a|lsj.n1083|ἀγ|w_pp1|
 verbstems.n1083b|lsj.n1083|ἀξ|pp2|
@@ -41,6 +48,11 @@ verbstems.n42827d|lsj.n42827|ἐληλυθ|pp4|
 verbstems.n46804a|lsj.n46804|ἡκ|w_pp1|
 verbstems.n46804b|lsj.n46804|ἡξ|pp2|
 
+
+verbstems.n48905a|lsj.n48905|θνῃσκ|w_pp1|
+verbstems.n48905b|lsj.n48905|θαν|atticfut_dep|
+verbstems.n48905c|lsj.n48905|θαν|aor2|
+verbstems.n48905d|lsj.n48905|τεθνηκ|pp4|
 
 verbstems.n52571a|lsj.n52571|καλ|ew_contract_pp1|
 verbstems.n52571b|lsj.n52571|καλ|atticfut|
@@ -104,12 +116,12 @@ verbstems.n80557e|lsj.n80557|πεπεμ|pp5|
 verbstems.n80557f|lsj.n80557|πεμφθ|pp6|
 
 
-verbstems.n86238a|lsj.n86238|πραττ|w_pp1|
-verbstems.n86238b|lsj.n86238|πραξ|pp2|
-verbstems.n86238c|lsj.n86238|πραξ|pp3|
-verbstems.n86238d|lsj.n86238|πεπραγ|pp4|
-verbstems.n86238e|lsj.n86238|πεπραγ|pp5|
-verbstems.n86238f|lsj.n86238|πραχθ|pp6|
+verbstems.n86219a|lsj.n86219|πραττ|w_pp1|
+verbstems.n86219b|lsj.n86219|πραξ|pp2|
+verbstems.n86219c|lsj.n86219|πραξ|pp3|
+verbstems.n86219d|lsj.n86219|πεπραγ|pp4|
+verbstems.n86219e|lsj.n86219|πεπραγ|pp5|
+verbstems.n86219f|lsj.n86219|πραχθ|pp6|
 
 verbstems.n94711a|lsj.n94711|σκεπτ|w_pp1_dep|
 verbstems.n94711b|lsj.n94711|σκεψ|pp2_dep|

@@ -8,50 +8,32 @@ function generate(
     stem::VerbStem, 
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
-    if stem.augmented
-        @debug("AUGMENTED! Generating verb ", stem, rule)
-    end
 
     @debug("Generating a finite verb form for class $(stem |> inflectionclass)")
-    
-    # stembase is just the normalized string value for this stem
-    stembase = stemstring(stem)  |> knormal
+    stembase = ""
     if regularverbclass(stem)
-        # This needs to be changed.
-        # principal part is doing augment and redupe,
-        # but athat also needs to happen for non-regular?
+        # For classes that form regular principal parts
         stembase = principalpart(stem, rule, ortho = ortho) |> knormal
-        @debug("Starting from stembase", stembase)
+    
     else
+        stembase = stemstring(stem)  |> knormal
         if  takesreduplication(greekForm(rule), inflectionclass(rule))
             stembase = reduplicate(stembase, ortho)
         end
         if rule isa FiniteVerbRule && takesaugment(greekForm(rule)) && stem.augmented == false
             stembase = augment(stembase, ortho)
-            @debug("Augmented:", stembase)
-            stembase
         end
     end
 
-    @debug("prin.part with morphemes:", stembase)
-    #=
-    baseparts = split(stembase, "#")
-    basemorpheme = baseparts[end]
-    @debug("STEMBASE, morphemes", stembase, basemorpheme)
-    =#
-    #raw = strcat(basemorpheme, ending(rule), ortho) |> knormal
+    @debug("Stem base including morphemes:", stembase)
+    morphemelist = PolytonicGreek.splitmorphemes(stembase)
+    if length(morphemelist) > 1
+        stembase = strcat(ortho, morphemelist...; elision = true)
+    end
     @debug("generating finite verb: stembase/ending $(stembase) / $(ending(rule))")
+    
     raw = strcat(ortho, stembase, ending(rule)) |> knormal
     @debug("apply rule to get raw", ending(rule), raw)
-    #=
-    if length(baseparts) > 1
-        prefix = replace(join(baseparts[1:end-1],""), "#" => "")
-        @debug("Prefix is ", prefix)
-        raw = strcat(prefix, raw, ortho)
-
-    end
-=#
-
     @debug("Generate finite verb from raw", raw)
 
     if countaccents(raw, ortho) == 1
@@ -59,11 +41,9 @@ function generate(
         stripmetachars(raw)
 
     else
-        
         try
-           accented = debugaccent(raw, :RECESSIVE, ortho)
-           @debug("Accented to create $(accented)")
-            #stripmetachars(accentword(raw, :RECESSIVE, ortho))
+            accented = debugaccent(raw, :RECESSIVE, ortho)
+            @debug("Accented to create $(accented)")
             stripmetachars(accented)
         catch e
             @warn("Failed to create accented finite verb form from stem/rule/erro", stem, rule, e)

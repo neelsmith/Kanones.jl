@@ -56,20 +56,20 @@ function analysisforline(fst::AbstractString)
         # then appending category-specific data.
         stemre = r"<u>([^<]+)</u><u>([^<]+)</u>([^<]+)<([^>]+)>(.+)"
         stemdata = replace(FstBuilder.greekfromfst(stem), "<stem>" => "#")
-        #@info("STEM DATA ", stemdata)
+     
         stemmatch = collect(eachmatch(stemre, stemdata))
         
         (stemidval, lexidval, tkn, stemtype, stemdata) = stemmatch[1].captures
-        #@info("STEM ANALYSIS ", (stemidval, lexidval, tkn, stemtype, stemdata) )
+
         # Rule part of SFST also has a regular structure:
         # 
         rulere = r"<([^>]+)><([^>]+)>([^<]*)(.*)<u>(.+)</u>"
         rulematch = collect(eachmatch(rulere, rule))
         (inflclass, analysiscategory, ending, ruledata, ruleidval) = rulematch[1].captures
-       # @info("RULE ANALYSIS ", (inflclass, analysiscategory, ending, ruledata, ruleidval) )
+
         fnctndict = functionforcategory()
         fnct = fnctndict[analysiscategory]
-        #@info("Function is ", fnct)
+
         # Depends on what is regular, what is irregular!
         formcode = ""
         if analysiscategory == "irregular"

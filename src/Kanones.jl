@@ -91,13 +91,15 @@ export synopsis, md_synopsis
 export md_conjugation, md_imperativeconjugation
 export md_proofconjugation_deponent, mdfile_proofconjugation_deponent
 export md_proofconjugation, mdfile_proofconjugation
+export verb_conjugation_md
+export principalparts
 
 
 export writecsv
 
 export urn, formurn, ruleurn
 
-export StringParser, stringParser
+export StringParser, stringParser, tofile
 export DFParser, dfParser
 
 export InflectionCategory
@@ -196,12 +198,16 @@ include("forapps/synopses.jl")
 include("forapps/conjugations.jl")
 include("forapps/conjugations_arrays.jl")
 include("forapps/conjugation_deponents.jl")
+include("forapps/nonfinite_md.jl")
+include("forapps/fullverb_md.jl")
+include("forapps/princparts.jl")
 include("forapps/analyses.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
 include("parser/dfparser.jl")
 include("parser/perfilebuilder.jl")
+
 
 include("dfparser/survey.jl")
 

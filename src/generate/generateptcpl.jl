@@ -12,12 +12,25 @@ function generate(
     stem::VerbStem, 
     rule::ParticipleRule;           
     ortho::GreekOrthography = literaryGreek())
-
-    stembase = stemstring(stem)
+    @debug("Generating a participle form for class $(stem |> inflectionclass)")
+    stembase = ""
     if regularverbclass(stem)
-        stembase = principalpart(stem, rule, ortho = ortho)
-        @debug("Figured stembase from stem", stembase,stem)
+        stembase = principalpart(stem, rule, ortho = ortho) |> knormal
+    
+    else
+        stembase = stemstring(stem)  |> knormal
+        if  takesreduplication(greekForm(rule), inflectionclass(rule))
+            stembase = reduplicate(stembase, ortho)
+        end
     end
+
+    @debug("Stem base including morphemes:", stembase)
+    morphemelist = PolytonicGreek.splitmorphemes(stembase)
+    if length(morphemelist) > 1
+        stembase = strcat(ortho, morphemelist...; elision = true)
+    end
+    @debug("generating participle: stembase/ending $(stembase) / $(ending(rule))")
+    
     raw = stembase * ending(rule)
     if countaccents(raw, ortho) == 1
         # Already has accent! 

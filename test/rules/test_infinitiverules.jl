@@ -1,4 +1,4 @@
-@testset "Test IO with delimited text" begin
+@testset "Test IO with delimited text for infinitives" begin
     infio = Kanones.InfinitiveIO("infs")
     delimited = "infinfl.wreg1|w_regular|ειν|present|active"
     rule = Kanones.readrulerow(infio, delimited)
@@ -9,7 +9,7 @@
 end
 
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for infinitives" begin
     infio = Kanones.InfinitiveIO("infs")
     delimited = "infinfl.wreg1|w_regular|ειν|present|active"
     rule = Kanones.readrulerow(infio, delimited)

@@ -1,5 +1,5 @@
 
-@testset "Test IO with delimited text" begin
+@testset "Test IO with delimited text for irregular forms" begin
     delimited = "irreginfl.irregular1|irregularnoun"
     irregruleio = Kanones.IrregularRuleParser("IO for irregular rules")
     rule = Kanones.readrulerow(irregruleio, delimited)
@@ -10,7 +10,7 @@
 end
 
 
-@testset "Test data accessors" begin
+@testset "Test data accessors for irregular forms" begin
     delimited = "irreginfl.irregular1|irregularnoun"
     irregruleio = Kanones.IrregularRuleParser("IO for irregular rules")
     rule = Kanones.readrulerow(irregruleio, delimited)

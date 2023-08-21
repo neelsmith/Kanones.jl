@@ -1,4 +1,4 @@
-@testset "Test IO for delimited text" begin
+@testset "Test IO for delimited text for pronouns" begin
     delimited = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article"
     pronounio = Kanones.PronounIO("IO for pronouns")
     stem = Kanones.readstemrow(pronounio, delimited)
@@ -8,7 +8,7 @@
 end
 
 
-@testset "Test data accessors" begin
+@testset "Test data accessors pronouns" begin
     delimited = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article"
     pronounio = Kanones.PronounIO("IO for pronouns")
     stem = Kanones.readstemrow(pronounio, delimited)

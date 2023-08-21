@@ -10,13 +10,22 @@ function generate(
     rule::VerbalAdjectiveRule;           
     ortho::GreekOrthography = literaryGreek())
 
+    @debug("Gen. vadj with $(stem)")
 
     morphemes = split(stemstring(stem),"#")
     stembase = morphemes[end]
     if length(morphemes) > 1
         stembase = strcat(ortho, morphemes...)
     end
-    stembase * ending(rule) |> knormal
+
+    if endswith(stembase,"θ")
+        indices = collect(eachindex(stembase))
+        quit =  indices[end - 1] 
+        stembase = stembase[1:quit]
+
+    end
+
+    strcat(ortho, stembase, ending(rule))
  
 end
 
