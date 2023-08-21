@@ -18,7 +18,7 @@ function generate(
     orthography::GreekOrthography) 
 
     
-    @info("Use data arrays to generate form for lex", form, lex)
+    @debug("Use data arrays to generate form for lex", form, lex)
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemset)
     @debug("STEMS:", stems)

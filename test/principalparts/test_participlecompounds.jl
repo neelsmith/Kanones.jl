@@ -20,7 +20,7 @@
 
     aoract = GMFParticiple(gmpTense("aorist"), gmpVoice(1), gmpGender(1), gmpCase(1), gmpNumber(1)) |> Kanones.formurn
     aoractform = generate(compound, aoract, kds)[1]
-    @test aoractform == knormal("ἐγκέλευσας")
+    @test aoractform == knormal("ἐγκελεύσας")
 
 
     pftact = GMFParticiple(gmpTense("perfect"), gmpVoice(1), gmpGender(1), gmpCase(1), gmpNumber(1)) |> Kanones.formurn
@@ -35,10 +35,10 @@
 
     aorpass = GMFParticiple(gmpTense("aorist"), gmpVoice("passive"), gmpGender(1), gmpCase(1), gmpNumber(1)) |> Kanones.formurn
     aorpassform = generate(compound, aorpass, kds)[1]
-    @test aorpassform == knormal("ἐγκελευθεῖς")
+    @test aorpassform == knormal("ἐγκελευσθείς")
 
 
     futpass = GMFParticiple(gmpTense("future"), gmpVoice("passive"), gmpGender(1), gmpCase(1), gmpNumber(1)) |> Kanones.formurn
     futpassform = generate(compound, futpass, kds)[1]
-    @test futpassform == knormal("ἐγκελευθησόμενος")
+    @test futpassform == knormal("ἐγκελευσθησόμενος")
 end
