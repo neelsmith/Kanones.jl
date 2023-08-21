@@ -31,7 +31,7 @@ end
 
     vadj = GMFVerbalAdjective(gmpGender("neuter"), gmpCase("accusative"), gmpNumber(1)) |> Kanones.formurn
     vadjform = generate(compound, vadj, kds)[1]
-    @test vadjform == knormal("ἐγκελευτέον")
+    @test vadjform == knormal("ἐγκελευστέον")
     
 end
 
