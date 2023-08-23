@@ -37,6 +37,42 @@ function declension_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
     join(lines,"\n")
 end
 
+
+
+"""Compose markdown for a dictionary entry for a single noun,
+$(SIGNATURES)
+"""
+function lexicon_noun_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
+    
+    # 1.
+    stemdata = filter(stemsarray(kd)) do stem
+        stem.lexid == lex
+    end
+    genderlist = map(stem -> stem.gender, stemdata)
+    #gender = join(genderlist, ", or ")
+    noms = []
+    gens = []
+    
+    for g in genderlist
+        # 2.
+        noms_form = GMFNoun(g, gmpCase("nominative"), gmpNumber("singular")) |> formurn
+        push!(noms,generate(lex, noms_form, kd))
+        # 3.
+        gens_form = GMFNoun(g, gmpCase("genitive"), gmpNumber("singular")) |> formurn
+        push!(gens, generate(lex, gens_form, kd))
+    end
+    nomforms = Iterators.flatten(noms) |> collect
+    genforms = Iterators.flatten(gens) |> collect
+    if isempty(noms) || isempty(gens)
+        @warn("lexicon_noun_md: could not generate nominative and genitive singular for $(lex)")
+        ""
+    else
+        genderstrings = map(g -> label(g)[1] * ".", genderlist)
+        string(join(nomforms, ", or "), ", ", join(genforms, ", or "), ", *", join(genderstrings, " or "), "*")
+    end
+   
+end
+
 #=
 """Compose markdown table with aligned declensions of multiple nouns.
 

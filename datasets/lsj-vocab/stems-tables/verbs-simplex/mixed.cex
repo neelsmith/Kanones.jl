@@ -16,8 +16,15 @@ verbstems.n1083e|lsj.n1083|ἠγ|pp5|
 verbstems.n1083f|lsj.n1083|ἀχθ|pp6|
 
 
-verbstems.n18980|lsj.n18980|βαδιζ|w_pp1|
-verbstems.n18980|lsj.n18980|βαδι|atticfut_dep|
+verbstems.n9146a|lsj.n9146|ἀνοιγνυ|mi_pp1|
+verbstems.n9146b|lsj.n9146|ἀνοιξ|pp2|
+verbstems.n9146c|lsj.n9146|ἀνέῳχ|pp4|true
+
+
+verbstems.n18980a|lsj.n18980|βαδιζ|w_pp1|
+verbstems.n18980b|lsj.n18980|βαδι|atticfut_dep|
+verbstems.n18980c|lsj.n18980|βαδισ|pp3|
+verbstems.n18980d|lsj.n18980|βεβαδικ|pp4|
 
 verbstems.n20621a|lsj.n20621|βουλ|w_pp1_dep|
 verbstems.n20621b|lsj.n20621|βουλησ|pp2_dep|
@@ -85,6 +92,15 @@ verbstems.n48905b|lsj.n48905|θαν|atticfut_dep|
 verbstems.n48905c|lsj.n48905|θαν|aor2|
 verbstems.n48905d|lsj.n48905|τεθνηκ|pp4|
 
+
+
+verbstems.n50284a|lsj.n50284|ἱκν|ew_contract_pp1|
+verbstems.n50284b|lsj.n50284|ἱξ|pp2_dep|
+verbstems.n50284c|lsj.n50284|ἱκ|aor2_dep|
+verbstems.n50284d|lsj.n50284|ἱκ|pp5|
+
+
+
 verbstems.n52571a|lsj.n52571|καλ|ew_contract_pp1|
 verbstems.n52571b|lsj.n52571|καλ|atticfut|
 verbstems.n52571c|lsj.n52571|καλεσ|pp3|
@@ -137,7 +153,7 @@ verbstems.n72425c|lsj.n72425|οἰηθ|pp6|
 
 verbstems.n72202ptcpl|lsj.n72202|εἰδ|pp5|true
 
-verbstems.n73172a|lsj.n73172|ὀλλυμι|mi_pp1|
+verbstems.n73172a|lsj.n73172|ὀλλυ|mi_pp1|
 
 
 verbstems.n80557a|lsj.n80557|πεμπ|w_pp1|

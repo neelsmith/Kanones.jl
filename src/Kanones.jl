@@ -94,6 +94,7 @@ export three_ending_adj_md
 export synopsis, synopsis_md
 export conjugation_md, imperativeconjugation_md
 export verb_conjugation_md
+export lexicon_noun_md
 
 export writecsv
 
