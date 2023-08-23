@@ -16,6 +16,7 @@ function generate(
         stembase = principalpart(stem, rule, ortho = ortho) |> knormal
     
     else
+        @info("Stem $(stem) has aug already? $(stem.augmented)")
         stembase = stemstring(stem)  |> knormal
         if  takesreduplication(greekForm(rule), inflectionclass(rule))
             stembase = reduplicate(stembase, ortho)

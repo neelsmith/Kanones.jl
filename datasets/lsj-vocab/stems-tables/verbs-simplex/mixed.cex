@@ -16,9 +16,12 @@ verbstems.n1083e|lsj.n1083|ἠγ|pp5|
 verbstems.n1083f|lsj.n1083|ἀχθ|pp6|
 
 
+verbstems.n18980|lsj.n18980|βαδιζ|w_pp1|
+verbstems.n18980|lsj.n18980|βαδι|atticfut_dep|
 
 verbstems.n20621a|lsj.n20621|βουλ|w_pp1_dep|
 verbstems.n20621b|lsj.n20621|βουλησ|pp2_dep|
+verbstems.n20621e|lsj.n20621|βεβουλ|pp5|
 verbstems.n20621f|lsj.n20621|βουληθ|pp6|
 
 
@@ -84,6 +87,7 @@ verbstems.n62205c|lsj.n62205|λεξ|pp3|
 verbstems.n62205d2|lsj.n62205|εἴρηκ|pp4|
 verbstems.n62205d1|lsj.n62205|εἰλοχ|pp4|
 verbstems.n62205d|lsj.n62205|εἰλεγ|pp5|
+verbstems.n62205d2|lsj.n62205|λελεγ|pp5|
 verbstems.n62205f|lsj.n62205|λεχθ|pp6|
 
 
