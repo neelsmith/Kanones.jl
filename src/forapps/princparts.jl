@@ -28,7 +28,7 @@ function pp1(lexu::LexemeUrn, ds::Kanones.FilesDataset; conjunction = "; ")
     ) |> formurn
     activeforms = generate(lexu, activeurn, ds)
     if ! isempty(activeforms)
-        join(activeforms[1],conjunction)
+        join(activeforms,conjunction)
     else
 
         passiveurn = GMFFiniteVerb(
