@@ -2,8 +2,9 @@ Stem|LexicalEntity|StemClass|Stem|Augmented
 
 
 
-verbstems.n72712|lsj.n72712|οἰχ|w_pp1_dep|
-verbstems.n72712|lsj.n72712|οἰχησ|pp2_dep|
+verbstems.n72712a|lsj.n72712|οἰχ|w_pp1_dep|
+verbstems.n72712b|lsj.n72712|οἰχησ|pp2_dep|
+verbstems.n72712c|lsj.n72712|οἰχωκ|pp4|true
 
 
 verbstems.n96798|lsj.n96798|στιζ|w_pp1|
