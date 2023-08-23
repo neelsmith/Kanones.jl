@@ -7,7 +7,7 @@ $(SIGNATURES)
 function generate(stem::NounStem, rule::NounRule;
     ortho::GreekOrthography = literaryGreek())
     raw = stemstring(stem) * ending(rule)
-    @info("Generate noun raw $(raw) with accent $(stem.accentpersistence)")
+    @debug("Generate noun raw $(raw) with accent $(stem.accentpersistence)")
     if countaccents(raw, ortho) == 1
         # Already has accent! 
         stripmetachars(raw)  |> knormal
