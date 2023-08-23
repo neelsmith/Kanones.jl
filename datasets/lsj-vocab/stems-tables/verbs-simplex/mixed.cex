@@ -1,10 +1,10 @@
 Stem|LexicalEntity|Stem|StemClass|Pre-augmented or reduplicated
 
 verbstems.n395a|lsj.n395|ἀγγελλ|w_pp1|
-verbstems.n395b|lsj.n395|ἀγγελλ|atticfut|
+verbstems.n395b|lsj.n395|ἀγγελ|atticfut|
 verbstems.n395c|lsj.n395|ἀγγειλ|pp3|
-verbstems.n395d|lsj.n395|ἀγγηλκ|pp4|
-verbstems.n395e|lsj.n395|ἀγγηλ|pp5|
+verbstems.n395d|lsj.n395|ἠγγηλκ|pp4|true
+verbstems.n395e|lsj.n395|ἠγγηλ|pp5|true
 verbstems.n395φ|lsj.n395|ἀγγηλθ|pp6|
 
 
@@ -31,7 +31,7 @@ verbstems.n22825b|lsj.n22825|γραψ|pp2|
 verbstems.n22825c|lsj.n22825|γραψ|pp3|
 verbstems.n22825d|lsj.n22825|γεγραφ|pp4|
 verbstems.n22825e|lsj.n22825|γεγραμ|pp5|
-verbstems.n22825f|lsj.n22825|γραφθ|pp6|
+verbstems.n22825f|lsj.n22825|γραφ|pp6|
 
 verbstems.n24292a|lsj.n24292|δ|ew_contract_pp1|
 verbstems.n24292b|lsj.n24292|δησ|pp2|

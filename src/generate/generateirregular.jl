@@ -10,6 +10,7 @@ function generate(
     stem::T, 
     rule::IrregularRule;           
     ortho::GreekOrthography = literaryGreek()) where {T <: KanonesIrregularStem}
+    @debug("Generating irregular form with s/r $(stem), $(rule)")
     rawentry = stemstring(stem)  
     if occursin("#", rawentry)
         baseparts = split(rawentry, "#")
@@ -18,7 +19,7 @@ function generate(
             basemorpheme = baseparts[end]
             prefix = replace(join(baseparts[1:end-1],""), "#" => "")
             @debug("Prefix is ", prefix)
-            raw = strcat(ortho, prefix, basemorpheme)
+            raw = strcat(ortho, prefix, basemorpheme; elision = true)
             knormal(raw)
         end
 
