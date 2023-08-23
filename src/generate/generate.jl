@@ -18,13 +18,13 @@ function generate(
     orthography::GreekOrthography) 
 
     
-    @info("Use data arrays to generate form for lex", form, lex)
+    @debug("Use data arrays to generate form for lex", form, lex)
     # find stems:
     stems = filter(s -> lexeme(s) == lex,  stemset)
     @debug("STEMS:", stems)
     generated = []
     for s in stems
-        @info("Inflection class of stem is $(inflectionclass(s))")
+        @debug("Inflection class of stem is $(inflectionclass(s))")
         rules = filter(ruleset) do r
             if r isa IrregularRule
                 @debug("LOOK AT inflclass of irreg rule", inflectionclass(r) )
@@ -37,7 +37,7 @@ function generate(
             end
         end
         if ! isempty(rules)
-            @info("For stem $(s), found rules", rules)
+            @debug("For stem $(s), found rules", rules)
             # Add check here for existence of pre-augmented
         end
         for r in rules

@@ -221,7 +221,8 @@ function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {
         morphbase
     else
         prefix = strcat(ortho, morphemes[1:end-1]...)
-        strcat(ortho, prefix, rmbreathing(morphbase,ortho))
+        @debug("Prefix is $(prefix)")
+        strcat(ortho, prefix, rmbreathing(morphbase,ortho); elision = true)
     end
 end
 
