@@ -1,4 +1,15 @@
 Stem|LexicalEntity|StemClass|Stem|Augmented
 
-verbstems.n60245|lsj.n60245|κρυπτ|w_pp1|
-verbstems.n80327|lsj.n80327|πειθ|w_pp1|
+verbstems.n60245a|lsj.n60245|κρυπτ|w_pp1|
+verbstems.n60245b|lsj.n60245|κρυψ|pp2|
+verbstems.n60245c|lsj.n60245|κρυψ|pp3|
+verbstems.n60245e|lsj.n60245|κεκρυπ|pp5|
+verbstems.n60245f|lsj.n60245|κρυφθ|pp6|
+
+verbstems.n80327a|lsj.n80327|πειθ|w_pp1|
+verbstems.n80327b|lsj.n80327|πεισ|pp2|
+verbstems.n80327c|lsj.n80327|πεισ|pp3|
+verbstems.n80327d|lsj.n80327|πεπεικ|pp4|
+verbstems.n80327d2|lsj.n80327|πεποιθ|pp4|
+verbstems.n80327e|lsj.n80327|πεπεισ|pp5|
+verbstems.n80327f|lsj.n80327|πεισθ|pp6|

@@ -1,16 +1,16 @@
 Rule|LexicalEntity|Prefix|Simplex|Notes|Augmented
 
-compounds.n6396|lsjx.n6396|ἀν|lsj.n1083|ἀνάγω|
-compounds.n6616|lsjx.n6616|ἀν|lsjx.n2654|ἀναιρέω|
+compounds.n6396|lsjx.n6396|ἀνα|lsj.n1083|ἀνάγω|
+compounds.n6616|lsjx.n6616|ἀνα|lsjx.n2654|ἀναιρέω|
 compounds.n7170|lsjx.n7170|ἀνα|lsj.n80557|ἀναπέμπω|
-compounds.n7426|lsjx.n7426|ἀν|lsjx.n15591|ἀναρτάω|
+compounds.n7426|lsjx.n7426|ἀνα|lsjx.n15591|ἀναρτάω|
 compounds.n7712|lsjx.n7712|ἀνα|lsjx.n110114|ἀναφαίνω|
-compounds.n8108|lsjx.n8108|ἀν|lsj.n31131|ἄνειμι|
-compounds.n8550|lsjx.n8550|ἀν|lsjx.n44964|ἀνευρίσκω|
-compounds.n9014|lsjx.n9014|ἀν|lsj.n50165|ἀνίημι|
-compounds.n11305|lsjx.n11305|ἀπ|lsjx.n4378|ἀπαλλάσσω|
-compounds.n11710|lsj.n11710|ἀπ|lsj.n31131|ἄπειμι|
-compounds.n11842|lsjx.n11842|ἀπ|lsjx.n34460|ἀπεμπολάω|
+compounds.n8108|lsjx.n8108|ἀνα|lsj.n31131|ἄνειμι|
+compounds.n8550|lsjx.n8550|ἀνα|lsjx.n44964|ἀνευρίσκω|
+compounds.n9014|lsjx.n9014|ἀνα|lsj.n50165|ἀνίημι|
+compounds.n11305|lsjx.n11305|ἀπο|lsjx.n4378|ἀπαλλάσσω|
+compounds.n11710|lsj.n11710|ἀπο|lsj.n31131|ἄπειμι|
+compounds.n11842|lsjx.n11842|ἀπο|lsjx.n34460|ἀπεμπολάω|
 compounds.n12485|lsj.n12485|ἀπο|lsj.n26447|ἀποδίδωμι|
 compounds.n12973|lsjx.n12973|ἀπο|lsjx.n60316|ἀποκτείνω|
 
@@ -67,7 +67,7 @@ compounds.n41416|lsjx.n41416|ἐπι|lsjx.n104685|ἐπιτρέπω|
 
 compounds.n55734|lsjx.n55734|καθ|lsjx.n31172|καθείργω|
 compounds.n51781|lsjx.n51781|καθ|lsjx.n46025|καθέψω|
-compounds.n51849|lsjx.n51849|κατα|lsj.n51241|καθίστημι|
+compounds.n51849|lsj.n51849|κατα|lsj.n51241|καθίστημι|
 compounds.n54036|lsjx.n54036|κατα|lsjx.n49589|καταθύω|
 compounds.n54165|lsjx.n54165|κατα|lsjx.n57788|κατακλείω|
 compounds.n54345|lsj.n54345|κατα|lsj.n61791|καταλαμβάνω|
@@ -86,7 +86,7 @@ compounds.n55845|lsjx.n55845|κατ|lsj.n42827|κατέρχομαι|
 compounds.n55905|lsjx.n55905|κατα|lsj.n45996|κατέχω|
 
 
-compounds.n66761|lsjx.n66761|μετ|lsjx.n4378|μεταλλάσσω|
+compounds.n66761|lsjx.n66761|μετα|lsjx.n4378|μεταλλάσσω|
 compounds.n66860|lsjx.n66860|μετα|lsj.n80557|μεταπέμπω|
 
 
@@ -94,11 +94,11 @@ compounds.n77847|lsj.n77847|παρα|lsj.n22209|παραγίγνομαι|
 compounds.n77928|lsjx.n77928|παρα|lsj.n26447|παραδίδωμι|
 compounds.n78100|lsjx.n78100|παρα|lsj.n52571|παρακαλέω|
 compounds.n78297|lsjx.n78297|παρα|lsj.n61791|παραλαμβάνω|
-compounds.n78394|lsjx.n78394|παρ|lsjx.n5103|παραμείβω|
+compounds.n78394|lsjx.n78394|παρα|lsjx.n5103|παραμείβω|
 compounds.n78596|lsjx.n78596|παρα|lsjx.n83754|παραπλέω|
 compounds.n78926|lsjx.n78926|παρα|lsj.n103922|παρατίθημι|
-compounds.n79224|lsjx.n79224|παρ|lsj.n31131|πάρειμι|
-compounds.n79484|lsjx.n79484|παρ|lsj.n42827|παρέρχομαι|
+compounds.n79224|lsjx.n79224|παρα|lsj.n31131|πάρειμι|
+compounds.n79484|lsjx.n79484|παρα|lsj.n42827|παρέρχομαι|
 compounds.n81191|lsjx.n81191|περι|lsj.n22209|περιγίγνομαι|
 compounds.n87558|lsjx.n87558|προ|lsj.n50165|προΐημι|
 compounds.n87626|lsjx.n87626|προ|lsj.n52571|προκαλέω|
@@ -121,7 +121,7 @@ compounds.n100451|lsjx.n100451|συν|lsjx.n44521|συνευνάζω|
 compounds.n101089|lsjx.n101089|συν|lsj.n105829|συντυγχάνω|
 
 
-compounds.n106974|lsjx.n106974|ὑπ|lsj.n16051|ὑπάρχω|
+compounds.n106974|lsjx.n106974|ὑπο|lsj.n16051|ὑπάρχω|
 compounds.n107315|lsjx.n107315|ὑπερ|lsj.n19282|ὑπερβάλλω|
 compounds.n108796|lsjx.n108796|ὑπο|lsjx.n67868|ὑπομιμνήσκω|
 compounds.n109246|lsjx.n109246|ὑπο|lsjx.n97186|ὑποστρέφω|

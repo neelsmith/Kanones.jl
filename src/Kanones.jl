@@ -32,6 +32,10 @@ import CitableBase: label
 import CitableBase: cex
 using CitableBase
 
+using CitableCollection
+using Tables
+
+
 export label
 
 export dataset
@@ -78,7 +82,7 @@ export IrregularInfinitiveStem
 export IrregularParticipleStem
 
 export GreekLexeme
-export lemmatadict, lemmalabel
+export lemmatadict, lemmalabel, lsjcollection
 
 export resolvestring, knormal 
 export generate, analysis_string

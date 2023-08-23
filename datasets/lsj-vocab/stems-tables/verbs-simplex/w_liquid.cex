@@ -2,5 +2,8 @@ Stem|LexicalEntity|StemClass|Stem|Augmented
 
 
 
-verbstems.n30790|lsj.n30790|ἐθελ|w_regular|
+verbstems.n30790a|lsj.n30790|ἐθελ|w_pp1|
+verbstems.n30790b|lsj.n30790|ἐθελησ|pp2|
+verbstems.n30790c|lsj.n30790|ἐθελησ|pp3|
+verbstems.n30790d|lsj.n30790|ἠθεληκ|pp4|true
 

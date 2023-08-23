@@ -1,4 +1,14 @@
 #LSJ_URL = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/lsj/lsj-lemmata.cex"
+LSJ_FU_URL = "https://raw.githubusercontent.com/Eumaeus/cite_lsj_cex/master/lsj_chicago.cex"
+
+
+"""Read CITE Collection from CEX source.
+$(SIGNATURES)
+"""
+function lsjcollection()
+	collv = fromcex(LSJ_FU_URL, CatalogedCollection, UrlReader; delimiter = "#")
+	collv[2]
+end
 
 """Download dictionary of labelling lemmata for manually validated LSJ data set.
 $(SIGNATURES)

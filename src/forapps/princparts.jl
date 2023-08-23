@@ -18,7 +18,7 @@ end
 """Generate first principal part for a given verb in a dataset.
 $(SIGNATURES)
 """
-function pp1(lexu::LexemeUrn, ds::Kanones.FilesDataset)
+function pp1(lexu::LexemeUrn, ds::Kanones.FilesDataset; conjunction = "; ")
     activeurn = GMFFiniteVerb(
         gmpPerson("first"),
         gmpNumber("singular"),
@@ -28,7 +28,7 @@ function pp1(lexu::LexemeUrn, ds::Kanones.FilesDataset)
     ) |> formurn
     activeforms = generate(lexu, activeurn, ds)
     if ! isempty(activeforms)
-        activeforms[1]
+        join(activeforms[1],conjunction)
     else
 
         passiveurn = GMFFiniteVerb(
@@ -39,7 +39,7 @@ function pp1(lexu::LexemeUrn, ds::Kanones.FilesDataset)
         gmpVoice("passive")
     ) |> formurn
         passiveforms = generate(lexu, passiveurn, ds)
-        isempty(passiveforms) ? "-" : passiveforms[1]
+        isempty(passiveforms) ? "-" : join(passiveforms, conjunction)
     end
 end
 
@@ -47,7 +47,7 @@ end
 """Generate second principal part for a given verb in a dataset.
 $(SIGNATURES)
 """
-function pp2(lexu::LexemeUrn, ds::Kanones.FilesDataset)
+function pp2(lexu::LexemeUrn, ds::Kanones.FilesDataset; conjunction = "; ")
     activeurn = GMFFiniteVerb(
         gmpPerson("first"),
         gmpNumber("singular"),
@@ -57,7 +57,7 @@ function pp2(lexu::LexemeUrn, ds::Kanones.FilesDataset)
     ) |> formurn
     activeforms = generate(lexu, activeurn, ds)
     if ! isempty(activeforms)
-        activeforms[1]
+        join(activeforms, conjunction)
     else
 
         middleurn = GMFFiniteVerb(
@@ -68,7 +68,7 @@ function pp2(lexu::LexemeUrn, ds::Kanones.FilesDataset)
         gmpVoice("middle")
     ) |> formurn
         middleforms = generate(lexu, middleurn, ds)
-        isempty(middleforms) ? "-" : middleforms[1]
+        isempty(middleforms) ? "-" : join(middleforms, conjunction)
     end
 end
 
@@ -76,7 +76,7 @@ end
 """Generate third principal part for a given verb in a dataset.
 $(SIGNATURES)
 """
-function pp3(lexu::LexemeUrn, ds::Kanones.FilesDataset)
+function pp3(lexu::LexemeUrn, ds::Kanones.FilesDataset; conjunction = "; ")
     activeurn = GMFFiniteVerb(
         gmpPerson("first"),
         gmpNumber("singular"),
@@ -86,7 +86,7 @@ function pp3(lexu::LexemeUrn, ds::Kanones.FilesDataset)
     ) |> formurn
     activeforms = generate(lexu, activeurn, ds)
     if ! isempty(activeforms)
-        activeforms[1]
+        join(activeforms, conjunction)
     else
 
         middleurn = GMFFiniteVerb(
@@ -97,7 +97,7 @@ function pp3(lexu::LexemeUrn, ds::Kanones.FilesDataset)
         gmpVoice("middle")
     ) |> formurn
         middleforms = generate(lexu, middleurn, ds)
-        isempty(middleforms) ? "-" : middleforms[1]
+        isempty(middleforms) ? "-" : join(middleforms, conjunction)
     end
 end
 
@@ -107,7 +107,7 @@ end
 """Generate fourth principal part for a given verb in a dataset.
 $(SIGNATURES)
 """
-function pp4(lexu::LexemeUrn, ds::Kanones.FilesDataset)
+function pp4(lexu::LexemeUrn, ds::Kanones.FilesDataset;conjunction = "; ")
     activeurn = GMFFiniteVerb(
         gmpPerson("first"),
         gmpNumber("singular"),
@@ -116,14 +116,14 @@ function pp4(lexu::LexemeUrn, ds::Kanones.FilesDataset)
         gmpVoice("active")
     ) |> formurn
     activeforms = generate(lexu, activeurn, ds)
-    isempty(activeforms) ? "-" : activeforms[1]
+    isempty(activeforms) ? "-" : join(activeforms,conjunction)
 end
 
 
 """Generate fourth principal part for a given verb in a dataset.
 $(SIGNATURES)
 """
-function pp5(lexu::LexemeUrn, ds::Kanones.FilesDataset)
+function pp5(lexu::LexemeUrn, ds::Kanones.FilesDataset; conjunction = "; ")
     passiveurn = GMFFiniteVerb(
         gmpPerson("first"),
         gmpNumber("singular"),
@@ -132,7 +132,7 @@ function pp5(lexu::LexemeUrn, ds::Kanones.FilesDataset)
         gmpVoice("passive")
     ) |> formurn
     passiveforms = generate(lexu, passiveurn, ds)
-    isempty(passiveforms) ? "-" : passiveforms[1]
+    isempty(passiveforms) ? "-" : join(passiveforms,conjunction)
 end
 
 
@@ -140,7 +140,7 @@ end
 """Generate sixth principal part for a given verb in a dataset.
 $(SIGNATURES)
 """
-function pp6(lexu::LexemeUrn, ds::Kanones.FilesDataset)
+function pp6(lexu::LexemeUrn, ds::Kanones.FilesDataset; conjunction = "; ")
     passiveurn = GMFFiniteVerb(
         gmpPerson("first"),
         gmpNumber("singular"),
@@ -149,5 +149,5 @@ function pp6(lexu::LexemeUrn, ds::Kanones.FilesDataset)
         gmpVoice("passive")
     ) |> formurn
     passiveforms = generate(lexu, passiveurn, ds)
-    isempty(passiveforms) ? "-" : passiveforms[1]
+    isempty(passiveforms) ? "-" : join(passiveforms,conjunction)
 end

@@ -38,6 +38,7 @@ function generate(
         end
         if ! isempty(rules)
             @debug("For stem $(s), found rules", rules)
+            # Add check here for existence of pre-augmented
         end
         for r in rules
             @debug("Generating s/r", s,r)

@@ -1,9 +1,12 @@
 Stem|LexicalEntity|StemClass|Stem|Augmented
 
 
-verbstems.n96798|lsj.n96798|στιζ|w_pp1|
-verbstems.n72712|lsj.n72712|οἰχ|w_pp1_dep|
 
-verbstems.n51773a|lsj.n51773|καθευδ|w_pp1|
+verbstems.n72712|lsj.n72712|οἰχ|w_pp1_dep|
+verbstems.n72712|lsj.n72712|οἰχησ|pp2_dep|
+
+
+verbstems.n96798|lsj.n96798|στιζ|w_pp1|
+
 
 verbstems.n110407|lsj.n110407|φασκ|w_pp1|

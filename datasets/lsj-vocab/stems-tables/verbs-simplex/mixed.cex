@@ -1,10 +1,10 @@
 Stem|LexicalEntity|Stem|StemClass|Pre-augmented or reduplicated
 
 verbstems.n395a|lsj.n395|ἀγγελλ|w_pp1|
-verbstems.n395b|lsj.n395|ἀγγελλ|atticfut|
+verbstems.n395b|lsj.n395|ἀγγελ|atticfut|
 verbstems.n395c|lsj.n395|ἀγγειλ|pp3|
-verbstems.n395d|lsj.n395|ἀγγηλκ|pp4|
-verbstems.n395e|lsj.n395|ἀγγηλ|pp5|
+verbstems.n395d|lsj.n395|ἠγγηλκ|pp4|true
+verbstems.n395e|lsj.n395|ἠγγηλ|pp5|true
 verbstems.n395φ|lsj.n395|ἀγγηλθ|pp6|
 
 
@@ -16,9 +16,12 @@ verbstems.n1083e|lsj.n1083|ἠγ|pp5|
 verbstems.n1083f|lsj.n1083|ἀχθ|pp6|
 
 
+verbstems.n18980|lsj.n18980|βαδιζ|w_pp1|
+verbstems.n18980|lsj.n18980|βαδι|atticfut_dep|
 
 verbstems.n20621a|lsj.n20621|βουλ|w_pp1_dep|
 verbstems.n20621b|lsj.n20621|βουλησ|pp2_dep|
+verbstems.n20621e|lsj.n20621|βεβουλ|pp5|
 verbstems.n20621f|lsj.n20621|βουληθ|pp6|
 
 
@@ -28,12 +31,28 @@ verbstems.n22825b|lsj.n22825|γραψ|pp2|
 verbstems.n22825c|lsj.n22825|γραψ|pp3|
 verbstems.n22825d|lsj.n22825|γεγραφ|pp4|
 verbstems.n22825e|lsj.n22825|γεγραμ|pp5|
-verbstems.n22825f|lsj.n22825|γραφθ|pp6|
+verbstems.n22825f|lsj.n22825|γραφ|pp6|
 
 verbstems.n24292a|lsj.n24292|δ|ew_contract_pp1|
+verbstems.n24292b|lsj.n24292|δησ|pp2|
+verbstems.n24292c|lsj.n24292|δησ|pp3|
+verbstems.n24292d|lsj.n24292|δεδηκ|pp4|
+verbstems.n24292e|lsj.n24292|δεδε|pp5|
+verbstems.n24292f|lsj.n24292|δεθ|pp6|
 
 verbstems.n24293a|lsj.n24293|δ|ew_contract_pp1|
+verbstems.n24293b|lsj.n24293|δεησ|pp2|
+verbstems.n24293c|lsj.n24293|δεησ|pp3|
+verbstems.n24293d|lsj.n24293|δεδεηκ|pp4|
+verbstems.n24293e|lsj.n24293|δεδεη|pp5|
+verbstems.n24293f|lsj.n24293|ἐδεηθ|pp5|
 
+
+verbstems.n27847a|lsj.verbstems|δοκ|ew_contract_pp1|
+verbstems.n27847b|lsj.verbstems|δοξ|pp2|
+verbstems.n27847c|lsj.verbstems|δοξ|pp3|
+verbstems.n27847d|lsj.verbstems|δεδοκ|pp5|
+verbstems.n27847d|lsj.verbstems|δοχθ|pp6|
 
 
 verbstems.n31161a|lsj.n31161|εἰπ|aor2_unaug|
@@ -44,6 +63,13 @@ verbstems.n42827a|lsj.n42827|ἐρχ|w_pp1_dep|
 verbstems.n42827b|lsj.n42827|ἐλευσ|pp2_dep|
 verbstems.n42827c|lsj.n42827|ἐλθ|aor2|
 verbstems.n42827d|lsj.n42827|ἐληλυθ|pp4|
+
+
+
+verbstems.n43711a|lsj.n43711|εὑδ|pp1|
+verbstems.n43711b|lsj.n43711|εὑδησ|pp2|
+verbstems.n43711ξ|lsj.n43711|εὑδησ|pp3|
+
 
 verbstems.n46804a|lsj.n46804|ἡκ|w_pp1|
 verbstems.n46804b|lsj.n46804|ἡξ|pp2|
@@ -84,6 +110,7 @@ verbstems.n62205c|lsj.n62205|λεξ|pp3|
 verbstems.n62205d2|lsj.n62205|εἴρηκ|pp4|
 verbstems.n62205d1|lsj.n62205|εἰλοχ|pp4|
 verbstems.n62205d|lsj.n62205|εἰλεγ|pp5|
+verbstems.n62205d2|lsj.n62205|λελεγ|pp5|
 verbstems.n62205f|lsj.n62205|λεχθ|pp6|
 
 

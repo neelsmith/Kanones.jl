@@ -14,9 +14,11 @@ function generate(
     if regularverbclass(stem)
         # For classes that form regular principal parts
         stembase = principalpart(stem, rule, ortho = ortho) |> knormal
-    
+        @debug("Stem for regular formation of princ part is $(stembase)")
     else
+        @debug("Stem for nonregular class $(stem) has aug already? $(stem.augmented)")
         stembase = stemstring(stem)  |> knormal
+        @debug("Stembase is $(stembase)")
         if  takesreduplication(greekForm(rule), inflectionclass(rule))
             stembase = reduplicate(stembase, ortho)
         end
