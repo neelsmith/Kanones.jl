@@ -58,6 +58,11 @@ verbstems.n27847d|lsj.verbstems|δοχθ|pp6|
 verbstems.n31161a|lsj.n31161|εἰπ|aor2_unaug|
 verbstems.n31161b|lsj.n31161|εἰπ|aor2_aug|true
 
+verbstems.n42159a|lsj.n42159|ἐργαζ|w_pp1_dep|
+verbstems.n42159b|lsj.n42159|ἐργασ|pp2_dep|
+verbstems.n42159c|lsj.n42159|εἰργασ|pp3_dep|true
+verbstems.n42159c2|lsj.n42159|ἐργασ|pp3_dep|
+verbstems.n42159e2|lsj.n42159|εἰργασ|pp5|true
 
 verbstems.n42827a|lsj.n42827|ἐρχ|w_pp1_dep|
 verbstems.n42827b|lsj.n42827|ἐλευσ|pp2_dep|
