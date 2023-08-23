@@ -16,6 +16,8 @@ verbstems.n1083e|lsj.n1083|ἠγ|pp5|
 verbstems.n1083f|lsj.n1083|ἀχθ|pp6|
 
 
+verbstems.n9146a|lsj.n9146|ἀνοιγνυ|mi_pp1|
+
 verbstems.n18980a|lsj.n18980|βαδιζ|w_pp1|
 verbstems.n18980b|lsj.n18980|βαδι|atticfut_dep|
 verbstems.n18980c|lsj.n18980|βαδισ|pp3|
@@ -139,7 +141,7 @@ verbstems.n72425c|lsj.n72425|οἰηθ|pp6|
 
 verbstems.n72202ptcpl|lsj.n72202|εἰδ|pp5|true
 
-verbstems.n73172a|lsj.n73172|ὀλλυμι|mi_pp1|
+verbstems.n73172a|lsj.n73172|ὀλλυ|mi_pp1|
 
 
 verbstems.n80557a|lsj.n80557|πεμπ|w_pp1|
