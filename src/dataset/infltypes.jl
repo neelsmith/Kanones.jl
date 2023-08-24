@@ -63,6 +63,18 @@ function inflclassindex_delimited(ds::T; delimiter = "|") where {T <: Dataset}
     end
 end
 
+
+function inflclassdict(ds::T) where {T <: Dataset}
+   dict = Dict()
+   stems =
+   for s in  stemsarray(ds)
+    dict[string(lexeme(s))] =  string(inflectionclass(s))
+       #(lexemeid = string(lexeme(s)), inflclass = string(inflectionclass(s))) 
+   end #|> unique
+   dict
+end
+
+
 function class_in_rules(inflclass::AbstractString, ds::T) where {T <: Dataset}
     inflclass in classes_in_rules(ds)
 end

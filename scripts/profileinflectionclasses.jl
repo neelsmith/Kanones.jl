@@ -7,7 +7,7 @@ using StatsBase, OrderedCollections
 
 ds = Kanones.coredata(atticonly = true)
 sp = stringParser(ds)
-inflindex = inflclassindex(ds)
+classdict = Kanones.inflclassdict(ds)
 
 
 eaglbase = joinpath(pwd() |> dirname, "eagl-texts")
@@ -19,10 +19,34 @@ corpus = fromcex(lysiasf, CitableTextCorpus, FileReader)
 lexcorpus = tokenizedcorpus(corpus,lg, filterby = LexicalToken())
 analyzedlexical = parsecorpus(lexcorpus, sp)
 
+flatanalyses = map(at -> at.analyses, analyzedlexical.analyses)  |> Iterators.flatten |> collect
+
+lexclassdict = Dict()
+
+for a in flatanalyses
+    lexstr = string(a.lexeme)
+    currclass= classdict[lexstr]
+    println("Pair: $(currclass)/$(lexstr)")
+    if haskey(lexclassdict, currclass)
+        prevlist = lexclassdict[currclass]
+        lexclassdict[currclass] = unique(push!(prevlist, lexstr))
+    else
+        lexclassdict[currclass] = [lexstr]
+    end
+end
+
+#=
 lulist = map(analyzedlexical) do lex
     lex.analyses .|> lexemeurn
 end |> Iterators.flatten |> collect .|> string
 
+lexvals = lulist |> unique
+corpusiclasses = map(l -> classdict[l], lexvals) |> unique
+=#
+
+    
+
+#=
 
 inflclasspairs = map(lulist) do lex
    filter(inflindex) do pr
@@ -62,3 +86,4 @@ for (k,v) in adjclasscounts
     println(string(v, ". ", label(nounclass)))
 end
 
+=#
