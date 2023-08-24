@@ -91,6 +91,7 @@ export principalparts
 export decline, declension_md
 export ptcpldeclension_md, participleslashline
 export three_ending_adj_md
+export pronoun_md
 export synopsis, synopsis_md
 export conjugation_md, imperativeconjugation_md
 export verb_conjugation_md
@@ -194,6 +195,7 @@ include("generate/debug.jl")
 
 include("forapps/adjdeclensions.jl")
 include("forapps/noundeclensions.jl")
+include("forapps/pronoundeclensions.jl")
 include("forapps/ptcpldeclensions.jl")
 include("forapps/synopses.jl")
 include("forapps/conjugations.jl")
