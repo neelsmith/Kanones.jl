@@ -13,9 +13,10 @@ inflclassindex
 
 Use Kanones metadata about inflection classes:
 
-```
+```@docs
 Kanones.icfromfile
 Kanones.superclasshistogram
+Kanones.
 ```
 
 
