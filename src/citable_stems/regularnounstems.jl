@@ -8,6 +8,11 @@ struct NounStem <: KanonesStem
     accentpersistence
 end
 
+function pos(cvs::NounStem)
+    :noun
+end
+
+
 """
 Read one row of a stems table for noun tokens and create a `NounStem`.
 

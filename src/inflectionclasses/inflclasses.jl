@@ -10,6 +10,21 @@ struct InflectionCategory
     superclass
 end
 
+
+function inflectionclass(ic::InflectionCategory)
+    ic.inflectionclass
+end
+
+function pos(ic::InflectionCategory)
+    ic.pos
+end
+
+
+function superclass(ic::InflectionCategory)
+    ic.superclass
+end
+
+
 """Read delimited-text data and instantiate an `InflectionCategory`.
 $(SIGNATURES)
 """
@@ -33,6 +48,8 @@ function icfromfile(f)
     # Skip `ctsblock` label and header line:
     map(ln  -> icfromdelimited(ln), data[3:end])
 end
+
+
 
 """Label an `InflectionCategory` object.
 $(SIGNATURES)

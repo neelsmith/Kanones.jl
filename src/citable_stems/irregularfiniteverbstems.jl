@@ -14,6 +14,9 @@ end
 #third|singular|present|indicative|active|irregularfiniteverb
 
 
+function pos(cvs::IrregularVerbStem)
+    :verb
+end
 
 """Identify person of `verb`.
 $(SIGNATURES)

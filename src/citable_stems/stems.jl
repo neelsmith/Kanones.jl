@@ -1,6 +1,11 @@
 abstract type KanonesStem <: Stem end
 abstract type KanonesIrregularStem <: KanonesStem end
 
+function pos(stem::T) where {T <: KanonesStem}
+    @warn "Function lexeme not implemented for stems of type $(typeof(stem))."
+    nothing
+end
+
 function lexeme(stem::T) where {T <: KanonesStem}
     @warn "Function lexeme not implemented for stems of type $(typeof(stem))."
     nothing

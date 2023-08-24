@@ -11,6 +11,9 @@ struct CompoundVerbStem <: KanonesStem
     augmented::Bool
 end
 
+function pos(cvs::CompoundVerbStem)
+    :verb
+end
 #=
 Stem|LexicalEntity|Prefix|Simplex|Note
 compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω

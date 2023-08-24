@@ -10,6 +10,9 @@ struct IrregularAdjectiveStem <: KanonesIrregularStem
     inflectionclass
 end
 
+function pos(cvs::IrregularAdjectiveStem)
+    :adjective
+end
 
 """Identify gender of `adj`.
 $(SIGNATURES)

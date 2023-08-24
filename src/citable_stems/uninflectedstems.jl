@@ -7,6 +7,10 @@ struct UninflectedStem <: KanonesStem
     stemcategory::GMPUninflectedType
 end
 
+function pos(us::VerbStem)
+    :uninflected
+end
+
 
 """Uninfleced stems are citable by Cite2Urn"""
 CitableTrait(::Type{UninflectedStem}) = CitableByCite2Urn()

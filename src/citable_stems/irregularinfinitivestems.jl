@@ -8,6 +8,9 @@ struct IrregularInfinitiveStem <: KanonesIrregularStem
     inflectionclass
 end
 
+function pos(cvs::IrregularInfinitiveStem)
+    :verb
+end
 
 """Identify tense of `inf`.
 $(SIGNATURES)

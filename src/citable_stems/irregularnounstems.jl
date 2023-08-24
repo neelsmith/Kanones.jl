@@ -10,6 +10,11 @@ struct IrregularNounStem <: KanonesIrregularStem
 end
 
 
+function pos(cvs::IrregularNounStem)
+    :noun
+end
+
+
 """Identify gender of `noun`.
 $(SIGNATURES)
 """
