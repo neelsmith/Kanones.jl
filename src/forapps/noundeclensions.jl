@@ -48,7 +48,7 @@ function lexicon_noun_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
     stemdata = filter(stemsarray(kd)) do stem
         stem.lexid == lex
     end
-    genderlist = map(stem -> stem.gender, stemdata)
+    genderlist = map(stem -> gender(stem), stemdata) |> unique
     #gender = join(genderlist, ", or ")
     noms = []
     gens = []
@@ -70,7 +70,21 @@ function lexicon_noun_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
         genderstrings = map(g -> label(g)[1] * ".", genderlist)
         string(join(nomforms, ", or "), ", ", join(genforms, ", or "), ", *", join(genderstrings, " or "), "*")
     end
-   
+end
+
+
+"""Find gender property for a Kanones stem.
+Returns `nothing` if stem does not have a gender property.
+$(SIGNATURES)
+"""
+function gender(stem::T) where {T <: KanonesStem}
+    if stem isa IrregularNounStem
+        stem.noungender
+    elseif stem isa NounStem
+        stem.gender
+    else
+        nothing
+    end
 end
 
 #=
