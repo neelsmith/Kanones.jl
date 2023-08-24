@@ -1,0 +1,15 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+
+verbinfl.pp6fut3|pp6|ήσομαι|first|singular|future|indicative|passive
+
+verbinfl.pp6fut6|pp6|ήσεις|second|singular|future|indicative|passive
+
+verbinfl.pp6fut9|pp6|ήσει|third|singular|future|indicative|passive
+
+verbinfl.pp6fut12|pp6|ησόμεθα|first|plural|future|indicative|passive
+
+verbinfl.pp6fut15|pp6|ήσεσθε|second|plural|future|indicative|passive
+
+
+verbinfl.pp6fut18|pp6|ήσονται|third|plural|future|indicative|passive

@@ -1,0 +1,14 @@
+Rule|StemClass|Ending|Tense|Voice
+infinfl.numi1|numi|νύειν|present|active
+infinfl.numi2|numi|νύεσθαι|present|middle
+infinfl.numi3|numi|νύεσθαι|present|passive
+
+infinfl.numi4|numi|ειν|future|active
+infinfl.numi5|numi|εσθαι|future|middle
+infinfl.numi6|numi|θήσεσθαι|future|passive
+
+infinfl.numi4|numi|αι|aorist|active
+infinfl.numi5|numi|ασθαι|aorist|middle
+infinfl.numi6|numi|θῆσαι|aorist|passive
+
+infinfl.numi7|numi|έναι|perfect|active

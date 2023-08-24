@@ -1,0 +1,8 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+verbinfl.aor2athematicimp1|aor2_athematic|θι|second|singular|aorist|imperative|active
+verbinfl.aor2athematicimp2|aor2_athematic|τω|third|singular|aorist|imperative|active
+
+verbinfl.aor2athematicimp3|aor2_athematic|τε|second|plural|aorist|imperative|active
+verbinfl.aor2athematicimp4|aor2_athematic|ντων|third|plural|aorist|imperative|active
+

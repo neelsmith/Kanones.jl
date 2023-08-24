@@ -1,0 +1,15 @@
+Rule|StemClass|Ending|Gender|Case|Number|
+
+
+nouninfl.hs_htos11|hs_htos|ης|feminine|nominative|singular|
+nouninfl.hs_htos12|hs_htos|ητος|feminine|genitive|singular|
+nouninfl.hs_htos13|hs_htos|ητι|feminine|dative|singular|
+nouninfl.hs_htos14|hs_htos|ητα|feminine|accusative|singular|
+nouninfl.hs_htos15|hs_htos|ης|feminine|vocative|singular|
+
+nouninfl.hs_htos16|hs_htos|ητες|feminine|nominative|plural|
+nouninfl.hs_htos17|hs_htos|ητων|feminine|genitive|plural|
+nouninfl.hs_htos18|hs_htos|ησι|feminine|dative|plural|
+nouninfl.hs_htos18a|hs_htos|ησιν|feminine|dative|plural|
+nouninfl.hs_htos19|hs_htos|ητες|feminine|accusative|plural|
+nouninfl.hs_htos20|hs_htos|ητες|feminine|vocative|plural|

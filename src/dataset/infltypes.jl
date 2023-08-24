@@ -5,7 +5,7 @@ $(SIGNATURES)
 function inflclassindex(ds::T) where  {T <: Dataset}
     stems = stemsarray(ds)
     map(stems) do s
-        (string(lexeme(s)), string(inflectionclass(s))) 
+        (lexemeid = string(lexeme(s)), inflclass = string(inflectionclass(s))) 
     end |> unique
 end
 
@@ -14,7 +14,7 @@ $(SIGNATURES)
 """
 function inflclassindex(src::AbstractString, freader::Type{FileReader}; delimiter = "|")
     data = read(src) |> String 
-    inflclassindex(data, delimiter = delimiter)
+    inflclassindex(data; delimiter = delimiter)
 end
 
 """Instantiate an index of lexemes to their inflection class from a delimited-text source read from a file.
@@ -24,14 +24,14 @@ function inflclassindex(src::AbstractString, freader::Type{UrlReader}; delimiter
     f = Downloads.download(src)
     data = read(f) |> String
     rm(f)
-    inflclassindex(data, delimiter = delimiter)
+    inflclassindex(data; delimiter = delimiter)
 end
 
 """Instantiate an index of lexemes to their inflection class from a delimited-text source read from a file.
 $(SIGNATURES)
 """
 function inflclassindex(src::AbstractString, freader::Type{StringReader}; delimiter = "|")
-    inflclassindex(src, delimiter = delimiter)
+    inflclassindex(src; delimiter = delimiter)
 end
 
 
@@ -46,7 +46,7 @@ function inflclassindex(src; delimiter = "|")
         if length(pair) != 2
             @warn("Bad input for inflection class index: $(ln)")
         else
-            push!(pairs, (pair[1], pair[2]) )
+            push!(pairs, (lexemeid = pair[1], inflclass =pair[2]) )
         end
     end
     pairs
