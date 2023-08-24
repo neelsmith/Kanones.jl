@@ -46,6 +46,7 @@ makedocs(
         
         "Implementation: building a dataset" => Any[
             "Reading delimited files" => "building/buildingds.md",
+            "Profliling a data set" => "building/profiles.md",
 
         ], 
 
