@@ -48,31 +48,42 @@ function lexicon_noun_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
     stemdata = filter(stemsarray(kd)) do stem
         stem.lexid == lex
     end
-    genderlist = map(stem -> gender(stem), stemdata) |> unique
+    genderlist = map(stem -> Kanones.gender(stem), stemdata) |> unique
     #gender = join(genderlist, ", or ")
     noms = []
     gens = []
     
-    for g in genderlist
-        if isnothing(g)
-            @warn("No gender found for lexeme $(lex)!")
-        else
-            # 2.
-            noms_form = GMFNoun(g, gmpCase("nominative"), gmpNumber("singular")) |> formurn
-            push!(noms,generate(lex, noms_form, kd))
-            # 3.
-            gens_form = GMFNoun(g, gmpCase("genitive"), gmpNumber("singular")) |> formurn
-            push!(gens, generate(lex, gens_form, kd))
+    if isempty(genderlist)
+        @warn("No gender found for lexeme $(lex)!")
+        throw(ArgumentError("lexicon_noun_md: bad data, no gender found for $(lex)"))
+    else
+        for g in genderlist
+            if isnothing(g)
+                @warn("No gender found for lexeme $(lex)!")
+                throw(ArgumentError("lexicon_noun_md: bad data, no gender found for $(lex)"))
+            end
         end
     end
-    nomforms = Iterators.flatten(noms) |> collect
-    genforms = Iterators.flatten(gens) |> collect
+     
+    # 2.
+    noms_form = GMFNoun(genderlist[1], gmpCase("nominative"), gmpNumber("singular")) |> formurn
+    push!(noms,generate(lex, noms_form, kd))
+    # 3.
+    gens_form = GMFNoun(genderlist[1], gmpCase("genitive"), gmpNumber("singular")) |> formurn
+    push!(gens, generate(lex, gens_form, kd))
+        
+    
+
+    nomforms = Iterators.flatten(noms) |> collect |> unique
+    genforms = Iterators.flatten(gens) |> collect |> unique
     if isempty(noms) || isempty(gens)
         @warn("lexicon_noun_md: could not generate nominative and genitive singular for $(lex)")
         ""
     else
+
+
         genderstrings = map(g -> label(g)[1] * ".", filter(g -> ! isnothing(g), genderlist))
-        string(join(nomforms, ", or "), ", ", join(genforms, ", or "), ", *", join(genderstrings, " or "), "*")
+        string(join(nomforms, " or "), ", ", join(genforms, " or "), ", *", join(genderstrings, " or "), "*")
     end
 end
 

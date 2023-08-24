@@ -16,6 +16,14 @@ verbstems.n1083e|lsj.n1083|ἠγ|pp5|
 verbstems.n1083f|lsj.n1083|ἀχθ|pp6|
 
 
+verbstems.n4958a|lsj.n4958|ἁμαρταν|w_pp1|
+verbstems.n4958b|lsj.n4958|ἁμαρτησ|pp2_dep|
+verbstems.n4958c|lsj.n4958|ἁμαρτ|aor2|
+verbstems.n4958d|lsj.n4958|ἡμαρτηκ|pp4|true
+verbstems.n4958e|lsj.n4958|ἡμαρτη|pp5|true
+verbstems.n4958f|lsj.n4958|ἁμαρτηθ|pp6|
+
+
 verbstems.n9146a|lsj.n9146|ἀνοιγνυ|mi_pp1|
 verbstems.n9146b|lsj.n9146|ἀνοιξ|pp2|
 verbstems.n9146c|lsj.n9146|ἀνέῳχ|pp4|true
