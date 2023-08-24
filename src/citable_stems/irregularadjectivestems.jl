@@ -10,7 +10,7 @@ struct IrregularAdjectiveStem <: KanonesIrregularStem
     inflectionclass
 end
 
-function pos(cvs::IrregularAdjectiveStem)
+function pos(adj::IrregularAdjectiveStem)
     :adjective
 end
 

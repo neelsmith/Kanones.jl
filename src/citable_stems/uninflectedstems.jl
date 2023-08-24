@@ -7,7 +7,7 @@ struct UninflectedStem <: KanonesStem
     stemcategory::GMPUninflectedType
 end
 
-function pos(us::VerbStem)
+function pos(uninflstem::UninflectedStem)
     :uninflected
 end
 

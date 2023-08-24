@@ -11,7 +11,7 @@ struct VerbStem <: KanonesStem
 end
 
 
-function pos(cvs::VerbStem)
+function pos(vb::VerbStem)
     :verb
 end
 

@@ -8,7 +8,7 @@ struct IrregularInfinitiveStem <: KanonesIrregularStem
     inflectionclass
 end
 
-function pos(cvs::IrregularInfinitiveStem)
+function pos(inf::IrregularInfinitiveStem)
     :verb
 end
 

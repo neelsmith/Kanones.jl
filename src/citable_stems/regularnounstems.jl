@@ -8,7 +8,7 @@ struct NounStem <: KanonesStem
     accentpersistence
 end
 
-function pos(cvs::NounStem)
+function pos(nounstem::NounStem)
     :noun
 end
 

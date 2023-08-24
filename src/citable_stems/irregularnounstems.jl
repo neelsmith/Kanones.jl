@@ -10,7 +10,7 @@ struct IrregularNounStem <: KanonesIrregularStem
 end
 
 
-function pos(cvs::IrregularNounStem)
+function pos(nounstem::IrregularNounStem)
     :noun
 end
 

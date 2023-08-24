@@ -11,7 +11,7 @@ struct IrregularParticipleStem <: KanonesIrregularStem
     inflectionclass
 end
 
-function pos(cvs::IrregularParticipleStem)
+function pos(ptcpl::IrregularParticipleStem)
     :verb
 end
 

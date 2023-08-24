@@ -18,9 +18,7 @@ function irregularstems(compound::CompoundVerbStem, stemlist::Vector{Stem}, orth
     results = vcat(finiteresults, infinitiveresults)
 end
 
-function pos(cvs::CompoundVerbStem)
-    :verb
-end
+
 
 
 function irregularverbstems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = literaryGreek())

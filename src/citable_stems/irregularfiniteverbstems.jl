@@ -14,7 +14,7 @@ end
 #third|singular|present|indicative|active|irregularfiniteverb
 
 
-function pos(cvs::IrregularVerbStem)
+function pos(vb::IrregularVerbStem)
     :verb
 end
 
