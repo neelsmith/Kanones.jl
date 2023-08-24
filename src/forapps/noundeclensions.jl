@@ -54,12 +54,16 @@ function lexicon_noun_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
     gens = []
     
     for g in genderlist
-        # 2.
-        noms_form = GMFNoun(g, gmpCase("nominative"), gmpNumber("singular")) |> formurn
-        push!(noms,generate(lex, noms_form, kd))
-        # 3.
-        gens_form = GMFNoun(g, gmpCase("genitive"), gmpNumber("singular")) |> formurn
-        push!(gens, generate(lex, gens_form, kd))
+        if isnothing(g)
+            @warn("No gender found for lexeme $(lex)!")
+        else
+            # 2.
+            noms_form = GMFNoun(g, gmpCase("nominative"), gmpNumber("singular")) |> formurn
+            push!(noms,generate(lex, noms_form, kd))
+            # 3.
+            gens_form = GMFNoun(g, gmpCase("genitive"), gmpNumber("singular")) |> formurn
+            push!(gens, generate(lex, gens_form, kd))
+        end
     end
     nomforms = Iterators.flatten(noms) |> collect
     genforms = Iterators.flatten(gens) |> collect
@@ -67,7 +71,7 @@ function lexicon_noun_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
         @warn("lexicon_noun_md: could not generate nominative and genitive singular for $(lex)")
         ""
     else
-        genderstrings = map(g -> label(g)[1] * ".", genderlist)
+        genderstrings = map(g -> label(g)[1] * ".", filter(g -> ! isnothing(g), genderlist))
         string(join(nomforms, ", or "), ", ", join(genforms, ", or "), ", *", join(genderstrings, " or "), "*")
     end
 end
