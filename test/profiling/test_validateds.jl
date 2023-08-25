@@ -3,7 +3,7 @@
     ds = joinpath(pwd(), "assets", "literarygreek-rules") |> dataset
     @test ds isa Kanones.FilesDataset
 
-    classmap = Kanones.inflclassindex(ds)
+    classmap = Kanones.lexemeclassindex(ds)
     @test classmap[1] isa NamedTuple{(:lexemeid, :inflclass), Tuple{String, String}}
 
     #=

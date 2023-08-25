@@ -7,7 +7,7 @@ using StatsBase, OrderedCollections
 
 ds = Kanones.coredata(atticonly = true)
 sp = stringParser(ds)
-classdict = Kanones.inflclassdict(ds)
+classdict = Kanones.classtolexemedict(ds)
 
 
 eaglbase = joinpath(pwd() |> dirname, "eagl-texts")

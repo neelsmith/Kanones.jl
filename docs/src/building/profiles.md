@@ -1,23 +1,31 @@
-# Profiling a data set
+# Profiling and validating data set
 
 
-Note the following functions:
 
-Pair every lexeme in the data set with its inflection class:
+## Examining a Kanones sets
 
-```@example profiling
-
-
-inflclassindex
-```
-
-Use Kanones metadata about inflection classes:
 
 ```@docs
-Kanones.icfromfile
-Kanones.superclasshistogram
-Kanones.
+lexemeclassindex
+lexemeclassindex_delimited
+classtolexemedict
+lexemetoclassdict
+class_in_rules
+classes_in_rules
+classes_in_stems
+class_in_stems
+rulesmissing
 ```
 
 
+## Metadata about inflectional classes
 
+```@docs
+Kanones.InflectionCategory
+Kanones.inflectionclass
+Kanones.pos
+Kanones.superclass
+Kanones.icfromdelimited
+Kanones.icfromfile
+Kanones.superclasshistogram
+```

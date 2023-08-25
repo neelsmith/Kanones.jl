@@ -11,15 +11,31 @@ struct InflectionCategory
 end
 
 
+"""Label an `InflectionCategory` object.
+$(SIGNATURES)
+"""
+function label(ic::InflectionCategory)
+    string(ic.description, ", like ", ic.paradigmword)
+end
+
+
+"""Find inflection class ID for an `InflectionCategory` object.
+$(SIGNATURES)
+"""
 function inflectionclass(ic::InflectionCategory)
     ic.inflectionclass
 end
 
+"""Find part of speech symbol for an `InflectionCategory` object.
+$(SIGNATURES)
+"""
 function pos(ic::InflectionCategory)
     ic.pos
 end
 
-
+"""Find superclass ID for an `InflectionCategory` object.
+$(SIGNATURES)
+"""
 function superclass(ic::InflectionCategory)
     ic.superclass
 end
@@ -49,14 +65,6 @@ function icfromfile(f)
     map(ln  -> icfromdelimited(ln), data[3:end])
 end
 
-
-
-"""Label an `InflectionCategory` object.
-$(SIGNATURES)
-"""
-function label(ic::InflectionCategory)
-    string(ic.description, ", like ", ic.paradigmword)
-end
 
 """Compute a frequency of inflection categories clustered by their super category.
 Returns a vector of pairs with label for the category and total count for the category,
