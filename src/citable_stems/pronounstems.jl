@@ -11,6 +11,11 @@ end
 #pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article
 
 
+function pos(pron::PronounStem)
+    :pronoun
+end
+
+
 """Identify gender of `pr`.
 $(SIGNATURES)
 """

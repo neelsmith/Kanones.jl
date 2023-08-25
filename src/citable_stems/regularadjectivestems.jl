@@ -7,6 +7,9 @@ struct AdjectiveStem <: KanonesStem
     accentpersistence
 end
 
+function pos(cvs::AdjectiveStem)
+    :adjective
+end
 
 """Adjective stems are citable by Cite2Urn"""
 CitableTrait(::Type{AdjectiveStem}) = CitableByCite2Urn()

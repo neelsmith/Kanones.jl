@@ -1,0 +1,15 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+verbinfl.aor2_noaugimp1|aor2_noaug|έ|second|singular|aorist|imperative|active
+verbinfl.aor2_noaugimp2|aor2_noaug|έτω|third|singular|aorist|imperative|active
+
+verbinfl.aor2_noaugimp3|aor2_noaug|έτε|second|plural|aorist|imperative|active
+verbinfl.aor2_noaugimp4|aor2_noaug|όντων|third|plural|aorist|imperative|active
+
+
+verbinfl.aor2_noaugimp5|aor2_noaug|οῦ|second|singular|aorist|imperative|middle
+verbinfl.aor2_noaugimp6|aor2_noaug|έσθω|third|singular|aorist|imperative|middle
+
+verbinfl.aor2_noaugimp7|aor2_noaug|έσθε|second|plural|aorist|imperative|middle
+verbinfl.aor2_noaugimp8|aor2_noaug|έσθων|third|plural|aorist|imperative|middle
+

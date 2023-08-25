@@ -1,0 +1,10 @@
+CollectionId|CollectionUrn|Label
+verbinfl|urn:cite2:kanones:verbinfl.v1:|Inflectional patterns for verbs
+nouninfl|urn:cite2:kanones:nouninfl.v1:|Inflectional patterns for nouns
+indeclinfl|urn:cite2:kanones:indeclinfl.v1:|Inflectional pattern for indeclinable tokens
+adjinfl|urn:cite2:kanones:adjinfl.v1:|Inflectional patterns for adjectives
+advinfl|urn:cite2:kanones:advinfl.v1:|Inflectional patterns for adverbs
+infinfl|urn:cite2:kanones:infinfl.v1:|Inflectional patterns for infinitives
+vadjinfl|urn:cite2:kanones:vadjinfl.v1:|Inflectional patterns for verbal adjectives
+ptcplinfl|urn:cite2:kanones:ptcplinfl.v1:|Inflectional patterns for participles
+irreginfl|urn:cite2:kanones:irreginfl.v1:|Inflectional patterns for irregular forms

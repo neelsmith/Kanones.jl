@@ -1,0 +1,14 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+verbinfl.waordepimp5|aor2_dep|αι|second|singular|aorist|imperative|middle
+verbinfl.waordepimp6|aor2_dep|άσθω|third|singular|aorist|imperative|middle
+
+verbinfl.waordepimp7|aor2_dep|ασθε|second|plural|aorist|imperative|middle
+verbinfl.waordepimp8|aor2_dep|άσθων|third|plural|aorist|imperative|middle
+
+
+verbinfl.waordepimp9|aor2_dep|θητι|second|singular|aorist|imperative|passive
+verbinfl.waordepimp10|aor2_dep|θήτω|third|singular|aorist|imperative|passive
+
+verbinfl.waordepimp11|aor2_dep|θητε|second|plural|aorist|imperative|passive
+verbinfl.waordepimp12|aor2_dep|θέντων|third|plural|aorist|imperative|passive

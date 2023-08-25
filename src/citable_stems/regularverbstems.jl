@@ -11,6 +11,11 @@ struct VerbStem <: KanonesStem
 end
 
 
+function pos(vb::VerbStem)
+    :verb
+end
+
+
 """Verb stems are citable by Cite2Urn"""
 CitableTrait(::Type{VerbStem}) = CitableByCite2Urn()
 

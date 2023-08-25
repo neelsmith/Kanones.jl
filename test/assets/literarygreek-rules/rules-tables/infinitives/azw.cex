@@ -1,0 +1,16 @@
+Rule|StemClass|Ending|Tense|Voice
+infinfl.azw1|azw|ζειν|present|active
+infinfl.azw2|azw|ζεσθαι|present|middle
+infinfl.azw3|azw|ζεσθαι|present|passive
+
+infinfl.azw4|azw|εῖν|future|active
+infinfl.azw5|azw|εῖσθαι|future|middle
+infinfl.azw6|azw|ήσεσθαι|future|passive
+
+infinfl.azw4|azw|αι|aorist|active
+infinfl.azw5|azw|ασθαι|aorist|middle
+infinfl.azw6|azw|ῆναι|aorist|passive
+
+infinfl.azw7|azw|έναι|perfect|active
+infinfl.azw8|azw|θαι|perfect|middle
+infinfl.azw8|azw|θαι|perfect|passive

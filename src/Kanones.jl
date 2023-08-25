@@ -40,7 +40,7 @@ export label
 
 export dataset
 export rulesarray, stemsarray, registry, compoundsarray
-export inflectionclass, inflclassindex
+export inflectionclass, lexemeclassindex
 export sortbylsj, sortbylsj!, sortdirbylsj!, sortregularstems!
 
 export GreekMorphologicalProperty
@@ -213,7 +213,7 @@ include("parser/perfilebuilder.jl")
 
 include("dfparser/survey.jl")
 
-include("inflectionclasses/inflclasses.jl")
+include("inflectionclassmetadata/inflectionclass.jl")
 
 include("orthography/literarygreek.jl")
 

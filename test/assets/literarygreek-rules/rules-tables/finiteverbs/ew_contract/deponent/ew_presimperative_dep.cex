@@ -1,0 +1,13 @@
+Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
+
+
+verbinfl.ewdeppresimp5|ew_contract_dep|οῦ|second|singular|present|imperative|middle
+verbinfl.ewdeppresimp6|ew_contract_dep|είσθω|third|singular|present|imperative|middle
+verbinfl.ewdeppresimp8|ew_contract_dep|είσθων|third|plural|present|imperative|middle
+
+
+verbinfl.ewdeppresimp9|ew_contract_dep|οῦ|second|singular|present|imperative|passive
+verbinfl.ewdeppresimp10|ew_contract_dep|είσθω|third|singular|present|imperative|passive
+
+verbinfl.ewdeppresimp11|ew_contract_dep|εῖσθε|second|plural|present|imperative|passive
+verbinfl.ewdeppresimp12|ew_contract_dep|είσθων|third|plural|present|imperative|passive

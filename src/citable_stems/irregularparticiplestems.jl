@@ -11,7 +11,9 @@ struct IrregularParticipleStem <: KanonesIrregularStem
     inflectionclass
 end
 
-
+function pos(ptcpl::IrregularParticipleStem)
+    :verb
+end
 
 """Irregular noun stems are citable by Cite2Urn"""
 CitableTrait(::Type{IrregularParticipleStem}) = CitableByCite2Urn()

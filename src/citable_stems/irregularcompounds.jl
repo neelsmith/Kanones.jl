@@ -18,6 +18,9 @@ function irregularstems(compound::CompoundVerbStem, stemlist::Vector{Stem}, orth
     results = vcat(finiteresults, infinitiveresults)
 end
 
+
+
+
 function irregularverbstems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = literaryGreek())
     @debug("Now make finite verb forms")
     compounds = IrregularVerbStem[]
