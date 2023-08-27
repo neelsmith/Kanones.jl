@@ -3,36 +3,31 @@ Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 verbinfl.pp3aoropt1|pp3|αιμι|first|singular|aorist|optative|active
 verbinfl.pp3aoropt2|pp3|αίμην|first|singular|aorist|optative|middle
-verbinfl.pp3aoropt3|pp3|είην|first|singular|aorist|optative|passive
+
 
 verbinfl.pp3aoropt4|pp3|αις|second|singular|aorist|optative|active
 verbinfl.pp3aoropt4a|pp3|ειας|second|singular|aorist|optative|active
 verbinfl.pp3aoropt5|pp3|αιο|second|singular|aorist|optative|middle
-verbinfl.pp3aoropt6|pp3|είη|second|singular|aorist|optative|passive
+
 
 
 
 verbinfl.pp3aoropt7|pp3|αι|third|singular|aorist|optative|active
 verbinfl.pp3aoropt7a|pp3|ειε|third|singular|aorist|optative|active
 verbinfl.pp3aoropt8|pp3|αιτο|third|singular|aorist|optative|middle
-verbinfl.pp3aoropt9|pp3|είη|third|singular|aorist|optative|passive
+
 
 
 
 
 verbinfl.pp3aoropt10|pp3|αιμεν|first|plural|aorist|optative|active
 verbinfl.pp3aoropt11|pp3|αίμεθα|first|plural|aorist|optative|middle
-verbinfl.pp3aoropt12|pp3|εῖμεν|first|plural|aorist|optative|passive
+
 
 
 
 verbinfl.pp3aoropt13|pp3|αιτε|second|plural|aorist|optative|active
 verbinfl.pp3aoropt14|pp3|αισθε|second|plural|aorist|optative|middle
-verbinfl.pp3aoropt15|pp3|εῖτε|second|plural|aorist|optative|passive
-
-
-
 
 verbinfl.pp3aoropt16|pp3|αιεν|third|plural|aorist|optative|active
 verbinfl.pp3aoropt17|pp3|αιντο|third|plural|aorist|optative|middle
-verbinfl.pp3aoropt18|pp3|εῖεν|third|plural|aorist|optative|passive
