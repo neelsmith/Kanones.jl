@@ -12,6 +12,7 @@ function generate(
     @debug("Generating a finite verb form for class $(stem |> inflectionclass)")
     stembase = ""
     if regularverbclass(stem)
+        @debug("Genernate principal part for regular form")
         # For classes that form regular principal parts
         stembase = principalpart(stem, rule, ortho = ortho) |> knormal
         @debug("Stem for regular formation of princ part is $(stembase)")
