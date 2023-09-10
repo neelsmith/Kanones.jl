@@ -1,2 +1,7 @@
 Rule|StemClass|Ending|Gender|Case|Number|
+
 nouninfl.os_ou2|os_ou|οιο|masculine|genitive|singular|
+
+
+nouninfl.os_ou8|os_ou|οισι|masculine|dative|plural|
+nouninfl.os_ou8α|os_ou|οισιν|masculine|dative|plural|
