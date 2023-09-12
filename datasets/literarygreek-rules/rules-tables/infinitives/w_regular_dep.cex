@@ -1,0 +1,17 @@
+Rule|StemClass|Ending|Tense|Voice
+
+
+infinfl.w_dep2|w_dep|εσθαι|present|middle
+infinfl.w_dep3|w_dep|εσθαι|present|passive
+
+
+infinfl.w_dep5|w_dep|εσθαι|future|middle
+infinfl.w_dep6|w_dep|ήσεσθαι|future|passive
+
+
+infinfl.w_dep5|w_dep|ασθαι|aorist|middle
+infinfl.w_dep6|w_dep|ῆναι|aorist|passive
+
+
+infinfl.w_dep8|w_dep|σθαι|perfect|middle
+infinfl.w_dep8|w_dep|σθαι|perfect|passive
