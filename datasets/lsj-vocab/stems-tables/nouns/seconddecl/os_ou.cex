@@ -55,9 +55,9 @@ nounstems.n71065|lsj.n71065|νοσ|feminine|os_ou|recessive|
 nounstems.n71544|lsj.n71544|ξεν|masculine|os_ou|recessive|
 
 nounstems.n72092|lsj.n72092|ὁδ|feminine|os_ou|inflectionaccented|
-nounstems.n72351|lsj.n72351|οἰκονομ|masculine|os_ou|recessive
+nounstems.n72351|lsj.n72351|οἰκονομ|masculine|os_ou|recessive|
 nounstems.n72357|lsj.n72357|οἰκ|masculine|os_ou|stemaccented|
-
+nounstems.n72550|lsj.n72550|οἰν|masculine|os_ou|recessive|
 
 
 nounstems.n76486|lsj.n76486|παγ|masculine|os_ou|recessive|
@@ -74,6 +74,9 @@ nounstems.n96884|lsj.n96884|στιχ|masculine|os_ou|recessive|
 nounstems.n95908|lsj.n95908|σπηλαι|neuter|os_ou|recessive|
 nounstems.n99638|lsj.n99638|συνδεσμ|masculine|os_ou|recessive|
 
+
+
+nounstems.n102869|lsj.n102869|τεκν|neuter|os_ou|recessive|
 nounstems.n104087|lsj.n104087|τιτθ|masculine|os_ou|inflectionaccented|
 nounstems.n104274|lsj.n104274|τον|masculine|os_ou|recessive|
 nounstems.n104355|lsj.n104355|τοπ|masculine|os_ou|recessive|
