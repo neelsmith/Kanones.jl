@@ -17,7 +17,7 @@ function participleslashline(
 
 end
 
-"""Compose markdown table with a declension of a single noun.
+"""Compose markdown table with a declension of a participle in a single tense-voice.
 
 $(SIGNATURES)
 """
