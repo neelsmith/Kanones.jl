@@ -5,8 +5,11 @@ $(SIGNATURES)
 function participleslashline(
     lex::LexemeUrn,  
     tense::GMPTense, voice::GMPVoice, 
-    kd::Kanones.FilesDataset)
-    ptcplforms = filter(f -> f isa GMFParticiple && gmpTense(f) == tense && gmpVoice(f) == voice && gmpNumber(f) == gmpNumber(1) && gmpCase(f) == gmpCase(1), allforms())
+    kd::Kanones.FilesDataset;
+    examplecase = gmpCase("nominative")
+    
+    )
+    ptcplforms = filter(f -> f isa GMFParticiple && gmpTense(f) == tense && gmpVoice(f) == voice && gmpNumber(f) == gmpNumber(1) && gmpCase(f) == examplecase, allforms())
 
 
     generated = map(f -> generate(lex, formurn(f), kd),  ptcplforms)
