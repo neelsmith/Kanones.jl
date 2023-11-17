@@ -1,9 +1,14 @@
 Rule|StemClass|Ending|Gender|Case|Number|
 
-nouninfl.eus_ewsoxy1|eus_ews_oxytone|εύς|masculine|nominative|singular|
-nouninfl.eus_ewsoxy2|eus_ews_oxytone|έως|masculine|genitive|singular|
-nouninfl.eus_ewsoxy3|eus_ews_oxytone|εῖ|masculine|dative|singular|
-nouninfl.eus_ewsoxy4|eus_ews_oxytone|έα|masculine|accusative|singular|
+nouninfl.eus_ewsoxy1|eus_ews_oxytone|εύς|masculine|nominative|singular|
+nouninfl.eus_ewsoxy2a|eus_ews_oxytone|έως|masculine|genitive|singular|
+nouninfl.eus_ewsoxy2b|eus_ews_oxytone|ῆος|masculine|genitive|singular|
+nouninfl.eus_ewsoxy2c|eus_ews_oxytone|έος|masculine|genitive|singular|
+nouninfl.eus_ewsoxy3a|eus_ews_oxytone|εῖ|masculine|dative|singular|
+nouninfl.eus_ewsoxy3b|eus_ews_oxytone|ῆϊ|masculine|dative|singular|
+nouninfl.eus_ewsoxy3c|eus_ews_oxytone|έϊ|masculine|dative|singular|
+nouninfl.eus_ewsoxy4a|eus_ews_oxytone|έα|masculine|accusative|singular|
+nouninfl.eus_ewsoxy4b|eus_ews_oxytone|ῆα|masculine|accusative|singular|
 
 
 nouninfl.eus_ewsoxy5|eus_ews_oxytone|εῖς|masculine|nominative|plural|

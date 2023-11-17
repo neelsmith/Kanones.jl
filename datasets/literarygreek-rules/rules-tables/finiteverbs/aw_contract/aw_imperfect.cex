@@ -4,13 +4,13 @@ verbinfl.awimpft1|aw_contract|ων|first|singular|imperfect|indicative|active
 verbinfl.awimpft2|aw_contract|ώμην|first|singular|imperfect|indicative|middle
 verbinfl.awimpft3|aw_contract|ώμην|first|singular|imperfect|indicative|passive
 
-verbinfl.awimpft4|aw_contract|ᾳς|second|singular|imperfect|indicative|active
+verbinfl.awimpft4|aw_contract|ας|second|singular|imperfect|indicative|active
 verbinfl.awimpft5|aw_contract|ῶ|second|singular|imperfect|indicative|middle
 verbinfl.awimpft6|aw_contract|ῶ|second|singular|imperfect|indicative|passive
 
-verbinfl.awimpft7|aw_contract|ᾳ|third|singular|imperfect|indicative|active
-verbinfl.awimpft8|aw_contract|ᾷτο|third|singular|imperfect|indicative|middle
-verbinfl.awthird9|aw_contract|ᾷτο|third|singular|imperfect|indicative|passive
+verbinfl.awimpft7|aw_contract|α|third|singular|imperfect|indicative|active
+verbinfl.awimpft8|aw_contract|ᾶτο|third|singular|imperfect|indicative|middle
+verbinfl.awthird9|aw_contract|ᾶτο|third|singular|imperfect|indicative|passive
 
 
 verbinfl.awimpft10|aw_contract|ῶμεν|first|plural|imperfect|indicative|active
@@ -18,9 +18,9 @@ verbinfl.awimpft11|aw_contract|ώμεθα|first|plural|imperfect|indicative|mid
 verbinfl.awimpft12|aw_contract|ώμεθα|first|plural|imperfect|indicative|passive
 
 
-verbinfl.awimpft13|aw_contract|ᾷτε|second|plural|imperfect|indicative|active
-verbinfl.awimpft14|aw_contract|ᾷσθε|second|plural|imperfect|indicative|middle
-verbinfl.awimpft15|aw_contract|ᾷσθε|second|plural|imperfect|indicative|passive
+verbinfl.awimpft13|aw_contract|ᾶτε|second|plural|imperfect|indicative|active
+verbinfl.awimpft14|aw_contract|ᾶσθε|second|plural|imperfect|indicative|middle
+verbinfl.awimpft15|aw_contract|ᾶσθε|second|plural|imperfect|indicative|passive
 
 
 verbinfl.awimpft16|aw_contract|ων|third|plural|imperfect|indicative|active
