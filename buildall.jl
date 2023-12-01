@@ -19,7 +19,7 @@ ds = dataset([lgr, ionic, homeric, lsj, extra, lsjmining])
 @info("Created comprehensive data set.")
 
 
-doit = false
+doit = true
 if doit
     @info("Compiling parser...")
     parser = stringParser(ds)
