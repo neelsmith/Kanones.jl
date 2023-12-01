@@ -1,8 +1,8 @@
 """True if `stem` is a contract verb.
 $(SIGNATURES)
 """
-function compoundtype(stem::VerbStem)
-    inflectionclass(stem) in COMPOUND_CLASSES
+function contracttype(stem::VerbStem)
+    inflectionclass(stem) in CONTRACT_CLASSES
 end
 
 """True if `inflclass` is a regular verb type that
@@ -123,6 +123,7 @@ $(SIGNATURES)
 """
 function thetabase(stem::Stem; ortho = literaryGreek())
     s = stemstring(stem)
+    @debug("thetabase: stem string is $(s) so returning", strcat(ortho, s,"θ"))
     strcat(ortho, s,"θ")
 end
 
@@ -140,11 +141,23 @@ function alphastem(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <:
     end
 end
 
-
-function extendcompound(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
+function pp6contract(s, iclass, ortho::LiteraryGreekOrthography)
+    if startswith(iclass, "ew_contract") || startswith(iclass, "aw_contract")
+        s * "η"
+    elseif startswith(iclass, "ow_contract")
+        s * "ω"
+    else
+        @warn("Unreognized contract class $(iclass) for stem string $(s)")
+        s
+    end
+end
+function extendcontraction(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
     @debug("Extend compound verb type s/r", stem, rule)
     if pp1(rule)
         stemstring(stem)
+
+    elseif pp6(rule)
+        pp6contract(stemstring(stem), inflectionclass(stem), ortho)
 
     elseif inflectionclass(stem) == "ew_contract" ||  inflectionclass(stem) == "ew_contract_dep" 
         stemstring(stem) * "η"
@@ -172,12 +185,16 @@ function izwbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: K
     end
 end
 
+function ewbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
+
+end
+
 """Compose base stem of `stem` for principalpart required by `rule`.
 $(SIGNATURES)
 """
 function ppbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: KanonesVerbalRule}
-    stemstr = compoundtype(stem) ? extendcompound(stem, rule, ortho = ortho) : stemstring(stem)
-
+    stemstr = contracttype(stem) ? extendcontraction(stem, rule, ortho = ortho) : stemstring(stem)
+    @debug("ppbase using stemstr $(stemstr)")
     if inflectionclass(stem) == "izw"
         izwbase(stem, rule, ortho = ortho)
 
@@ -187,6 +204,9 @@ function ppbase(stem::VerbStem, rule::R; ortho = literaryGreek()) where {R <: Ka
     elseif pp4(rule)
         kappabase(stemstr, ortho = ortho)
     elseif pp6(rule)
+
+        s = stemstring(stem)
+        @debug("ppbase: stemstring is $(s)")
         thetabase(stemstr, ortho = ortho)
     else
         stemstr
@@ -204,8 +224,8 @@ function principalpart(stem::VerbStem, rule::R; ortho = literaryGreek()) where {
     morphemes = split(extended, "#")
 
     morphbase = morphemes[end]
-    if compoundtype(stem)
-        @debug("COMPOUND ", morphbase, stem)
+    if contracttype(stem)
+        @debug("CONTRACTING STEM ", morphbase, stem)
     end
     if takesreduplication(greekForm(rule), inflectionclass(rule))
         morphbase = reduplicate(morphbase, ortho)

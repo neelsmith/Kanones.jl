@@ -3,33 +3,32 @@ Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 verbinfl.pp3aorsubj1|pp3|ω|first|singular|aorist|subjunctive|active
 verbinfl.pp3aorsubj2|pp3|ωμαι|first|singular|aorist|subjunctive|middle
-verbinfl.pp3aorsubj3|pp3|ῶ|first|singular|aorist|subjunctive|passive
+
 
 
 verbinfl.pp3aorsubj4|pp3|ῃς|second|singular|aorist|subjunctive|active
 verbinfl.pp3aorsubj5|pp3|ῃ|second|singular|aorist|subjunctive|middle
-verbinfl.pp3aorsubj6|pp3|ῇς|second|singular|aorist|subjunctive|passive
+
 
 
 
 
 verbinfl.pp3aorsubj7|pp3|ῃ|third|singular|aorist|subjunctive|active
 verbinfl.pp3aorsubj8|pp3|ηται|third|singular|aorist|subjunctive|middle
-verbinfl.pp3aorsubj9|pp3|ῇ|third|singular|aorist|subjunctive|passive
+
 
 
 verbinfl.pp3aorsubj10|pp3|ωμεν|first|plural|aorist|subjunctive|active
 verbinfl.pp3aorsubj11|pp3|ώμεθα|first|plural|aorist|subjunctive|middle
-verbinfl.pp3aorsubj12|pp3|ῶμεν|first|plural|aorist|subjunctive|passive
+
 
 
 verbinfl.pp3aorsubj13|pp3|ησετε|second|plural|aorist|subjunctive|active
 verbinfl.pp3aorsubj14|pp3|ησθε|second|plural|aorist|subjunctive|middle
-verbinfl.pp3aorsubj15|pp3|ῆτε|second|plural|aorist|subjunctive|passive
+
 
 
 verbinfl.pp3aorsubj16|pp3|ωσι|third|plural|aorist|subjunctive|active
 verbinfl.pp3aorsubj16a|pp3|ωσιν|third|plural|aorist|subjunctive|active
 verbinfl.pp3aorsubj17|pp3|ωνται|third|plural|aorist|subjunctive|middle
-verbinfl.pp3aorsubj18|pp3|ῶσι|third|plural|aorist|subjunctive|passive
-verbinfl.pp3aorsubj18a|pp3|ῶσιν|third|plural|aorist|subjunctive|passive
+

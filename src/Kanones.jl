@@ -3,7 +3,9 @@ module Kanones
 using CSV, DataFrames
 using HTTP, Downloads
 
-using OrderedCollections, StatsBase
+# This is only for profiling, currently used in scripts in scripts 
+# directory, but not in package:
+#using OrderedCollections, StatsBase
 
 using CitableParserBuilder
 import CitableParserBuilder: formurn
@@ -89,7 +91,7 @@ export generate, analysis_string
 
 export principalparts
 export decline, declension_md
-export ptcpldeclension_md, participleslashline
+export ptcpldeclension_md, ptcplsynopsis_md,  participleslashline
 export three_ending_adj_md
 export pronoun_md
 export synopsis, synopsis_md
@@ -204,6 +206,7 @@ include("forapps/conjugation_deponents.jl")
 include("forapps/nonfinite_md.jl")
 include("forapps/fullverb_md.jl")
 include("forapps/princparts.jl")
+include("forapps/ptcplsynopses.jl")
 include("forapps/analyses.jl")
 
 include("parser/parser.jl")

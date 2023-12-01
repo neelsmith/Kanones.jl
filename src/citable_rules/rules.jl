@@ -21,7 +21,7 @@ const REGULAR_VERB_CLASSES = [
     "ow_contract_dep"
 ]
 
-const COMPOUND_CLASSES = [
+const CONTRACT_CLASSES = [
    
     "ew_contract",
     "aw_contract",
