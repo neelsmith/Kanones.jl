@@ -1,43 +1,35 @@
-
 StemUrn|LexicalEntity|String|Gender|Case|Number|Degree|IrregularClass
 
-irregadj.n65552a|lsj.n65552|μέγας|masculine|nominative|singular|positive|irregularadjective
-irregadj.n65552b|lsj.n65552|μεγάλη|feminine|nominative|singular|positive|irregularadjective
-irregadj.n65552c|lsj.n65552|μέγα|neuter|nominative|singular|positive|irregularadjective
+irregadj.irregadjn65552a|lsj.n65552|μέγας|masculine|nominative|singular|positive|irregularadjective
+irregadj.irregadjn65552b|lsj.n65552|μεγάλη|feminine|nominative|singular|positive|irregularadjective
+irregadj.irregadjn65552c|lsj.n65552|μέγα|neuter|nominative|singular|positive|irregularadjective
 
+irregadj.irregadjn65552d|lsj.n65552|μεγάλου|masculine|genitive|singular|positive|irregularadjective
+irregadj.irregadjn65552e|lsj.n65552|μεγάλης|feminine|genitive|singular|positive|irregularadjective
+irregadj.irregadjn65552f|lsj.n65552|μεγάλου|neuter|genitive|singular|positive|irregularadjective
 
-irregadj.n65552a|lsj.n65552||masculine|genitive|singular|positive|irregularadjective
-irregadj.n65552b|lsj.n65552||feminine|genitive|singular|positive|irregularadjective
-irregadj.n65552c|lsj.n65552||neuter|genitive|singular|positive|irregularadjective
+irregadj.irregadjn65552g|lsj.n65552|μεγάλῳ|masculine|dative|singular|positive|irregularadjective
+irregadj.irregadjn65552h|lsj.n65552|μεγάλῃ|feminine|dative|singular|positive|irregularadjective
+irregadj.irregadjn65552i|lsj.n65552|μεγάλῳ|neuter|dative|singular|positive|irregularadjective
 
-irregadj.n65552a|lsj.n65552||masculine|dative|singular|positive|irregularadjective
-irregadj.n65552b|lsj.n65552||feminine|dative|singular|positive|irregularadjective
-irregadj.n65552c|lsj.n65552||neuter|dative|singular|positive|irregularadjective
-
-irregadj.n65552a|lsj.n65552|μέγας|masculine|accusative|singular|positive|irregularadjective
-irregadj.n65552b|lsj.n65552|μεγάλη|feminine|accusative|singular|positive|irregularadjective
-irregadj.n65552c|lsj.n65552|μέγα|neuter|accusative|singular|positive|irregularadjective
-
-
+irregadj.irregadjn65552j|lsj.n65552|μέγαν|masculine|accusative|singular|positive|irregularadjective
+irregadj.irregadjn65552k|lsj.n65552|μεγάλην|feminine|accusative|singular|positive|irregularadjective
+irregadj.irregadjn65552l|lsj.n65552|μέγα|neuter|accusative|singular|positive|irregularadjective
 
 
 
-irregadj.n65552m|lsj.n65552||masculine|nominative|plural|positive|irregularadjective
-irregadj.n65552n|lsj.n65552||feminine|nominative|plural|positive|irregularadjective
-irregadj.n65552n|lsj.n65552||neuter|nominative|plural|positive|irregularadjective
+irregadj.irregadjn65552a|lsj.n65552|μεγάλοι|masculine|nominative|plural|positive|irregularadjective
+irregadj.irregadjn65552b|lsj.n65552|μεγάλαι|feminine|nominative|plural|positive|irregularadjective
+irregadj.irregadjn65552c|lsj.n65552|μεγάλα|neuter|nominative|plural|positive|irregularadjective
 
+irregadj.irregadjn65552d|lsj.n65552|μεγάλων|masculine|genitive|plural|positive|irregularadjective
+irregadj.irregadjn65552e|lsj.n65552|μεγάλων|feminine|genitive|plural|positive|irregularadjective
+irregadj.irregadjn65552f|lsj.n65552|μεγάλων|neuter|genitive|plural|positive|irregularadjective
 
+irregadj.irregadjn65552g|lsj.n65552|μεγάλοις|masculine|dative|plural|positive|irregularadjective
+irregadj.irregadjn65552h|lsj.n65552|μεγάλαις|feminine|dative|plural|positive|irregularadjective
+irregadj.irregadjn65552i|lsj.n65552|μεγάλοις|neuter|dative|plural|positive|irregularadjective
 
-
-
-irregadj.n65552a|lsj.n65552||masculine|genitive|plural|positive|irregularadjective
-irregadj.n65552b|lsj.n65552||feminine|genitive|plural|positive|irregularadjective
-irregadj.n65552c|lsj.n65552||neuter|genitive|plural|positive|irregularadjective
-
-irregadj.n65552a|lsj.n65552||masculine|dative|plural|positive|irregularadjective
-irregadj.n65552b|lsj.n65552||feminine|dative|plural|positive|irregularadjective
-irregadj.n65552c|lsj.n65552||neuter|dative|plural|positive|irregularadjective
-
-irregadj.n65552a|lsj.n65552|μέγας|masculine|accusative|plural|positive|irregularadjective
-irregadj.n65552b|lsj.n65552|μεγάλη|feminine|accusative|plural|positive|irregularadjective
-irregadj.n65552c|lsj.n65552|μέγα|neuter|accusative|plural|positive|irregularadjective
+irregadj.irregadjn65552j|lsj.n65552|μεγάλους|masculine|accusative|plural|positive|irregularadjective
+irregadj.irregadjn65552k|lsj.n65552|μεγάλας|feminine|accusative|plural|positive|irregularadjective
+irregadj.irregadjn65552l|lsj.n65552|μεγάλα|neuter|accusative|plural|positive|irregularadjective

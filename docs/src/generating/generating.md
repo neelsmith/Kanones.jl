@@ -19,7 +19,7 @@ The generating algorithm first selects from the cross product of stems and rules
 
 The next step is to invoke `generate` using the stem and rule pair as parameters. We have advanced the problem from the abstraction of a lexeme and form to the concrete problem of generating a token using a specific stem and specific rule.
 
-This method of `generate` further dispatches based on the type of the stem and rule.  For regular formations, each of Kanones' analytical types ("parts of speech", described [here](../../../forms/)) has a method of `generate` to handle a corresponding pair of rule and stem types:
+This method of `generate` further dispatches based on the type of the stem and rule.  For regular formations, each of Kanones' analytical types ("parts of speech", (described elsewhere in this documentation)) has a method of `generate` to handle a corresponding pair of rule and stem types:
 
 | Analytical type | Stem type | Rule type |
 | --- | --- | --- |

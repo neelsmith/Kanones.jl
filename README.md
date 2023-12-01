@@ -1,4 +1,5 @@
-![build](https://github.com/neelsmith/Kanones.jl/actions/workflows/Documentation.yml/badge.svg)
+
+
 
 
 # Kanones.jl
