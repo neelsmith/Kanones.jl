@@ -147,3 +147,27 @@ function lexemes(sp::StringParser)
     end |> unique
 end
 
+
+#= NO THIS IS ALL WRONG.
+=#
+"""Build a new `StringParser` by adding a further dataset
+to an existing parser. 
+
+- `sp` is an existing `StringParser`.
+- `rulesds` is the dataset used to build `sp`
+- `newdata` is an additional dataset with any new content (rules or vocab)
+"""
+function concat_ds(sp::StringParser, rulesds::FilesDataset, newdata::FilesDataset; interval = 100)
+    @info("First, get all existing rules from sp!")
+    rules_all = vcat(rulesarray(rulesds), rulesarray(newdata))
+    stems_new = stemsarray(newdata)
+ 
+    analyses = sp.entries
+    for (i, stem) in enumerate(stems_new)
+        if i % interval == 0
+            @info("stem $(i)… $(stem)")
+        end
+        append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
+    end
+    analyses |> StringParser
+end
