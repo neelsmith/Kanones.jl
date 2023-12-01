@@ -66,6 +66,7 @@ function icfromfile(f)
 end
 
 
+#=
 """Compute a frequency of inflection categories clustered by their super category.
 Returns a vector of pairs with label for the category and total count for the category,
 sorted by count.
@@ -95,3 +96,4 @@ function superclasshistogram(v::Vector{InflectionCategory}, counts::OrderedDict{
     end
     sort(prs, by=pr -> pr[2], rev=true)
 end
+=#

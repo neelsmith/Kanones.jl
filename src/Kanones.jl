@@ -3,7 +3,9 @@ module Kanones
 using CSV, DataFrames
 using HTTP, Downloads
 
-using OrderedCollections, StatsBase
+# This is only for profiling, currently used in scripts in scripts 
+# directory, but not in package:
+#using OrderedCollections, StatsBase
 
 using CitableParserBuilder
 import CitableParserBuilder: formurn
