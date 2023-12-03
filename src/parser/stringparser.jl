@@ -148,8 +148,6 @@ function lexemes(sp::StringParser)
 end
 
 
-#= NO THIS IS ALL WRONG.
-=#
 """Build a new `StringParser` by adding a further dataset
 to an existing parser. 
 
