@@ -49,3 +49,42 @@ function sortdirbylsj!(dir; col = 2)
         sortbylsj!(f, col = col)
     end
 end
+
+
+
+
+"""Create a dictionary with stripped (reliably typable) versions of lemma strings as keys to `LexemeUrn`s for
+lexemes in the `lsj` dataset. Note that some distinct lemmata may reduce to a single stripped versions, only one of which will appear in this convenience data.
+
+$(SIGNATURES)
+"""
+function lsjid_dict(repodir = pwd())
+    lsjfile = joinpath(repodir, "datasets", "lsj-vocab", "lexemes", "lsj.cex")
+    iddict = Dict()
+    idpairs = filter(ln -> !isempty(ln), readlines(lsjfile))
+    for pr in idpairs[2:end]
+        pieces = split(pr, "|")
+        keyval = Unicode.normalize(pieces[2], stripmark = true)
+        iddict[keyval]= LexemeUrn(pieces[1])
+    end
+    iddict
+end
+
+
+
+"""Create a dictionary with stripped (reliably typable) versions of lemma strings as keys to `LexemeUrn`s for
+lexemes in both the `lsj` and `lsjx` datasets.  Note that some distinct lemmata may reduce to a single stripped versions, only one of which will appear in this convenience data.
+
+$(SIGNATURES)
+"""
+function lexid_dict(repodir = pwd())
+    iddict = lsjid_dict(repodir)
+    lsjxfile = joinpath(repodir, "datasets", "lsj-vocab", "lexemes", "lsjx.cex")
+    idpairs = filter(ln -> !isempty(ln), readlines(lsjxfile))
+    for pr in idpairs[2:end]
+        pieces = split(pr, "|")
+        keyval = Unicode.normalize(pieces[2], stripmark = true)
+        iddict[keyval]= LexemeUrn(pieces[1])
+    end
+    iddict
+end
