@@ -33,12 +33,22 @@ function nonfinite_present_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     inf_pass = GMFInfinitive(
         gmpTense("present"), gmpVoice("passive")
     )
+    inf_mdl = GMFInfinitive(
+        gmpTense("present"), gmpVoice("middle")
+    )
     inf_passforms = generate(lexu, formurn(inf_pass), kd)
+    inf_mdlforms =  generate(lexu, formurn(inf_mdl), kd)
     actptcpl = participleslashline(lexu, gmpTense("present"), gmpVoice("active"), kd)   
     mpptcpl = participleslashline(lexu, gmpTense("present"), gmpVoice("middle"), kd)
-
+    psvptcpl = participleslashline(lexu, gmpTense("present"), gmpVoice("passive"), kd)
     
-    mdlines = if isempty(inf_actforms) # assume deponent
+    mdlines = if  isempty(inf_actforms) && isempty(inf_mdlforms) # assume passive deponent
+        [ "- **passive infinitive**: $(inf_passforms[1])",
+        "- **passive participle**: $(psvptcpl)",
+        "- **verbal adjective**: $(vadjforms[1])",
+        ""
+        ]
+    elseif isempty(inf_actforms) # assume deponent
     [
         "- **middle & passive infinitive**: $(inf_passforms[1])",
         "- **middle & passive participle**: $(mpptcpl)",
@@ -154,7 +164,7 @@ function nonfinite_aorist_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     md = if  isempty(inf_actforms) && isempty(inf_mdlforms) # assume passive deponent
         "- **passive infinitive**: $(inf_passforms[1])",
         "- **passive participle**: $(passptcpl)"
-        
+
     elseif isempty(inf_actforms)
     [
         "- **middle infinitive**: $(inf_mdlforms[1])",
