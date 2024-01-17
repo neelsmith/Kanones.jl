@@ -1,3 +1,114 @@
+"""Compose markdown for full conjugation of verb identified
+by LexemeUrn.
+$(SIGNATURES)
+"""
+function full_conjugation_md_deponent(lexu::LexemeUrn, kd::Kanones.FilesDataset)
+    sections = [   
+        presentsystem_md_deponent(lexu, kd),
+        futuretense_md_deponent(lexu, kd),
+        aoristtense_md_deponent(lexu, kd),
+        perfectsystem_md_deponent(lexu, kd),
+    ]
+    join(sections, "\n\n")
+end
+
+"""Compose markdown for conjugation in the aorist tense of the verb identified by LexemeUrn.
+$(SIGNATURES)
+"""
+function aoristtense_md_deponent(lexu::LexemeUrn, kd::Kanones.FilesDataset)
+    mdoutput = [
+ 
+    "*Middle voice*:","",
+    conjugation_md(gmpTense("aorist"), gmpVoice("middle"), lexu, kd),
+    "",
+    "*Passive voice*:","",
+    conjugation_md(gmpTense("aorist"), gmpVoice("passive"), lexu, kd),
+    "",
+
+    "### Imperative","",
+
+    "*Middle voice*:","",
+    imperativeconjugation_md(gmpTense("aorist"), gmpVoice("middle"), lexu, kd),
+    "",
+    "*Passive voice*:","",
+    imperativeconjugation_md(gmpTense("aorist"), gmpVoice("passive"), lexu, kd),
+    "",
+    nonfinite_aorist_md(lexu, kd),
+    ""
+    ]
+
+    join(mdoutput, "\n")
+end
+
+
+"""Compose markdown for conjugation in the present system of the verb identified by LexemeUrn.
+$(SIGNATURES)
+"""
+function presentsystem_md_deponent(lexu::LexemeUrn, kd::Kanones.FilesDataset)
+    vadj = GMFVerbalAdjective(
+        gmpGender("neuter"), gmpCase("nominative"), gmpNumber(1)
+    )
+    vadjforms = generate(lexu, formurn(vadj), kd) 
+  
+    
+    inf_pass = GMFInfinitive(
+        gmpTense("present"), gmpVoice("passive")
+    )
+    inf_passforms = generate(lexu, formurn(inf_pass), kd)
+    actptcpl = participleslashline(lexu, gmpTense("present"), gmpVoice("active"), kd)   
+    mpptcpl = participleslashline(lexu, gmpTense("present"), gmpVoice("middle"), kd)
+    
+    mdoutput = [
+    "## Present system","",
+    "### Present tense","",
+
+   
+
+    "*Middle and passive voices* (identical forms):","",
+    conjugation_md(gmpTense("present"), gmpVoice("passive"), lexu, kd),
+    "",
+
+    "### Imperative","",
+ 
+    "*Middle and passive voices* (identical forms):","",
+    imperativeconjugation_md(gmpTense("present"), gmpVoice("passive"), lexu, kd),
+    "",
+
+    nonfinite_present_md(lexu, kd),
+
+
+    "### Imperfect tense","",
+
+
+    "*Middle and passive voices* (identical forms):","",
+    conjugation_md(gmpTense("imperfect"), gmpVoice("passive"), lexu, kd),
+    ]
+
+    join(mdoutput, "\n")
+end
+
+"""Compose markdown for conjugation in the future tense of the verb identified by LexemeUrn.
+$(SIGNATURES)
+"""
+function futuretense_md_deponent(lexu::LexemeUrn, kd::Kanones.FilesDataset)
+    mdoutput = [
+    "## Future tense","",
+
+
+    "*Middle voice*:","",
+    conjugation_md(gmpTense("future"), gmpVoice("middle"), lexu, kd),
+    "",
+
+    "*Passive voice*:","",
+    conjugation_md(gmpTense("future"), gmpVoice("passive"), lexu, kd),
+    "",
+    nonfinite_future_md(lexu, kd),
+    "",
+
+    ]
+
+    join(mdoutput, "\n")
+end
 
 function conjugation_md_deponent(t::GMPTense, v::GMPVoice, lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)
 
@@ -114,6 +225,29 @@ function participleslashline_deponent(
 
 end
 
+"""Compose markdown for conjugation in the perfect system of the verb identified by LexemeUrn.
+$(SIGNATURES)
+"""
+function perfectsystem_md_deponent(lexu::LexemeUrn, kd::Kanones.FilesDataset)
+
+   mdoutput = [
+        "## Perfect system","",
+        "### Perfect tense","",
+  
+        "*Middle and passive voices* (identical forms):","",
+        conjugation_md(gmpTense("perfect"), gmpVoice("passive"),lexu,kd),
+        "",
+        nonfinite_perfect_md(lexu, kd),
+
+        "### Pluperfect tense","",
+      
+        "*Middle and passive voices* (identical forms):","",
+        conjugation_md(gmpTense("pluperfect"), gmpVoice("passive"), lexu,kd)
+
+    ]
+
+    join(mdoutput, "\n")
+end
 
 #=
 function proofpresent_deponent(lex::LexemeUrn, ruleset::Vector{Rule}, stemset::Vector{Stem}, orthography::GreekOrthography)

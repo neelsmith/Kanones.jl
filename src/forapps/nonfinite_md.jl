@@ -37,14 +37,24 @@ function nonfinite_present_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     actptcpl = participleslashline(lexu, gmpTense("present"), gmpVoice("active"), kd)   
     mpptcpl = participleslashline(lexu, gmpTense("present"), gmpVoice("middle"), kd)
 
-    mdlines = [
-    "- **active infinitive**: $(inf_actforms[1])",
-    "- **middle & passive infinitive**: $(inf_passforms[1])",
-    "- **active participle**: $(actptcpl)",
-    "- **middle & passive participle**: $(mpptcpl)",
-    "- **verbal adjective**: $(vadjforms[1])",
-    ""
+    
+    mdlines = if isempty(inf_actforms) # assume deponent
+    [
+        "- **middle & passive infinitive**: $(inf_passforms[1])",
+        "- **middle & passive participle**: $(mpptcpl)",
+        "- **verbal adjective**: $(vadjforms[1])",
+        ""
     ]
+    else
+    [
+        "- **active infinitive**: $(inf_actforms[1])",
+        "- **middle & passive infinitive**: $(inf_passforms[1])",
+        "- **active participle**: $(actptcpl)",
+        "- **middle & passive participle**: $(mpptcpl)",
+        "- **verbal adjective**: $(vadjforms[1])",
+        ""
+    ]
+    end
 
     join(mdlines, "\n")
 end
@@ -69,14 +79,23 @@ function nonfinite_future_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     actptcpl = participleslashline(lexu, gmpTense("future"), gmpVoice("active"), kd)
     midptcpl = participleslashline(lexu, gmpTense("future"), gmpVoice("middle"), kd)
     passptcpl = participleslashline(lexu, gmpTense("future"), gmpVoice("passive"), kd)
-    mdlines = [
-    "- **active infinitive**: $(inf_actforms[1])",
-    "- **middle infinitive**: $(inf_mdlforms[1])",
-    "- **passive infinitive**: $(inf_passforms[1])",
-    "- **active participle**: $(actptcpl)",
-    "- **middle participle**: $(midptcpl)",
-    "- **passive participle**: $(passptcpl)"
+    mdlines = if isempty(inf_actforms) # assume deponent
+    [
+        "- **middle infinitive**: $(inf_mdlforms[1])",
+        "- **passive infinitive**: $(inf_passforms[1])",
+        "- **middle participle**: $(midptcpl)",
+        "- **passive participle**: $(passptcpl)"
     ]
+    else
+    [
+        "- **active infinitive**: $(inf_actforms[1])",
+        "- **middle infinitive**: $(inf_mdlforms[1])",
+        "- **passive infinitive**: $(inf_passforms[1])",
+        "- **active participle**: $(actptcpl)",
+        "- **middle participle**: $(midptcpl)",
+        "- **passive participle**: $(passptcpl)"
+    ]
+    end
     join(mdlines,"\n")
 end
 
@@ -93,12 +112,19 @@ function nonfinite_perfect_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     )
     inf_actforms = generate(lexu, formurn(inf_act), kd)
 
-    md = [
-    "- **active infinitive**: $(inf_actforms[1])",
-    "- **active participle**: $(actptcpl)",
-    "- **middle & passive participle**: $(mpptcpl)",
-    "",
+    md = if isempty(inf_actforms)
+    [
+        "- **middle & passive participle**: $(mpptcpl)",
+        "",
     ]
+    else
+    [
+        "- **active infinitive**: $(inf_actforms[1])",
+        "- **active participle**: $(actptcpl)",
+        "- **middle & passive participle**: $(mpptcpl)",
+        "",
+    ]
+    end
     join(md, "\n")
 end
 
@@ -125,12 +151,23 @@ function nonfinite_aorist_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     midptcpl = participleslashline(lexu, gmpTense("aorist"), gmpVoice("middle"), kd)
     passptcpl = participleslashline(lexu, gmpTense("aorist"), gmpVoice("passive"), kd)
 
-    md = ["- **active infinitive**: $(inf_actforms[1])",
-    "- **middle infinitive**: $(inf_mdlforms[1])",
-    "- **passive infinitive**: $(inf_passforms[1])",
-    "- **active participle**: $(actptcpl)",
-    "- **middle participle**: $(midptcpl)",
-    "- **passive participle**: $(passptcpl)"
+    md = if isempty(inf_actforms)
+    [
+        "- **middle infinitive**: $(inf_mdlforms[1])",
+        "- **passive infinitive**: $(inf_passforms[1])",
+
+        "- **middle participle**: $(midptcpl)",
+        "- **passive participle**: $(passptcpl)"
     ]
+    else
+    [
+        "- **active infinitive**: $(inf_actforms[1])",
+        "- **middle infinitive**: $(inf_mdlforms[1])",
+        "- **passive infinitive**: $(inf_passforms[1])",
+        "- **active participle**: $(actptcpl)",
+        "- **middle participle**: $(midptcpl)",
+        "- **passive participle**: $(passptcpl)"
+    ]
+    end
     join(md, "\n")
 end

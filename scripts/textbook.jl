@@ -10,11 +10,21 @@ vocab = [
 vocablex = [lsjdict[lemma] for lemma in vocab]
 
 pplists = [Kanones.principalparts(lex, ds) for lex in vocablex]
-
+ppstrings = join.(pplists, ", ")
 join(join.(pplists, ","), "\n") |> println
 
 
 fullconj = [Kanones.verb_conjugation_md(lex, ds) for lex in vocablex]
+
+
+for (i,v) in enumerate(vocab)
+    pg = string("Principal parts: ", ppstrings[i],  "\n\n", fullconj[i], "\n")
+
+    fname = "conjugation-" * v * ".md"
+    open(fname, "w") do io
+        write(fname,pg)
+    end
+end
 
 #####
 # Debug aor. pass. imptvforms
