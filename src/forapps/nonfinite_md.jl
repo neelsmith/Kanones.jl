@@ -151,7 +151,11 @@ function nonfinite_aorist_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     midptcpl = participleslashline(lexu, gmpTense("aorist"), gmpVoice("middle"), kd)
     passptcpl = participleslashline(lexu, gmpTense("aorist"), gmpVoice("passive"), kd)
 
-    md = if isempty(inf_actforms)
+    md = if  isempty(inf_actforms) && isempty(inf_mdlforms) # assume passive deponent
+        "- **passive infinitive**: $(inf_passforms[1])",
+        "- **passive participle**: $(passptcpl)"
+        
+    elseif isempty(inf_actforms)
     [
         "- **middle infinitive**: $(inf_mdlforms[1])",
         "- **passive infinitive**: $(inf_passforms[1])",
