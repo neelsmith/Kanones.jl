@@ -33,16 +33,15 @@ end
 function perfectptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
     actv = ptcplforms(lex, gmpTense("perfect"), gmpVoice("active"), kd)
     mdl =  ptcplforms(lex, gmpTense("perfect"), gmpVoice("middle"), kd)
-    psv =  ptcplforms(lex, gmpTense("perfect"), gmpVoice("passive"), kd)
+    
     mdoutput = [
        
         "## Perfect tense","",
         "**Active voice**","",
         formatptcplforms(actv), "",
-        "**Middle voice**","",
+        "**Middle/passive voices (identical forms)**","",
         formatptcplforms(mdl),
-        "**Passive voice**","",
-        formatptcplforms(psv),""
+        
     ]
 
     join(mdoutput, "\n")
@@ -82,6 +81,24 @@ function aoristptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
     join(mdoutput, "\n")
 end
 
+
+function futureptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
+    actv = ptcplforms(lex, gmpTense("future"), gmpVoice("active"), kd)
+    mdl =  ptcplforms(lex, gmpTense("future"), gmpVoice("middle"), kd)
+    psv =  ptcplforms(lex, gmpTense("future"), gmpVoice("passive"), kd)
+    mdoutput = [
+       
+        "## future tense","",
+        "**Active voice**","",
+        formatptcplforms(actv), "",
+        "**Middle voice**","",
+        formatptcplforms(mdl),
+        "**Passive voice**","",
+        formatptcplforms(psv),""
+    ]
+
+    join(mdoutput, "\n")
+end
 """Compose a list of all forms of a particple in a given tense and voice.
 $(SIGNATURES)
 """
