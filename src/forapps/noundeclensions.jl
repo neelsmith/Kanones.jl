@@ -1,7 +1,17 @@
+# This method is a pig. Need to find out where it's chewing up
+# so many resources.
 """Decline all case-number combinations of `lex`, a noun.
 $(SIGNATURES)
 """
-function decline(lex::LexemeUrn, kd::Kanones.FilesDataset; withvocative::Bool = false)
+function decline(lex::LexemeUrn, sp::StringParser; withvocative::Bool = false)::Vector{String}
+    generated =   [generate(lex,formurn(f), sp) for f in Kanones.nounforms()]
+    map(v -> v[1], filter(s -> !isempty(s), generated))
+end
+
+"""Decline all case-number combinations of `lex`, a noun.
+$(SIGNATURES)
+"""
+function decline(lex::LexemeUrn, kd::Kanones.FilesDataset; withvocative::Bool = false)::Vector{String}
     stemmatches = filter(s -> lexeme(s) == lex, stemsarray(kd))
     @debug("decline: found $(length(stemmatches)) stems for $(lex)")
     declinedforms = []
@@ -30,29 +40,55 @@ function decline(lex::LexemeUrn, kd::Kanones.FilesDataset; withvocative::Bool = 
     declinedforms
 end
 
-
-"""Compose markdown table with a declension of a single noun.
-
+"""Format a list of forms for the complete declension of a single noun as a 
+Markdown table.
 $(SIGNATURES)
 """
-function declension_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
+function formatdeclension(nounlist::Vector{String})
+    formatdeclension([nounlist])
+end
+
+"""Format  as a Markdown table the declension of multiple nouns.
+$(SIGNATURES)
+"""
+function formatdeclension(nounlist::Vector{Vector{String}})
+    @info("Formatting $(length(nounlist)) nouns.")
     labels = ["nominative", "genitive", "dative", "accusative", "vocative"]
     lines = [
         "| | Singular | Plural |", 
         "| --- | --- | --- |"
     ]
 
-    arry = decline(lex, kd)
-    if length(arry) > 4
-        for i in 1:5
-            push!(lines, string("| **", labels[i], "** | ", arry[i], " | ", arry[i + 5], " |"))
-        end
-    else
-        @warn("Only able to decline $(length(arry)) forms for $(lex)")
+    available = filter(v -> length(v) > 9, nounlist)
+    mtrx = hcat(available...)
+    @debug("Matrix is $(mtrx)")
+    @debug("Its size $(size(mtrx))")
+    
+    for i in 1:5
+        sgforms =  join(mtrx[i,:], ", ")
+        plforms =  join(mtrx[i + 5,:], ", ")
+        push!(lines, string("| **", labels[i], "** | ", sgforms, " | ", plforms, " |"))
     end
     join(lines,"\n")
 end
 
+"""Compose markdown table with a declension of a single noun.
+
+$(SIGNATURES)
+"""
+function declension_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
+    arry = decline(lex, kd)
+    formatdeclension(arry)
+end
+
+"""Compose markdown table with a declension of a single noun.
+
+$(SIGNATURES)
+"""
+function declension_md(lex::LexemeUrn, sp::StringParser)
+    arry = decline(lex, sp)
+    formatdeclension(arry)
+end
 
 
 """Compose markdown for a dictionary entry for a single noun,
@@ -118,6 +154,16 @@ function gender(stem::T) where {T <: KanonesStem}
     end
 end
 
+function declension_md(lexlist::Array{LexemeUrn}, kd::Kanones.FilesDataset)
+    formlists = [decline(lex, kd) for lex in lexlist]
+end
+
+function declension_md(lexlist::Array{LexemeUrn}, sp::StringParser)
+    formlists = [decline(lex, sp) for lex in lexlist]
+end
+
+
+
 #=
 """Compose markdown table with aligned declensions of multiple nouns.
 
@@ -172,7 +218,12 @@ function declension_md(lexlist::Array, kd::Kanones.FilesDataset; withvocative::B
 
     join(lines, "\n")
 end
- 
+ =#
+
+
+
+
+#=
 
 """Look up integer code for gender for a list of nouns.
 
