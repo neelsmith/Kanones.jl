@@ -85,8 +85,16 @@ function cex(irreg::IrregularRule; delimiter = "|", registry = nothing)
     end
 end
 
-
-
 function ruleurn(irreg::IrregularRule)
     irreg.ruleid
+end
+
+
+"""Compose an abbreviated URN for a rule from a `VerbalAdjectiveRule`.
+
+$(SIGNATURES)
+"""
+function formurn(irreg::IrregularRule)
+    #FormUrn(string("$(COLLECTION_ID).", irreg.ruleid))
+    ruleurn(irreg)
 end

@@ -1,20 +1,32 @@
 """Decline all case-number combinations of `lex`, a noun.
 $(SIGNATURES)
 """
-function  decline(lex::LexemeUrn, kd::Kanones.FilesDataset; withvocative::Bool = false)
+function decline(lex::LexemeUrn, kd::Kanones.FilesDataset; withvocative::Bool = false)
     stemmatches = filter(s -> lexeme(s) == lex, stemsarray(kd))
-    
+    @debug("decline: found $(length(stemmatches)) stems for $(lex)")
     declinedforms = []
+    
     for stem in stemmatches
-        forms = filter(f -> gmpGender(f) == gmpGender(stem), Kanones.nounforms())
-        rules = filter(r -> inflectionclass(r) == inflectionclass(stem), rulesarray(kd))    
-        for f in forms
-            rulematches = filter(r -> formurn(r) == formurn(f), rules) 
-            if !isempty(rulematches)
-                push!(declinedforms, generate(stem, rulematches[1]))
+        # Handle stem differently if is irregular!
+        if inflectionclass(stem) == "irregularnoun"
+            @debug("Handle irregular noun with $(length(stemmatches)) stems")
+            generated = generate(lex, formurn(stem), kd) 
+            if !isempty(generated)
+                push!(declinedforms, generated[1])
+            end
+        else
+            @debug("Handle regular noun")
+            forms = filter(f -> gmpGender(f) == gmpGender(stem), Kanones.nounforms())
+            rules = filter(r -> inflectionclass(r) == inflectionclass(stem), rulesarray(kd))    
+            for f in forms
+                rulematches = filter(r -> formurn(r) == formurn(f), rules) 
+                if !isempty(rulematches)
+                    push!(declinedforms, generate(stem, rulematches[1]))
+                end
             end
         end
     end
+    
     declinedforms
 end
 
@@ -31,8 +43,12 @@ function declension_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
     ]
 
     arry = decline(lex, kd)
-    for i in 1:5
-        push!(lines, string("| **", labels[i], "** | ", arry[i], " | ", arry[i + 5], " |"))
+    if length(arry) > 4
+        for i in 1:5
+            push!(lines, string("| **", labels[i], "** | ", arry[i], " | ", arry[i + 5], " |"))
+        end
+    else
+        @warn("Only able to decline $(length(arry)) forms for $(lex)")
     end
     join(lines,"\n")
 end
