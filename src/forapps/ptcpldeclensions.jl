@@ -1,5 +1,4 @@
-
-"""Compose a string with masculine, feminine, neuter nominative singular of a given particple ofr `lexeme`.
+"""Compose a string with masculine, feminine, neuter nominative singular of a given particple for `lexeme`.
 $(SIGNATURES)
 """
 function participleslashline(
@@ -16,7 +15,7 @@ function participleslashline(
 end
 
 
-"""Compose markdown for full conjugation of verb identified
+"""Compose markdown for declension of all participles of a verb identified
 by LexemeUrn.
 $(SIGNATURES)
 """
@@ -30,6 +29,12 @@ function participle_declension_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)::St
     join(sections, "\n\n")
 end
 
+
+
+"""Compose markdown for declension of perfect participles of a verb identified
+by LexemeUrn.
+$(SIGNATURES)
+"""
 function perfectptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
     actv = ptcplforms(lex, gmpTense("perfect"), gmpVoice("active"), kd)
     mdl =  ptcplforms(lex, gmpTense("perfect"), gmpVoice("middle"), kd)
@@ -47,6 +52,12 @@ function perfectptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
     join(mdoutput, "\n")
 end
 
+
+
+"""Compose markdown for declension of present participles of a verb identified
+by LexemeUrn.
+$(SIGNATURES)
+"""
 function presptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
     actv = ptcplforms(lex, gmpTense("present"), gmpVoice("active"), kd)
     mdl =  ptcplforms(lex, gmpTense("present"), gmpVoice("middle"), kd)
@@ -63,6 +74,11 @@ function presptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
 end
 
 
+
+"""Compose markdown for declension of aorist participles of a verb identified
+by LexemeUrn.
+$(SIGNATURES)
+"""
 function aoristptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
     actv = ptcplforms(lex, gmpTense("aorist"), gmpVoice("active"), kd)
     mdl =  ptcplforms(lex, gmpTense("aorist"), gmpVoice("middle"), kd)
@@ -73,7 +89,7 @@ function aoristptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
         "**Active voice**","",
         formatptcplforms(actv), "",
         "**Middle voice**","",
-        formatptcplforms(mdl),
+        formatptcplforms(mdl),"",
         "**Passive voice**","",
         formatptcplforms(psv),""
     ]
@@ -82,13 +98,18 @@ function aoristptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
 end
 
 
+
+"""Compose markdown for declension of future participles of a verb identified
+by LexemeUrn.
+$(SIGNATURES)
+"""
 function futureptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
     actv = ptcplforms(lex, gmpTense("future"), gmpVoice("active"), kd)
     mdl =  ptcplforms(lex, gmpTense("future"), gmpVoice("middle"), kd)
     psv =  ptcplforms(lex, gmpTense("future"), gmpVoice("passive"), kd)
     mdoutput = [
        
-        "## future tense","",
+        "## Future tense","",
         "**Active voice**","",
         formatptcplforms(actv), "",
         "**Middle voice**","",
@@ -98,7 +119,9 @@ function futureptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
     ]
     join(mdoutput, "\n")
 end
-"""Compose a list of all forms of a particple in a given tense and voice.
+
+
+"""Compose a list of all forms of a participle in a given tense and voice.
 $(SIGNATURES)
 """
 function ptcplforms(lex::LexemeUrn, 
@@ -111,8 +134,7 @@ function ptcplforms(lex::LexemeUrn,
 end
 
 
-"""Format as a Markdown table a list of participle forms giving a full declension
-of a given tense and voice.
+"""Format as a Markdown table a list of participle forms giving a full declension of a given tense and voice.
 $(SIGNATURES)
 """
 function formatptcplforms(formslist::Vector{String})::String
