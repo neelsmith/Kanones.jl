@@ -92,11 +92,10 @@ function futureptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
         "**Active voice**","",
         formatptcplforms(actv), "",
         "**Middle voice**","",
-        formatptcplforms(mdl),
+        formatptcplforms(mdl), "",
         "**Passive voice**","",
         formatptcplforms(psv),""
     ]
-
     join(mdoutput, "\n")
 end
 """Compose a list of all forms of a particple in a given tense and voice.
@@ -108,28 +107,7 @@ function ptcplforms(lex::LexemeUrn,
     
     tensevoiceforms = filter(f -> tense == gmpTense(f) && voice == gmpVoice(f), participleforms())
     tokens = map(f -> generate(lex, formurn(f), kd), tensevoiceforms)
-
     map(v -> v[1], filter(t -> !isempty(t), tokens))
-    
-    # Create list of forms for tense and voice
-    
-    # Ignore stems! Use method generate(LEX, FORM KD)
-    #
-    #=
-    stemmatches = filter(s -> lexeme(s) == lex, stemsarray(kd))
-    if isempty(stemmatches)
-        throw(DomainError("No stems found for lexeme $(lex)"))
-    elseif length(stemmatches) != 1
-        @warn("More than one stem found for $(lex): using first stem.")
-    end
-    @info("Forming participle in $(label(tense)) / $(label(voice))")
-    stem = stemmatches[1]
-    @info("Stem: $(stem)")
-    rules = filter(r ->  r isa ParticipleRule && inflectionclass(r) == inflectionclass(stem) &&gmpTense(r) == tense && gmpVoice(r) == voice, rulesarray(kd))
-    ruleurns = map(r -> formurn(r), rules)
-    [generate(lex, rule, kd)[1] for rule in ruleurns]
-=#
-
 end
 
 
