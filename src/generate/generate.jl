@@ -22,7 +22,6 @@ function generate(
     ruleset::Vector{Rule}, 
     stemset::Vector{Stem},
     orthography::GreekOrthography) 
-
     
     @debug("Use data arrays to generate form for lex", form, lex)
     # find stems:
@@ -42,6 +41,7 @@ function generate(
                inflectionclass(r) == inflectionclass(s) && formurn(r) == form
             end
         end
+        @debug("Found $(length(rules)) rules for that class")
         if ! isempty(rules)
             @debug("For stem $(s), found rules", rules)
             # Add check here for existence of pre-augmented

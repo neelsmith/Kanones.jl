@@ -97,8 +97,6 @@ function aoristptcpls_md(lex::LexemeUrn, kd::Kanones.FilesDataset)::String
     join(mdoutput, "\n")
 end
 
-
-
 """Compose markdown for declension of future participles of a verb identified
 by LexemeUrn.
 $(SIGNATURES)
@@ -129,6 +127,7 @@ function ptcplforms(lex::LexemeUrn,
     kd::Kanones.FilesDataset)
     
     tensevoiceforms = filter(f -> tense == gmpTense(f) && voice == gmpVoice(f), participleforms())
+    @debug("For $(lex), look at $(length(tensevoiceforms)) forms")
     tokens = map(f -> generate(lex, formurn(f), kd), tensevoiceforms)
     map(v -> v[1], filter(t -> !isempty(t), tokens))
 end
