@@ -1,3 +1,27 @@
+"""Compose a table in markdown format with the conjugation of a a verb
+in a given tense, mood and voice.
+$(SIGNATURES)
+"""
+function conjugate_tmv_md(t::GMPTense, m::GMPMood, v::GMPVoice, lex::LexemeUrn, kd::Kanones.FilesDataset)
+    tmvforms = filter(f -> gmpTense(f) == t && gmpMood(f) == m && gmpVoice(f) == v, verbforms())
+    tokens = map(f -> generate(lex, formurn(f), kd), tmvforms)
+    labels = map(v -> join(v, ", "), tokens)
+ 
+    sing = labels[1:3]
+    # skip dual
+    pl = labels[7:9]
+    mdlines = ["| Person | Singular | Plural |",   
+    "| --- | --- | --- |"
+    ]
+
+    rowlabels = ["first", "second", "third"]
+    mtrx = hcat(sing,pl)
+    for i in 1:3
+        push!(mdlines, "| $(rowlabels[i]) |" * join(mtrx[i,:], " | ") * " |")
+    end
+    join(mdlines, "\n")
+end
+
 """Compose a table in markdown format
 with the conjugation of verb `lex` in a given
 tense and voice.
