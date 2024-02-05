@@ -8,7 +8,7 @@ ptcplinfl.owpresact4|ow_contract|οῦντα|present|active|masculine|accusative
 
 ptcplinfl.owpresact6|ow_contract|οῦντες|present|active|masculine|nominative|plural|
 ptcplinfl.owpresact7|ow_contract|ούντων|present|active|masculine|genitive|plural|
-ptcplinfl.owpresact8|ow_contract|ούντοις|present|active|masculine|dative|plural|
+ptcplinfl.owpresact8|ow_contract|οῦσι|present|active|masculine|dative|plural|
 ptcplinfl.owpresact9|ow_contract|ούντας|present|active|masculine|accusative|plural|
 
 
@@ -20,7 +20,7 @@ ptcplinfl.owpresact4n|ow_contract|οῦν|present|active|neuter|accusative|singu
 
 ptcplinfl.owpresact6n|ow_contract|οῦντα|present|active|neuter|nominative|plural|
 ptcplinfl.owpresact7n|ow_contract|ούντων|present|active|neuter|genitive|plural|
-ptcplinfl.owpresact8n|ow_contract|ούντοις|present|active|neuter|dative|plural|
+ptcplinfl.owpresact8n|ow_contract|οῦσι|present|active|neuter|dative|plural|
 ptcplinfl.owpresact9n|ow_contract|οῦντα|present|active|neuter|accusative|plural|
 
 

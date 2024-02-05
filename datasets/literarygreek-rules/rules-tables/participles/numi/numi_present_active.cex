@@ -8,7 +8,7 @@ ptcplinfl.numiact4|numi|νύοντα|present|active|masculine|accusative|singul
 
 ptcplinfl.numiact6|numi|νύοντες|present|active|masculine|nominative|plural|
 ptcplinfl.numiact7|numi|νυόντων|present|active|masculine|genitive|plural|
-ptcplinfl.numiact8|numi|νυόντοις|present|active|masculine|dative|plural|
+ptcplinfl.numiact8|numi|νύουσι|present|active|masculine|dative|plural|
 ptcplinfl.numiact9|numi|νύοντας|present|active|masculine|accusative|plural|
 
 
@@ -20,7 +20,7 @@ ptcplinfl.numiact4n|numi|νυον|present|active|neuter|accusative|singular|
 
 ptcplinfl.numiact6n|numi|νύοντα|present|active|neuter|nominative|plural|
 ptcplinfl.numiact7n|numi|νυόντων|present|active|neuter|genitive|plural|
-ptcplinfl.numiact8n|numi|νυόντοις|present|active|neuter|dative|plural|
+ptcplinfl.numiact8n|numi|νύουσι|present|active|neuter|dative|plural|
 ptcplinfl.numiact9n|numi|νύοντα|present|active|neuter|accusative|plural|
 
 
