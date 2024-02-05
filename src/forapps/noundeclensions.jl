@@ -154,14 +154,25 @@ function gender(stem::T) where {T <: KanonesStem}
     end
 end
 
+
+"""Compose markdown table with aligned declensions of multiple nouns.
+This only works if the vectors of forms that are generated for each noun in `lexlist` are the same length.  Trying to `hcat` lists of unequal length will throw an error.
+
+$(SIGNATURES)
+"""
 function declension_md(lexlist::Array{LexemeUrn}, kd::Kanones.FilesDataset)
     formlists = [decline(lex, kd) for lex in lexlist]
+    mtrx = hcat(formlists...)
+    rows, cols = size(mtrx)
+    formattable = [join(mtrx[i,:], ", ") for i in 1:rows]
+    formatdeclension(formattable)
 end
 
+#=
 function declension_md(lexlist::Array{LexemeUrn}, sp::StringParser)
     formlists = [decline(lex, sp) for lex in lexlist]
 end
-
+=#
 
 
 #=
