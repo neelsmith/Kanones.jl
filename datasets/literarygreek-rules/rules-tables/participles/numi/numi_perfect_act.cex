@@ -8,7 +8,7 @@ ptcplinfl.numiperfect4|numi|ότα|perfect|active|masculine|accusative|singular
 
 ptcplinfl.numiperfect6|numi|ότες|perfect|active|masculine|nominative|plural|
 ptcplinfl.numiperfect7|numi|ότων|perfect|active|masculine|genitive|plural|
-ptcplinfl.numiperfect8|numi|ότοις|perfect|active|masculine|dative|plural|
+ptcplinfl.numiperfect8|numi|όσι|perfect|active|masculine|dative|plural|
 ptcplinfl.numiperfect9|numi|ότας|perfect|active|masculine|accusative|plural|
 
 
@@ -20,7 +20,7 @@ ptcplinfl.numiperfect4n|numi|ός|perfect|active|neuter|accusative|singular|
 
 ptcplinfl.numiperfect6n|numi|ότα|perfect|active|neuter|nominative|plural|
 ptcplinfl.numiperfect7n|numi|ότων|perfect|active|neuter|genitive|plural|
-ptcplinfl.numiperfect8n|numi|ότοις|perfect|active|neuter|dative|plural|
+ptcplinfl.numiperfect8n|numi|όσι|perfect|active|neuter|dative|plural|
 ptcplinfl.numiperfect9n|numi|ότα|perfect|active|neuter|accusative|plural|
 
 
