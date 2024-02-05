@@ -133,6 +133,8 @@ function ptcplforms(lex::LexemeUrn,
 end
 
 
+# THIS IS BROKEN!
+
 """Format as a Markdown table a list of participle forms giving a full declension of a given tense and voice.
 $(SIGNATURES)
 """
@@ -146,10 +148,12 @@ function formatptcplforms(formslist::Vector{String})::String
         "| *singular* |  |  |  |"
     ]
     msing = formslist[1:4]
-    mpl = formslist[5:8]
-    fsing = formslist[9:12]
-    fpl = formslist[13:16]
-    nsing = formslist[17:20]
+    fsing = formslist[5:8]
+    nsing = formslist[9:12]
+
+
+    mpl = formslist[13:16]
+    fpl = formslist[17:20]
     npl = formslist[21:24]
     sing = hcat(msing, fsing, nsing)
     plural = hcat(mpl, fpl, npl)
