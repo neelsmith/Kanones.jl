@@ -214,6 +214,7 @@ include("forapps/fullverb_md.jl")
 include("forapps/princparts.jl")
 include("forapps/ptcplsynopses.jl")
 include("forapps/analyses.jl")
+include("forapps/infinitives.jl")
 
 
 
