@@ -1,5 +1,0 @@
----
-title: "Use Kanónes analyses in Julia code"
----
-
-Using morphological objects in Julia

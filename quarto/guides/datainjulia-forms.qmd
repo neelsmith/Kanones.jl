@@ -1,3 +1,9 @@
+---
+title: "Use Kanónes analyses in Julia code"
+---
+
+Using morphological objects in Julia
+
 # Morphological forms
 
 Kanones has nine types of morphological forms, that are relate to traditional ideas of "parts of speech."  Each type is a subtype of the `GreekMorphologicalForm` abstraction, and is characterized by a unique set of morphological properties (e.g., nouns are identified by gender, case and number). These properties in turn are subtypes of the `GreekMorphologicalProperty` abstraction (described in the following section).
