@@ -3,6 +3,10 @@ project:
 jupyter: julia-1.10  
 execute:
   freeze: auto
+format:
+  docx: default
+  html: default
+
 website:
          
   navbar:
