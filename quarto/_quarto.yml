@@ -1,0 +1,39 @@
+project:
+  type: website
+
+website:
+         
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Tutorials"
+        file: tutorials/index.qmd          
+      - text: "Concepts"
+        file: concepts/index.qmd   
+      - text: "Guides"
+        file: guides/index.qmd           
+      - text: "Reference"
+        file: reference/index.qmd  
+    right:   
+      - icon: github
+        href: https://github.com/neelsmith/Kanones.jl
+        aria-label: GitHub
+
+  sidebar:
+    - title: "Tutorials"
+      contents: tutorials   
+    - title: "Guides"
+      contents: guides
+    - title: "Reference"
+      contents: reference
+    - title: "Concepts"
+      contents: concepts         
+    - title: "Home"
+      contents:
+        - index.qmd               
+ 
+
+           

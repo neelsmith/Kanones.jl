@@ -1,0 +1,69 @@
+---
+title: "How-to guides"
+---
+
+This section collects recipes for how to do things in Kanónes. If you are just starting out, you may want to explore the tutorials to learn the basics.  You can learn more about the underlying concepts in the "Concepts" section of the site.
+
+:::: {.columns}
+
+::: {.column width="25%"}
+### Managing Kanónes data sets
+
+[Creating a data set](dataset-guide.qmd)
+
+[Working with multiple datasets](multiple-ds.qmd)
+
+[Strategies for managing data](dataset-strategies.qmd)
+:::
+
+::: {.column width="5%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="25%"}
+### Adding vocabulary
+
+[Noun stems](nouns-guide.qmd)
+
+[Adjective stems](adjectivestems-guide.qmd)
+
+[Verb stems](verbstems-guide.qmd)
+
+:::
+
+::: {.column width="5%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="25%"}
+### Adding inflectional rules
+:::
+
+::::
+
+
+
+:::: {.columns}
+
+::: {.column width="25%"}
+### Building parsers
+:::
+
+::: {.column width="5%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="25%"}
+### Working with parsers
+:::
+
+
+::: {.column width="5%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="25%"}
+### Working with parsed output
+:::
+
+::::

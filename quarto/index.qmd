@@ -1,0 +1,74 @@
+---
+title: "Kanónes"
+---
+
+
+
+> ☛ Build customized morphological parsers for ancient Greek
+
+
+`Kanones.jl` is a Julia package for building Greek morphological parsers. It features:
+
+- all data are managed in delimited-text tables you can modify or add to with any text editor
+- rigorously defined orthography.  Example parsers include standard orthography of printed editions of literary Greek, and a parser for epigraphic Greek in the alphabet used by Athens before 403 BCE.
+- implemented entirely in the Julia language (no other technical prerequisites): 
+    - platform independent
+    - fast:  a parser built with Kanones on consumer-grade hardware can typically parse a token in 1-9 milliseconds.
+    - code library can be used from command line, in scripts, in web apps, directly in an editor like Visual Studio Code
+
+
+- [Get started](tutorials/index.qmd)!
+- [Guide to Kanónes](guides/index.qmd)
+
+
+
+## Quick example
+
+
+### Interactive parsing
+
+Parse a string: in this case, there is only one result.
+
+```@example intro
+s = "ἀνθρώπῳ"
+parses = parsetoken(s, p)
+```
+
+Extract a `GreekMorphologicalForm` from each analysis, and apply the `label` function to each:
+
+```@example intro
+parses .|> greekForm .|> label
+```
+
+Extract URNs for the lexeme from each analysis:
+
+```@example intro
+lexemelist = parses .|> lexemeurn
+```
+
+After downloading LSJ labels for lexemes in the `lsj` collection, label lexemes with LSJ labels included.
+```@example intro
+lsj = lemmatadict()
+lemmalabel(lexemelist[1], dict = lsj)
+```
+
+## What sections of these pages to read
+
+Practical information:
+
+- *build a parser from an existing dataset and parse forms interactively*: this page
+- *understand what Kanones is about*: Background
+- *manage or modify a Kanones dataset, and build a new parser*: User's guide to Kanones data
+- *use Kanones analyses in Julia code*: Using morphological objects in Julia
+
+Details of implementation:
+
+- *see how Kanones builds a dataset from files*: Implementation: building a dataset
+- *see how Kanones generates form*: Implementation: generating forms
+
+Reference documentation: API docs
+
+
+
+
+

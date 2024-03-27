@@ -1,0 +1,13 @@
+---
+title: "About"
+---
+
+About Kanones.
+
+
+You should know:
+
+- where the gh repository is
+- what the prerequisites are for using it maybe
+
+

@@ -1,0 +1,1 @@
+# First principal part (-ω verbs)

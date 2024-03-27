@@ -1,0 +1,17 @@
+---
+title: "Creating a data set"
+---
+
+
+::: {.callout-caution}
+Content of this page TBA
+:::
+
+```
+mydata
+└── stems-tables
+    ├── adjectives
+    ├── nouns
+    ├── verbs-compound
+    └── verbs-simplex
+```
