@@ -1,5 +1,6 @@
 project:
   type: website
+jupyter: julia-1.10  
 execute:
   freeze: auto
 website:

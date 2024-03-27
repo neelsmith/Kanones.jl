@@ -1,5 +1,5 @@
 ---
-title: "Kanónes"
+title: "Kanones.jl"
 ---
 
 
@@ -24,3 +24,7 @@ title: "Kanónes"
 - [Guide to Kanónes](guides/index.qmd)
 
 
+## Learning about Kanónes
+
+- [The concepts underlying Kanónes](concepts/index.qmd)
+- [How it works](reference/index.qmd)

@@ -6,9 +6,14 @@ title: "Build a parser and parse a Greek string"
 #| echo: false
 #| output: false
 
-repo = pwd()
+repo = pwd() |> dirname |> dirname
 ```
 
+
+Here's the value of repo:
+```{julia}
+repo
+```
 
 ## Building a parser
 
@@ -52,18 +57,19 @@ Extract a `GreekMorphologicalForm` from each analysis, and apply the `label` fun
 parses .|> greekForm .|> label
 ```
 
-Extract URNs for the lexeme from each analysis:
+Extract URNs for the lexeme from each analysis with the `lexemeurn` function from the `CitableParserBuilder` package:
 
 ```{julia}
+using CitableParserBuilder
 lexemelist = parses .|> lexemeurn
 ```
 
 After downloading LSJ labels for lexemes in the `lsj` collection, label lexemes with LSJ labels included.
 
-```
+```{julia}
 lsj = lemmatadict()
 ```
 
-```
+```{julia}
 lemmalabel.(lexemelist, dict = lsj)
 ```
