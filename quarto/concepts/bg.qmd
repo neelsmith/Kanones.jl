@@ -1,4 +1,6 @@
-# Background: analysis by synthesis
+---
+title: "Background: analysis by synthesis"
+---
 
 One possible functional definition of *morphological analysis*, or parsing, is:
 
