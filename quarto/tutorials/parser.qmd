@@ -1,21 +1,69 @@
 ---
-title: "Quick start"
+title: "Build a parser and parse a Greek string"
 ---
+
+```{julia}
+#| echo: false
+#| output: false
+
+repo = pwd()
+```
 
 
 ## Building a parser
 
-Load a dataset, and build a parser from it.  All the examples in this documentation use [the `literarygreek-rules` dataset](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/literarygreek-rules) found in the `datasets` directory of the Kanones github repository.
+You can build a parser from delimited-text files organized in directories following Kanónes' conventions.  This example uses [the `literarygreek-rules` data set](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/literarygreek-rules), found in the `datasets` directory of the Kanónes github repository.
+
+If you have a variable named `repo` with the root directory of the Kanónes repository, then the `literarygreek-rules` dataset is in this directory:
 
 ```{julia}
-pwd()
-```
-
-
-```
-using Kanones, CitableParserBuilder
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+```
+
+We can create a `Kanones.FilesDataSet` from a list of one or more directories.
+
+```{julia}
+using Kanones
 kds = dataset([srcdir])
+```
+
+We can then build a parser from a `KanonesDataSet`.
+
+```{julia}
+#| warnings: false
 p = stringParser(kds)
-p isa StringParser
+```
+
+
+
+### Interactive parsing
+
+Once you have a parser, you can parse strings with the `parsetoken` function. The result is a Vector of analyses.
+
+
+```{julia}
+s = "ἀνθρώπῳ"
+parses = parsetoken(s, p)
+```
+
+Extract a `GreekMorphologicalForm` from each analysis, and apply the `label` function to each:
+
+```{julia}
+parses .|> greekForm .|> label
+```
+
+Extract URNs for the lexeme from each analysis:
+
+```{julia}
+lexemelist = parses .|> lexemeurn
+```
+
+After downloading LSJ labels for lexemes in the `lsj` collection, label lexemes with LSJ labels included.
+
+```
+lsj = lemmatadict()
+```
+
+```
+lemmalabel.(lexemelist, dict = lsj)
 ```

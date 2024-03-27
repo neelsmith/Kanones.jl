@@ -1,0 +1,5 @@
+---
+title: "How Kanónes generates forms"
+---
+
+ Implementation: generating forms
