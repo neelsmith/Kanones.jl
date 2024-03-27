@@ -17,14 +17,14 @@ title: "Kanones.jl"
     - code library can be used from command line, in scripts, in web apps, directly in an editor like Visual Studio Code
 
 
-## Using Kanónes
+## Using Kanones.jl
 
 
 - [Get started](tutorials/index.qmd)!
 - [Guide to Kanónes](guides/index.qmd)
 
 
-## Learning about Kanónes
+## Learning about the Kanónes system
 
 - [The concepts underlying Kanónes](concepts/index.qmd)
 - [How it works](reference/index.qmd)
