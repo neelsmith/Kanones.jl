@@ -1,4 +1,7 @@
-# Implementation:  overview of generating a form
+---
+title: "How Kanónes generates forms"
+---
+
 
 
 The `generate` function has multiple methods (see API for details).  We'll follow, from the top down, the process of generating a token for a given lexeme (identified by a `LexemeUrn`) and morphological form (identified by a `FormUrn`), using a given Kanones dataset.
@@ -60,3 +63,28 @@ The final step is to apply the appropriate accent to the concatenated string.  A
 The details of this process are documented in the following pages.
 
 
+
+
+
+# Combining stem and inflection for regular formations
+
+Invidual analytical requirements have specific rquirements for combining stems and inflectional patterns.
+
+## Substantives
+
+For nouns, pronouns and adjectives, just  `stemstring(stem) * ending(rule)`
+
+
+!!! warning "Adverbs"
+    Adverbs are not yet implemented.
+
+
+
+## Verbs
+
+The function `regularverbclass` is true if it is possible to form all principal parts from a single stem.
+For these classes, the function `principalpart` then composes a principal part for a stem + rule combination.  This includes reduplication and augment for tense-mood combinations that require that.
+
+If the stem is *not* sufficient for generating a full set of principal parts, then the functions `takesreduplication` and `takesaugment` are used to determine whether the string recorded for the stem should be further modified using the `reduplicate` and `augment` functions from the `PolytonicGreek` package.
+
+At this point, 
