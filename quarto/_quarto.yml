@@ -52,11 +52,15 @@ website:
         - text: "---"   
         - guides/datainjulia-forms.qmd  
         - guides/utilities.qmd
-
     - title: "Reference"
-      contents: reference
+      contents: 
+        - reference/index.qmd
+        - reference/properties.qmd
+        - reference/forms.qmd
+        - reference/infltypes.qmd
+        - reference/generating.qmd
     - title: "Concepts"
-      contents: concepts         
+      contents: concepts
     - title: "Home"
       contents:
         - index.qmd               

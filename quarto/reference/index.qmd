@@ -3,8 +3,4 @@ title: "Reference"
 ---
 
 
--  [gh repository](https://github.com/neelsmith/Kanones.jl) 
-- what the prerequisites are for using it maybe
-
-
-List of inflectional types maybe?
+Find detailed reference information about Kanónes' model of Greek morphology, and how it is implemented in Julia.
