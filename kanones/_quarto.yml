@@ -6,7 +6,6 @@ execute:
 date: last-modified  
 margin-header: "⚠️ *These are incomplete preliminary notes from a pre-release draft.*"
 format:
-  docx: default
   html: default
 
 
