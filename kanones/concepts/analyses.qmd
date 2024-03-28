@@ -26,6 +26,8 @@ In Kanones, each of the four components of an `Analysis` are `Cite2Urn` values. 
 The `datasets` directory of the `Kanones.jl` repository includes sample datasets in traditional literary Greek orthography, and in the orthography used in Athens before 403 BCE.
 
 ```{julia}
+#| warning: false
+#| output: false
 litgreekfiles = joinpath(repo, "datasets", "literarygreek-rules")
 atticfiles = joinpath(repo,"datasets","attic")
 ```
@@ -34,15 +36,19 @@ atticfiles = joinpath(repo,"datasets","attic")
 We build a parser for each.
 
 ```{julia}
+#| output: false
+#| warning: false
 using Kanones, CitableParserBuilder
-litgreekparser = dataset(litgreekfiles) |> stringParser
+litgreek = dataset(litgreekfiles)
+litgreekparser =  stringParser(litgreek)
 ```
 
-For the Attic parser, we construct the data set with an optional parameter to set the orthography
+We construct the second data set with an optional parameter explicitly setting the orthography to use.
 
-Next, we build a parser with an orthography for the Attic alphabet used before 403 BCE.
 
 ```{julia}
+#| output: false
+#| warning: false
 using AtticGreek
 attic = dataset(atticfiles; ortho = atticGreek())
 atticparser = stringParser(attic)
@@ -51,6 +57,7 @@ atticparser = stringParser(attic)
 We can analyze a token written in standard orthography. (In this example, since we expect only one analysis for βουλῆς, we're just taking the first analysis from the resulting Vector.)
 
 ```{julia}
+#| warning: false
 analysis = parsetoken("βουλῆς",litgreekparser)[1]
 ```
 
@@ -62,4 +69,3 @@ vocabitem = lexemeurn(analysis)
 form = formurn(analysis)
 generate(vocabitem, form, attic)
 ```
-
