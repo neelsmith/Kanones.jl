@@ -6,9 +6,11 @@ execute:
 format:
   docx: default
   html: default
-
+  
+body-header: | 
+    This page brought to you by <https://example.com>  
 website:
-         
+ 
   navbar:
     background: primary
     search: true

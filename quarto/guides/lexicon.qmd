@@ -1,5 +1,6 @@
-# Lexicon
-
+---
+title: Lexicon
+---
 
 Special relationship between database of lexemes and *LSJ* lexicon:
 

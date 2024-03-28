@@ -1,4 +1,6 @@
-# Morphological properties
+---
+title: "Morphological properties"
+---
 
 
 ## Overview
@@ -95,4 +97,5 @@ Uninflected part of speech: six values labelled `conjunction`,
 ```@example props
 gmpUninflectedType(2) == gmpUninflectedType("preposition")
 ```
+
 

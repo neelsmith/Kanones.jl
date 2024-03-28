@@ -9,30 +9,34 @@ title: "Build a parser and parse a Greek string"
 repo = pwd() |> dirname |> dirname
 ```
 
+::: {.callout-tip}
+## Follow along
 
-Here's the value of repo:
-```{julia}
-repo
-```
+To replicate all the steps in this tutorial:
+
+- [install Julia](https://julialang.org/downloads/) if you haven't already done so
+- download or clone the [Kanones.jl repository](https://github.com/neelsmith/Kanones.jl)
+- start a Julia REPL
+::: 
 
 ## Building a parser
 
-You can build a parser from delimited-text files organized in directories following Kanónes' conventions.  This example uses [the `literarygreek-rules` data set](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/literarygreek-rules), found in the `datasets` directory of the Kanónes github repository.
+You can build a parser from delimited-text files organized in directories following Kanónes' conventions. This example uses [the `literarygreek-rules` data set](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/literarygreek-rules) from the `datasets` directory of the Kanónes github repository.
 
-If you have a variable named `repo` with the root directory of the Kanónes repository, then the `literarygreek-rules` dataset is in this directory:
+If you have a variable named `repo` with the root directory of the Kanónes repository, then the `literarygreek-rules` directory will be:
 
 ```{julia}
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 ```
 
-We can create a `Kanones.FilesDataSet` from a list of one or more directories.
+You can create a `Kanones.FilesDataSet` from a list of one or more directories with Kanónes data.
 
 ```{julia}
 using Kanones
 kds = dataset([srcdir])
 ```
 
-We can then build a parser from a `KanonesDataSet`.
+You can then build a parser from a data set.
 
 ```{julia}
 #| warnings: false
@@ -43,13 +47,15 @@ p = stringParser(kds)
 
 ### Interactive parsing
 
-Once you have a parser, you can parse strings with the `parsetoken` function. The result is a Vector of analyses.
+Use the `parsetoken` function to parse a string with a parser. 
 
 
 ```{julia}
 s = "ἀνθρώπῳ"
 parses = parsetoken(s, p)
 ```
+
+The result is a Vector of analyses.
 
 Extract a `GreekMorphologicalForm` from each analysis, and apply the `label` function to each:
 

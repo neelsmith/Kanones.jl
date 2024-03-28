@@ -2,9 +2,7 @@
 title: "Kanones.jl"
 ---
 
-
-
-> ☛ Build customized morphological parsers for ancient Greek
+> ☛ *Build customized morphological parsers for ancient Greek*
 
 
 `Kanones.jl` is a Julia package for building Greek morphological parsers. It features:

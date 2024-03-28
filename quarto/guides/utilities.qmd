@@ -1,0 +1,5 @@
+---
+title: Utilities
+---
+
+include: generating lists, and paradigms formatted in markdown
