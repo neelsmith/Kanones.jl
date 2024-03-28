@@ -8,8 +8,6 @@ format:
   docx: default
   html: default
 
- 
-margin-footer: "Page last modified {{< meta date >}}"    
 
 website:
  
