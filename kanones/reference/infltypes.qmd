@@ -2,4 +2,9 @@
 title: "Inflectional classes"
 ---
 
-Inventory all.
+::: {.callout-caution}
+Content of this page TBA
+:::
+
+
+Inventory of all.

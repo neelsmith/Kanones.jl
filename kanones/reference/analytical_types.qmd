@@ -2,7 +2,19 @@
 title: "Analytical types"
 ---
 
-~ but != "Parts of speech"
 
-Defined by morphological properties of analysis.  Verb stems can produce several types: participles, finite forms...
+::: {.callout-caution}
+Content of this page TBA
+:::
 
+
+
+- Noun
+- Pronoun
+- Adjective
+- Adverb
+- Finite verb
+- Infinitive
+- Participle
+- Verbal adjective
+- Uninflected form

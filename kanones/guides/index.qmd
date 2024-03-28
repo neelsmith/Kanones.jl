@@ -29,7 +29,7 @@ This section collects recipes for how to do specific tasks in Kanónes. If you a
 
 [Verb stems](verbstems-guide.qmd)
 
-[Irregular forms](irregularsetms-guide.qmd)
+[Irregular forms](irregularstems-guide.qmd)
 
 
 :::

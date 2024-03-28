@@ -32,6 +32,10 @@ what is greek? the morphological properties
    - stem 
 
 
+Of the four data sets Kanones uses (vocabulary, forms, stems and rules), only one is not editable: forms.  The set of possible forms defines a morphology as "Greek".
+
+
+
 ## Kanónes' algorithm
 
 -  analysis-by-synthesis algorithm

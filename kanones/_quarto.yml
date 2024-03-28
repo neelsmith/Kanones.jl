@@ -52,6 +52,7 @@ website:
         - guides/inflectional-rules.qmd  
         - text: "---"   
         - guides/parser-build.qmd
+        - guides/prebuilt.qmd
         - guides/registry.qmd  
         - guides/lexicon.qmd
         - text: "---"   
@@ -71,8 +72,10 @@ website:
         - concepts/overview.qmd
         - concepts/urns.qmd                
         - concepts/orthography.qmd
+        - concepts/morphology.qmd
         - concepts/analysis-by-synthesis.qmd
         - concepts/analyses.qmd
+        - concepts/source_vs_analysis.qmd
 
         
 

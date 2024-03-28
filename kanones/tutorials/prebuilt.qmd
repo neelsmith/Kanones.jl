@@ -1,5 +1,5 @@
 ---
-title: "Use a pre-built parser"
+title: "🤷‍♂️ Use a pre-built parser"
 ---
 
 ::: {.callout-warning}
