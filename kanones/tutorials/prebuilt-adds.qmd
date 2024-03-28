@@ -1,0 +1,12 @@
+---
+title: "Add vocabulary to a pre-built parser"
+---
+
+::: {.callout-warning}
+## Page incomplete
+
+*Content TBA*
+:::
+
+
+- steal sample code from Pluto notebook that simpliefies this

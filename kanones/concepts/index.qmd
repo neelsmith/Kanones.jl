@@ -1,0 +1,6 @@
+---
+title: "Fundamental concepts"
+---
+
+This section explains what makes Kanónes different from other approaches to morphological parsing of ancient Greek.
+

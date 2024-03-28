@@ -1,5 +1,5 @@
 ---
-title: "Build a parser and parse a Greek string"
+title: "Build a parser and parse Greek strings"
 ---
 
 ```{julia}
@@ -19,15 +19,19 @@ To replicate all the steps in this tutorial:
 - start a Julia REPL
 ::: 
 
-## Building a parser
+## Building a parser from local files
 
-You can build a parser from delimited-text files organized in directories following Kanónes' conventions. This example uses [the `literarygreek-rules` data set](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/literarygreek-rules) from the `datasets` directory of the Kanónes github repository.
+You can build a parser from delimited-text files organized in directories following Kanónes' conventions. In this tutorial, we'll use the files in the [`literarygreek-rules` directory](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/literarygreek-rules) in the `datasets` directory of the Kanónes github repository.
 
 If you have a variable named `repo` with the root directory of the Kanónes repository, then the `literarygreek-rules` directory will be:
 
 ```{julia}
+#| output: false
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 ```
+
+
+### Make a `Kanones.FilesDataSet`
 
 You can create a `Kanones.FilesDataSet` from a list of one or more directories with Kanónes data.
 
@@ -35,6 +39,8 @@ You can create a `Kanones.FilesDataSet` from a list of one or more directories w
 using Kanones
 kds = dataset([srcdir])
 ```
+
+### Make a parser
 
 You can then build a parser from a data set.
 
@@ -57,25 +63,45 @@ parses = parsetoken(s, p)
 
 The result is a Vector of analyses.
 
-Extract a `GreekMorphologicalForm` from each analysis, and apply the `label` function to each:
+Extract a `GreekMorphologicalForm` from the first analysis, and apply the `label` function to it:
+
+```{julia}
+parses[1] |> greekForm |> label
+```
+
+or use Julia broadcasting to label the forms of all parses:
 
 ```{julia}
 parses .|> greekForm .|> label
 ```
 
-Extract URNs for the lexeme from each analysis with the `lexemeurn` function from the `CitableParserBuilder` package:
+Use broadcasting to find URNs for the lexeme from each analysis with the `lexemeurn` function from the `CitableParserBuilder` package:
 
 ```{julia}
 using CitableParserBuilder
 lexemelist = parses .|> lexemeurn
 ```
 
-After downloading LSJ labels for lexemes in the `lsj` collection, label lexemes with LSJ labels included.
+Download labelling strings for lexemes in the `lsj` collection:
 
 ```{julia}
+#| output: false
 lsj = lemmatadict()
 ```
+
+
+Use broadcasting to label each lexeme for easier human reading:
+
 
 ```{julia}
 lemmalabel.(lexemelist, dict = lsj)
 ```
+
+## Parsing vocabulary lists
+
+
+::: {.callout-warning}
+## Section incomplete
+
+*Content TBA*
+:::

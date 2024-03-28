@@ -3,7 +3,6 @@ title: "How Kanónes generates forms"
 ---
 
 
-
 The `generate` function has multiple methods (see API for details).  We'll follow, from the top down, the process of generating a token for a given lexeme (identified by a `LexemeUrn`) and morphological form (identified by a `FormUrn`), using a given Kanones dataset.
 
 

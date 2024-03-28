@@ -4,6 +4,7 @@ jupyter: julia-1.10
 execute:
   freeze: auto
 date: last-modified  
+margin-header: "⚠️ *These are incomplete preliminary notes from a pre-release draft.*"
 format:
   docx: default
   html: default
@@ -32,7 +33,11 @@ website:
 
   sidebar:
     - title: "Tutorials"
-      contents: tutorials   
+      contents: 
+        - tutorials/index.qmd
+        - tutorials/parser.qmd
+        - tutorials/prebuilt.qmd
+        - tutorials/prebuilt-adds.qmd   
     - title: "Guides"
       contents:
         - guides/index.qmd
@@ -62,10 +67,12 @@ website:
     - title: "Concepts"
       contents: 
         - concepts/index.qmd
+        - concepts/motivation.qmd
         - concepts/bg.qmd
+        - concepts/orthography.qmd
         - concepts/analyses.qmd
-        - concepts/generating.qmd
-        - orthography.qmd
+
+        
 
     - title: "Home"
       contents:
