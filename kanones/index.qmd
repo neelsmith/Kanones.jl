@@ -1,5 +1,6 @@
 ---
 title: "Kanones.jl"
+jupyter: julia-1.10
 ---
 
 
