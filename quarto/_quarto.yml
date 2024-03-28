@@ -60,7 +60,13 @@ website:
         - reference/infltypes.qmd
         - reference/generating.qmd
     - title: "Concepts"
-      contents: concepts
+      contents: 
+        - concepts/index.qmd
+        - concepts/bg.qmd
+        - concepts/analyses.qmd
+        - concepts/generating.qmd
+        - orthography.qmd
+
     - title: "Home"
       contents:
         - index.qmd               
