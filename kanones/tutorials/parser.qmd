@@ -36,6 +36,7 @@ srcdir = joinpath(repo, "datasets", "literarygreek-rules")
 You can create a `Kanones.FilesDataSet` from a list of one or more directories with Kanónes data.
 
 ```{julia}
+#| output: false
 using Kanones
 kds = dataset([srcdir])
 ```
@@ -46,6 +47,7 @@ You can then build a parser from a data set.
 
 ```{julia}
 #| warnings: false
+#| output: false
 p = stringParser(kds)
 ```
 
@@ -61,9 +63,7 @@ s = "ἀνθρώπῳ"
 parses = parsetoken(s, p)
 ```
 
-The result is a Vector of analyses.
-
-Extract a `GreekMorphologicalForm` from the first analysis, and apply the `label` function to it:
+The result is a Vector of analyses. Each `Analysis` includes an  *morphological form* object and an identifier for a *lexeme* (or vocabulary item). You can use the `greekForm` and `lexemeurn` functions to extract these from an `Analysis`; for a human-readable string value, use the `label` function on the result.  E.g., label the first form in the result:
 
 ```{julia}
 parses[1] |> greekForm |> label
@@ -82,13 +82,13 @@ using CitableParserBuilder
 lexemelist = parses .|> lexemeurn
 ```
 
-Download labelling strings for lexemes in the `lsj` collection:
+To label lexemes, you can attach lemmata drawn from Liddell-Scott's lexicon. `lemmadict` is a convenience function that retrieves these data over the internet.
+
 
 ```{julia}
 #| output: false
 lsj = lemmatadict()
 ```
-
 
 Use broadcasting to label each lexeme for easier human reading:
 

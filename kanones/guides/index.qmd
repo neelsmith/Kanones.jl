@@ -29,6 +29,9 @@ This section collects recipes for how to do things in Kanónes. If you are just 
 
 [Verb stems](verbstems-guide.qmd)
 
+[Irregular forms](irregularsetms-guide.qmd)
+
+
 :::
 
 ::: {.column width="5%"}
@@ -37,6 +40,8 @@ This section collects recipes for how to do things in Kanónes. If you are just 
 
 ::: {.column width="25%"}
 ### Adding inflectional rules
+
+[Inflectional rules](inflectional-rules.qmd)
 :::
 
 ::::
@@ -47,23 +52,23 @@ This section collects recipes for how to do things in Kanónes. If you are just 
 
 ::: {.column width="25%"}
 ### Building parsers
+
+[Compiling parsers](parser-build.qmd)
+
+[Managing a URN registry](registry.qmd)
 :::
 
 ::: {.column width="5%"}
 <!-- empty column to create gap -->
 :::
 
-::: {.column width="25%"}
-### Working with parsers
-:::
 
-
-::: {.column width="5%"}
-<!-- empty column to create gap -->
-:::
 
 ::: {.column width="25%"}
 ### Working with parsed output
+
+[Output and display utilities](utilities.qmd)
+
 :::
 
 ::::

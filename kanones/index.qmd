@@ -18,7 +18,7 @@ jupyter: julia-1.10
 > ☛ *Build customized morphological parsers for ancient Greek*
 
 
-`Kanones.jl` is a Julia package for building Greek morphological parsers. It features:
+`Kanones.jl` is a Julia package for building Greek morphological parsers. Its features include:
 
 - data managed in delimited-text tables that you can modify or add to with any text editor
 - rigorously defined orthographies.  Example parsers implement a standard orthography of printed editions of literary Greek, and an orthography for epigraphic Greek in the alphabet used by Athens before 403 BCE.

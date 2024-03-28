@@ -8,3 +8,9 @@ title: "Building a parser"
 
 *Content TBA*
 :::
+
+- from a `FilesDataSet`
+- loading a precompiled parser
+- supplementing an existing parser
+
+

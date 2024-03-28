@@ -3,3 +3,9 @@ title: "Orthography"
 ---
 
 Language != orthography
+
+Follow definition of [Orthography.jl](https://hcmid.github.io/Orthography.jl/stable/) package:
+
+- defined set of characters
+- defined semantics supporting tokenization
+- tokenization is an analysis that both segments and classifies tokens

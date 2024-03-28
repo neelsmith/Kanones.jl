@@ -10,7 +10,7 @@ title: "Use a pre-built parser"
 
 
 - some prebuilt parsers available from shot.holycross.edu
-- not yet (March 2024) automatically rebuilt on cron cycle. Maybe soon.
+- not yet (March 2024) automatically rebuilt on cron cycle. Planned for summer 2024.
 - Two parsers in literary Greek orthography:
     - Big parser with data mined from LSJ but not verified
     - smaller parser with manually verified data for

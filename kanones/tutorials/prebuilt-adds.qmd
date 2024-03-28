@@ -9,4 +9,10 @@ title: "Add vocabulary to a pre-built parser"
 :::
 
 
-- steal sample code from Pluto notebook that simpliefies this
+- steal sample code from Pluto notebook in `kanones-manager` repository that simpliefies this.
+
+Short version:
+
+- load precompiled parser
+- manage your supplemenatary data in local files
+- rebuild parser with your new data (only needs to compile new data, so not slow!)
