@@ -2,7 +2,7 @@
 title: "How-to guides"
 ---
 
-This section collects recipes for how to do things in Kanónes. If you are just starting out, you may want to explore the tutorials to learn the basics.  You can learn more about the underlying concepts in the "Concepts" section of the site.
+This section collects recipes for how to do specific tasks in Kanónes. If you are just starting out, you may want to explore the tutorials first.  You can learn more about the underlying concepts behind these tasks in the "Concepts" section of the site.
 
 :::: {.columns}
 
@@ -56,6 +56,8 @@ This section collects recipes for how to do things in Kanónes. If you are just 
 [Compiling parsers](parser-build.qmd)
 
 [Managing a URN registry](registry.qmd)
+
+[Coordinating datasets with lexica](lexicon.qmd)
 :::
 
 ::: {.column width="5%"}
@@ -66,6 +68,8 @@ This section collects recipes for how to do things in Kanónes. If you are just 
 
 ::: {.column width="25%"}
 ### Working with parsed output
+
+[Using morphological analyses in Julia](datainjulia-forms.html)
 
 [Output and display utilities](utilities.qmd)
 

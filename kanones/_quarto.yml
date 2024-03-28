@@ -51,6 +51,7 @@ website:
         - guides/irregularstems-guide.qmd   
         - guides/inflectional-rules.qmd  
         - text: "---"   
+        - guides/parser-build.qmd
         - guides/registry.qmd  
         - guides/lexicon.qmd
         - text: "---"   
@@ -59,6 +60,7 @@ website:
     - title: "Reference"
       contents: 
         - reference/index.qmd
+        - reference/analytical_types.qmd
         - reference/properties.qmd
         - reference/forms.qmd
         - reference/infltypes.qmd

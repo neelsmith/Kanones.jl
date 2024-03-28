@@ -1,0 +1,8 @@
+---
+title: "Analytical types"
+---
+
+~ but != "Parts of speech"
+
+Defined by morphological properties of analysis.  Verb stems can produce several types: participles, finite forms...
+

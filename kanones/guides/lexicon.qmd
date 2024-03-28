@@ -1,5 +1,5 @@
 ---
-title: Lexicon
+title: "Coordinating URNs for lexemes"
 ---
 
 Special relationship between database of lexemes and *LSJ* lexicon:
