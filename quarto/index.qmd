@@ -7,7 +7,8 @@ title: "Kanones.jl"
 
 `Kanones.jl` is a Julia package for building Greek morphological parsers. It features:
 
-- data managed in delimited-text tables you can modify or add to with any text editor
+- data managed i
+n delimited-text tables you can modify or add to with any text editor
 - rigorously defined orthographies.  Example parsers include standard orthography of printed editions of literary Greek, and a parser for epigraphic Greek in the alphabet used by Athens before 403 BCE.
 - implemented entirely in the Julia language (no other technical prerequisites): 
     - platform independent

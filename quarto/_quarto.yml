@@ -3,12 +3,14 @@ project:
 jupyter: julia-1.10  
 execute:
   freeze: auto
+date: last-modified  
 format:
   docx: default
   html: default
-  
-body-header: | 
-    This page brought to you by <https://example.com>  
+
+ 
+margin-footer: "Page last modified {{< meta date >}}"    
+
 website:
  
   navbar:
