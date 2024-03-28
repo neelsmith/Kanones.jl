@@ -1,5 +1,5 @@
 ---
-title: Profiling and validating data set
+title: Validating data sets
 ---
 
 

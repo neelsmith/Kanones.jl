@@ -7,6 +7,4 @@ title: "Reference"
 - what the prerequisites are for using it maybe
 
 
-
-
 List of inflectional types maybe?

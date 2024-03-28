@@ -1,5 +1,5 @@
 ---
-title: "Strategies for working with multiple datasets"
+title: "Working with multiple datasets"
 ---
 
 

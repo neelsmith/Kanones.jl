@@ -34,7 +34,25 @@ website:
     - title: "Tutorials"
       contents: tutorials   
     - title: "Guides"
-      contents: guides
+      contents:
+        - guides/index.qmd
+        - text: "---"
+        - guides/dataset-guide.qmd
+        - guides/dataset-strategies.qmd
+        - guides/dataset-profile.qmd        
+        - text: "---"
+        - guides/nounstems-guide.qmd
+        - guides/adjectivestems-guide.qmd
+        - guides/verbstems-guide.qmd   
+        - guides/irregularstems-guide.qmd   
+        - guides/inflectional-rules.qmd  
+        - text: "---"   
+        - guides/registry.qmd  
+        - guides/lexicon.qmd
+        - text: "---"   
+        - guides/datainjulia-forms.qmd  
+        - guides/utilities.qmd
+
     - title: "Reference"
       contents: reference
     - title: "Concepts"
