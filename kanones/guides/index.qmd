@@ -23,7 +23,7 @@ This section collects recipes for how to do things in Kanónes. If you are just 
 ::: {.column width="25%"}
 ### Adding vocabulary
 
-[Noun stems](nouns-guide.qmd)
+[Noun stems](nounstems-guide.qmd)
 
 [Adjective stems](adjectivestems-guide.qmd)
 
