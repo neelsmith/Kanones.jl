@@ -1,19 +1,25 @@
 ---
-title: "Background: analysis by synthesis"
+title: "Analysis by synthesis"
 ---
 
 One possible functional definition of *morphological analysis*, or parsing, is:
 
-!!! note "Morphological analysis (parsing)"
+::: {.callout-tip}
 
-    Given a token (a string value), generate pairings of a vocabulary item (*lexeme*) and a *morphological form*.
+## Definition: morphological analysis (parsing)
+
+Given a token (a string value), generate pairings of a vocabulary item (*lexeme*) and a *morphological form*.
+:::
 
 
 *Morphological synthesis* is the inverse operation:  
 
-!!! note "Morphological synthesis (generation)"
-    
-    Given a lexeme and a form, generate a surface token.
+
+::: {.callout-tip}
+## Definition: morphological synthesis (generation)
+
+Given a lexeme and a form, generate a surface token.
+:::
 
 It is usually assumed that these two operations are directly reversible: analysis is thought of as "undoing" the process of synthesis.  This is literally true when (as is frequently the case) natural language parsers are implemented with finite state transducers.
 

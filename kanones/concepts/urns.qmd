@@ -1,0 +1,11 @@
+---
+title: "Canonical identification"
+---
+
+Use of URNs for all concepts.
+
+Implementation uses `AbbreviatedUrn`s from `CitableParserBuilder`: registry allows expansion/abbreviation.
+
+Most significantly: lexemes and forms.  Lexeme URNs coordinated with widely used LSJ. (Also `lsjx` collection).
+
+Forms can be manipulated without resorting to string manipulation while instantiation from strings is easy, too.

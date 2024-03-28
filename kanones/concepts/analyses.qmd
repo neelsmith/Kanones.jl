@@ -3,9 +3,16 @@ title: "Kanones' analyses"
 ---
 
 
-```@setup transcode
-repo = repo = pwd() |> dirname |> dirname |> dirname
+```{julia}
+#| echo: false
+#| output: false
+
+repo = pwd() |> dirname |> dirname
+#repo = pwd()
 ```
+
+
+
 
 
 `Kanones.jl` implements the model of the `CitableParserBuilder` module.  Parsing functions (like `parsetoken`) return a Vector of `Analysis` objects.  In addition to a lexeme and a form, each `Analysis` also includes a *stem* and an inflectional *rule*. Conceptually, the stem and rule provide the rationale for an analysis: the stem explains why a specific lexeme was chosen, and the inflectional rule explains how the token was formed by applying a particular inflectional pattern to the stem.  When generating tokens, pairing a stem and a rule provides enough information to identify a lexeme and a form and to compose a token.  Kanones can actually produce a full `Analysis` object when *generating* tokens as well as when parsing them. 
@@ -14,38 +21,45 @@ Kanones further associates an implementation of an `Orthography` with each parse
 
 In Kanones, each of the four components of an `Analysis` are `Cite2Urn` values. The identifiers for lexemes and morphological forms are potentially applicable to any parser you build with Kanones; stems and rules for the same lexeme and form may differ if you are parsing texts using different orthographies. The fact that you can meaningfully use references to lexems and forms drawn from parsers in different orthographies means that you can even analyze a token in one orthography, and generate the corresponding token for the same lexeme and form in another orthography.
 
-### Example: transcoding content
+### A magical example: transcoding content
 
-First, we build a parser with the conventional orthography of modern printed editions of literary texts.
+The `datasets` directory of the `Kanones.jl` repository includes sample datasets in traditional literary Greek orthography, and in the orthography used in Athens before 403 BCE.
 
-```@example transcode
-using Kanones, CitableParserBuilder
-using PolytonicGreek
-lgfiles = joinpath(repo, "datasets", "literarygreek-rules")
-lg = dataset(lgfiles)
-lgparser = stringParser(lg)
+```{julia}
+litgreekfiles = joinpath(repo, "datasets", "literarygreek-rules")
+atticfiles = joinpath(repo,"datasets","attic")
 ```
+
+
+We build a parser for each.
+
+```{julia}
+using Kanones, CitableParserBuilder
+litgreekparser = dataset(litgreekfiles) |> stringParser
+```
+
+For the Attic parser, we construct the data set with an optional parameter to set the orthography
 
 Next, we build a parser with an orthography for the Attic alphabet used before 403 BCE.
 
-```@example transcode
+```{julia}
 using AtticGreek
-atticfiles = joinpath(repo,"datasets","attic")
-attic = dataset(atticfiles)
+attic = dataset(atticfiles; ortho = atticGreek())
 atticparser = stringParser(attic)
 ```
 
-Now we can analyze a token written in standard orthography.
-```@example transcode
-analysis = parsetoken("βουλῆς",lgparser)[1]
+We can analyze a token written in standard orthography. (In this example, since we expect only one analysis for βουλῆς, we're just taking the first analysis from the resulting Vector.)
+
+```{julia}
+analysis = parsetoken("βουλῆς",litgreekparser)[1]
 ```
 
-Kanones has `lexeme` and `formurn` functions to retrieve those elements of an analysis.  With those in hand, we can now generate
-the corresponding token using the parser for Attic orthography.
+In Kanónes, all components of the analysis are identified by URNs rather than string values. We can use the `lexemeurn` and `formurn` functions to retrieve those elements of an analysis, and then generate the equivalent string using a different dataset with a different orthography.
 
-```
-vocab = lexeme(analysis)
+
+```{julia}
+vocabitem = lexemeurn(analysis)
 form = formurn(analysis)
-generate(vocab,form,attic)
+generate(vocabitem, form, attic)
 ```
 

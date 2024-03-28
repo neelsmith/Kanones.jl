@@ -66,9 +66,10 @@ website:
     - title: "Concepts"
       contents: 
         - concepts/index.qmd
-        - concepts/motivation.qmd
-        - concepts/bg.qmd
+        - concepts/overview.qmd
+        - concepts/urns.qmd                
         - concepts/orthography.qmd
+        - concepts/analysis-by-synthesis.qmd
         - concepts/analyses.qmd
 
         

@@ -1,0 +1,12 @@
+---
+title: "Kanones data sets"
+---
+
+## How
+
+stems + rules are combined based on an inflectional class
+
+Rules and stems have URNs, too.
+
+
+inflectional class is "database join" for associating them.
