@@ -31,10 +31,10 @@ title: "Kanones.jl"
 
 
 - [Get started](tutorials/index.qmd)!
-- [Guide to Kanónes](guides/index.qmd)
+- [Recipes](guides/index.qmd) for working with `Kanones.jl`
 
 
 ## Learning about the Kanónes system
 
-- [The concepts underlying Kanónes](concepts/index.qmd)
-- [How it works](reference/index.qmd)
+- [Understanding Kanónes](concepts/index.qmd)
+- [Reference](reference/index.qmd)
