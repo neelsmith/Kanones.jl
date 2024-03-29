@@ -31,9 +31,9 @@ srcdir = joinpath(repo, "datasets", "literarygreek-rules")
 ```
 
 
-### Make a `Kanones.FilesDataSet`
+### Instantiate a data set
 
-You can create a `Kanones.FilesDataSet` from a list of one or more directories with Kanónes data.
+You can create a `Kanones.FilesDataSet` from a list of one or more directories.
 
 ```{julia}
 #| output: false
@@ -41,7 +41,7 @@ using Kanones
 kds = dataset([srcdir])
 ```
 
-### Make a parser
+### Compile a parser
 
 You can then build a parser from a data set.
 

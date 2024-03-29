@@ -65,6 +65,7 @@ website:
         - reference/properties.qmd
         - reference/forms.qmd
         - reference/infltypes.qmd
+        - reference/files_layout.qmd
         - reference/generating.qmd
     - title: "Concepts"
       contents: 
@@ -76,6 +77,7 @@ website:
         - concepts/analysis-by-synthesis.qmd
         - concepts/analyses.qmd
         - concepts/source_vs_analysis.qmd
+        - concepts/julia_dispatch.qmd
 
         
 
