@@ -6,7 +6,8 @@ execute:
 date: last-modified  
 margin-header: "⚠️ *These are incomplete preliminary notes from a pre-release draft.*"
 format:
-  html: default
+  html: 
+    toc: true
 
 
 website:
