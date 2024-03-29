@@ -3,6 +3,8 @@ title: "Kanones.jl"
 jupyter: julia-1.10
 ---
 
+> ☛ *Build customized morphological parsers for ancient Greek*
+
 
 ::: {.callout-caution} 
 ## Caution!
@@ -17,7 +19,6 @@ jupyter: julia-1.10
 
 ## Kanónes
 
-> ☛ *Build customized morphological parsers for ancient Greek*
 
 
 `Kanones.jl` is a Julia package for building Greek morphological parsers. Its features include:

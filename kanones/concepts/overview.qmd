@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: "🤷‍♂️ Overview"
 ---
 
 Kanónes is *not* a parser: instead, it's a system for *building* parsers tailored to specific corpora of Greek texts. This design is motivated by both practical and theoretical concerns.

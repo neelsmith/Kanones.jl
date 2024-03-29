@@ -1,5 +1,5 @@
 ---
-title: "Canonical identification"
+title: "🤷‍♂️ Canonical identification"
 ---
 
 Use of URNs for all concepts.
