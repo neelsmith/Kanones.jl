@@ -15,3 +15,5 @@ title: "🤷‍♂️ Use a pre-built parser"
     - Big parser with data mined from LSJ but not verified
     - smaller parser with manually verified data for
     
+
+Load them and parse with them the same way you would if compiled your own.    

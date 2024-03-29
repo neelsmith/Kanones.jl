@@ -38,6 +38,7 @@ website:
         - tutorials/parser.qmd
         - tutorials/prebuilt.qmd
         - tutorials/prebuilt-adds.qmd   
+        - tutorials/dev-cycle.qmd
     - title: "Guides"
       contents:
         - guides/index.qmd
