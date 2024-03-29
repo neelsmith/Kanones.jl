@@ -6,6 +6,8 @@ title: "Summary of Julia dispatch for generating forms"
 *Content of this page is incomplete*
 :::
 
+## Regular forms
+
 The following table summarizes the unique combination of stem type and rule type that Kanónes uses to generate regular forms for each analytical type.
 
 | Analytical type | Stem type | Rule type |
