@@ -1,5 +1,5 @@
 ---
-title: "Add vocabulary to a pre-built parser"
+title: "🤷‍♂️ Add vocabulary to a pre-built parser"
 ---
 
 ::: {.callout-warning}

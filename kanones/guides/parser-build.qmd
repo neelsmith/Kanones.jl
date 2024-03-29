@@ -1,5 +1,5 @@
 ---
-title: "Building a parser"
+title: "🤷‍♂️ Building a parser"
 ---
 
 

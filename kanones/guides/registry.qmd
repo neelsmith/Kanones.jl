@@ -1,5 +1,5 @@
 ---
-title: "Managing a registry"
+title: "🤷‍♂️ Managing a registry"
 ---
 
 # Identification with URNs

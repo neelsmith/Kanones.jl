@@ -1,5 +1,5 @@
 ---
-title: "Adding inflectional rules"
+title: "🤷‍♂️ Adding inflectional rules"
 ---
 
 

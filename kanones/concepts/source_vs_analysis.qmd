@@ -1,5 +1,5 @@
 ---
-title: "Relation of stem types, rules and analyses"
+title: "🤷‍♂️ Relation of stem types, rules and analyses"
 ---
 
 ::: {.callout-caution}

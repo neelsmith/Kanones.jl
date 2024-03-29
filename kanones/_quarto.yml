@@ -10,7 +10,7 @@ format:
 
 
 website:
- 
+  title: "kanones"
   navbar:
     background: primary
     search: true
@@ -52,7 +52,7 @@ website:
         - guides/inflectional-rules.qmd  
         - text: "---"   
         - guides/parser-build.qmd
-        - guides/prebuilt.qmd
+        - guides/parser-prebuilt.qmd
         - guides/registry.qmd  
         - guides/lexicon.qmd
         - text: "---"   

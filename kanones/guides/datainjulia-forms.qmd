@@ -1,5 +1,5 @@
 ---
-title: "Using morphological objects in Julia"
+title: "🤷‍♂️ Using morphological objects in Julia"
 ---
 
 ::: {.callout-caution}

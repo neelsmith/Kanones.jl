@@ -8,7 +8,9 @@ jupyter: julia-1.10
 ## Caution!
 
 
-*This web site is a dump of incomplete preliminary notes from a pre-release draft of documentation for `Kanones.jl`. Please check back later in summer 2024 for more useful documentation.*
+*This web site is a dump of preliminary notes from a pre-release draft of documentation for `Kanones.jl`. Please check back later in summer 2024 for more useful documentation.*
+
+*Pages flagged with 🤷‍♂️ in the title are not yet in a usable form.*
 
 :::
 
