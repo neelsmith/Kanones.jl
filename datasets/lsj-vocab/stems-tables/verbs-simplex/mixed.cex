@@ -163,6 +163,10 @@ verbstems.n72202ptcpl|lsj.n72202|εἰδ|pp5|true
 
 verbstems.n73172a|lsj.n73172|ὀλλυ|mi_pp1|
 
+verbstems.n79983a|lsj.n79983|πασχ|w_pp1|
+verbstems.n79983b|lsj.n79983|πεισ|pp2_dep|
+verbstems.n79983c|lsj.n79983|παθ|aor2|
+verbstems.n79983d|lsj.n79983|πεπονθ|pp4|
 
 verbstems.n80557a|lsj.n80557|πεμπ|w_pp1|
 verbstems.n80557b|lsj.n80557|πεμψ|pp2|

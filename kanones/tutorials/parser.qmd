@@ -6,7 +6,8 @@ title: "Build a parser and parse Greek strings"
 #| echo: false
 #| output: false
 
-repo = pwd() |> dirname |> dirname
+#repo = pwd() |> dirname |> dirname
+repo = pwd()
 ```
 
 ::: {.callout-tip}
@@ -97,11 +98,15 @@ Use broadcasting to label each lexeme for easier human reading:
 lemmalabel.(lexemelist, dict = lsj)
 ```
 
-## Parsing vocabulary lists
+To parse a list of words, use the `parsewordlist` function.
 
+```{julia}
+p2 = Kanones.coreparser(; atticonly = true)
 
-::: {.callout-warning}
-## Section incomplete
+s = "περὶ πολλοῦ ἂν ποιησαίμην ὦ ἄνδρες τὸ τοιούτους ὑμᾶς ἐμοὶ δικαστὰς περὶ τούτου τοῦ πράγματος γενέσθαι οἷοι  ἂν ὑμῖν αὐτοῖς εἴητε τοιαῦτα πεπονθότες"
+words = split(s)
+```
 
-*Content TBA*
-:::
+```{julia}
+parses = parsewordlist(words,p2)
+```
