@@ -123,6 +123,7 @@ labelledlines = formlabels(words, p2)
 ```
 
 ```{julia}
+using Markdown
 mdlines = map(ln -> "1. " * ln, labelledlines)
 join(mdlines, "\n") |> Markdown.parse
 ```
