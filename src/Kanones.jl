@@ -19,6 +19,7 @@ import CitableParserBuilder: lexemes
 
 export KanonesParser
 export parsetoken, parsewordlist, parsecorpus, parsedocument
+export formlabels
 
 using CitableCorpus
 using CitableObject

@@ -48,3 +48,32 @@ function resolvestring(s, ortho = literaryGreek())
     map(str -> knormal(str, ortho), v)
     
 end
+
+
+
+function formlabels(v; wordlist = [])
+    labels = [parse .|> greekForm .|> label  for parse in v]
+    labelstrings = map(v -> join(v, "; "), labels)
+    if isempty(wordlist)
+        labelstrings
+    else
+        prs = zip(wordlist, labelstrings) |> collect
+        map(prs) do pr
+            string(pr[1],": ", pr[2])
+        end  
+    end
+end
+
+function formlabels(wordlist, p::KanonesParser)
+    parses = parsewordlist(wordlist, p)
+    labels = [parse .|> greekForm .|> label  for parse in parses]
+    labelstrings = map(v -> join(v, "; "), labels)
+    if isempty(wordlist)
+        labelstrings
+    else
+        prs = zip(wordlist, labelstrings) |> collect
+        map(prs) do pr
+            string(pr[1],": ", pr[2])
+        end  
+    end
+end
