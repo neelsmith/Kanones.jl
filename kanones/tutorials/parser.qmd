@@ -10,15 +10,15 @@ repo = pwd() |> dirname |> dirname
 
 ```
 
-::: {.callout-tip}
+::: callout-tip
 ## Follow along
 
 To replicate all the steps in this tutorial:
 
-- [install Julia](https://julialang.org/downloads/) if you haven't already done so
-- download or clone the [Kanones.jl repository](https://github.com/neelsmith/Kanones.jl)
-- start a Julia REPL
-::: 
+-   [install Julia](https://julialang.org/downloads/) if you haven't already done so
+-   download or clone the [Kanones.jl repository](https://github.com/neelsmith/Kanones.jl)
+-   start a Julia REPL
+:::
 
 ## Building a parser from local files
 
@@ -30,7 +30,6 @@ If you have a variable named `repo` with the root directory of the Kanónes repo
 #| output: false
 srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
 ```
-
 
 ### Instantiate a data set
 
@@ -52,19 +51,16 @@ You can then build a parser from a data set.
 p = stringParser(kds)
 ```
 
-
-
 ### Interactive parsing
 
-Use the `parsetoken` function to parse a string with a parser. 
-
+Use the `parsetoken` function to parse a string with a parser.
 
 ```{julia}
 s = "ἀνθρώπῳ"
 parses = parsetoken(s, p)
 ```
 
-The result is a Vector of analyses. Each `Analysis` includes a  *morphological form* object and an identifier for a *lexeme* (or vocabulary item). You can use the `greekForm` and `lexemeurn` functions to extract these from an `Analysis`; for a human-readable string value, use the `label` function on the result.  E.g., label the first form in the result:
+The result is a Vector of analyses. Each `Analysis` includes a *morphological form* object and an identifier for a *lexeme* (or vocabulary item). You can use the `greekForm` and `lexemeurn` functions to extract these from an `Analysis`; for a human-readable string value, use the `label` function on the result. E.g., label the first form in the result:
 
 ```{julia}
 parses[1] |> greekForm |> label
@@ -85,14 +81,12 @@ lexemelist = parses .|> lexemeurn
 
 To label lexemes, you can attach lemmata drawn from Liddell-Scott's lexicon. `lemmadict` is a convenience function that retrieves these data over the internet.
 
-
 ```{julia}
 #| output: false
 lsj = lemmatadict()
 ```
 
 Use broadcasting to label each lexeme for easier human reading:
-
 
 ```{julia}
 lemmalabel.(lexemelist, dict = lsj)
@@ -105,7 +99,7 @@ s = "περὶ πολλοῦ ἂν ποιησαίμην ὦ ἄνδρες τὸ 
 words = split(s)
 ```
 
-We'll need a parser with more vocabulary than the literary Greek sample we used above. You can build a small parser with some common vocabulary with the `Kanones.coreparser` function.  We'll further limit it to include only Attic forms.
+We'll need a parser with more vocabulary than the literary Greek sample we used above. You can build a small parser with some common vocabulary with the `Kanones.coreparser` function. We'll further limit it to include only Attic forms.
 
 ```{julia}
 #| warnings: false
@@ -113,9 +107,22 @@ We'll need a parser with more vocabulary than the literary Greek sample we used 
 p2 = Kanones.coreparser(repo; atticonly = true)
 ```
 
-
 ```{julia}
 parses = parsewordlist(words,p2)
 ```
 
 The result is just a list of 23 Vectors of analyses, one for each word we submitted.
+
+
+
+If all you want is labelled strings? Try this.
+
+
+```{julia}
+labelledlines = formlabels(words, p2)
+```
+
+```{julia}
+mdlines = map(ln -> "1. " * ln, labelledlines)
+join(mdlines, "\n") |> Markdown.parse
+```
