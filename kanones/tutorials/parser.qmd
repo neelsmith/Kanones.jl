@@ -64,7 +64,7 @@ s = "ἀνθρώπῳ"
 parses = parsetoken(s, p)
 ```
 
-The result is a Vector of analyses. Each `Analysis` includes an  *morphological form* object and an identifier for a *lexeme* (or vocabulary item). You can use the `greekForm` and `lexemeurn` functions to extract these from an `Analysis`; for a human-readable string value, use the `label` function on the result.  E.g., label the first form in the result:
+The result is a Vector of analyses. Each `Analysis` includes a  *morphological form* object and an identifier for a *lexeme* (or vocabulary item). You can use the `greekForm` and `lexemeurn` functions to extract these from an `Analysis`; for a human-readable string value, use the `label` function on the result.  E.g., label the first form in the result:
 
 ```{julia}
 parses[1] |> greekForm |> label
@@ -98,15 +98,24 @@ Use broadcasting to label each lexeme for easier human reading:
 lemmalabel.(lexemelist, dict = lsj)
 ```
 
-To parse a list of words, use the `parsewordlist` function.
+To parse a list of words, use the `parsewordlist` function. For example, we can split this string into a list of 23 word tokens.
 
 ```{julia}
-p2 = Kanones.coreparser(; atticonly = true)
-
-s = "περὶ πολλοῦ ἂν ποιησαίμην ὦ ἄνδρες τὸ τοιούτους ὑμᾶς ἐμοὶ δικαστὰς περὶ τούτου τοῦ πράγματος γενέσθαι οἷοι  ἂν ὑμῖν αὐτοῖς εἴητε τοιαῦτα πεπονθότες"
+s = "περὶ πολλοῦ ἂν ποιησαίμην ὦ ἄνδρες τὸ τοιούτους ὑμᾶς ἐμοὶ δικαστὰς περὶ τούτου τοῦ πράγματος γενέσθαι οἷοι ἂν ὑμῖν αὐτοῖς εἴητε τοιαῦτα πεπονθότες"
 words = split(s)
 ```
+
+We'll need a parser with more vocabulary than the literary Greek sample we used above. You can build a small parser with some common vocabulary with the `Kanones.coreparser` function.  We'll further limit it to include only Attic forms.
+
+```{julia}
+#| warnings: false
+#| output: false
+p2 = Kanones.coreparser(repo; atticonly = true)
+```
+
 
 ```{julia}
 parses = parsewordlist(words,p2)
 ```
+
+The result is just a list of 23 Vectors of analyses, one for each word we submitted.
