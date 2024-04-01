@@ -6,8 +6,8 @@ title: "Build a parser and parse Greek strings"
 #| echo: false
 #| output: false
 
-#repo = pwd() |> dirname |> dirname
-repo = pwd()
+repo = pwd() |> dirname |> dirname
+
 ```
 
 ::: {.callout-tip}
