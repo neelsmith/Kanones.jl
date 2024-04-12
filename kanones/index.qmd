@@ -42,3 +42,5 @@ jupyter: julia-1.10
 
 - [Understanding Kanónes](concepts/index.qmd)
 - [Reference](reference/index.qmd)
+
+> Find more of my digital scholarship [here](https://neelsmith.quarto.pub/digschol/).

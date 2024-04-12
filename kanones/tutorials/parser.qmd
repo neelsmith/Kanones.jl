@@ -24,7 +24,7 @@ To replicate all the steps in this tutorial:
 
 You can build a parser from delimited-text files organized in directories following Kanónes' conventions. In this tutorial, we'll use the files in the [`literarygreek-rules` directory](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/literarygreek-rules) in the `datasets` directory of the Kanónes github repository.
 
-If you have a variable named `repo` with the root directory of the Kanónes repository, then the `literarygreek-rules` directory will be:
+If you have a variable named `repo` with the root directory of the Kanónes repository, then the `core-infl` directory will be:
 
 ```{julia}
 #| output: false
