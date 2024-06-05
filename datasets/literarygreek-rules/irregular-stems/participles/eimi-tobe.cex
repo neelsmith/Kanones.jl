@@ -1,5 +1,6 @@
 StemUrn|LexicalEntity|String|Tense|Voice|Gender|Case|Number|IrregularClass
 
+
 irreginf.irregptcpl31130a|lsj.n31130|ὤν|present|active|masculine|nominative|singular|irregularparticiple
 irreginf.irregptcpl31130b|lsj.n31130|ὄντος|present|active|masculine|genitive|singular|irregularparticiple
 irreginf.irregptcpl31130c|lsj.n31130|ὄντι|present|active|masculine|dative|singular|irregularparticiple
@@ -23,13 +24,20 @@ irreginf.irregptcpl31130p|lsj.n31130|ὄντα|present|active|neuter|accusative|
 
 
 
-
 irreginf.irregptcpl31130q|lsj.n31130|οὖσα|present|active|feminine|nominative|singular|irregularparticiple
+irreginf.irregptcpl31130q|lsj.n31130|ἐοῦσα|present|active|feminine|nominative|singular|irregularparticiple
 irreginf.irregptcpl31130r|lsj.n31130|οὔσης|present|active|feminine|genitive|singular|irregularparticiple
+irreginf.irregptcpl31130r|lsj.n31130|ἐούσης|present|active|feminine|genitive|singular|irregularparticiple
 irreginf.irregptcpl31130s|lsj.n31130|οὔσῃ|present|active|feminine|dative|singular|irregularparticiple
+irreginf.irregptcpl31130s|lsj.n31130|ἐούσῃ|present|active|feminine|dative|singular|irregularparticiple
 irreginf.irregptcpl31130t|lsj.n31130|οὖσαν|present|active|feminine|accusative|singular|irregularparticiple
+irreginf.irregptcpl31130t|lsj.n31130|ἐοῦσαν|present|active|feminine|accusative|singular|irregularparticiple
 
 irreginf.irregptcpl31130u|lsj.n31130|οὖσαι|present|active|feminine|nominative|plural|irregularparticiple
+irreginf.irregptcpl31130u|lsj.n31130|ἐοῦσαι|present|active|feminine|nominative|plural|irregularparticiple
 irreginf.irregptcpl31130v|lsj.n31130|οὐσῶν|present|active|feminine|genitive|plural|irregularparticiple
+irreginf.irregptcpl31130v|lsj.n31130|ἐουσῶν|present|active|feminine|genitive|plural|irregularparticiple
 irreginf.irregptcpl31130w|lsj.n31130|οὔσαις|present|active|feminine|dative|plural|irregularparticiple
+irreginf.irregptcpl31130w|lsj.n31130|ἐούσαις|present|active|feminine|dative|plural|irregularparticiple
 irreginf.irregptcpl31130x|lsj.n31130|οὔσας|present|active|feminine|accusative|plural|irregularparticiple
+irreginf.irregptcpl31130x|lsj.n31130|ἐούσας|present|active|feminine|accusative|plural|irregularparticiple
