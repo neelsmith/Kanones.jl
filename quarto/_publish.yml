@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 86ed0b96-c0a1-4824-a7de-c66df41cdcd7
+      url: 'https://neelsmith.quarto.pub/kanones'

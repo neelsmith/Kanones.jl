@@ -1,0 +1,1 @@
+# Adjectives using third-declension endings

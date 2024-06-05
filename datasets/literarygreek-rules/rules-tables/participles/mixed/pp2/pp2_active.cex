@@ -8,7 +8,7 @@ ptcplinfl.pp2act4|pp2|οντα|future|active|masculine|accusative|singular|
 
 ptcplinfl.pp2act6|pp2|οντες|future|active|masculine|nominative|plural|
 ptcplinfl.pp2act7|pp2|οντων|future|active|masculine|genitive|plural|
-ptcplinfl.pp2act8|pp2|οντοις|future|active|masculine|dative|plural|
+ptcplinfl.pp2act8|pp2|ουσι|future|active|masculine|dative|plural|
 ptcplinfl.pp2act9|pp2|οντας|future|active|masculine|accusative|plural|
 
 
@@ -20,7 +20,7 @@ ptcplinfl.pp2act4n|pp2|ον|future|active|neuter|accusative|singular|
 
 ptcplinfl.pp2act6n|pp2|οντα|future|active|neuter|nominative|plural|
 ptcplinfl.pp2act7n|pp2|οντων|future|active|neuter|genitive|plural|
-ptcplinfl.pp2act8n|pp2|οντοις|future|active|neuter|dative|plural|
+ptcplinfl.pp2act8n|pp2|ουσι|future|active|neuter|dative|plural|
 ptcplinfl.pp2act9n|pp2|οντα|future|active|neuter|accusative|plural|
 
 

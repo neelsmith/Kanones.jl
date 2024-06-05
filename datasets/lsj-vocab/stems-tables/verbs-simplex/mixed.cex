@@ -163,6 +163,10 @@ verbstems.n72202ptcpl|lsj.n72202|εἰδ|pp5|true
 
 verbstems.n73172a|lsj.n73172|ὀλλυ|mi_pp1|
 
+verbstems.n79983a|lsj.n79983|πασχ|w_pp1|
+verbstems.n79983b|lsj.n79983|πεισ|pp2_dep|
+verbstems.n79983c|lsj.n79983|παθ|aor2|
+verbstems.n79983d|lsj.n79983|πεπονθ|pp4|
 
 verbstems.n80557a|lsj.n80557|πεμπ|w_pp1|
 verbstems.n80557b|lsj.n80557|πεμψ|pp2|
@@ -190,10 +194,25 @@ verbstems.n102515a|lsj.n102515|τασσ|w_pp1|
 verbstems.n102515b|lsj.n102515|ταττ|w_pp1|
 
 
+verbstems.n110689a|lsj.n110689|φθειρ|w_pp1|
+verbstems.n110689c|lsj.n110689|φθειρ|pp3|
 
 
+verbstems.n11255a|lsj.n112559|φυλασσ|w_pp1|
+verbstems.n112559b|lsj.n112559|φυλαττ|w_pp1|
+verbstems.n112559c|lsj.n112559|φυλαξ|pp2|
+verbstems.n112559d|lsj.n112559|φυλαξ|pp3|
+verbstems.n112559e|lsj.n112559|πεφυλαχ|pp4|
+verbstems.n112559f|lsj.n112559|πεφυλαγ|pp5|
+verbstems.n112559g|lsj.n112559|φυλαχθ|pp6|
 
 verbstems.n114548a|lsj.n114548|χρα|aw_contract_pp1|
 verbstems.n114548b|lsj.n114548|χρησ|pp2_dep|
 verbstems.n114548c|lsj.n114548|χρησ|pp3_dep|
 verbstems.n114548d|lsj.n114548|κεχρη|pp5|
+
+
+verbstems.n115586a|lsj.n115586|ψευδ|w_pp1|
+verbstems.n115586b|lsj.n115586|ψευσ|pp2|
+verbstems.n115586|lsj.n115586|ψευσ|pp3|
+verbstems.n115586|lsj.n115586|ψευσθησ|pp6|

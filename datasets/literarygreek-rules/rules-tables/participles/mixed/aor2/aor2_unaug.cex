@@ -1,35 +1,35 @@
 Rule|StemClass|Ending|Tense|Voice|Gender|Case|Number|
 
-ptcplinfl.aor2_unaugact1|aor2_unaug|ών|present|active|masculine|nominative|singular|
-ptcplinfl.aor2_unaugact2|aor2_unaug|όντος|present|active|masculine|genitive|singular|
-ptcplinfl.aor2_unaugact3|aor2_unaug|όντι|present|active|masculine|dative|singular|
-ptcplinfl.aor2_unaugact4|aor2_unaug|όντα|present|active|masculine|accusative|singular|
+ptcplinfl.aor2_unaugact1|aor2_unaug|ών|aorist|active|masculine|nominative|singular|
+ptcplinfl.aor2_unaugact2|aor2_unaug|όντος|aorist|active|masculine|genitive|singular|
+ptcplinfl.aor2_unaugact3|aor2_unaug|όντι|aorist|active|masculine|dative|singular|
+ptcplinfl.aor2_unaugact4|aor2_unaug|όντα|aorist|active|masculine|accusative|singular|
 
-ptcplinfl.aor2_unaugact6|aor2_unaug|όντες|present|active|masculine|nominative|plural|
-ptcplinfl.aor2_unaugact7|aor2_unaug|όντων|present|active|masculine|genitive|plural|
-ptcplinfl.aor2_unaugact8|aor2_unaug|όντοις|present|active|masculine|dative|plural|
-ptcplinfl.aor2_unaugact9|aor2_unaug|όντας|present|active|masculine|accusative|plural|
-
-
-
-ptcplinfl.aor2_unaugact1n|aor2_unaug|όν|present|active|neuter|nominative|singular|
-ptcplinfl.aor2_unaugact2n|aor2_unaug|όντος|present|active|neuter|genitive|singular|
-ptcplinfl.aor2_unaugact3n|aor2_unaug|όντι|present|active|neuter|dative|singular|
-ptcplinfl.aor2_unaugact4n|aor2_unaug|όν|present|active|neuter|accusative|singular|
-
-ptcplinfl.aor2_unaugact6n|aor2_unaug|όντα|present|active|neuter|nominative|plural|
-ptcplinfl.aor2_unaugact7n|aor2_unaug|όντων|present|active|neuter|genitive|plural|
-ptcplinfl.aor2_unaugact8n|aor2_unaug|όντοις|present|active|neuter|dative|plural|
-ptcplinfl.aor2_unaugact9n|aor2_unaug|όντα|present|active|neuter|accusative|plural|
+ptcplinfl.aor2_unaugact6|aor2_unaug|όντες|aorist|active|masculine|nominative|plural|
+ptcplinfl.aor2_unaugact7|aor2_unaug|όντων|aorist|active|masculine|genitive|plural|
+ptcplinfl.aor2_unaugact8|aor2_unaug|οῦσι|aorist|active|masculine|dative|plural|
+ptcplinfl.aor2_unaugact9|aor2_unaug|όντας|aorist|active|masculine|accusative|plural|
 
 
 
-ptcplinfl.aor2_unaugact1f|aor2_unaug|οῦσα|present|active|feminine|nominative|singular|
-ptcplinfl.aor2_unaugact2f|aor2_unaug|ούσης|present|active|feminine|genitive|singular|
-ptcplinfl.aor2_unaugact3f|aor2_unaug|ούσῃ|present|active|feminine|dative|singular|
-ptcplinfl.aor2_unaugact4f|aor2_unaug|οῦσαν|present|active|feminine|accusative|singular|
+ptcplinfl.aor2_unaugact1n|aor2_unaug|όν|aorist|active|neuter|nominative|singular|
+ptcplinfl.aor2_unaugact2n|aor2_unaug|όντος|aorist|active|neuter|genitive|singular|
+ptcplinfl.aor2_unaugact3n|aor2_unaug|όντι|aorist|active|neuter|dative|singular|
+ptcplinfl.aor2_unaugact4n|aor2_unaug|όν|aorist|active|neuter|accusative|singular|
 
-ptcplinfl.aor2_unaugact6f|aor2_unaug|οῦσαι|present|active|feminine|nominative|plural|
-ptcplinfl.aor2_unaugact7f|aor2_unaug|ούσων|present|active|feminine|genitive|plural|
-ptcplinfl.aor2_unaugact8f|aor2_unaug|ούσαις|present|active|feminine|dative|plural|
-ptcplinfl.aor2_unaugact9f|aor2_unaug|ούσας|present|active|feminine|accusative|plural|
+ptcplinfl.aor2_unaugact6n|aor2_unaug|όντα|aorist|active|neuter|nominative|plural|
+ptcplinfl.aor2_unaugact7n|aor2_unaug|όντων|aorist|active|neuter|genitive|plural|
+ptcplinfl.aor2_unaugact8n|aor2_unaug|οῦσι|aorist|active|neuter|dative|plural|
+ptcplinfl.aor2_unaugact9n|aor2_unaug|όντα|aorist|active|neuter|accusative|plural|
+
+
+
+ptcplinfl.aor2_unaugact1f|aor2_unaug|οῦσα|aorist|active|feminine|nominative|singular|
+ptcplinfl.aor2_unaugact2f|aor2_unaug|ούσης|aorist|active|feminine|genitive|singular|
+ptcplinfl.aor2_unaugact3f|aor2_unaug|ούσῃ|aorist|active|feminine|dative|singular|
+ptcplinfl.aor2_unaugact4f|aor2_unaug|οῦσαν|aorist|active|feminine|accusative|singular|
+
+ptcplinfl.aor2_unaugact6f|aor2_unaug|οῦσαι|aorist|active|feminine|nominative|plural|
+ptcplinfl.aor2_unaugact7f|aor2_unaug|ούσων|aorist|active|feminine|genitive|plural|
+ptcplinfl.aor2_unaugact8f|aor2_unaug|ούσαις|aorist|active|feminine|dative|plural|
+ptcplinfl.aor2_unaugact9f|aor2_unaug|ούσας|aorist|active|feminine|accusative|plural|

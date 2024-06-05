@@ -1,0 +1,10 @@
+---
+title: "🤷‍♂️ Inflectional classes"
+---
+
+::: {.callout-caution}
+Content of this page TBA
+:::
+
+
+Inventory of all.

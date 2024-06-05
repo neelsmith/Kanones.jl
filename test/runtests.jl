@@ -59,3 +59,6 @@ include("parser/test_normalization.jl")
 include("lsj/test_labels.jl")
 
 include("phonology/test_phonology.jl")
+
+
+include("utils/test_lexiddicts.jl")

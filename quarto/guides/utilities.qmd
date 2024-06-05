@@ -1,0 +1,24 @@
+---
+title: "🤷‍♂️ Utilities"
+---
+
+include: generating lists, and paradigms formatted in markdown
+
+
+coredata, coreparser
+
+E.g.,  
+
+
+
+```{julia}
+#| echo: false
+#| warning: false
+#| output: false
+repo = pwd() |> dirname |> dirname
+```
+
+```{julia}
+using Kanones
+p = Kanones.coreparser(repo; atticonly = true)
+```

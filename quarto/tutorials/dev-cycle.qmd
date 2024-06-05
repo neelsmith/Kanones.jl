@@ -1,0 +1,19 @@
+---
+title: "🤷‍♂️ Developing a parser"
+---
+
+
+::: {.callout-warning}
+## Page incomplete
+
+*Content TBA*
+:::
+
+
+
+- Build a parser
+- save
+- load. `dfParser(FNAME)` https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/data/lgr-rulesparser.cex
+- modify
+- save. `tofile(p, "FNAME.csv")`
+

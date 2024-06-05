@@ -8,7 +8,7 @@ ptcplinfl.wpresact4|w_regular|οντα|present|active|masculine|accusative|singu
 
 ptcplinfl.wpresact6|w_regular|οντες|present|active|masculine|nominative|plural|
 ptcplinfl.wpresact7|w_regular|οντων|present|active|masculine|genitive|plural|
-ptcplinfl.wpresact8|w_regular|οντοις|present|active|masculine|dative|plural|
+ptcplinfl.wpresact8|w_regular|ουσι|present|active|masculine|dative|plural|
 ptcplinfl.wpresact9|w_regular|οντας|present|active|masculine|accusative|plural|
 
 
@@ -20,7 +20,7 @@ ptcplinfl.wpresact4n|w_regular|ον|present|active|neuter|accusative|singular|
 
 ptcplinfl.wpresact6n|w_regular|οντα|present|active|neuter|nominative|plural|
 ptcplinfl.wpresact7n|w_regular|οντων|present|active|neuter|genitive|plural|
-ptcplinfl.wpresact8n|w_regular|οντοις|present|active|neuter|dative|plural|
+ptcplinfl.wpresact8n|w_regular|ουσι|present|active|neuter|dative|plural|
 ptcplinfl.wpresact9n|w_regular|οντα|present|active|neuter|accusative|plural|
 
 

@@ -19,6 +19,7 @@ import CitableParserBuilder: lexemes
 
 export KanonesParser
 export parsetoken, parsewordlist, parsecorpus, parsedocument
+export formlabels
 
 using CitableCorpus
 using CitableObject
@@ -195,6 +196,12 @@ include("generate/generateuninflected.jl")
 include("generate/generateirregular.jl")
 include("generate/debug.jl")
 
+include("parser/parser.jl")
+include("parser/stringparser.jl")
+include("parser/dfparser.jl")
+include("parser/perfilebuilder.jl")
+
+
 include("forapps/adjdeclensions.jl")
 include("forapps/noundeclensions.jl")
 include("forapps/pronoundeclensions.jl")
@@ -208,11 +215,9 @@ include("forapps/fullverb_md.jl")
 include("forapps/princparts.jl")
 include("forapps/ptcplsynopses.jl")
 include("forapps/analyses.jl")
+include("forapps/infinitives.jl")
 
-include("parser/parser.jl")
-include("parser/stringparser.jl")
-include("parser/dfparser.jl")
-include("parser/perfilebuilder.jl")
+
 
 include("dfparser/survey.jl")
 

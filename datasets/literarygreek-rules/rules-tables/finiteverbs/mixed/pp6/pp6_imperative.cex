@@ -2,8 +2,8 @@ Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
 
 
 
-verbinfl.pp6aorimp9|pp6|θητι|second|singular|aorist|imperative|passive
-verbinfl.pp6aorimp10|pp6|θήτω|third|singular|aorist|imperative|passive
+verbinfl.pp6aorimp9|pp6|ητι|second|singular|aorist|imperative|passive
+verbinfl.pp6aorimp10|pp6|ήτω|third|singular|aorist|imperative|passive
 
-verbinfl.pp6aorimp11|pp6|θητε|second|plural|aorist|imperative|passive
-verbinfl.pp6aorimp12|pp6|θέντων|third|plural|aorist|imperative|passive
+verbinfl.pp6aorimp11|pp6|ητε|second|plural|aorist|imperative|passive
+verbinfl.pp6aorimp12|pp6|έντων|third|plural|aorist|imperative|passive

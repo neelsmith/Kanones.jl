@@ -7,13 +7,20 @@ struct DFParser <: KanonesParser
     df::DataFrame
 end
 
-
 """Create a `DFParser` from delimited text file.
 $(SIGNATURES)
 """
-function dfParser(delimitedfile)
+function dfParser(delimitedfile; delimiter = "|")
     @info("Reading delimited-text file $(delimitedfile)...")
-    CSV.File(delimitedfile) |> DataFrame |> DFParser
+    CSV.File(delimitedfile; delim = delimiter) |> DataFrame |> DFParser
+end
+
+"""Write dataframe parser to a delimited file.
+
+$(SIGNATURES)
+"""
+function tofile(dfp::DFParser, outfile)
+    CSV.write(outfile,dfp.df, delim='|')
 end
 
 function parsetoken(s::AbstractString, parser::DFParser; data = nothing)

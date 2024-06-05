@@ -3,6 +3,21 @@ struct StringParser <: KanonesParser
     entries
 end
 
+function generate(lex::LexemeUrn, form::FormUrn, sp::StringParser; delimiter = "|")
+    matchinglines = filter(sp.entries) do ln
+        lstring =  string(delimiter, string(lex), delimiter)
+        fstring = string(delimiter, string(form), delimiter)
+        occursin(lstring, ln) && occursin(fstring, ln)
+        
+    end
+    re = delimiter == "|" ? r"\|.+" : Regex("$delimiter.+")
+    map(matchinglines) do ln
+        replace(ln, re => "")
+    end
+end
+
+
+
 """Write entries to file.
 $(SIGNATURES)
 """

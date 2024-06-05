@@ -1,0 +1,34 @@
+---
+title: "Summary of Julia dispatch for generating forms"
+---
+
+::: {.callout-caution}
+*Content of this page is incomplete*
+:::
+
+## Regular forms
+
+The following table summarizes the unique combination of stem type and rule type that Kanónes uses to generate regular forms for each analytical type.
+
+| Analytical type | Stem type | Rule type |
+| --- | --- | --- |
+| `GMFNoun` | `NounStem` | `NounRule` |
+| `GMFPronoun` | `PronounStem` | `PronounRule` |
+| `GMFAdjective` | `AdjectiveStem` | `AdjectiveRule` |
+| `GMFAdverb` | `AdjectiveStem` | `AdverbRule` |
+| `GMFFiniteVerb` | `VerbStem` | `FiniteVerbRule` |
+| `GMFInfinitive` | `VerbStem` | `InfinitiveRule` |
+| `GMFParticiple` | `VerbStem` | `ParticipleRule` |
+| `GMFVerbalAdjective` | `VerbStem` | `VerbalAdjectiveRule` |
+| `GMFUninflected` | `UninflectedStem` | `UninflectedRule` |
+
+
+### Irregular forms
+
+
+For irregular forms, `generate` dispatches to a single function for the `IrregularRule` type and any `StemType`.
+
+::: {.callout-caution}
+*Need to add a note on how irregular forms are returned.*
+:::
+

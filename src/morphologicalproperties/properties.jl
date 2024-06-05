@@ -1,4 +1,4 @@
-"""Abstract type of a morphological form in Kanones."""
+"""Abstract type of a morphological property in Kanones."""
 abstract type GreekMorphologicalProperty end
 
 function code(gmp::T) where {T <: GreekMorphologicalProperty}

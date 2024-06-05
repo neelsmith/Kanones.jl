@@ -1,0 +1,17 @@
+---
+title: "🤷‍♂️ Relation of stem types, rules and analyses"
+---
+
+::: {.callout-caution}
+Content of this page TBA
+:::
+
+
+
+
+Analytical type ~~ but != "Parts of speech"
+
+Defined by morphological properties of analysis.  Verb stems can produce several types: participles, finite forms...
+
+
+See complete mapping in reference section.

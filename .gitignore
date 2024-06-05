@@ -7,3 +7,5 @@ notes*
 .vscode
 scratch*
 *.swp
+_site/
+_freeze/

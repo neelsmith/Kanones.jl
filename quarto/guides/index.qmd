@@ -1,0 +1,78 @@
+---
+title: "How-to guides"
+---
+
+This section collects recipes for how to do specific tasks in Kanónes. If you are just starting out, you may want to explore the tutorials first.  You can learn more about the underlying concepts behind these tasks in the "Concepts" section of the site.
+
+:::: {.columns}
+
+::: {.column width="25%"}
+### Managing Kanónes data sets
+
+[Creating a data set](dataset-guide.qmd)
+
+[Working with multiple datasets](multiple-ds.qmd)
+
+[Strategies for managing data](dataset-strategies.qmd)
+:::
+
+::: {.column width="5%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="25%"}
+### Adding vocabulary
+
+[Noun stems](nounstems-guide.qmd)
+
+[Adjective stems](adjectivestems-guide.qmd)
+
+[Verb stems](verbstems-guide.qmd)
+
+[Irregular forms](irregularstems-guide.qmd)
+
+
+:::
+
+::: {.column width="5%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="25%"}
+### Adding inflectional rules
+
+[Inflectional rules](inflectional-rules.qmd)
+:::
+
+::::
+
+
+
+:::: {.columns}
+
+::: {.column width="25%"}
+### Building parsers
+
+[Compiling parsers](parser-build.qmd)
+
+[Managing a URN registry](registry.qmd)
+
+[Coordinating datasets with lexica](lexicon.qmd)
+:::
+
+::: {.column width="5%"}
+<!-- empty column to create gap -->
+:::
+
+
+
+::: {.column width="25%"}
+### Working with parsed output
+
+[Using morphological analyses in Julia](datainjulia-forms.html)
+
+[Output and display utilities](utilities.qmd)
+
+:::
+
+::::

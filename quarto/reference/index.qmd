@@ -1,0 +1,6 @@
+---
+title: "Reference"
+---
+
+
+Find detailed reference information about Kanónes' model of Greek morphology, and how it is implemented in Julia.

@@ -1,42 +1,94 @@
+# This method is a pig. Need to find out where it's chewing up
+# so many resources.
 """Decline all case-number combinations of `lex`, a noun.
 $(SIGNATURES)
 """
-function  decline(lex::LexemeUrn, kd::Kanones.FilesDataset; withvocative::Bool = false)
+function decline(lex::LexemeUrn, sp::StringParser; withvocative::Bool = false)::Vector{String}
+    generated =   [generate(lex,formurn(f), sp) for f in Kanones.nounforms()]
+    map(v -> v[1], filter(s -> !isempty(s), generated))
+end
+
+"""Decline all case-number combinations of `lex`, a noun.
+$(SIGNATURES)
+"""
+function decline(lex::LexemeUrn, kd::Kanones.FilesDataset; withvocative::Bool = false)::Vector{String}
     stemmatches = filter(s -> lexeme(s) == lex, stemsarray(kd))
-    
+    @debug("decline: found $(length(stemmatches)) stems for $(lex)")
     declinedforms = []
+    
     for stem in stemmatches
-        forms = filter(f -> gmpGender(f) == gmpGender(stem), Kanones.nounforms())
-        rules = filter(r -> inflectionclass(r) == inflectionclass(stem), rulesarray(kd))    
-        for f in forms
-            rulematches = filter(r -> formurn(r) == formurn(f), rules) 
-            if !isempty(rulematches)
-                push!(declinedforms, generate(stem, rulematches[1]))
+        # Handle stem differently if is irregular!
+        if inflectionclass(stem) == "irregularnoun"
+            @debug("Handle irregular noun with $(length(stemmatches)) stems")
+            generated = generate(lex, formurn(stem), kd) 
+            if !isempty(generated)
+                push!(declinedforms, generated[1])
+            end
+        else
+            @debug("Handle regular noun")
+            forms = filter(f -> gmpGender(f) == gmpGender(stem), Kanones.nounforms())
+            rules = filter(r -> inflectionclass(r) == inflectionclass(stem), rulesarray(kd))    
+            for f in forms
+                rulematches = filter(r -> formurn(r) == formurn(f), rules) 
+                if !isempty(rulematches)
+                    push!(declinedforms, generate(stem, rulematches[1]))
+                end
             end
         end
     end
+    
     declinedforms
 end
 
-
-"""Compose markdown table with a declension of a single noun.
-
+"""Format a list of forms for the complete declension of a single noun as a 
+Markdown table.
 $(SIGNATURES)
 """
-function declension_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
+function formatdeclension(nounlist::Vector{String})
+    formatdeclension([nounlist])
+end
+
+"""Format  as a Markdown table the declension of multiple nouns.
+$(SIGNATURES)
+"""
+function formatdeclension(nounlist::Vector{Vector{String}})
+    @info("Formatting $(length(nounlist)) nouns.")
     labels = ["nominative", "genitive", "dative", "accusative", "vocative"]
     lines = [
         "| | Singular | Plural |", 
         "| --- | --- | --- |"
     ]
 
-    arry = decline(lex, kd)
+    available = filter(v -> length(v) > 9, nounlist)
+    mtrx = hcat(available...)
+    @debug("Matrix is $(mtrx)")
+    @debug("Its size $(size(mtrx))")
+    
     for i in 1:5
-        push!(lines, string("| **", labels[i], "** | ", arry[i], " | ", arry[i + 5], " |"))
+        sgforms =  join(mtrx[i,:], ", ")
+        plforms =  join(mtrx[i + 5,:], ", ")
+        push!(lines, string("| **", labels[i], "** | ", sgforms, " | ", plforms, " |"))
     end
     join(lines,"\n")
 end
 
+"""Compose markdown table with a declension of a single noun.
+
+$(SIGNATURES)
+"""
+function declension_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
+    arry = decline(lex, kd)
+    formatdeclension(arry)
+end
+
+"""Compose markdown table with a declension of a single noun.
+
+$(SIGNATURES)
+"""
+function declension_md(lex::LexemeUrn, sp::StringParser)
+    arry = decline(lex, sp)
+    formatdeclension(arry)
+end
 
 
 """Compose markdown for a dictionary entry for a single noun,
@@ -102,6 +154,27 @@ function gender(stem::T) where {T <: KanonesStem}
     end
 end
 
+
+"""Compose markdown table with aligned declensions of multiple nouns.
+This only works if the vectors of forms that are generated for each noun in `lexlist` are the same length.  Trying to `hcat` lists of unequal length will throw an error.
+
+$(SIGNATURES)
+"""
+function declension_md(lexlist::Array{LexemeUrn}, kd::Kanones.FilesDataset)
+    formlists = [decline(lex, kd) for lex in lexlist]
+    mtrx = hcat(formlists...)
+    rows, cols = size(mtrx)
+    formattable = [join(mtrx[i,:], ", ") for i in 1:rows]
+    formatdeclension(formattable)
+end
+
+#=
+function declension_md(lexlist::Array{LexemeUrn}, sp::StringParser)
+    formlists = [decline(lex, sp) for lex in lexlist]
+end
+=#
+
+
 #=
 """Compose markdown table with aligned declensions of multiple nouns.
 
@@ -156,7 +229,12 @@ function declension_md(lexlist::Array, kd::Kanones.FilesDataset; withvocative::B
 
     join(lines, "\n")
 end
- 
+ =#
+
+
+
+
+#=
 
 """Look up integer code for gender for a list of nouns.
 

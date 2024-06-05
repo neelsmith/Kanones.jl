@@ -1,0 +1,129 @@
+---
+title: "Build a parser and parse Greek strings"
+---
+
+```{julia}
+#| echo: false
+#| output: false
+
+repo = pwd() |> dirname |> dirname
+
+```
+
+::: callout-tip
+## Follow along
+
+To replicate all the steps in this tutorial:
+
+-   [install Julia](https://julialang.org/downloads/) if you haven't already done so
+-   download or clone the [Kanones.jl repository](https://github.com/neelsmith/Kanones.jl)
+-   start a Julia REPL
+:::
+
+## Building a parser from local files
+
+You can build a parser from delimited-text files organized in directories following Kanónes' conventions. In this tutorial, we'll use the files in the [`literarygreek-rules` directory](https://github.com/neelsmith/Kanones.jl/tree/main/datasets/literarygreek-rules) in the `datasets` directory of the Kanónes github repository.
+
+If you have a variable named `repo` with the root directory of the Kanónes repository, then the `core-infl` directory will be:
+
+```{julia}
+#| output: false
+srcdir = joinpath(repo, "datasets", "literarygreek-rules") 
+```
+
+### Instantiate a data set
+
+You can create a `Kanones.FilesDataSet` from a list of one or more directories.
+
+```{julia}
+#| output: false
+using Kanones
+kds = dataset([srcdir])
+```
+
+### Compile a parser
+
+You can then build a parser from a data set.
+
+```{julia}
+#| warnings: false
+#| output: false
+p = stringParser(kds)
+```
+
+### Interactive parsing
+
+Use the `parsetoken` function to parse a string with a parser.
+
+```{julia}
+s = "ἀνθρώπῳ"
+parses = parsetoken(s, p)
+```
+
+The result is a Vector of analyses. Each `Analysis` includes a *morphological form* object and an identifier for a *lexeme* (or vocabulary item). You can use the `greekForm` and `lexemeurn` functions to extract these from an `Analysis`; for a human-readable string value, use the `label` function on the result. E.g., label the first form in the result:
+
+```{julia}
+parses[1] |> greekForm |> label
+```
+
+or use Julia broadcasting to label the forms of all parses:
+
+```{julia}
+parses .|> greekForm .|> label
+```
+
+Use broadcasting to find URNs for the lexeme from each analysis with the `lexemeurn` function from the `CitableParserBuilder` package:
+
+```{julia}
+using CitableParserBuilder
+lexemelist = parses .|> lexemeurn
+```
+
+To label lexemes, you can attach lemmata drawn from Liddell-Scott's lexicon. `lemmadict` is a convenience function that retrieves these data over the internet.
+
+```{julia}
+#| output: false
+lsj = lemmatadict()
+```
+
+Use broadcasting to label each lexeme for easier human reading:
+
+```{julia}
+lemmalabel.(lexemelist, dict = lsj)
+```
+
+To parse a list of words, use the `parsewordlist` function. For example, we can split this string into a list of 23 word tokens.
+
+```{julia}
+s = "περὶ πολλοῦ ἂν ποιησαίμην ὦ ἄνδρες τὸ τοιούτους ὑμᾶς ἐμοὶ δικαστὰς περὶ τούτου τοῦ πράγματος γενέσθαι οἷοι ἂν ὑμῖν αὐτοῖς εἴητε τοιαῦτα πεπονθότες"
+words = split(s)
+```
+
+We'll need a parser with more vocabulary than the literary Greek sample we used above. You can build a small parser with some common vocabulary with the `Kanones.coreparser` function. We'll further limit it to include only Attic forms.
+
+```{julia}
+#| warnings: false
+#| output: false
+p2 = Kanones.coreparser(repo; atticonly = true)
+```
+
+```{julia}
+parses = parsewordlist(words,p2)
+```
+
+The result is just a list of 23 Vectors of analyses, one for each word we submitted.
+
+
+
+If all you want is labelled strings? Try this.
+
+
+```{julia}
+labelledlines = formlabels(words, p2)
+```
+
+```{julia}
+using Markdown
+mdlines = map(ln -> "1. " * ln, labelledlines)
+join(mdlines, "\n") |> Markdown.parse
+```

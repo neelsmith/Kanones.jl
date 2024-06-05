@@ -1,4 +1,4 @@
-"""Compose markdown table with a declension of a single noun.
+"""Compose markdown table with a declension of a single adjective.
 
 $(SIGNATURES)
 """

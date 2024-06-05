@@ -1,45 +1,27 @@
 StemUrn|LexicalEntity|String|Tense|Voice|Gender|Case|Number|IrregularClass
 
-irreginf.irregptcpl31130a1|lsj.n31130|ὤν|present|active|masculine|nominative|singular|irregularparticiple
-irreginf.irregptcpl31130a2|lsj.n31130|ἐών|present|active|masculine|nominative|singular|irregularparticiple
-irreginf.irregptcpl31130b1|lsj.n31130|ὄντος|present|active|masculine|genitive|singular|irregularparticiple
-irreginf.irregptcpl31130b2|lsj.n31130|ἐόντος|present|active|masculine|genitive|singular|irregularparticiple
-irreginf.irregptcpl31130c1|lsj.n31130|ὄντι|present|active|masculine|dative|singular|irregularparticiple
-irreginf.irregptcpl31130c2|lsj.n31130|ἐόντι|present|active|masculine|dative|singular|irregularparticiple
-irreginf.irregptcpl31130d1|lsj.n31130|ὄντα|present|active|masculine|accusative|singular|irregularparticiple
-irreginf.irregptcpl31130d2|lsj.n31130|ἐόντα|present|active|masculine|accusative|singular|irregularparticiple
 
-irreginf.irregptcpl31130e1|lsj.n31130|ὄντες|present|active|masculine|nominative|plural|irregularparticiple
-irreginf.irregptcpl31130e2|lsj.n31130|ἐόντες|present|active|masculine|nominative|plural|irregularparticiple
-irreginf.irregptcpl31130f1|lsj.n31130|ὄντων|present|active|masculine|genitive|plural|irregularparticiple
-irreginf.irregptcpl31130f2|lsj.n31130|ἐόντων|present|active|masculine|genitive|plural|irregularparticiple
-irreginf.irregptcpl31130g1|lsj.n31130|οὖσι|present|active|masculine|dative|plural|irregularparticiple
-irreginf.irregptcpl31130g2|lsj.n31130|οὖσιν|present|active|masculine|dative|plural|irregularparticiple
-irreginf.irregptcpl31130g3|lsj.n31130|ἐοῦσι|present|active|masculine|dative|plural|irregularparticiple
-irreginf.irregptcpl31130g4|lsj.n31130|ἐοῦσιν|present|active|masculine|dative|plural|irregularparticiple
-irreginf.irregptcpl31130h1|lsj.n31130|ὄντας|present|active|masculine|accusative|plural|irregularparticiple
-irreginf.irregptcpl31130h2|lsj.n31130|ἐόντας|present|active|masculine|accusative|plural|irregularparticiple
+irreginf.irregptcpl31130a|lsj.n31130|ὤν|present|active|masculine|nominative|singular|irregularparticiple
+irreginf.irregptcpl31130b|lsj.n31130|ὄντος|present|active|masculine|genitive|singular|irregularparticiple
+irreginf.irregptcpl31130c|lsj.n31130|ὄντι|present|active|masculine|dative|singular|irregularparticiple
+irreginf.irregptcpl31130d|lsj.n31130|ὄντα|present|active|masculine|accusative|singular|irregularparticiple
+
+irreginf.irregptcpl31130e|lsj.n31130|ὄντες|present|active|masculine|nominative|plural|irregularparticiple
+irreginf.irregptcpl31130f|lsj.n31130|ὄντων|present|active|masculine|genitive|plural|irregularparticiple
+irreginf.irregptcpl31130g|lsj.n31130|οὖσι|present|active|masculine|dative|plural|irregularparticiple
+irreginf.irregptcpl31130h|lsj.n31130|ὄντας|present|active|masculine|accusative|plural|irregularparticiple
 
 
-irreginf.irregptcpl31130i1|lsj.n31130|ὄν|present|active|neuter|nominative|singular|irregularparticiple
-irreginf.irregptcpl31130i2|lsj.n31130|ἐόν|present|active|neuter|nominative|singular|irregularparticiple
-irreginf.irregptcpl31130j1|lsj.n31130|ὄντος|present|active|neuter|genitive|singular|irregularparticiple
-irreginf.irregptcpl31130j2|lsj.n31130|ἐόντος|present|active|neuter|genitive|singular|irregularparticiple
-irreginf.irregptcpl31130k1|lsj.n31130|ὄντι|present|active|neuter|dative|singular|irregularparticiple
-irreginf.irregptcpl31130k2|lsj.n31130|ἐόντι|present|active|neuter|dative|singular|irregularparticiple
-irreginf.irregptcpl31130l1|lsj.n31130|ὄν|present|active|neuter|accusative|singular|irregularparticiple
-irreginf.irregptcpl31130l2|lsj.n31130|ἐόν|present|active|neuter|accusative|singular|irregularparticiple
+irreginf.irregptcpl31130i|lsj.n31130|ὄν|present|active|neuter|nominative|singular|irregularparticiple
+irreginf.irregptcpl31130j|lsj.n31130|ὄντος|present|active|neuter|genitive|singular|irregularparticiple
+irreginf.irregptcpl31130k|lsj.n31130|ὄντι|present|active|neuter|dative|singular|irregularparticiple
+irreginf.irregptcpl31130l|lsj.n31130|ὄν|present|active|neuter|accusative|singular|irregularparticiple
 
-irreginf.irregptcpl31130m1|lsj.n31130|ὄντα|present|active|neuter|nominative|plural|irregularparticiple
-irreginf.irregptcpl31130m2|lsj.n31130|ἐόντα|present|active|neuter|nominative|plural|irregularparticiple
-irreginf.irregptcpl31130n1|lsj.n31130|ὄντων|present|active|neuter|genitive|plural|irregularparticiple
-irreginf.irregptcpl31130n2|lsj.n31130|ἐόντων|present|active|neuter|genitive|plural|irregularparticiple
-irreginf.irregptcpl31130o1|lsj.n31130|οὖσι|present|active|neuter|dative|plural|irregularparticiple
-irreginf.irregptcpl31130o2|lsj.n31130|οὖσιν|present|active|neuter|dative|plural|irregularparticiple
-irreginf.irregptcpl31130o3|lsj.n31130|ἐοῦσι|present|active|neuter|dative|plural|irregularparticiple
-irreginf.irregptcpl31130o4|lsj.n31130|ἐοῦσιν|present|active|neuter|dative|plural|irregularparticiple
-irreginf.irregptcpl31130p1|lsj.n31130|ὄντα|present|active|neuter|accusative|plural|irregularparticiple
-irreginf.irregptcpl31130p2|lsj.n31130|ἐόντα|present|active|neuter|accusative|plural|irregularparticiple
+irreginf.irregptcpl31130m|lsj.n31130|ὄντα|present|active|neuter|nominative|plural|irregularparticiple
+irreginf.irregptcpl31130n|lsj.n31130|ὄντων|present|active|neuter|genitive|plural|irregularparticiple
+irreginf.irregptcpl31130o|lsj.n31130|οὖσι|present|active|neuter|dative|plural|irregularparticiple
+irreginf.irregptcpl31130p|lsj.n31130|ὄντα|present|active|neuter|accusative|plural|irregularparticiple
+
 
 
 irreginf.irregptcpl31130q|lsj.n31130|οὖσα|present|active|feminine|nominative|singular|irregularparticiple

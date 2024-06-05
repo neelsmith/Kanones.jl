@@ -1,0 +1,16 @@
+---
+title: "🤷‍♂️ Building a parser"
+---
+
+
+::: {.callout-warning}
+## Page incomplete
+
+*Content TBA*
+:::
+
+- from a `FilesDataSet`
+- loading a precompiled parser
+- supplementing an existing parser
+
+

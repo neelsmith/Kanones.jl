@@ -1,0 +1,59 @@
+---
+title: "🤷‍♂️ Overview"
+---
+
+Kanónes is *not* a parser: instead, it's a system for *building* parsers tailored to specific corpora of Greek texts. This design is motivated by both practical and theoretical concerns.
+
+## Practical motivation
+
+Inevitably, when you parse almost any corpus of a certain size, you encounter vocabulary that does not appear in your parser's lexicon. (Proper names are an easy example to think of). Similarly, you may encounter inflectional patterns that are not part of your parer's core rule set (perhaps dialectical forms, for example).
+
+Kanónes takes its name from the fact that the underlying data you use to build a parser comes from delimited-text sources that are easy to expand or modify. These tabular data sources include both the lexicon and the inflectional patterns used to build a parser. Kanónes is designed so that you can combine supplementary data tables you create with an existing parser that you or someone else has previously built.
+
+## Theoretical motivation
+
+
+
+
+More fundamentally, Kanónes' flexibile lexica and inflectional rules are aimed at supporting a corpus-linguistic perspective studying historical languages. Kanónes does not dictate a normative vocabulary or grammar for Greek: instead it lets you
+
+
+- all data sets have an explicit orthography 
+
+what is greek? the morphological properties
+
+
+
+  
+- all identification by URNs
+   - lexeme
+   - form
+   - rule
+   - stem 
+
+
+Of the four data sets Kanones uses (vocabulary, forms, stems and rules), only one is not editable: forms.  The set of possible forms defines a morphology as "Greek".
+
+
+
+## Kanónes' algorithm
+
+-  analysis-by-synthesis algorithm
+
+
+
+## Older intro
+
+Kanones is a system for building morphological parsers from simple delimited-text tables defining vocabulary stems and inflectional rules. 
+
+
+While Kanones allows you to build parsers following the orthography of your choosing (e.g., ancient Greek in the alphabet used by Athens prior to 403 BCE), the largest available digital corpora of ancient Greek more or less follow the practice of standard print editions of literary Greek. The Kanones repository includes an extensive (and growing) set of inflectional rules that provide a solid basis for parsing standard literary Greek. 
+
+
+For stem tables, the [LSJMining](https://neelsmith.github.io/LSJMining.jl/) package is a Julia package that can extract morphological information Giuseppe Celano's Unicode Greek version of the Perseus project's digital [Liddell-Scott-Jones lexicon](https://github.com/gcelano/LSJ_GreekUnicode) (LSJ). 
+
+
+Precomputed analyses for all possible forms created by combining the stems quarried from LSJ with Kanones' inflectional rules for literary Greek are available as a (large!) csv file from the Homer Multitext project here.
+
+
+

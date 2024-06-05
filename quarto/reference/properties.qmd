@@ -1,0 +1,39 @@
+---
+title: "Morphological properties"
+---
+
+
+
+The full set of properties is: person, number, tense, mood, voice, gender, case, degree and uninflected part of speech.
+
+
+
+Person: three values labelled `first`, `second`, `third`.
+
+
+Number: three values labelled `singular`, `dual`, `plural`.
+
+
+Tense: six values labelled `present`, `imperfect`, `aorist`, `perfect`, `pluperfect` and `future`.
+
+
+
+Mood: four values labelled `indicative`, `subjunctive`, `optative`, `imperative`.
+
+
+
+Voice: three values labelled `active`, `middle`, `passive`.
+
+
+
+Gender: three values labelled `masculine`, `feminine`, `neuter`.
+
+
+Case: five values labelled `nominative`, `genitive`, `dative`, `accusative`, `vocative`.
+
+
+Degree: three values labelled `positive`, `comparative`, `superlative`.
+
+Uninflected part of speech: six values labelled `conjunction`,
+    `preposition`, `particle`, `adverb`, `numeral`, `interjection`
+   

@@ -1,0 +1,98 @@
+project:
+  type: website
+jupyter: julia-1.10  
+theme: spacelab
+execute:
+  freeze: auto
+date: last-modified  
+margin-header: "⚠️ *Draft documentation in progress.*<br/>Built using package version `0.24.1`."
+format:
+  html: 
+    toc: true
+
+
+website:
+  title: "kanones"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "Tutorials"
+        file: tutorials/index.qmd          
+      - text: "Concepts"
+        file: concepts/index.qmd   
+      - text: "Guides"
+        file: guides/index.qmd           
+      - text: "Reference"
+        file: reference/index.qmd  
+    right:   
+      - icon: github
+        href: https://github.com/neelsmith/Kanones.jl
+        aria-label: GitHub
+      - icon: person-circle
+        menu:
+          - text: "About me"
+            href: https://neelsmith.quarto.pub
+          - text: "More of my digital scholarship"
+            href: https://neelsmith.quarto.pub/digschol/
+        aria-label: "More of my work"
+  sidebar:
+    - title: "Tutorials"
+      contents: 
+        - tutorials/index.qmd
+        - tutorials/parser.qmd
+        - tutorials/prebuilt.qmd
+        - tutorials/prebuilt-adds.qmd   
+        - tutorials/dev-cycle.qmd
+    - title: "Guides"
+      contents:
+        - guides/index.qmd
+        - text: "---"
+        - guides/dataset-guide.qmd
+        - guides/dataset-strategies.qmd
+        - guides/dataset-profile.qmd        
+        - text: "---"
+        - guides/nounstems-guide.qmd
+        - guides/adjectivestems-guide.qmd
+        - guides/verbstems-guide.qmd   
+        - guides/irregularstems-guide.qmd   
+        - guides/inflectional-rules.qmd  
+        - text: "---"   
+        - guides/parser-build.qmd
+        - guides/parser-prebuilt.qmd
+        - guides/registry.qmd  
+        - guides/lexicon.qmd
+        - text: "---"   
+        - guides/datainjulia-forms.qmd  
+        - guides/utilities.qmd
+    - title: "Reference"
+      contents: 
+        - reference/index.qmd
+        - reference/analytical_types.qmd
+        - reference/properties.qmd
+        - reference/forms.qmd
+        - reference/infltypes.qmd
+        - reference/files_layout.qmd
+        - reference/generating.qmd
+    - title: "Concepts"
+      contents: 
+        - concepts/index.qmd
+        - concepts/overview.qmd
+        - concepts/urns.qmd                
+        - concepts/orthography.qmd
+        - concepts/morphology.qmd
+        - concepts/analysis-by-synthesis.qmd
+        - concepts/analyses.qmd
+        - concepts/source_vs_analysis.qmd
+        - concepts/julia_dispatch.qmd
+
+        
+
+    - title: "Home"
+      contents:
+        - index.qmd               
+ 
+
+           
