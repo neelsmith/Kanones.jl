@@ -19,8 +19,8 @@ end
 
 $(SIGNATURES)
 """
-function tofile(dfp::DFParser, outfile)
-    CSV.write(outfile,dfp.df, delim='|')
+function tofile(dfp::DFParser, outfile; delimiter = "|")
+    CSV.write(outfile,dfp.df, delim = delimiter)
 end
 
 function parsetoken(s::AbstractString, parser::DFParser; data = nothing)

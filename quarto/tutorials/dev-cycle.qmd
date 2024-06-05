@@ -12,8 +12,8 @@ title: "🤷‍♂️ Developing a parser"
 
 
 - Build a parser
-- save
+- save. `tofile`
 - load. `dfParser(FNAME)` https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/data/lgr-rulesparser.cex
-- modify
-- save. `tofile(p, "FNAME.csv")`
+- modify. `concat_ds`
+- save again. `tofile(p, "FNAME.csv")`
 

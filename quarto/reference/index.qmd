@@ -4,3 +4,13 @@ title: "Reference"
 
 
 Find detailed reference information about Kanónes' model of Greek morphology, and how it is implemented in Julia.
+
+
+Implementing data frame parsers:
+
+
+combining parsers is a dataframe vcat:
+
+load local file as a df; load source as a df; then `combodf = vcat(local_df, release_df, cols = :union)`; 
+
+This is encapsulated in the `concat_ds` function

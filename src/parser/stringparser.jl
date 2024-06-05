@@ -18,7 +18,7 @@ end
 
 
 
-"""Write entries to file.
+"""Write a string parser to a delimited-text file.
 $(SIGNATURES)
 """
 function tofile(p::StringParser, f; delimiter = nothing )
