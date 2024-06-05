@@ -17,7 +17,7 @@ jupyter: julia-1.10
 :::
 
 
-## Kanónes
+## Kanónes: overview
 
 
 
@@ -30,17 +30,9 @@ jupyter: julia-1.10
     - fast:  a parser built with Kanones on consumer-grade hardware can typically parse a token in 1-9 milliseconds.
     - code library can be used from command line, in scripts, in web apps, directly in an editor like Visual Studio Code
 
+## Contents of this site
 
-## Using Kanones.jl
-
-
-- [Get started](tutorials/index.qmd)!
-- [Recipes](guides/index.qmd) for working with `Kanones.jl`
-
-
-## Learning about the Kanónes system
-
-- [Understanding Kanónes](concepts/index.qmd)
-- [Reference](reference/index.qmd)
-
-> Find more of my digital scholarship [here](https://neelsmith.quarto.pub/digschol/).
+| | Learning about the Kanónes system | Using Kanones.jl |
+| --- | --- | --- |
+| **Hands-on** | [Get started](tutorials/index.qmd)!  |[Recipes](guides/index.qmd) for working with `Kanones.jl` |
+| **Cognition** | [Understanding Kanónes](concepts/index.qmd)  | [Reference](reference/index.qmd) |

@@ -5,7 +5,7 @@ theme: spacelab
 execute:
   freeze: auto
 date: last-modified  
-margin-header: "⚠️ *These are incomplete preliminary notes from a pre-release draft.*"
+margin-header: "⚠️ *Draft documentation in progress.*<br/>Built using package version `0.24.1`."
 format:
   html: 
     toc: true
@@ -31,7 +31,13 @@ website:
       - icon: github
         href: https://github.com/neelsmith/Kanones.jl
         aria-label: GitHub
-
+      - icon: person-circle
+        menu:
+          - text: "About me"
+            href: https://neelsmith.quarto.pub
+          - text: "More of my digital scholarship"
+            href: https://neelsmith.quarto.pub/digschol/
+        aria-label: "More of my work"
   sidebar:
     - title: "Tutorials"
       contents: 

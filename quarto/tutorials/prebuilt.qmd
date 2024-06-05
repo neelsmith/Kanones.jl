@@ -1,19 +1,26 @@
 ---
-title: "🤷‍♂️ Use a pre-built parser"
+title: "Use a pre-built parser"
 ---
 
-::: {.callout-warning}
-## Page incomplete
 
-*Content TBA*
+You can
+
+
+
+## Prebuilt parsers you can use
+
+A prebuilt parser for texts in standard literary Greek orthography is regularly available for download from `shot.holycross.edu`.
+
+
+- `http://shot.holycross.edu/morphology/comprehensive-current.csv` is a prebuilt parser that includes vocabulary automatically culled from the digital Liddell-Scott lexicon published by the Perseus project.  The vocabulary entries have not been manually verified.
+
+In 2024, this parser is not yet automatically rebuilt on a regular time table.
+
+Load it and use it to parse texts the same way you would if you compiled your own parser.    
+
+
+::: {.callout-caution}
+This is a large file (currently, ca. 700 Mb); depending on your internet connection, it can easily take a couple of minutes to download.
 :::
 
 
-- some prebuilt parsers available from shot.holycross.edu
-- not yet (March 2024) automatically rebuilt on cron cycle. Planned for summer 2024.
-- Two parsers in literary Greek orthography:
-    - Big parser with data mined from LSJ but not verified
-    - smaller parser with manually verified data for
-    
-
-Load them and parse with them the same way you would if compiled your own.    
