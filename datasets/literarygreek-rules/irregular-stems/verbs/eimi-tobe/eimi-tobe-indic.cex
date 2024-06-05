@@ -2,6 +2,7 @@ StemUrn|LexicalEntity|String|Person|Number|Tense|Mood|Voice|IrregularClass
 
 irregverb.irregverbn31130a1|lsj.n31130|εἰμί|first|singular|present|indicative|active|irregularfiniteverb
 irregverb.irregverbn31130b1|lsj.n31130|εἶ|second|singular|present|indicative|active|irregularfiniteverb
+irregverb.irregverbn31130b2|lsj.n31130|ἐσσι|second|singular|present|indicative|active|irregularfiniteverb
 irregverb.irregverbn31130c1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb
 irregverb.irregverbn31130c2|lsj.n31130|ἐστί|third|singular|present|indicative|active|irregularfiniteverb
 irregverb.irregverbn31130c3|lsj.n31130|ἐστίν|third|singular|present|indicative|active|irregularfiniteverb
