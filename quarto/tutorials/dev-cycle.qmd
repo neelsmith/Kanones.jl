@@ -13,7 +13,7 @@ title: "🤷‍♂️ Developing a parser"
 
 - Build a parser
 - save
-- load 
+- load. `dfParser(FNAME)` https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/data/lgr-rulesparser.cex
 - modify
-- save
+- save. `tofile(p, "FNAME.csv")`
 
