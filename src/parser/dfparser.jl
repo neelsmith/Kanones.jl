@@ -1,6 +1,6 @@
 # Parser backed by a DataFrame
 
-
+#=
 
 """A parser parsing tokens by looking them up in a precomputed dictionary of all recognized forms."""
 struct DFParser <: KanonesParser
@@ -41,7 +41,7 @@ function parsetoken(s::AbstractString, parser::DFParser; data = nothing)
     end
     resultarray
 end
-
+=#
 """Find unique lexemes recognized by a parser.
 $(SIGNATURES)
 """
