@@ -78,12 +78,13 @@ function rulesarray(dirlist; delimiter = "|")
                             @debug("READ f", joinpath(root,f))
                             raw = readlines(joinpath(root,f))
                             lines = filter(s -> ! isempty(s), raw)
-                            for i in 2:length(lines)
+                            datalines = lines[2:end]
+                            for ln in datalines
                                 try 
-                                    rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
+                                    rule = readrulerow(delimitedreader, ln, delimiter = delimiter)
                                     push!(rulesarr,rule)
                                 catch e
-                                    @warn("Failed to parse rule from line\n\"$(lines[i])\" \nin file ($(f)")
+                                    @warn("Failed to parse rule from line\n\"$(ln)\" \nin file ($(f)")
                                     @warn("Error: $(e)")
                                 end
                             end
@@ -121,12 +122,13 @@ function compoundsarray(dirlist; delimiter = "|")
                         @debug("READ f", joinpath(root,f))
                         raw = readlines(joinpath(root,f))
                         lines = filter(s -> ! isempty(s), raw)
-                        for i in 2:length(lines)
+                        datalines = lines[2:end]
+                        for ln in datalines
                             try 
-                                record = compoundstem(lines[i])
+                                record = compoundstem(ln)
                                 push!(compoundarray,record)
                             catch e
-                                @warn("Failed to parse compound verb entry from line\n\"$(lines[i])\" \nin file ($(f)")
+                                @warn("Failed to parse compound verb entry from line\n\"$(ln)\" \nin file ($(f)")
                                 @warn("Error: $(e)")
                             end
                         end
@@ -170,14 +172,15 @@ function regularstems(dirlist; delimiter = "|")
                             raw = readlines(joinpath(root, f))
                             # Trim lines first:
                             lines = filter(s -> ! isempty(s), raw)
-                            @debug("Read datalines", length(lines))
-                            for i in 2:length(lines)
+                            datalines = lines[2:end]
+                            @debug("Read datalines", length(datalines))
+                            for ln in datalines
                                 try
-                                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
+                                    stem = readstemrow(delimitedreader, ln; delimiter = delimiter)
                                     #@debug("==>READ STEM", stem)
                                     push!(stemsarr,stem)
                                 catch e
-                                    @warn("Failed to parse stem data from line $(lines[i]) in file $(f)")
+                                    @warn("Failed to parse stem data from line $(ln) in file $(f)")
                                     @warn("Error: $(e)")
                                 end
                                 
@@ -212,12 +215,13 @@ function irregularstems(dirlist; delimiter = "|")
                         if occursin(pattern, f) 
                             raw = readlines(joinpath(root,f))
                             lines = filter(s -> ! isempty(s), raw)
-                            for i in 2:length(lines)
+                            datalines = lines[2:end]
+                            for ln in datalines
                                 try
-                                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
+                                    stem = readstemrow(delimitedreader, ln; delimiter = delimiter)
                                     push!(stemsarr,stem)
                                 catch
-                                    @warn("Irregular stems data: error reading line $(i), $(lines[1]) in file $(joinpath(dir,f))")
+                                    @warn("Irregular stems data: error reading line $(ln) in file $(joinpath(dir,f))")
                                 end
 
                                 
@@ -302,13 +306,14 @@ function registry(dirlist; delimiter = "|")
                 raw = readlines(f)
                 # Trim lines first:
                 lines = filter(s -> ! isempty(s), raw)
-                for i in 2:length(lines)
-                    cols = split(lines[i], "|")
+                datalines = lines[2:end]
+                for i in datalines
+                    cols = split(ln, "|")
                     key = cols[1]
                     urn = cols[2]
                     @debug("COLS", cols)
                     if length(cols) < 3
-                        @warn("Failed to parse stem data from line $(lines[i]) in file $(f)")
+                        @warn("Failed to parse stem data from line $(ln) in file $(f)")
                     else
                         registrydict[key] = urn
                     end

@@ -40,7 +40,7 @@ We build a parser for each.
 #| warning: false
 using Kanones, CitableParserBuilder
 litgreek = dataset(litgreekfiles)
-litgreekparser =  stringParser(litgreek)
+litgreekparser =  KanonesStringParser(litgreek)
 ```
 
 We construct the second data set with an optional parameter explicitly setting the orthography to use.
@@ -51,7 +51,7 @@ We construct the second data set with an optional parameter explicitly setting t
 #| warning: false
 using AtticGreek
 attic = dataset(atticfiles; ortho = atticGreek())
-atticparser = stringParser(attic)
+atticparser = KanonesStringParser(attic)
 ```
 
 We can analyze a token written in standard orthography. (In this example, since we expect only one analysis for βουλῆς, we're just taking the first analysis from the resulting Vector.)

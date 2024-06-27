@@ -48,7 +48,7 @@ You can then build a parser from a data set.
 ```{julia}
 #| warnings: false
 #| output: false
-p = stringParser(kds)
+p = KanonesStringParser(kds)
 ```
 
 ### Interactive parsing

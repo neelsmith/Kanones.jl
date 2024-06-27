@@ -1,9 +1,15 @@
 """A parser parsing tokens by looking them up in a precomputed dictionary of all recognized forms."""
-struct StringParser <: KanonesParser
+struct KanonesStringParser <: KanonesParser
     entries
+    ortho::GreekOrthography
+    delimiter::AbstractString
+
+    KanonesStringParser(
+        entries, #::Vector{AbstractString}, 
+        ortho::GreekOrthography = literaryGreek(), delim::AbstractString = "|") = new(entries, ortho, delim)
 end
 
-function generate(lex::LexemeUrn, form::FormUrn, sp::StringParser; delimiter = "|")
+function generate(lex::LexemeUrn, form::FormUrn, sp::KanonesStringParser; delimiter = "|")
     matchinglines = filter(sp.entries) do ln
         lstring =  string(delimiter, string(lex), delimiter)
         fstring = string(delimiter, string(form), delimiter)
@@ -17,22 +23,23 @@ function generate(lex::LexemeUrn, form::FormUrn, sp::StringParser; delimiter = "
 end
 
 
-
+#=
 """Write a string parser to a delimited-text file.
 $(SIGNATURES)
 """
-function tofile(p::StringParser, f; delimiter = nothing )
+function tofile(p::KanonesStringParser, f; delimiter = nothing )
     src = "Token,Lexeme,Form,Stem,Rule\n" * join(p.entries,"\n") * "\n"
     txt = isnothing(delimiter) ? src : replace(src, "|" => delimiter)
     open(f, "w") do io
         write(f, txt)
     end
 end
+=#
 
 """Parse a single token using `parser`.
 $(SIGNATURES)
 """
-function parsetoken(s::AbstractString, parser::StringParser; data = nothing)
+function parsetoken(s::AbstractString, parser::KanonesStringParser; data = nothing)
     #strlist = resolvestring(s)
     ptrn = knormal(s) * "|"
     @debug("Match pattern", ptrn)
@@ -40,10 +47,10 @@ function parsetoken(s::AbstractString, parser::StringParser; data = nothing)
     map(ln -> fromline(ln), matches)
 end
 
-"""Instantiate a `StringParser` for `td`.
+"""Instantiate a `KanonesStringParser` for `td`.
 $(SIGNATURES)
 """
-function stringParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
+function KanonesStringParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
     analyses = []
     rules = rulesarray(kd)
     stems = stemsarray(kd) 
@@ -53,22 +60,22 @@ function stringParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
         end
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
-    analyses |> StringParser
+    analyses |> KanonesStringParser
 end
 
 #=
-"""Instantiate a `StringParser` from a set of analyses read from a local file.
+"""Instantiate a `KanonesStringParser` from a set of analyses read from a local file.
 $(SIGNATURES)
 """
-function stringParser(f, freader::Type{FileReader})
-    StringParser(readlines(f))
+function KanonesStringParser(f, freader::Type{FileReader})
+    KanonesStringParser(readlines(f))
 end
 
-"""Instantiate a `StringParser` from a set of analyses read from a URL.
+"""Instantiate a `KanonesStringParser` from a set of analyses read from a URL.
 $(SIGNATURES)
 """
-function stringParser(u, ureader::Type{UrlReader})
-    Downloads.download(u) |> readlines |> StringParser
+function KanonesStringParser(u, ureader::Type{UrlReader})
+    Downloads.download(u) |> readlines |> KanonesStringParser
 end
 =#
 """Serialize a single analysis to delimited text.
@@ -99,7 +106,7 @@ function analysis_lines(td::Kanones.FilesDataset)
     analyses(td) |> analysis_lines
 end
 
-
+#=
 """Create an `Analysis` from line of delimited text.
 $(SIGNATURES)
 """
@@ -113,7 +120,7 @@ function fromline(s::AbstractString; delimiter = "|")
         RuleUrn(pieces[5])
     )
 end
-
+=#
 
 """True if form IDs are build from the `Rule` of a
 stem-rule pair.
@@ -153,24 +160,24 @@ function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T
 end
 
 
-"""Find unique lexemes recognized by a `StringParser`.
+"""Find unique lexemes recognized by a `KanonesStringParser`.
 $(SIGNATURES)
 """
-function lexemes(sp::StringParser)
+function lexemes(sp::KanonesStringParser)
     map(sp.entries) do ln
         split(ln, "|")[2]
     end |> unique
 end
 
 
-"""Build a new `StringParser` by adding a further dataset
+"""Build a new `KanonesStringParser` by adding a further dataset
 to an existing parser. 
 
-- `sp` is an existing `StringParser`.
+- `sp` is an existing `KanonesStringParser`.
 - `rulesds` is the dataset used to build `sp`
 - `newdata` is an additional dataset with any new content (rules or vocab)
 """
-function concat_ds(sp::StringParser, rulesds::FilesDataset, newdata::FilesDataset; interval = 100)
+function concat_ds(sp::KanonesStringParser, rulesds::FilesDataset, newdata::FilesDataset; interval = 100)
     @info("First, get all existing rules from sp!")
     rules_all = vcat(rulesarray(rulesds), rulesarray(newdata))
     stems_new = stemsarray(newdata)
@@ -182,5 +189,5 @@ function concat_ds(sp::StringParser, rulesds::FilesDataset, newdata::FilesDatase
         end
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
-    analyses |> StringParser
+    analyses |> KanonesStringParser
 end

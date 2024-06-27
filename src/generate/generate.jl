@@ -1,7 +1,7 @@
 #=
 
 In addition to these methods, parsers can be used to generate tokens from a 
-lexeme and form.  Those methods are defined in files where StringParser and DataFrameParser
+lexeme and form.  Those methods are defined in files where KanonesStringParser and DataFrameParser
 are defined.
 
 =#

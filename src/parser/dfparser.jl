@@ -41,14 +41,16 @@ function parsetoken(s::AbstractString, parser::DFParser; data = nothing)
     end
     resultarray
 end
-=#
+
+
+
 """Find unique lexemes recognized by a parser.
 $(SIGNATURES)
 """
 function lexemes(dfp::DFParser)
     Array{String}(DataFrames.select(dfp.df, :Lexeme)) |> unique
 end
-
+=#
 
 
 
@@ -73,7 +75,7 @@ function concat_ds(dfp::DFParser, rulesds::FilesDataset, newdata::FilesDataset; 
         end
         append!(analyses, buildparseable(stem, rules_all, delimiter = ","))
     end
-    temp_sp = analyses |> StringParser
+    temp_sp = analyses |> KanonesStringParser
     temp_f = tempname()
     tofile(temp_sp,temp_f; delimiter = ",")
     dfp2 = dfParser(temp_f)

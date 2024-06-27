@@ -7,14 +7,15 @@ function regularstemfile(f, delimitedreader)
     raw = readlines(f)
     # Trim lines first:
     lines = filter(s -> ! isempty(s), raw)
-    @debug("Read datalines", length(lines))
-    for i in 2:length(lines)
+    datalines = lines[2:end]
+    @debug("Read datalines", length(datalines))
+    for ln in datalines
         try
-            stem = readstemrow(delimitedreader, lines[i]; delimiter = "|")
+            stem = readstemrow(delimitedreader, ln; delimiter = "|")
             #@debug("==>READ STEM", stem)
             push!(stemsarr,stem)
         catch e
-            @warn("Failed to parse stem data from line $(lines[i]) in file $(f)")
+            @warn("Failed to parse stem data from line $(ln) in file $(f)")
             @warn("Error: $(e)")
         end 
     end
