@@ -3,6 +3,31 @@ struct GMFAdverb <: GreekMorphologicalForm
     advdegree::GMPDegree
 end
 
+
+function show(io::IO, adv::GMFAdverb)
+    print(io, label(adv))
+end
+
+function ==(adv1::GMFAdverb, adv2::GMFAdverb)
+    adv1.advdegree == adv2.advdegree 
+end
+
+
+"""Adverb forms are citable by Cite2Urn"""
+CitableTrait(::Type{GMFAdverb}) = CitableByCite2Urn()
+function citabletrait(::Type{GMFAdverb})
+    CitableByCite2Urn()
+end
+
+"""Compose a Cite2Urn for a `GMFAdverb`.
+
+$(SIGNATURES)
+"""
+function urn(adv::GMFAdverb)
+      Cite2Urn(BASE_MORPHOLOGY_URN * code(adv))
+end
+
+
 function label(adv::GMFAdverb)
     string("adverb: ", label(adv.advdegree), " degree")
 end
@@ -43,14 +68,6 @@ $(SIGNATURES)
 function code(adv::GMFAdverb)
     # PosPNTMVGCDCat
     string(ADVERB,"0","000000", code(adv.advdegree),"0")
-end
-
-"""Compose a Cite2Urn for an `GMFAdjective`.
-
-$(SIGNATURES)
-"""
-function urn(adv::GMFAdverb)
-      Cite2Urn(BASE_MORPHOLOGY_URN * code(adv))
 end
 
 """Compose a `FormUrn` for an `GMFAdjective`.

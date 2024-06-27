@@ -26,3 +26,10 @@ end
 
     @test label(adv) == "adverb: comparative degree"
 end
+
+@testset "Test CITE interface on adverb forms" begin
+    adv = GMFAdverb(gmpDegree("comparative"))
+    @test citable(adv) 
+    @test label(adv) == "adverb: comparative degree"
+    @test urn(adv) == Cite2Urn("urn:cite2:kanones:forms.v1:8000000020")
+end
