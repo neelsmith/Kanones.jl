@@ -50,7 +50,7 @@ $(SIGNATURES)
 function lexemes(dfp::DFParser)
     Array{String}(DataFrames.select(dfp.df, :Lexeme)) |> unique
 end
-=#
+
 
 
 
@@ -83,3 +83,5 @@ function concat_ds(dfp::DFParser, rulesds::FilesDataset, newdata::FilesDataset; 
     DFParser(vcat(dfp.df, dfp2.df) )
     
 end
+
+=#

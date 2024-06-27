@@ -16,7 +16,7 @@ We can download this file and build a parser from it. (To be tidy, we'll remove 
 using Kanones, Downloads
 parserurl = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/data/lgr-rulesparser.cex"
 datafile = Downloads.download(parserurl)
-parser = dfParser(datafile)
+#parser = dfParser(datafile)
 rm(datafile)
 ```
 
@@ -38,7 +38,6 @@ A prebuilt parser for texts in standard literary Greek orthography is regularly 
 - `http://shot.holycross.edu/morphology/comprehensive-current.csv` is a prebuilt parser that includes vocabulary automatically culled from the digital Liddell-Scott lexicon published by the Perseus project.  The vocabulary entries have not been manually verified.
 
 In 2024, this parser is not yet automatically rebuilt on a regular time table.
-
 Load it and use it to parse texts the same way you would if you compiled your own parser.    
 
 

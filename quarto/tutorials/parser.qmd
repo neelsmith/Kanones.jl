@@ -48,7 +48,7 @@ You can then build a parser from a data set.
 ```{julia}
 #| warnings: false
 #| output: false
-p = KanonesStringParser(kds)
+p = kanonesStringParser(kds)
 ```
 
 ### Interactive parsing
@@ -108,7 +108,7 @@ p2 = Kanones.coreparser(repo; atticonly = true)
 ```
 
 ```{julia}
-parses = parsewordlist(words,p2)
+#parses = parsewordlist(words,p2)
 ```
 
 The result is just a list of 23 Vectors of analyses, one for each word we submitted.
@@ -119,11 +119,11 @@ If all you want is labelled strings? Try this.
 
 
 ```{julia}
-labelledlines = formlabels(words, p2)
+#labelledlines = formlabels(words, p2)
 ```
 
 ```{julia}
 using Markdown
-mdlines = map(ln -> "1. " * ln, labelledlines)
-join(mdlines, "\n") |> Markdown.parse
+#mdlines = map(ln -> "1. " * ln, labelledlines)
+#join(mdlines, "\n") |> Markdown.parse
 ```

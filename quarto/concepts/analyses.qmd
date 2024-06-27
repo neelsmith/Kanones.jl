@@ -3,6 +3,11 @@ title: "Kanones' analyses"
 ---
 
 
+::: {.callout-warning title="REIMPLEMENT THIS PAGE"}
+IMPLEMENT THESE WITH NEW CPB:
+:::
+
+
 ```{julia}
 #| echo: false
 #| output: false
@@ -39,8 +44,8 @@ We build a parser for each.
 #| output: false
 #| warning: false
 using Kanones, CitableParserBuilder
-litgreek = dataset(litgreekfiles)
-litgreekparser =  KanonesStringParser(litgreek)
+#litgreek = dataset(litgreekfiles)
+#litgreekparser =  KanonesStringParser(litgreek)
 ```
 
 We construct the second data set with an optional parameter explicitly setting the orthography to use.
@@ -50,22 +55,24 @@ We construct the second data set with an optional parameter explicitly setting t
 #| output: false
 #| warning: false
 using AtticGreek
-attic = dataset(atticfiles; ortho = atticGreek())
-atticparser = KanonesStringParser(attic)
+#attic = dataset(atticfiles; ortho = atticGreek())
+#atticparser = KanonesStringParser(attic)
 ```
 
 We can analyze a token written in standard orthography. (In this example, since we expect only one analysis for βουλῆς, we're just taking the first analysis from the resulting Vector.)
 
 ```{julia}
 #| warning: false
-analysis = parsetoken("βουλῆς",litgreekparser)[1]
+#analysis = parsetoken("βουλῆς", litgreekparser)[1]
 ```
 
 In Kanónes, all components of the analysis are identified by URNs rather than string values. We can use the `lexemeurn` and `formurn` functions to retrieve those elements of an analysis, and then generate the equivalent string using a different dataset with a different orthography.
 
 
+
+
 ```{julia}
-vocabitem = lexemeurn(analysis)
-form = formurn(analysis)
-generate(vocabitem, form, attic)
+#vocabitem = lexemeurn(analysis)
+#form = formurn(analysis)
+#generate(vocabitem, form, attic)
 ```

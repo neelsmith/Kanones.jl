@@ -9,6 +9,96 @@ struct KanonesStringParser <: KanonesParser
         ortho::GreekOrthography = literaryGreek(), delim::AbstractString = "|") = new(entries, ortho, delim)
 end
 
+"""Instantiate a generic `StringParser` (from the `CitableParserBuilder` package) from a `KanonesStringParser`.
+$(SIGNATURES)
+"""
+function stringParser(p::KanonesStringParser)
+    StringParser(p.entries, p.ortho, p.delimiter)
+end
+
+"""Get data source for parser.
+$(SIGNATURES)
+"""
+function datasource(p::KanonesStringParser)
+    p.entries
+end
+
+
+"""Get delimiter used in parser.
+$(SIGNATURES)
+"""
+function delimiter(p::KanonesStringParser)
+    p.delimiter
+end
+
+
+"""Get orthography for parser.
+$(SIGNATURES)
+"""
+function orthography(p::KanonesStringParser)
+    p.ortho
+end
+
+
+
+"""Write entries of a KanonesStringParser to file.
+$(SIGNATURES)
+"""
+function tofile(p::KanonesStringParser, f)
+    open(f, "w") do io
+        write(f, cex(p))
+    end
+end
+
+
+"""Instantiate a `KanonesStringParser` for `td`.
+$(SIGNATURES)
+"""
+function kanonesStringParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
+    analyses = []
+    rules = rulesarray(kd)
+    stems = stemsarray(kd) 
+    for (i, stem) in enumerate(stems)
+        if i % interval == 0
+            @info("stem $(i)… $(stem)")
+        end
+        append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
+    end
+    analyses |> KanonesStringParser
+end
+
+"""Instantiate a `KanonesStringParser` from a set of analyses read from a local file.
+$(SIGNATURES)
+"""
+function kanonesStringParser(f, freader::Type{FileReader})
+    KanonesStringParser(readlines(f))
+end
+
+"""Instantiate a `KanonesStringParser` from a set of analyses read from a URL.
+$(SIGNATURES)
+"""
+function kanonesStringParser(u, ureader::Type{UrlReader})
+    tmpfile = Downloads.download(u) 
+    sp = readlines(tmpfile) |> KanonesStringParser
+    rm(tmpfile)
+    sp
+end
+
+
+"""Parse a single token using `parser`.
+$(SIGNATURES)
+"""
+function parsetoken(s::AbstractString, parser::KanonesStringParser; data = nothing)
+    #strlist = resolvestring(s)
+    ptrn = knormal(s) * "|"
+    @info("Match pattern", ptrn)
+    matches = filter(ln -> startswith(ln, ptrn), parser.entries)
+    map(ln ->  fromcex(ln, Analysis), matches)
+end
+
+
+
+
 function generate(lex::LexemeUrn, form::FormUrn, sp::KanonesStringParser; delimiter = "|")
     matchinglines = filter(sp.entries) do ln
         lstring =  string(delimiter, string(lex), delimiter)
@@ -34,34 +124,9 @@ function tofile(p::KanonesStringParser, f; delimiter = nothing )
         write(f, txt)
     end
 end
+
+
 =#
-
-"""Parse a single token using `parser`.
-$(SIGNATURES)
-"""
-function parsetoken(s::AbstractString, parser::KanonesStringParser; data = nothing)
-    #strlist = resolvestring(s)
-    ptrn = knormal(s) * "|"
-    @debug("Match pattern", ptrn)
-    matches = filter(ln -> startswith(ln, ptrn), parser.entries)
-    #map(ln -> fromline(ln), matches)
-end
-
-"""Instantiate a `KanonesStringParser` for `td`.
-$(SIGNATURES)
-"""
-function KanonesStringParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
-    analyses = []
-    rules = rulesarray(kd)
-    stems = stemsarray(kd) 
-    for (i, stem) in enumerate(stems)
-        if i % interval == 0
-            @info("stem $(i)… $(stem)")
-        end
-        append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
-    end
-    analyses |> KanonesStringParser
-end
 
 #=
 """Instantiate a `KanonesStringParser` from a set of analyses read from a local file.
@@ -77,7 +142,7 @@ $(SIGNATURES)
 function KanonesStringParser(u, ureader::Type{UrlReader})
     Downloads.download(u) |> readlines |> KanonesStringParser
 end
-=#
+
 """Serialize a single analysis to delimited text.
 $(SIGNATURES)
 """
@@ -106,7 +171,6 @@ function analysis_lines(td::Kanones.FilesDataset)
     analyses(td) |> analysis_lines
 end
 
-#=
 """Create an `Analysis` from line of delimited text.
 $(SIGNATURES)
 """
@@ -146,20 +210,21 @@ function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T
     for rule in classrules
         @debug("Apply rule to stem", rule, stem)
         token = generate(stem, rule)
+        mtoken = token
         @debug("Generated/rule", token, rule)
         @debug(syllabify(knormal(token), literaryGreek()))
         raw = ""
         if buildfromrule(rule)
-            raw = join([knormal(token), lexeme(stem), Kanones.formurn(rule), urn(stem), urn(rule)], delimiter)
+            raw = join([knormal(token), lexeme(stem), Kanones.formurn(rule), urn(stem), urn(rule), mtoken], delimiter)
         else
-            raw = join([knormal(token), lexeme(stem), Kanones.formurn(stem), urn(stem), urn(rule)], delimiter)
+            raw = join([knormal(token), lexeme(stem), Kanones.formurn(stem), urn(stem), urn(rule), mtoken], delimiter)
         end
         push!(generated, knormal(raw))
     end
     generated
 end
 
-
+#=
 """Find unique lexemes recognized by a `KanonesStringParser`.
 $(SIGNATURES)
 """
@@ -168,7 +233,7 @@ function lexemes(sp::KanonesStringParser)
         split(ln, "|")[2]
     end |> unique
 end
-
+=#
 
 """Build a new `KanonesStringParser` by adding a further dataset
 to an existing parser. 
@@ -190,4 +255,32 @@ function concat_ds(sp::KanonesStringParser, rulesds::FilesDataset, newdata::File
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
     analyses |> KanonesStringParser
+end
+
+
+
+
+
+
+
+"""Value for CexTrait on KanonesStringParser."""
+struct KanonesStringParserCex <: CexTrait end
+"""Identify CEX trait for KanonesStringParser type.
+$(SIGNATURES)
+"""
+function cextrait(::Type{KanonesStringParser})
+    KanonesStringParserCex()
+end
+
+
+"""Instantiate a parser from delimited-text format.
+Optionally identify orthographic system for parser in
+parameter `configuration`.
+$(SIGNATURES)
+"""
+function fromcex(trait::KanonesStringParserCex, cexsrc::AbstractString, T; 
+    delimiter = "|", configuration = nothing, strict = true)
+    ortho = isnothing(configuration) ? literaryGreek() : configuration
+    entries = split(cexsrc, "\n")
+    KanonesStringParser(entries, ortho, delimiter)
 end

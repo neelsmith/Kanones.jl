@@ -1,6 +1,6 @@
 module Kanones
 
-using CSV, DataFrames
+using CSV
 using HTTP, Downloads
 
 # This is only for profiling, currently used in scripts in scripts 
@@ -8,16 +8,17 @@ using HTTP, Downloads
 #using OrderedCollections, StatsBase
 
 using CitableParserBuilder
-import CitableParserBuilder: formurn
-import CitableParserBuilder: parsetoken
-import CitableParserBuilder: parselist
-import CitableParserBuilder: parsecorpus
-#import CitableParserBuilder: parsedocument
-import CitableParserBuilder: CanParseCitable
-import CitableParserBuilder: lexeme
-import CitableParserBuilder: lexemes
+import CitableParserBuilder: parsetoken #, parsewordlist,  parselistfromfile, parselistfromurl
+import CitableParserBuilder: tofile
+import CitableParserBuilder: datasource
+import CitableParserBuilder: orthography
+import CitableParserBuilder: delimiter
+import CitableParserBuilder: generate
+import CitableParserBuilder: lexemeurn
+import CitableParserBuilder: stringParser
+import CitableParserBuilder: analyses
 
-export KanonesParser
+export KanonesParser, KanonesStringParser
 export parsetoken, parsewordlist, parsecorpus, parsedocument
 export formlabels
 
@@ -28,12 +29,14 @@ using Unicode, Glob, DelimitedFiles
 using CSV
 using Documenter, DocStringExtensions
 
-using CitableBase: Citable
-import CitableBase: CitableTrait
+using CitableBase
+import CitableBase: citabletrait
 import CitableBase: urn
 import CitableBase: label
+
+import CitableBase: cextrait
 import CitableBase: cex
-using CitableBase
+import CitableBase: fromcex
 
 using CitableCollection
 using Tables
@@ -100,12 +103,14 @@ export conjugation_md, imperativeconjugation_md
 export verb_conjugation_md
 export lexicon_noun_md
 
-export writecsv
+#export writecsv
 
 export urn, formurn, ruleurn
 
-export KanonesStringParser, KanonesStringParser, tofile
-export DFParser, dfParser
+export KanonesStringParser, kanonesStringParser
+#export DFParser, dfParser
+# export TabulaeStringParser, tabulaeStringParser
+export orthography
 
 export InflectionCategory
 
@@ -198,7 +203,7 @@ include("generate/debug.jl")
 
 include("parser/parser.jl")
 include("parser/stringparser.jl")
-include("parser/dfparser.jl")
+#include("parser/dfparser.jl")
 include("parser/perfilebuilder.jl")
 
 
