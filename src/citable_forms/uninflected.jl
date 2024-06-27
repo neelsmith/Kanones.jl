@@ -3,8 +3,43 @@ struct GMFUninflected <: GreekMorphologicalForm
     pos::GMPUninflectedType  
 end
 
+
+function show(io::IO, ui::GMFUninflected)
+    print(io, label(ui))
+end
+
+function ==(ui1::GMFUninflected, ui2::GMFUninflected)
+
+    ui1.pos == ui2.pos
+end
+
+
+
 """Uninflected forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFUninflected}) = CitableByCite2Urn()
+function citabletrait(::Type{GMFUninflected})
+    CitableByCite2Urn()
+end
+
+
+"""Compose URN for an `GMFUninflected`.
+$(SIGNATURES)
+Required by `CitableTrait`.
+"""
+function urn(uform::GMFUninflected)
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(uform) )
+end
+
+"""Compose a human-readable label for an `GMFUninflected`.
+$(SIGNATURES)
+Required by `CitableTrait`.
+"""
+function label(uform::GMFUninflected)
+    "uninflected form: " * label(uform.pos)
+end
+
+
+
 
 
 """Extract "part of speech" type from `uform`.
@@ -21,23 +56,6 @@ function code(uform::GMFUninflected)
     string(UNINFLECTED, "00000000", code(uform.pos))
 end
 
-"""Compose URN for an `GMFUninflected`.
-
-$(SIGNATURES)
-Required by `CitableTrait`.
-"""
-function urn(uform::GMFUninflected)
-    Cite2Urn(BASE_MORPHOLOGY_URN * code(uform) )
-end
-
-"""Compose a human-readable label for an `GMFUninflected`.
-
-$(SIGNATURES)
-Required by `CitableTrait`.
-"""
-function label(uform::GMFUninflected)
-    "uninflected form: " * label(uform.pos)
-end
 
 """Create `GMFUninflected` from a Cite2Urn.
 $(SIGNATURES)

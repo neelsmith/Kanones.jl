@@ -27,9 +27,6 @@ end
     @test label(gmpNumber(vadj)) == "singular"
 end
 
-
-
-
 @testset "Test CITE properties on verbal adjectives" begin
     vadj = GMFVerbalAdjective(gmpGender("neuter"), gmpCase("accusative"), gmpNumber(1)) 
 

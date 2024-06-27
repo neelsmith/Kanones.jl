@@ -5,8 +5,41 @@ struct GMFNoun <: GreekMorphologicalForm
     nnumber::GMPNumber
 end
 
+
+function show(io::IO, n::GMFNoun)
+    print(io, label(n))
+end
+function ==(n1::GMFNoun, n2::GMFNoun)
+
+    n1.ngender == n2.ngender &&
+    n1.ncase == n2.ncase &&
+    n1.nnumber == n2.nnumber
+end
+
+
 """Noun forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFNoun}) = CitableByCite2Urn()
+function citabletrait(::Type{GMFNoun})
+    CitableByCite2Urn()
+end
+
+
+"""Compose a Cite2Urn for a `GMFNoun`.
+$(SIGNATURES)
+"""
+function urn(noun::GMFNoun)
+    Cite2Urn(string(BASE_MORPHOLOGY_URN, code(noun)))
+end
+
+
+"""Compose a label for a `GMFNoun`
+$(SIGNATURES)
+"""
+function label(noun::GMFNoun)    
+    join([ "noun:", label(noun.ngender), label(noun.ncase), label(noun.nnumber)], " ")
+end
+
+
 
 
 """Extract gender from `n`.
@@ -33,21 +66,7 @@ function gmpNumber(n::GMFNoun)
 end
 
 
-"""Compose a label for a `GMFNoun`
 
-$(SIGNATURES)
-"""
-function label(noun::GMFNoun)    
-    join([ "noun:", label(noun.ngender), label(noun.ncase), label(noun.nnumber)], " ")
-end
-
-"""Compose a Cite2Urn for a `GMFNoun`.
-
-$(SIGNATURES)
-"""
-function urn(noun::GMFNoun)
-    Cite2Urn(string(BASE_MORPHOLOGY_URN, code(noun)))
-end
 
 """Create a `GMFNoun` from a string value.
 

@@ -27,3 +27,13 @@ end
 
     @test label(uninfl) == "uninflected form: preposition"
 end
+
+
+@testset "Test CITE properties on uninflected forms" begin
+    uninfl = GMFUninflected(gmpUninflectedType("preposition"))
+    
+    @test citable(uninfl)
+    @test label(uninfl) == "uninflected form: preposition"
+    @test urn(uninfl) == Cite2Urn("urn:cite2:kanones:forms.v1:1000000002")
+
+end

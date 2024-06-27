@@ -24,3 +24,13 @@ end
     @test label(gmpCase(pronoun)) == "accusative"
     @test label(gmpNumber(pronoun)) == "singular"
 end
+
+
+@testset "Test CITE interface on pronouns" begin
+    pronoun = GMFPronoun(gmpGender("feminine"), gmpCase("accusative"), gmpNumber(1))  
+
+    @test citable(pronoun)
+    @test label(pronoun) == "pronoun: feminine accusative singular"
+    @test urn(pronoun) == Cite2Urn("urn:cite2:kanones:forms.v1:9010002400")
+    
+end
