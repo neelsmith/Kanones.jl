@@ -7,6 +7,52 @@ struct GMFFiniteVerb <: GreekMorphologicalForm
     vvoice::GMPVoice
 end
 
+function show(io::IO, vb::GMFFiniteVerb)
+    print(io, label(vb))
+end
+
+function ==(v1::GMFFiniteVerb, v2::GMFFiniteVerb)
+    v1.vperson == v2.vperson &&
+    v1.vnumber == v2.vnumber &&
+    v1.vtense == v2.vtense &&
+    v1.vmood == v2.vmood &&
+    v1.vvoice == v2.vvoice
+end
+
+
+
+"""Finite verb  forms are citable by Cite2Urn"""
+CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
+function citabletrait(::Type{GMFFiniteVerb})
+    CitableByCite2Urn()
+end
+
+"""Compose a Cite2Urn for a `GMFFiniteVerb`.
+
+$(SIGNATURES)
+"""
+function urn(verb::GMFFiniteVerb)
+    # PosPNTMVGCDCat
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(verb) )
+end
+
+"""Compose a label for a `GMFFiniteVerb`
+
+$(SIGNATURES)
+"""
+function label(verb::GMFFiniteVerb)
+    join(
+        [
+        "finite verb: ",
+        label(verb.vtense), 
+        label(verb.vmood), 
+        label(verb.vvoice),
+        label(verb.vperson),  
+        label(verb.vnumber)
+        ], " ")
+end
+
+
 
 """Extract person property from `v`.
 $(SIGNATURES)
@@ -30,7 +76,6 @@ function gmpTense(v::GMFFiniteVerb)
     v.vtense
 end
 
-
 """Extract mood property from `v`.
 $(SIGNATURES)
 """
@@ -45,40 +90,11 @@ function gmpVoice(v::GMFFiniteVerb)
     v.vvoice
 end
 
-"""Finite verb forms are citable by Cite2Urn"""
-CitableTrait(::Type{GMFFiniteVerb}) = CitableByCite2Urn()
-
 """Compose a digital code for `adj`.
 $(SIGNATURES)
 """
 function code(verb::GMFFiniteVerb)
     string(FINITEVERB, code(verb.vperson),code(verb.vnumber), code(verb.vtense), code(verb.vmood), code(verb.vvoice),"0000")
-end
-
-
-"""Compose a label for a `GMFFiniteVerb`
-
-$(SIGNATURES)
-"""
-function label(verb::GMFFiniteVerb)
-    join(
-        [
-        "finite verb: ",
-        label(verb.vtense), 
-        label(verb.vmood), 
-        label(verb.vvoice),
-        label(verb.vperson),  
-        label(verb.vnumber)
-        ], " ")
-end
-
-"""Compose a Cite2Urn for a `GMFFiniteVerb`.
-
-$(SIGNATURES)
-"""
-function urn(verb::GMFFiniteVerb)
-    # PosPNTMVGCDCat
-    Cite2Urn(BASE_MORPHOLOGY_URN * code(verb) )
 end
 
 """Create a `GMFFiniteVerb` from a string value.

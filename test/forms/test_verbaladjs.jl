@@ -26,3 +26,14 @@ end
     @test label(gmpCase(vadj)) == "accusative"
     @test label(gmpNumber(vadj)) == "singular"
 end
+
+
+
+
+@testset "Test CITE properties on verbal adjectives" begin
+    vadj = GMFVerbalAdjective(gmpGender("neuter"), gmpCase("accusative"), gmpNumber(1)) 
+
+    @test citable(vadj)
+    @test label(vadj) == "verbal adjective: neuter accusative singular"
+    @test urn(vadj) == Cite2Urn("urn:cite2:kanones:forms.v1:6010003400")
+end

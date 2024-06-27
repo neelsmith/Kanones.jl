@@ -30,3 +30,11 @@ end
     @test label(gmpTense(ptcpl)) == "aorist"
     @test label(gmpVoice(ptcpl)) == "middle"
 end
+
+@testset "Test CITE interface on participles" begin
+    ptcpl = GMFParticiple( gmpTense("aorist"), gmpVoice("middle"), gmpGender("feminine"), gmpCase("accusative"), gmpNumber(1))
+
+    @test citable(ptcpl)
+    @test label(ptcpl) == "participle: aorist middle feminine accusative singular"
+    @test urn(ptcpl) == Cite2Urn("urn:cite2:kanones:forms.v1:5013022400")
+end
