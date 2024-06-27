@@ -3,7 +3,7 @@
 
     repo = pwd() |> dirname
     kds = joinpath(repo, "datasets", "literarygreek-rules") |> dataset
-    p = KanonesStringParser(kds)
+    p = kanonesStringParser(kds)
 
 
     pp1 = parsetoken("κελεύομεν",p)[1]
@@ -71,7 +71,7 @@ end
     ortho = literaryGreek()
     repo = pwd() |> dirname
     kds = joinpath(repo, "datasets", "literarygreek-rules") |> dataset
-    p = KanonesStringParser(kds)
+    p = kanonesStringParser(kds)
 
     presact = parsetoken("κελεύειν",p)[1]
     @test "infinitive: present active" == label(greekForm(presact))

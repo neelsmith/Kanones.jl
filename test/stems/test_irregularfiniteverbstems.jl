@@ -24,7 +24,7 @@ end
     @test urn(stem, registry = dict) == expectedcite2
 
 
-    @test lexeme(stem) == LexemeUrn("lsj.n31130")
+    @test lexemeurn(stem) == LexemeUrn("lsj.n31130")
     @test Unicode.normalize(stemstring(stem)) == Unicode.normalize("ἐστι")
     @test code(stem) == "3311110000"
     @test Kanones.formurn(stem) == FormUrn("forms.3311110000")

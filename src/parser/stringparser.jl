@@ -92,7 +92,7 @@ function parsetoken(s::AbstractString, parser::KanonesStringParser; data = nothi
     #strlist = resolvestring(s)
     ptrn = knormal(s) * "|"
     @info("Match pattern", ptrn)
-    matches = filter(ln -> startswith(ln, ptrn), parser.entries)
+    matches = filter(ln -> startswith(ln, ptrn), datasource(parser))
     map(ln ->  fromcex(ln, Analysis), matches)
 end
 
