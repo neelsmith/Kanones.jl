@@ -22,7 +22,7 @@ rm(datafile)
 
 Now we can use it like any other parser.
 
-```{julia}
+```
 s = "ἀγαθόν"
 parses = parsetoken(s, parser)
 ```

@@ -44,7 +44,7 @@ function parsetoken(s::AbstractString, parser::KanonesStringParser; data = nothi
     ptrn = knormal(s) * "|"
     @debug("Match pattern", ptrn)
     matches = filter(ln -> startswith(ln, ptrn), parser.entries)
-    map(ln -> fromline(ln), matches)
+    #map(ln -> fromline(ln), matches)
 end
 
 """Instantiate a `KanonesStringParser` for `td`.
