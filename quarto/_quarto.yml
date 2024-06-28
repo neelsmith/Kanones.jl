@@ -52,7 +52,8 @@ website:
         - text: "---"
         - guides/dataset-guide.qmd
         - guides/dataset-strategies.qmd
-        - guides/dataset-profile.qmd        
+        - guides/dataset-profile.qmd      
+        - guides/rulesio.qmd  
         - text: "---"
         - guides/nounstems-guide.qmd
         - guides/adjectivestems-guide.qmd

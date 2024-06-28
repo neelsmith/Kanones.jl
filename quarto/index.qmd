@@ -9,10 +9,7 @@ jupyter: julia-1.10
 ::: {.callout-caution} 
 ## Caution!
 
-
-*This web site is a dump of preliminary notes from a pre-release draft of documentation for `Kanones.jl`. Please check back later in summer 2024 for more useful documentation.*
-
-*Pages flagged with 🤷‍♂️ in the title are not yet in a usable form.*
+*Pages flagged with 🤷‍♂️ have been dumped from documentation of an earlier version of Kanones, and have not yet been reviewed for the current release.*
 
 :::
 
