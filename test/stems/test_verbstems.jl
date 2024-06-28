@@ -22,7 +22,7 @@ end
     @test urn(stem, registry = dict) == expectedcite2
 
 
-    @test lexeme(stem) == LexemeUrn("lsj.n23658")
+    @test lexemeurn(stem) == LexemeUrn("lsj.n23658")
     @test stemstring(stem) == Unicode.normalize("δεικ")
     
 end

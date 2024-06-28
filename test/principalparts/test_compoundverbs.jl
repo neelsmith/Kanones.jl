@@ -4,7 +4,7 @@
     compound = compoundstem(s)
     @test compound isa CompoundVerbStem
 
-    @test lexeme(compound) == LexemeUrn("lsj.n30252")
+    @test lexemeurn(compound) == LexemeUrn("lsj.n30252")
 
     @test simplex(compound) == LexemeUrn("lsj.n56496")
 

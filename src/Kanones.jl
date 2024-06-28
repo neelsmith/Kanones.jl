@@ -1,5 +1,8 @@
 module Kanones
 
+import Base: show
+import Base.==
+
 using CSV
 using HTTP, Downloads
 

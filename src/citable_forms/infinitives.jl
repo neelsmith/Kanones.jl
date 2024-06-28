@@ -4,9 +4,22 @@ struct GMFInfinitive <: GreekMorphologicalForm
     voice::GMPVoice
 end
 
+
+function show(io::IO, inf::GMFInfinitive)
+    print(io, label(inf))
+end
+
+function ==(v1::GMFInfinitive, v2::GMFInfinitive)
+    v1.tense == v2.tense &&
+    v1.voice == v2.voice
+end
+
+
 """Infinitive forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFInfinitive}) = CitableByCite2Urn()
-
+function citabletrait(::Type{GMFInfinitive})
+    CitableByCite2Urn()
+end
 
 """Extract tense value from `inf`.
 $(SIGNATURES)

@@ -28,3 +28,11 @@ end
     @test label(gmpVoice(inf)) == "passive"
    
 end
+
+
+@testset "Test CITE interface on infinitives" begin
+    inf = GMFInfinitive(gmpTense("aorist"), gmpVoice("passive"))
+    @test citable(inf)
+    @test label(inf) == "infinitive: aorist passive"
+    @test urn(inf) == Cite2Urn("urn:cite2:kanones:forms.v1:4003030000")
+end

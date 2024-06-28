@@ -37,3 +37,17 @@ end
     @test label(gmpMood(verb)) == "indicative"
     @test label(gmpVoice(verb)) == "active"
 end
+
+
+@testset "Test CITE interface on finite verbs forms" begin
+    verb = GMFFiniteVerb(
+        gmpPerson(3), gmpNumber(2),
+        gmpTense("aorist"), gmpMood("indicative"),
+        gmpVoice("active")        
+    )
+
+    @test citable(verb)
+    @test label(verb) == "finite verb:  aorist indicative active third dual"
+    @test urn(verb) == Cite2Urn("urn:cite2:kanones:forms.v1:3323110000")
+
+end
