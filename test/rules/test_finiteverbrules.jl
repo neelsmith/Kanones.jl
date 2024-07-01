@@ -1,19 +1,15 @@
 @testset "Test IO with delimited text for finite verbs" begin
     delimited = "verbinfl.numipres8|numi|νυσαι|second|singular|present|indicative|middle|"
-    verbio = Kanones.VerbIO("IO for verbs")
-    rule = Kanones.readrulerow(verbio, delimited)
+    rule = fromcex(delimited, FiniteVerbRule)
     # must read from delimited
     @test rule isa FiniteVerbRule
     # must write to delimited
    @test Unicode.normalize(cex(rule)) == Unicode.normalize("verbinfl.numipres8|Verb inflection rule: ending -νυσαι in class numi can be present indicative middle second singular.|νυσαι|numi|forms.3211120000")
 end
 
-
-
 @testset "Test data accessors for finite verbs" begin
     delimited = "verbinfl.numipres8|numi|νυσαι|second|singular|present|indicative|middle|"
-    verbio = Kanones.VerbIO("IO for verbs")
-    rule = Kanones.readrulerow(verbio, delimited)
+    rule = fromcex(delimited, FiniteVerbRule)
 
     # must get id
     ruleu = Kanones.ruleurn(rule)
