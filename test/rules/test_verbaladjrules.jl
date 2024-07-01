@@ -8,6 +8,7 @@
    @test cex(rule) == "vadjinfl.wreg1|Verbal adjective inflection rule: ending -τέον in class w_regular can be neuter nominative singular.|τέον|w_regular|forms.6010003100"
 end
 
+
 @testset "Test data accessors" begin
     vadjio = Kanones.VerbalAdjectiveIO("adjectives")
     delimited = "vadjinfl.wreg1|w_regular|τέον|neuter|nominative|singular|"
