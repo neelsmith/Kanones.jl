@@ -41,6 +41,9 @@ import CitableBase: cextrait
 import CitableBase: cex
 import CitableBase: fromcex
 
+import CitableBase: citablecollectiontrait
+import CitableBase: urntype
+
 using CitableCollection
 using Tables
 
@@ -90,6 +93,8 @@ export IrregularVerbStem
 export IrregularInfinitiveStem
 export IrregularParticipleStem
 
+export RuleSet
+
 export GreekLexeme
 export lemmatadict, lemmalabel, lsjcollection
 
@@ -120,9 +125,7 @@ export InflectionCategory
 include("normal.jl")
 include("kanonesio.jl")
 include("dataset/dataset.jl")
-include("dataset/fileslayout.jl")
-include("dataset/filesdataset.jl")
-include("dataset/compoundstems.jl")
+
 include("dataset/stemreaders.jl")
 include("dataset/infltypes.jl")
 
@@ -133,7 +136,6 @@ include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
 
 include("citable_rules/rules.jl")
-include("citable_rules/rulesets.jl")
 include("citable_stems/stems.jl")
 include("citable_forms/forms.jl")
 
@@ -149,7 +151,6 @@ include("morphologicalproperties/degree.jl")
 include("morphologicalproperties/uninflectedtype.jl")
 
 include("citable_forms/formvalues.jl")
-
 include("citable_rules/irregularrules.jl")
 
 include("citable_forms/finiteverbs.jl")
@@ -192,6 +193,22 @@ include("citable_forms/uninflected.jl")
 include("citable_rules/uninflectedrules.jl")
 include("citable_stems/uninflectedstems.jl")
 
+
+
+
+
+include("dataset/fileslayout.jl")
+include("dataset/filesdataset.jl")
+
+include("dataset/compoundstems.jl")
+include("citable_rules/rulesets.jl")
+
+include("parser/parser.jl")
+include("parser/stringparser.jl")
+#include("parser/dfparser.jl")
+include("parser/perfilebuilder.jl")
+
+
 include("generate/generate.jl")
 include("generate/generatenoun.jl")
 include("generate/generateadj.jl")
@@ -204,11 +221,6 @@ include("generate/generatepronoun.jl")
 include("generate/generateuninflected.jl")
 include("generate/generateirregular.jl")
 include("generate/debug.jl")
-
-include("parser/parser.jl")
-include("parser/stringparser.jl")
-#include("parser/dfparser.jl")
-include("parser/perfilebuilder.jl")
 
 
 include("forapps/adjdeclensions.jl")

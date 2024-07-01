@@ -67,7 +67,7 @@ function rulesarray(dirlist; delimiter = "|")
     pattern  = r".cex$"
     for datasrc in dirlist
         for dirname in RULES_DIRECTORIES 
-            delimitedreader = (RULES_IO_DICT[dirname])
+            #delimitedreader = (RULES_IO_DICT[dirname])
             dir = joinpath(datasrc, "rules-tables", dirname)
             @debug("Read from dirname/reader", dir, delimitedreader)
             if isdir(dir)
@@ -81,7 +81,8 @@ function rulesarray(dirlist; delimiter = "|")
                             datalines = lines[2:end]
                             for ln in datalines
                                 try 
-                                    rule = readrulerow(delimitedreader, ln, delimiter = delimiter)
+                                    rule = fromcex(ln, RULES_TYPES_DICT[dirname])
+                                    @debug("Instantiated rule $(rule)")
                                     push!(rulesarr,rule)
                                 catch e
                                     @warn("Failed to parse rule from line\n\"$(ln)\" \nin file ($(f)")

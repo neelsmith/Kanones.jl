@@ -10,6 +10,33 @@ RULES_DIRECTORIES = [
     "adjectives"
 ]
 
+
+RULES_TYPES_DICT = Dict(
+        [
+        "uninflected" => UninflectedRule,
+        "irregulars" => IrregularRule,
+        "nouns" => NounRule,
+        "pronouns" => PronounRule,
+        "adjectives" => AdjectiveRule,
+        "finiteverbs" => FiniteVerbRule,
+        "infinitives" => InfinitiveRule,
+        "participles" => ParticipleRule,
+        "verbaladjectives" => VerbalAdjectiveRule
+        ]
+    )
+
+    # => IrregularRule,
+    FORMS_RULES_DICT    = Dict(
+        GMFUninflected => UninflectedRule,
+        GMFNoun => NounRule,
+        GMFPronoun => PronounRule,
+        GMFAdjective => AdjectiveRule,
+        GMFFiniteVerb => FiniteVerbRule,
+        GMFInfinitive => InfinitiveRule,
+        GMFParticiple => ParticipleRule,
+        GMFVerbalAdjective => VerbalAdjectiveRule
+    )
+#=
 RULES_IO_DICT = Dict(
         [
         "uninflected" => UninflectedIO("uninflected"),
@@ -23,7 +50,7 @@ RULES_IO_DICT = Dict(
         "verbaladjectives" => VerbalAdjectiveIO("verbal adjectives"),
         ]
     )
-
+=#
 STEMS_DIRECTORIES = [
         "adjectives",
         "nouns",
