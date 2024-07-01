@@ -133,6 +133,7 @@ include("lexemes/lexeme.jl")
 include("lexemes/lexica.jl")
 
 include("citable_rules/rules.jl")
+include("citable_rules/rulesets.jl")
 include("citable_stems/stems.jl")
 include("citable_forms/forms.jl")
 

@@ -12,29 +12,30 @@ struct VerbalAdjectiveRule <: KanonesVerbalRule
 end
 
 
-"""Verbal adjective rules are citable by Cite2Urn"""
-CitableTrait(::Type{VerbalAdjectiveRule}) = CitableByCite2Urn()
 
-
-
-
-"""Identify inflection class for `rule`.
-$(SIGNATURES)
-"""
-function inflectionclass(rule::VerbalAdjectiveRule)
-    rule.inflectionclass
+function show(io::IO, adj::VerbalAdjectiveRule)
+    print(io, label(adj))
 end
 
-"""Identify ending for `rule`.
-$(SIGNATURES)
-"""
-function ending(rule::VerbalAdjectiveRule)
-    rule.ending
+function ==(v1::VerbalAdjectiveRule, v2::VerbalAdjectiveRule)
+    v1.ruleid == v2.ruleid &&
+    v1.inflectionclass == v2.inflectionclass &&
+    v1.ending == v2.ending &&
+    v1.vagender == v2.vagender && 
+    v1.vanumber == v2.vanumber && 
+    v1.vacase  == v2.vacase
+end
+
+
+
+"""Verbal adjective rules are citable by Cite2Urn"""
+CitableTrait(::Type{VerbalAdjectiveRule}) = CitableByCite2Urn()
+function citabletrait(::Type{VerbalAdjectiveRule})
+    CitableByCite2Urn()
 end
 
 
 """Human-readlable label for a `VerbalAdjectiveRule`.
-
 $(SIGNATURES)
 Required for `CitableTrait`.
 """
@@ -45,7 +46,6 @@ end
 """Identifying URN for a `VerbalAdjectiveRule`.  If
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
-
 $(SIGNATURES)
 Required for `CitableTrait`.
 """
@@ -57,12 +57,9 @@ function urn(vadj::VerbalAdjectiveRule; registry = nothing)
     end
 end
 
-
-"""Identifying `RuleUrn` for a `VerbalAdjectiveRule`. 
-$(SIGNATURES)
-"""
-function ruleurn(vadj::VerbalAdjectiveRule)
-    vadj.ruleid
+struct VerbalAdjectiveRuleCex <: CexTrait end
+function cextrait(::Type{VerbalAdjectiveRule})  
+    VerbalAdjectiveRuleCex()
 end
 
 """Compose CEX text for a `VerbalAdjectiveRule`.
@@ -81,6 +78,33 @@ function cex(vadj::VerbalAdjectiveRule; delimiter = "|", registry = nothing)
     end
 end
 
+
+
+"""Identify inflection class for `rule`.
+$(SIGNATURES)
+"""
+function inflectionclass(rule::VerbalAdjectiveRule)
+    rule.inflectionclass
+end
+
+"""Identify ending for `rule`.
+$(SIGNATURES)
+"""
+function ending(rule::VerbalAdjectiveRule)
+    rule.ending
+end
+
+
+
+"""Identifying `RuleUrn` for a `VerbalAdjectiveRule`. 
+$(SIGNATURES)
+"""
+function ruleurn(vadj::VerbalAdjectiveRule)
+    vadj.ruleid
+end
+
+
+#=
 """Read one row of a rules table for infinitives and create an `InfinitiveRule`.
 
 $(SIGNATURES)
@@ -103,6 +127,7 @@ function readrulerow(usp::VerbalAdjectiveIO, delimited::AbstractString; delimite
     end
 
 end
+=#
 
 
 function code(rule::VerbalAdjectiveRule)
