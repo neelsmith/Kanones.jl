@@ -74,12 +74,27 @@ $(SIGNATURES)
 Required for `CitableTrait`.
 """
 function cex(verb::FiniteVerbRule; delimiter = "|", registry = nothing)
+    @info("Serialize $(verb)")
+    if isnothing(registry)
+        join([verb.ruleid, verb.inflectionclass, ending(verb), 
+        label(gmpPerson(verb)),
+        label(gmpNumber(verb)),
+        label(gmpTense(verb)), 
+        label(gmpMood(verb)),
+        label(gmpVoice(verb))
+        ], 
+        delimiter)
+    else
+        c2urn = expand(inf.ruleid, registry)
+        join([c2urn, inf.inflectionclass, ending(inf), label(gmpTense(inf)), label(gmpVoice(inf))], delimiter)
+    end
+    #=
     if isnothing(registry)
         join([verb.ruleid, label(verb), ending(verb), inflectionclass(verb), formurn(verb)], delimiter)
     else
         c2urn = expand(verb.ruleid, registry)
         join([c2urn, label(verb), ending(verb), inflectionclass(verb), formurn(verb)], delimiter)
-    end
+    end =#
 end
 
 
