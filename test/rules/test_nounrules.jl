@@ -1,18 +1,17 @@
 @testset "Test IO with delimited text for nouns" begin
-    delimited = "nouninfl.os_ou1|os_ou|ος|masculine|nominative|singular|"
-    nounio = Kanones.NounIO("IO for nouns")
-    rule = Kanones.readrulerow(nounio, delimited)
+   
+    delimited = "nouninfl.os_ou1|os_ou|ος|masculine|nominative|singular"
+    rule = fromcex(delimited, NounRule)
     # must read from delimited
     @test rule isa NounRule
     # must write to delimited
-   @test cex(rule) == "nouninfl.os_ou1|Noun inflection rule: ending -ος in class os_ou can be masculine nominative singular.|ος|os_ou|forms.2010001100"
+   @test cex(rule) == "nouninfl.os_ou1|os_ou|ος|masculine|nominative|singular"
 end
 
 
 @testset "Test data accessors for nouns" begin
-    delimited = "nouninfl.os_ou1|os_ou|ος|masculine|nominative|singular|"
-    nounio = Kanones.NounIO("IO for nouns")
-    rule = Kanones.readrulerow(nounio, delimited)
+    delimited = "nouninfl.os_ou1|os_ou|ος|masculine|nominative|singular"
+    rule = fromcex(delimited, NounRule)
 
     # must get id
     ruleu = Kanones.ruleurn(rule)
