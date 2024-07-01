@@ -11,6 +11,11 @@ end
     delimited = "verbinfl.numipres8|numi|νυσαι|second|singular|present|indicative|middle|"
     rule = fromcex(delimited, FiniteVerbRule)
 
+    # test equality operator:
+
+    @test rule  == fromcex(delimited, FiniteVerbRule)
+
+
     # must get id
     ruleu = Kanones.ruleurn(rule)
     expectedurn = RuleUrn("verbinfl.numipres8")

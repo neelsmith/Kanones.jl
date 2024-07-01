@@ -22,11 +22,11 @@ function ==(v1::FiniteVerbRule, v2::FiniteVerbRule)
     v1.ruleid == v2.ruleid &&
     v1.inflectionclass == v2.inflectionclass &&
     v1.ending == v2.ending &&
-    v1.vperson == v2.agender && 
-    v1.vnumber == v2.acase && 
-    v1.vtense  == v2.anumber &&
-    v1.vtense == v2.adegree &&
-    v1.vvoice == v2.adegree
+    v1.vperson == v2.vperson && 
+    v1.vnumber == v2.vnumber && 
+    v1.vtense  == v2.vtense &&
+    v1.vmood == v2.vmood &&
+    v1.vvoice == v2.vvoice
 end
 
 """Finite verb rules are citable by Cite2Urn"""
@@ -63,7 +63,6 @@ end
 
 
 struct FiniteVerbRuleCex <: CexTrait end
-import CitableBase: cextrait
 function cextrait(::Type{FiniteVerbRule})  
     FiniteVerbRuleCex()
 end
