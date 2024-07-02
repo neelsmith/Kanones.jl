@@ -47,8 +47,8 @@ STEMS_DIRECTORIES = [
 
 STEMS_IO_DICT = Dict(
         [
-        "adjectives" => AdjectiveIO("adjective"),
-        "nouns" => NounIO("noun"),
+       # "adjectives" => AdjectiveIO("adjective"),
+       # "nouns" => NounIO("noun"),
         "pronouns" => PronounIO("pronoun"),
         "uninflected" => UninflectedIO("uninflected"),
        # "verbs-simplex" => VerbIO("verb")

@@ -14,15 +14,6 @@ struct UninflectedIO <: KanonesIO
 end
 
 """
-KanonesIO type for reading and writing data for regular noun forms.
-
-$(SIGNATURES)
-"""
-struct NounIO <: KanonesIO
-    label::AbstractString
-end
-
-"""
 KanonesIO type for reading and writing data for irregular noun forms.
 
 $(SIGNATURES)
@@ -108,28 +99,6 @@ struct IrregularParticipleIO <: KanonesIO
     label::AbstractString
 end
 
-
-
-"""
-KanonesIO type for reading and writing data for verbal adjective rules only.
-
-$(SIGNATURES)
-
-"""
-struct VerbalAdjectiveIO <: KanonesIO
-    label::AbstractString
-end
-
-
-
-"""
-KanonesIO type for reading and writing data for adjective rules and stems.
-
-$(SIGNATURES)
-"""
-struct AdjectiveIO <: KanonesIO
-    label::AbstractString
-end
 
 """
 KanonesIO type for reading and writing data for irregular noun forms.
