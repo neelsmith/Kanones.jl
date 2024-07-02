@@ -8,6 +8,7 @@ end
 
 
 function gmpUninflectedType(s::AbstractString)
+    @info("Get uninfleted type for $(s)")
     s in keys(uninflectedcodedict) ? GMPUninflectedType(uninflectedcodedict[s]) : DomainError(string(s, " is not a valid value for uninflected type.")) 
 end
 
