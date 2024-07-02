@@ -1,20 +1,20 @@
 
 @testset "Test IO for delimited text" begin
-    delimited = "irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb"
-    irrverbio = Kanones.IrregularVerbIO("IO for irreg verbs")
-    stem = Kanones.readstemrow(irrverbio, delimited)
+    delimited = Unicode.normalize("irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb")
+    stem = fromcex(delimited, IrregularVerbStem)
     @test stem isa IrregularVerbStem
 
 
-    @test Unicode.normalize(cex(stem)) == Unicode.normalize("irregverb.irregverbn31130a1|Irregular verb form ἐστι (third singular present indicative active)|ἐστι|lsj.n31130|irregularfiniteverb|third|singular|present|indicative|active")
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb")
+
+    @test fromcex(Unicode.normalize(cex(stem)), IrregularVerbStem) == stem
 
 
 end
 
 @testset "Test data accessors" begin
     delimited = "irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb"
-    irrverbio = Kanones.IrregularVerbIO("IO for irreg verbs")
-    stem = Kanones.readstemrow(irrverbio, delimited)
+    stem = fromcex(delimited, IrregularVerbStem)
     expectedurn = StemUrn("irregverb.irregverbn31130a1")
     @test urn(stem) == expectedurn
 
@@ -24,7 +24,7 @@ end
     @test urn(stem, registry = dict) == expectedcite2
 
 
-    @test lexemeurn(stem) == LexemeUrn("lsj.n31130")
+    @test lexeme(stem) == LexemeUrn("lsj.n31130")
     @test Unicode.normalize(stemstring(stem)) == Unicode.normalize("ἐστι")
     @test code(stem) == "3311110000"
     @test Kanones.formurn(stem) == FormUrn("forms.3311110000")
