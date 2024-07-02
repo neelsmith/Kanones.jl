@@ -3,3 +3,72 @@
 ::: {.callout-caution title="TBA"}
 Paradigms for major inflectional types and important irregular forms to be added here.
 :::
+
+
+
+
+
+## Regular verbs
+
+
+:::: {.columns}
+
+
+::: {.column width=30%}
+### Thematic (-ω) verbs
+
+Consonant stems
+
+-α contracts 
+
+-ε contracts 
+
+-ο contracts 
+
+:::
+
+::: {.column width=5%}
+:::
+
+::: {.column width=30%}
+### Athematic (-μι) verbs
+
+
+First principal part in -νυμι 
+
+:::
+
+::::
+
+
+
+## Regular nouns
+
+
+
+
+:::: {.columns}
+
+::: {.column width="30%"}
+### First declension
+:::
+
+::: {.column width="4%"}
+
+:::
+
+::: {.column width="30%"}
+
+### Second declension
+:::
+
+::: {.column width="4%"}
+
+:::
+
+::: {.column width="30%"}
+### Third declension
+:::
+
+
+::::
