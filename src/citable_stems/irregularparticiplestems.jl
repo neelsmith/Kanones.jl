@@ -138,36 +138,6 @@ function stemstring(p::IrregularParticipleStem)
     p.form |> knormal
 end
 
-#=
-"""
-Read one row of a stems table for irregular infinititve tokens and create an `IrregularInfinitiveStem`.
-
-$(SIGNATURES)    
-"""
-function readstemrow(ptcplio::Kanones.IrregularParticipleIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-
-
-    if length(parts) < 9
-        msg = "readstemrow for irregular participle: too few parts in $delimited."
-        @warn msg
-        throw(new(ArgumentError(msg)))
-    end
-    
-    stemid = StemUrn(parts[1])
-    lexid = LexemeUrn(parts[2])
-    stem = knormal(parts[3])
-    t = gmpTense(parts[4])
-    v = gmpVoice(parts[5])
-    g = gmpGender(parts[6])
-    c = gmpCase(parts[7])
-    n = gmpNumber(parts[8])
-    inflclass = parts[9]
-
-    IrregularParticipleStem(stemid,lexid,stem,t,v,g,c,n, inflclass)
-
-end
-=#
 
 
 """Identify lexeme for `inf`.

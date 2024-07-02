@@ -2,20 +2,18 @@
 #
 
 @testset "Test IO for delimited text" begin
-    delimited = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
-    irrnounio = Kanones.IrregularNounIO("IO for irreg nouns")
-    stem = Kanones.readstemrow(irrnounio, delimited)
+    delimited = Unicode.normalize("irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun")
+    stem = fromcex(delimited, IrregularNounStem)
     @test stem isa IrregularNounStem
 
 
-    @test cex(stem) == "irregnoun.irregn23069a|Irregular noun form γυνή (feminine nominative singular)|γυνή|lsj.n23069|irregularnoun|feminine|nominative|singular"
-
+    @test cex(stem) ==  delimited
+    @test fromcex(cex(stem), IrregularNounStem) == stem
 end
 
 @testset "Test data accessors" begin
     delimited = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
-    irrnounio = Kanones.IrregularNounIO("IO for irreg nouns")
-    stem = Kanones.readstemrow(irrnounio, delimited)
+    stem = fromcex(delimited, IrregularNounStem)
     expectedurn = StemUrn("irregnoun.irregn23069a")
     @test urn(stem) == expectedurn
 
@@ -25,7 +23,7 @@ end
     @test urn(stem, registry = dict) == expectedcite2
 
 
-    @test lexemeurn(stem) == LexemeUrn("lsj.n23069")
+    @test lexeme(stem) == LexemeUrn("lsj.n23069")
     @test stemstring(stem) == "γυνή"
     @test code(stem) == "2010002100"
     @test Kanones.formurn(stem) == FormUrn("forms.2010002100")

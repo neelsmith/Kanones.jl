@@ -66,11 +66,11 @@ IRREGULAR_STEM_DIRECTORIES = [
 
 IRREGULAR_IO_DICT = Dict(
         [
-        "nouns" => IrregularNounIO("noun"),
-        "verbs" => IrregularVerbIO("finite verb"),
-        "infinitives" => IrregularInfinitiveIO("infinitive"),
+        #"nouns" => IrregularNounIO("noun"),
+        #"verbs" => IrregularVerbIO("finite verb"),
+        #"infinitives" => IrregularInfinitiveIO("infinitive"),
         "adjectives" => IrregularAdjectiveIO("adjectives"),
-        "participles" => IrregularParticipleIO("adjectives")
+        #"participles" => IrregularParticipleIO("adjectives")
         ]
     )    
 
