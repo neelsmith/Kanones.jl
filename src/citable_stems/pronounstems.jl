@@ -81,14 +81,37 @@ Required for `CitableTrait`.
 """
 function cex(pns::PronounStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([pns.stemid, label(pns), stemstring(pns), lexeme(pns), inflectionclass(pns), label(pns.pgender), label(pns.pcase), label(pns.pnumber) ], delimiter)
+        join([pns.stemid, lexeme(pns), stemstring(pns), label(pns.pgender), label(pns.pcase), label(pns.pnumber),  pns.pronountype ], delimiter)
     else
         c2urn = expand(pns.stemid, registry)
-        join([c2urn, label(pns), stemstring(pns), lexeme(pns), inflectionclass(pns), label(pns.pgender), label(pns.pcase), label(pns.pnumber) ], delimiter)
+        lexurn = expand(pns.lexid, registry)
+        join([c2urn,lexurn, stemstring(pns), label(pns.gender),pns.pronountype], delimiter)
     end
 end
 
+#=
+stemid::AbbreviatedUrn
+    lexid::AbbreviatedUrn
+    form::AbstractString
+    pgender::GMPGender
+    pcase::GMPCase
+    pnumber::GMPNumber
+    pronountype::AbstractString
+=#
 
+function fromcex(traitvalue::PronounStemCex, cexsrc::AbstractString, T;      
+    delimiter = "|", configuration = nothing, strict = true)
+    parts = split(cexsrc, delimiter)
+    stemid = StemUrn(parts[1])
+    lexid = LexemeUrn(parts[2])
+    stem = knormal(parts[3])
+    gndr = gmpGender(parts[4])
+    cs = gmpCase(parts[5])
+    nmbr = gmpNumber(parts[6])
+    inflclass = parts[7]
+ 
+    PronounStem(stemid, lexid, stem,gndr, cs, nmbr,inflclass)
+end
 
 
 
@@ -120,28 +143,6 @@ function gmpNumber(pr::PronounStem)
     pr.pnumber
 end
 
-
-#=
-"""
-Read one row of a stems table for noun tokens and create a `PronounStem`.
-
-$(SIGNATURES)    
-"""
-function readstemrow(usp::PronounIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    stemid = StemUrn(parts[1])
-    lexid = LexemeUrn(parts[2])
-    stem = knormal(parts[3])
-    gndr = gmpGender(parts[4])
-    cs = gmpCase(parts[5])
-    nmbr = gmpNumber(parts[6])
-    inflclass = parts[7]
- 
-    PronounStem(stemid, lexid, stem,gndr, cs, nmbr,inflclass)
-end
-
-
-=#
 
 """Identify value of stem string for `pr`.
 $(SIGNATURES)

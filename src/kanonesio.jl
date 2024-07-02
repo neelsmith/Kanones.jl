@@ -23,14 +23,6 @@ struct IrregularNounIO <: KanonesIO
 end
 
 
-"""
-KanonesIO type for reading and writing data for pronoun forms.
-
-$(SIGNATURES)
-"""
-struct PronounIO <: KanonesIO
-    label::AbstractString
-end
 
 """
 KanonesIO type for reading and writing data for irregular rules only.
