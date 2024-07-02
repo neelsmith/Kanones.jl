@@ -77,15 +77,6 @@ function cex(adj::AdjectiveStem; delimiter = "|", registry = nothing)
         lexurn = expand(adj.lexid, registry)
         join([c2urn,lexurn, stemstring(adj),  inflectionclass(adj),  adj.accentpersistence], delimiter)
     end
-    #=
-  stemid::StemUrn
-    lexid::LexemeUrn
-    form::AbstractString
-    inflectionclass::AbstractString
-    accentpersistence::AbstractString
-    =#
-
-    #"nounstems.n8909|Noun stem ἀνθρωπ- (masculine)|ἀνθρωπ|lsj.n8909|os_ou|masculine|recessive"
 end
 
 
