@@ -17,7 +17,7 @@ import CitableParserBuilder: datasource
 import CitableParserBuilder: orthography
 import CitableParserBuilder: delimiter
 import CitableParserBuilder: generate
-import CitableParserBuilder: lexemeurn
+import CitableParserBuilder: lexemeurn, lexeme
 import CitableParserBuilder: stringParser
 import CitableParserBuilder: analyses
 
