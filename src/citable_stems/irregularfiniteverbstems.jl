@@ -14,8 +14,6 @@ end
 #third|singular|present|indicative|active|irregularfiniteverb
 
 
-
-
 function show(io::IO, verb::IrregularVerbStem)
     print(io, label(verb))
 end
