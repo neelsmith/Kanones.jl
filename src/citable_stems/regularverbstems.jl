@@ -10,8 +10,8 @@ struct VerbStem <: KanonesStem
     augmented::Bool 
 end
 
-function show(io::IO, vb::VerbStem)
-    print(io, label(vb))
+function show(io::IO, verb::VerbStem)
+    print(io, label(verb))
 end
 
 function ==(v1::VerbStem, v2::VerbStem)
@@ -80,13 +80,7 @@ function cex(vs::VerbStem; delimiter = "|", registry = nothing)
         join([c2urn, label(vs), stemstring(vs), lexeme(vs), inflectionclass(vs)], delimiter)
     end
 end
-#=
- stemid::AbbreviatedUrn
-    lexid::AbbreviatedUrn
-    form::AbstractString
-    stemclass::AbstractString 
-    augmented::Bool 
-=#
+
 
 function fromcex(traitvalue::VerbStemCex, cexsrc::AbstractString, T;      
     delimiter = "|", configuration = nothing, strict = true)
