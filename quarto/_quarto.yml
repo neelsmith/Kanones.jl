@@ -27,6 +27,8 @@ website:
         file: guides/index.qmd           
       - text: "Reference"
         file: reference/index.qmd  
+      - text: "Paradigms"
+        file: paradigms/index.qmd
     right:   
       - icon: github
         href: https://github.com/neelsmith/Kanones.jl
@@ -88,6 +90,10 @@ website:
         - concepts/analyses.qmd
         - concepts/source_vs_analysis.qmd
         - concepts/julia_dispatch.qmd
+    - title: "Paradigms"
+      contents: 
+        - paradigms/index.qmd        
+
 
         
 

@@ -1,0 +1,5 @@
+# Paradigms
+
+::: {.callout-caution title="TBA"}
+Paradigms for major inflectional types and important irregular forms to be added here.
+:::
