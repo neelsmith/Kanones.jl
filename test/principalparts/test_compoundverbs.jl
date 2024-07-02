@@ -1,8 +1,12 @@
 
 @testset "Test parsing delimited text for a compound verb stem" begin
-    s = "compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω|"
-    compound = compoundstem(s)
+    #s = "compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω|"
+    s = Unicode.normalize("compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω|false")
+
+    compound = fromcex(s, CompoundVerbStem)
     @test compound isa CompoundVerbStem
+
+    @test fromcex(cex(compound), CompoundVerbStem) == compound
 
     @test lexemeurn(compound) == LexemeUrn("lsj.n30252")
 
@@ -16,7 +20,7 @@ end
     kds = joinpath(repo, "datasets", "literarygreek-rules") |> dataset
 
     s = "compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω|"
-    compound = compoundstem(s)
+    compound = fromcex(s, CompoundVerbStem)
 
     compoundstems = Kanones.stems(compound, stemsarray(kds))
     @test length(compoundstems) == 6

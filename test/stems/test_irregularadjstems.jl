@@ -1,12 +1,12 @@
 
 @testset "Test IO for delimited text of irregular adjectives" begin
-    delimited = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
-    irradjio = Kanones.IrregularAdjectiveIO("IO for irreg adjs")
-    stem = Kanones.readstemrow(irradjio, delimited)
+    delimited = Unicode.normalize("irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective")
+    stem = fromcex(delimited, IrregularAdjectiveStem)
     @test stem isa IrregularAdjectiveStem
 
 
-    @test Unicode.normalize(cex(stem)) == Unicode.normalize("irregadj.n79904a|Irregular adjective form πᾶς (masculine nominative singular positive)|πᾶς|lsj.n79904|irregularadjective|masculine|nominative|singular|positive")
+    @test Unicode.normalize(cex(stem)) == delimited
+    @test fromcex(Unicode.normalize(cex(stem)), IrregularAdjectiveStem) == stem
 
 end
 
@@ -14,8 +14,7 @@ end
 
 @testset "Test data accessors for irregular adjectives" begin
     delimited = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
-    irradjio = Kanones.IrregularAdjectiveIO("IO for irreg adjs")
-    stem = Kanones.readstemrow(irradjio, delimited)
+    stem = fromcex(delimited, IrregularAdjectiveStem)
     expectedurn = StemUrn("irregadj.n79904a")
     @test urn(stem) == expectedurn
 
@@ -25,7 +24,7 @@ end
     @test urn(stem, registry = dict) == expectedcite2
 
 
-    @test lexemeurn(stem) == LexemeUrn("lsj.n79904")
+    @test lexeme(stem) == LexemeUrn("lsj.n79904")
     @test stemstring(stem) == "πᾶς"
     @test code(stem) == "7010001110"
     @test Kanones.formurn(stem) == FormUrn("forms.7010001110")

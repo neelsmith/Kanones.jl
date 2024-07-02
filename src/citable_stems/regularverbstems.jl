@@ -77,7 +77,8 @@ function cex(vs::VerbStem; delimiter = "|", registry = nothing)
         join([vs.stemid, lexeme(vs), stemstring(vs),  inflectionclass(vs), vs.augmented], delimiter)
     else
         c2urn = expand(vs.stemid, registry)
-        join([c2urn, label(vs), stemstring(vs), lexeme(vs), inflectionclass(vs)], delimiter)
+        lexurn = expand(ns.lexid, registry)
+        join([c2urn, lexurn,  stemstring(vs),  inflectionclass(vs), vs.augmented], delimiter)
     end
 end
 
