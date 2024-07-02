@@ -1,20 +1,20 @@
 
 @testset "Test IO for delimited text of irregular participles" begin
-    delimited = "irregptcpl.irregptcpln31130a|lsj.n31130|ὤν|present|active|masculine|nominative|singular|irregularparticiple"
-    irrptcplio = Kanones.IrregularParticipleIO("IO for irregular participles")
-    stem = Kanones.readstemrow(irrptcplio, delimited)
-    @test stem isa Kanones.IrregularParticipleStem
+    delimited = Unicode.normalize("irregptcpl.irregptcpln31130a|lsj.n31130|ὤν|present|active|masculine|nominative|singular|irregularparticiple")
+    stem = fromcex(delimited, IrregularParticipleStem)
+    @test stem isa IrregularParticipleStem
 
-    expected = "irregptcpl.irregptcpln31130a|Irregular participle form ὤν (present active masculine nominative singular|ὤν|lsj.n31130|irregularparticiple|present|active|masculine|nominative|singular"
+    
 
-    @test Unicode.normalize(cex(stem)) == Unicode.normalize(expected)
+    @test Unicode.normalize(cex(stem)) == delimited
+    @test fromcex( Unicode.normalize(cex(stem)), IrregularParticipleStem) == stem
 end
+
 
 
 @testset "Test data accessors for irregular participles" begin
     delimited = "irregptcpl.irregptcpln31130a|lsj.n31130|ὤν|present|active|masculine|nominative|singular|irregularparticiple"
-    irrptcplio = Kanones.IrregularParticipleIO("IO for irregular participles")
-    stem = Kanones.readstemrow(irrptcplio, delimited)
+    stem = fromcex(delimited, IrregularParticipleStem)
 
     expectedurn = StemUrn("irregptcpl.irregptcpln31130a")
     @test urn(stem) == expectedurn
@@ -25,7 +25,7 @@ end
     @test urn(stem, registry = dict) == expectedcite2
 
 
-    @test lexemeurn(stem) == LexemeUrn("lsj.n31130")
+    @test lexeme(stem) == LexemeUrn("lsj.n31130")
     @test stemstring(stem) == "ὤν"
     @test code(stem) == "5011011100"
     @test Kanones.formurn(stem) == FormUrn("forms.5011011100")
