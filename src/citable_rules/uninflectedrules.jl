@@ -8,7 +8,6 @@ struct UninflectedRule <: KanonesRule
 end
 
 
-
 function show(io::IO, uninfl::UninflectedRule)
     print(io, label(uninfl))
 end
@@ -26,9 +25,7 @@ function citabletrait(::Type{UninflectedRule})
     CitableByCite2Urn()
 end
 
-
 """Human-readlable label for a `UninflectedRule`.
-
 $(SIGNATURES)
 Required for `CitableTrait`.
 """

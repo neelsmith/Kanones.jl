@@ -1,18 +1,17 @@
 @testset "Test IO with delimited text" begin
-    ptcplio = Kanones.ParticipleIO("ptcpls")
     delimited = "ptcplinfl.wpres1|w_regular|όμενος|present|middle|masculine|nominative|singular|"
-    rule = Kanones.readrulerow(ptcplio, delimited)
+    rule = fromcex(delimited, ParticipleRule)
     # must read from delimited
     @test rule isa ParticipleRule
     # must write to delimited
-   @test cex(rule) == "ptcplinfl.wpres1|Participle inflection rule: ending -όμενος in class w_regular can be present middle masculine nominative singular.|όμενος|w_regular|forms.5011021100"
+   @test cex(rule) == "ptcplinfl.wpres1|w_regular|όμενος|present|middle|masculine|nominative|singular"
+   @test fromcex(cex(rule), ParticipleRule) == rule
 end
 
 
 @testset "Test data accessors" begin
-    ptcplio = Kanones.ParticipleIO("ptcpls")
     delimited = "ptcplinfl.wpres1|w_regular|όμενος|present|middle|masculine|nominative|singular|"
-    rule = Kanones.readrulerow(ptcplio, delimited)
+    rule = fromcex(delimited, ParticipleRule)
 
     # must get id
     ruleu = Kanones.ruleurn(rule)
