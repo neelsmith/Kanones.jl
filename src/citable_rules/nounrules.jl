@@ -135,34 +135,6 @@ function gmpNumber(nr::NounRule)
     nr.nnumber
 end
 
-#=
-"""Read one row of a rules table for noun tokens,
-and create a `NounRule`.
-
-$(SIGNATURES) 
-"""
-function readrulerow(usp::NounIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    @debug(parts)
-    if length(parts) < 6
-        msg = "Invalid syntax for noun rule: too few components in $(delimited)"
-        throw(ArgumentError(msg))
-    else
-        ruleid = RuleUrn(parts[1])
-        inflclass = parts[2]
-        ending = knormal(parts[3])
-        g = gmpGender(parts[4])
-        c = gmpCase(parts[5])
-        n = gmpNumber(parts[6])
- 
-        NounRule(ruleid, inflclass, ending, g,c,n)
-    end
-    
-end
-=#
-
-
-
 
 """Identifier for a  `NounRule`, as an
 abbreviated URN.

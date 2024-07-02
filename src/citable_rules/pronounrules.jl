@@ -88,23 +88,6 @@ function inflectionclass(pron::PronounRule)
 end
 
 
-#=
-"""
-Read one row of a stems table for pronoun tokens and create a `PronounRule`.
-
-$(SIGNATURES)    
-"""
-function readrulerow(usp::PronounIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    ruleid = RuleUrn(parts[1])
-    pronountype = parts[2]
- 
-    PronounRule(ruleid,pronountype)
-end
-=#
-
-
-
 
 function ending(rule::PronounRule)
     ""

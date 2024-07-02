@@ -190,36 +190,6 @@ end
 
 
 
-
-
-
-#=
-"""Read one row of a rules table for infinitives and create an`ParticipleRule`.
-
-$(SIGNATURES)
-"""
-function readrulerow(usp::ParticipleIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    
-    if length(parts) < 5
-        msg = "Invalid syntax for finite verb rule: too few components in $(delimited)"
-        throw(ArgumentError(msg))
-    else
-        ruleid = RuleUrn(parts[1])
-        inflclass = parts[2]
-        ending = parts[3]
-        t = gmpTense(parts[4])
-        v = gmpVoice(parts[5])
-        g = gmpGender(parts[6])
-        c = gmpCase(parts[7])
-        n = gmpNumber(parts[8])
-        ParticipleRule(ruleid, inflclass, ending,t,v,g,c,n)
-    end
-    # Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-end
-=#
-
-
 """Compose string of digits for form in `rule`.
 $(SIGNATURES)
 """

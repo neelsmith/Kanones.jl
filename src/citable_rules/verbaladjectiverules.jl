@@ -139,30 +139,7 @@ end
 function gmpNumber(va::VerbalAdjectiveRule)
     va.vanumber
 end
-#=
-"""Read one row of a rules table for infinitives and create an `InfinitiveRule`.
 
-$(SIGNATURES)
-"""
-function readrulerow(usp::VerbalAdjectiveIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    
-    if length(parts) < 6
-        msg = "Invalid syntax for verbal adjective: too few components in $(delimited)"
-        throw(ArgumentError(msg))
-    else
-        ruleid = RuleUrn(parts[1])
-        inflclass = parts[2]
-        ending = parts[3]
-        g = gmpGender(parts[4])
-        c = gmpCase(parts[5])
-        n = gmpNumber(parts[6])
-
-        VerbalAdjectiveRule(ruleid, inflclass, ending,g,c,n)
-    end
-
-end
-=#
 
 
 function code(rule::VerbalAdjectiveRule)

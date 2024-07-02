@@ -98,25 +98,6 @@ function ending(irreg::IrregularRule)
 end
 
 
-#=
-"""Implementation of reading one row of a rules table for irregular tokens.
-
-$(SIGNATURES) 
-"""
-function readrulerow(ruleparser::Kanones.IrregularRuleParser, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    if length(parts) < 2
-        msg = "Invalid syntax for irregular rule: too few components in $(delimited)"
-        throw(ArgumentError(msg))
-    else
-        ruleid = RuleUrn(parts[1])
-        inflectionaltype = parts[2]
-        IrregularRule(ruleid, inflectionaltype)
-    end
-end
-=#
-
-
 function ruleurn(irreg::IrregularRule)
     irreg.ruleid
 end

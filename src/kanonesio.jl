@@ -52,14 +52,6 @@ struct IrregularRuleParser <: KanonesIO
     label::AbstractString
 end
 
-"""
-KanonesIO type for reading and writing data for finite verb form.
-
-$(SIGNATURES)
-"""    
-struct VerbIO <: KanonesIO
-    label::AbstractString
-end
 
 """
 KanonesIO type for reading and writing data for irregular finite verb forms.

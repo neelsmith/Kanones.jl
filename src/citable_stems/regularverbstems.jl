@@ -129,26 +129,3 @@ $(SIGNATURES)
 function inflectionclass(vs::VerbStem)
     vs.stemclass
 end
-
-
-
-
-#=
-"""Implementation of reading one row of a stems table for finite verbs.
-
-$(SIGNATURES)
-"""
-function readstemrow(usp::VerbIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    if length(parts) < 5
-        throw(ArgumentError("readstemrow for verb: too few parts in $(delimited)"))
-    end
-    stemid = StemUrn(parts[1])
-    lexid = LexemeUrn(parts[2])
-    stem = parts[3]
-    stemclass = parts[4]
-    augmented = lowercase(parts[5]) == "true" || lowercase(parts[5]) == "t"
-    VerbStem(stemid,lexid,stem,stemclass, augmented)
-    # Rule|LexicalEntity|StemClass|Stem|
-end
-=#

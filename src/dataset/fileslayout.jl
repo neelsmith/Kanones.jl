@@ -36,21 +36,7 @@ RULES_TYPES_DICT = Dict(
         GMFParticiple => ParticipleRule,
         GMFVerbalAdjective => VerbalAdjectiveRule
     )
-#=
-RULES_IO_DICT = Dict(
-        [
-        "uninflected" => UninflectedIO("uninflected"),
-        "irregulars" => IrregularRuleParser("irregulars"),
-        "nouns" => NounIO("noun"),
-        "pronouns" => PronounIO("noun"),
-        "adjectives" => AdjectiveIO("adjectives"),
-        "finiteverbs" => VerbIO("verb"),
-        "infinitives" => InfinitiveIO("infinitives"),
-        "participles" => ParticipleIO("participles"),
-        "verbaladjectives" => VerbalAdjectiveIO("verbal adjectives"),
-        ]
-    )
-=#
+
 STEMS_DIRECTORIES = [
         "adjectives",
         "nouns",
@@ -65,7 +51,7 @@ STEMS_IO_DICT = Dict(
         "nouns" => NounIO("noun"),
         "pronouns" => PronounIO("pronoun"),
         "uninflected" => UninflectedIO("uninflected"),
-        "verbs-simplex" => VerbIO("verb")
+       # "verbs-simplex" => VerbIO("verb")
         ]
     )
 

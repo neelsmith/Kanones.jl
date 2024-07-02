@@ -133,33 +133,6 @@ function ending(rule::InfinitiveRule)
 end
 
 
-
-#=
-"""Read one row of a rules table for infinitives and create an `InfinitiveRule`.
-
-$(SIGNATURES)
-"""
-function readrulerow(infio::InfinitiveIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    
-    if length(parts) < 5
-        msg = "Invalid syntax for finite verb rule: too few components in $(delimited)"
-        throw(ArgumentError(msg))
-    else
-        ruleid = RuleUrn(parts[1])
-        inflclass = parts[2]
-        ending = parts[3]
-        t = gmpTense(parts[4])
-        v = gmpVoice(parts[5])
-
-        InfinitiveRule(ruleid, inflclass, ending,t,v)
-    end
-
-    # Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-end
-=#
-
-
 """Compose digital code for morphological form identified in `rule`.
 $(SIGNATURES)
 """

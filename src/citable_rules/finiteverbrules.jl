@@ -190,37 +190,6 @@ function ruleurn(rule::FiniteVerbRule)
 end
 
 
-#=
-
-"""Read one row of a rules table for verb tokens and create a `FiniteVerbRule`
-
-$(SIGNATURES)
-"""
-function readrulerow(usp::VerbIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    if length(parts) < 8
-        msg = "Invalid syntax for finite verb rule: too few components in $(delimited)"
-        @warn(msg)
-        throw(ArgumentError(msg))
-    else
-        ruleid = RuleUrn(parts[1])
-        inflclass = parts[2]
-        ending = parts[3]
-        
-        p = gmpPerson(parts[4])
-        n = gmpNumber(parts[5])
-        t = gmpTense(parts[6])
-        m = gmpMood(parts[7])
-        v = gmpVoice(parts[8])
-
-        FiniteVerbRule(ruleid, inflclass, ending,p,n,t,m,v)
-    end
-
-    # Rule|StemClass|Ending|Person|Number|Tense|Mood|Voice
-end
-
-=#
-
 """Compose a digital code string for the form identified in `rule`.
 $(SIGNATURES)
 """

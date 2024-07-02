@@ -141,51 +141,6 @@ function ending(rule::AdjectiveRule)
 end
 
 
-
-#=
-"""Implementation of reading one row of a rules table for uninflected tokens.
-
-$(SIGNATURES) 
-"""
-function readrulerow(usp::AdjectiveIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    
-    if length(parts) < 7
-        msg = "Invalid syntax for adjective rule: too few components in $(delimited)"
-        throw(ArgumentError(msg))
-    else
-        ruleid = RuleUrn(parts[1])
-        inflclass = parts[2]
-        ending = knormal(parts[3])
-        g = gmpGender(parts[4])
-        c = gmpCase(parts[5])
-        n = gmpNumber(parts[6])
-        d = gmpDegree(parts[7])
-        AdjectiveRule(ruleid, inflclass, ending, g,c,n,d)
-    end
-    
-end
-
-
-
-
-"""Compose CEX text for an `AdjectiveRule`.
-If `registry` is nothing, use abbreivated URN;
-otherwise, expand identifier to full `Cite2Urn`.
-
-$(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function cex(adj::AdjectiveRule; delimiter = "|", registry = nothing)
-    if isnothing(registry)
-        join([adj.ruleid, label(adj), ending(adj), inflectionclass(adj), formurn(adj)], delimiter)
-    else
-        c2urn = expand(adj.ruleid, registry)
-        join([c2urn, label(adj),ending(adj), inflectionclass(adj), formurn(adj)], delimiter)
-    end
-end
-=#
-
 """Compose digital code for morphological form identified in `rule`.
 $(SIGNATURES)
 """
