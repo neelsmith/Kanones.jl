@@ -91,7 +91,7 @@ $(SIGNATURES)
 function parsetoken(s::AbstractString, parser::KanonesStringParser; data = nothing)
     #strlist = resolvestring(s)
     ptrn = knormal(s) * "|"
-    @info("Match pattern", ptrn)
+    @debug("Match pattern", ptrn)
     matches = filter(ln -> startswith(ln, ptrn), datasource(parser))
     map(ln ->  fromcex(ln, Analysis), matches)
 end
