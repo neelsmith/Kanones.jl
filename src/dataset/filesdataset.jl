@@ -42,7 +42,7 @@ $(SIGNATURES)
 
 # Arguments
 
-- `srclist` List of full paths to a directory with Kanones data.
+- `srclist` List of full paths to directories with Kanones data.
 - `ortho` An instance of a `GreekOrthography`; defaults to `LiteraryGreekOrthography`.
 """
 function dataset(srclist::Vector; ortho::T = literaryGreek()) where {T <: GreekOrthography}
@@ -66,11 +66,13 @@ function rulesarray(dirlist; delimiter = "|")
     rulesarr = Rule[]
     pattern  = r".cex$"
     for datasrc in dirlist
+        #@info("Dir: $(datasrc)")
         for dirname in RULES_DIRECTORIES 
-            delimitedreader = (RULES_IO_DICT[dirname])
+            @debug("rule dir $(dirname)")
             dir = joinpath(datasrc, "rules-tables", dirname)
-            @debug("Read from dirname/reader", dir, delimitedreader)
+           
             if isdir(dir)
+                @debug("Got directory")
                 for (root, dirs, files) in walkdir(dir)
                     @debug("r/d/f", root, dirs, files)
                     for f in files
@@ -78,12 +80,14 @@ function rulesarray(dirlist; delimiter = "|")
                             @debug("READ f", joinpath(root,f))
                             raw = readlines(joinpath(root,f))
                             lines = filter(s -> ! isempty(s), raw)
-                            for i in 2:length(lines)
+                            datalines = lines[2:end]
+                            for ln in datalines
                                 try 
-                                    rule = readrulerow(delimitedreader, lines[i], delimiter = delimiter)
+                                    rule = fromcex(ln, RULES_TYPES_DICT[dirname])
+                                    @debug("Instantiated rule $(rule)")
                                     push!(rulesarr,rule)
                                 catch e
-                                    @warn("Failed to parse rule from line\n\"$(lines[i])\" \nin file ($(f)")
+                                    @warn("Failed to parse rule from line\n\"$(ln)\" \nin file ($(f)")
                                     @warn("Error: $(e)")
                                 end
                             end
@@ -121,12 +125,14 @@ function compoundsarray(dirlist; delimiter = "|")
                         @debug("READ f", joinpath(root,f))
                         raw = readlines(joinpath(root,f))
                         lines = filter(s -> ! isempty(s), raw)
-                        for i in 2:length(lines)
+                        datalines = lines[2:end]
+                        for ln in datalines
                             try 
-                                record = compoundstem(lines[i])
+                                #record = compoundstem(ln)
+                                record = fromcex(ln, CompoundVerbStem)
                                 push!(compoundarray,record)
                             catch e
-                                @warn("Failed to parse compound verb entry from line\n\"$(lines[i])\" \nin file ($(f)")
+                                @warn("Failed to parse compound verb entry from line\n\"$(ln)\" \nin file ($(f)")
                                 @warn("Error: $(e)")
                             end
                         end
@@ -158,7 +164,7 @@ function regularstems(dirlist; delimiter = "|")
     pattern  = r".cex$"
     for datasrc in dirlist     
         for dirname in STEMS_DIRECTORIES 
-            delimitedreader = (STEMS_IO_DICT[dirname])
+            #delimitedreader = (STEMS_IO_DICT[dirname])
             dir = joinpath(datasrc, "stems-tables", dirname)
             @debug("Read from dirname/reader", dir, delimitedreader)
             if isdir(dir)
@@ -170,14 +176,15 @@ function regularstems(dirlist; delimiter = "|")
                             raw = readlines(joinpath(root, f))
                             # Trim lines first:
                             lines = filter(s -> ! isempty(s), raw)
-                            @debug("Read datalines", length(lines))
-                            for i in 2:length(lines)
+                            datalines = lines[2:end]
+                            @debug("Read datalines", length(datalines))
+                            for ln in datalines
                                 try
-                                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
+                                    stem = fromcex(ln, STEMS_TYPES_DICT[dirname])
                                     #@debug("==>READ STEM", stem)
                                     push!(stemsarr,stem)
                                 catch e
-                                    @warn("Failed to parse stem data from line $(lines[i]) in file $(f)")
+                                    @warn("Failed to parse stem data from line $(ln) in file $(f)")
                                     @warn("Error: $(e)")
                                 end
                                 
@@ -202,7 +209,7 @@ function irregularstems(dirlist; delimiter = "|")
 
     for datasrc in dirlist
         for dirname in IRREGULAR_STEM_DIRECTORIES
-            delimitedreader = (IRREGULAR_IO_DICT[dirname])
+            #delimitedreader = (IRREGULAR_IO_DICT[dirname])
             dir = joinpath(datasrc, "irregular-stems", dirname)
             @debug("Read from dirname/reader", dir, delimitedreader)
             if isdir(dir)
@@ -212,12 +219,13 @@ function irregularstems(dirlist; delimiter = "|")
                         if occursin(pattern, f) 
                             raw = readlines(joinpath(root,f))
                             lines = filter(s -> ! isempty(s), raw)
-                            for i in 2:length(lines)
+                            datalines = lines[2:end]
+                            for ln in datalines
                                 try
-                                    stem = readstemrow(delimitedreader, lines[i]; delimiter = delimiter)
+                                    stem = fromcex(ln, IRREGULAR_TYPES_DICT[dirname])
                                     push!(stemsarr,stem)
                                 catch
-                                    @warn("Irregular stems data: error reading line $(i), $(lines[1]) in file $(joinpath(dir,f))")
+                                    @warn("Irregular stems data: error reading line $(ln) in file $(joinpath(dir,f))")
                                 end
 
                                 
@@ -237,6 +245,7 @@ $(SIGNATURES)
 """
 function regularcompounds(dirlist, verbstems; ortho = literaryGreek())
     compoundstemsarr = Stem[]
+    
     # Add compound verbs.
     for s in compoundsarray(dirlist)
         compounded = stems(s, verbstems, ortho)
@@ -245,6 +254,7 @@ function regularcompounds(dirlist, verbstems; ortho = literaryGreek())
             push!(compoundstemsarr, c)
         end
     end
+    @debug("Found $(length(compoundstemsarr)) regular stems for compounds for $(dirlist)")
     compoundstemsarr
 end
 
@@ -256,16 +266,19 @@ end
 $(SIGNATURES)
 """
 function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
-    @debug("Getting regular stems for $dirlist")
+    
     regstemsarr = regularstems(dirlist)
+    @debug("Got $(length(regstemsarr)) regular stems for $dirlist")
 
-    @debug("Getting regular compound stems for $dirlist")
+    
     verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, regstemsarr)
     @debug("Selected $(length(verbalstems)) simplex verbal stems")
     compoundstemsarr = regularcompounds(dirlist, verbalstems, ortho = ortho)
 
-    @debug("Getting irregular stems for $dirlist")
+    
     irregstemsarr = irregularstems(dirlist)
+    @debug("Got $(length(irregstemsarr)) irregular stems for $dirlist")
+    @debug("Also need irregular compounds")
     irregcompoundstemarr = irregularcompounds(dirlist, irregstemsarr, ortho = ortho)
 
 
@@ -302,13 +315,14 @@ function registry(dirlist; delimiter = "|")
                 raw = readlines(f)
                 # Trim lines first:
                 lines = filter(s -> ! isempty(s), raw)
-                for i in 2:length(lines)
-                    cols = split(lines[i], "|")
+                datalines = lines[2:end]
+                for i in datalines
+                    cols = split(ln, "|")
                     key = cols[1]
                     urn = cols[2]
                     @debug("COLS", cols)
                     if length(cols) < 3
-                        @warn("Failed to parse stem data from line $(lines[i]) in file $(f)")
+                        @warn("Failed to parse stem data from line $(ln) in file $(f)")
                     else
                         registrydict[key] = urn
                     end

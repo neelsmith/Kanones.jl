@@ -46,7 +46,7 @@ function reportscore(terms, parser)
     writedlm("reports/scorecard.cex", scorecard, '|')     
 
     badonly = []
-    for i in 1:length(terms)
+    for (i,trm) in enumerate(terms)
         if checkboxes[i] == "❌"
             #push!(badonly, string(terms[i], "|", freqs[i], "| ❌"))
             push!(badonly, string(terms[i], " ❌"))

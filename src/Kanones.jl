@@ -1,6 +1,9 @@
 module Kanones
 
-using CSV, DataFrames
+import Base: show
+import Base.==
+
+using CSV
 using HTTP, Downloads
 
 # This is only for profiling, currently used in scripts in scripts 
@@ -8,16 +11,17 @@ using HTTP, Downloads
 #using OrderedCollections, StatsBase
 
 using CitableParserBuilder
-import CitableParserBuilder: formurn
-import CitableParserBuilder: parsetoken
-import CitableParserBuilder: parselist
-import CitableParserBuilder: parsecorpus
-#import CitableParserBuilder: parsedocument
-import CitableParserBuilder: CanParseCitable
-import CitableParserBuilder: lexeme
-import CitableParserBuilder: lexemes
+import CitableParserBuilder: parsetoken #, parsewordlist,  parselistfromfile, parselistfromurl
+import CitableParserBuilder: tofile
+import CitableParserBuilder: datasource
+import CitableParserBuilder: orthography
+import CitableParserBuilder: delimiter
+import CitableParserBuilder: generate
+import CitableParserBuilder: lexemeurn, lexeme
+import CitableParserBuilder: stringParser
+import CitableParserBuilder: analyses
 
-export KanonesParser
+export KanonesParser, KanonesStringParser
 export parsetoken, parsewordlist, parsecorpus, parsedocument
 export formlabels
 
@@ -28,12 +32,17 @@ using Unicode, Glob, DelimitedFiles
 using CSV
 using Documenter, DocStringExtensions
 
-using CitableBase: Citable
-import CitableBase: CitableTrait
+using CitableBase
+import CitableBase: citabletrait
 import CitableBase: urn
 import CitableBase: label
+
+import CitableBase: cextrait
 import CitableBase: cex
-using CitableBase
+import CitableBase: fromcex
+
+import CitableBase: citablecollectiontrait
+import CitableBase: urntype
 
 using CitableCollection
 using Tables
@@ -84,6 +93,8 @@ export IrregularVerbStem
 export IrregularInfinitiveStem
 export IrregularParticipleStem
 
+export RuleSet
+
 export GreekLexeme
 export lemmatadict, lemmalabel, lsjcollection
 
@@ -100,22 +111,22 @@ export conjugation_md, imperativeconjugation_md
 export verb_conjugation_md
 export lexicon_noun_md
 
-export writecsv
+#export writecsv
 
 export urn, formurn, ruleurn
 
-export StringParser, stringParser, tofile
-export DFParser, dfParser
+export KanonesStringParser, kParser
+#export DFParser, dfParser
+# export TabulaeStringParser, tabulaeStringParser
+export orthography
 
 export InflectionCategory
 
 include("normal.jl")
 include("kanonesio.jl")
 include("dataset/dataset.jl")
-include("dataset/fileslayout.jl")
-include("dataset/filesdataset.jl")
-include("dataset/compoundstems.jl")
-include("dataset/stemreaders.jl")
+
+#include("dataset/stemreaders.jl")
 include("dataset/infltypes.jl")
 
 include("utils/utils.jl")
@@ -140,7 +151,6 @@ include("morphologicalproperties/degree.jl")
 include("morphologicalproperties/uninflectedtype.jl")
 
 include("citable_forms/formvalues.jl")
-
 include("citable_rules/irregularrules.jl")
 
 include("citable_forms/finiteverbs.jl")
@@ -183,6 +193,22 @@ include("citable_forms/uninflected.jl")
 include("citable_rules/uninflectedrules.jl")
 include("citable_stems/uninflectedstems.jl")
 
+
+
+
+
+include("dataset/fileslayout.jl")
+include("dataset/filesdataset.jl")
+
+include("dataset/compoundstems.jl")
+include("citable_rules/rulesets.jl")
+
+include("parser/parser.jl")
+include("parser/stringparser.jl")
+#include("parser/dfparser.jl")
+#include("parser/perfilebuilder.jl")
+
+
 include("generate/generate.jl")
 include("generate/generatenoun.jl")
 include("generate/generateadj.jl")
@@ -195,11 +221,6 @@ include("generate/generatepronoun.jl")
 include("generate/generateuninflected.jl")
 include("generate/generateirregular.jl")
 include("generate/debug.jl")
-
-include("parser/parser.jl")
-include("parser/stringparser.jl")
-include("parser/dfparser.jl")
-include("parser/perfilebuilder.jl")
 
 
 include("forapps/adjdeclensions.jl")
@@ -219,7 +240,7 @@ include("forapps/infinitives.jl")
 
 
 
-include("dfparser/survey.jl")
+#include("dfparser/survey.jl")
 
 include("inflectionclassmetadata/inflectionclass.jl")
 

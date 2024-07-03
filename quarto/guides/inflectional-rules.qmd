@@ -8,6 +8,9 @@ title: "🤷‍♂️ Adding inflectional rules"
 - rules can be read from delimited-text source with `readrulerow`
 
 
+::: {.callout-warning title="Out of date"}
+The example uses code that is no oonger in Kanones 0.25
+:::
 
 ## Example
 
@@ -16,8 +19,8 @@ Read a rule from delimited text:
 ```@example rules
 using Kanones
 delimited = "adjinfl.osaon1|os_a_on|ος|masculine|nominative|singular|positive|"
-adjio = Kanones.AdjectiveIO("adjectives")
-rule = Kanones.readrulerow(adjio, delimited)
+# use fromcex!
+
 ```
 
 Find its `RuleUrn`:

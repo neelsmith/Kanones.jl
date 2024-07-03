@@ -10,6 +10,123 @@ struct IrregularAdjectiveStem <: KanonesIrregularStem
     inflectionclass
 end
 
+
+
+
+
+function show(io::IO, adj::IrregularAdjectiveStem)
+    print(io, label(adj))
+end
+
+function ==(a1::IrregularAdjectiveStem, a2::IrregularAdjectiveStem)
+    a1.stemid == a2.stemid &&
+    a1.lexid == a2.lexid &&
+    a1.form == a2.form &&
+
+  
+    a1.adjgender == a2.adjgender &&
+    a1.adjcase == a2.adjcase &&
+    a1.adjnumber == a2.adjnumber &&
+    a1.adjdegree == a2.adjdegree &&
+
+
+    inflectionclass(a1) == inflectionclass(a2)
+   
+end
+
+
+
+"""Irregular adjective stems are citable by Cite2Urn"""
+CitableTrait(::Type{IrregularAdjectiveStem}) = CitableByCite2Urn()
+function citabletrait(::Type{IrregularAdjectiveStem})
+    CitableByCite2Urn()
+end
+
+"""Human-readlable label for an `IrregularAdjectiveStem`.
+
+$(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function label(astem::IrregularAdjectiveStem)
+    string("Irregular adjective form ", astem.form, " (", label(astem.adjgender), " ", label(astem.adjcase), " ", label(astem.adjnumber)," ", label(astem.adjdegree), ")")
+end
+
+"""Identifying URN for an `IrregularAdjectiveStem`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+
+$(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(adj::IrregularAdjectiveStem; registry = nothing)
+    if isnothing(registry)
+        adj.stemid
+    else
+        expand(adj.stemid, registry)
+    end
+end
+
+
+struct IrregularAdjectiveStemCex <: CexTrait end
+import CitableBase: cextrait
+function cextrait(::Type{IrregularAdjectiveStem})  
+    IrregularAdjectiveStemCex()
+end
+
+
+"""Compose CEX text for an `IrregularAdjectiveStem`.
+If `registry` is nothing, use abbreivated URN;
+otherwise, expand identifier to full `Cite2Urn`.
+
+$(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function cex(adj::IrregularAdjectiveStem; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([adj.stemid, lexeme(adj), stemstring(adj),  
+       
+        label(gmpGender(adj)), label(gmpCase(adj)),label(gmpNumber(adj)),
+        label(gmpDegree(adj)),
+
+
+        inflectionclass(adj)  ], delimiter)
+    else
+        c2urn = expand(adj.stemid, registry)
+        lexurn = expand(adj.lexid, registry)
+        join([c2urn, lexurn, stemstring(adj), 
+        
+        
+        label(gmpGender(adj)), label(gmpCase(adj)),label(gmpNumber(adj)),
+        label(gmpDegree(adj)),
+
+        inflectionclass(adj) ], delimiter)
+    end
+end
+
+function fromcex(traitvalue::IrregularAdjectiveStemCex, cexsrc::AbstractString, T;      
+    delimiter = "|", configuration = nothing, strict = true)
+    parts = split(cexsrc, delimiter)
+    if length(parts) < 8
+        msg = "Too few parts in $delimited."
+        @warn msg
+        throw(new(ArgumentError(msg)))
+    end
+    
+    stemid = StemUrn(parts[1])
+    lexid = LexemeUrn(parts[2])
+    stem = knormal(parts[3])
+    g = gmpGender(parts[4])
+    c = gmpCase(parts[5])
+    n = gmpNumber(parts[6])
+    d = gmpDegree(parts[7])
+    inflclass = parts[8]
+
+    IrregularAdjectiveStem(stemid,lexid,stem,g,c,n,d,inflclass)
+end
+
+
+
+
 function pos(adj::IrregularAdjectiveStem)
     :adjective
 end
@@ -44,83 +161,6 @@ $(SIGNATURES)
 function gmpDegree(adj::IrregularAdjectiveStem)
     adj.adjdegree
 end
-
-
-"""Irregular adjective stems are citable by Cite2Urn"""
-CitableTrait(::Type{IrregularAdjectiveStem}) = CitableByCite2Urn()
-
-
-"""Human-readlable label for an `IrregularAdjectiveStem`.
-
-$(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function label(astem::IrregularAdjectiveStem)
-    string("Irregular adjective form ", astem.form, " (", label(astem.adjgender), " ", label(astem.adjcase), " ", label(astem.adjnumber)," ", label(astem.adjdegree), ")")
-end
-
-"""Identifying URN for an `IrregularAdjectiveStem`.  If
-no registry is included, use abbreviated URN;
-otherwise, expand to full `Cite2Urn`.
-
-$(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function urn(adj::IrregularAdjectiveStem; registry = nothing)
-    if isnothing(registry)
-        adj.stemid
-    else
-        expand(adj.stemid, registry)
-    end
-end
-
-
-"""Compose CEX text for an `IrregularAdjectiveStem`.
-If `registry` is nothing, use abbreivated URN;
-otherwise, expand identifier to full `Cite2Urn`.
-
-$(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function cex(adj::IrregularAdjectiveStem; delimiter = "|", registry = nothing)
-    if isnothing(registry)
-        join([adj.stemid, label(adj), stemstring(adj), lexeme(adj), inflectionclass(adj), label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree) ], delimiter)
-    else
-        c2urn = expand(adj.stemid, registry)
-        join([c2urn, label(adj), stemstring(adj), lexeme(adj), inflectionclass(adj), label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree)], delimiter)
-    end
-end
-
-"""
-Read one row of a stems table for irregular adjective tokens and create an `AdjectiveStem`.
-
-$(SIGNATURES)    
-"""
-function readstemrow(usp::IrregularAdjectiveIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-
-    # Example:
-    # "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
-
-    if length(parts) < 8
-        msg = "Too few parts in $delimited."
-        @warn msg
-        throw(new(ArgumentError(msg)))
-    end
-    
-    stemid = StemUrn(parts[1])
-    lexid = LexemeUrn(parts[2])
-    stem = knormal(parts[3])
-    g = gmpGender(parts[4])
-    c = gmpCase(parts[5])
-    n = gmpNumber(parts[6])
-    d = gmpDegree(parts[7])
-    inflclass = parts[8]
-
-    IrregularAdjectiveStem(stemid,lexid,stem,g,c,n,d,inflclass)
-end
-
-
 
 
 """Identify value of stem string for `adj`.

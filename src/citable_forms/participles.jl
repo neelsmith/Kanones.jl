@@ -7,8 +7,44 @@ struct GMFParticiple <: GreekMorphologicalForm
     pnumber::GMPNumber
 end
 
+function show(io::IO, ptcp::GMFParticiple)
+    print(io, label(ptcp))
+end
+function ==(ptcp1::GMFParticiple, ptcp2::GMFParticiple)
+    ptcp1.tense == ptcp2.tense &&
+    ptcp1.voice == ptcp2.voice &&
+    ptcp1.pgender == ptcp2.pgender &&
+    ptcp1.pcase == ptcp2.pcase &&
+    ptcp1.pnumber == ptcp2.pnumber
+end
+
+
+
 """Participle forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFParticiple}) = CitableByCite2Urn()
+function citabletrait(::Type{GMFParticiple})
+    CitableByCite2Urn()
+end
+
+
+"""Compose a Cite2Urn for a `GMFParticiple`.
+
+$(SIGNATURES)
+"""
+function urn(ptcpl::GMFParticiple)
+    # PosPNTMVGCDCat
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(ptcpl))
+end
+
+"""Compose a label for a `GMFVerbalAdjective`
+
+$(SIGNATURES)
+"""
+function label(ptcpl::GMFParticiple)
+    join(["participle:", label(ptcpl.tense), label(ptcpl.voice), label(ptcpl.pgender), label(ptcpl.pcase), label(ptcpl.pnumber)], " ")
+end
+
+
 
 
 """Extract tense property from `p`.
@@ -49,16 +85,6 @@ end
 
 
 
-"""Compose a label for a `GMFVerbalAdjective`
-
-$(SIGNATURES)
-"""
-function label(ptcpl::GMFParticiple)
-    join(["participle:", label(ptcpl.tense), label(ptcpl.voice), label(ptcpl.pgender), label(ptcpl.pcase), label(ptcpl.pnumber)], " ")
-end
-
-
-
 """Compose digital code for `ptcpl`.
 $(SIGNATURES)
 """
@@ -67,14 +93,6 @@ function code(ptcpl::GMFParticiple)
     string(PARTICIPLE,"0",code(ptcpl.pnumber), code(ptcpl.tense), "0", code(ptcpl.voice), code(ptcpl.pgender), code(ptcpl.pcase), "00")
 end
 
-"""Compose a Cite2Urn for a `GMFParticiple`.
-
-$(SIGNATURES)
-"""
-function urn(ptcpl::GMFParticiple)
-    # PosPNTMVGCDCat
-    Cite2Urn(BASE_MORPHOLOGY_URN * code(ptcpl))
-end
 
 
 """Create a `GMFParticiple` from a string value.

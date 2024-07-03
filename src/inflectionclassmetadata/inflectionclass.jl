@@ -44,8 +44,8 @@ end
 """Read delimited-text data and instantiate an `InflectionCategory`.
 $(SIGNATURES)
 """
-function icfromdelimited(row)
-    cols = split(row, "|")
+function icfromdelimited(row; delimiter = ",")
+    cols = split(row, delimiter)
     if length(cols) < 5
         @warn("Too few columns in row $(row)")
         nothing
@@ -59,10 +59,10 @@ end
 """Read a delimited-text file and instantiate a list of `InflectionCategory` objects.
 $(SIGNATURES)
 """
-function icfromfile(f)
+function icfromfile(f; delimiter = ",")
     data = filter(ln -> ! isempty(ln), readlines(f))
     # Skip `ctsblock` label and header line:
-    map(ln  -> icfromdelimited(ln), data[3:end])
+    map(ln  -> icfromdelimited(ln; delimiter = delimiter), data[3:end])
 end
 
 

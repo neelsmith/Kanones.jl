@@ -1,17 +1,20 @@
 @testset "Test IO with delimited text" begin
-    vadjio = Kanones.VerbalAdjectiveIO("adjectives")
     delimited = "vadjinfl.wreg1|w_regular|τέον|neuter|nominative|singular|"
-    rule = Kanones.readrulerow(vadjio, delimited)
+    rule = fromcex(delimited, VerbalAdjectiveRule)
     # must read from delimited
     @test rule isa VerbalAdjectiveRule
     # must write to delimited
-   @test cex(rule) == "vadjinfl.wreg1|Verbal adjective inflection rule: ending -τέον in class w_regular can be neuter nominative singular.|τέον|w_regular|forms.6010003100"
+   @test cex(rule) == "vadjinfl.wreg1|w_regular|τέον|neuter|nominative|singular"
+
+   
+   @test fromcex(cex(rule), VerbalAdjectiveRule) == rule
+
 end
 
+
 @testset "Test data accessors" begin
-    vadjio = Kanones.VerbalAdjectiveIO("adjectives")
     delimited = "vadjinfl.wreg1|w_regular|τέον|neuter|nominative|singular|"
-    rule = Kanones.readrulerow(vadjio, delimited)
+    rule = fromcex(delimited, VerbalAdjectiveRule)
 
     # must get id
     ruleu = Kanones.ruleurn(rule)

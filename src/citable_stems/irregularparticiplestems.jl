@@ -11,27 +11,48 @@ struct IrregularParticipleStem <: KanonesIrregularStem
     inflectionclass
 end
 
-function pos(ptcpl::IrregularParticipleStem)
-    :verb
+
+function show(io::IO, ptcpl::IrregularParticipleStem)
+    print(io, label(ptcpl))
 end
 
-"""Irregular noun stems are citable by Cite2Urn"""
+function ==(p1::IrregularParticipleStem, p2::IrregularParticipleStem)
+    p1.stemid == p2.stemid &&
+    p1.lexid == p2.lexid &&
+    p1.form == p2.form &&
+
+  
+    p1.ptense == p2.ptense &&
+    p1.pvoice == p2.pvoice &&
+
+    p1.pgender == p2.pgender &&
+    p1.pcase == p2.pcase &&
+    p1.pnumber == p2.pnumber &&
+
+
+    p1.inflectionclass == p2.inflectionclass 
+   
+end
+
+
+
+"""Irregular participle stems are citable by Cite2Urn"""
 CitableTrait(::Type{IrregularParticipleStem}) = CitableByCite2Urn()
+function citabletrait(::Type{IrregularParticipleStem})
+    CitableByCite2Urn()
+end
 
 """Human-readlable label for an `IrregularParticipleStem`.
 $(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(p::IrregularParticipleStem)
-    string("Irregular participle form ", p.form, " (", label(p.ptense)," ", label(p.pvoice), " ", label(p.pgender), " ", label(p.pcase), " ", label(p.pnumber))
+    string("Irregular participle form ", p.form, " (", label(p.ptense)," ", label(p.pvoice), " ", label(p.pgender), " ", label(p.pcase), " ", label(p.pnumber),")")
 end
-
-
 
 """Identifying URN for an `IrregularNounStem`.  If
 no registry is included, use abbreviated URN;
 otherwise, expand to full `Cite2Urn`.
-
 $(SIGNATURES)
 Required for `CitableTrait`.
 """
@@ -45,6 +66,14 @@ end
 
 
 
+
+struct IrregularParticipleStemCex <: CexTrait end
+import CitableBase: cextrait
+function cextrait(::Type{IrregularParticipleStem})  
+    IrregularParticipleStemCex()
+end
+
+
 """Compose CEX text for an `IrregularParticipleStem`.
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
@@ -54,33 +83,27 @@ Required for `CitableTrait`.
 """
 function cex(p::IrregularParticipleStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([p.stemid, label(p), stemstring(p), lexeme(p), inflectionclass(p), label(p.ptense), label(p.pvoice), label(p.pgender), label(p.pcase), label(p.pnumber) ], delimiter)
+        join([p.stemid, lexeme(p), stemstring(p),  
+        label(p.ptense), label(p.pvoice),
+        label(p.pgender), label(p.pcase),label(p.pnumber),
+
+        inflectionclass(p)  ], delimiter)
     else
         c2urn = expand(p.stemid, registry)
-        join([c2urn, label(p), stemstring(p), lexeme(p), inflectionclass(p), label(p.ptense), label(p.pvoice), label(p.pgender), label(p.pcase), label(p.pnumber) ], delimiter)
+        lexurn = expand(p.lexid, registry)
+        join([c2urn, lexurn, stemstring(p), 
+        label(p.ptense), label(p.pvoice),
+        label(p.pgender), label(p.pcase),label(p.pnumber),
+        inflectionclass(p) ], delimiter)
     end
 end
 
-
-"""Identify value of stem string for `inf`.
-$(SIGNATURES)
-"""
-function stemstring(p::IrregularParticipleStem)
-    p.form |> knormal
-end
-
-
-"""
-Read one row of a stems table for irregular infinititve tokens and create an `IrregularInfinitiveStem`.
-
-$(SIGNATURES)    
-"""
-function readstemrow(ptcplio::Kanones.IrregularParticipleIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-
+function fromcex(traitvalue::IrregularParticipleStemCex, cexsrc::AbstractString, T;      
+    delimiter = "|", configuration = nothing, strict = true)
+    parts = split(cexsrc, delimiter)
 
     if length(parts) < 9
-        msg = "readstemrow for irregular participle: too few parts in $delimited."
+        msg = "reading CEX for irregular participle: too few parts in $delimited."
         @warn msg
         throw(new(ArgumentError(msg)))
     end
@@ -96,7 +119,23 @@ function readstemrow(ptcplio::Kanones.IrregularParticipleIO, delimited::Abstract
     inflclass = parts[9]
 
     IrregularParticipleStem(stemid,lexid,stem,t,v,g,c,n, inflclass)
+end
 
+
+
+
+function pos(ptcpl::IrregularParticipleStem)
+    :verb
+end
+
+
+
+
+"""Identify value of stem string for `inf`.
+$(SIGNATURES)
+"""
+function stemstring(p::IrregularParticipleStem)
+    p.form |> knormal
 end
 
 

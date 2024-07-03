@@ -1,10 +1,11 @@
 
 @testset "Test IO for delimited text of uninflected stems" begin
-    delimited = "uninflectedstems.n51951|lsj.n51951|καί|conjunction|"
-    uninflio = Kanones.UninflectedIO("IO for uninfls")
-    stem = Kanones.readstemrow(uninflio, delimited)
+    delimited = Unicode.normalize("uninflectedstems.n51951|lsj.n51951|καί|conjunction|")
+    stem = fromcex(delimited, UninflectedStem)
     @test stem isa UninflectedStem
-    @test Unicode.normalize(cex(stem)) == Unicode.normalize("uninflectedstems.n51951|Uninflected conjunction καί|καί|lsj.n51951|conjunction")
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("uninflectedstems.n51951|lsj.n51951|καί|conjunction")
+
+    @test fromcex(Unicode.normalize(cex(stem)), UninflectedStem) == stem
 
 
 end
@@ -12,8 +13,7 @@ end
 
 @testset "Test data accessors for uninflected stems" begin
     delimited = "uninflectedstems.n51951|lsj.n51951|καί|conjunction|"
-    uninflio = Kanones.UninflectedIO("IO for uninfls")
-    stem = Kanones.readstemrow(uninflio, delimited)
+    stem = fromcex(delimited, UninflectedStem)
     expectedurn = StemUrn("uninflectedstems.n51951")
     @test urn(stem) == expectedurn
 

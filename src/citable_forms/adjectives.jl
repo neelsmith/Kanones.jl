@@ -6,8 +6,43 @@ struct GMFAdjective <: GreekMorphologicalForm
     adjdegree::GMPDegree
 end
 
+function show(io::IO, adj::GMFAdjective)
+    print(io, label(adj))
+end
+
+function ==(adj1::GMFAdjective, adj2::GMFAdjective)
+    adj1.adjgender == adj2.adjgender && 
+    adj1.adjcase == adj2.adjcase && 
+    adj1.adjnumber  == adj2.adjnumber &&
+    adj1.adjdegree == adj2.adjdegree
+end
+
 """Adjective forms are citable by Cite2Urn"""
 CitableTrait(::Type{GMFAdjective}) = CitableByCite2Urn()
+function citabletrait(::Type{GMFAdjective})
+    CitableByCite2Urn()
+end
+"""Compose a Cite2Urn for an `GMFAdjective`.
+
+$(SIGNATURES)
+"""
+function urn(adj::GMFAdjective)
+      Cite2Urn(BASE_MORPHOLOGY_URN * code(adj))
+end
+
+
+"""Compose a label for an `GMFAdjective`
+
+$(SIGNATURES)
+"""
+function label(adj::GMFAdjective)
+    join(["adjective: ", label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree)], " ")
+end
+
+
+
+
+
 
 """Create an `GMFAdjective` from a string value.
 
@@ -50,14 +85,6 @@ function gmpDegree(adj::GMFAdjective)
     adj.adjdegree
 end
 
-"""Compose a label for an `GMFAdjective`
-
-$(SIGNATURES)
-"""
-function label(adj::GMFAdjective)
-    join(["adjective: ", label(adj.adjgender), label(adj.adjcase), label(adj.adjnumber), label(adj.adjdegree)], " ")
-end
-
 """Compose a digital code for `adj`.
 $(SIGNATURES)
 """
@@ -65,15 +92,6 @@ function code(adj::GMFAdjective)
     # PosPNTMVGCDCat
     string(ADJECTIVE,"0",code(adj.adjnumber),"000", code(adj.adjgender),code(adj.adjcase),code(adj.adjdegree),"0")
 end
-
-"""Compose a Cite2Urn for an `GMFAdjective`.
-
-$(SIGNATURES)
-"""
-function urn(adj::GMFAdjective)
-      Cite2Urn(BASE_MORPHOLOGY_URN * code(adj))
-end
-
 
 """Compose a `FormUrn` for an `GMFAdjective`.
 

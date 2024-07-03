@@ -4,7 +4,7 @@
 
     #kds = joinpath(repo, "datasets", "literarygreek-rules") |> dataset
 
-    p = stringParser(kds)
+    p = kParser(kds)
     
     @test_broken "??"  == parsetoken("συνεστι", p)
 end

@@ -1,18 +1,17 @@
 @testset "Test IO with delimited text" begin
     delimited = "proninfl.pronouns1|article"
-    pronio = Kanones.PronounIO("IO for pronouns")
-    rule = Kanones.readrulerow(pronio, delimited)
+    rule = fromcex(delimited, PronounRule)
     # must read from delimited
     @test rule isa PronounRule
     # must write to delimited
-   @test cex(rule) == "proninfl.pronouns1|Pronoun inflection rule: type of stem proninfl.pronouns1 is article|article"
+   @test cex(rule) == "proninfl.pronouns1|article"
+   @test fromcex(cex(rule), PronounRule) == rule
 end
 
 
 @testset "Test data accessors" begin
     delimited = "proninfl.pronouns1|article"
-    pronio = Kanones.PronounIO("IO for pronouns")
-    rule = Kanones.readrulerow(pronio, delimited)
+    rule = fromcex(delimited, PronounRule)
 
     # must get id
     ruleu = Kanones.ruleurn(rule)

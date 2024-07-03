@@ -20,7 +20,7 @@ function three_ending_adj_md(lex::LexemeUrn, degree::GMPDegree, kd::Kanones.File
         "| --- | --- | --- | --- |"
     ]
     push!(lines, "| *singular* |  |  |  |")
-    for i in 1:length(labels)
+    for (i,lbl) in enumerate(labels)
         mform = ""
         mrules = filter(r -> gmpNumber(r) == gmpNumber("singular") && gmpCase(r) == caselist[i] && gmpGender(r) == gmpGender("masculine"), rules)
         if ! isempty(mrules)
@@ -47,7 +47,7 @@ function three_ending_adj_md(lex::LexemeUrn, degree::GMPDegree, kd::Kanones.File
         push!(lines, string("| **", labels[i], "** | ", mform, " | ", fform , " | ", nform, " |"))
     end
     push!(lines, "| *plural* |  |  |  |")
-    for i in 1:length(labels)
+    for (i,lbl) in enumerate(labels)
         mform = ""
         mrules = filter(r -> gmpNumber(r) == gmpNumber("plural") && gmpCase(r) == caselist[i] && gmpGender(r) == gmpGender("masculine"), rules)
         if ! isempty(mrules)

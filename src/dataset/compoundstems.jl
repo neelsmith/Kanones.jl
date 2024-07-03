@@ -23,12 +23,14 @@ function irregularcompoundsarray(dirlist; delimiter = "|")
                         @debug("READ f", joinpath(root,f))
                         raw = readlines(joinpath(root,f))
                         lines = filter(s -> ! isempty(s), raw)
-                        for i in 2:length(lines)
+                        datalines = lines[2:end]
+                        for ln in datalines
                             try 
-                                record = compoundstem(lines[i])
+                                #record = compoundstem(ln)
+                                record = fromcex(ln, CompoundVerbStem)
                                 push!(compoundarray,record)
                             catch e
-                                @warn("Failed to parse compound verb entry from line\n\"$(lines[i])\" \nin file ($(f)")
+                                @warn("Failed to parse compound verb entry from line\n\"$(ln)\" \nin file ($(f)")
                                 @warn("Error: $(e)")
                             end
                         end

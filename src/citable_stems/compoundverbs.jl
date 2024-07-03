@@ -11,19 +11,64 @@ struct CompoundVerbStem <: KanonesStem
     augmented::Bool
 end
 
-function pos(cvs::CompoundVerbStem)
-    :verb
-end
-#=
-Stem|LexicalEntity|Prefix|Simplex|Note
-compounds.n30252|lsj.n30252|ἐν|lsj.n56496|ἐγκελεύω
-=#
 
-"""Construct a `CompoundVerbStem` from a delimited text string.
+
+function show(io::IO, verb::CompoundVerbStem)
+    print(io, label(verb))
+end
+
+function ==(v1::CompoundVerbStem, v2::CompoundVerbStem)
+    v1.stemid == v2.stemid &&
+    v1.lexid == v2.lexid &&
+    v1.prefix == v2.prefix &&
+    v1.simplex == v2.simplex &&
+    v1.notes == v2.notes && 
+    v1.augmented == v2.augmented
+end
+
+"""Regular verb stems are citable by Cite2Urn"""
+CitableTrait(::Type{CompoundVerbStem}) = CitableByCite2Urn()
+function citabletrait(::Type{CompoundVerbStem})
+    CitableByCite2Urn()
+end
+
+"""Human-readlable label for a `CompoundVerbStem`.
+
 $(SIGNATURES)
+Required for `CitableTrait`.
 """
-function compoundstem(s::AbstractString)
-    cols = split(s, "|")
+function label(vs::CompoundVerbStem)
+    isempty(vs.notes) ? string("Compound verb (", vs.lexid,") formed by addding ", vs.prefix, " to simplex ", vs.simplex) : string("Compound verb (", vs.lexid,") formed by addding ", vs.prefix, " to simplex ", vs.simplex, " (", vs.notes, ")")
+end
+
+function urn(vs::CompoundVerbStem; registry = nothing)
+    if isnothing(registry)
+        vs.stemid
+    else
+        expand(vs.stemid, registry)
+    end
+end
+
+struct  CompoundVerbStemCex <: CexTrait end
+import CitableBase: cextrait
+function cextrait(::Type{CompoundVerbStem})  
+    CompoundVerbStemCex()
+end
+
+
+function cex(vs::CompoundVerbStem; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([vs.stemid, lexeme(vs), vs.prefix,  vs.simplex, vs.notes, vs.augmented], delimiter)
+    else
+        c2urn = expand(vs.stemid, registry)
+        lexurn = expand(ns.lexid, registry)
+        join([c2urn, lexurn,  vs.prefix,  vs.simplex, vs.notes, vs.augmented], delimiter)
+    end
+end
+
+function fromcex(traitvalue::CompoundVerbStemCex, cexsrc::AbstractString, T;      
+    delimiter = "|", configuration = nothing, strict = true)
+    cols = split(cexsrc, delimiter)
     if length(cols) < 6
         throw(ArgumentError("Cannot form compound verb stem: too few columns in $(s)"))
     end
@@ -35,6 +80,10 @@ function compoundstem(s::AbstractString)
         knormal(cols[5]),
         lowercase(cols[6]) == "true" || lowercase(cols[6]) == "t"
     )
+end
+
+function pos(cvs::CompoundVerbStem)
+    :verb
 end
 
 

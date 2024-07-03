@@ -6,6 +6,41 @@ struct GMFVerbalAdjective <: GreekMorphologicalForm
     vanumber::GMPNumber
 end
 
+function show(io::IO, va::GMFVerbalAdjective)
+    print(io, label(va))
+end
+function ==(va1::GMFVerbalAdjective, va2::GMFVerbalAdjective)
+
+    va1.vagender == va2.vagender &&
+    va1.vacase == va2.vacase &&
+    va1.vanumber == va2.vanumber
+end
+
+"""Verbal adjective forms are citable by Cite2Urn"""
+CitableTrait(::Type{GMFVerbalAdjective}) = CitableByCite2Urn()
+
+function citabletrait(::Type{GMFVerbalAdjective})
+    CitableByCite2Urn()
+end
+
+
+"""Compose a Cite2Urn for a `GMFVerbalAdjective`.
+
+$(SIGNATURES)
+"""
+function urn(vadj::GMFVerbalAdjective)
+    # PosPNTMVGCDCat
+    Cite2Urn(BASE_MORPHOLOGY_URN * code(vadj))
+end
+
+"""Compose a label for a `GMFVerbalAdjective`
+
+$(SIGNATURES)
+"""
+function label(vadj::GMFVerbalAdjective)
+    join(["verbal adjective:", label(vadj.vagender), label(vadj.vacase), label(vadj.vanumber)], " ")
+end
+
 
 
 """Extract gender property from `vadj`.
@@ -30,16 +65,6 @@ function gmpNumber(vadj::GMFVerbalAdjective)
     vadj.vanumber
 end
 
-"""Verbal adjective forms are citable by Cite2Urn"""
-CitableTrait(::Type{GMFVerbalAdjective}) = CitableByCite2Urn()
-
-"""Compose a label for a `GMFVerbalAdjective`
-
-$(SIGNATURES)
-"""
-function label(vadj::GMFVerbalAdjective)
-    join(["verbal adjective:", label(vadj.vagender), label(vadj.vacase), label(vadj.vanumber)], " ")
-end
 
 
 """Compose a digital code for `vadj`.
@@ -50,14 +75,7 @@ function code(vadj::GMFVerbalAdjective)
     string(VERBALADJECTIVE,"0",code(vadj.vanumber),"000",code(vadj.vagender), code(vadj.vacase),"00")
 end
 
-"""Compose a Cite2Urn for a `GMFVerbalAdjective`.
 
-$(SIGNATURES)
-"""
-function urn(vadj::GMFVerbalAdjective)
-    # PosPNTMVGCDCat
-    Cite2Urn(BASE_MORPHOLOGY_URN * code(vadj))
-end
 
 """Create a `GMFVerbalAdjective` from a string value.
 

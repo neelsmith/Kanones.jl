@@ -1,16 +1,17 @@
 
 @testset "Test IO for delimited text for verb stems" begin
     delimited = "verbstems.n23658|lsj.n23658|δεικ|numi|"
-    verbio = Kanones.VerbIO("IO for verbs")
-    stem = Kanones.readstemrow(verbio, delimited)
+    #verbio = Kanones.VerbIO("IO for verbs")
+    stem = fromcex(delimited, VerbStem)
     @test stem isa VerbStem
-    @test Unicode.normalize(cex(stem)) == Unicode.normalize("verbstems.n23658|Verb stem δεικ- (lsj.n23658, stem class numi)|δεικ|lsj.n23658|numi")
+    @test cex(stem) == "verbstems.n23658|lsj.n23658|δεικ|numi|false"
+
+    @test fromcex(cex(stem), VerbStem)  == stem
 end
 
 @testset "Test data accessors for verb stems" begin
     delimited = "verbstems.n23658|lsj.n23658|δεικ|numi|"
-    verbio = Kanones.VerbIO("IO for verbs")
-    stem = Kanones.readstemrow(verbio, delimited)
+    stem = fromcex(delimited, VerbStem)
 
 
     expectedurn = StemUrn("verbstems.n23658")
@@ -29,6 +30,5 @@ end
 
 @testset "Test accent errors" begin
     delimited = "verbstems.n1782|lsjx.n1782|ἀεσκ|w_regular|"
-    verbio = Kanones.VerbIO("IO for verbs")
-    stem = Kanones.readstemrow(verbio, delimited)
+    stem = fromcex(delimited, VerbStem)
 end

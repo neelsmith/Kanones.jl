@@ -1,21 +1,19 @@
 
 @testset "Test IO for delimited text" begin
-    delimited = "irreginf.irreginfln31130|lsj.n31130|εἶναι|present|active|irregularinfinitive"
-    irrinfio = Kanones.IrregularInfinitiveIO("IO for irreg infs")
-    stem = Kanones.readstemrow(irrinfio, delimited)
+    delimited = Unicode.normalize("irreginf.irreginfln31130|lsj.n31130|εἶναι|present|active|irregularinfinitive")
+    stem = fromcex(delimited, IrregularInfinitiveStem)
     @test stem isa IrregularInfinitiveStem
 
 
-    @test Unicode.normalize(cex(stem)) == Unicode.normalize("irreginf.irreginfln31130|Irregular infinitive form εἶναι (present active)|εἶναι|lsj.n31130|irregularinfinitive|present|active")
-
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("irreginf.irreginfln31130|lsj.n31130|εἶναι|present|active|irregularinfinitive")
+    @test fromcex(Unicode.normalize(cex(stem)), IrregularInfinitiveStem) == stem
 
 end
 
 
 @testset "Test data accessors" begin
     delimited = "irreginf.irreginfln31130|lsj.n31130|εἶναι|present|active|irregularinfinitive"
-    irrinfio = Kanones.IrregularInfinitiveIO("IO for irreg infs")
-    stem = Kanones.readstemrow(irrinfio, delimited)
+    stem = fromcex(delimited, IrregularInfinitiveStem)
     expectedurn = StemUrn("irreginf.irreginfln31130")
     @test urn(stem) == expectedurn
 

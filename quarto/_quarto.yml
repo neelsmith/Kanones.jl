@@ -5,7 +5,7 @@ theme: spacelab
 execute:
   freeze: auto
 date: last-modified  
-margin-header: "⚠️ *Draft documentation in progress.*<br/>Built using package version `0.24.1`."
+margin-header: "⚠️ *Documentation in progress.*<br/>Built using a pre-release draft of package version `0.25.0`."
 format:
   html: 
     toc: true
@@ -27,6 +27,8 @@ website:
         file: guides/index.qmd           
       - text: "Reference"
         file: reference/index.qmd  
+      - text: "Paradigms"
+        file: paradigms/index.qmd
     right:   
       - icon: github
         href: https://github.com/neelsmith/Kanones.jl
@@ -52,7 +54,8 @@ website:
         - text: "---"
         - guides/dataset-guide.qmd
         - guides/dataset-strategies.qmd
-        - guides/dataset-profile.qmd        
+        - guides/dataset-profile.qmd      
+        - guides/rulesio.qmd  
         - text: "---"
         - guides/nounstems-guide.qmd
         - guides/adjectivestems-guide.qmd
@@ -87,6 +90,10 @@ website:
         - concepts/analyses.qmd
         - concepts/source_vs_analysis.qmd
         - concepts/julia_dispatch.qmd
+    - title: "Paradigms"
+      contents: 
+        - paradigms/index.qmd        
+
 
         
 

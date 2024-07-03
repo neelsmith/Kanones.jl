@@ -8,10 +8,113 @@ struct IrregularVerbStem <: KanonesIrregularStem
     vtense::GMPTense
     vmood::GMPMood
     vvoice::GMPVoice
-    inflectionclass
+    inflectionclass::AbstractString
 end
 #irregverb.irregverbnn26447a|lsj.n26447|δίδωσι|
 #third|singular|present|indicative|active|irregularfiniteverb
+
+
+function show(io::IO, verb::IrregularVerbStem)
+    print(io, label(verb))
+end
+
+function ==(v1::IrregularVerbStem, v2::IrregularVerbStem)
+    v1.stemid == v2.stemid &&
+    v1.lexid == v2.lexid &&
+    v1.form == v2.form &&
+
+    v1.vperson == v2.vperson &&
+    v1.vnumber == v2.vnumber &&
+    v1.vtense == v2.vtense &&
+    v1.vmood == v2.vmood &&
+    v1.vvoice == v2.vvoice &&
+    v1.inflectionclass == v2.inflectionclass 
+   
+end
+
+
+
+
+"""Irregular verb stems are citable by Cite2Urn"""
+CitableTrait(::Type{IrregularVerbStem}) = CitableByCite2Urn()
+function citabletrait(::Type{IrregularVerbStem})
+    CitableByCite2Urn()
+end
+
+"""Human-readlable label for an `IrregularVerbStem`.
+$(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function label(verb::IrregularVerbStem)
+    string("Irregular verb form ", verb.form, " (", label(verb.vperson), " ", label(verb.vnumber), " ", label(verb.vtense)," ", label(verb.vmood), " ", label(verb.vvoice), ")")
+end
+
+"""Identifying URN for an `IrregularNounStem`.  If
+no registry is included, use abbreviated URN;
+otherwise, expand to full `Cite2Urn`.
+$(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function urn(verb::IrregularVerbStem; registry = nothing)
+    if isnothing(registry)
+        verb.stemid
+    else
+        expand(verb.stemid, registry)
+    end
+end
+
+
+
+struct IrregularVerbStemCex <: CexTrait end
+import CitableBase: cextrait
+function cextrait(::Type{IrregularVerbStem})  
+    IrregularVerbStemCex()
+end
+
+
+"""Compose CEX text for an `IrregularVerbStem`.
+If `registry` is nothing, use abbreivated URN;
+otherwise, expand identifier to full `Cite2Urn`.
+
+$(SIGNATURES)
+Required for `CitableTrait`.
+"""
+function cex(verb::IrregularVerbStem; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([verb.stemid, lexeme(verb), stemstring(verb),  
+        label(verb.vperson), label(verb.vnumber), label(verb.vtense), label(verb.vmood), label(verb.vvoice),
+        inflectionclass(verb)  ], delimiter)
+    else
+        c2urn = expand(verb.stemid, registry)
+        lexurn = expand(verb.lexid, registry)
+        join([c2urn, lexurn, stemstring(verb), 
+        label(verb.vperson), label(verb.vnumber), label(verb.vtense), label(verb.vmood), label(verb.vvoice), inflectionclass(verb) ], delimiter)
+    end
+end
+
+function fromcex(traitvalue::IrregularVerbStemCex, cexsrc::AbstractString, T;      
+    delimiter = "|", configuration = nothing, strict = true)
+    parts = split(cexsrc, delimiter)
+    
+    if length(parts) < 9
+        msg = "Too few parts in $delimited."
+        @warn msg
+        throw(ArgumentError(msg))
+    end
+    
+    stemid = StemUrn(parts[1])
+    lexid = LexemeUrn(parts[2])
+    stem = knormal(parts[3])
+    p = gmpPerson(parts[4])
+    n = gmpNumber(parts[5])
+    t = gmpTense(parts[6])
+    m = gmpMood(parts[7])
+    v = gmpVoice(parts[8])
+    inflclass = parts[9]
+
+    IrregularVerbStem(stemid,lexid,stem,p,n,t,m,v, inflclass)
+
+end
 
 
 function pos(vb::IrregularVerbStem)
@@ -57,83 +160,6 @@ $(SIGNATURES)
 function gmpVoice(verb::IrregularVerbStem)
     verb.vvoice
 end
-
-
-
-"""
-Read one row of a stems table for irregular finite verb tokens and create an `IrregularVerbStem`.
-
-$(SIGNATURES)    
-"""
-function readstemrow(usp::Kanones.IrregularVerbIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    # Example:
-    #irregverb.irregverbnn26447b|lsj.n26447|διδόασι|third|plural|present|indicative|active|irregularfiniteverb
-    if length(parts) < 9
-        msg = "Too few parts in $delimited."
-        @warn msg
-        throw(ArgumentError(msg))
-    end
-    
-    stemid = StemUrn(parts[1])
-    lexid = LexemeUrn(parts[2])
-    stem = knormal(parts[3])
-    p = gmpPerson(parts[4])
-    n = gmpNumber(parts[5])
-    t = gmpTense(parts[6])
-    m = gmpMood(parts[7])
-    v = gmpVoice(parts[8])
-    inflclass = parts[9]
-
-    IrregularVerbStem(stemid,lexid,stem,p,n,t,m,v, inflclass)
-end
-
-
-
-"""Irregular verb stems are citable by Cite2Urn"""
-CitableTrait(::Type{IrregularVerbStem}) = CitableByCite2Urn()
-"""Human-readlable label for an `IrregularVerbStem`.
-
-$(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function label(verb::IrregularVerbStem)
-    string("Irregular verb form ", verb.form, " (", label(verb.vperson), " ", label(verb.vnumber), " ", label(verb.vtense)," ", label(verb.vmood), " ", label(verb.vvoice), ")")
-end
-
-"""Identifying URN for an `IrregularNounStem`.  If
-no registry is included, use abbreviated URN;
-otherwise, expand to full `Cite2Urn`.
-
-$(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function urn(verb::IrregularVerbStem; registry = nothing)
-    if isnothing(registry)
-        verb.stemid
-    else
-        expand(verb.stemid, registry)
-    end
-end
-
-
-
-"""Compose CEX text for an `IrregularVerbStem`.
-If `registry` is nothing, use abbreivated URN;
-otherwise, expand identifier to full `Cite2Urn`.
-
-$(SIGNATURES)
-Required for `CitableTrait`.
-"""
-function cex(verb::IrregularVerbStem; delimiter = "|", registry = nothing)
-    if isnothing(registry)
-        join([verb.stemid, label(verb), stemstring(verb), lexeme(verb), inflectionclass(verb), label(verb.vperson), label(verb.vnumber), label(verb.vtense), label(verb.vmood), label(verb.vvoice) ], delimiter)
-    else
-        c2urn = expand(verb.stemid, registry)
-        join([c2urn, label(verb), stemstring(verb), lexeme(verb), inflectionclass(verb), label(verb.vperson), label(verb.vnumber), label(verb.vtense), label(verb.vmood), label(verb.vvoice) ], delimiter)
-    end
-end
-
 
 
 

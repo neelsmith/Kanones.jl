@@ -3,7 +3,7 @@ results to delimited-text files in `targetdir`.
 $(SIGNATURES)
 """
 function writecsv(kd::Kanones.FilesDataset, targetdir; msgchunk = 200, threshhold = 10000, delimiter = ",")
-    #analysis_lines(td) |> StringParser
+    #analysis_lines(td) |> KanonesStringParser
     @info("Parsing all possible forms in dataset", kd)
     rules = rulesarray(kd)
     stems = stemsarray(kd) 

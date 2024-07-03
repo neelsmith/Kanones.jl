@@ -8,32 +8,34 @@ struct IrregularInfinitiveStem <: KanonesIrregularStem
     inflectionclass
 end
 
-function pos(inf::IrregularInfinitiveStem)
-    :verb
+
+
+function show(io::IO, verb::IrregularInfinitiveStem)
+    print(io, label(verb))
 end
 
-"""Identify tense of `inf`.
-$(SIGNATURES)
-"""
-function gmpTense(inf::IrregularInfinitiveStem)
-    inf.tense
+function ==(v1::IrregularInfinitiveStem, v2::IrregularInfinitiveStem)
+    v1.stemid == v2.stemid &&
+    v1.lexid == v2.lexid &&
+    v1.form == v2.form &&
+
+  
+    v1.tense == v2.tense &&
+  
+    v1.voice == v2.voice &&
+    v1.inflectionclass == v2.inflectionclass 
+   
 end
-
-
-"""Identify voice of `inf`.
-$(SIGNATURES)
-"""
-function gmpVoice(inf::IrregularInfinitiveStem)
-    inf.voice
-end
-
-
 
 
 """Irregular noun stems are citable by Cite2Urn"""
 CitableTrait(::Type{IrregularInfinitiveStem}) = CitableByCite2Urn()
-"""Human-readlable label for an `IrregularInfinitiveStem`.
+function citabletrait(::Type{IrregularInfinitiveStem})
+    CitableByCite2Urn()
+end
 
+
+"""Human-readlable label for an `IrregularInfinitiveStem`.
 $(SIGNATURES)
 Required for `CitableTrait`.
 """
@@ -57,6 +59,14 @@ function urn(inf::IrregularInfinitiveStem; registry = nothing)
 end
 
 
+
+struct IrregularInfinitiveStemCex <: CexTrait end
+import CitableBase: cextrait
+function cextrait(::Type{IrregularInfinitiveStem})  
+    IrregularInfinitiveStemCex()
+end
+
+
 """Compose CEX text for an `IrregularInfinitiveStem`.
 If `registry` is nothing, use abbreivated URN;
 otherwise, expand identifier to full `Cite2Urn`.
@@ -66,23 +76,20 @@ Required for `CitableTrait`.
 """
 function cex(inf::IrregularInfinitiveStem; delimiter = "|", registry = nothing)
     if isnothing(registry)
-        join([inf.stemid, label(inf), stemstring(inf), lexeme(inf), inflectionclass(inf), label(inf.tense), label(inf.voice) ], delimiter)
+        join([inf.stemid, lexeme(inf), stemstring(inf),  
+        label(inf.tense), label(inf.voice),
+        inflectionclass(inf)  ], delimiter)
     else
-        c2urn = expand(inf.stemid, registry)
-        join([c2urn, label(inf), stemstring(inf), lexeme(inf), inflectionclass(inf), label(inf.tense), label(inf.voice)], delimiter)
+        c2urn = expand(verb.stemid, registry)
+        lexurn = expand(verb.lexid, registry)
+        join([c2urn, lexurn, stemstring(verb), 
+         label(verb.vtense),label(verb.vvoice), inflectionclass(verb) ], delimiter)
     end
 end
 
-
-
-"""
-Read one row of a stems table for irregular infinititve tokens and create an `IrregularInfinitiveStem`.
-
-$(SIGNATURES)    
-"""
-function readstemrow(infinio::Kanones.IrregularInfinitiveIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-
+function fromcex(traitvalue::IrregularInfinitiveStemCex, cexsrc::AbstractString, T;      
+    delimiter = "|", configuration = nothing, strict = true)
+    parts = split(cexsrc, delimiter)
 
     if length(parts) < 5
         msg = "Too few parts in $delimited."
@@ -99,6 +106,26 @@ function readstemrow(infinio::Kanones.IrregularInfinitiveIO, delimited::Abstract
 
     IrregularInfinitiveStem(stemid,lexid,stem,t,v, inflclass)
 
+end
+
+
+function pos(inf::IrregularInfinitiveStem)
+    :verb
+end
+
+"""Identify tense of `inf`.
+$(SIGNATURES)
+"""
+function gmpTense(inf::IrregularInfinitiveStem)
+    inf.tense
+end
+
+
+"""Identify voice of `inf`.
+$(SIGNATURES)
+"""
+function gmpVoice(inf::IrregularInfinitiveStem)
+    inf.voice
 end
 
 

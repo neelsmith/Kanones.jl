@@ -1,18 +1,20 @@
 @testset "Test IO with delimited text for infinitives" begin
-    infio = Kanones.InfinitiveIO("infs")
     delimited = "infinfl.wreg1|w_regular|ειν|present|active"
-    rule = Kanones.readrulerow(infio, delimited)
+    rule = fromcex(delimited, InfinitiveRule)
     # must read from delimited
     @test rule isa InfinitiveRule
     # must write to delimited
-   @test cex(rule) == Unicode.normalize("infinfl.wreg1|Infinitive inflection rule: ending -ειν in class w_regular can be present active.|ειν|w_regular|forms.4001010000")
+   @test cex(rule) == Unicode.normalize("infinfl.wreg1|w_regular|ειν|present|active")
+
+   @test fromcex(cex(rule), InfinitiveRule) == rule
 end
 
 
+
 @testset "Test data accessors for infinitives" begin
-    infio = Kanones.InfinitiveIO("infs")
+   
     delimited = "infinfl.wreg1|w_regular|ειν|present|active"
-    rule = Kanones.readrulerow(infio, delimited)
+    rule = fromcex(delimited, InfinitiveRule)
 
     # must get id
     ruleu = Kanones.ruleurn(rule)

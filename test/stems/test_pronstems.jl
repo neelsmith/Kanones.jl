@@ -1,17 +1,17 @@
 @testset "Test IO for delimited text for pronouns" begin
-    delimited = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article"
-    pronounio = Kanones.PronounIO("IO for pronouns")
-    stem = Kanones.readstemrow(pronounio, delimited)
+    delimited = Unicode.normalize("pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article")
+    stem = fromcex(delimited, PronounStem)
     @test stem isa PronounStem
-    @test Unicode.normalize(cex(stem)) == Unicode.normalize("pronoun.n71882a|Stem ὁ (article: masculine, nominative, singular)|ὁ|lsj.n71882|article|masculine|nominative|singular")
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article")
+    @test  fromcex(Unicode.normalize(cex(stem)), PronounStem) == stem
 
 end
 
 
 @testset "Test data accessors pronouns" begin
-    delimited = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article"
-    pronounio = Kanones.PronounIO("IO for pronouns")
-    stem = Kanones.readstemrow(pronounio, delimited)
+    delimited = Unicode.normalize("pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article")
+    
+    stem = fromcex(delimited, PronounStem)
     expectedurn = StemUrn("pronoun.n71882a")
     @test urn(stem) == expectedurn
 

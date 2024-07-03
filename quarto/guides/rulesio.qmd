@@ -1,0 +1,23 @@
+# Saving and loading sets of rules
+
+::: {.callout-caution}
+These are preliminary notes only
+:::
+
+## Outline
+
+### Motivation and concepts
+
+In addition to managing inflectional rules in a Kanones files dataset with separate forms of table for each rule type, you can serialize a set of rules to a single delimited text string, and can later instantiate a rule set from this source.
+
+This is useful because frequently you might want to construct a corpus-specific set of stems, but could use a standard set of inflectional rules with it.
+
+### How to do it
+
+- build a `RuleSet` (from an array of varied subtypes of `Rule`s)
+
+The `RuleSet` is a CITE-serializable type, so you can just use `cex` and `fromcex`. 
+
+### Example
+
+TBA

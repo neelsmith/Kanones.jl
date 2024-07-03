@@ -1,6 +1,6 @@
 # Parser backed by a DataFrame
 
-
+#=
 
 """A parser parsing tokens by looking them up in a precomputed dictionary of all recognized forms."""
 struct DFParser <: KanonesParser
@@ -19,8 +19,8 @@ end
 
 $(SIGNATURES)
 """
-function tofile(dfp::DFParser, outfile)
-    CSV.write(outfile,dfp.df, delim='|')
+function tofile(dfp::DFParser, outfile; delimiter = "|")
+    CSV.write(outfile,dfp.df, delim = delimiter)
 end
 
 function parsetoken(s::AbstractString, parser::DFParser; data = nothing)
@@ -41,6 +41,8 @@ function parsetoken(s::AbstractString, parser::DFParser; data = nothing)
     end
     resultarray
 end
+
+
 
 """Find unique lexemes recognized by a parser.
 $(SIGNATURES)
@@ -73,7 +75,7 @@ function concat_ds(dfp::DFParser, rulesds::FilesDataset, newdata::FilesDataset; 
         end
         append!(analyses, buildparseable(stem, rules_all, delimiter = ","))
     end
-    temp_sp = analyses |> StringParser
+    temp_sp = analyses |> KanonesStringParser
     temp_f = tempname()
     tofile(temp_sp,temp_f; delimiter = ",")
     dfp2 = dfParser(temp_f)
@@ -81,3 +83,5 @@ function concat_ds(dfp::DFParser, rulesds::FilesDataset, newdata::FilesDataset; 
     DFParser(vcat(dfp.df, dfp2.df) )
     
 end
+
+=#

@@ -1,15 +1,15 @@
 @testset "Test IO for delimited text for noun stems" begin
     delimited = "nounstems.n8909|lsj.n8909|ἀνθρωπ|masculine|os_ou|recessive|"
-    nounio = Kanones.NounIO("IO for nouns")
-    stem = Kanones.readstemrow(nounio, delimited)
+    stem = fromcex(delimited, NounStem)
     @test stem isa NounStem
-    @test Unicode.normalize(cex(stem)) == Unicode.normalize("nounstems.n8909|Noun stem ἀνθρωπ- (masculine)|ἀνθρωπ|lsj.n8909|os_ou|masculine|recessive")
+    @test Unicode.normalize(cex(stem)) == Unicode.normalize("nounstems.n8909|lsj.n8909|ἀνθρωπ|masculine|os_ou|recessive")
+
+    @test fromcex(Unicode.normalize(cex(stem)), NounStem) == stem
 end
 
 @testset "Test data accessors for nouns" begin
-    delimited = "nounstems.n8909|lsj.n8909|ἀνθρωπ|masculine|os_ou|recessive|"
-    nounio = Kanones.NounIO("IO for nouns")
-    stem = Kanones.readstemrow(nounio, delimited)
+    delimited = "nounstems.n8909|lsj.n8909|ἀνθρωπ|masculine|os_ou|recessive"
+    stem = fromcex(delimited, NounStem)
 
     expectedurn = StemUrn("nounstems.n8909")
     @test urn(stem) == expectedurn

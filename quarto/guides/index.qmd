@@ -14,6 +14,8 @@ This section collects recipes for how to do specific tasks in Kanónes. If you a
 [Working with multiple datasets](multiple-ds.qmd)
 
 [Strategies for managing data](dataset-strategies.qmd)
+
+[Saving and loading sets of rules](./rulesio.qmd)
 :::
 
 ::: {.column width="5%"}

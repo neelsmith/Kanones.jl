@@ -22,7 +22,7 @@ ds = dataset([lgr, ionic, homeric, lsj, extra, lsjmining])
 doit = true
 if doit
     @info("Compiling parser...")
-    parser = stringParser(ds)
+    parser = KanonesStringParser(ds)
     @info("Done compiling.")
     parserfile = "massiveparser.cex"
     Kanones.tofile(parser, parserfile)

@@ -1,95 +1,84 @@
 @testset "Test generating forms from stem+rule" begin
-    nounio = Kanones.NounIO("IO for nouns")
     nounstemsrc = "nounstems.n8909|lsj.n8909|ἀνθρωπ|masculine|os_ou|recessive|"
-    nounstem = Kanones.readstemrow(nounio, nounstemsrc)
+    nounstem = fromcex(nounstemsrc, NounStem)
     nounrulesrc = "nouninfl.os_ou1|os_ou|ος|masculine|nominative|singular|"
-    nounrule = Kanones.readrulerow(nounio, nounrulesrc)
+    nounrule = fromcex(nounrulesrc, NounRule)
     @test generate(nounstem, nounrule) == knormal("ἄνθρωπος")
 
 
-    adjio = Kanones.AdjectiveIO("IO for adjs")
     adjstemsrc = "adjstems.n52332|lsj.n52332|κακ|os_h_on_pos|inflectionaccented|"
-    adjstem = Kanones.readstemrow(adjio, adjstemsrc)
+    adjstem = fromcex(adjstemsrc, AdjectiveStem)
     adjrulesrc = "adjinfl.osaon1|os_a_on|ος|masculine|nominative|singular|positive|"
-    adjrule = Kanones.readrulerow(adjio, adjrulesrc)
+    adjrule = fromcex(adjrulesrc, AdjectiveRule)
     @test generate(adjstem, adjrule) == knormal("κακός")
 
-    pronio = Kanones.PronounIO("prons")
     pronrulesrc = "proninfl.pronouns1|article"
-    pronrule = Kanones.readrulerow(pronio, pronrulesrc)
+    pronrule = fromcex(pronrulesrc, PronounRule)
     pronstemsrc = "pronoun.n71882a|lsj.n71882|ὁ|masculine|nominative|singular|article" 
-    pronstem = Kanones.readstemrow(pronio, pronstemsrc)
+    pronstem = fromcex(pronstemsrc, PronounStem)
     @test generate(pronstem, pronrule) == knormal("ὁ")
     
 
-
-
-
-
-    verbio = Kanones.VerbIO("IO for verbs")
     verbsrc = "verbinfl.numipres8|numi|νυσαι|second|singular|present|indicative|middle|"
-    verbrule = Kanones.readrulerow(verbio, verbsrc)
+    verbrule = fromcex(verbsrc, FiniteVerbRule)
     verbstemsrc = "verbstems.n23658|lsj.n23658|δεικ|numi|"
-    verbstem = Kanones.readstemrow(verbio, verbstemsrc)
+    verbstem = fromcex(verbstemsrc, VerbStem)
     @test  generate(verbstem,verbrule) == knormal("δείκνυσαι")
 
 
-    vadjio = Kanones.VerbalAdjectiveIO("adjectives")
+    
+    
     vadjrulesrc = "vadjinfl.numi1|numi|τέον|neuter|nominative|singular|"
-    vadjrule = Kanones.readrulerow(vadjio, vadjrulesrc)
+    vadjrule = fromcex(vadjrulesrc, VerbalAdjectiveRule)
     @test generate(verbstem, vadjrule) == knormal("δεικτέον")
 
-    ptcplio = Kanones.ParticipleIO("ptcpls")
     ptcplsrc = "ptcplinfl.wpres1|numi|νυόμενος|present|middle|masculine|nominative|singular|"
-    ptcplrule = Kanones.readrulerow(ptcplio, ptcplsrc)
+    ptcplrule = fromcex(ptcplsrc, ParticipleRule)
     @test generate(verbstem, ptcplrule) == knormal("δεικνυόμενος")
 
-    infio = Kanones.InfinitiveIO("infs")
     infsrc = "infinfl.wreg1|numi|νύειν|present|active"
-    infrule = Kanones.readrulerow(infio, infsrc)
+    infrule = fromcex(infsrc, InfinitiveRule)
     @test generate(verbstem, infrule) == knormal("δεικνύειν")
 
 
-
-    uninflio = Kanones.UninflectedIO("IO for uninfls")
     uninflstemsrc = "uninflectedstems.n51951|lsj.n51951|καί|conjunction|"
-    uninflstem = Kanones.readstemrow(uninflio, uninflstemsrc)
+    uninflstem = fromcex(uninflstemsrc, UninflectedStem)
     uninflrulesrc = "uninfl.uninfl2|conjunction"
-    uninflrule = Kanones.readrulerow(uninflio, uninflrulesrc)
+    uninflrule = fromcex(uninflrulesrc, UninflectedRule)
 
     @test generate(uninflstem, uninflrule) == knormal("καί")
 
-    irregruleio = Kanones.IrregularRuleParser("IO for irregular rules")
+    
+    
     irregnounrulesrc = "irreginfl.irregular1|irregularnoun"
-    irrnounrule = Kanones.readrulerow(irregruleio, irregnounrulesrc)
+    irrnounrule = fromcex(irregnounrulesrc, IrregularRule)
 
-    irrnounio = Kanones.IrregularNounIO("IO for irreg nouns")
+    
     irregnounstemsrc = "irregnoun.irregn23069a|lsj.n23069|γυνή|feminine|nominative|singular|irregularnoun"
-    irrnounstem = Kanones.readstemrow(irrnounio, irregnounstemsrc)
+    irrnounstem = fromcex(irregnounstemsrc, IrregularNounStem)
     @test generate(irrnounstem, irrnounrule) == knormal("γυνή")
 
     irregadjrulesrc = "irreginfl.irregular4|irregularadjective"
-    irradjrule = Kanones.readrulerow(irregruleio, irregadjrulesrc)
+    irradjrule = fromcex(irregadjrulesrc, IrregularRule)
 
-    irradjstemio = Kanones.IrregularAdjectiveIO("IO for irreg adj stems")
+    
     irradjstemsrc = "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
-    irradjstem = Kanones.readstemrow(irradjstemio, irradjstemsrc)
+    irradjstem = fromcex(irradjstemsrc, IrregularAdjectiveStem)
     @test generate(irradjstem, irradjrule) == knormal("πᾶς")
 
     irrinfsrc = "irreginfl.irregular3|irregularinfinitive"
-    irrinfrule = Kanones.readrulerow(irregruleio, irrinfsrc)
+    irrinfrule = fromcex(irrinfsrc, IrregularRule)
 
-    irrinfstemio = Kanones.IrregularInfinitiveIO("IO for irreg infinivite stems")
     irrinfstemsrc = "irreginf.irreginfln31130|lsj.n31130|εἶναι|present|active|irregularinfinitive"
-    irrinfstem = Kanones.readstemrow(irrinfstemio, irrinfstemsrc)
+    irrinfstem = fromcex(irrinfstemsrc, IrregularInfinitiveStem)
     @test generate(irrinfstem, irrinfrule) == knormal("εἶναι")
 
     irrverbsrc = "irreginfl.irregular2|irregularfiniteverb"
-    irrverbrule = Kanones.readrulerow(irregruleio, irrverbsrc)
+    irrverbrule = fromcex(irrverbsrc, IrregularRule)
 
-    irrverbstemio = Kanones.IrregularVerbIO("IO for irreg verbs")
     irrverbstemsrc = "irregverb.irregverbn31130a1|lsj.n31130|ἐστι|third|singular|present|indicative|active|irregularfiniteverb"
-    irrverbstem = Kanones.readstemrow(irrverbstemio, irrverbstemsrc)
+    irrverbstem = fromcex(irrverbstemsrc, IrregularVerbStem)
 
     @test generate(irrverbstem, irrverbrule) == knormal("ἐστι")
+    
 end

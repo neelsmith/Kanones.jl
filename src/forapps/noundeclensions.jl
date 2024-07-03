@@ -3,7 +3,7 @@
 """Decline all case-number combinations of `lex`, a noun.
 $(SIGNATURES)
 """
-function decline(lex::LexemeUrn, sp::StringParser; withvocative::Bool = false)::Vector{String}
+function decline(lex::LexemeUrn, sp::KanonesStringParser; withvocative::Bool = false)::Vector{String}
     generated =   [generate(lex,formurn(f), sp) for f in Kanones.nounforms()]
     map(v -> v[1], filter(s -> !isempty(s), generated))
 end
@@ -85,7 +85,7 @@ end
 
 $(SIGNATURES)
 """
-function declension_md(lex::LexemeUrn, sp::StringParser)
+function declension_md(lex::LexemeUrn, sp::KanonesStringParser)
     arry = decline(lex, sp)
     formatdeclension(arry)
 end
@@ -169,7 +169,7 @@ function declension_md(lexlist::Array{LexemeUrn}, kd::Kanones.FilesDataset)
 end
 
 #=
-function declension_md(lexlist::Array{LexemeUrn}, sp::StringParser)
+function declension_md(lexlist::Array{LexemeUrn}, sp::KanonesStringParser)
     formlists = [decline(lex, sp) for lex in lexlist]
 end
 =#

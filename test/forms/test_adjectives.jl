@@ -31,3 +31,13 @@ end
 
     @test label(adj) == "adjective:  feminine accusative plural positive"
 end
+
+
+@testset "Test CITE interfaces on adjectives" begin
+    adj = GMFAdjective(gmpGender("feminine"), gmpCase("accusative"), gmpNumber("plural"), gmpDegree("positive"))  
+
+    @test citable(adj)
+    @test label(adj) == "adjective:  feminine accusative plural positive"
+    @test urn(adj) == Cite2Urn("urn:cite2:kanones:forms.v1:7030002410")
+
+end

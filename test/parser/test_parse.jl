@@ -1,7 +1,7 @@
 @testset "Test parsing with a string parser" begin
     srcdata = joinpath(dirname(pwd()),"datasets","literarygreek-rules")
-    p = dataset(srcdata) |> stringParser
-    @test p isa StringParser
+    p = dataset(srcdata) |> kParser
+    @test p isa KanonesStringParser
     
     # Should get a single parse for each of these:
     verb = parsetoken("δείκνυμεν",p)
@@ -9,7 +9,7 @@
     adj =  parsetoken("κακή",p)
     infin = parsetoken("κελεύειν",p)
     pronoun = parsetoken("ἡ",p)
-    uninfl = parsetoken("καί", p)
+    uninfl = parsetoken("γάρ", p)
 
     irregnoun = parsetoken("γυνή", p)
     irreginf = parsetoken("εἶναι",p)

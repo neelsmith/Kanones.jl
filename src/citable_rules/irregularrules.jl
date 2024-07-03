@@ -1,7 +1,5 @@
 
 # Single rule pattern for all irregular forms.
-
-
 "Inflectional rule for irregular form."
 struct IrregularRule <: KanonesRule
     ruleid::AbbreviatedUrn
@@ -9,21 +7,23 @@ struct IrregularRule <: KanonesRule
 end
 
 
-"""Identify inflectional class for `irreg`.
-$(SIGNATURES)
-"""
-function inflectionclass(irreg::IrregularRule)
-    irreg.inflectionclass
+
+function show(io::IO, irr::IrregularRule)
+    print(io, label(irr))
 end
 
-function ending(irreg::IrregularRule)
-    ""
+function ==(v1::IrregularRule, v2::IrregularRule)
+    v1.ruleid == v2.ruleid &&
+    v1.inflectionclass == v2.inflectionclass
 end
+
 
 
 """Irregular rules are citable by Cite2Urn"""
 CitableTrait(::Type{IrregularRule}) = CitableByCite2Urn()
-
+function citabletrait(::Type{IrregularRule})
+    CitableByCite2Urn()
+end
 
 """Human-readlable label for an `IrregularRule`.
 
@@ -51,12 +51,30 @@ end
 
 
 
-"""Implementation of reading one row of a rules table for irregular tokens.
 
-$(SIGNATURES) 
+struct IrregularRuleCex <: CexTrait end
+function cextrait(::Type{IrregularRule})  
+    IrregularRuleCex()
+end
+
+"""Compose CEX text for an `IrregularRule`.
+If `registry` is nothing, use abbreviated URN;
+otherwise, expand identifier to full `Cite2Urn`.
+$(SIGNATURES)
+Required for `CitableTrait`.
 """
-function readrulerow(ruleparser::Kanones.IrregularRuleParser, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
+function cex(irreg::IrregularRule; delimiter = "|", registry = nothing)
+    if isnothing(registry)
+        join([irreg.ruleid,  inflectionclass(irreg)], delimiter)
+    else
+        c2urn = expand(ur.ruleid, registry)
+        join([c2urn,  inflectionclass(irreg)], delimiter)
+    end
+end
+
+function fromcex(traitvalue::IrregularRuleCex, cexsrc::AbstractString, T;      
+    delimiter = "|", configuration = nothing, strict = true)
+    parts = split(cexsrc, delimiter)
     if length(parts) < 2
         msg = "Invalid syntax for irregular rule: too few components in $(delimited)"
         throw(ArgumentError(msg))
@@ -68,29 +86,24 @@ function readrulerow(ruleparser::Kanones.IrregularRuleParser, delimited::Abstrac
 end
 
 
-
-"""Compose CEX text for an `IrregularRule`.
-If `registry` is nothing, use abbreviated URN;
-otherwise, expand identifier to full `Cite2Urn`.
-
+"""Identify inflectional class for `irreg`.
 $(SIGNATURES)
-Required for `CitableTrait`.
 """
-function cex(irreg::IrregularRule; delimiter = "|", registry = nothing)
-    if isnothing(registry)
-        join([irreg.ruleid, label(irreg), inflectionclass(irreg)], delimiter)
-    else
-        c2urn = expand(ur.ruleid, registry)
-        join([c2urn, label(irreg), inflectionclass(irreg)], delimiter)
-    end
+function inflectionclass(irreg::IrregularRule)
+    irreg.inflectionclass
 end
+
+function ending(irreg::IrregularRule)
+    ""
+end
+
 
 function ruleurn(irreg::IrregularRule)
     irreg.ruleid
 end
 
 
-"""Compose an abbreviated URN for a rule from a `VerbalAdjectiveRule`.
+"""Compose an abbreviated URN for a rule from a `IrregularRule`.
 
 $(SIGNATURES)
 """

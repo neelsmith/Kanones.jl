@@ -1,19 +1,17 @@
 
 @testset "Test IO with delimited text for irregular forms" begin
     delimited = "irreginfl.irregular1|irregularnoun"
-    irregruleio = Kanones.IrregularRuleParser("IO for irregular rules")
-    rule = Kanones.readrulerow(irregruleio, delimited)
+    rule = fromcex(delimited, IrregularRule)
     # must read from delimited
     @test rule isa IrregularRule
     # must write to delimited
-   @test cex(rule) == Unicode.normalize("irreginfl.irregular1|Uninflected rule: irreginfl.irregular1 applies to type irregularnoun.|irregularnoun")
+   @test cex(rule) == Unicode.normalize("irreginfl.irregular1|irregularnoun")
 end
 
 
 @testset "Test data accessors for irregular forms" begin
     delimited = "irreginfl.irregular1|irregularnoun"
-    irregruleio = Kanones.IrregularRuleParser("IO for irregular rules")
-    rule = Kanones.readrulerow(irregruleio, delimited)
+    rule = fromcex(delimited, IrregularRule)
 
     # must get id
     ruleu = Kanones.ruleurn(rule)

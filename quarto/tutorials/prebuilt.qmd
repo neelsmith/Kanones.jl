@@ -8,6 +8,7 @@ In addition to building parsers from a data set of local source files, you can s
 A very small parser to demonstrate inflectional rules with a minimal vocabulary set is available from the Kanones github repository, at `https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/data/lgr-rulesparser.cex`.
 
 
+
 We can download this file and build a parser from it. (To be tidy, we'll remove the temporary data file we downloaded once we've got a parser.)
 
 ```{julia}
@@ -15,13 +16,13 @@ We can download this file and build a parser from it. (To be tidy, we'll remove 
 using Kanones, Downloads
 parserurl = "https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/data/lgr-rulesparser.cex"
 datafile = Downloads.download(parserurl)
-parser = dfParser(datafile)
+#parser = dfParser(datafile)
 rm(datafile)
 ```
 
 Now we can use it like any other parser.
 
-```{julia}
+```
 s = "ἀγαθόν"
 parses = parsetoken(s, parser)
 ```
@@ -37,7 +38,6 @@ A prebuilt parser for texts in standard literary Greek orthography is regularly 
 - `http://shot.holycross.edu/morphology/comprehensive-current.csv` is a prebuilt parser that includes vocabulary automatically culled from the digital Liddell-Scott lexicon published by the Perseus project.  The vocabulary entries have not been manually verified.
 
 In 2024, this parser is not yet automatically rebuilt on a regular time table.
-
 Load it and use it to parse texts the same way you would if you compiled your own parser.    
 
 
@@ -45,4 +45,5 @@ Load it and use it to parse texts the same way you would if you compiled your ow
 This is a large file (currently, ca. 700 Mb); depending on your internet connection, it can easily take a couple of minutes to download.
 :::
 
+There is also `http://shot.holycross.edu/morphology/attic_core-current.cex`.
 

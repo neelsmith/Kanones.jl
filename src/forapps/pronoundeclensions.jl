@@ -16,7 +16,7 @@ function pronoun_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
         "| --- | --- | --- | --- |"
     ]
     push!(lines, "| *singular* |  |  |  |")
-    for i in 1:length(labels)
+    for (i,lbl) in enumerate(labels)
         mform = ""
         mstems = filter(stem -> gmpNumber(stem) == gmpNumber("singular") && gmpCase(stem) == caselist[i] && gmpGender(stem) == gmpGender("masculine"), stems)
         if length(mstems) == 1
@@ -46,7 +46,7 @@ function pronoun_md(lex::LexemeUrn, kd::Kanones.FilesDataset)
 
 
     push!(lines, "| *plural* |  |  |  |")
-    for i in 1:length(labels)
+    for (i,lbl) in enumerate(labels)
         mform = ""
         mstems = filter(stem -> gmpNumber(stem) == gmpNumber("plural") && gmpCase(stem) == caselist[i] && gmpGender(stem) == gmpGender("masculine"), stems)
         if length(mstems) == 1

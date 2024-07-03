@@ -1,18 +1,18 @@
 @testset "Test IO with delimited text for uninflected forms" begin
     delimited = "uninfl.uninfl2|conjunction"
-    uninflio = Kanones.UninflectedIO("IO for uninfls")
-    rule = Kanones.readrulerow(uninflio, delimited)
+    rule = fromcex(delimited, UninflectedRule)
     # must read from delimited
     @test rule isa UninflectedRule
     # must write to delimited
-   @test cex(rule) == "uninfl.uninfl2|Uninflected rule: uninfl.uninfl2 indicates a conjunction.|conjunction"
+   @test cex(rule) == "uninfl.uninfl2|conjunction"
+
+   @test fromcex(cex(rule), UninflectedRule) == rule
 end
 
 
 @testset "Test data accessors for uninflected form" begin
-    uninflio = Kanones.UninflectedIO("IO for uninfls")
     delimited = "uninfl.uninfl2|conjunction"
-    rule = Kanones.readrulerow(uninflio, delimited)
+    rule = fromcex(delimited, UninflectedRule)
 
     # must get id
     ruleu = Kanones.ruleurn(rule)
@@ -25,7 +25,7 @@ end
     @test urn(rule, registry = dict) == expectedcite2
 
     # must get infltype and ending
-    @test_broken inflectionclass(rule) == gmpUninflectedType("conjunction")
+    @test inflectionclass(rule) == gmpUninflectedType("conjunction")
     #@test isempty(ending(rule))
 end
 

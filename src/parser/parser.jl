@@ -9,6 +9,7 @@ function parsetoken(s::AbstractString, p::T) where {T <: KanonesParser}
     []
 end
 
+#=
 
 """Parse a list of tokens using parser `parser`.
 
@@ -37,6 +38,8 @@ function lexemes(p::T) where {T <: KanonesParser}
     []
 end
 
+=#
+
 
 """For a surface string `s`, compose one or more strings normalized
 for anlaysis by a Kanones parsers using the given orthography.
@@ -50,7 +53,7 @@ function resolvestring(s, ortho = literaryGreek())
 end
 
 
-
+#=
 function formlabels(v; wordlist = [])
     labels = [parse .|> greekForm .|> label  for parse in v]
     labelstrings = map(v -> join(v, "; "), labels)
@@ -77,3 +80,4 @@ function formlabels(wordlist, p::KanonesParser)
         end  
     end
 end
+=#
