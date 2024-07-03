@@ -72,12 +72,12 @@ Required for `CitableTrait`.
 function cex(us::UninflectedStem; delimiter = "|", registry = nothing)
 
     if isnothing(registry)
-        join([id(us), lexeme(us),  stemstring(us),inflectionclass(us) ], delimiter)
+        join([id(us), lexeme(us),  stemstring(us),label(inflectionclass(us)) ], delimiter)
 
     else
         c2urn = expand(us.stemid, registry)
         lexurn = expand(us.lexid, registry)
-        join([c2urn,lexurn, stemstring(us),  inflectionclass(us)], delimiter)
+        join([c2urn,lexurn, stemstring(us),  label(inflectionclass(us))], delimiter)
     end
 end
 

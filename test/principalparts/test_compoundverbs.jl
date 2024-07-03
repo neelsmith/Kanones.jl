@@ -8,7 +8,7 @@
 
     @test fromcex(cex(compound), CompoundVerbStem) == compound
 
-    @test lexemeurn(compound) == LexemeUrn("lsj.n30252")
+    @test lexeme(compound) == LexemeUrn("lsj.n30252")
 
     @test simplex(compound) == LexemeUrn("lsj.n56496")
 
