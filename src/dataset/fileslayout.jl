@@ -8,8 +8,8 @@ RULES_DIRECTORIES = [
     "participles",
     "verbaladjectives",
     "adjectives"
-]
 
+]
 
 RULES_TYPES_DICT = Dict(
         [
@@ -25,8 +25,8 @@ RULES_TYPES_DICT = Dict(
         ]
     )
 
-    # => IrregularRule,
-    FORMS_RULES_DICT    = Dict(
+# => IrregularRule,
+FORMS_RULES_DICT = Dict(
         GMFUninflected => UninflectedRule,
         GMFNoun => NounRule,
         GMFPronoun => PronounRule,
@@ -45,16 +45,13 @@ STEMS_DIRECTORIES = [
         "verbs-simplex", 
 ]    
 
-STEMS_IO_DICT = Dict(
-        [
-       # "adjectives" => AdjectiveIO("adjective"),
-       # "nouns" => NounIO("noun"),
-       # "pronouns" => PronounIO("pronoun"),
-       # "uninflected" => UninflectedIO("uninflected"),
-       # "verbs-simplex" => VerbIO("verb")
-        ]
-    )
-
+STEMS_TYPES_DICT = Dict(
+    "adjectives" => AdjectiveStem,
+        "nouns" => NounStem,
+        "pronouns" => PronounStem,
+        "uninflected" => UninflectedStem,
+        "verbs-simplex" => VerbStem, 
+)
 
 IRREGULAR_STEM_DIRECTORIES = [
         "nouns",
@@ -64,16 +61,13 @@ IRREGULAR_STEM_DIRECTORIES = [
         "participles"
     ]    
 
-IRREGULAR_IO_DICT = Dict(
-        [
-        #"nouns" => IrregularNounIO("noun"),
-        #"verbs" => IrregularVerbIO("finite verb"),
-        #"infinitives" => IrregularInfinitiveIO("infinitive"),
-        "adjectives" => IrregularAdjectiveIO("adjectives"),
-        #"participles" => IrregularParticipleIO("adjectives")
-        ]
-    )    
-
+IRREGULAR_TYPES_DICT = Dict(
+        "nouns" => IrregularNounStem,
+        "verbs" => IrregularVerbStem,
+        "infinitives" => IrregularInfinitiveStem,
+        "adjectives" => IrregularAdjectiveStem,
+        "participles" => IrregularParticipleStem
+    )
 
 REGISTRY_DIRECTORIES = [
         "lexemes",

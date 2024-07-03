@@ -42,7 +42,7 @@ $(SIGNATURES)
 
 # Arguments
 
-- `srclist` List of full paths to a directory with Kanones data.
+- `srclist` List of full paths to directories with Kanones data.
 - `ortho` An instance of a `GreekOrthography`; defaults to `LiteraryGreekOrthography`.
 """
 function dataset(srclist::Vector; ortho::T = literaryGreek()) where {T <: GreekOrthography}
@@ -161,7 +161,7 @@ function regularstems(dirlist; delimiter = "|")
     pattern  = r".cex$"
     for datasrc in dirlist     
         for dirname in STEMS_DIRECTORIES 
-            delimitedreader = (STEMS_IO_DICT[dirname])
+            #delimitedreader = (STEMS_IO_DICT[dirname])
             dir = joinpath(datasrc, "stems-tables", dirname)
             @debug("Read from dirname/reader", dir, delimitedreader)
             if isdir(dir)
@@ -177,7 +177,11 @@ function regularstems(dirlist; delimiter = "|")
                             @debug("Read datalines", length(datalines))
                             for ln in datalines
                                 try
-                                    stem = readstemrow(delimitedreader, ln; delimiter = delimiter)
+                                    #stem = readstemrow(delimitedreader, ln; delimiter = delimiter)
+                                    #...
+                                    # find type to read
+
+                                    stem = fromcex(ln, STEMS_TYPES_DICT[dirname])
                                     #@debug("==>READ STEM", stem)
                                     push!(stemsarr,stem)
                                 catch e
@@ -206,7 +210,7 @@ function irregularstems(dirlist; delimiter = "|")
 
     for datasrc in dirlist
         for dirname in IRREGULAR_STEM_DIRECTORIES
-            delimitedreader = (IRREGULAR_IO_DICT[dirname])
+            #delimitedreader = (IRREGULAR_IO_DICT[dirname])
             dir = joinpath(datasrc, "irregular-stems", dirname)
             @debug("Read from dirname/reader", dir, delimitedreader)
             if isdir(dir)
@@ -219,7 +223,8 @@ function irregularstems(dirlist; delimiter = "|")
                             datalines = lines[2:end]
                             for ln in datalines
                                 try
-                                    stem = readstemrow(delimitedreader, ln; delimiter = delimiter)
+                                    #stem = readstemrow(delimitedreader, ln; delimiter = delimiter)
+                                    stem = fromcex(ln,                 IRREGULAR_TYPES_DICT[dirname])
                                     push!(stemsarr,stem)
                                 catch
                                     @warn("Irregular stems data: error reading line $(ln) in file $(joinpath(dir,f))")
@@ -261,21 +266,22 @@ end
 $(SIGNATURES)
 """
 function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
-    @debug("Getting regular stems for $dirlist")
+    @info("Getting regular stems for $dirlist")
     regstemsarr = regularstems(dirlist)
 
-    @debug("Getting regular compound stems for $dirlist")
-    verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, regstemsarr)
+    @info("Don't forget to find regular compound stems for $dirlist")
+    #verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, regstemsarr)
     @debug("Selected $(length(verbalstems)) simplex verbal stems")
-    compoundstemsarr = regularcompounds(dirlist, verbalstems, ortho = ortho)
+    #compoundstemsarr = regularcompounds(dirlist, verbalstems, ortho = ortho)
 
-    @debug("Getting irregular stems for $dirlist")
+    @info("Getting irregular stems for $dirlist")
     irregstemsarr = irregularstems(dirlist)
-    irregcompoundstemarr = irregularcompounds(dirlist, irregstemsarr, ortho = ortho)
+    @info("Also need irregular compounds")
+    #irregcompoundstemarr = irregularcompounds(dirlist, irregstemsarr, ortho = ortho)
 
 
     # Add irregular compound verbs to this:
-    vcat(regstemsarr, irregstemsarr, compoundstemsarr, irregcompoundstemarr)
+    #vcat(regstemsarr, irregstemsarr, compoundstemsarr, irregcompoundstemarr)
     
 end
 
