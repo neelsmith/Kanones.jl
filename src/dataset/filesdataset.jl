@@ -126,7 +126,8 @@ function compoundsarray(dirlist; delimiter = "|")
                         datalines = lines[2:end]
                         for ln in datalines
                             try 
-                                record = compoundstem(ln)
+                                #record = compoundstem(ln)
+                                record = fromcex(ln, CompoundVerbStem)
                                 push!(compoundarray,record)
                             catch e
                                 @warn("Failed to parse compound verb entry from line\n\"$(ln)\" \nin file ($(f)")
@@ -247,6 +248,7 @@ $(SIGNATURES)
 """
 function regularcompounds(dirlist, verbstems; ortho = literaryGreek())
     compoundstemsarr = Stem[]
+    
     # Add compound verbs.
     for s in compoundsarray(dirlist)
         compounded = stems(s, verbstems, ortho)
@@ -255,6 +257,7 @@ function regularcompounds(dirlist, verbstems; ortho = literaryGreek())
             push!(compoundstemsarr, c)
         end
     end
+    @debug("Found $(length(compoundstemsarr)) regular stems for compounds for $(dirlist)")
     compoundstemsarr
 end
 
@@ -266,22 +269,24 @@ end
 $(SIGNATURES)
 """
 function stemsarray(dirlist; ortho = literaryGreek(),  delimiter = "|")
-    @info("Getting regular stems for $dirlist")
+    
     regstemsarr = regularstems(dirlist)
+    @debug("Got $(length(regstemsarr)) regular stems for $dirlist")
 
-    @info("Don't forget to find regular compound stems for $dirlist")
-    #verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, regstemsarr)
+    
+    verbalstems = filter(s -> s isa VerbStem || s isa IrregularVerbStem, regstemsarr)
     @debug("Selected $(length(verbalstems)) simplex verbal stems")
-    #compoundstemsarr = regularcompounds(dirlist, verbalstems, ortho = ortho)
+    compoundstemsarr = regularcompounds(dirlist, verbalstems, ortho = ortho)
 
-    @info("Getting irregular stems for $dirlist")
+    
     irregstemsarr = irregularstems(dirlist)
-    @info("Also need irregular compounds")
-    #irregcompoundstemarr = irregularcompounds(dirlist, irregstemsarr, ortho = ortho)
+    @debug("Got $(length(irregstemsarr)) irregular stems for $dirlist")
+    @debug("Also need irregular compounds")
+    irregcompoundstemarr = irregularcompounds(dirlist, irregstemsarr, ortho = ortho)
 
 
     # Add irregular compound verbs to this:
-    #vcat(regstemsarr, irregstemsarr, compoundstemsarr, irregcompoundstemarr)
+    vcat(regstemsarr, irregstemsarr, compoundstemsarr, irregcompoundstemarr)
     
 end
 

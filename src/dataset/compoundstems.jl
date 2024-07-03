@@ -26,7 +26,8 @@ function irregularcompoundsarray(dirlist; delimiter = "|")
                         datalines = lines[2:end]
                         for ln in datalines
                             try 
-                                record = compoundstem(ln)
+                                #record = compoundstem(ln)
+                                record = fromcex(ln, CompoundVerbStem)
                                 push!(compoundarray,record)
                             catch e
                                 @warn("Failed to parse compound verb entry from line\n\"$(ln)\" \nin file ($(f)")

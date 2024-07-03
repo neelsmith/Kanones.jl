@@ -93,7 +93,7 @@ function fromcex(traitvalue::UninflectedRuleCex, cexsrc::AbstractString, T;
         throw(ArgumentError(msg))
     else
         ruleid = RuleUrn(parts[1])
-        @info("Reading CEX: get uninfl type from $(parts[2])")
+        @debug("Reading CEX: get uninfl type from $(parts[2])")
         inflectionaltype = gmpUninflectedType(parts[2])
         UninflectedRule(ruleid, inflectionaltype)
     end
