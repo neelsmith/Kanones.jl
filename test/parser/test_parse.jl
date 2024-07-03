@@ -9,7 +9,7 @@
     adj =  parsetoken("κακή",p)
     infin = parsetoken("κελεύειν",p)
     pronoun = parsetoken("ἡ",p)
-    uninfl = parsetoken("καί", p)
+    uninfl = parsetoken("γάρ", p)
 
     irregnoun = parsetoken("γυνή", p)
     irreginf = parsetoken("εἶναι",p)

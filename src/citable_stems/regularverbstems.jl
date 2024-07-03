@@ -87,7 +87,7 @@ function fromcex(traitvalue::VerbStemCex, cexsrc::AbstractString, T;
     delimiter = "|", configuration = nothing, strict = true)
     parts = split(cexsrc, delimiter)
     if length(parts) < 5
-        throw(ArgumentError("readstemrow for verb: too few parts in $(delimited)"))
+        throw(ArgumentError("Reading CEX for verb: too few parts in $(delimited)"))
     end
     stemid = StemUrn(parts[1])
     lexid = LexemeUrn(parts[2])

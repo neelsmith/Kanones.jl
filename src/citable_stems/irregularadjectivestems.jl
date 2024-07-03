@@ -163,40 +163,6 @@ function gmpDegree(adj::IrregularAdjectiveStem)
 end
 
 
-
-#=
-"""
-Read one row of a stems table for irregular adjective tokens and create an `AdjectiveStem`.
-
-$(SIGNATURES)    
-"""
-function readstemrow(usp::IrregularAdjectiveIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-
-    # Example:
-    # "irregadj.n79904a|lsj.n79904|πᾶς|masculine|nominative|singular|positive|irregularadjective"
-
-    if length(parts) < 8
-        msg = "Too few parts in $delimited."
-        @warn msg
-        throw(new(ArgumentError(msg)))
-    end
-    
-    stemid = StemUrn(parts[1])
-    lexid = LexemeUrn(parts[2])
-    stem = knormal(parts[3])
-    g = gmpGender(parts[4])
-    c = gmpCase(parts[5])
-    n = gmpNumber(parts[6])
-    d = gmpDegree(parts[7])
-    inflclass = parts[8]
-
-    IrregularAdjectiveStem(stemid,lexid,stem,g,c,n,d,inflclass)
-end
-
-=#
-
-
 """Identify value of stem string for `adj`.
 $(SIGNATURES)
 """

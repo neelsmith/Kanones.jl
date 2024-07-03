@@ -137,25 +137,6 @@ end
 
 
 
-#=
-"""Implementation of reading one row of a stems table for uninflected tokens.
-$(SIGNATURES)
-"""
-function readstemrow(usp::UninflectedIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    if length(parts) < 4
-        msg = "Invalid syntax for uninflected stem: too few components in $(delimited)"
-        throw(ArgumentError(msg))
-    else
-        stemid = StemUrn(parts[1])
-        lexid = LexemeUrn(parts[2])
-        form = parts[3]
-        stemclass = gmpUninflectedType(parts[4])
-        UninflectedStem(stemid, lexid, form, stemclass)
-    end
-end=#
-
-
 """Compose a digital code string for the form identified in `uninfl`.
 $(SIGNATURES)
 """

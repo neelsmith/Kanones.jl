@@ -133,39 +133,6 @@ end
 
 
 
-
-#=
-"""
-Read one row of a stems table for irregular infinititve tokens and create an `IrregularInfinitiveStem`.
-
-$(SIGNATURES)    
-"""
-function readstemrow(infinio::Kanones.IrregularInfinitiveIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-
-
-    if length(parts) < 5
-        msg = "Too few parts in $delimited."
-        @warn msg
-        throw(new(ArgumentError(msg)))
-    end
-    
-    stemid = StemUrn(parts[1])
-    lexid = LexemeUrn(parts[2])
-    stem = knormal(parts[3])
-    t = gmpTense(parts[4])
-    v = gmpVoice(parts[5])
-    inflclass = parts[6]
-
-    IrregularInfinitiveStem(stemid,lexid,stem,t,v, inflclass)
-
-end
-=#
-
-
-
-
-
 """Identify value of stem string for `inf`.
 $(SIGNATURES)
 """

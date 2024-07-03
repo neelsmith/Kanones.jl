@@ -103,7 +103,7 @@ function fromcex(traitvalue::IrregularParticipleStemCex, cexsrc::AbstractString,
     parts = split(cexsrc, delimiter)
 
     if length(parts) < 9
-        msg = "readstemrow for irregular participle: too few parts in $delimited."
+        msg = "reading CEX for irregular participle: too few parts in $delimited."
         @warn msg
         throw(new(ArgumentError(msg)))
     end

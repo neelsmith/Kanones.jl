@@ -126,7 +126,7 @@ include("normal.jl")
 include("kanonesio.jl")
 include("dataset/dataset.jl")
 
-include("dataset/stemreaders.jl")
+#include("dataset/stemreaders.jl")
 include("dataset/infltypes.jl")
 
 include("utils/utils.jl")
@@ -206,7 +206,7 @@ include("citable_rules/rulesets.jl")
 include("parser/parser.jl")
 include("parser/stringparser.jl")
 #include("parser/dfparser.jl")
-include("parser/perfilebuilder.jl")
+#include("parser/perfilebuilder.jl")
 
 
 include("generate/generate.jl")

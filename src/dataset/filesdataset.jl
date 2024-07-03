@@ -178,10 +178,6 @@ function regularstems(dirlist; delimiter = "|")
                             @debug("Read datalines", length(datalines))
                             for ln in datalines
                                 try
-                                    #stem = readstemrow(delimitedreader, ln; delimiter = delimiter)
-                                    #...
-                                    # find type to read
-
                                     stem = fromcex(ln, STEMS_TYPES_DICT[dirname])
                                     #@debug("==>READ STEM", stem)
                                     push!(stemsarr,stem)
@@ -224,8 +220,7 @@ function irregularstems(dirlist; delimiter = "|")
                             datalines = lines[2:end]
                             for ln in datalines
                                 try
-                                    #stem = readstemrow(delimitedreader, ln; delimiter = delimiter)
-                                    stem = fromcex(ln,                 IRREGULAR_TYPES_DICT[dirname])
+                                    stem = fromcex(ln, IRREGULAR_TYPES_DICT[dirname])
                                     push!(stemsarr,stem)
                                 catch
                                     @warn("Irregular stems data: error reading line $(ln) in file $(joinpath(dir,f))")

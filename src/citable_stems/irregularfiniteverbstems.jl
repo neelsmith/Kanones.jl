@@ -161,41 +161,6 @@ function gmpVoice(verb::IrregularVerbStem)
     verb.vvoice
 end
 
-#=
-
-"""
-Read one row of a stems table for irregular finite verb tokens and create an `IrregularVerbStem`.
-
-$(SIGNATURES)    
-"""
-function readstemrow(usp::Kanones.IrregularVerbIO, delimited::AbstractString; delimiter = "|")
-    parts = split(delimited, delimiter)
-    # Example:
-    #irregverb.irregverbnn26447b|lsj.n26447|διδόασι|third|plural|present|indicative|active|irregularfiniteverb
-    if length(parts) < 9
-        msg = "Too few parts in $delimited."
-        @warn msg
-        throw(ArgumentError(msg))
-    end
-    
-    stemid = StemUrn(parts[1])
-    lexid = LexemeUrn(parts[2])
-    stem = knormal(parts[3])
-    p = gmpPerson(parts[4])
-    n = gmpNumber(parts[5])
-    t = gmpTense(parts[6])
-    m = gmpMood(parts[7])
-    v = gmpVoice(parts[8])
-    inflclass = parts[9]
-
-    IrregularVerbStem(stemid,lexid,stem,p,n,t,m,v, inflclass)
-end
-
-=#
-
-
-
-
 
 
 
