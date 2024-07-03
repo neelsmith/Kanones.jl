@@ -122,7 +122,7 @@ end
 $(SIGNATURES)
 """
 function inflectionclass(uninfl::UninflectedStem)
-    uninfl.stemcategory |> label
+    uninfl.stemcategory
 end
 
 

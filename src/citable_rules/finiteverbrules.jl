@@ -1,4 +1,4 @@
-"""Inflectional rule for uninflected lexical items.
+"""Inflectional rule for finite verb forms.
 
 $(SIGNATURES)
 """

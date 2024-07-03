@@ -115,7 +115,7 @@ export lexicon_noun_md
 
 export urn, formurn, ruleurn
 
-export KanonesStringParser, kanonesStringParser
+export KanonesStringParser, kParser
 #export DFParser, dfParser
 # export TabulaeStringParser, tabulaeStringParser
 export orthography
@@ -240,7 +240,7 @@ include("forapps/infinitives.jl")
 
 
 
-include("dfparser/survey.jl")
+#include("dfparser/survey.jl")
 
 include("inflectionclassmetadata/inflectionclass.jl")
 

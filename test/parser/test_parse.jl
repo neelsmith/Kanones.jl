@@ -1,7 +1,7 @@
 @testset "Test parsing with a string parser" begin
     srcdata = joinpath(dirname(pwd()),"datasets","literarygreek-rules")
-    p = dataset(srcdata) |> kanonesStringParser
-    @test p isa kanonesStringParser
+    p = dataset(srcdata) |> kParser
+    @test p isa KanonesStringParser
     
     # Should get a single parse for each of these:
     verb = parsetoken("δείκνυμεν",p)

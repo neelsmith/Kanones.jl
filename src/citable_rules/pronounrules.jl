@@ -1,5 +1,5 @@
 
-"Inflectional rule for uninflected lexical items."
+"Inflectional rule for pronoun forms."
 struct PronounRule <: KanonesRule
     ruleid::RuleUrn
     pronountype

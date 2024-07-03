@@ -40,7 +40,6 @@ function orthography(p::KanonesStringParser)
 end
 
 
-
 """Write entries of a KanonesStringParser to file.
 $(SIGNATURES)
 """
@@ -54,7 +53,7 @@ end
 """Instantiate a `KanonesStringParser` for `td`.
 $(SIGNATURES)
 """
-function kanonesStringParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
+function kParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
     analyses = []
     rules = rulesarray(kd)
     stems = stemsarray(kd) 
@@ -70,14 +69,14 @@ end
 """Instantiate a `KanonesStringParser` from a set of analyses read from a local file.
 $(SIGNATURES)
 """
-function kanonesStringParser(f, freader::Type{FileReader})
+function kParser(f, freader::Type{FileReader})
     KanonesStringParser(readlines(f))
 end
 
 """Instantiate a `KanonesStringParser` from a set of analyses read from a URL.
 $(SIGNATURES)
 """
-function kanonesStringParser(u, ureader::Type{UrlReader})
+function kParser(u, ureader::Type{UrlReader})
     tmpfile = Downloads.download(u) 
     sp = readlines(tmpfile) |> KanonesStringParser
     rm(tmpfile)
@@ -111,80 +110,6 @@ function generate(lex::LexemeUrn, form::FormUrn, sp::KanonesStringParser; delimi
         replace(ln, re => "")
     end
 end
-
-
-#=
-"""Write a string parser to a delimited-text file.
-$(SIGNATURES)
-"""
-function tofile(p::KanonesStringParser, f; delimiter = nothing )
-    src = "Token,Lexeme,Form,Stem,Rule\n" * join(p.entries,"\n") * "\n"
-    txt = isnothing(delimiter) ? src : replace(src, "|" => delimiter)
-    open(f, "w") do io
-        write(f, txt)
-    end
-end
-
-
-=#
-
-#=
-"""Instantiate a `KanonesStringParser` from a set of analyses read from a local file.
-$(SIGNATURES)
-"""
-function KanonesStringParser(f, freader::Type{FileReader})
-    KanonesStringParser(readlines(f))
-end
-
-"""Instantiate a `KanonesStringParser` from a set of analyses read from a URL.
-$(SIGNATURES)
-"""
-function KanonesStringParser(u, ureader::Type{UrlReader})
-    Downloads.download(u) |> readlines |> KanonesStringParser
-end
-
-"""Serialize a single analysis to delimited text.
-$(SIGNATURES)
-"""
-function analysis_line(a::Analysis; delimiter = "|")
-    pieces = [
-        a.token,
-        string(a.lexeme),
-        string(a.form),
-        string(a.stem),
-        string(a.rule)
-    ]
-    join(pieces, delimiter)
-end
-
-"""Map `Analysis` objects to string values.
-$(SIGNATURES)
-"""
-function analysis_lines(v::Vector{Analysis})
-    map(a -> analysis_line(a), v)
-end
-
-"""Map all analyses in `td` to string values.
-$(SIGNATURES)
-"""
-function analysis_lines(td::Kanones.FilesDataset)
-    analyses(td) |> analysis_lines
-end
-
-"""Create an `Analysis` from line of delimited text.
-$(SIGNATURES)
-"""
-function fromline(s::AbstractString; delimiter = "|")
-    pieces = split(s,delimiter)
-    Analysis(
-        pieces[1], 
-        LexemeUrn(pieces[2]),
-        FormUrn(pieces[3]),
-        StemUrn(pieces[4]),
-        RuleUrn(pieces[5])
-    )
-end
-=#
 
 """True if form IDs are build from the `Rule` of a
 stem-rule pair.
@@ -224,16 +149,6 @@ function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T
     generated
 end
 
-#=
-"""Find unique lexemes recognized by a `KanonesStringParser`.
-$(SIGNATURES)
-"""
-function lexemes(sp::KanonesStringParser)
-    map(sp.entries) do ln
-        split(ln, "|")[2]
-    end |> unique
-end
-=#
 
 """Build a new `KanonesStringParser` by adding a further dataset
 to an existing parser. 
@@ -243,7 +158,7 @@ to an existing parser.
 - `newdata` is an additional dataset with any new content (rules or vocab)
 """
 function concat_ds(sp::KanonesStringParser, rulesds::FilesDataset, newdata::FilesDataset; interval = 100)
-    @info("First, get all existing rules from sp!")
+    @debug("First, get all existing rules from sp!")
     rules_all = vcat(rulesarray(rulesds), rulesarray(newdata))
     stems_new = stemsarray(newdata)
  
@@ -256,10 +171,6 @@ function concat_ds(sp::KanonesStringParser, rulesds::FilesDataset, newdata::File
     end
     analyses |> KanonesStringParser
 end
-
-
-
-
 
 
 

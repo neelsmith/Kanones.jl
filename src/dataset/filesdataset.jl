@@ -66,11 +66,13 @@ function rulesarray(dirlist; delimiter = "|")
     rulesarr = Rule[]
     pattern  = r".cex$"
     for datasrc in dirlist
+        #@info("Dir: $(datasrc)")
         for dirname in RULES_DIRECTORIES 
-            #delimitedreader = (RULES_IO_DICT[dirname])
+            @debug("rule dir $(dirname)")
             dir = joinpath(datasrc, "rules-tables", dirname)
-            @debug("Read from dirname/reader", dir, delimitedreader)
+           
             if isdir(dir)
+                @debug("Got directory")
                 for (root, dirs, files) in walkdir(dir)
                     @debug("r/d/f", root, dirs, files)
                     for f in files

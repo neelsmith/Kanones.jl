@@ -54,7 +54,7 @@ end
 $(SIGNATURES)
 """
 function inflectionclass(uninfl::UninflectedRule)
-    uninfl.infltype #|> label
+    uninfl.infltype
 end
 
 function ending(uninfl::UninflectedRule)
