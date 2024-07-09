@@ -9,6 +9,38 @@ struct KanonesStringParser <: KanonesParser
         ortho::GreekOrthography = literaryGreek(), delim::AbstractString = "|") = new(entries, ortho, delim)
 end
 
+
+
+"""Value for CexTrait on TabulaeStringParser."""
+struct KanonesStringParserCex <: CexTrait end
+"""Identify CEX trait for TabulaeStringParser type.
+$(SIGNATURES)
+"""
+function cextrait(::Type{KanonesStringParser})
+    KanonesStringParserCex()
+end
+
+
+"""Export parser to delimited-text format.
+$(SIGNATURES)
+"""
+function cex(tsp::KanonesStringParser; delimiter = "|")
+    join(tsp.entries,"\n")
+end
+
+"""Instantiate a parser from delimited-text format.
+Optionally identify orthographic system for parser in
+parameter `configuration`.
+$(SIGNATURES)
+"""
+function fromcex(trait::KanonesStringParserCex, cexsrc::AbstractString, T; 
+    delimiter = "|", configuration = nothing, strict = true)
+    ortho = isnothing(configuration) ? literaryGreek() : configuration
+    entries = split(cexsrc, "\n")
+    KanonesStringParser(entries, ortho, delimiter)
+end
+
+
 """Instantiate a generic `StringParser` (from the `CitableParserBuilder` package) from a `KanonesStringParser`.
 $(SIGNATURES)
 """
@@ -43,7 +75,7 @@ end
 """Write entries of a KanonesStringParser to file.
 $(SIGNATURES)
 """
-function tofile(p::KanonesStringParser, f)
+function tofile(p::KanonesStringParser, f; delimiter = "|")
     open(f, "w") do io
         write(f, cex(p))
     end
