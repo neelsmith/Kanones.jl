@@ -8,6 +8,12 @@ In addition to building parsers from a data set of local source files, you can s
 A very small parser to demonstrate inflectional rules with a minimal vocabulary set is available from the Kanones github repository, at `https://raw.githubusercontent.com/neelsmith/Kanones.jl/main/test/data/lgr-rulesparser.cex`.
 
 
+::: {.callout-warning title="Out of date"}
+The source for the parser used here is out of date.
+:::
+
+
+
 
 We can download this file and build a parser from it. (To be tidy, we'll remove the temporary data file we downloaded once we've got a parser.)
 

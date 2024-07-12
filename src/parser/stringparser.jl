@@ -89,9 +89,11 @@ function kParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
     analyses = []
     rules = rulesarray(kd)
     stems = stemsarray(kd) 
+    totalstems = length(stems)
+    @info("Building a parser from $(totalstems) stems...")
     for (i, stem) in enumerate(stems)
         if i % interval == 0
-            @info("stem $(i)… $(stem)")
+            @info("stem $(i)/$(totalstems)… $(stem)")
         end
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
@@ -124,6 +126,7 @@ function parsetoken(s::AbstractString, parser::KanonesStringParser; data = nothi
     ptrn = knormal(s) * "|"
     @debug("Match pattern", ptrn)
     matches = filter(ln -> startswith(ln, ptrn), datasource(parser))
+    @debug("Try ot make analyses from $(matches)")
     map(ln ->  fromcex(ln, Analysis), matches)
 end
 
@@ -168,13 +171,14 @@ function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T
         @debug("Apply rule to stem", rule, stem)
         token = generate(stem, rule)
         mtoken = token
+        mtokenid = "a"
         @debug("Generated/rule", token, rule)
         @debug(syllabify(knormal(token), literaryGreek()))
         raw = ""
         if buildfromrule(rule)
-            raw = join([knormal(token), lexeme(stem), Kanones.formurn(rule), urn(stem), urn(rule), mtoken], delimiter)
+            raw = join([knormal(token), lexeme(stem), Kanones.formurn(rule), urn(stem), urn(rule), mtoken, mtokenid], delimiter)
         else
-            raw = join([knormal(token), lexeme(stem), Kanones.formurn(stem), urn(stem), urn(rule), mtoken], delimiter)
+            raw = join([knormal(token), lexeme(stem), Kanones.formurn(stem), urn(stem), urn(rule), mtoken, mtokenid], delimiter)
         end
         push!(generated, knormal(raw))
     end
@@ -193,11 +197,11 @@ function concat_ds(sp::KanonesStringParser, rulesds::FilesDataset, newdata::File
     @debug("First, get all existing rules from sp!")
     rules_all = vcat(rulesarray(rulesds), rulesarray(newdata))
     stems_new = stemsarray(newdata)
- 
+    totalstems = length(stems_new)
     analyses = sp.entries
     for (i, stem) in enumerate(stems_new)
         if i % interval == 0
-            @info("stem $(i)… $(stem)")
+            @info("stem $(i)/$(totalstems)… $(stem)")
         end
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
@@ -205,7 +209,7 @@ function concat_ds(sp::KanonesStringParser, rulesds::FilesDataset, newdata::File
 end
 
 
-
+#=
 """Value for CexTrait on KanonesStringParser."""
 struct KanonesStringParserCex <: CexTrait end
 """Identify CEX trait for KanonesStringParser type.
@@ -227,3 +231,5 @@ function fromcex(trait::KanonesStringParserCex, cexsrc::AbstractString, T;
     entries = split(cexsrc, "\n")
     KanonesStringParser(entries, ortho, delimiter)
 end
+
+=#
