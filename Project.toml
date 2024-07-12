@@ -1,7 +1,7 @@
 name = "Kanones"
 uuid = "107500f9-53d4-4696-8485-0747242ad8bc"
 authors = ["nsmith"]
-version = "0.25.0"
+version = "0.27.0"
 
 [deps]
 AtticGreek = "330c8319-f7ed-461a-8c52-cee5da4c0892"
@@ -39,7 +39,7 @@ CitableBase = "10"
 CitableCollection = "0.4"
 CitableCorpus = "0.13"
 CitableObject = "0.16"
-CitableParserBuilder = "0.29"
+CitableParserBuilder = "0.30"
 CitableText = "0.16"
 Compat = "4"
 DataFrames = "1"

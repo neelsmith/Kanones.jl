@@ -9,6 +9,38 @@ struct KanonesStringParser <: KanonesParser
         ortho::GreekOrthography = literaryGreek(), delim::AbstractString = "|") = new(entries, ortho, delim)
 end
 
+
+
+"""Value for CexTrait on TabulaeStringParser."""
+struct KanonesStringParserCex <: CexTrait end
+"""Identify CEX trait for TabulaeStringParser type.
+$(SIGNATURES)
+"""
+function cextrait(::Type{KanonesStringParser})
+    KanonesStringParserCex()
+end
+
+
+"""Export parser to delimited-text format.
+$(SIGNATURES)
+"""
+function cex(tsp::KanonesStringParser; delimiter = "|")
+    join(tsp.entries,"\n")
+end
+
+"""Instantiate a parser from delimited-text format.
+Optionally identify orthographic system for parser in
+parameter `configuration`.
+$(SIGNATURES)
+"""
+function fromcex(trait::KanonesStringParserCex, cexsrc::AbstractString, T; 
+    delimiter = "|", configuration = nothing, strict = true)
+    ortho = isnothing(configuration) ? literaryGreek() : configuration
+    entries = split(cexsrc, "\n")
+    KanonesStringParser(entries, ortho, delimiter)
+end
+
+
 """Instantiate a generic `StringParser` (from the `CitableParserBuilder` package) from a `KanonesStringParser`.
 $(SIGNATURES)
 """
@@ -43,7 +75,7 @@ end
 """Write entries of a KanonesStringParser to file.
 $(SIGNATURES)
 """
-function tofile(p::KanonesStringParser, f)
+function tofile(p::KanonesStringParser, f; delimiter = "|")
     open(f, "w") do io
         write(f, cex(p))
     end
@@ -57,9 +89,11 @@ function kParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
     analyses = []
     rules = rulesarray(kd)
     stems = stemsarray(kd) 
+    totalstems = length(stems)
+    @info("Building a parser from $(totalstems) stems...")
     for (i, stem) in enumerate(stems)
         if i % interval == 0
-            @info("stem $(i)… $(stem)")
+            @info("stem $(i)/$(totalstems)… $(stem)")
         end
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
@@ -92,6 +126,7 @@ function parsetoken(s::AbstractString, parser::KanonesStringParser; data = nothi
     ptrn = knormal(s) * "|"
     @debug("Match pattern", ptrn)
     matches = filter(ln -> startswith(ln, ptrn), datasource(parser))
+    @debug("Try ot make analyses from $(matches)")
     map(ln ->  fromcex(ln, Analysis), matches)
 end
 
@@ -136,13 +171,14 @@ function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T
         @debug("Apply rule to stem", rule, stem)
         token = generate(stem, rule)
         mtoken = token
+        mtokenid = "a"
         @debug("Generated/rule", token, rule)
         @debug(syllabify(knormal(token), literaryGreek()))
         raw = ""
         if buildfromrule(rule)
-            raw = join([knormal(token), lexeme(stem), Kanones.formurn(rule), urn(stem), urn(rule), mtoken], delimiter)
+            raw = join([knormal(token), lexeme(stem), Kanones.formurn(rule), urn(stem), urn(rule), mtoken, mtokenid], delimiter)
         else
-            raw = join([knormal(token), lexeme(stem), Kanones.formurn(stem), urn(stem), urn(rule), mtoken], delimiter)
+            raw = join([knormal(token), lexeme(stem), Kanones.formurn(stem), urn(stem), urn(rule), mtoken, mtokenid], delimiter)
         end
         push!(generated, knormal(raw))
     end
@@ -161,11 +197,11 @@ function concat_ds(sp::KanonesStringParser, rulesds::FilesDataset, newdata::File
     @debug("First, get all existing rules from sp!")
     rules_all = vcat(rulesarray(rulesds), rulesarray(newdata))
     stems_new = stemsarray(newdata)
- 
+    totalstems = length(stems_new)
     analyses = sp.entries
     for (i, stem) in enumerate(stems_new)
         if i % interval == 0
-            @info("stem $(i)… $(stem)")
+            @info("stem $(i)/$(totalstems)… $(stem)")
         end
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
@@ -173,7 +209,7 @@ function concat_ds(sp::KanonesStringParser, rulesds::FilesDataset, newdata::File
 end
 
 
-
+#=
 """Value for CexTrait on KanonesStringParser."""
 struct KanonesStringParserCex <: CexTrait end
 """Identify CEX trait for KanonesStringParser type.
@@ -195,3 +231,5 @@ function fromcex(trait::KanonesStringParserCex, cexsrc::AbstractString, T;
     entries = split(cexsrc, "\n")
     KanonesStringParser(entries, ortho, delimiter)
 end
+
+=#

@@ -37,10 +37,9 @@ function dataset(dir::AbstractString; ortho::T = literaryGreek()) where {T <: Gr
 end
 
 """Create a `Kanones.FilesDataset` from one or more data sources.
-
 $(SIGNATURES)
 
-# Arguments
+**Arguments**
 
 - `srclist` List of full paths to directories with Kanones data.
 - `ortho` An instance of a `GreekOrthography`; defaults to `LiteraryGreekOrthography`.
@@ -51,7 +50,6 @@ end
 
 
 """Recursively read all rules data from a list of directories into an array of `Rule`s.
-
 $(SIGNATURES)
 """
 function rulesarray(kd::Kanones.FilesDataset; delimiter = "|")
@@ -66,7 +64,7 @@ function rulesarray(dirlist; delimiter = "|")
     rulesarr = Rule[]
     pattern  = r".cex$"
     for datasrc in dirlist
-        #@info("Dir: $(datasrc)")
+        @debug("Dir: $(datasrc)")
         for dirname in RULES_DIRECTORIES 
             @debug("rule dir $(dirname)")
             dir = joinpath(datasrc, "rules-tables", dirname)
@@ -164,7 +162,6 @@ function regularstems(dirlist; delimiter = "|")
     pattern  = r".cex$"
     for datasrc in dirlist     
         for dirname in STEMS_DIRECTORIES 
-            #delimitedreader = (STEMS_IO_DICT[dirname])
             dir = joinpath(datasrc, "stems-tables", dirname)
             @debug("Read from dirname/reader", dir, delimitedreader)
             if isdir(dir)
@@ -209,7 +206,6 @@ function irregularstems(dirlist; delimiter = "|")
 
     for datasrc in dirlist
         for dirname in IRREGULAR_STEM_DIRECTORIES
-            #delimitedreader = (IRREGULAR_IO_DICT[dirname])
             dir = joinpath(datasrc, "irregular-stems", dirname)
             @debug("Read from dirname/reader", dir, delimitedreader)
             if isdir(dir)
