@@ -39,7 +39,7 @@ function three_ending_adj_md(lex::LexemeUrn, degree::GMPDegree, kd::Kanones.File
 
         nform = ""
         nrules = filter(r -> gmpNumber(r) == gmpNumber("singular") && gmpCase(r) == caselist[i] && gmpGender(r) == gmpGender("neuter"), rules)
-        if ! isempty(frules)
+        if ! isempty(nrules)
             generated = generate(lex, formurn(nrules[1]),  kd)
             nform = join(generated,", ")
         end
@@ -66,12 +66,79 @@ function three_ending_adj_md(lex::LexemeUrn, degree::GMPDegree, kd::Kanones.File
 
         nform = ""
         nrules = filter(r -> gmpNumber(r) == gmpNumber("plural") && gmpCase(r) == caselist[i] && gmpGender(r) == gmpGender("neuter"), rules)
-        if ! isempty(frules)
+        if ! isempty(nrules)
             generated = generate(lex, formurn(nrules[1]),  kd)
             nform = join(generated,", ")
         end
 
         push!(lines, string("| **", labels[i], "** | ", mform, " | ", fform , " | ", nform, " |"))
+    end
+
+
+    
+
+    join(lines,"\n")
+end
+
+
+
+function two_ending_adj_md(lex::LexemeUrn, degree::GMPDegree, kd::Kanones.FilesDataset)
+    stemmatches = filter(s -> lexeme(s) == lex, stemsarray(kd))
+    if isempty(stemmatches)
+        throw(DomainError("No stems found for lexeme $(lex)"))
+    elseif length(stemmatches) != 1
+        @warn("More than one stem found for $(lex): using first stem.")
+    end
+    stem = stemmatches[1]
+    rules = filter(r ->  inflectionclass(r) == inflectionclass(stem) && gmpDegree(r) == degree, rulesarray(kd))
+
+    labels = ["nominative", "genitive", "dative", "accusative"]
+    caselist = map(l -> gmpCase(l), labels)
+
+    lines = [
+        "| | Common | Neuter |", 
+        "| --- | --- | --- |"
+    ]
+    push!(lines, "| *singular* |  |  |  |")
+    for (i,lbl) in enumerate(labels)
+        mform = ""
+        mrules = filter(r -> gmpNumber(r) == gmpNumber("singular") && gmpCase(r) == caselist[i] && gmpGender(r) == gmpGender("masculine"), rules)
+        if ! isempty(mrules)
+            generated = generate(lex, formurn(mrules[1]),  kd)
+            mform = join(generated,", ")
+        end
+
+
+
+        nform = ""
+        nrules = filter(r -> gmpNumber(r) == gmpNumber("singular") && 
+                    gmpCase(r) == caselist[i] && gmpGender(r) == gmpGender("neuter"), rules)
+        if ! isempty(nrules)
+            generated = generate(lex, formurn(nrules[1]),  kd)
+            nform = join(generated,", ")
+        end
+       push!(lines, string("| **", labels[i], "** | ", mform, " | ", nform, " |"))
+    end
+
+    push!(lines, "| *plural* |  |  |  |")
+    for (i,lbl) in enumerate(labels)
+        mform = ""
+        mrules = filter(r -> gmpNumber(r) == gmpNumber("plural") && gmpCase(r) == caselist[i] && gmpGender(r) == gmpGender("masculine"), rules)
+        if ! isempty(mrules)
+            generated = generate(lex, formurn(mrules[1]),  kd)
+            mform = join(generated,", ")
+        end
+
+
+        nform = ""
+        nrules = filter(r -> gmpNumber(r) == gmpNumber("plural") && gmpCase(r) == caselist[i] && gmpGender(r) == gmpGender("neuter"), rules)
+        if ! isempty(nrules)
+            generated = generate(lex, formurn(nrules[1]),  kd)
+            nform = join(generated,", ")
+        end
+
+        #push!(lines, string("| **", labels[i], "** | ", mform, " | ", fform , " | ", nform, " |"))
+        push!(lines, string("| **", labels[i], "** | ", mform, " | ", nform, " |"))
     end
 
 

@@ -44,3 +44,40 @@ Cone
 cone = LexemeUrn("lsj.n61348")
 declension_md(cone, mathds) |> Markdown.parse
 ```
+
+## Adjectives
+
+Equal
+
+```{julia}
+#| asis: true
+#| warning: false
+#| echo: false
+equal = LexemeUrn("lsj.n51148")
+pos = gmpDegree("positive")
+three_ending_adj_md(equal, pos, mathds) |> Markdown.parse
+```
+
+
+Less (a comparative adjective) (Forms in -ττ- are "Attic.")
+
+```{julia}
+#| asis: true
+#| warning: false
+#| echo: false
+less = LexemeUrn("lsj.n33426")
+comp = gmpDegree("comparative")
+two_ending_adj_md(less, comp, mathds) |> Markdown.parse
+```
+
+
+Polygonal; the neuter singular is used substantively, "polygon"
+
+
+```{julia}
+#| asis: true
+#| warning: false
+#| echo: false
+polygon = LexemeUrn("lsj.n84739")
+two_ending_adj_md(polygon, pos, mathds) |> Markdown.parse
+```
