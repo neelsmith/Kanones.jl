@@ -53,16 +53,18 @@ $(SIGNATURES)
 """
 function formatdeclension(nounlist::Vector{Vector{String}})
     @info("Formatting $(length(nounlist)) nouns.")
+    @info("Lengths: $(length.(nounlist))")
     labels = ["nominative", "genitive", "dative", "accusative", "vocative"]
     lines = [
         "| | Singular | Plural |", 
         "| --- | --- | --- |"
     ]
 
-    available = filter(v -> length(v) > 9, nounlist)
+    available = filter(v -> length(v) >= 10, nounlist)
     mtrx = hcat(available...)
-    @debug("Matrix is $(mtrx)")
-    @debug("Its size $(size(mtrx))")
+    #mtrx = nounlist
+    @info("Matrix is $(mtrx)")
+    @info("Its size $(size(mtrx))")
     
     for i in 1:5
         sgforms =  join(mtrx[i,:], ", ")

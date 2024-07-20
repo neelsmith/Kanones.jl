@@ -72,3 +72,6 @@ First principal part in -νυμι
 
 
 ::::
+
+
+Fun [math vocabulary](./math.qmd)!

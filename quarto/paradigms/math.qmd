@@ -1,0 +1,46 @@
+# Paradigms of vocabulary for Archimedes, *S&C*
+
+
+```{julia}
+#| echo: false
+#| output: false
+#| warning: false
+using Kanones
+repo = pwd() |> dirname |> dirname
+rulesdir = joinpath(repo, "datasets", "literarygreek-rules") 
+mathdir = joinpath(repo, "datasets", "math")
+mathds = dataset([rulesdir, mathdir])
+```
+
+
+Surface
+
+```{julia}
+#| echo: false
+#| asis: true
+#| warning: false
+using Markdown, CitableParserBuilder
+surface = LexemeUrn("lsj.n41483")
+declension_md(surface, mathds) |> Markdown.parse
+```
+
+Height
+
+```{julia}
+#| asis: true
+#| warning: false
+#| echo: false
+height = LexemeUrn("lsj.n110012")
+declension_md(height, mathds) |> Markdown.parse
+```
+
+
+Cone
+
+```{julia}
+#| asis: true
+#| warning: false
+#| echo: false
+cone = LexemeUrn("lsj.n61348")
+declension_md(cone, mathds) |> Markdown.parse
+```
