@@ -4,37 +4,40 @@ editor:
     render-on-save: true
 ---
 
-::: {.callout-caution}
-Content of this page TBA
-:::
-
-
 
 ## Overview
+
+Morphological forms are identified with morphological properties: for example, nouns and adjectives are identified with gender, case and number properties; infinitive verbs are identified with tense and voice.
+
+Kanónes defines properties for person, number, tense, mood, voice, gender, case, degree and uninflected part of speech. Each property is a subtype of the abstract `GreekMorphologicalProperty` that has a name starting with `GMP` (for Greek morphological property), followed by a label. The tense property is implemented with the `GMPTense` type.
+
+Instances of these types may be constructed from numeric codes, or from a string value returned by its `label` function.  Kanónes provides constructor functions with names identical to the type but with initial lowercase `gmp`.
+
 
 
 ```{julia}
 #| warning: false
 using Kanones
-person = GMPPerson(3)
+gmpTense(3)
 ```
+
+
+```{julia}
+tense = gmpTense(3)
+```
+
 
 All properties work with the `label` and `code` functions.`
 
 ```{julia}
-label(person)
+label(tense)
 ```
 
 ```{julia}
-code(person)
+code(tense)
 ```
 
-## Properties
-
-The full set of properties is: person, number, tense, mood, voice, gender, case, degree and uninflected part of speech.
-
-
-Properties may be constructed directly from numeric codes, or from the string value returned by its `label` function by using an  constructor function with identical name to the type but with initial lowercase `gmp`.
+## Summary of property values
 
 Person: three values labelled `first`, `second`, `third`.
 
