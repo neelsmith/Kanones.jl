@@ -5,18 +5,40 @@ struct GMPVoice <: GreekMorphologicalProperty
     end
 end
 
+
+"""Override Base.show for a voice property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::GMPVoice)
+    print(io, label(prop))
+end
+
+
+"""Construct a voice property from a string value.
+$(SIGNATURES)
+"""
 function gmpVoice(s::AbstractString)
     s in keys(voicecodedict) ? GMPVoice(voicecodedict[s]) : DomainError(string(s, " is not a valid value for voice.")) 
 end
 
+"""Construct a voice property from an integer code.
+$(SIGNATURES)
+"""
 function gmpVoice(code::Int64)
    GMPVoice(code)
 end
 
+
+"""Integer code for a voice property.
+$(SIGNATURES)
+"""
 function code(voice::GMPVoice)
     voice.code
 end
 
+"""Readable label for a voice property.
+$(SIGNATURES)
+"""
 function label(voice::GMPVoice)
     voicelabeldict[voice.code]
 end

@@ -1,5 +1,7 @@
 ---
-title: "🤷‍♂️ Using morphological objects in Julia"
+title: "Using morphological objects in Julia"
+editor:
+    render-on-save: true
 ---
 
 ::: {.callout-caution}
@@ -11,19 +13,19 @@ Content of this page TBA
 ## Overview
 
 
-
-```@example props
+```{julia}
+#| warning: false
 using Kanones
 person = GMPPerson(3)
 ```
 
 All properties work with the `label` and `code` functions.`
 
-```@example props
+```{julia}
 label(person)
 ```
 
-```@example props
+```{julia}
 code(person)
 ```
 
@@ -37,19 +39,19 @@ Properties may be constructed directly from numeric codes, or from the string va
 Person: three values labelled `first`, `second`, `third`.
 
 
-```@example props
+```{julia}
 gmpPerson(3) == gmpPerson("third")
 ```
 
 Number: three values labelled `singular`, `dual`, `plural`.
 
-```@example props
+```{julia}
 gmpNumber(3) == gmpNumber("plural")
 ```
 
 Tense: six values labelled `present`, `imperfect`, `aorist`, `perfect`, `pluperfect` and `future`.
 
-```@example props
+```{julia}
 gmpTense(3) == gmpTense("aorist")
 ```
 
@@ -57,14 +59,14 @@ gmpTense(3) == gmpTense("aorist")
 Mood: four values labelled `indicative`, `subjunctive`, `optative`, `imperative`.
 
 
-```@example props
+```{julia}
 gmpMood(1) == gmpMood("indicative")
 ```
 
 
 Voice: three values labelled `active`, `middle`, `passive`.
 
-```@example props
+```{julia}
 gmpVoice(2) == gmpVoice("middle")
 ```
 
@@ -72,7 +74,7 @@ gmpVoice(2) == gmpVoice("middle")
 Gender: three values labelled `masculine`, `feminine`, `neuter`.
 
 
-```@example props
+```{julia}
 gmpGender(2) == gmpGender("feminine")
 ```
 
@@ -80,14 +82,14 @@ gmpGender(2) == gmpGender("feminine")
 
 Case: five values labelled `nominative`, `genitive`, `dative`, `accusative`, `vocative`.
 
-```@example props
+```{julia}
 gmpCase(2) == gmpCase("genitive")
 ```
 
 
 Degree: three values labelled `positive`, `comparative`, `superlative`.
 
-```@example props
+```{julia}
 gmpDegree(2) == gmpDegree("comparative")
 ```
 
@@ -95,6 +97,6 @@ Uninflected part of speech: six values labelled `conjunction`,
     `preposition`, `particle`, `adverb`, `numeral`, `interjection`
    
 
-```@example props
+```{julia}
 gmpUninflectedType(2) == gmpUninflectedType("preposition")
 ```

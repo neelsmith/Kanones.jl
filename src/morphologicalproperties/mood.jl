@@ -5,18 +5,43 @@ struct GMPMood <: GreekMorphologicalProperty
     end
 end
 
+
+"""Override Base.show for a mood property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::GMPMood)
+    print(io, label(prop))
+end
+
+
+"""Construct mood property from a string value.
+$(SIGNATURES)
+"""
 function gmpMood(s::AbstractString)
     s in keys(moodcodedict) ? GMPMood(moodcodedict[s]) : DomainError(string(s, " is not a valid value for mood.")) 
 end
 
+
+
+"""Construct mood property from an integer code.
+$(SIGNATURES)
+"""
 function gmpMood(code::Int64)
     GMPMood(code)
 end
 
+
+"""Integer code for a mood property.
+$(SIGNATURES)
+"""
 function code(mood::GMPMood)
     mood.code
 end
 
+
+"""Readable label for a mood property.
+$(SIGNATURES)
+"""
 function label(mood::GMPMood)
    moodlabeldict[mood.code]
 end

@@ -5,18 +5,39 @@ struct GMPCase <: GreekMorphologicalProperty
     end
 end
 
+"""Override Base.show for a case property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::GMPCase)
+    print(io, label(prop))
+end
+
+"""Construct a case from a string value.
+$(SIGNATURES)
+"""
 function gmpCase(s::AbstractString)
     s in keys(casecodedict) ? GMPCase(casecodedict[s]) : DomainError(string(s, " is not a valid value for case.")) 
 end
 
+
+"""Construct a case from an integer code.
+$(SIGNATURES)
+"""
 function gmpCase(code::Int64)
     GMPCase(code)
 end
 
+"""Find integer code for a case object.
+$(SIGNATURES)
+"""
 function code(mcase::GMPCase)
     mcase.code
 end
 
+
+"""String label for a case object.
+$(SIGNATURES)
+"""
 function label(mcase::GMPCase)
     caselabeldict[mcase.code]
 end

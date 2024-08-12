@@ -5,18 +5,41 @@ struct GMPPerson <: GreekMorphologicalProperty
     end
 end
 
+
+"""Override Base.show for a person property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::GMPPerson)
+    print(io, label(prop))
+end
+
+"""Construct a person property from a string value.
+$(SIGNATURES)
+"""
 function gmpPerson(s::AbstractString)
     s in keys(personcodedict) ? GMPPerson(personcodedict[s]) : DomainError(string(s, " is not a valid value for person.")) 
 end
 
+
+"""Construct a person property from an integer code.
+$(SIGNATURES)
+"""
 function gmpPerson(code::Int64)
     GMPPerson(code)
 end
 
+
+"""Integer code for a person property.
+$(SIGNATURES)
+"""
 function code(person::GMPPerson)
     person.code
 end
 
+
+"""Readable label for a person property.
+$(SIGNATURES)
+"""
 function label(person::GMPPerson)
     personlabeldict[person.code]
 end
