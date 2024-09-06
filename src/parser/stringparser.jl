@@ -164,6 +164,7 @@ function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T
     generated = AbstractString[]        
     classrules = filter(r -> inflectionclass(r) == inflectionclass(stem), rules)
     if stem isa NounStem 
+        # because gender is inherent to stem
         filter!(r -> gmpGender(r) == gmpGender(stem), classrules)
     end
     @debug("$(length(classrules)) rules for $(inflectionclass(stem)))")
