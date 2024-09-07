@@ -58,7 +58,8 @@ const uninflectedlabeldict = Dict(
     5 => "numeral",
     6 =>"interjection",
     7 =>"adverb_comp",
-    8 =>"adverb_superl"
+    8 =>"adverb_superl",
+    9 => "foreign"
 )
 
 """Dict mapping labels to codes for uninflected part of speech.
@@ -73,5 +74,7 @@ const uninflectedcodedict = Dict(
     "numeral" => 5,
     "interjection"  => 6,
     "adverb_comp" => 7,
-    "adverb_superl" => 8
+    "adverb_superl" => 8,
+    "foreign" => 9 
+
 )
