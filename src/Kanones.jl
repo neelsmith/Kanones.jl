@@ -104,7 +104,7 @@ export generate, analysis_string
 export principalparts
 export decline, declension_md
 export ptcpldeclension_md, ptcplsynopsis_md,  participleslashline
-export three_ending_adj_md
+export three_ending_adj_md, two_ending_adj_md
 export pronoun_md
 export synopsis, synopsis_md
 export conjugation_md, imperativeconjugation_md

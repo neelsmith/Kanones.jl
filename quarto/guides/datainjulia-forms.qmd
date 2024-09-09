@@ -1,55 +1,60 @@
 ---
-title: "🤷‍♂️ Using morphological objects in Julia"
+title: "Using morphological objects in Julia"
+editor:
+    render-on-save: true
 ---
-
-::: {.callout-caution}
-Content of this page TBA
-:::
-
 
 
 ## Overview
 
+Morphological forms are identified with morphological properties: for example, nouns and adjectives are identified with gender, case and number properties; infinitive verbs are identified with tense and voice.
+
+Kanónes defines properties for person, number, tense, mood, voice, gender, case, degree and uninflected part of speech. Each property is a subtype of the abstract `GreekMorphologicalProperty` that has a name starting with `GMP` (for Greek morphological property), followed by a label. The tense property is implemented with the `GMPTense` type.
+
+Instances of these types may be constructed from numeric codes, or from a string value returned by its `label` function.  Kanónes provides constructor functions with names identical to the type but with initial lowercase `gmp`.
 
 
-```@example props
+
+```{julia}
+#| warning: false
 using Kanones
-person = GMPPerson(3)
+gmpTense(3)
 ```
+
+
+```{julia}
+tense = gmpTense(3)
+```
+
 
 All properties work with the `label` and `code` functions.`
 
-```@example props
-label(person)
+```{julia}
+label(tense)
 ```
 
-```@example props
-code(person)
+```{julia}
+code(tense)
 ```
 
-## Properties
-
-The full set of properties is: person, number, tense, mood, voice, gender, case, degree and uninflected part of speech.
-
-
-Properties may be constructed directly from numeric codes, or from the string value returned by its `label` function by using an  constructor function with identical name to the type but with initial lowercase `gmp`.
+## Summary of property values
 
 Person: three values labelled `first`, `second`, `third`.
 
 
-```@example props
+```{julia}
 gmpPerson(3) == gmpPerson("third")
 ```
 
 Number: three values labelled `singular`, `dual`, `plural`.
 
-```@example props
+```{julia}
 gmpNumber(3) == gmpNumber("plural")
 ```
 
 Tense: six values labelled `present`, `imperfect`, `aorist`, `perfect`, `pluperfect` and `future`.
 
-```@example props
+```{julia}
 gmpTense(3) == gmpTense("aorist")
 ```
 
@@ -57,14 +62,14 @@ gmpTense(3) == gmpTense("aorist")
 Mood: four values labelled `indicative`, `subjunctive`, `optative`, `imperative`.
 
 
-```@example props
+```{julia}
 gmpMood(1) == gmpMood("indicative")
 ```
 
 
 Voice: three values labelled `active`, `middle`, `passive`.
 
-```@example props
+```{julia}
 gmpVoice(2) == gmpVoice("middle")
 ```
 
@@ -72,7 +77,7 @@ gmpVoice(2) == gmpVoice("middle")
 Gender: three values labelled `masculine`, `feminine`, `neuter`.
 
 
-```@example props
+```{julia}
 gmpGender(2) == gmpGender("feminine")
 ```
 
@@ -80,14 +85,14 @@ gmpGender(2) == gmpGender("feminine")
 
 Case: five values labelled `nominative`, `genitive`, `dative`, `accusative`, `vocative`.
 
-```@example props
+```{julia}
 gmpCase(2) == gmpCase("genitive")
 ```
 
 
 Degree: three values labelled `positive`, `comparative`, `superlative`.
 
-```@example props
+```{julia}
 gmpDegree(2) == gmpDegree("comparative")
 ```
 
@@ -95,6 +100,6 @@ Uninflected part of speech: six values labelled `conjunction`,
     `preposition`, `particle`, `adverb`, `numeral`, `interjection`
    
 
-```@example props
+```{julia}
 gmpUninflectedType(2) == gmpUninflectedType("preposition")
 ```

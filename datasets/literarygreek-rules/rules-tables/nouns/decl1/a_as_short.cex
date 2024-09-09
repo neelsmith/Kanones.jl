@@ -1,8 +1,8 @@
 Rule|StemClass|Ending|Gender|Case|Number|
 
 nouninfl.a_as_short1|a_as_short|α^|feminine|nominative|singular|
-nouninfl.a_as_short2|a_as_short|ης|feminine|genitive|singular|
-nouninfl.a_as_short3|a_as_short|ῃ|feminine|dative|singular|
+nouninfl.a_as_short2|a_as_short|α_ς|feminine|genitive|singular|
+nouninfl.a_as_short3|a_as_short|ᾳ|feminine|dative|singular|
 nouninfl.a_as_short4|a_as_short|α^ν|feminine|accusative|singular|
 nouninfl.a_as_short5|a_as_short|α^|feminine|vocative|singular|
 

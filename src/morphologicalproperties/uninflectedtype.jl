@@ -6,20 +6,41 @@ struct GMPUninflectedType <: GreekMorphologicalProperty
 end
 
 
+"""Override Base.show for an uninflected property.
+$(SIGNATURES)
+"""
+function show(io::IO, prop::GMPUninflectedType)
+    print(io, label(prop))
+end
 
+
+"""Construct an uninflected property from a string value.
+$(SIGNATURES)
+"""
 function gmpUninflectedType(s::AbstractString)
     @debug("Get uninfleted type for $(s)")
     s in keys(uninflectedcodedict) ? GMPUninflectedType(uninflectedcodedict[s]) : DomainError(string(s, " is not a valid value for uninflected type.")) 
 end
 
+"""Construct an uninflected property from an integer code.
+$(SIGNATURES)
+"""
 function gmpUninflectedType(code::Int64)
     GMPUninflectedType(code)
 end
 
+
+"""Integer code for an uninflected property.
+$(SIGNATURES)
+"""
 function code(utype::GMPUninflectedType)
     utype.code
 end
 
+
+"""Readable label for an uninflected property.
+$(SIGNATURES)
+"""
 function label(utype::GMPUninflectedType)
     uninflectedlabeldict[utype.code]
 end
@@ -37,7 +58,8 @@ const uninflectedlabeldict = Dict(
     5 => "numeral",
     6 =>"interjection",
     7 =>"adverb_comp",
-    8 =>"adverb_superl"
+    8 =>"adverb_superl",
+    9 => "foreign"
 )
 
 """Dict mapping labels to codes for uninflected part of speech.
@@ -52,5 +74,7 @@ const uninflectedcodedict = Dict(
     "numeral" => 5,
     "interjection"  => 6,
     "adverb_comp" => 7,
-    "adverb_superl" => 8
+    "adverb_superl" => 8,
+    "foreign" => 9 
+
 )

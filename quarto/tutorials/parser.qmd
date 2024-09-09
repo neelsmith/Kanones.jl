@@ -63,13 +63,13 @@ parses = parsetoken(s, p)
 The result is a Vector of analyses. Each `Analysis` includes a *morphological form* object and an identifier for a *lexeme* (or vocabulary item). You can use the `greekForm` and `lexemeurn` functions to extract these from an `Analysis`; for a human-readable string value, use the `label` function on the result. E.g., label the first form in the result:
 
 ```{julia}
-parses[1] |> greekForm |> label
+parses[1] |> greekForm
 ```
 
 or use Julia broadcasting to label the forms of all parses:
 
 ```{julia}
-parses .|> greekForm .|> label
+parses .|> greekForm
 ```
 
 Use broadcasting to find URNs for the lexeme from each analysis with the `lexemeurn` function from the `CitableParserBuilder` package:

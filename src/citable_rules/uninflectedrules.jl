@@ -30,7 +30,17 @@ $(SIGNATURES)
 Required for `CitableTrait`.
 """
 function label(ur::UninflectedRule)
-    string("Uninflected rule: ", ur.ruleid, " indicates a ", label(ur.infltype), ".")
+    if ur.infltype == "foreign"
+        string("Uninflected rule: ", ur.ruleid, " indicates an uninflected foreign word.")
+    elseif ur.infltype == "adverb"
+        string("Uninflected rule: ", ur.ruleid, " indicates an uninflected adverb (positive degree).")           
+    elseif ur.infltype == "adverb_comp"
+            string("Uninflected rule: ", ur.ruleid, " indicates an uninflected adverb (comparative degree).")
+    elseif ur.infltype == "adverb_superl"
+        string("Uninflected rule: ", ur.ruleid, " indicates an uninflected adverb (superlative degree).")            
+    else
+        string("Uninflected rule: ", ur.ruleid, " indicates an uninflected ", label(ur.infltype), ".")
+    end
 end
 
 """Identifying URN for a `UninflectedRule`.  If

@@ -37,3 +37,22 @@ end
     @test urn(uninfl) == Cite2Urn("urn:cite2:kanones:forms.v1:1000000002")
 
 end
+
+
+@testset "Test recoginizing categories of uninflected forms" begin
+    #1 => "conjunction",
+    #2 => "preposition",
+    #3 => "particle",
+    #4 => "adverb",
+    #5 => "numeral",
+    #6 =>"interjection",
+    #7 =>"adverb_comp",
+    #8 =>"adverb_superl",
+   # 9 => "foreign"
+   conjunction = gmpUninflectedType("conjunction") |> GMFUninflected
+   @test gmfUninflected(code(conjunction)) == conjunction
+
+
+   foreign = gmpUninflectedType("foreign") |> GMFUninflected
+   @test gmfUninflected(code(foreign)) == foreign
+end
