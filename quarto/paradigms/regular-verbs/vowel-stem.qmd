@@ -1,4 +1,4 @@
-# Regular thematic (-ω) verbs: vowel stem
+# Regular thematic (-ω) verbs, vowel stem: πραγματεύω
 
 
 
@@ -16,8 +16,6 @@ ds = dataset([lgr, corevocab])
 πραγματευω = LexemeUrn("lsj.n86117")
 ```
 
-
-## πραγματεύω
 
 ```{julia}
 #verb_conjugation_md(πραγματευω, ds) |> Markdown.parse

@@ -1,4 +1,5 @@
-# Regular thematic (-ω) verbs, consonant stem: ἄρχω
+# Regular thematic (-ω) verbs, epsilon contract: ποιέω
+
 
 ```{julia}
 #| echo: false
@@ -11,9 +12,9 @@ lgr = joinpath(repo, "datasets", "literarygreek-rules")
 # 2. core vocab
 corevocab = joinpath(repo, "datasets", "corevocab")
 ds = dataset([lgr, corevocab])
-αρχω = LexemeUrn("lsj.n16051")
+ποιεω = LexemeUrn("lsj.n84234")
 ```
 
 ```{julia}
-verb_conjugation_md(αρχω, ds) |> Markdown.parse
+verb_conjugation_md(ποιεω, ds) |> Markdown.parse
 ```

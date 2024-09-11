@@ -92,7 +92,14 @@ website:
         - concepts/julia_dispatch.qmd
     - title: "Paradigms"
       contents: 
-        - paradigms/index.qmd        
+        - paradigms/index.qmd 
+        - text: "Regular verbs"               
+        - paradigms/regular-verbs/consonant-stem.qmd
+        - paradigms/regular-verbs/vowel-stem.qmd
+        - paradigms/regular-verbs/alpha-contract.qmd
+        - paradigms/regular-verbs/epsilon-contract.qmd
+        - paradigms/regular-verbs/omicron-contract.qmd
+
 
 
         

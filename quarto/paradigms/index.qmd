@@ -24,7 +24,7 @@ Vowel stems:  [πραγματεύω](./regular-verbs/vowel-stem.qmd)
 
 -α contracts 
 
--ε contracts 
+-ε contracts: [ποιέω](./regular-verbs/epsilon-contract.qmd)
 
 -ο contracts 
 
