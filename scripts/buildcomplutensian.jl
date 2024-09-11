@@ -8,20 +8,22 @@ mo = datesrc |> month
 monthday = datesrc |> day
 datestr = join([yr,mo,monthday], "-")
 
-# 1. core
+# 1. inflectional rules
 lgr = joinpath(repo, "datasets", "literarygreek-rules")
-# 2. manually validated LSJ vocab:
+# 2. core vocab
+corevocab = joinpath(repo, "datasets", "corevocab")
+# 3. manually validated LSJ vocab:
 lsj = joinpath(repo, "datasets", "lsj-vocab")
-# 3. manually validated NOT in LSJ:
+# 4. manually validated NOT in LSJ:
 extra = joinpath(repo, "datasets", "extra")
-# 4. additional vocab for Septuagint
+# 5. additional vocab for Septuagint
 lxx = joinpath(repo, "datasets", "septuagint")
 
 outfile_dated = joinpath(repo, "scratch", "complutensian-$(datestr).cex")
 outfile_current = joinpath(repo, "scratch", "complutensian-current.cex")
 
 using Kanones, CitableParserBuilder
-ds = dataset([lgr, lsj, extra, lxx])
+ds = dataset([lgr, corevocab, lsj, extra, lxx])
 
 parser = kParser(ds)
 
