@@ -17,7 +17,10 @@ Paradigms for major inflectional types and important irregular forms to be added
 ::: {.column width=30%}
 ### Thematic (-ω) verbs
 
-Consonant stems
+
+Consonant stems:  [ἄρχω](./regular-verbs/consonant-stem.qmd)
+
+Vowel stems:  [πραγματεύω](./regular-verbs/vowel-stem.qmd)
 
 -α contracts 
 
@@ -39,6 +42,12 @@ First principal part in -νυμι
 :::
 
 ::::
+
+## Important irregular verbs
+
+Athematic (-μι) verbs:
+
+- [τίθημι](./irregular-verbs/tithemi.qmd)
 
 
 

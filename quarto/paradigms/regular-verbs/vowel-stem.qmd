@@ -1,0 +1,25 @@
+# Regular thematic (-ω) verbs: vowel stem
+
+
+
+```{julia}
+#| echo: false
+#| output: false
+#| warning: false
+repo = dirname(pwd()) |> dirname |> dirname
+using Kanones, CitableParserBuilder, Markdown
+# 1. inflectional rules
+lgr = joinpath(repo, "datasets", "literarygreek-rules")
+# 2. core vocab
+corevocab = joinpath(repo, "datasets", "corevocab")
+ds = dataset([lgr, corevocab])
+πραγματευω = LexemeUrn("lsj.n86117")
+```
+
+
+## πραγματεύω
+
+```{julia}
+#verb_conjugation_md(πραγματευω, ds) |> Markdown.parse
+"Fails at nonfinite line 46"
+``` 

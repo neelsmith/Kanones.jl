@@ -1,0 +1,21 @@
+# Regular thematic (-ω) verbs: consonant stem
+
+## ἄρχω
+
+```{julia}
+#| echo: false
+#| output: false
+#| warning: false
+repo = dirname(pwd()) |> dirname |> dirname
+using Kanones, CitableParserBuilder, Markdown
+# 1. inflectional rules
+lgr = joinpath(repo, "datasets", "literarygreek-rules")
+# 2. core vocab
+corevocab = joinpath(repo, "datasets", "corevocab")
+ds = dataset([lgr, corevocab])
+αρχω = LexemeUrn("lsj.n16051")
+```
+
+```{julia}
+verb_conjugation_md(αρχω, ds) |> Markdown.parse
+```

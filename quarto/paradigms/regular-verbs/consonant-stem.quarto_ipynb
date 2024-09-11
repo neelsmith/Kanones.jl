@@ -1,0 +1,54 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Regular thematic (-ω) verbs: consonant stem\n",
+        "\n",
+        "## ἄρχω\n"
+      ],
+      "id": "b0da2725"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "#| output: false\n",
+        "#| warning: false\n",
+        "repo = dirname(pwd()) |> dirname |> dirname\n",
+        "using Kanones, CitableParserBuilder, Markdown\n",
+        "# 1. inflectional rules\n",
+        "lgr = joinpath(repo, \"datasets\", \"literarygreek-rules\")\n",
+        "# 2. core vocab\n",
+        "corevocab = joinpath(repo, \"datasets\", \"corevocab\")\n",
+        "ds = dataset([lgr, corevocab])\n",
+        "αρχω = LexemeUrn(\"lsj.n16051\")"
+      ],
+      "id": "44decefd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "verb_conjugation_md(αρχω, ds) |> Markdown.parse"
+      ],
+      "id": "e1181146",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "julia-1.10",
+      "language": "julia",
+      "display_name": "Julia 1.10.4",
+      "path": "/Users/nsmith/Library/Jupyter/kernels/julia-1.10"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

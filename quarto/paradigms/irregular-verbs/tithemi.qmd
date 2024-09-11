@@ -1,0 +1,21 @@
+# τίθημι
+
+```{julia}
+#| echo: false
+#| output: false
+#| warning: false
+repo = dirname(pwd()) |> dirname |> dirname
+using Kanones, CitableParserBuilder
+# 1. inflectional rules
+lgr = joinpath(repo, "datasets", "literarygreek-rules")
+# 2. core vocab
+corevocab = joinpath(repo, "datasets", "corevocab")
+ds = dataset([lgr, corevocab])
+```
+
+```{julia}
+using Markdown
+τιθημι = LexemeUrn("lsj.n103922")
+# verb_conjugation_md(τιθημι, ds)
+"crashes at: `nonfinite_md.jl:46`" |> Markdown.parse
+```
