@@ -1,7 +1,7 @@
 # Paradigms
 
 ::: {.callout-caution title="TBA"}
-Paradigms for major inflectional types and important irregular forms to be added here.
+Paradigms for major inflectional types and important irregular forms are gradually being added here.
 :::
 
 
@@ -22,11 +22,11 @@ Consonant stems:  [ἄρχω](./regular-verbs/consonant-stem.qmd)
 
 Vowel stems:  [πραγματεύω](./regular-verbs/vowel-stem.qmd)
 
--α contracts 
+-α contracts: [τιμάω](./regular-verbs/alpha-contract.qmd)
 
 -ε contracts: [ποιέω](./regular-verbs/epsilon-contract.qmd)
 
--ο contracts 
+-ο contracts: [δηλόω](./regular-verbs/omicron-contract.qmd)
 
 :::
 
@@ -37,7 +37,7 @@ Vowel stems:  [πραγματεύω](./regular-verbs/vowel-stem.qmd)
 ### Athematic (-μι) verbs
 
 
-First principal part in -νυμι 
+First principal part in -νυμι: [δείκνυμι](./regular-verbs/athematic.qmd)
 
 :::
 

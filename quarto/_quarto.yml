@@ -93,13 +93,15 @@ website:
     - title: "Paradigms"
       contents: 
         - paradigms/index.qmd 
-        - text: "Regular verbs"               
+        - text: "---"               
         - paradigms/regular-verbs/consonant-stem.qmd
         - paradigms/regular-verbs/vowel-stem.qmd
         - paradigms/regular-verbs/alpha-contract.qmd
         - paradigms/regular-verbs/epsilon-contract.qmd
         - paradigms/regular-verbs/omicron-contract.qmd
-
+        - paradigms/regular-verbs/athematic.qmd
+        - text: "---"
+        - paradigms/irregular-verbs/tithemi.qmd
 
 
         

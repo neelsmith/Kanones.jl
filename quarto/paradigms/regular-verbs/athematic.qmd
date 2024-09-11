@@ -1,21 +1,20 @@
-# Irregular verb: τίθημι
+# Regular athematic (-μι) verbs in -νυμι: δείκνυμι
 
 ```{julia}
 #| echo: false
 #| output: false
 #| warning: false
 repo = dirname(pwd()) |> dirname |> dirname
-using Kanones, CitableParserBuilder
+using Kanones, CitableParserBuilder, Markdown
 # 1. inflectional rules
 lgr = joinpath(repo, "datasets", "literarygreek-rules")
 # 2. core vocab
 corevocab = joinpath(repo, "datasets", "corevocab")
 ds = dataset([lgr, corevocab])
+δεικνυμι = LexemeUrn("lsj.n23658")
 ```
 
 ```{julia}
-using Markdown
-τιθημι = LexemeUrn("lsj.n103922")
-# verb_conjugation_md(τιθημι, ds)
-"crashes at: `nonfinite_md.jl:46`" |> Markdown.parse
+verb_conjugation_md(δεικνυμι, ds) |> Markdown.parse
 ```
+
