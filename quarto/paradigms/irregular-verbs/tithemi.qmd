@@ -16,6 +16,5 @@ ds = dataset([lgr, corevocab])
 ```{julia}
 using Markdown
 τιθημι = LexemeUrn("lsj.n103922")
-# verb_conjugation_md(τιθημι, ds)
-"crashes at: `nonfinite_md.jl:46`" |> Markdown.parse
+verb_conjugation_md(τιθημι, ds)
 ```

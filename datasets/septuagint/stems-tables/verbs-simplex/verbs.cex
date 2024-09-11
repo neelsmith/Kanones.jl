@@ -3,12 +3,22 @@ Stem|LexicalEntity|StemClass|Stem|Augmented
 
 verbstems.n19549|lsj.n19549|βασιλευ|w_regular|
 
+verbstems.n31161c|lsj.n31161|εἰπ|pp3|true
+
+
+
 verbstems.n44388|lsj.n44388|εὐλογ|ew_contract|
 
 verbstems.n58367|lsj.n58367|κοιμ|aw_contract|
 
+verbstems.n61771|lsj.n61771|λαλ|ew_contract|
+
+
+verbstems.n72273|lsj.n72273|οἰκ|ew_contract|
+
 verbstems.n72321|lsj.n72321|οἰκοδομ|ew_contract|
 
+verbstems.n74127|lsj.n74127|ὀνομα|azw|
 verbstems.n85734|lsj.n85734|πορευ|w_regular|
 
 

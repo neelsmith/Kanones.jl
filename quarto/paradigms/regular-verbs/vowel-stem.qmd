@@ -18,6 +18,5 @@ ds = dataset([lgr, corevocab])
 
 
 ```{julia}
-#verb_conjugation_md(πραγματευω, ds) |> Markdown.parse
-"Fails at nonfinite line 46"
+verb_conjugation_md(πραγματευω, ds) |> Markdown.parse
 ``` 

@@ -43,9 +43,12 @@ function nonfinite_present_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     psvptcpl = participleslashline(lexu, gmpTense("present"), gmpVoice("passive"), kd)
     
     mdlines = if  isempty(inf_actforms) && isempty(inf_mdlforms) # assume passive deponent
-        [ "- **passive infinitive**: $(inf_passforms[1])",
+        passinf = isempty(inf_passforms) ? "?" : inf_passforms[1]
+
+        vadj = isempty(vadjforms) ? "?" : vadjforms[1]
+        [ "- **passive infinitive**: $(passinf)",
         "- **passive participle**: $(psvptcpl)",
-        "- **verbal adjective**: $(vadjforms[1])",
+        "- **verbal adjective**: $(vadj)",
         ""
         ]
     elseif isempty(inf_actforms) # assume deponent
@@ -90,9 +93,13 @@ function nonfinite_future_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
     midptcpl = participleslashline(lexu, gmpTense("future"), gmpVoice("middle"), kd)
     passptcpl = participleslashline(lexu, gmpTense("future"), gmpVoice("passive"), kd)
     mdlines = if isempty(inf_actforms) # assume deponent
+
+        infmdl = isempty(inf_mdlforms) ? "?" : inf_mdlforms[1]
+
+        infpass = isempty(inf_passforms) ? "?" : inf_passforms[1]
     [
-        "- **middle infinitive**: $(inf_mdlforms[1])",
-        "- **passive infinitive**: $(inf_passforms[1])",
+        "- **middle infinitive**: $(infmdl)",
+        "- **passive infinitive**: $(infpass)",
         "- **middle participle**: $(midptcpl)",
         "- **passive participle**: $(passptcpl)"
     ]
@@ -157,13 +164,19 @@ function nonfinite_aorist_md(lexu::LexemeUrn, kd::Kanones.FilesDataset)
         gmpTense("aorist"), gmpVoice("passive")
     )
     inf_passforms = generate(lexu, formurn(inf_pass), kd)
+    infpass = isempty(inf_passforms) ?  "?" : inf_passforms[1]
+    
     actptcpl = participleslashline(lexu, gmpTense("aorist"), gmpVoice("active"), kd)
     midptcpl = participleslashline(lexu, gmpTense("aorist"), gmpVoice("middle"), kd)
     passptcpl = participleslashline(lexu, gmpTense("aorist"), gmpVoice("passive"), kd)
 
+
+    
     md = if  isempty(inf_actforms) && isempty(inf_mdlforms) # assume passive deponent
-        "- **passive infinitive**: $(inf_passforms[1])",
+        [
+        "- **passive infinitive**: $(infpass)",
         "- **passive participle**: $(passptcpl)"
+        ]
 
     elseif isempty(inf_actforms)
     [
