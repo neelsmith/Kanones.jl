@@ -7,6 +7,7 @@ function sortbylsj(f; col = 2)
     dataset = readdlm(f,'|')
     sortable = []
     for i = 2:size(dataset,1)
+    
         ln = dataset[i,:]
         @debug("LOOK AT", ln[col])
         if startswith(ln[col], "lsj.n")

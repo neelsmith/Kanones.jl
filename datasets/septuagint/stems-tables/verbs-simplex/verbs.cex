@@ -1,13 +1,14 @@
 Stem|LexicalEntity|StemClass|Stem|Augmented
 
 
-verbstems.n19549|lsj.n19549|βασιλευ|w_regular|
+
 
 verbstems.n31161c|lsj.n31161|εἰπ|pp3|true
 
 
 
-verbstems.n44388|lsj.n44388|εὐλογ|ew_contract|
+verbstems.n44388a|lsj.n44388|εὐλογ|ew_contract|
+verbstems.n44388b|lsj.n44388|εὐλογ|ew_contract|true
 
 verbstems.n58367|lsj.n58367|κοιμ|aw_contract|
 

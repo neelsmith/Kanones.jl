@@ -19,9 +19,9 @@ $(SIGNATURES)
 function generate(
     lex::LexemeUrn, 
     form::FormUrn, 
-    ruleset::Vector{Rule}, 
-    stemset::Vector{Stem},
-    orthography::GreekOrthography) 
+    ruleset::Vector{KanonesRule}, 
+    stemset::Vector{KanonesStem},
+    orthography::GreekOrthography)
     
     @debug("Use data arrays to generate form for lex", form, lex)
     # find stems:
@@ -63,7 +63,9 @@ function generate(
     form::FormUrn, 
     kds::Kanones.FilesDataset) 
     @debug("generate(lex,form,kds): generating $(form) for $(lex)...")
-    generate(lex, form, rulesarray(kds), stemsarray(kds), kds.orthography)
+    stems = stemsarray(kds)
+    @debug("Type of stems is $(typeof(stems))")
+    generate(lex, form, rulesarray(kds), stems, kds.orthography)
 end
 
 

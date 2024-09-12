@@ -8,6 +8,7 @@ $(SIGNATURES)
 function sortstemfile(f; lsjcolumn = 2)
     dataset = readdlm(f,'|')
     sortable = []
+    #=
     for i = 2:size(dataset,1)
         ln = dataset[i,:]
         if startswith(ln[lsjcolumn], "lsj.n")
@@ -24,4 +25,5 @@ function sortstemfile(f; lsjcolumn = 2)
     open(f,"w") do io
        write(io,contents)
     end
+    =#
 end

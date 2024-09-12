@@ -9,17 +9,17 @@ function generate(
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
 
-    @debug("Generating a finite verb form for class $(stem |> inflectionclass)")
+    @info("Generating a finite verb form for class $(stem |> inflectionclass) using stem $(stem)")
     stembase = ""
     if regularverbclass(stem)
-        @debug("Genernate principal part for regular form")
+        @debug("Generate principal part for regular form")
         # For classes that form regular principal parts
         stembase = principalpart(stem, rule, ortho = ortho) |> knormal
         @debug("Stem for regular formation of princ part is $(stembase)")
     else
         @debug("Stem for nonregular class $(stem) has aug already? $(stem.augmented)")
         stembase = stemstring(stem)  |> knormal
-        @debug("Stembase is $(stembase)")
+        @info("Stembase is $(stembase)")
         if  takesreduplication(greekForm(rule), inflectionclass(rule))
             stembase = reduplicate(stembase, ortho)
         end

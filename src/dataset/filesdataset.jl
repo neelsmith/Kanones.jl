@@ -61,7 +61,7 @@ end
 $(SIGNATURES)
 """
 function rulesarray(dirlist; delimiter = "|")
-    rulesarr = Rule[]
+    rulesarr = KanonesRule[]
     pattern  = r".cex$"
     for datasrc in dirlist
         @debug("Dir: $(datasrc)")
@@ -149,7 +149,7 @@ end
 
 $(SIGNATURES)
 """
-function stemsarray(kd::Kanones.FilesDataset)
+function stemsarray(kd::Kanones.FilesDataset)::Vector{KanonesStem}
     stemsarray(kd.dirs)
 end
 
@@ -157,8 +157,8 @@ end
 of each data set.
 $(SIGNATURES)
 """
-function regularstems(dirlist; delimiter = "|")
-    stemsarr = Stem[]
+function regularstems(dirlist; delimiter = "|")::Vector{KanonesStem}
+    stemsarr = KanonesStem[]
     pattern  = r".cex$"
     for datasrc in dirlist     
         for dirname in STEMS_DIRECTORIES 

@@ -121,7 +121,7 @@ end
 to each `Stem` in `stemlist` for `compound`'s simplex identifier.
 $(SIGNATURES)
 """
-function stems(compound::CompoundVerbStem, stemlist::Vector{Stem}, ortho = literaryGreek())
+function stems(compound::CompoundVerbStem, stemlist::Vector{KanonesStem}, ortho = literaryGreek())
     @debug("Make compounds for $(compound)...")
     compounded = []
     for s in filter(s -> lexeme(s) == simplex(compound),  stemlist)

@@ -1,4 +1,4 @@
-# Regular thematic (-ω) verbs, vowel stem: πραγματεύω
+# Regular thematic (-ω) verbs, vowel stem: βασιλεύω
 
 
 
@@ -13,10 +13,11 @@ lgr = joinpath(repo, "datasets", "literarygreek-rules")
 # 2. core vocab
 corevocab = joinpath(repo, "datasets", "corevocab")
 ds = dataset([lgr, corevocab])
-πραγματευω = LexemeUrn("lsj.n86117")
+βασιλευω = LexemeUrn("lsj.n19549")
+|
 ```
 
 
 ```{julia}
-verb_conjugation_md(πραγματευω, ds) |> Markdown.parse
+verb_conjugation_md(βασιλευω, ds) |> Markdown.parse
 ``` 
