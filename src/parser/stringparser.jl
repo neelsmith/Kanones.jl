@@ -90,11 +90,12 @@ function kParser(kd::Kanones.FilesDataset; delimiter = "|", interval = 50)
     rules = rulesarray(kd)
     stems = stemsarray(kd) 
     totalstems = length(stems)
-    @info("Building a parser from $(totalstems) stems...")
+    @debug("Building a parser from $(totalstems) stems...")
     for (i, stem) in enumerate(stems)
         if i % interval == 0
             @info("stem $(i)/$(totalstems)… $(stem)")
         end
+        @debug("kParser: Build stem $(stem) of type $(typeof(stem))")
         append!(analyses, buildparseable(stem, rules, delimiter = delimiter))
     end
     analyses |> KanonesStringParser
@@ -159,8 +160,10 @@ end
 """Generate all forms possible for `stem`.
 $(SIGNATURES)
 """
-function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T <: KanonesStem }
+#function buildparseable(stem::T,  rules::Vector{Rule}; delimiter = "|") where {T <: KanonesStem }
+function buildparseable(stem,  rules; delimiter = "|") where {T <: KanonesStem }
     @debug("BUILD PARSES FOR STEM", stem)
+    @debug("Type is $(typeof(stem))")
     generated = AbstractString[]        
     classrules = filter(r -> inflectionclass(r) == inflectionclass(stem), rules)
     if stem isa NounStem 

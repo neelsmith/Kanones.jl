@@ -9,7 +9,7 @@ function generate(
     rule::FiniteVerbRule;
     ortho::GreekOrthography = literaryGreek())
 
-    @info("Generating a finite verb form for class $(stem |> inflectionclass) using stem $(stem)")
+    @debug("Generating a finite verb form for class $(stem |> inflectionclass) using stem $(stem)")
     stembase = ""
     if regularverbclass(stem)
         @debug("Generate principal part for regular form")
@@ -19,7 +19,7 @@ function generate(
     else
         @debug("Stem for nonregular class $(stem) has aug already? $(stem.augmented)")
         stembase = stemstring(stem)  |> knormal
-        @info("Stembase is $(stembase)")
+        @debug("Stembase is $(stembase)")
         if  takesreduplication(greekForm(rule), inflectionclass(rule))
             stembase = reduplicate(stembase, ortho)
         end
